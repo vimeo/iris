@@ -3,6 +3,7 @@ const browserSync = require('browser-sync').create();
 const del = require('del');
 const gulp = require('gulp');
 const historyApiFallback = require('connect-history-api-fallback');
+const path = require('path');
 const rename = require('gulp-rename');
 const reload = browserSync.reload;
 const runSequence = require('run-sequence');
@@ -11,13 +12,17 @@ const shell = require('gulp-shell');
 const template = require('gulp-template');
 const watch = require('gulp-watch');
 const webpack = require('gulp-webpack');
+const vimeoStyleguide = require('vimeo-styleguide');
 
 
 // constants ----------------------------------------------
 const COMPONENT_SRC = './src/components/';
 const COMPONENT_DIST = './dist/';
 const GLOBALS_SRC = './src/globals/';
-const STYLEGUIDE_SRC = './styleguide/';
+const STYLEGUIDE_SRC = './node-modules/vimeo-styleguide/';
+const LOCAL_DOCS_SRC = './docs/';
+const LOCAL_DATA = path.resolve(__dirname)+'/data/';
+const REACT_COMPONENT_DATA = LOCAL_DATA +'componentAPI.json';
 const STYLEGUIDE_DIST = './dist-styleguide/';
 
 
@@ -31,17 +36,12 @@ gulp.task('cleanDistFiles', function () {
 });
 
 gulp.task('compileComponentListJSX', function () {
-	const STYLE_DATA = require(STYLEGUIDE_SRC + 'patternList.js');
+	const STYLE_DATA = require(LOCAL_DOCS_SRC + 'patternList.js');
 
-	return gulp.src(STYLEGUIDE_SRC + '_component-jsx-export-list.template')
+	return gulp.src(STYLEGUIDE_SRC + 'templates/_component-jsx-export-list.template')
 	.pipe(template(STYLE_DATA.default))
 	.pipe(rename("ComponentJsxExportList.js"))
-	.pipe(gulp.dest(STYLEGUIDE_SRC));
-});
-
-gulp.task('copyLibraryDist', function () {
-	return gulp.src(['src/**/*'])
-	.pipe(gulp.dest(COMPONENT_DIST));
+	.pipe(gulp.dest(LOCAL_DOCS_SRC));
 });
 
 gulp.task('copyGlobalCSS', function () {
@@ -56,12 +56,12 @@ gulp.task('copyStaticAssets', function () {
 });
 
 gulp.task('reactDocGenBuild', shell.task([
-	'react-docgen ./src/components --out ./data/componentAPI.json --pretty --exclude Docs.jsx'
+	'react-docgen ./src/components --out '+ REACT_COMPONENT_DATA + ' --pretty'
 ]));
 
-gulp.task('reactDocGenParse', shell.task([
-	'node build-scripts/react-docgen-parser'
-]));
+gulp.task('reactDocGenParse' , function() {
+	vimeoStyleguide.reactDocGen(REACT_COMPONENT_DATA, LOCAL_DATA+'componentAPITransformed.json');
+});
 
 gulp.task('delayedReload' , function() {
 		setTimeout(function(){
@@ -150,7 +150,7 @@ gulp.task('default', function(cb) {
 		'reactDocGenBuild',
 		'reactDocGenParse',
 		['sassStyleguide', 'sassComponents','sassGlobals'],
-		['copyStaticAssets', 'copyLibraryDist', 'copyGlobalCSS'],
+		['copyStaticAssets', 'copyGlobalCSS'],
 		'webpackReact',
 		'serve',
 		cb);
