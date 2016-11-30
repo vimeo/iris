@@ -1,0 +1,54 @@
+# node / npm
+node_modules
+*.log
+
+
+
+########################
+# node.js / npm
+########################
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+results
+
+npm-debug.log
+
+
+########################
+# misc / editors
+########################
+
+*~
+*#
+.DS_STORE
+.DS_Store
+.netbeans
+nbproject
+.idea
+.settings
+*.sublime-project
+*.sublime-workspace
+
+
+########################
+# Caches
+########################
+
+.sass-cache
+
+
+########################
+# Build artifacts
+########################
+data
+dist
+dist-styleguide

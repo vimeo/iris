@@ -1,0 +1,22 @@
+body{
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.42857;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  color: $grey2;
+}
+
+a{
+  color: $blue2;
+
+  &:hover{
+    color: $grey2;
+  }
+}

@@ -1,0 +1,22 @@
+.this {
+  margin: -2px .5em 0 .313em;
+  padding: .1875rem .25rem;
+  font-size: .5625rem;
+  font-weight: 700;
+  line-height: 1.2;
+  border-radius: .125rem;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: -.04em;
+  text-transform: uppercase;
+  text-shadow: none;
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none; }
+
+.alum {
+  color: #675089;
+  background-color: rgba(103, 80, 137, 0.25); }
+
+.beta {
+  color: #ff8a00; }
