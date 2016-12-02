@@ -19,7 +19,7 @@ const vimeoStyleguide = require('vimeo-styleguide');
 const COMPONENT_SRC = './src/components/';
 const COMPONENT_DIST = './dist/';
 const GLOBALS_SRC = './src/globals/';
-const STYLEGUIDE_SRC = './node-modules/vimeo-styleguide/';
+const STYLEGUIDE_SRC = './node_modules/vimeo-styleguide/';
 const LOCAL_DOCS_SRC = './docs/';
 const LOCAL_DATA = path.resolve(__dirname)+'/data/';
 const REACT_COMPONENT_DATA = LOCAL_DATA +'componentAPI.json';
@@ -108,11 +108,15 @@ gulp.task('serve', function() {
 });
 
 
-gulp.task('webpackReact', function () {
-	gulp.src(STYLEGUIDE_SRC +'main.jsx')
-	.pipe(webpack( require('./webpack.config.js') ))
-	.pipe(gulp.dest(STYLEGUIDE_DIST));
-});
+// gulp.task('webpackReact', function () {
+// 	gulp.src(LOCAL_DOCS_SRC +'main.jsx')
+// 	.pipe(webpack( require('./webpack.config.js') ))
+// 	.pipe(gulp.dest(STYLEGUIDE_DIST));
+// });
+
+gulp.task('webpackReact', shell.task([
+	'	webpack --display-error-details'
+]));
 
 // Sequencing Tasks ----------------------------------------------
 

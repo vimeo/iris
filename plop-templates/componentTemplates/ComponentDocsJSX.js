@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {{pascalCase name}} from '../../../src/components/{{pascalCase name}}/{{pascalCase name}}';
-import ExampleSource from '../../components/layouts/styles/ExampleSource';
+import ExampleSource from 'vimeo-styleguide';
 
 export default function {{pascalCase name}}Docs() {
 
