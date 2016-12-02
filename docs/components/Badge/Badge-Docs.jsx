@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Badge from '../../../src/components/Badge/Badge';
+import ExampleSource from '../../../node_modules/vimeo-styleguide/components/layouts/styles/ExampleSource';
 
 export default function BadgeDocs() {
 
@@ -11,6 +12,13 @@ export default function BadgeDocs() {
 						<Badge type="alum">Alum</Badge>
 						<Badge type="beta" title="foo">Beta</Badge>
   				</div>
-				</div>
+					<ExampleSource>
+						{`
+							<Badge>Default Badge</Badge>
+							<Badge type="alum">Alum</Badge>
+							<Badge type="beta" title="foo">Beta</Badge>
+						`}
+					</ExampleSource>
+		</div>
 	);
 };

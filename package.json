@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.vimeows.com/jory/iris-css-modules-react-styleguide-demo"
+    "url": "https://github.vimeows.com/Vimeo/Iris"
   },
   "author": "Jory Cunningham (jory@vimeo.com)",
   "license": "ISC",
@@ -32,7 +32,6 @@
     "gulp-shell": "^0.5.2",
     "gulp-template": "^4.0.0",
     "gulp-watch": "^4.3.10",
-    "gulp-webpack": "^1.5.0",
     "json-loader": "^0.5.4",
     "plop": "^1.7.1",
     "postcss-loader": "^1.1.1",

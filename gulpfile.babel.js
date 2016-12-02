@@ -11,7 +11,6 @@ const sass = require('gulp-sass');
 const shell = require('gulp-shell');
 const template = require('gulp-template');
 const watch = require('gulp-watch');
-const webpack = require('gulp-webpack');
 const vimeoStyleguide = require('vimeo-styleguide');
 
 
@@ -106,13 +105,6 @@ gulp.task('serve', function() {
 		gulp.watch([STYLEGUIDE_DIST + '*'], ['delayedReload']);
 
 });
-
-
-// gulp.task('webpackReact', function () {
-// 	gulp.src(LOCAL_DOCS_SRC +'main.jsx')
-// 	.pipe(webpack( require('./webpack.config.js') ))
-// 	.pipe(gulp.dest(STYLEGUIDE_DIST));
-// });
 
 gulp.task('webpackReact', shell.task([
 	'	webpack --display-error-details'
