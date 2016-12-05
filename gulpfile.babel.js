@@ -36,10 +36,10 @@ gulp.task('cleanDistFiles', function () {
 
 gulp.task('compileComponentListJSX', function () {
 	const STYLE_DATA = require(LOCAL_DOCS_SRC + 'patternList.js');
-
-	return gulp.src(STYLEGUIDE_SRC + 'templates/_component-jsx-export-list.template')
+	
+	return gulp.src(STYLEGUIDE_SRC + 'templates/_component-docs-jsx-export-list.template')
 	.pipe(template(STYLE_DATA.default))
-	.pipe(rename("ComponentJsxExportList.js"))
+	.pipe(rename("ComponentDocsJsxExportList.js"))
 	.pipe(gulp.dest(LOCAL_DOCS_SRC));
 });
 

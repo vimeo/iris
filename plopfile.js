@@ -27,17 +27,17 @@ module.exports = ( plop ) => {
       {
         type: "add",
         path: "src/components/{{pascalCase name}}/{{pascalCase name}}.jsx",
-        templateFile: "plop-templates/componentTemplates/ComponentJSX.js"
+        templateFile: "templates/plop-componentTemplates/ComponentJSX.js"
       },
       {
         type: "add",
         path: "docs/components/{{pascalCase name}}/{{pascalCase name}}-Docs.jsx",
-        templateFile: "plop-templates/componentTemplates/ComponentDocsJSX.js"
+        templateFile: "templates/plop-componentTemplates/ComponentDocsJSX.js"
       },
       {
         type: "add",
         path: "src/components/{{pascalCase name}}/{{pascalCase name}}.scss",
-        templateFile: "plop-templates/componentTemplates/ComponentSCSS.js"
+        templateFile: "templates/plop-componentTemplates/ComponentSCSS.js"
       },
     ]
 
