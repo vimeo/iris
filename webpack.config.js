@@ -10,7 +10,7 @@ module.exports = {
 
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve('./dist-styleguide'),
+    path: path.resolve('./styleguide-build'),
   },
 
   module: {

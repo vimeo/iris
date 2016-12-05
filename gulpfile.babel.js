@@ -22,7 +22,7 @@ const STYLEGUIDE_SRC = './node_modules/vimeo-styleguide/';
 const LOCAL_DOCS_SRC = './docs/';
 const LOCAL_DATA = path.resolve(__dirname)+'/data/';
 const REACT_COMPONENT_DATA = LOCAL_DATA +'componentAPI.json';
-const STYLEGUIDE_DIST = './dist-styleguide/';
+const STYLEGUIDE_DIST = './styleguide-build/';
 
 
 // Gulp Tasks ----------------------------------------------
