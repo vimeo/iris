@@ -101,7 +101,7 @@ gulp.task('serve', function() {
 		// Set watching for reloads...
 		gulp.watch([GLOBALS_SRC + '**/*.scss'], ['rebuildSassGlobals']);
 		gulp.watch([COMPONENT_SRC + '**/*.scss'], ['rebuildSassComponents']);
-		gulp.watch([COMPONENT_SRC + '/**/*.jsx', STYLEGUIDE_SRC + '/**/*.jsx'], ['rebuildJSX']);
+		gulp.watch([COMPONENT_SRC + '/**/*.jsx', LOCAL_DOCS_SRC + '/**/*.jsx'], ['rebuildJSX']);
 		gulp.watch([STYLEGUIDE_DIST + '*'], ['delayedReload']);
 
 });
