@@ -36,11 +36,20 @@ gulp.task('cleanDistFiles', function () {
 
 gulp.task('compileComponentListJSX', function () {
 	const STYLE_DATA = require(LOCAL_DOCS_SRC + 'patternList.js');
-	
+
 	return gulp.src(STYLEGUIDE_SRC + 'templates/_component-docs-jsx-export-list.template')
 	.pipe(template(STYLE_DATA.default))
 	.pipe(rename("ComponentDocsJsxExportList.js"))
 	.pipe(gulp.dest(LOCAL_DOCS_SRC));
+});
+
+gulp.task('compilePackageIndexJSX', function () {
+	let patternData = require(LOCAL_DATA + 'componentAPI.json');
+	patternData = {"patterns": [patternData]};
+	return gulp.src('./templates/_package-index.js.template')
+	.pipe(template(patternData))
+	.pipe(rename('index.js'))
+	.pipe(gulp.dest('./'));
 });
 
 gulp.task('copyGlobalCSS', function () {
@@ -147,6 +156,7 @@ gulp.task('default', function(cb) {
 		'reactDocGenParse',
 		['sassStyleguide', 'sassComponents','sassGlobals'],
 		['copyStaticAssets', 'copyGlobalCSS'],
+		'compilePackageIndexJSX',
 		'webpackReact',
 		'serve',
 		cb);
