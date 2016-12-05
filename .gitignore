@@ -50,6 +50,4 @@ nbproject
 # Build artifacts
 ########################
 data
-dist
-styleguide-build
-docs/ComponentDocsJsxExportList.js
+build-styleguide

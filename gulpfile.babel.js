@@ -22,7 +22,7 @@ const STYLEGUIDE_SRC = './node_modules/vimeo-styleguide/';
 const LOCAL_DOCS_SRC = './docs/';
 const LOCAL_DATA = path.resolve(__dirname)+'/data/';
 const REACT_COMPONENT_DATA = LOCAL_DATA +'componentAPI.json';
-const STYLEGUIDE_DIST = './styleguide-build/';
+const STYLEGUIDE_DIST = './build-styleguide/';
 
 
 // Gulp Tasks ----------------------------------------------
@@ -39,8 +39,8 @@ gulp.task('compileComponentListJSX', function () {
 
 	return gulp.src(STYLEGUIDE_SRC + 'templates/_component-docs-jsx-export-list.template')
 	.pipe(template(STYLE_DATA.default))
-	.pipe(rename("ComponentDocsJsxExportList.js"))
-	.pipe(gulp.dest(LOCAL_DOCS_SRC));
+	.pipe(rename("ComponentDocsJsxExportList.jsx"))
+	.pipe(gulp.dest(LOCAL_DATA));
 });
 
 gulp.task('compilePackageIndexJSX', function () {

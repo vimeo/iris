@@ -6,17 +6,18 @@ var path = require('path');
 // Webpack settings for React Docs
 
 module.exports = {
-  entry: './docs/main.jsx',
+  entry: './node_modules/vimeo-styleguide/main.jsx',
 
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve('./styleguide-build'),
+    path: path.resolve('./build-styleguide'),
   },
 
   module: {
     loaders: [
       { test: /\.jsx?$/,loader: 'babel-loader', exclude: "/node_modules/", include: [
           path.resolve(__dirname, 'docs'),
+          path.resolve(__dirname, 'data'),
           path.resolve(__dirname, 'src'),
           path.resolve(__dirname, 'node_modules/vimeo-styleguide'),
         ], },
