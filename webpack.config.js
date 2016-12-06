@@ -19,6 +19,7 @@ module.exports = {
           path.resolve(__dirname, 'docs'),
           path.resolve(__dirname, 'data'),
           path.resolve(__dirname, 'src'),
+          path.resolve(__dirname, 'index.jsx'),
           path.resolve(__dirname, 'node_modules/vimeo-styleguide'),
         ], },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]--[local]___[hash:base64:5]!postcss-loader') }

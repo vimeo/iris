@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Badge from '../../../src/components/Badge/Badge';
+import * as Iris from '../../../index.jsx'
 import ExampleSource from 'vimeo-styleguide/components/styleListings/ExampleSource';
 
 export default function BadgeDocs() {
@@ -8,17 +8,19 @@ export default function BadgeDocs() {
 		<div>
 			<p>Badges are used to add a tag to a username</p>
   				<div data-code>
-	  				<Badge>Default Badge</Badge>
-						<Badge type="alum">Alum</Badge>
-						<Badge type="beta" title="foo">Beta</Badge>
+	  				<Iris.Badge>Default Badge</Iris.Badge>
+						<Iris.Badge type="alum">Alum</Iris.Badge>
+						<Iris.Badge type="beta" title="foo">Beta</Iris.Badge>
   				</div>
+
 					<ExampleSource>
 						{`
-							<Badge>Default Badge</Badge>
-							<Badge type="alum">Alum</Badge>
-							<Badge type="beta" title="foo">Beta</Badge>
+							<Iris.Badge>Default Badge</Iris.Badge>
+							<Iris.Badge type="alum">Alum</Iris.Badge>
+							<Iris.Badge type="beta" title="foo">Beta</Iris.Badge>
 						`}
 					</ExampleSource>
+
 		</div>
 	);
 };

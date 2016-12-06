@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {{pascalCase name}} from '../../../src/components/{{pascalCase name}}/{{pascalCase name}}';
+import * as Iris from '../../../index.jsx'
 import ExampleSource from 'vimeo-styleguide/components/styleListings/ExampleSource';
 
 export default function {{pascalCase name}}Docs() {
@@ -7,12 +7,12 @@ export default function {{pascalCase name}}Docs() {
 	return (
 		<div>
 			<div data-code>
-				<{{pascalCase name}} />
+				<Iris.{{pascalCase name}} />
 			</div>
 
 			<ExampleSource>
 				{`
-				<{{pascalCase name}} />
+				<Iris.{{pascalCase name}} />
 				`}
 			</ExampleSource>
 		</div>

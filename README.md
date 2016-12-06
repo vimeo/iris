@@ -12,6 +12,28 @@ This repo contains the Iris Components and style globals.
 $ gulp
 ```
 
+## Using Iris in Your App
+
+### Install
+Install Iris via SSH from github.vimeows.com.
+
+```
+$npm install --save git+ssh://git@github.vimeows.com/Vimeo/iris.git
+```
+
+### Include the Package
+To make Iris Components available to your component, Include Iris from the Iris Package.
+```
+import * as Iris from 'iris';
+```
+
+Then use the components as per Iris Documentation. **Note the use of the Iris Namespace** which corresponds to the "as" alias in the import statement.
+
+```
+<Iris.Button type="secondary">Secondary</Iris.Button>
+<Iris.Badge type="alum">Alum</Iris.Badge>
+```
+
 ## File Structure
 
 * docs: contains files used to document patterns
