@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Badge from '../../../src/components/Badge/Badge';
-import ExampleSource from '../../../node_modules/vimeo-styleguide/components/styleListings/ExampleSource';
+import ExampleSource from 'vimeo-styleguide/components/styleListings/ExampleSource';
 
 export default function BadgeDocs() {
 
