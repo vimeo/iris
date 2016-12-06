@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as Iris from '../../../index.jsx'
+import Button from '../../../src/components/Button/Button';
 import ExampleSource from 'vimeo-styleguide/components/styleListings/ExampleSource';
 
 export default function ButtonDocs() {
@@ -7,30 +7,30 @@ export default function ButtonDocs() {
 		<div>
 			<h3>Regular Buttons</h3>
   				<div data-code>
-  					<Iris.Button>Primary</Iris.Button>
-  					<Iris.Button type="secondary">Secondary</Iris.Button>
-  					<Iris.Button type="positive">Positive</Iris.Button>
-            <Iris.Button type="negative">Negative</Iris.Button>
+  					<Button>Primary</Button>
+  					<Button type="secondary">Secondary</Button>
+  					<Button type="positive">Positive</Button>
+            <Button type="negative">Negative</Button>
   				</div>
 
 					<ExampleSource>
 						{`
-							<Iris.Button>Primary</Iris.Button>
-							<Iris.Button type="secondary">Secondary</Iris.Button>
-							<Iris.Button type="positive">Positive</Iris.Button>
-							<Iris.Button type="negative">Negative</Iris.Button>
+							<Button>Primary</Button>
+							<Button type="secondary">Secondary</Button>
+							<Button type="positive">Positive</Button>
+							<Button type="negative">Negative</Button>
 						`}
 					</ExampleSource>
 					<h3>Small Buttons</h3>
           <div data-code>
-  					<Iris.Button size="small">Primary Small</Iris.Button>
-  					<Iris.Button type="secondary" size="small">Secondary Small</Iris.Button>
+  					<Button size="small">Primary Small</Button>
+  					<Button type="secondary" size="small">Secondary Small</Button>
   				</div>
 
 					<ExampleSource>
 						{`
-							<Iris.Button size="small">Primary Small</Iris.Button>
-							<Iris.Button type="secondary" size="small">Secondary Small</Iris.Button
+							<Button size="small">Primary Small</Button>
+							<Button type="secondary" size="small">Secondary Small</Button>
 						`}
 					</ExampleSource>
 

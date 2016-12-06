@@ -21,17 +21,33 @@ Install Iris via SSH from github.vimeows.com.
 $npm install --save git+ssh://git@github.vimeows.com/Vimeo/iris.git
 ```
 
+### Set Up Webpack
+In order to enable the import paths from Iris you need to do two things in the webpack config.
+
+1) Require Iris
+```
+var Iris = require('iris');
+```
+
+2) Use [webpack resolve.alias](http://webpack.github.io/docs/configuration.html#resolve-alias) to map the paths by using `Iris.paths`.
+
+```
+resolve: {
+  alias: Iris.paths,
+  extensions: ['', '.js', '.jsx', '.json'],
+  modulesDirectories: ['node_modules', 'components']
+}
+```
 ### Include the Package
-To make Iris Components available to your component, Include Iris from the Iris Package.
+To make Iris Components available to your component, Include `iris/ComponentName`. For instance, to include 'Button' you would add the following.
 ```
-import * as Iris from 'iris';
+import Button from iris/Button
 ```
 
-Then use the components as per Iris Documentation. **Note the use of the Iris Namespace** which corresponds to the "as" alias in the import statement.
+Then use the components as per Iris Documentation.
 
 ```
-<Iris.Button type="secondary">Secondary</Iris.Button>
-<Iris.Badge type="alum">Alum</Iris.Badge>
+<Button type="secondary">Secondary</Button>
 ```
 
 ## File Structure
@@ -72,3 +88,8 @@ export default patternList;
 * Jory Cunningham: jory@vimeo.com
 * Dina Smither: dina@vimeo.com
 * Malika Butler: malika@vimeo.com
+
+## Troubleshooting
+
+### Webpack cannot resolve my Iris imports
+Did you remember to set up the Webpack aliases as described above?
