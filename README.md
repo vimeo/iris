@@ -3,16 +3,10 @@
 ##About
 This repo contains the Iris Components and style globals.
 
-## Getting Started
-* Clone this repo locally
-* Run npm install. **Note**: that the "vimeo-styleguide" package will be loading via SSH from https://github.vimeows.com. Make sure that you have SSH access to this site configured or your will get a "resource not found" error.
-* Run `gulp` at the root of your project in command line. The site should compile and open in your default browser. **You may need to refresh** the first time to see it working.
+* This package can be consumed by NPM to deliver Iris components
+* This package can be cloned and used with its imported styleguide to contribute to Iris.
 
-```
-$ gulp
-```
-
-## Using Iris in Your App
+## Getting Started Using Iris in Your App
 
 ### Install
 Install Iris via SSH from github.vimeows.com.
@@ -84,12 +78,21 @@ export default patternList;
 
 * this is what alerts the styleguide to the presence of the pattern. The pattern will be displayed in the order of the Array.
 
-##Contact
-* Jory Cunningham: jory@vimeo.com
-* Dina Smither: dina@vimeo.com
-* Malika Butler: malika@vimeo.com
 
 ## Troubleshooting
 
 ### Webpack cannot resolve my Iris imports
 Did you remember to set up the Webpack aliases as described above?
+
+## Getting Started Contribting to Iris
+* Clone this repo locally
+* Run npm install. **Note**: that the "vimeo-styleguide" package will be loading via SSH from https://github.vimeows.com. Make sure that you have SSH access to this site configured or your will get a "resource not found" error.
+* Run `gulp` at the root of your project in command line. The site should compile and open in your default browser. **You may need to refresh** the first time to see it working.
+
+```
+$ gulp
+```
+##Contact
+* Jory Cunningham: jory@vimeo.com
+* Dina Smither: dina@vimeo.com
+* Malika Butler: malika@vimeo.com
