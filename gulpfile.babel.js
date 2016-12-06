@@ -16,7 +16,7 @@ const vimeoStyleguide = require('vimeo-styleguide');
 
 // constants ----------------------------------------------
 const COMPONENT_SRC = './src/components/';
-const COMPONENT_DIST = './dist/';
+const COMPONENT_DIST = './lib/';
 const GLOBALS_SRC = './src/globals/';
 const STYLEGUIDE_SRC = './node_modules/vimeo-styleguide/';
 const LOCAL_DOCS_SRC = './docs/';
@@ -27,13 +27,15 @@ const STYLEGUIDE_DIST = './build-styleguide/';
 
 // Gulp Tasks ----------------------------------------------
 
-
+// Clear out build folders for fresh builds
 gulp.task('cleanDistFiles', function () {
-	del(['dist/**/*', 'dist-styleguide/**/*']).then(paths => {
+	del(['lib/**/*', 'build-styleguide/**/*']).then(paths => {
     console.log('Cleaned out dist folders');
 	});
 });
 
+// Compile the list of component docs files to be included by styleguide.
+// Reads 'docs/patternList.js' to do this.
 gulp.task('compileComponentListJSX', function () {
 	const STYLE_DATA = require(LOCAL_DOCS_SRC + 'patternList.js');
 
@@ -43,6 +45,8 @@ gulp.task('compileComponentListJSX', function () {
 	.pipe(gulp.dest(LOCAL_DATA));
 });
 
+
+// Build a list of the components for export from Iris.
 gulp.task('compilePackageIndexJSX', function () {
 	let patternData = require(LOCAL_DATA + 'componentAPI.json');
 	patternData = {"patterns": [patternData]};
@@ -52,31 +56,39 @@ gulp.task('compilePackageIndexJSX', function () {
 	.pipe(gulp.dest('./'));
 });
 
+// Copy the generated globals.CSS to the styleguide build
 gulp.task('copyGlobalCSS', function () {
 	return gulp.src([GLOBALS_SRC + 'css/globals.css'])
 	.pipe(gulp.dest(STYLEGUIDE_DIST + 'css/'));
 });
 
-
+// Copy the static assets to the styleguide build
 gulp.task('copyStaticAssets', function () {
 	return gulp.src([STYLEGUIDE_SRC + '*.{html,ico}', STYLEGUIDE_SRC + 'assets/**/*.js'])
 	.pipe(gulp.dest(STYLEGUIDE_DIST));
 });
 
+// run react-docgen against the iris components folder generate data/componentAPI.json
 gulp.task('reactDocGenBuild', shell.task([
 	'react-docgen ./src/components --out '+ REACT_COMPONENT_DATA + ' --pretty'
 ]));
 
+// run a transformation on data/componentAPI.json to output more easily traversed data
 gulp.task('reactDocGenParse' , function() {
 	vimeoStyleguide.reactDocGen(REACT_COMPONENT_DATA, LOCAL_DATA+'componentAPITransformed.json');
 });
 
+
+// put a slight delay on refreshing the browser to make sure everything has finished.
+// sort of a hack...
+// TODO: use promises or the like to monitor completion of other tasks..
 gulp.task('delayedReload' , function() {
 		setTimeout(function(){
 			reload();
 		}, 2000);
 });
 
+// SASS compile individual component CSS files
 gulp.task('sassComponents', function () {
 	// Compile the sass and autoprefix the CSS
 	return gulp.src(COMPONENT_SRC + '**/*.scss')
@@ -84,13 +96,14 @@ gulp.task('sassComponents', function () {
 	.pipe(gulp.dest(COMPONENT_SRC));
 });
 
+// SASS compile individual component CSS files
 gulp.task('sassGlobals', function () {
-	// Compile the sass and autoprefix the CSS
 	return gulp.src( GLOBALS_SRC + 'sass/globals.scss')
 	.pipe(sass().on('error', sass.logError))
 	.pipe(gulp.dest( GLOBALS_SRC+'css/'));
 });
 
+// SASS compile styleguide CSS files
 gulp.task('sassStyleguide', function () {
 	// Compile the sass and autoprefix the CSS
 	return gulp.src(STYLEGUIDE_SRC+ 'assets/sass/styleguide.scss')
@@ -98,7 +111,7 @@ gulp.task('sassStyleguide', function () {
 	.pipe(gulp.dest(STYLEGUIDE_DIST+'css/'));
 });
 
-
+// Start up server with browserSync, start watching for changes
 gulp.task('serve', function() {
 		setTimeout(function(){
 	    browserSync.init({
@@ -115,6 +128,7 @@ gulp.task('serve', function() {
 
 });
 
+// Trigger Webpack to compile JSX and build CSS modules
 gulp.task('webpackReact', shell.task([
 	'	webpack --display-error-details'
 ]));
