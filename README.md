@@ -47,8 +47,7 @@ Then use the components as per Iris Documentation.
 ## File Structure
 
 * docs: contains files used to document patterns
-  * docs/components: Iris React component doc files
-  * docs/pages: files which generate pages for patterns which do not have an associated component (e.g. type)
+  * docs/additional-entries: files which generate pages for patterns which do not have an associated component (e.g. type)
 * src: the files which generate contain the Iris React Components and global CSS, as well as any required image assets and js helpers.
 * templates: a collection of templates used by various build processes.
 
