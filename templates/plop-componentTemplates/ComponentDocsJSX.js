@@ -12,7 +12,7 @@ export default function {{pascalCase name}}Docs() {
 
 			<ExampleSource>
 				{`
-				<Iris.{{pascalCase name}} />
+				<{{pascalCase name}} />
 				`}
 			</ExampleSource>
 		</div>
