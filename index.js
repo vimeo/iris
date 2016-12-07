@@ -13,7 +13,11 @@
 // Export all components ------------------
 exports.paths = {
   
+  'iris/':'iris/src/components//',
+  
   'iris/Badge':'iris/src/components/Badge/Badge',
+  
+  'iris/':'iris/src/components//',
   
   'iris/Button':'iris/src/components/Button/Button',
   

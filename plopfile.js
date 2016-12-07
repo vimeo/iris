@@ -31,7 +31,7 @@ module.exports = ( plop ) => {
       },
       {
         type: "add",
-        path: "docs/components/{{pascalCase name}}/{{pascalCase name}}-Docs.jsx",
+        path: "src/components/{{pascalCase name}}/{{pascalCase name}}-Docs.jsx",
         templateFile: "templates/plop-componentTemplates/ComponentDocsJSX.js"
       },
       {

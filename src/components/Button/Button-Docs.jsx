@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Button from '../../../src/components/Button/Button';
+import Button from './Button';
 import ExampleSource from 'vimeo-styleguide/components/styleListings/ExampleSource';
 
 export default function ButtonDocs() {
