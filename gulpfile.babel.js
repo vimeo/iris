@@ -48,7 +48,7 @@ gulp.task('compileComponentListJSX', function () {
 
 // Build a list of the components for export from Iris.
 gulp.task('compilePackageIndexJSX', function () {
-	let patternData = require(LOCAL_DATA + 'componentAPI.json');
+	let patternData = require(LOCAL_DATA + 'componentAPITransformed.json');
 	patternData = {"patterns": [patternData]};
 	return gulp.src('./templates/_package-index.js.template')
 	.pipe(template(patternData))
