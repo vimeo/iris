@@ -56,12 +56,6 @@ gulp.task('compilePackageIndexJSX', function () {
 	.pipe(gulp.dest('./'));
 });
 
-// Copy the generated globals.CSS to the styleguide build
-gulp.task('copyGlobalCSS', function () {
-	return gulp.src([GLOBALS_SRC + 'css/globals.css'])
-	.pipe(gulp.dest(STYLEGUIDE_DIST + 'css/'));
-});
-
 // Copy the static assets to the styleguide build
 gulp.task('copyStaticAssets', function () {
 	return gulp.src([STYLEGUIDE_SRC + '*.{html,ico}', STYLEGUIDE_SRC + 'assets/**/*.js'])
@@ -114,10 +108,10 @@ gulp.task('sassStyleguide', function () {
 // Start up server with browserSync, start watching for changes
 gulp.task('serve', function() {
 		setTimeout(function(){
-	    browserSync.init({
-	        server: STYLEGUIDE_DIST,
-	        middleware: [ historyApiFallback() ]
-	    });
+			browserSync.init({
+				server: STYLEGUIDE_DIST,
+				middleware: [ historyApiFallback() ]
+			});
 		}, 2000);
 
 		// Set watching for reloads...
@@ -155,7 +149,6 @@ gulp.task('rebuildSassComponents' , function(cb) {
 gulp.task('rebuildSassGlobals' , function(cb) {
 	runSequence(
 		'sassGlobals',
-		'copyGlobalCSS',
 		'webpackReact',
 		'delayedReload',
 		cb);
@@ -169,7 +162,7 @@ gulp.task('default', function(cb) {
 		'reactDocGenBuild',
 		'reactDocGenParse',
 		['sassStyleguide', 'sassComponents','sassGlobals'],
-		['copyStaticAssets', 'copyGlobalCSS'],
+		'copyStaticAssets',
 		'compilePackageIndexJSX',
 		'webpackReact',
 		'serve',
