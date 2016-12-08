@@ -83,8 +83,26 @@ var patternList = {patterns: [
 export default patternList;
 ```
 
-* this is what alerts the styleguide to the presence of the pattern. The pattern will be displayed in the order of the Array.
+* this is what alerts the styleguide to the presence of the pattern. **The pattern will be displayed in the order of the Array**.
 
+## Adding an Pattern Entries for Non-Components
+
+* run `plop` from command-line at the root of the project
+* Choose 'Additional Pattern Entry' from the first menu
+* Enter the Pattern's name in PascalCase (e.g. GlobalTypographyStandards)
+* Edit the file that gets created at `docs/additional-entries/{Pattern Name Here}/{Pattern Name Here}-Docs.jsx`,
+* Add an entry to the pattern list. Being sure to set the third argument to true. For example if you where adding a "Type" entry it would look like this:
+
+```
+var patternList = {patterns: [
+  ['Type', 'Typography', true],
+  ['Badge', 'Badges'],
+  ['Button', 'Buttons'],
+
+]};
+
+export default patternList;
+```
 
 ## Troubleshooting
 

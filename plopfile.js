@@ -43,4 +43,37 @@ module.exports = ( plop ) => {
 
   } );
 
+  // We declare a new generator called "module"
+  plop.setGenerator( "Additional Pattern Entry", {
+
+    // Succintly describes what generator does.
+    description: "Create a pattern entry for patterns that don;t have a specific component",
+
+    // Get inputs from the user.
+    // That's Inquirer.js doing the job behind the hood.
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message: "What is the name of the Pattern (PascalCasePlease)?",
+        validate: function (value) {
+          if ((/.+/).test(value)) { return true; }
+          return 'name is required';
+        }
+      },
+
+    ],
+
+    // List of actions to take.
+    // Here we "add" new files from our templates.
+    actions: [
+      {
+        type: "add",
+        path: "docs/additional-entries/{{pascalCase name}}/{{pascalCase name}}-Docs.jsx",
+        templateFile: "templates/plop-componentTemplates/PatternEntryDocsJSX.js"
+      }
+    ]
+
+  } );
+
 };
