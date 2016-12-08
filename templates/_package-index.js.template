@@ -12,7 +12,7 @@
 
 //Export Global CSS and all components ------------------
 exports.paths = {
-  'iris/GlobalCSS':'iris/src/globals/css/global.css',
+  'iris/GlobalCSS':'iris/src/globals/css/globals.css',
   <% _.forEach(patterns[0], function(pattern) { %>
   'iris/<%- pattern['displayName']%>':'iris/src/components/<%- pattern['displayName']%>/<%- pattern['displayName']%>',
   <% }); %>

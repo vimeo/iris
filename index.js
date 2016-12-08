@@ -12,7 +12,7 @@
 
 //Export Global CSS and all components ------------------
 exports.paths = {
-  'iris/GlobalCSS':'iris/src/globals/css/global.css',
+  'iris/GlobalCSS':'iris/src/globals/css/globals.css',
   
   'iris/Badge':'iris/src/components/Badge/Badge',
   
