@@ -100,9 +100,9 @@ Sometimes you will need to show pattern documentation for something that does no
 
 * run `plop` from command-line at the root of the project
 * Choose 'Additional Pattern Entry' from the first menu
-* Enter the Pattern's name in PascalCase (e.g. GlobalTypographyStandards)
+* Enter the pattern's name in PascalCase (e.g. GlobalTypographyStandards)
 * Edit the file that gets created at `docs/additional-entries/{Pattern Name Here}/{Pattern Name Here}-Docs.jsx`,
-* Add an entry to the pattern list. Being sure to set the third argument to true. For example if you where adding a "Type" entry it would look like this:
+* Add an entry to the pattern list. Be sure to set the third argument to true. For example if you where adding a "Type" entry it would look like this:
 
 ```
 var patternList = {patterns: [
@@ -113,6 +113,19 @@ var patternList = {patterns: [
 ]};
 
 export default patternList;
+```
+
+### Adding a Stand-Alone Page to Styleguide
+Sometimes you need an entire new "blank slate" page to document something. These pages can be created as follows:
+
+* run `plop` from command-line at the root of the project
+* Choose 'Stand-Alone Page' from the first menu
+* Enter the page's name in PascalCase (e.g. GridDemo)
+* Edit the file that gets created at `docs/pages/{Page Name Here}/{Page Name Here}.jsx`,
+* Add an export entry for the component here to `docs/pages/index.js` like this (where the page is called "PageName"):
+
+```
+export PageName from "./PageName/PageName";
 ```
 
 ## Troubleshooting
