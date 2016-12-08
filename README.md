@@ -59,7 +59,17 @@ import styles from 'iris/GlobalCSS'
 * src: the files which generate contain the Iris React Components and global CSS, as well as any required image assets and js helpers.
 * templates: a collection of templates used by various build processes.
 
-## Adding a New Component File
+
+## Contributing to Iris
+### Getting Started
+* Clone this repo locally
+* Run npm install. **Note**: that the "vimeo-styleguide" package will be loading via SSH from https://github.vimeows.com. Make sure that you have SSH access to this site configured or your will get a "resource not found" error.
+* Run `gulp` at the root of your project in command line. The site should compile and open in your default browser. **You may need to refresh** the first time to see it working.
+
+```
+$ gulp
+```
+### Adding a New Component File
 
 * run 'plop' from the root of the project
 ```
@@ -70,7 +80,7 @@ $ plop
 
 This will create the file structure for the component.
 
-## Showing the Component in the Styleguide
+### Showing the Component in the Styleguide
 * edit **docs/patternList.js** and add an array entry in the pattern ```[ComponentName, Component Display Name]``` like this:
 
 ```
@@ -85,7 +95,7 @@ export default patternList;
 
 * this is what alerts the styleguide to the presence of the pattern. **The pattern will be displayed in the order of the Array**.
 
-## Adding an Pattern Entry for Non-Components
+### Adding an Pattern Entry for Non-Components
 Sometimes you will need to show pattern documentation for something that does not have a component (usually because it is in the CSS Globals)
 
 * run `plop` from command-line at the root of the project
@@ -110,14 +120,6 @@ export default patternList;
 ### Webpack cannot resolve my Iris imports
 Did you remember to set up the Webpack aliases as described above?
 
-## Getting Started Contribting to Iris
-* Clone this repo locally
-* Run npm install. **Note**: that the "vimeo-styleguide" package will be loading via SSH from https://github.vimeows.com. Make sure that you have SSH access to this site configured or your will get a "resource not found" error.
-* Run `gulp` at the root of your project in command line. The site should compile and open in your default browser. **You may need to refresh** the first time to see it working.
-
-```
-$ gulp
-```
 ##Contact
 * Jory Cunningham: jory@vimeo.com
 * Dina Smither: dina@vimeo.com
