@@ -85,7 +85,8 @@ export default patternList;
 
 * this is what alerts the styleguide to the presence of the pattern. **The pattern will be displayed in the order of the Array**.
 
-## Adding an Pattern Entries for Non-Components
+## Adding an Pattern Entry for Non-Components
+Sometimes you will need to show pattern documentation for something that does not have a component (usually because it is in the CSS Globals)
 
 * run `plop` from command-line at the root of the project
 * Choose 'Additional Pattern Entry' from the first menu
