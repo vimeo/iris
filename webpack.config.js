@@ -1,12 +1,13 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
+var STYLEGUIDE_DIR = 'node_modules/steadicam';
 
 
 // Webpack settings for React Docs
 
 module.exports = {
-  entry: './node_modules/vimeo-styleguide/main.jsx',
+  entry: './'+ STYLEGUIDE_DIR + '/main.jsx',
 
   output: {
     filename: '[name].bundle.js',
@@ -20,7 +21,7 @@ module.exports = {
           path.resolve(__dirname, 'data'),
           path.resolve(__dirname, 'src'),
           path.resolve(__dirname, 'index.jsx'),
-          path.resolve(__dirname, 'node_modules/vimeo-styleguide'),
+          path.resolve(__dirname, STYLEGUIDE_DIR),
         ], },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]--[local]___[hash:base64:5]!postcss-loader') }
     ]

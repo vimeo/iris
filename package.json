@@ -28,7 +28,7 @@
     "postcss-loader": "^1.1.1",
     "react-docgen": "^2.12.1",
     "run-sequence": "^1.2.2",
-    "vimeo-styleguide": "git+ssh://git@github.vimeows.com/Vimeo/vimeo-styleguide.git",
+    "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git",
     "webpack": "^1.13.3"
   },
   "dependencies": {

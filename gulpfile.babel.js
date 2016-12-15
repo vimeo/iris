@@ -9,16 +9,17 @@ const reload = browserSync.reload;
 const runSequence = require('run-sequence');
 const sass = require('gulp-sass');
 const shell = require('gulp-shell');
+const steadicam = require('steadicam');
 const template = require('gulp-template');
 const watch = require('gulp-watch');
-const vimeoStyleguide = require('vimeo-styleguide');
+
 
 
 // constants ----------------------------------------------
 const COMPONENT_SRC = './src/components/';
 const COMPONENT_DIST = './lib/';
 const GLOBALS_SRC = './src/globals/';
-const STYLEGUIDE_SRC = './node_modules/vimeo-styleguide/';
+const STYLEGUIDE_SRC = './node_modules/steadicam/';
 const LOCAL_DOCS_SRC = './docs/';
 const LOCAL_DATA = path.resolve(__dirname)+'/data/';
 const REACT_COMPONENT_DATA = LOCAL_DATA +'componentAPI.json';
@@ -69,7 +70,7 @@ gulp.task('reactDocGenBuild', shell.task([
 
 // run a transformation on data/componentAPI.json to output more easily traversed data
 gulp.task('reactDocGenParse' , function() {
-	vimeoStyleguide.reactDocGen(REACT_COMPONENT_DATA, LOCAL_DATA+'componentAPITransformed.json');
+	steadicam.reactDocGen(REACT_COMPONENT_DATA, LOCAL_DATA+'componentAPITransformed.json');
 });
 
 
