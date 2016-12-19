@@ -81,16 +81,22 @@ $ plop
 This will create the file structure for the component.
 
 ### Showing the Component in the Styleguide
-* edit **docs/patternList.js** and add an array entry in the pattern ```[ComponentName, Component Display Name]``` like this:
+PatternList is a JSON data object that lets the styleguide know which patterns and pages to show and in what order.
+
+* Each key in the JSON object represents a category.
+* The value of this key is an array of patterns.
+* Each pattern array is in the format: ```[ComponentName, Component Display Name, is "Additional Entry"? (optional)]``` like this:
 
 ```
-var patternList = {patterns: [
-  ['Badge', 'Badges'],
-  ['Button', 'Buttons'],
-
-]};
-
-export default patternList;
+{
+	"Basics": [
+		["Type", "Typography", true]
+	],
+	"Simple Components": [
+		["Badge", "Badges"],
+	  ["Button", "Buttons"]
+	]
+}
 ```
 
 * this is what alerts the styleguide to the presence of the pattern. **The pattern will be displayed in the order of the Array**.
@@ -105,14 +111,15 @@ Sometimes you will need to show pattern documentation for something that does no
 * Add an entry to the pattern list. Be sure to set the third argument to true. For example if you where adding a "Type" entry it would look like this:
 
 ```
-var patternList = {patterns: [
-  ['Type', 'Typography', true],
-  ['Badge', 'Badges'],
-  ['Button', 'Buttons'],
-
-]};
-
-export default patternList;
+{
+	"Basics": [
+		["Type", "Typography", true]
+	],
+	"Simple Components": [
+		["Badge", "Badges"],
+	  ["Button", "Buttons"]
+	]
+}
 ```
 
 ### Adding a Stand-Alone Page to Styleguide
