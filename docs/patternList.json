@@ -1,0 +1,9 @@
+{
+	"Basics": [
+		["Type", "Typography", true]
+	],
+	"Simple Components": [
+		["Badge", "Badges"],
+	  ["Button", "Buttons"]
+	]
+}

@@ -38,10 +38,20 @@ gulp.task('cleanDistFiles', function () {
 // Compile the list of component docs files to be included by styleguide.
 // Reads 'docs/patternList.js' to do this.
 gulp.task('compileComponentListJSX', function () {
-	const STYLE_DATA = require(LOCAL_DOCS_SRC + 'patternList.js');
+	const STYLE_DATA = require(LOCAL_DOCS_SRC + 'patternList.json');
+	let patternsList = [];
+
+	Object.keys(STYLE_DATA).map(function(key, i) {
+			let thisCategory = STYLE_DATA[key];
+			for (let i = 0; i < thisCategory.length; i ++){
+				patternsList.push(thisCategory[i]);
+			}
+	});
+
+	let patternObject = {patterns: patternsList};
 
 	return gulp.src(STYLEGUIDE_SRC + 'templates/_component-docs-jsx-export-list.template')
-	.pipe(template(STYLE_DATA.default))
+	.pipe(template(patternObject))
 	.pipe(rename("ComponentDocsJsxExportList.jsx"))
 	.pipe(gulp.dest(LOCAL_DATA));
 });
