@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Badge from './Badge';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource';
+import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 export default function BadgeDocs() {
 
