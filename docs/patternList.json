@@ -1,5 +1,6 @@
 {
 	"Basics": [
+		["Colors", "Color Palette", true],
 		["Type", "Typography", true]
 	],
 	"Simple Components": [
