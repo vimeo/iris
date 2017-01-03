@@ -18,6 +18,7 @@ var Sample = React.createClass({
 
 	render () {
 		return (
+			<h1>Sample Component</h1>
 		);
 	},
 

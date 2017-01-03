@@ -1,1 +1,18 @@
-@import 'utilities/mixins.scss';
+// ------  Settings Imports
+@import "settings/_colors";
+@import "settings/_spacing";
+@import "settings/_transitions";
+@import "settings/_typography";
+@import "settings/_radii";
+
+
+// ------  Utility Imports Here
+
+
+//----------------------- Start Imports which actually create CSS.
+//Resets
+@import 'utilities/_resets';
+
+// Brand
+@import 'brand/_type';
+@import 'brand/_hr';
