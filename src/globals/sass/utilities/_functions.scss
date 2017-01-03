@@ -1,0 +1,144 @@
+@function g-replace($list,$value,$index...) {
+    $newlist: ();
+    @for $i from 1 through length($list) {
+        $itm: nth($list,$i);
+        $newlist: append($newlist,$itm);
+        @if(nth($index,1)==$i) {
+            @if(length($index)>1) {
+                $itm: replace($itm,$value,slice($index,2)...);
+            }
+            @else {
+                $itm: $value;
+            }
+        }
+    } @return $newlist;
+}
+
+@function g-remove($list,$index...) {
+    @return replace($list,null,$index...);
+}
+
+@function g-double($value) {
+    $doubleValue: $value * 2;
+    @return $doubleValue;
+}
+
+@function g-halve($value) {
+    $halveValue: $value * 0.5;
+    @return $halveValue;
+}
+
+@function g-list-max($list) {
+    $max_number: 0;
+
+    $counter: length($list);
+    @while $counter > 0 {
+        $current_value: nth($list, $counter);
+        @if ($current_value > $max_number) {
+            $max_number: $current_value;
+        }
+        $counter: $counter - 1;
+    }
+
+  @return $max_number;
+}
+
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function g-tint($color, $percentage) {
+    @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function g-shade($color, $percentage) {
+    @return mix(black, $color, $percentage);
+}
+
+// Calculate Font-size in ems
+// $size desired font-size
+// $context font-size of parent
+@function g-emcalc($size, $context) {
+    $emSize: (($size/$context) * 1em);
+    /* @warn $size $context $emSize; */
+    @return $emSize;
+}
+
+@function g-map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+
+    @return $map;
+}
+
+//
+//  Function to replace characters in a string
+//
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace +
+        str-replace(str-slice($string, $index +
+        str-length($search)), $search, $replace);
+    }
+    @return $string;
+}
+
+//
+//  Function to create an optimized svg url
+//  (may need a few extra replacements)
+//
+@function old_svg-url($svg){
+    $svg: str-replace($svg,'"','\'');
+    $svg: str-replace($svg,'<','%3C');
+    $svg: str-replace($svg,'>','%3E');
+    $svg: str-replace($svg,'&','%26');
+    $svg: str-replace($svg,'#','%23');
+    @return url("data:image/svg+xml;charset=utf8,#{$svg}");
+}
+
+
+//Optimizing SVG in data-uris:
+//via codepen: http://codepen.io/Tigt/post/optimizing-svgs-in-data-uris
+//Optimize your svg here first: https://jakearchibald.github.io/svgomg/
+@function svg-url($svg){
+    //
+    // Chunk up string in order to avoid
+    // "SystemStackError: stack level too deep"
+    //
+    $encoded:'';
+    $slice: 2000;
+    $index: 0;
+    $loops: ceil(str-length($svg)/$slice);
+    @for $i from 1 through $loops {
+        $chunk: str-slice($svg, $index, $index + $slice - 1);
+        $chunk: str-replace($chunk,'"','\'');
+        $chunk: str-replace($chunk,'<','%3C');
+        $chunk: str-replace($chunk,'>','%3E');
+        $chunk: str-replace($chunk,'&','%26');
+        $chunk: str-replace($chunk,'#','%23');
+        $encoded: #{$encoded}#{$chunk};
+        $index: $index + $slice;
+    }
+    @return url("data:image/svg+xml;charset=utf8,#{$encoded}");
+}
+
+//Foundation Function
+@function rem-calc($values, $base-value: $rem-base) {
+  $max: length($values);
+
+  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+  }
+  @return $remValues;
+}

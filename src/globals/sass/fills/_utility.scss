@@ -1,0 +1,28 @@
+//============================================================================
+//
+//============================================================================
+
+// Works with Utility::wrapStringForSizeReduction
+// Reacts to classes applied by the size reduction wrapping to set new font sizes relative to the parent font size
+@mixin reduce-string-size($reduced_size: 0.8em, $reduced_more_size: 0.6em) {
+    & > .reduce_size {
+        font-size: $reduced_size;
+    }
+
+    & > .reduce_size_more {
+        font-size: $reduced_more_size;
+    }
+}
+
+
+// Works with Utility::wrapStringForSizeReduction
+// Reacts to classes applied by the size reduction wrapping to set new line heights for the reduced sizes
+@mixin reduce-string-line-height($line_height_reduced: 1.2, $line_height_reduced_more: 1.2) {
+    & > .reduce_size {
+        line-height: $line_height_reduced;
+    }
+
+    & > .reduce_size_more {
+        line-height: $line_height_reduced_more;
+    }
+}

@@ -1,0 +1,68 @@
+//============================================================================
+// ATOM DESCRIPTION
+//============================================================================
+// Resusable header functions & mixins
+
+//============================================================================
+// VARIABLES
+//============================================================================
+$header-color: text-color(header);
+$subline-color: text-color(meta);
+
+$subline-font-base: 13px;
+
+//Header Sizes
+//h1 - 36
+//h2 - 24
+//h3 - 18
+//h4 - 16
+//h5 - 14
+//h6 - 12
+//h7 - 15
+
+$header-size: (
+    'h1' : $g-header-1,
+    'h2' : $g-header-2,
+    'h3' : $g-header-3,
+    'h4' : $g-header-4,
+    'h5' : $g-header-5,
+    'h6' : $g-header-6,
+    'h7' : $g-header-7
+) !default;
+
+//============================================================================
+// FUNCTIONS
+//============================================================================
+@function headerSize($size, $color: $header-color){
+    @if(map-has-key($header-size, $size) != null and type-of($size) == 'string') {
+        $size: map-get($header-size, $size);
+        $header-font-size: rem-calc($size);
+    }
+    @else {
+        @warn "Header input: `#{$size}` is not a valid value. Use 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', or 'h7'";
+    }
+
+    @return $header-font-size;
+}
+
+//============================================================================
+// MIXINS
+//============================================================================
+@mixin header ($size) {
+    @if(map-has-key($header-size, $size) != null and type-of($size) == 'string') {
+        $size: map-get($header-size, $size);
+        font-size: rem-calc($size);
+    }
+}
+
+@mixin subline($color: $subline-color, $size: $subline-font-base, $link-color: null) {
+  color: $color;
+  font-size: $size;
+
+  @if ($link-color != null){
+    a {
+      color: $link-color;
+      font-weight: 400;
+    }
+  }
+}

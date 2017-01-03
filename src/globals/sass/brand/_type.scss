@@ -1,22 +1,62 @@
-body{
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 14px;
-  line-height: 1.42857;
+body {
+    color: $g-primary-color;
+    font-family: $g-font-family-primary; //"Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: $g-base-font-size;
 }
 
-h1 {
-  font-size: 2rem;
+
+::selection {
+    background-color: $g-selection-color;
 }
 
-h2 {
-  font-size: 1.4rem;
-  color: $grey2;
+::-moz-selection {
+    background-color: $g-selection-color;
 }
 
-a{
-  color: $blue2;
+strong {
+    font-weight: 700;
+}
 
-  &:hover{
-    color: $grey2;
-  }
+a {
+    color: $g-default-link-color;
+
+    cursor: pointer;
+    text-decoration: none;
+    &:hover,
+    &:focus,
+    &.selected {
+        color: $g-default-link-color-hover;
+    }
+    img {
+        border: 0;
+    }
+}
+
+// Headers _____________________________________________________________________
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0.2em;
+
+    font-weight: 700;
+    line-height: 1.189;
+
+    color: $g-primary-header-color;
+}
+
+// Form Type _____________________________________________________________________
+label {
+    font-weight: 400;
+}
+
+// Quotations ________________________________________________________________
+
+blockquote {
+    margin-bottom: 1em;
+
+    font-style: italic;
 }

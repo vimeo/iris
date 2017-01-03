@@ -1,13 +1,927 @@
-$green2: #7fc400;
+//============================================================================
+// VIMEO BRAND COLOR SWATCHES
+//============================================================================
+$g-black: #000000;
+$g-white: #FFFFFF;
+$g-smoke: rgba(23,35,34,0.75);
+$g-smoke-light: rgb(0, 80, 112);
+$g-transparent: rgba(0, 0, 0, 0);
 
-$grey2: #3a5161;
+$g-color: (
+    gray: (
+         1:  #1A2E3B,
+         2:  #3A5161,
+         3:  #657987,
+         4:  #879CAB,
+         5:  #A2AFB8,
+         6:  #D0D8DB,
+         7:  #E3E8E9,
+         8:  #EEF1F2,
+         9:  #F2F4F5,
+         10: #F6F7F8
+    ),
+    blue: (
+        1: #0088CC,
+        2: #00ADEF,
+        3: #73D2F6,
+        4: #A6E2F9,
+        5: #CCEFFC,
+        6: #E5F7FD
+    ),
+    red: (
+        1: #D93636,
+        2: #FF4D4D,
+        3: #FF9D9D,
+        4: #FFC1C1,
+        5: #FFDBDB,
+        6: #FFEDED
+    ),
+    yellow: (
+        1: #FF8A00,
+        2: #FFB21E,
+        3: #FFD583,
+        4: #FFE4B0,
+        5: #FFF0D2,
+        6: #FFF7E8
+    ),
+    green: (
+      1: #45A600,
+      2: #7FC400,
+      3: #B9DF73,
+      4: #D2EAA6,
+      5: #E5F3CC,
+      6: #F2F9E5
+    ),
+    purple: (
+        1: #503873,
+        2: #675089,
+        3: #AC9FBE,
+        4: #CAC2D6,
+        5: #F0EDF3
+    ),
+    steel: (
+        1: #12263c,
+        2: #1d3856,
+        3: #436284,
+        4: #829fbe,
+        5: #d0dce9
+    ),
+    plus: (
+        1: #009fe1,
+        2: #19c0ff
+    )
+);
 
-$blue2: #00adef;
+$color_map_gray: map-get($g-color, gray);
+$color_map_blue: map-get($g-color, blue);
+$color_map_red: map-get($g-color, red);
+$color_map_yellow: map-get($g-color, yellow);
+$color_map_green: map-get($g-color, green);
+$color_map_purple: map-get($g-color, purple);
+$color_map_steel: map-get($g-color, steel);
+$color_map_plus: map-get($g-color, plus);
 
-$purple2: #675089;
+//============================================================================
+// TEXT COLORS
+//============================================================================
+$g-text-colors: (
+    header:                   #40545C,
+    subheader:                #607680,
+    body:                     #4E5A5E,
+    meta:                     #8A9599,
+    link-primary:             #009FDE,
+    link-secondary:           #17272E,
+    link-primary-hover:       #007CBA,
+    link-secondary-hover:     #0088cc,
+    disabled:                 gray(6),
+    meta-blue:                #88bcd1,
+    meta-green:               #abc28f,
+    meta-red:                 #cfa1a5,
+    meta-yellow:              #cfbd97,
+    vod-header:               #c3d0d8,
+    vod-sub-header:           #81969f,
+    vod-body:                 #ced4d9,
+    vod-meta:                 #828c93
+);
 
-$red2: #ff4d4d;
+//============================================================================
+// FUNCTIONS
+//============================================================================
 
-$white: #fff;
+@function gray($color) {
+    @if (map-has-key($color_map_gray, $color) == false) {
+        @warn "`#{$color}` does not exist within the gray sass map."
+    }
+    @else {
+        @return map-get($color_map_gray, $color);
+    }
+}
 
-$yellow1: #ff8a00;
+@function blue($color) {
+    @if (map-has-key($color_map_blue, $color) == false) {
+        @warn "`#{$color}` does not exist within the blue sass map."
+    }
+    @else {
+        @return map-get($color_map_blue, $color);
+    }
+}
+
+
+@function red($color) {
+    @if (map-has-key($color_map_red, $color) == false) {
+        @warn "`#{$color}` does not exist within the red sass map."
+    }
+    @else {
+        @return map-get($color_map_red, $color);
+    }
+}
+
+@function yellow($color) {
+    @if (map-has-key($color_map_yellow, $color) == false) {
+        @warn "`#{$color}` does not exist within the yellow sass map."
+    }
+    @else {
+        @return map-get($color_map_yellow, $color);
+    }
+}
+
+@function green($color) {
+    @if (map-has-key($color_map_green, $color) == false) {
+        @warn "`#{$color}` does not exist within the green sass map."
+    }
+    @else {
+        @return map-get($color_map_green, $color);
+    }
+}
+
+@function purple($color) {
+    @if (map-has-key($color_map_purple, $color) == false) {
+        @warn "`#{$color}` does not exist within the purple sass map."
+    }
+    @else {
+        @return map-get($color_map_purple, $color);
+    }
+}
+
+@function steel($color) {
+    @if (map-has-key($color_map_steel, $color) == false) {
+        @warn "`#{$color}` does not exist within the steel sass map."
+    }
+    @else {
+        @return map-get($color_map_steel, $color);
+    }
+}
+
+@function plus($color) {
+    @if (map-has-key($color_map_plus, $color) == false) {
+        @warn "`#{$color}` does not exist within the plus sass map."
+    }
+    @else {
+        @return map-get($color_map_plus, $color);
+    }
+}
+
+@function text-color($color) {
+    @if (map-has-key($g-text-colors, $color) == false) {
+        @warn "`#{$color}` does not exist within the g-text-colors sass map."
+    }
+    @else {
+        @return map-get($g-text-colors, $color);
+    }
+}
+
+//============================================================================
+// GLOBAL COLORS CASES
+//============================================================================
+
+$g-border-unfocused: gray(6);
+$g-border-color: gray(6);
+$g-border-color-light: gray(8);
+$g-form-bgcolor-unfocused: gray(8);
+$g-form-bgcolor: gray(10);
+$g-red-error: red(2);
+$g-green-error: green(2);
+$g-svg-path-fill: currentColor;
+$g-selection-color: blue(4);
+$g-quote-bg: gray(10);
+
+//============================================================================
+// VENDOR COLORS
+//============================================================================
+$g-dropbox-blue:  #007EE5;
+$g-facebook-blue: #4c70ba;
+$g-twitter-blue:  #4099FF;
+
+
+// Colors
+//
+// Iris's color swatch system is built to use functions to produce colors within
+// the CSS. The swatches below contain the swatch name and function. To
+// use a color function simply write the property name and use the function
+// below as the value.
+//
+// <div class="styleguide-swatch-wrapper">
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--gray-1">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#1a2e3b</h5>
+//         <p>gray(1)<br></p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--gray-2">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#3a5161</h5>
+//         <p>gray(2)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--gray-3">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#657987</h5>
+//         <p>gray(3)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--gray-4">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#879cab</h5>
+//         <p>gray(4)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--gray-5">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#a2afb8</h5>
+//         <p>gray(5)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--gray-6">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#d0d8db</h5>
+//         <p>gray(6)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--gray-7">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#e3e8e9</h5>
+//         <p>gray(7)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--gray-8">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#eef1f2</h5>
+//         <p>gray(8)</p>
+//       </div>
+//     </div>
+//   </section>
+//     <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--gray-9">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#f2f4f5</h5>
+//         <p>gray(9)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--gray-10">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#f6f7f8</h5>
+//         <p>gray(10)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--white">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#ffffff</h5>
+//         <p>$g-white</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--black">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#000000</h5>
+//         <p>$g-black</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--smoke">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>rgba(23,35,34,0.75)</h5>
+//         <p>$g-smoke</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--smoke-light">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>rgb(0, 80, 112)</h5>
+//         <p>$g-smoke-light</p>
+//       </div>
+//     </div>
+//   </section>
+// </div>
+// <div class="styleguide-swatch-wrapper">
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--blue-1">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#0088cc</h5>
+//         <p>blue(1)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--blue-2">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#00adef</h5>
+//         <p>blue(2)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--blue-3">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#73d2f6</h5>
+//         <p>blue(3)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--blue-4">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#a6e2f9</h5>
+//         <p>blue(4)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--blue-5">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#cceffc</h5>
+//         <p>blue(5)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--blue-6">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#e5f7fd</h5>
+//         <p>blue(6)</p>
+//       </div>
+//     </div>
+//   </section>
+// </div>
+// <div class="styleguide-swatch-wrapper">
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--green-1">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#5a9e02</h5>
+//         <p>green(1)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--green-2">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#7fc400</h5>
+//         <p>green(2)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--green-3">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#b9df73</h5>
+//         <p>green(3)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--green-4">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#d2eaa6</h5>
+//         <p>green(4)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--green-5">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#e5f3cc</h5>
+//         <p>green(5)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--green-6">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#f2f9e5</h5>
+//         <p>green(6)</p>
+//       </div>
+//     </div>
+//   </section>
+// </div>
+// <div class="styleguide-swatch-wrapper">
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--red-1">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#d93636</h5>
+//         <p>red(1)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--red-2">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#ff4d4d</h5>
+//         <p>red(2)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--red-3">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#ff9d9d</h5>
+//         <p>red(3)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--red-4">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#ffc1c1</h5>
+//         <p>red(4)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--red-5">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#ffdbdb</h5>
+//         <p>red(5)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--red-6">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#ffeded</h5>
+//         <p>red(6)</p>
+//       </div>
+//     </div>
+//   </section>
+// </div>
+// <div class="styleguide-swatch-wrapper">
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--yellow-1">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#ff8a00</h5>
+//         <p>yellow(1)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--yellow-2">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#ffb21e</h5>
+//         <p>yellow(2)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--yellow-3">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#ffd583</h5>
+//         <p>yellow(3)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--yellow-4">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#ffe4b0</h5>
+//         <p>yellow(4)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--yellow-5">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#ff0d2</h5>
+//         <p>yellow(5)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--yellow-6">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#fff7e8</h5>
+//         <p>yellow(6)</p>
+//       </div>
+//     </div>
+//   </section>
+// </div>
+// <div class="styleguide-swatch-wrapper">
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--purple-1">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#503873</h5>
+//         <p>purple(1)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--purple-2">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#675089</h5>
+//         <p>purple(2)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--purple-3">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#ac9fbe</h5>
+//         <p>purple(3)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--purple-4">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#cac2d6</h5>
+//         <p>purple(4)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--purple-5">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#f0edf3</h5>
+//         <p>purple(5)</p>
+//       </div>
+//     </div>
+//   </section>
+// </div>
+// <div class="styleguide-swatch-wrapper">
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--steel-1">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#12263c</h5>
+//         <p>steel(1)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--steel-2">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#1d3856</h5>
+//         <p>steel(2)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--steel-3">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#436284</h5>
+//         <p>steel(3)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--steel-4">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#829fbe</h5>
+//         <p>steel(4)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--steel-5">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#d0dce9</h5>
+//         <p>steel(5)</p>
+//       </div>
+//     </div>
+//   </section>
+// </div>
+// <div class="styleguide-swatch-wrapper">
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--plus-1">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#009ef1</h5>
+//         <p>plus(1)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--plus-2">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#19c0ff</h5>
+//         <p>plus(2)</p>
+//       </div>
+//     </div>
+//   </section>
+// </div>
+//
+// Weight: 1
+//
+// Styleguide Utilities.Colors
+
+
+// Colors: Typography
+//
+// Cohesive type choices are vital to keeping consistency within Iris. The
+// functions below can be used to produce the colors for different type needs.
+//
+// <div class="styleguide-swatch-wrapper">
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--header">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#40545C</h5>
+//         <p>text-color(header)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--subheader">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#607680</h5>
+//         <p>text-color(subheader)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--body">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#4E5A5E</h5>
+//         <p>text-color(body)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--meta">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#8A9599</h5>
+//         <p>text-color(meta)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--link-primary">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#009FDE</h5>
+//         <p>text-color(link-primary)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--link-primary-hover">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#007CBA</h5>
+//         <p>text-color(link-primary-hover)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--link-secondary">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#17272E</h5>
+//         <p>text-color(link-secondary)</p>
+//       </div>
+//     </div>
+//   </section>
+//     <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--link-secondary-hover">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#0088cc</h5>
+//         <p>text-color(link-secondary-hover)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--disabled">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#D0D8DB</h5>
+//         <p>text-color(disabled)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--meta-blue">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#88bcd1</h5>
+//         <p>text-color(meta-blue)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--meta-green">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#abc28f</h5>
+//         <p>text-color(meta-green)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--meta-red">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#cfa1a5</h5>
+//         <p>text-color(meta-red)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--meta-yellow">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#cfbd97</h5>
+//         <p>text-color(meta-yellow)</p>
+//       </div>
+//     </div>
+//   </section>
+// </div>
+// <div class="styleguide-swatch-wrapper">
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--vod-header">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#c3d0d8</h5>
+//         <p>text-color(vod-header)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--vod-sub-header">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#81969f</h5>
+//         <p>text-color(vod-sub-header)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--vod-body">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#ced4d9</h5>
+//         <p>text-color(vod-body)</p>
+//       </div>
+//     </div>
+//   </section>
+//   <section class="styleguide-swatch">
+//     <div class="styleguide-swatch__item">
+//       <div class="styleguide-swatch__color styleguide-swatch__color--vod-meta">
+//       </div>
+//       <div class="styleguide-swatch__name">
+//         <h5>#828c93</h5>
+//         <p>text-color(vod-meta)</p>
+//       </div>
+//     </div>
+//   </section>
+// </div>
+//
+// Weight: 1
+//
+// Styleguide Utilities.ColorsTypography

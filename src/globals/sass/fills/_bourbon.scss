@@ -1,0 +1,26 @@
+//============================================================================
+// whiskey doesn't have everything!!!
+//============================================================================
+
+
+@mixin ellipsis($use: true) {
+    @if($use) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+    }
+    @else {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: visible;
+        -o-text-overflow: visible;
+    }
+}
+
+@mixin textarea_limit($height, $multiplier_limit: 3, $resize: vertical) {
+    height: $height;
+    min-height: $height;
+    max-height: $height * $multiplier_limit;
+    resize: $resize;
+}
