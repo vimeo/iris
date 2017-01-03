@@ -1,18 +1,18 @@
 import * as React from 'react';
-import {{pascalCase name}} from './{{pascalCase name}}'
+import Sample from './Sample'
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
-export default function {{pascalCase name}}Docs() {
+export default function SampleDocs() {
 
 	return (
 		<div>
 			<div data-code>
-				<{{pascalCase name}} />
+				<Sample />
 			</div>
 
 			<ExampleSource>
 				{`
-				<{{pascalCase name}} />
+				<Sample />
 				`}
 			</ExampleSource>
 		</div>

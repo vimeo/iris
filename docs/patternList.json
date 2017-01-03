@@ -2,9 +2,5 @@
 	"Basics": [
 		["Colors", "Color Palette", true],
 		["Type", "Typography", true]
-	],
-	"Simple Components": [
-		["Badge", "Badges"],
-	  ["Button", "Buttons"]
 	]
 }
