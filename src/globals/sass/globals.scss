@@ -1,13 +1,8 @@
 // ------  Settings Imports
-@import "settings/_colors";
-@import "settings/_spacing";
-@import "settings/_transitions";
-@import "settings/_typography";
-@import "settings/_radii";
-
+@import 'settings/settings-all';
 //----------------------- Start Imports which actually create CSS.
 //Resets
-@import 'utilities/_resets';
+@import 'utilities/utilities-all';
 
 // Brand
 @import 'brand/brand-all'
