@@ -3,7 +3,8 @@
 $g-font-size: 16;
 $g-font-base: 14;
 
-$rem-base: #{$g-font-size}px;
+// used to calculate rem conversions
+$rem-base: $g-font-size;
 
 $g-base-font-size:    $g-font-size *1px !default;
 $g-base-line-height:  24px !default;
