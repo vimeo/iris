@@ -6,6 +6,6 @@ const config = require('./config');
 gulp.task('sassComponents', function () {
 	// Compile the sass and autoprefix the CSS
 	return gulp.src(config.paths.componentSrc + '**/*.scss')
-	.pipe(sass().on('error', sass.logError))
+	.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 	.pipe(gulp.dest(config.paths.componentSrc));
 });
