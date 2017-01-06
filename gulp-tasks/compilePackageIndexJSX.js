@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const rename = require('gulp-rename');
 const template = require('gulp-template');
-const config = require('./config');
+const config = require('../config');
 
 // Build a list of the components for export from Iris.
 gulp.task('compilePackageIndexJSX', function () {

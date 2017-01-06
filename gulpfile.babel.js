@@ -1,5 +1,5 @@
 // Package Imports ---------------------------------------
-const config = require('./gulp-tasks/config');
+const config = require('./config');
 const gulp = require('gulp');
 var requireDir = require('require-dir');
 const runSequence = require('run-sequence');
@@ -13,7 +13,6 @@ requireDir(config.paths.styleguideSrc + '/gulp-tasks', { recurse: true });
 gulp.task('default', function(cb) {
 
 	runSequence(
-		'cleanIrisDistFile',
 		'cleanStyleguideDistFile',
 		'compileComponentListJSX',
 		'reactDocGenBuild',

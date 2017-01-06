@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
-const config = require('./config');
+const config = require('../config');
 
 // SASS compile individual component CSS files
 gulp.task('sassComponents', function () {
