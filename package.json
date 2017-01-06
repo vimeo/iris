@@ -14,8 +14,6 @@
   "author": "Jory Cunningham (jory@vimeo.com)",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.18.2",
-    "connect-history-api-fallback": "^1.3.0",
     "css-loader": "^0.25.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
@@ -23,10 +21,9 @@
     "gulp-sass": "^2.3.2",
     "gulp-shell": "^0.5.2",
     "gulp-template": "^4.0.0",
-    "gulp-watch": "^4.3.10",
     "plop": "^1.7.1",
     "postcss-loader": "^1.1.1",
-    "react-docgen": "^2.12.1",
+    "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2",
     "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git",
     "webpack": "^1.13.3"
@@ -38,12 +35,12 @@
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
-		"babel-register": "^6.18.0",
+    "babel-register": "^6.18.0",
     "classnames": "^2.2.5",
     "extract-text-webpack-plugin": "^1.0.1",
     "json-loader": "^0.5.4",
     "react": "^15.4.1",
-		"react-dom": "^15.3.2",
+    "react-dom": "^15.3.2",
     "style-loader": "^0.13.1"
   }
 }
