@@ -8,7 +8,7 @@ gulp.task('jsonToSassColors', function () {
 	// console.log("convert json to sass color variables");
 	return fs.createReadStream( config.paths.globalsSrc + 'settings/colors.json')
 	.pipe(jsonSass({
-	    prefix: '$g-colors: ',
+	    prefix: '$g-color: ',
 	}))
 	.pipe(fs.createWriteStream( config.paths.globalsSrc + 'sass/settings/_colors.scss'));
 });
