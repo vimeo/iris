@@ -1,9 +1,4 @@
 $g-color: (
-  black: #000000,
-  white: #FFFFFF,
-  smoke: rgba(23,35,34,0.75),
-  smoke-light: rgb(0, 80, 112),
-  transparent: rgba(0, 0, 0, 0),
   gray: (
     1: #1a2e3b,
     2: #3a5161,
@@ -61,5 +56,14 @@ $g-color: (
     3: #436284,
     4: #829fbe,
     5: #d0dce9
+  ),
+  chrome: (
+    1: rgba(0, 0, 0, 0),
+    2: #000000,
+    3: #FFFFFF
+  ),
+  smoke: (
+    1: rgba(23,35,34,0.75),
+    2: rgb(0, 80, 112)
   )
 );
