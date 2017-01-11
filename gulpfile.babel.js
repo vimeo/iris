@@ -17,6 +17,7 @@ gulp.task('default', function(cb) {
 		'compileComponentListJSX',
 		'reactDocGenBuild',
 		'reactDocGenParse',
+		'jsonToSassColors',
 		['sassStyleguide', 'sassComponents','sassGlobals'],
 		'copyStaticAssets',
 		'compilePackageIndexJSX',
