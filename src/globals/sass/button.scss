@@ -1,0 +1,797 @@
+//============================================================================
+// NAME STRUCTURE(S)
+//============================================================================
+//     iris_btn          =>  iris buttons
+//============================================================================
+// VARIABLES
+//============================================================================
+$iris_btn-css: true !default;
+$iris_btn-font_base: 16px;
+$iris_btn-icon-fill: 1em;
+$iris_btn-icon-size: 1em;
+$iris_btn-font-size: 16px;
+$iris_btn-font-size--sm: 14px;
+$iris_btn-font-size--lg: 18px;
+$iris_btn-spacing: 0.5625em 0.875em 0.65em 0.875em;
+$iris_btn-sm-span: rem-calc(9) rem-calc($g-spacing-sm) rem-calc(9) rem-calc($g-spacing-sm);
+
+//Types of Buttons (.btn--primary, .btn--secondary, .btn-mod, etc.)
+$btns: (
+primary:   (g-map-deep-get($g-color, blue)),
+secondary: (g-map-deep-get($g-color, gray)),
+positive:  (g-map-deep-get($g-color, green)),
+negative:  (g-map-deep-get($g-color, red)),
+downplay:  (g-map-deep-get($g-color, gray)),
+upload:    (g-map-deep-get($g-color, gray)),
+yellow:    (g-map-deep-get($g-color, yellow)),
+purple:    (g-map-deep-get($g-color, purple))
+) !default;
+
+//============================================================================
+// MIXINS
+//============================================================================
+
+@mixin btn($color-map, $set: true, $outline: true, $base: true) {
+    @if ($base == true) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        @-moz-document url-prefix() {
+          display: inline-block;
+        }
+
+        margin: 0;
+        padding: $iris_btn-spacing; //default size
+
+        font-family: $g-font-family-primary;
+        font-size: $iris_btn-font-size;
+        font-weight: 700;
+        line-height: 1.3;
+
+        border: none;
+        border-radius: rem-calc($g-radius);
+        outline: none;
+
+        cursor: pointer;
+        transition: all #{$iris_transition-base};
+        text-align: center;
+        vertical-align: middle;
+        letter-spacing: 0.01em;
+
+        @if ($set == true) {
+            @include btn_set($color-map);
+        }
+    }
+    @if ($outline == true) {
+        &-outline {
+            background: transparent;
+            @if ($set == true) {
+                @include btn_set($color-map, $outline: true);
+            }@else {
+                border: 1px solid currentColor;
+            }
+        }
+    }
+}
+
+//create a btn set mixin that builds multiple sets of buttons
+@mixin btn_set($color-map, $outline: false, $loading: true) {
+    $disabled-btn: (g-map-deep-get($g-color, gray));
+
+    @each $btn-type, $colors in $color-map {
+        &--#{$btn-type} {
+            @if($btn-type == 'downplay') {
+                $iris_btn-base: map-get($colors, 3);
+                $iris_btn-active: map-get($colors, 2);
+                $iris_btn-outline: map-get($colors, 4);
+                $iris_btn-outline-hover: map-get($colors, 7);
+                $iris_btn-base_disabled: map-get($disabled-btn, 3);
+                $iris_btn-base_loading: map-get($colors, 4);
+            }
+            @else {
+                $iris_btn-base: map-get($colors, 2);
+                $iris_btn-active: map-get($colors, 1);
+                $iris_btn-outline: map-get($colors, 3);
+                $iris_btn-outline-hover: map-get($colors, 5);
+                $iris_btn-base_disabled: map-get($disabled-btn, 2);
+                $iris_btn-base_loading: map-get($colors, 4);
+            }
+
+
+            //filled in buttons
+            @if ($outline == false) {
+                color: $g-white;
+                background-color: $iris_btn-base;
+
+                &:active {
+                    color: $g-white;
+                    box-shadow: 0 0 0 3px $iris_btn-active;
+                }
+
+                &:hover {
+                    color: $g-white;
+                    background-color: $iris_btn-active;
+                }
+
+                &:focus {
+                    color: $g-white;
+                }
+
+                @if ($btn-type != upload) {
+                    &.is--loading {
+                        $iris_btn-base_loading-text: map-get($colors, 1);
+
+                        color: $iris_btn-base_loading-text;
+                        background-color: $iris_btn-base_loading;
+                    }
+                }
+            }
+            @else if($outline == true) {
+                color: $iris_btn-base;
+                //outlined buttons
+                background-color: transparent;
+                box-shadow: inset 0 0 0 1px $iris_btn-outline;
+
+                &:active {
+                    box-shadow: 0 0 0 2px $iris_btn-outline;
+                }
+
+                &:hover {
+                    background-color: $iris_btn-outline-hover;
+                    color: $iris_btn-active;
+                }
+
+                &:disabled {
+                    box-shadow: 0 0 0 1px gray(7);
+                    color: gray(6);
+                    cursor: default;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+@mixin btn-txt_set ($btn-map) {
+    @each $btn_type, $values in $btn-map {
+        $iris_btn-txt_base: map-get($values, 2);
+        $iris_btn-txt_hover: map-get($values, 1);
+
+        &--#{$btn_type} {
+            color: $iris_btn-txt_base;
+
+            &:hover {
+                color: $iris_btn-txt_hover;
+            }
+        }
+    }
+}
+
+@if ($iris_btn-css) {
+//============================================================================
+// OBJECT(s)
+//============================================================================
+.iris_btn {
+    position: relative;
+    appearance: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    //Color Modifiers
+    @include btn($btns);
+
+    &:disabled {
+        color: gray(6);
+        border: none;
+        background-color: gray(7);
+
+        cursor: default;
+
+        &:focus {
+            box-shadow: 0 0 0 3px gray(6);
+        }
+    }
+
+    &--circle {
+        padding: 0;
+
+        border-radius: 50%;
+    }
+}
+
+//============================================================================
+// CHILDREN
+//============================================================================
+@-moz-document url-prefix() {
+  .iris_btn-content {
+     vertical-align: middle;
+  }
+}
+
+//============================================================================
+// SUBCLASSES
+//============================================================================
+
+// ===
+// Arrow buttons (i.e. the left and right arrows in the clip player)
+// ===
+.iris_btn-browse {
+    visibility: visible;
+
+    z-index: z-index(arrowBtns);
+
+    width: 26px;
+    margin: 0 30px;
+
+    font-size: 45px; //set the size for the left and right arrows;
+
+    opacity: 1;
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+    transition: visibility 0.1s ease-in-out, opacity 0.1s ease-in-out;
+
+    svg {
+        width: 0.58em;
+        height: 1em;
+    }
+
+    path {
+        fill: rgba($g-black, 0.2);
+    }
+
+    &:hover,
+    &:active {
+        path {
+            transition: fill #{$iris_transition-base};
+
+            fill: rgba($g-black, 1);
+        }
+    }
+
+    &:disabled {
+        visibility: hidden;
+
+        opacity: 0;
+
+        transition: visibility 0.1s ease-in-out, opacity 0.1s ease-in-out;
+    }
+
+    //hide buttons in outro-mini bar mode
+    .is_mini & {
+        display: none;
+    }
+}
+
+.iris_btn-browse--right {
+    transform: scaleX(-1);
+}
+
+.iris_btn-browse--white {
+    path {
+        fill: rgba($g-white, 0.2);
+    }
+
+    &:hover,
+    &:active {
+        path {
+            transition: fill 0.1s ease-in-out;
+
+            fill: rgba($g-white, 1);
+        }
+    }
+}
+
+// ===
+// Flag button (found on clip page, bottom right of player)
+// ===
+.iris_btn-flag {
+    position: relative;
+    color: rgba(255, 255, 255, 0.4);
+    border: 1px solid hsla(0, 100%, 100%, 0.4);
+    background-color: transparent;
+
+    &:hover,
+    &:active {
+        color: hsla(0, 100%, 100%, 1);
+        border-color: hsla(0, 100%, 100%, 1);
+    }
+}
+
+.iris_btn-flag-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.iris_btn-flag-path {
+    fill: $g-svg-path-fill;
+}
+
+// ===
+// Exit fullscreen button (found on clip page, bottom right of player in fullscreen)
+// ===
+
+.iris_btn-exit-fullscreen {
+    color: $g-white;
+    border: 0;
+    background-color: transparent;
+}
+
+.iris_btn-exit-fullscreen-icon {
+    fill: $g-white;
+}
+
+// ===
+// Buttons that contain multiple actions i.e. the follow and like buttons
+// ===
+.iris_btn-switch {
+    color: blue(2);
+    background: transparent;
+    box-shadow: inset 0 0 0 1px blue(3);
+
+    &:hover {
+        color: blue(1);
+        background-color: blue(5);
+        box-shadow: inset 0 0 0 1px blue(2);
+    }
+
+    &:disabled,
+    &:hover:disabled {
+        color: gray(6);
+        background: transparent;
+        box-shadow: inset 0 0 0 1px gray(6);
+
+        cursor: default;
+    }
+
+    &:active {
+        box-shadow: 0 0 0 2px blue(3);
+    }
+
+    // Subclasses (.iris_btn-switch--on .iris_btn-switch--destroy)
+    &--on {
+        color: green(2);
+        box-shadow: inset 0 0 0 1px green(3);
+
+        &:hover {
+            color: gray(2);
+            background-color: gray(7);
+            box-shadow: inset 0 0 0 1px gray(6);
+        }
+
+        &:active {
+            color: gray(3);
+            box-shadow: 0 0 0 2px gray(7);
+        }
+    }
+
+    &--destroy {
+        color: red(2);
+        box-shadow: inset 0 0 0 1px red(3);
+
+        &:hover {
+            color: red(1);
+            background-color: red(5);
+            box-shadow: inset 0 0 0 1px red(2);
+        }
+
+        &:active {
+            box-shadow: 0 0 0 2px red(3);
+        }
+    }
+
+    &--disabled {
+        &:disabled {
+            opacity: 0.7;
+            color: rgb(0, 80, 112);
+            background-color: blue(2);
+            box-shadow: none;
+        }
+    }
+
+    &--successful {
+        &:hover {
+            color: green(2);
+            background-color: transparent;
+            box-shadow: inset 0 0 0 1px green(3);
+        }
+
+        &:disabled {
+            color: gray(6);
+            background-color: transparent;
+            box-shadow: inset 0 0 0 1px gray(6);
+
+            &:hover {
+                color: gray(6);
+                background-color: transparent;
+                box-shadow: inset 0 0 0 1px gray(6);
+            }
+        }
+    }
+}
+
+// ==
+// Text only buttons (no background or padding)
+// ==
+
+.iris_btn-txt {
+    //Color Modifiers
+    @include btn-txt_set($btns);
+
+    font-size: $iris_btn-font-size;
+    font-weight: inherit;
+
+    border: 0;
+    background-color: transparent;
+}
+
+// ===
+// Utility are secondary utility focused buttons
+// ===
+.iris_btn-utility {
+    $btn-border-color: gray(6);
+
+    padding: $iris_btn-sm-span;
+    line-height: 1;
+    font-size: $iris_btn-font-size--sm;
+
+    color: gray(3);
+    background-color: gray(10);
+    box-shadow: inset 0 0 0 1px $btn-border-color;
+
+    &--transparent {
+        background-color: inherit;
+    }
+
+    &.is-active {
+        color: #FFFFFF;
+        background-color: gray(3);
+        box-shadow: none;
+    }
+
+    &:hover {
+        color: gray(2);
+        background-color: gray(8);
+    }
+
+    &:active {
+        box-shadow: 0 0 0 3px $btn-border-color;
+    }
+
+    &:disabled {
+        color: gray(6);
+        background-color: gray(10);
+        box-shadow: inset 0 0 0 1px gray(7);
+    }
+
+    svg path,
+    svg rect {
+        fill: currentColor;
+    }
+
+    .iris_btn-utility__arrow {
+        & + .iris_btn-content {
+            margin-left: 0;
+        }
+
+        margin-right: 5px;
+        transform: rotate(90deg);
+
+        &.is--arrow-rgt {
+            margin-right: 0;
+            margin-left: 5px;
+            transform: rotate(-90deg);
+        }
+    }
+}
+
+
+.iris_btn-utility--selected {
+    background-color: green(6);
+    color: green(2);
+    box-shadow: inset 0 0 0 1px green(3);
+
+  &:active {
+    background-color: green(6);
+    color: green(2);
+    box-shadow: inset 0 0 0 1px green(3);
+  }
+}
+
+.iris_btn-utility--deselect {
+  background: gray(7);
+  color: gray(2);
+  box-shadow: inset 0 0 0 1px gray(6);
+
+  &:hover,
+  &:active {
+      background: gray(7);
+      color: gray(2);
+      box-shadow: inset 0 0 0 1px gray(6);
+  }
+}
+
+// ===
+// Truncate, the small button that expands and collapses content
+// ===
+.iris_btn-truncate {
+    @extend .iris_btn-utility;
+    max-width: rem-calc(20); // !note: firefox width fix
+    line-height: 0;
+    padding: rem-calc($g-spacing-xsm);
+    border-radius: 50%;
+}
+
+// ===
+// Undertaker aka the red "x" delete button
+// (found in collections modal on the clip page)
+// ===
+.iris_btn-undertaker {
+    width: rem-calc(8);
+    // margin-left: rem-calc($g-spacing-sm);
+    padding: 0;
+
+    font-size: rem-calc(14);
+    font-weight: 700;
+
+    color: red(2);
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    cursor: pointer;
+
+    &:hover {
+        color: red(1);
+    }
+
+    &--lg {
+        width: auto;
+    }
+}
+
+//============================================================================
+// MODIFIERS
+//============================================================================
+
+a.iris_btn--downplay:focus {
+    color: $g-white;
+}
+
+// ==
+// Buttons Sizes (height is based on font-size aka ems)
+// ==
+.iris_btn--xsm {
+    padding: rem-calc(2) rem-calc(6) rem-calc(3); //found on 'People' in search
+
+    font-size: 10px;
+}
+
+.iris_btn--sm {
+    font-size: $iris_btn-font-size--sm;
+    line-height: 1;
+    padding: $iris_btn-sm-span;
+
+    &.iris_btn--circle {
+        width: 26px; //measurements based on design
+        height: 26px; //measurements based on design
+    }
+}
+
+.iris_btn--lg {
+    font-size: $iris_btn-font-size--lg;
+}
+
+.iris_btn--full {
+    width: 100%;
+}
+
+.iris_btn--rsp {
+    @media screen and (max-width: 900px) {
+        .iris_btn-content {
+            display: none;
+        }
+    }
+}
+
+.iris_btn--rsp_lts {
+    @media screen and (max-width: 1000px) {
+        padding-left: 0;
+    }
+}
+
+.iris_btn--rsp_rts {
+    @media screen and (max-width: 1000px) {
+        padding-right: 0;
+    }
+}
+
+// ==
+// Arrow
+// ==
+.iris_btn-content--arrow {
+    @include g-iris-arrow(down, gray(3), $hover: gray(2));
+}
+
+.iris_btn-content--arrow-white {
+    @include g-iris-arrow(down, $g-white, $hover: $g-white);
+}
+
+// ==
+// Dark UI
+// ==
+.iris_btn--smoke {
+    color: blue(2);
+    background-color: $g-smoke;
+    box-shadow: none;
+
+    &:hover {
+        color: rgb(0, 80, 112);
+        background-color: blue(2);
+        box-shadow: none;
+    }
+
+    &:active {
+        box-shadow: none;
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        color: rgb(0, 80, 112);
+        background-color: blue(2);
+        box-shadow: none;
+
+        cursor: default;
+    }
+}
+
+// ==
+// White Btn
+// ==
+.iris_btn-outline--white {
+    color: rgba(255,255,255,.9);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+
+    &:hover {
+        color: $g-white;
+        box-shadow: inset 0 0 0 1px $g-white;
+        background-color: rgba(255,255,255,.2);
+    }
+
+    &:active {
+        box-shadow: inset 0 0 0 3px gray(7);
+        color: gray(7);
+    }
+}
+
+// ==
+// Disabled Btn
+// ==
+.iris_btn--disabled {
+    color: gray(6);
+    background-color: gray(7);
+    cursor: default;
+
+    &:hover {
+        color: gray(6);
+        background-color: gray(7);
+    }
+
+    &:focus {
+        box-shadow: inset 0 0 0 3px gray(6);
+    }
+
+    &.iris_btn-outline {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px gray(7);
+
+        &:hover {
+            background: transparent;
+            box-shadow: inset 0 0 0 1px gray(7);
+        }
+
+        &:focus {
+            box-shadow: inset 0 0 0 3px gray(7);
+        }
+    }
+}
+
+//============================================================================
+// TEMP BUTTON UPDATES UNTIL GLOBAL BUTTON REDESIGN
+//============================================================================
+    .iris_btn--white {
+        background-color: $g-white;
+        color: gray(2);
+
+        &:hover:enabled {
+            color: gray(2);
+            background-color: gray(8);
+        }
+
+        &:active:enabled {
+            box-shadow: none;
+            background-color: #ebebeb; // 8% black over bg
+        }
+    }
+
+    .iris_btn--transparent {
+        color: $g-white;
+        background-color: rgba(255,255,255,.26);
+
+        &:hover {
+            background-color: rgba(255,255,255,.46);
+        }
+
+        &:active {
+            background-color: #f5f5f5; // 4% black over bg
+        }
+
+        .iris_btn-content {
+            color: $g-white;
+        }
+    }
+
+    // New follow button variants
+    .iris_btn-follow {
+        color: $g-white;
+        background-color: blue(2);
+
+        &:hover {
+            background-color: blue(1);
+        }
+
+        &:active {
+            background-color: #006da3; // 20% black over bg
+        }
+
+        &--on {
+            background-color: green(2);
+
+            &:hover {
+                background-color: green(1);
+            }
+
+            &:active {
+                background-color: #669d00; // 20% black over bg
+            }
+        }
+    }
+
+    .iris_btn-follow--outline {
+        color: blue(2);
+        background-color: transparent;
+        box-shadow: inset 0 0 0 1px blue(2);
+
+        &:hover {
+            color: $g-white;
+            background-color: blue(2);
+        }
+
+        &:active {
+            color: $g-white;
+            background-color: #006da3; // 20% black over blue(2)
+        }
+
+        &--on {
+            color: green(2);
+            box-shadow: inset 0 0 0 1px green(2);
+
+            &:hover {
+                color: $g-white;
+                background-color: green(2);
+            }
+
+            &:active {
+                color: $g-white;
+                background-color: #669d00; // 20% black over green(2)
+            }
+        }
+    }
+}

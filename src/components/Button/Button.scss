@@ -1,0 +1,18 @@
+/* @description Generates styles for the Button component */
+.Button {
+  position: relative;
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: .5625em .875em .65em;
+  font-size: 16px;
+  line-height: 1.3;
+  border: none;
+  border-radius: .3125rem;
+  outline: 0;
+  transition: all .1s ease-in-out;
+  vertical-align: middle;
+  letter-spacing: .01em;
+}
