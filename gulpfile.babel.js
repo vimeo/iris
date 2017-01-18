@@ -1,8 +1,12 @@
 // Package Imports ---------------------------------------
 const config = require('./config');
 const gulp = require('gulp');
-var requireDir = require('require-dir');
+const requireDir = require('require-dir');
 const runSequence = require('run-sequence');
+
+// incuded here to make browserSync instance available to all functions
+const browserSync = require('browser-sync').create();
+const reload = browserSync.reload;
 
 
 // Pulling in all tasks from the tasks folders in Iris and Steadicam

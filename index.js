@@ -14,6 +14,8 @@
 exports.paths = {
   'iris/GlobalCSS':'iris/src/globals/css/globals.css',
   
+  'iris/Button':'iris/src/components/Button/Button',
+  
   'iris/Sample':'iris/src/components/Sample/Sample',
   
 };
