@@ -12,5 +12,5 @@ gulp.task('compileColorVariables', function () {
 	return gulp.src('./templates/_color-sass-vars.template')
 	.pipe(template(colorData))
 	.pipe(rename('_colors.scss'))
-	.pipe(gulp.dest('../src/globals/sass/settings/'));
+	.pipe(gulp.dest(config.paths.globalsSrc +'/sass/settings/'));
 });
