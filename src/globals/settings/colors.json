@@ -1,70 +1,70 @@
 {
 
 	"gray" : {
-		"1": "#1a2e3b",
-		"2": "#3a5161",
-		"3": "#657987",
-		"4": "#879cab",
-		"5": "#A2AFB8",
-		"6": "#D0D8DB",
-		"7": "#E3E8E9",
-		"8": "#EEF1F2",
-		"9": "#F2F4F5",
-		"10": "#F6F7F8"
+		"gray1": "#1a2e3b",
+		"gray2": "#3a5161",
+		"gray3": "#657987",
+		"gray4": "#879cab",
+		"gray5": "#A2AFB8",
+		"gray6": "#D0D8DB",
+		"gray7": "#E3E8E9",
+		"gray8": "#EEF1F2",
+		"gray9": "#F2F4F5",
+		"gray10": "#F6F7F8"
 	},
 	"blue" : {
-		"1": "#0088cc",
-		"2": "#00adef",
-		"3": "#73d2f6",
-		"4": "#a6e2f9",
-		"5": "#cceffc",
-		"6": "#e5f7fd"
+		"blue1": "#0088cc",
+		"blue2": "#00adef",
+		"blue3": "#73d2f6",
+		"blue4": "#a6e2f9",
+		"blue5": "#cceffc",
+		"blue6": "#e5f7fd"
 	},
 	"green" : {
-		"1": "#5a9e02",
-		"2": "#7fc400",
-		"3": "#b9df73",
-		"4": "#d2eaa6",
-		"5": "#e5f3cc",
-		"6": "#f2f9e5"
+		"green1": "#5a9e02",
+		"green2": "#7fc400",
+		"green3": "#b9df73",
+		"green4": "#d2eaa6",
+		"green5": "#e5f3cc",
+		"green6": "#f2f9e5"
 	},
 	"red" : {
-		"1": "#d93636",
-		"2": "#ff4d4d",
-		"3": "#ff9d9d",
-		"4": "#ffc1c1",
-		"5": "#ffdbdb",
-		"6": "#ffeded"
+		"red1": "#d93636",
+		"red2": "#ff4d4d",
+		"red3": "#ff9d9d",
+		"red4": "#ffc1c1",
+		"red5": "#ffdbdb",
+		"red6": "#ffeded"
 	},
 	"yellow" : {
-		"1": "#FF8A00",
-		"2": "#FFB21E",
-		"3": "#FFD583",
-		"4": "#FFE4B0",
-		"5": "#FFF0D2",
-		"6": "#FFF7E8"
+		"yellow1": "#FF8A00",
+		"yellow2": "#FFB21E",
+		"yellow3": "#FFD583",
+		"yellow4": "#FFE4B0",
+		"yellow5": "#FFF0D2",
+		"yellow6": "#FFF7E8"
 	},
 	"purple" : {
-		"1": "#503873",
-		"2": "#675089",
-		"3": "#ac9fbe",
-		"4": "#cac2d6",
-		"5": "#f0edf3"
+		"purple1": "#503873",
+		"purple2": "#675089",
+		"purple3": "#ac9fbe",
+		"purple4": "#cac2d6",
+		"purple5": "#f0edf3"
 	},
 	"steel" : {
-		"1": "#12263c",
-		"2": "#1d3856",
-		"3": "#436284",
-		"4": "#829fbe",
-		"5": "#d0dce9"
+		"steel1": "#12263c",
+		"steel2": "#1d3856",
+		"steel3": "#436284",
+		"steel4": "#829fbe",
+		"steel5": "#d0dce9"
 	},
 	"chrome" : {
-		"1": "rgba(0, 0, 0, 0)",
-		"2": "#000000",
-		"3": "#FFFFFF"
+		"transparent": "rgba(0, 0, 0, 0)",
+		"black": "#000000",
+		"white": "#FFFFFF"
 	},
 	"smoke" : {
-		"1": "rgba(23,35,34,0.75)",
-		"2": "rgb(0, 80, 112)"
+		"smoke1": "rgba(23,35,34,0.75)",
+		"smoke2": "rgb(0, 80, 112)"
 	}
 }

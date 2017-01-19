@@ -10,21 +10,21 @@ const BUTTON_SIZES = [
 
 const BUTTON_TYPES = [
   'primary',
+  'primaryOutline',
   'secondary',
+  'secondaryOutline',
   'positive',
+  'positiveOutline',
   'negative',
+  'negativeOutline'
 ];
 
-const PROP_TYPES =  {
-  disabled: React.PropTypes.bool,
-  filled: React.PropTypes.bool,
+const propTypes =  {
   size: React.PropTypes.oneOf(BUTTON_SIZES),
   type: React.PropTypes.oneOf(BUTTON_TYPES),
 };
 
-const DEFAULT_PROPS = {
-  disabled: false,
-  filled: true,
+const defaultProps = {
   size: 'large',
   type: 'primary'
 };
@@ -32,20 +32,23 @@ const DEFAULT_PROPS = {
 class Button extends React.Component {
 
   render () {
+    let attributes = {};
+    if (this.props.disabled) {
+      attributes['disabled'] = 'disabled';
+    }
+
     // classname generation
     let componentClass = classNames(
       styles.Button,
       styles[this.props.type],
-      (styles[this.props.size] ? styles[this.props.size]: null),
+      styles[this.props.size],
       this.props.className
     );
-
-    let props = this.props;
 
     return (
       <button
         className={componentClass}
-        disabled={props.isDisabled ? "disabled" : false}
+        {...attributes}
       >
         {this.props.children}
       </button>
@@ -56,8 +59,8 @@ class Button extends React.Component {
 
 Button.displayName = "Button";
 
-Button.propTypes = PROP_TYPES;
+Button.propTypes = propTypes;
 
-Button.defaultProps = DEFAULT_PROPS;
+Button.defaultProps = defaultProps;
 
 export default Button;

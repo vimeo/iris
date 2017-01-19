@@ -5,10 +5,8 @@ const config = require('../config');
 
 // Build a list of the components for export from Iris.
 gulp.task('compileColorVariables', function () {
-
 	let colorData = require('../src/globals/settings/colors.json');
 	colorData = {"colors": [colorData]};
-  console.log(colorData)
 	return gulp.src('./templates/_color-sass-vars.template')
 	.pipe(template(colorData))
 	.pipe(rename('_colors.scss'))

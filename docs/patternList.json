@@ -1,7 +1,6 @@
 {
 	"Basics": [
-		["Colors", "Color Palette", true],
-		["Type", "Typography", true]
+		["Colors", "Color Palette", true]
 	],
   "Components": [
 		["Button", "Buttons"]

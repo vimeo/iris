@@ -1,13 +1,10 @@
-
-
 $g-font-size: 16;
 $g-font-base: 14;
 
-// used to calculate rem conversions
-$rem-base: $g-font-size;
-
 $g-base-font-size:    $g-font-size *1px !default;
 $g-base-line-height:  24px !default;
+
+$rem-base: $g-font-size; // used by rem calc function
 
 $g-header-1: 36;
 $g-header-2: 24;
@@ -20,25 +17,8 @@ $g-header-7: 15;
 
 $g-header-spacing: 0.5rem;
 
+
 $g-font-family-primary: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 $g-line: 1.2;
 $g-modal-header: 20;
-
-
-//Font colors
-$g-primary-color: text-color(body);
-$g-secondary-color: gray(6); // '1'
-
-//Header colors
-$g-primary-header-color: text-color(header);
-$g-secondary-header-color: text-color(subheader);
-
-//Link colors
-$g-primary-link-color: text-color(link-primary); // Light blue
-$g-primary-link-color-hover: text-color(link-primary-hover);
-$g-default-link-color: text-color(link-secondary); // Dark
-$g-default-link-color-hover: text-color(link-secondary-hover);
-
-//Input colors
-$g-input-color: gray(4);
