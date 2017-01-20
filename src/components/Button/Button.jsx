@@ -1,5 +1,4 @@
 import * as React from 'react';
-import componentConstants from '../componentConstants';
 import classNames from 'classnames';
 import styles from './Button.css';
 
@@ -47,7 +46,6 @@ class Button extends React.Component {
   render () {
     // className builder
     const componentClass = classNames(
-      componentConstants.classPrefix + displayName,
       styles.Button,
       styles[this.props.type],
       styles[this.props.size],
