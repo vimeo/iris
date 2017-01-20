@@ -5,6 +5,7 @@ import styles from './Button.css';
 const displayName = 'Button';
 
 const buttonSizes = [
+  'xSmall',
   'small',
   'medium',
   'large'
@@ -18,7 +19,8 @@ const buttonTypes = [
   'positive',
   'positiveOutline',
   'negative',
-  'negativeOutline'
+  'negativeOutline',
+  'transparentOutline'
 ];
 
 const buttonBreakpoints =  [
@@ -37,7 +39,7 @@ const propTypes =  {
 
 const defaultProps = {
   autoWidth: 'medium',
-  size: 'large',
+  size: 'medium',
   type: 'primary'
 };
 
