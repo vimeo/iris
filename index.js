@@ -16,6 +16,4 @@ exports.paths = {
   
   'iris/Button':'iris/src/components/Button/Button',
   
-  'iris/Sample':'iris/src/components/Sample/Sample',
-  
 };

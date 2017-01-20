@@ -1,14 +1,17 @@
 import * as React from 'react';
+import componentConstants from '../componentConstants';
 import classNames from 'classnames';
 import styles from './Button.css';
 
-const BUTTON_SIZES = [
-  'large',
+const displayName = 'Button';
+
+const buttonSizes = [
+  'small',
   'medium',
-  'small'
+  'large'
 ];
 
-const BUTTON_TYPES = [
+const buttonTypes = [
   'primary',
   'primaryOutline',
   'secondary',
@@ -19,12 +22,22 @@ const BUTTON_TYPES = [
   'negativeOutline'
 ];
 
+const buttonBreakpoints =  [
+  'small',
+  'medium',
+  'large',
+  'xLarge',
+  'fluid'
+];
+
 const propTypes =  {
-  size: React.PropTypes.oneOf(BUTTON_SIZES),
-  type: React.PropTypes.oneOf(BUTTON_TYPES),
+  autoWidth: React.PropTypes.oneOf(buttonBreakpoints),
+  size: React.PropTypes.oneOf(buttonSizes),
+  type: React.PropTypes.oneOf(buttonTypes),
 };
 
 const defaultProps = {
+  autoWidth: 'medium',
   size: 'large',
   type: 'primary'
 };
@@ -32,23 +45,29 @@ const defaultProps = {
 class Button extends React.Component {
 
   render () {
-    let attributes = {};
-    if (this.props.disabled) {
-      attributes['disabled'] = 'disabled';
-    }
-
-    // classname generation
-    let componentClass = classNames(
+    // className builder
+    const componentClass = classNames(
+      componentConstants.classPrefix + displayName,
       styles.Button,
       styles[this.props.type],
       styles[this.props.size],
+      (this.props.autoWidth !== 'fluid' ? styles['autoWidth-'+this.props.autoWidth]: null),
       this.props.className
     );
 
+    // filter out named props from props that get printed into the component
+    const {
+      autoWidth,
+      size,
+      type,
+      className,
+      ...filteredProps
+    } = this.props;
+
     return (
       <button
+        {...filteredProps}
         className={componentClass}
-        {...attributes}
       >
         {this.props.children}
       </button>
@@ -57,7 +76,7 @@ class Button extends React.Component {
 
 };
 
-Button.displayName = "Button";
+Button.displayName = displayName;
 
 Button.propTypes = propTypes;
 

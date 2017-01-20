@@ -58,7 +58,7 @@
 		"steel4": "#829fbe",
 		"steel5": "#d0dce9"
 	},
-	"chrome" : {
+	"Grayscale" : {
 		"transparent": "rgba(0, 0, 0, 0)",
 		"black": "#000000",
 		"white": "#FFFFFF"

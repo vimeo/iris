@@ -1,21 +1,23 @@
 /* @description Generates styles for the Button component */
 @import '../../globals/sass/helpers-all';
 
-$Button_primary-color: $blue2;
-$Button_primary-color--hover: $blue1;
-$Button_primary-color--outline-hover: $blue5;
+$Button_primary-bg-color: $blue2;
+$Button_primary-bg-color--hover: $blue1;
+$Button_primary-bg-color--outline-hover: $blue5;
 
-$Button_secondary-color: $gray2;
-$Button_secondary-color--hover: $gray1;
-$Button_secondary-color--outline-hover: $gray5;
+$Button_secondary-text-color: $gray3;
+$Button_secondary-text-color--outline: $gray6;
+$Button_secondary-bg-color: $gray8;
+$Button_secondary-bg-color--hover: $gray7;
+$Button_secondary-bg-color--outline-hover: $gray5;
 
-$Button_negative-color: $red2;
-$Button_negative-color--hover: $red1;
-$Button_negative-color--outline-hover: $red5;
+$Button_negative-bg-color: $red2;
+$Button_negative-bg-color--hover: $red1;
+$Button_negative-bg-color--outline-hover: $red5;
 
-$Button_positive-color: $green2;
-$Button_positive-color--hover: $green1;
-$Button_positive-color--outline-hover: $green5;
+$Button_positive-bg-color: $green2;
+$Button_positive-bg-color--hover: $green1;
+$Button_positive-bg-color--outline-hover: $green5;
 
 .Button {
   position: relative;
@@ -23,7 +25,8 @@ $Button_positive-color--outline-hover: $green5;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
+  margin: 0 0 rem-calc(8) 0;
+  margin-left: rem-calc(8);
   font-family: $g-font-family-primary;
   font-weight: 700;
   border-width: 1px;
@@ -31,8 +34,53 @@ $Button_positive-color--outline-hover: $green5;
   border-radius: rem-calc($g-radius);
   transition: all #{$iris_transition-base};
   vertical-align: middle;
-  letter-spacing: .01em;
+  letter-spacing: .01rem;
+  width: 100%;
+
+  &:active {
+    outline: 0;
+  }
 }
+
+.autoWidth-small {
+  width: auto;
+
+  &:first-of-type  {
+    margin-left: 0;
+  }
+}
+
+//Todo: replace with shared media queries
+@media screen and (min-width: 40em) {
+  .autoWidth-medium {
+    width: auto;
+
+    &:first-of-type  {
+      margin-left: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 50em) {
+  .autoWidth-large {
+    width: auto;
+
+    &:first-of-type  {
+      margin-left: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 60em) {
+  .autoWidth-xLarge {
+    width: auto;
+
+    &:first-of-type  {
+      margin-left: 0;
+    }
+  }
+}
+
 
 //Sizes
 
@@ -53,121 +101,100 @@ $Button_positive-color--outline-hover: $green5;
     line-height: 1.3;
 }
 
-//Button Types
+//types
 
-.primary {
+.primary,
+.primaryOutline:hover {
   color: $white;
-  background-color: $Button_primary-color;
-  border-color: $Button_primary-color;
+  background-color: $Button_primary-bg-color;
+  border-color: $Button_primary-bg-color;
+}
 
-  &:hover {
-    background-color: $Button_primary-color--hover;
-    border-color: $Button_primary-color--hover;
-  }
+.primary:hover {
+  background-color: $Button_primary-bg-color--hover;
+  border-color: $Button_primary-bg-color--hover;
+}
 
-  &:active {
-    background-color: darken($Button_primary-color--hover, 10%);
-  }
+.primary:active,
+.primaryOutline:active {
+  background-color: darken($Button_primary-bg-color--hover, 10%);
 }
 
 .primaryOutline {
   background-color: transparent;
-  border-color: $Button_primary-color;
-  color: $Button_primary-color;
-
-  &:hover {
-    background-color: $Button_primary-color--outline-hover;
-  }
-
-  &:active {
-    background-color: darken($Button_primary-color--outline-hover, 10%);
-  }
+  border-color: $Button_primary-bg-color;
+  color: $Button_primary-bg-color;
 }
 
-.secondary {
-  color: $white;
-  background-color: $Button_secondary-color;
-  border-color: $Button_secondary-color;
+.secondary,
+.secondaryOutline:hover {
+  color: $Button_secondary-text-color;
+  background-color: $Button_secondary-bg-color;
+  border-color: $Button_secondary-bg-color;
+}
 
-  &:hover {
-    background-color: $Button_secondary-color--hover;
-    border-color: $Button_secondary-color--hover;
-  }
+.secondary:hover {
+  background-color: $Button_secondary-bg-color--hover;
+  border-color: $Button_secondary-bg-color--hover;
+}
 
-  &:active {
-    background-color: darken($Button_secondary-color--hover, 10%);
-  }
+.secondary:active,
+.secondaryOutline:active {
+    background-color: darken($Button_secondary-bg-color--hover, 6%);
 }
 
 .secondaryOutline {
   background-color: transparent;
-  border-color: $Button_secondary-color;
-  color: $Button_secondary-color;
-
-  &:hover {
-    background-color: $Button_secondary-color--outline-hover;
-  }
-
-  &:active {
-    background-color: darken($Button_secondary-color--outline-hover, 10%);
-  }
+  border-color: $Button_secondary-text-color--outline;
+  color: $Button_secondary-text-color;
 }
 
-.negative {
+.negative,
+.negativeOutline:hover {
   color: $white;
-  background-color: $Button_negative-color;
-  border-color: $Button_negative-color;
-
-  &:hover {
-    background-color: $Button_negative-color--hover;
-    border-color: $Button_negative-color--hover;
-  }
-
-  &:active {
-    background-color: darken($Button_negative-color--hover, 10%);
-  }
+  background-color: $Button_negative-bg-color;
+  border-color: $Button_negative-bg-color;
 }
+
+.negative:hover {
+  background-color: $Button_negative-bg-color--hover;
+  border-color: $Button_negative-bg-color--hover;
+}
+
+.negative:active,
+.negativeOutline:active {
+  background-color: darken($Button_negative-bg-color--hover, 10%);
+}
+
 
 .negativeOutline {
   background-color: transparent;
-  border-color: $Button_negative-color;
-  color: $Button_negative-color;
-
-  &:hover {
-    background-color: $Button_negative-color--outline-hover;
-  }
-  &:active {
-    background-color: darken($Button_negative-color--outline-hover, 10%);
-  }
+  border-color: $Button_negative-bg-color;
+  color: $Button_negative-bg-color;
 }
 
-.positive {
+.positive,
+.positiveOutline:hover {
   color: $white;
-  background-color: $Button_positive-color;
-  border-color: $Button_positive-color;
-
-  &:hover {
-    background-color: $Button_positive-color--hover;
-    border-color: $Button_positive-color--hover;
-  }
-
-  &:active {
-    background-color: darken($Button_positive-color--hover, 10%);
-  }
+  background-color: $Button_positive-bg-color;
+  border-color: $Button_positive-bg-color;
 }
+
+.positive:hover {
+  background-color: $Button_positive-bg-color--hover;
+  border-color: $Button_positive-bg-color--hover;
+}
+
+.positive:active,
+.positiveOutline:active {
+  background-color: darken($Button_positive-bg-color--hover, 10%);
+}
+
 
 .positiveOutline {
   background-color: transparent;
-  border-color: $Button_positive-color;
-  color: $Button_positive-color;
-
-  &:hover {
-    background-color: $Button_positive-color--outline-hover;
-  }
-
-  &:active {
-    background-color: darken($Button_positive-color--outline-hover, 10%);
-  }
+  border-color: $Button_positive-bg-color;
+  color: $Button_positive-bg-color;
 }
 
 // All Disable Buttons are the same and override any other applied styles
