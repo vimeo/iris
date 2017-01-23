@@ -38,13 +38,13 @@ $Button_positive-bg-color--outline-hover: $green5;
   justify-content: center;
   margin: 0 0 rem-calc(8) 0;
   font-family: $g-font-family-primary;
-  font-weight: 700;
+  font-weight: 500;
   border-width: 1px;
   border-style: solid;
   border-radius: rem-calc($g-radius);
   transition: all #{$iris_transition-base};
   vertical-align: middle;
-  letter-spacing: .01rem;
+  letter-spacing: .02rem;
   width: 100%;
 
   &:hover {
@@ -211,7 +211,7 @@ $Button_positive-bg-color--outline-hover: $green5;
   color: $Button_positive-bg-color;
 }
 
-.transparentOutline{
+.transparent {
   background-color: rgba(255,255,255,.2);
   border-color: transparent;
   color: $white;

@@ -20,7 +20,7 @@ const buttonTypes = [
   'positiveOutline',
   'negative',
   'negativeOutline',
-  'transparentOutline'
+  'transparent'
 ];
 
 const buttonBreakpoints =  [
