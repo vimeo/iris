@@ -1,6 +1,6 @@
 
 //============================================================================
-// GLOBAL COLORS CASES
+// GLOBAL COLORS CASES -- DO NOT USE THESE ARE FOR LEGACY SUPPORT
 //============================================================================
 
 $g-border-unfocused: $gray6;
@@ -14,9 +14,11 @@ $g-svg-path-fill: currentColor;
 $g-selection-color: $blue4;
 $g-quote-bg: $gray10;
 
-$g-white: $white;
-$g-black: $black;
-$g-transparent: $transparent;
+$g-black: #000000;
+$g-white: #FFFFFF;
+$g-smoke: rgba(23,35,34,0.75);
+$g-smoke-light: rgb(0, 80, 112);
+$g-transparent: rgba(0, 0, 0, 0);
 
 
 //============================================================================
