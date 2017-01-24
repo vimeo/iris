@@ -12,6 +12,7 @@ const propTypes =  {
 
 const defaultProps = {
 
+};
 
 class {{pascalCase name}} extends React.Component {
 
@@ -29,12 +30,12 @@ class {{pascalCase name}} extends React.Component {
     } = this.props;
 
     return (
-      <{{pascalCase name}}
+      <div
         {...filteredProps}
         className={componentClass}
       >
         {this.props.children}
-      </{{pascalCase name}}>
+      </div>
     );
   }
 

@@ -33,12 +33,14 @@ const buttonBreakpoints =  [
 
 const propTypes =  {
   autoWidth: React.PropTypes.oneOf(buttonBreakpoints),
+  buttonElement: React.PropTypes.bool,
   size: React.PropTypes.oneOf(buttonSizes),
   type: React.PropTypes.oneOf(buttonTypes),
 };
 
 const defaultProps = {
   autoWidth: 'medium',
+  buttonElement: true,
   size: 'medium',
   type: 'primary'
 };
@@ -58,20 +60,32 @@ class Button extends React.Component {
     // filter out presentational props from this.props and store the rest as "filteredProps" to be printed into the component as properties (e.g. HTML attribute pass-through, event handlers)
     const {
       autoWidth,
+      buttonElement,
       size,
       type,
       className,
       ...filteredProps
     } = this.props;
 
-    return (
-      <button
-        {...filteredProps}
-        className={componentClass}
-      >
-        {this.props.children}
-      </button>
-    );
+    if (this.props.buttonElement){
+        return (
+          <button
+            {...filteredProps}
+            className={componentClass}
+          >
+            {this.props.children}
+          </button>
+        )
+      } else {
+        return (
+          <span
+            {...filteredProps}
+            className={componentClass}
+          >
+            {this.props.children}
+          </span>
+        )
+      }
   }
 
 };

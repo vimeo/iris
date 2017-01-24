@@ -66,6 +66,19 @@ class ButtonDocs extends React.Component {
               `}
             </ExampleSource>
 
+            <h3>Button as Links</h3>
+            <p>When buttons should actually be links that look like buttons and not button elements, we set the `buttonElement` prop to "false". This will render the button as a span tag which can be nested in an anchor tag or React Router {`<Link>`} tag</p>
+            <div data-code>
+              <a href="#"><Button buttonElement={false}>Primary Outline</Button></a>
+              <a href="#"><Button buttonElement={false} type="secondaryOutline">Secondary Outline</Button></a>
+            </div>
+
+            <ExampleSource>
+              {`
+                <a href="#"><Button buttonElement={false}>Primary Outline</Button></a>
+                <a href="#"><Button buttonElement={false} type="secondaryOutline">Secondary Outline</Button></a>
+              `}
+              </ExampleSource>
 
             <h3>Button Sizes</h3>
             <p>Buttons come in four sizes. <strong>Medium</strong> is the default.</p>
