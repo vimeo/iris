@@ -55,7 +55,7 @@ class Button extends React.Component {
       this.props.className
     );
 
-    // filter out named props from props that get printed into the component
+    // filter out presentational props from this.props and store the rest as "filteredProps" to be printed into the component as properties (e.g. HTML attribute pass-through, event handlers)
     const {
       autoWidth,
       size,
