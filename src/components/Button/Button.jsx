@@ -31,9 +31,16 @@ const buttonBreakpoints =  [
   'fluid'
 ];
 
+const iconLocations =  [
+  'beforeLabel',
+  'afterLabel'
+];
+
 const propTypes =  {
   autoWidth: React.PropTypes.oneOf(buttonBreakpoints),
   buttonElement: React.PropTypes.bool,
+  icon: React.PropTypes.any,
+  iconLocation: React.PropTypes.oneOf(iconLocations),
   size: React.PropTypes.oneOf(buttonSizes),
   type: React.PropTypes.oneOf(buttonTypes),
 };
@@ -41,6 +48,8 @@ const propTypes =  {
 const defaultProps = {
   autoWidth: 'medium',
   buttonElement: true,
+  icon: null,
+  iconLocation: 'beforeLabel',
   size: 'medium',
   type: 'primary'
 };
@@ -48,6 +57,8 @@ const defaultProps = {
 class Button extends React.Component {
 
   render () {
+
+
     // className builder
     const componentClass = classNames(
       styles.Button,
@@ -61,11 +72,16 @@ class Button extends React.Component {
     const {
       autoWidth,
       buttonElement,
+      icon,
+      iconLocation,
       size,
       type,
       className,
       ...filteredProps
     } = this.props;
+
+    let hasIconBefore = this.props.icon && this.props.iconLocation === iconLocations[0];
+    let hasIconAfter = this.props.icon && this.props.iconLocation === iconLocations[1];
 
     if (this.props.buttonElement){
         return (
@@ -73,7 +89,9 @@ class Button extends React.Component {
             {...filteredProps}
             className={componentClass}
           >
+            {hasIconBefore ? <span className = {styles.icon + ' ' + styles.iconBefore}>{this.props.icon}</span> : null}
             {this.props.children}
+            {hasIconAfter ? <span className = {styles.icon + ' ' + styles.iconAfter}>{this.props.icon}</span> : null}
           </button>
         )
       } else {
@@ -82,7 +100,9 @@ class Button extends React.Component {
             {...filteredProps}
             className={componentClass}
           >
+
             {this.props.children}
+
           </span>
         )
       }

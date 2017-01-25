@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Button from './Button'
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import TestIcon from '../TestIcon'
 
 class ButtonDocs extends React.Component {
   clickExample(){
@@ -13,8 +14,8 @@ class ButtonDocs extends React.Component {
         <h3>Regular Buttons</h3>
         <p>These are the core set of button for Iris. <strong>Primary</strong> is the default.</p>
         <div data-code>
-          <Button id="foo" className="someArbitraryClass" onClick={this.clickExample}>Primary</Button>
-          <Button type="secondary">Secondary</Button>
+          <Button id="foo" className="someArbitraryClass" onClick={this.clickExample} icon={<TestIcon /> }>Primary</Button>
+          <Button type="secondary"  icon={<TestIcon />} iconLocation="afterLabel">Secondary</Button>
           <Button type="positive">Positive</Button>
           <Button type="negative">Negative</Button>
         </div>

@@ -225,6 +225,25 @@ $Button_positive-bg-color--outline-hover: $green5;
   }
 }
 
+.icon{
+  position: relative;
+  svg {
+    width: 1rem;
+    height: auto;
+  }
+  path {
+    fill: currentColor;
+  }
+
+}
+
+.iconBefore{
+  margin-right: .5rem;
+}
+
+.iconAfter{
+  margin-left: .5rem;
+}
 
 // All Disable Buttons are the same and override any other applied styles
 .Button:disabled{
