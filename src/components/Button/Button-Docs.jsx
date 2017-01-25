@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Button from './Button'
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import TestIcon from '../TestIcon'
+import TestIcon from '../TestIcon/TestIcon'
 
 class ButtonDocs extends React.Component {
   clickExample(){
@@ -14,8 +14,8 @@ class ButtonDocs extends React.Component {
         <h3>Regular Buttons</h3>
         <p>These are the core set of button for Iris. <strong>Primary</strong> is the default.</p>
         <div data-code>
-          <Button id="foo" className="someArbitraryClass" onClick={this.clickExample} icon={<TestIcon /> }>Primary</Button>
-          <Button type="secondary"  icon={<TestIcon />} iconLocation="afterLabel">Secondary</Button>
+          <Button id="foo" className="someArbitraryClass" onClick={this.clickExample}>Primary</Button>
+          <Button type="secondary">Secondary</Button>
           <Button type="positive">Positive</Button>
           <Button type="negative">Negative</Button>
         </div>
@@ -66,6 +66,20 @@ class ButtonDocs extends React.Component {
               <Button type="transparent" size="xSmall">Transparent</Button>
               `}
             </ExampleSource>
+
+            <h3>Buttons with Icons</h3>
+            <p>Buttons can include SVG icons</p>
+            <div data-code>
+              <Button icon={<TestIcon /> }>Primary</Button>
+              <Button type="positiveOutline"  icon={<TestIcon />} iconLocation="afterLabel">Positive Outline</Button>
+            </div>
+
+            <ExampleSource>
+              {`
+                <Button icon={<TestIcon /> }>Primary</Button>
+                <Button type="positiveOutline"  icon={<TestIcon />} iconLocation="afterLabel">Positive Outline</Button>
+                `}
+              </ExampleSource>
 
             <h3>Button as Links</h3>
             <p>When buttons should actually be links that look like buttons and not button elements, we set the `buttonElement` prop to "false". This will render the button as a span tag which can be nested in an anchor tag or React Router {`<Link>`} tag</p>

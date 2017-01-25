@@ -39,7 +39,7 @@ const iconLocations =  [
 const propTypes =  {
   autoWidth: React.PropTypes.oneOf(buttonBreakpoints),
   buttonElement: React.PropTypes.bool,
-  icon: React.PropTypes.any,
+  icon: React.PropTypes.element,
   iconLocation: React.PropTypes.oneOf(iconLocations),
   size: React.PropTypes.oneOf(buttonSizes),
   type: React.PropTypes.oneOf(buttonTypes),
@@ -64,8 +64,15 @@ class Button extends React.Component {
       styles.Button,
       styles[this.props.type],
       styles[this.props.size],
-      (this.props.autoWidth !== 'fluid' ? styles['autoWidth-'+this.props.autoWidth]: null),
+      (this.props.autoWidth !== 'fluid' ? styles['autoWidth_'+this.props.autoWidth]: null),
       this.props.className
+    );
+
+    // iconClass
+    const iconClass = classNames(
+      styles.Icon,
+      styles['Icon_' + this.props.iconLocation],
+      styles['Icon_' + this.props.size]
     );
 
     // filter out presentational props from this.props and store the rest as "filteredProps" to be printed into the component as properties (e.g. HTML attribute pass-through, event handlers)
@@ -89,9 +96,9 @@ class Button extends React.Component {
             {...filteredProps}
             className={componentClass}
           >
-            {hasIconBefore ? <span className = {styles.icon + ' ' + styles.iconBefore}>{this.props.icon}</span> : null}
+            {hasIconBefore ? <span className = {iconClass}>{this.props.icon}</span> : null}
             {this.props.children}
-            {hasIconAfter ? <span className = {styles.icon + ' ' + styles.iconAfter}>{this.props.icon}</span> : null}
+            {hasIconAfter ? <span className = {iconClass}>{this.props.icon}</span> : null}
           </button>
         )
       } else {

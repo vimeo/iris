@@ -3,23 +3,27 @@
 
 
 $Button_primary-bg-color: $blue2;
-$Button_primary-bg-color--hover: $blue1;
-$Button_primary-bg-color--outline-hover: $blue5;
+$Button_primary-bg-color_hover: $blue1;
+$Button_primary-bg-color_outline-hover: $blue5;
 
 $Button_secondary-text-color: $gray3;
-$Button_secondary-text-color--outline: $gray6;
+$Button_secondary-text-color_outline: $gray6;
 $Button_secondary-bg-color: $gray8;
-$Button_secondary-bg-color--hover: $gray7;
-$Button_secondary-bg-color--outline-hover: $gray5;
+$Button_secondary-bg-color_hover: $gray7;
+$Button_secondary-bg-color_outline-hover: $gray5;
 
 $Button_negative-bg-color: $red2;
-$Button_negative-bg-color--hover: $red1;
-$Button_negative-bg-color--outline-hover: $red5;
+$Button_negative-bg-color_hover: $red1;
+$Button_negative-bg-color_outline-hover: $red5;
 
 $Button_positive-bg-color: $green2;
-$Button_positive-bg-color--hover: $green1;
-$Button_positive-bg-color--outline-hover: $green5;
+$Button_positive-bg-color_hover: $green1;
+$Button_positive-bg-color_outline-hover: $green5;
 
+$Button_icon-size-large: rem-calc(16);
+$Button_icon-size-medium: rem-calc(16);
+$Button_icon-size-small: rem-calc(12);
+$Button_icon-size-xSmall: rem-calc(8);
 
 @function calculateLineHeightTarget($fontSize, $targetLineHeight)  {
   @return $targetLineHeight/$fontSize;
@@ -60,25 +64,25 @@ $Button_positive-bg-color--outline-hover: $green5;
   }
 }
 
-.autoWidth-small {
+.autoWidth_small {
   @include autoWidthSettings();
 }
 
 //Todo: replace with shared media queries
 @media screen and (min-width: 40em) {
-  .autoWidth-medium {
+  .autoWidth_medium {
     @include autoWidthSettings();
   }
 }
 
 @media screen and (min-width: 50em) {
-  .autoWidth-large {
+  .autoWidth_large {
     @include autoWidthSettings();
   }
 }
 
 @media screen and (min-width: 60em) {
-  .autoWidth-xLarge {
+  .autoWidth_xLarge {
     @include autoWidthSettings();
   }
 }
@@ -125,13 +129,13 @@ $Button_positive-bg-color--outline-hover: $green5;
 }
 
 .primary:hover {
-  background-color: $Button_primary-bg-color--hover;
-  border-color: $Button_primary-bg-color--hover;
+  background-color: $Button_primary-bg-color_hover;
+  border-color: $Button_primary-bg-color_hover;
 }
 
 .primary:active,
 .primaryOutline:active {
-  background-color: darken($Button_primary-bg-color--hover, 10%);
+  background-color: darken($Button_primary-bg-color_hover, 10%);
 }
 
 .primaryOutline {
@@ -148,18 +152,18 @@ $Button_positive-bg-color--outline-hover: $green5;
 }
 
 .secondary:hover {
-  background-color: $Button_secondary-bg-color--hover;
-  border-color: $Button_secondary-bg-color--hover;
+  background-color: $Button_secondary-bg-color_hover;
+  border-color: $Button_secondary-bg-color_hover;
 }
 
 .secondary:active,
 .secondaryOutline:active {
-    background-color: darken($Button_secondary-bg-color--hover, 6%);
+    background-color: darken($Button_secondary-bg-color_hover, 6%);
 }
 
 .secondaryOutline {
   background-color: transparent;
-  border-color: $Button_secondary-text-color--outline;
+  border-color: $Button_secondary-text-color_outline;
   color: $Button_secondary-text-color;
 }
 
@@ -171,13 +175,13 @@ $Button_positive-bg-color--outline-hover: $green5;
 }
 
 .negative:hover {
-  background-color: $Button_negative-bg-color--hover;
-  border-color: $Button_negative-bg-color--hover;
+  background-color: $Button_negative-bg-color_hover;
+  border-color: $Button_negative-bg-color_hover;
 }
 
 .negative:active,
 .negativeOutline:active {
-  background-color: darken($Button_negative-bg-color--hover, 10%);
+  background-color: darken($Button_negative-bg-color_hover, 10%);
 }
 
 
@@ -195,13 +199,13 @@ $Button_positive-bg-color--outline-hover: $green5;
 }
 
 .positive:hover {
-  background-color: $Button_positive-bg-color--hover;
-  border-color: $Button_positive-bg-color--hover;
+  background-color: $Button_positive-bg-color_hover;
+  border-color: $Button_positive-bg-color_hover;
 }
 
 .positive:active,
 .positiveOutline:active {
-  background-color: darken($Button_positive-bg-color--hover, 10%);
+  background-color: darken($Button_positive-bg-color_hover, 10%);
 }
 
 
@@ -225,11 +229,15 @@ $Button_positive-bg-color--outline-hover: $green5;
   }
 }
 
-.icon{
+.Icon{
   position: relative;
+  height: 1rem;
+  width: 1rem;
+
   svg {
-    width: 1rem;
-    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   path {
     fill: currentColor;
@@ -237,11 +245,37 @@ $Button_positive-bg-color--outline-hover: $green5;
 
 }
 
-.iconBefore{
+.Icon_xSmall,
+.Icon_xSmall svg
+ {
+  height: $Button_icon-size-xSmall;
+  width: $Button_icon-size-xSmall;
+}
+
+.Icon_small,
+.Icon_small svg {
+  height: $Button_icon-size-small;
+  width: $Button_icon-size-small;
+}
+
+.Icon_medium,
+.Icon_medium svg
+ {
+   height: $Button_icon-size-medium;
+   width: $Button_icon-size-medium;
+}
+
+.Icon_large,
+.Icon_large svg {
+  height: $Button_icon-size-large;
+  width: $Button_icon-size-large;
+}
+
+.Icon_beforeLabel {
   margin-right: .5rem;
 }
 
-.iconAfter{
+.Icon_afterLabel{
   margin-left: .5rem;
 }
 
