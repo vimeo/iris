@@ -18,15 +18,19 @@ var Grid = React.createClass({
 	},
 
 	render () {
+		const {
+			className,
+			children
+		} = this.props;
 
 		//classes
 		let gridClasses = classNames(
 			styles.grid,
-			this.props.className
+			className
 		);
 
 		return (
-			<div class={gridClasses}></div>
+			<div class={gridClasses}>{children}</div>
 		);
 	},
 
