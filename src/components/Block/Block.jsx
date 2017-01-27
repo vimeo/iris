@@ -68,6 +68,7 @@ var Block = React.createClass({
 			);
 		} else {
 			return (
+				{/* Place Rails After Content For A Better Screen Reader Experience */}
 				<aside className={blockClass}>
 					<div className={styles.nested}>
 						{children}
