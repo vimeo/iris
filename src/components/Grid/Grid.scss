@@ -1,0 +1,9 @@
+/* @description Generates styles for the Grid component */
+
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1600px;
+    margin: 0 auto;
+}
