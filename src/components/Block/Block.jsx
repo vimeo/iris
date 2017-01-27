@@ -42,12 +42,13 @@ var Block = React.createClass({
 		} = this.props;
 
 
-		//Class declarations
+		//Keep these class declarations as variables to clean up classNames()
 		const spanStyle = 'span-' + span;
 		const lgSpanStyle = 'lg-span-' + lgSpan;
 		const mdSpanStyle = 'md-span-' + mdSpan;
 		const smSpanStyle = 'sm-span-' + smSpan;
 
+		//Class builder
 		const blockClass = classNames(
 			styles.Block,
 			styles[spanStyle],
