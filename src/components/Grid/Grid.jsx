@@ -8,7 +8,7 @@ var Grid = React.createClass({
 	displayName: 'Grid',
 
 	propTypes: {
-		className: React.propTypes.string
+		className: React.PropTypes.string
 	},
 
 	getDefaultProps () {
@@ -30,7 +30,7 @@ var Grid = React.createClass({
 		);
 
 		return (
-			<div class={gridClasses}>{children}</div>
+			<main className={gridClasses}>{children}</main>
 		);
 	},
 

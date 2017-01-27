@@ -14,6 +14,10 @@
 exports.paths = {
   'iris/GlobalCSS':'iris/src/globals/css/globals.css',
   
+  'iris/Block':'iris/src/components/Block/Block',
+  
+  'iris/Grid':'iris/src/components/Grid/Grid',
+  
   'iris/Sample':'iris/src/components/Sample/Sample',
   
 };
