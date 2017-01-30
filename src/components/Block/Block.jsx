@@ -42,7 +42,7 @@ var Block = React.createClass({
 		} = this.props;
 
 
-		//Keep these class declarations as variables to clean up classNames()
+
 		const spanStyle = 'span-' + span;
 		const lgSpanStyle = 'lg-span-' + lgSpan;
 		const mdSpanStyle = 'md-span-' + mdSpan;
@@ -69,7 +69,6 @@ var Block = React.createClass({
 			);
 		} else {
 			return (
-				{/* Place Rails After Content For A Better Screen Reader Experience */}
 				<aside className={blockClass}>
 					<div className={styles.nested}>
 						{children}
@@ -79,7 +78,7 @@ var Block = React.createClass({
 		}
 	},
 
-	
+
 
 });
 
