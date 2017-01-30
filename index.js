@@ -16,6 +16,8 @@ exports.paths = {
   
   'iris/Block':'iris/src/components/Block/Block',
   
+  'iris/Col':'iris/src/components/Col/Col',
+  
   'iris/Grid':'iris/src/components/Grid/Grid',
   
   'iris/Sample':'iris/src/components/Sample/Sample',
