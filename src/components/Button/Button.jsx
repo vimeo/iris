@@ -58,7 +58,6 @@ class Button extends React.Component {
 
   render () {
 
-
     // className builder
     const componentClass = classNames(
       styles.Button,
@@ -89,6 +88,16 @@ class Button extends React.Component {
 
     let hasIconBefore = this.props.icon && this.props.iconLocation === iconLocations[0];
     let hasIconAfter = this.props.icon && this.props.iconLocation === iconLocations[1];
+    let buttonContent;
+
+    if (hasIconBefore) {
+      buttonContent =  <span><span className = {iconClass}>{this.props.icon}</span>{this.props.children}</span>;
+    } else if (hasIconAfter) {
+      buttonContent =  <span>{this.props.children}<span className = {iconClass}>{this.props.icon}</span></span>;
+    } else {
+      buttonContent =  this.props.children;
+    }
+
 
     if (this.props.buttonElement){
         return (
@@ -96,9 +105,9 @@ class Button extends React.Component {
             {...filteredProps}
             className={componentClass}
           >
-            {hasIconBefore ? <span className = {iconClass}>{this.props.icon}</span> : null}
-            {this.props.children}
-            {hasIconAfter ? <span className = {iconClass}>{this.props.icon}</span> : null}
+
+            {buttonContent}
+
           </button>
         )
       } else {
@@ -108,7 +117,9 @@ class Button extends React.Component {
             className={componentClass}
           >
 
+            {hasIconBefore ? <span className = {iconClass}>{this.props.icon}</span> : null}
             {this.props.children}
+            {hasIconAfter ? <span className = {iconClass}>{this.props.icon}</span> : null}
 
           </span>
         )

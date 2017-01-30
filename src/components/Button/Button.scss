@@ -229,16 +229,14 @@ $Button_icon-size-xSmall: rem-calc(8);
   }
 }
 
+
+// Icon Buttons
+
 .Icon{
-  position: relative;
+
   height: 1rem;
   width: 1rem;
-
-  svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+  position: relative;
   path {
     fill: currentColor;
   }
@@ -256,6 +254,7 @@ $Button_icon-size-xSmall: rem-calc(8);
 .Icon_small svg {
   height: $Button_icon-size-small;
   width: $Button_icon-size-small;
+  top: rem-calc(1);
 }
 
 .Icon_medium,
@@ -263,20 +262,22 @@ $Button_icon-size-xSmall: rem-calc(8);
  {
    height: $Button_icon-size-medium;
    width: $Button_icon-size-medium;
+   top: rem-calc(3);
 }
 
 .Icon_large,
 .Icon_large svg {
   height: $Button_icon-size-large;
   width: $Button_icon-size-large;
+  top: rem-calc(2);
 }
 
 .Icon_beforeLabel {
-  margin-right: .5rem;
+  margin-right: .5em;
 }
 
 .Icon_afterLabel{
-  margin-left: .5rem;
+  margin-left: .5em;
 }
 
 // All Disable Buttons are the same and override any other applied styles

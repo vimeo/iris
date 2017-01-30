@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Button from './Button'
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import TestIcon from '../TestIcon/TestIcon'
+import TestIcon from '../Icons/TestIcon'
 
 class ButtonDocs extends React.Component {
   clickExample(){
@@ -70,14 +70,36 @@ class ButtonDocs extends React.Component {
             <h3>Buttons with Icons</h3>
             <p>Buttons can include SVG icons</p>
             <div data-code>
-              <Button icon={<TestIcon /> }>Primary</Button>
-              <Button type="positiveOutline"  icon={<TestIcon />} iconLocation="afterLabel">Positive Outline</Button>
+              <div>
+                <Button size="large" type="negative" icon={<TestIcon /> }>Negative Large</Button>
+                <Button size="large" type="positive"  icon={<TestIcon />} iconLocation="afterLabel">Positive Large</Button>
+              </div>
+              <div>
+                <Button type="negativeOutline" icon={<TestIcon /> }>Negative Outline</Button>
+                <Button type="positiveOutline"  icon={<TestIcon />} iconLocation="afterLabel">Positive Outline</Button>
+              </div>
+              <div>
+                <Button size="small" type="primary" icon={<TestIcon /> }>Primary Small</Button>
+                <Button size="small" type="secondary"  icon={<TestIcon />} iconLocation="afterLabel">Secondary Small</Button>
+              </div>
+
+              <div>
+                <Button size="xSmall" type="primaryOutline" icon={<TestIcon /> }>Primary xSmall</Button>
+                <Button size="xSmall" type="secondaryOutline"  icon={<TestIcon />} iconLocation="afterLabel">Secondary xSmall</Button>
+              </div>
+
             </div>
 
             <ExampleSource>
               {`
                 <Button icon={<TestIcon /> }>Primary</Button>
                 <Button type="positiveOutline"  icon={<TestIcon />} iconLocation="afterLabel">Positive Outline</Button>
+                <Button type="negativeOutline" icon={<TestIcon /> }>Negative Outline</Button>
+                <Button type="positiveOutline"  icon={<TestIcon />} iconLocation="afterLabel">Positive Outline</Button>
+                <Button size="small" type="primary" icon={<TestIcon /> }>Primary Small</Button>
+                <Button size="small" type="secondary"  icon={<TestIcon />} iconLocation="afterLabel">Secondary Small</Button>
+                <Button size="xSmall" type="primaryOutline" icon={<TestIcon /> }>Primary xSmall</Button>
+                <Button size="xSmall" type="secondaryOutline"  icon={<TestIcon />} iconLocation="afterLabel">Secondary xSmall</Button>
                 `}
               </ExampleSource>
 
