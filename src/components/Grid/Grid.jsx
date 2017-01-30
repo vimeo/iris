@@ -8,24 +8,29 @@ var Grid = React.createClass({
 	displayName: 'Grid',
 
 	propTypes: {
-		className: React.PropTypes.string
+		className: React.PropTypes.string,
+		centered: React.PropTypes.bool
 	},
 
 	getDefaultProps () {
 		return {
-			className: ''
+			className: '',
+			centered: false
 		};
 	},
 
 	render () {
 		const {
 			className,
-			children
+			children,
+			align,
+			centered
 		} = this.props;
 
 		//classes
 		let gridClasses = classNames(
 			styles.grid,
+			(centered ? styles[center] : null),
 			className
 		);
 
