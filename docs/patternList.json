@@ -1,7 +1,9 @@
 {
-	"Basics": [
-		["Colors", "Color Palette", true],
-		["Type", "Typography", true]
+	"Brand": [
+		["Colors", "Color Palette", true]
+	],
+  	"Components": [
+		["Button", "Buttons"]
 	],
 	"Layout": [
 		["Grid", "Grid", true]
