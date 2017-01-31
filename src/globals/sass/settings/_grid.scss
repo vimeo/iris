@@ -1,3 +1,6 @@
-$breakpoint-lg: 1600px;
-$breakpoint-md: 900px;
-$breakpoint-sm: 450px;
+$screen-lg: 1600px;
+$screen-md: 900px;
+$screen-sm: 450px;
+
+$grid-column-width: 24;
+$grid-gutter-width: ($grid-column-width / 2);
