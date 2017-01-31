@@ -27,11 +27,12 @@ class Block extends React.Component {
 		);
 
 		const {
-			children
+			children,
+			filteredProps
 		} = this.props;
 
 		return (
-			<div className={blockClass}>
+			<div className={blockClass} {...filteredProps}>
 				{children}
 			</div>
 		);

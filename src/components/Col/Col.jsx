@@ -25,21 +25,24 @@ class Col extends React.Component {
 
   render () {
     // className builder
-    const componentClass = classNames(
+    const colClass = classNames(
       styles.Col,
       this.props.className
     );
 
     // filter out presentational props from this.props and store the rest as "filteredProps" to be printed into the component as properties (e.g. HTML attribute pass-through, event handlers)
     const {
-      className,
-      ...filteredProps
+        offset,
+        order,
+        className,
+        children,
+        filteredProps
     } = this.props;
 
     return (
       <div
         {...filteredProps}
-        className={componentClass}
+        className={colClass}
       >
         {this.props.children}
       </div>
