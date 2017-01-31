@@ -1,4 +1,54 @@
 /* @description Generates styles for the Col component */
 .Col {
-  
+
+}
+
+// Span Styles
+[class*="span"]:global {
+    background-color: gold; /* temp styles */
+    background-clip: content-box; /* temp styles */
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+@mixin spans($count) {
+    @for $i from 1 through $count {
+        &-#{$i} {
+            flex: 0 1 #{($i/24 * 100%)};
+        }
+    }
+}
+
+.span {
+  @include spans(24);
+}
+
+
+// Span breakpoints
+@media screen and (min-width: 1600px) {
+    .lg-span {
+        @include spans(24);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .md-span {
+        @include spans(24);
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .sm-span {
+        @include spans(24);
+    }
+}
+
+
+// Span Utilities
+.left {
+    order: -1;
+}
+
+.right {
+    order: 1;
 }
