@@ -1,66 +1,34 @@
 /* @description Generates styles for the Block component */
-
+@import '../../globals/sass/helpers-all';
 
 .Block {
-    display: flex;
-    flex-grow: 1;
-}
-
-// Span Styles
-[class*="span"]:global {
-    background-color: gold; /* temp styles */
-    background-clip: content-box; /* temp styles */
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-}
-
-@mixin spans($count) {
-    @for $i from 1 through $count {
-        &-#{$i} {
-            flex: 0 1 #{($i/24 * 100%)};
-        }
-    }
-}
-
-.span {
-  @include spans(24);
-}
-
-
-// Span breakpoints
-@media screen and (min-width: 1600px) {
-    .lg-span {
-        @include spans(24);
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .md-span {
-        @include spans(24);
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .sm-span {
-        @include spans(24);
-    }
-}
-
-
-// Span Utilities
-.left {
-    order: -1;
-}
-
-.right {
-    order: 1;
-}
-
-.nested {
+    /* Fill space of parent and content set to wrap by default  */
     flex-grow: 1;
     flex-wrap: wrap;
+
+    /* Set child columns to flex items */
     display: flex;
+
+    /* Reset column padding by negating it w/ Margins */
     padding: 0;
-    margin-left: -12px;
-    margin-right: -12px;
+    margin-left: rem-calc($grid-gutter-width);
+    margin-right: rem-calc($grid-gutter-width);
+}
+
+
+/* Modifiers */
+.flow-reverse {
+    flex-direction: row-reverse;
+}
+
+.column {
+    flex-direction: column-reverse;
+}
+
+.column-reverse {
+    flex-direction: column-reverse;
+}
+
+.nowrap {
+    flex-wrap: nowrap;
 }

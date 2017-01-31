@@ -7,16 +7,11 @@ const displayName = 'Block';
 
 
 const propTypes =  {
-	span: React.PropTypes.number,
-	lgSpan: React.PropTypes.number,
-	mdSpan: React.PropTypes.number,
-	smSpan: React.PropTypes.number,
-	align: React.PropTypes.string,
-	rail: React.PropTypes.bool
+	direction: React.PropTypes.string,
+	nowrap: React.PropTypes.bool
 };
 
 const defaultProps = {
-	span: 24
 };
 
 
@@ -26,38 +21,21 @@ class Block extends React.Component {
 		//Class builder
 		const blockClass = classNames(
 			styles.Block,
-			styles['span-' + this.props.span],
-			(this.props.lgSpan ? styles['lg-span-' + this.props.lgSpan]: null),
-			(this.props.mdSpan ? styles['md-span-' + this.props.mdSpan]: null),
-			(this.props.smSpan ? styles['sm-span-' + this.props.smSpan]: null),
-			styles[align],
+			(this.props.direction ? styles[this.props.direction] : null),
+			(this.props.nowrap ? styles['nowrap'] : null),
 			this.props.className
 		);
 
 		const {
-			align,
-			rail,
-			className,
 			children
 		} = this.props;
 
-		if(!rail) {
-			return (
-				<div className={blockClass}>
-					<div className={styles.nested}>
-						{children}
-					</div>
-				</div>
-			);
-		} else {
-			return (
-				<aside className={blockClass}>
-					<div className={styles.nested}>
-						{children}
-					</div>
-				</aside>
-			);
-		}
+		return (
+			<div className={blockClass}>
+				{children}
+			</div>
+		);
+
 	}
 }
 
