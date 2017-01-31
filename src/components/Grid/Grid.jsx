@@ -3,44 +3,45 @@ import classNames from 'classnames';
 import styles from './Grid.css';
 
 
-var Grid = React.createClass({
+const displayName = 'Grid';
 
-	displayName: 'Grid',
 
-	propTypes: {
-		className: React.PropTypes.string,
-		centered: React.PropTypes.bool
-	},
+const propTypes =  {
+	className: React.PropTypes.string,
+	centered: React.PropTypes.bool
+};
 
-	getDefaultProps () {
-		return {
-			className: '',
-			centered: false
-		};
-	},
+const defaultProps = {
+	className: '',
+	centered: false
+};
+
+class Grid extends React.Component {
 
 	render () {
-		const {
-			className,
-			children,
-			align,
-			centered
-		} = this.props;
 
 		//classes
 		let gridClasses = classNames(
-			styles.grid,
-			(centered ? styles[center] : null),
-			className
+			styles.Grid,
+			(this.props.centered ? styles[center] : null),
+			this.props.className
 		);
+
+		const {
+			children,
+			filteredProps
+		} = this.props;
 
 		return (
-			<main className={gridClasses}>{children}</main>
+			<main className={gridClasses} {...filteredProps}>{children}</main>
 		);
-	},
+	}
+}
 
+Grid.displayName = displayName;
 
+Grid.propTypes = propTypes;
 
-});
+Grid.defaultProps = defaultProps;
 
 export default Grid;

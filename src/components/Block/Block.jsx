@@ -2,62 +2,44 @@ import * as React from 'react';
 import classNames from 'classnames';
 import styles from './Block.css';
 
-var Block = React.createClass({
 
-	displayName: 'Block',
+const displayName = 'Block';
 
-	propTypes: {
-		span: React.PropTypes.number,
-		lgSpan: React.PropTypes.number,
-		mdSpan: React.PropTypes.number,
-		smSpan: React.PropTypes.number,
-		align: React.PropTypes.string,
-		rail: React.PropTypes.bool,
-		className: React.PropTypes.string,
 
-	},
+const propTypes =  {
+	span: React.PropTypes.number,
+	lgSpan: React.PropTypes.number,
+	mdSpan: React.PropTypes.number,
+	smSpan: React.PropTypes.number,
+	align: React.PropTypes.string,
+	rail: React.PropTypes.bool
+};
 
-	getDefaultProps () {
-		return {
-			span: 24,
-			lgSpan: 0,
-			mdSpan: 0,
-			smSpan: 0,
-			align: '',
-			rail: false,
-			className: ''
-		};
-	},
+const defaultProps = {
+	span: 24
+};
 
-	render () {
+
+class Block extends React.Component {
+	render() {
+
+		//Class builder
+		const blockClass = classNames(
+			styles.Block,
+			styles['span-' + this.props.span],
+			(this.props.lgSpan ? styles['lg-span-' + this.props.lgSpan]: null),
+			(this.props.mdSpan ? styles['md-span-' + this.props.mdSpan]: null),
+			(this.props.smSpan ? styles['sm-span-' + this.props.smSpan]: null),
+			styles[align],
+			this.props.className
+		);
+
 		const {
-			span,
-			lgSpan,
-			mdSpan,
-			smSpan,
 			align,
 			rail,
 			className,
 			children
 		} = this.props;
-
-
-
-		const spanStyle = 'span-' + span;
-		const lgSpanStyle = 'lg-span-' + lgSpan;
-		const mdSpanStyle = 'md-span-' + mdSpan;
-		const smSpanStyle = 'sm-span-' + smSpan;
-
-		//Class builder
-		const blockClass = classNames(
-			styles.Block,
-			styles[spanStyle],
-			(lgSpan !== 0 ? styles[lgSpanStyle]: null),
-			(mdSpan !== 0 ? styles[mdSpanStyle]: null),
-			(smSpan !== 0 ? styles[smSpanStyle]: null),
-			styles[align],
-			this.props.className
-		);
 
 		if(!rail) {
 			return (
@@ -76,10 +58,14 @@ var Block = React.createClass({
 				</aside>
 			);
 		}
-	},
+	}
+}
 
 
+Block.displayName = displayName;
 
-});
+Block.propTypes = propTypes;
+
+Block.defaultProps = defaultProps;
 
 export default Block;

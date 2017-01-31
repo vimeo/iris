@@ -10,7 +10,7 @@ export default function GridDocs() {
 			<p>The Iris Grid is a layout component composed of 24 column set up. The component houses to child components: Blocks and Columns.</p>
 			<div data-code>
 				<Grid>
-					<Block lgSpan={24} mdSpan="4" smSpan="1" align="left" className="golden" rail={true}></Block>
+					<Block lgSpan={24} mdSpan={4} smSpan={1} align="left" className="golden" rail={true}></Block>
 				</Grid>
 			</div>
 		</div>
