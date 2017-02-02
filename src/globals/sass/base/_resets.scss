@@ -8,7 +8,6 @@ form {
 }
 
 html {
-    background: $g-white;
     overflow-y: scroll;
 }
 
@@ -47,12 +46,6 @@ acronym {
     cursor: help;
 }
 
-mark {
-    display: inline;
-
-    color: inherit;
-    background: $g-selection-color; //!flag highlighted text color is not confirmed
-}
 
 time {
     cursor: default;
@@ -84,4 +77,11 @@ ul {
     padding: 0;
 
     list-style-type: none;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
