@@ -48,7 +48,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    autoWidth: 'small',
+    autoWidth: 'sm',
     format: 'primary',
     isButtonElement: true,
     iconLocation: 'beforeLabel',

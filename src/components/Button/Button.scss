@@ -77,25 +77,25 @@ $Button_icon-size-xSmall: rem-calc(10);
     width: 100%;
 }
 
-.autoWidth_xSmall {
+.autoWidth_xs {
   @include autoWidthSettings();
 }
 
 //Todo: replace with shared media queries
 @media screen and (min-width: 38em) {
-  .autoWidth_small{
+  .autoWidth_sm{
     @include autoWidthSettings();
   }
 }
 
 @media screen and (min-width: 50em) {
-  .autoWidth_medium {
+  .autoWidth_md {
     @include autoWidthSettings();
   }
 }
 
 @media screen and (min-width: 60em) {
-  .autoWidth_large {
+  .autoWidth_lg {
     @include autoWidthSettings();
   }
 }
