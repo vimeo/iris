@@ -1,10 +1,7 @@
 /* @description Generates styles for the Col component */
+@import '../../globals/sass/helpers-all';
+
 .Col {
-
-}
-
-// Span Styles
-[class*="span"]:global {
     background-color: gold; /* temp styles */
     background-clip: content-box; /* temp styles */
     padding-left: 0.75rem;
@@ -14,7 +11,15 @@
 @mixin spans($count) {
     @for $i from 1 through $count {
         &-#{$i} {
-            flex: 0 1 #{($i/24 * 100%)};
+            flex: 0 1 #{($i/$grid-column-width * 100%)};
+        }
+    }
+}
+
+@mixin offset($count, $offsetDirection) {
+    @for $i from 1 through $count {
+        &-#{$i} {
+            margin-#{$offsetDirection}: calc( #{($i/$grid-column-width * 100%)} + #{ ($grid-column-width * ($i - 1)) * 1px } );
         }
     }
 }
@@ -23,32 +28,95 @@
   @include spans(24);
 }
 
+.span-half {
+    flex: 0 1 #{(($grid-column-width/2)/$grid-column-width * 100%)};
+}
+
+.span-quarter {
+    flex: 0 1 #{(($grid-column-width/4)/$grid-column-width * 100%)};
+}
+
+.span-third {
+    flex: 0 1 #{(($grid-column-width/3)/$grid-column-width * 100%)};
+}
+
 
 // Span breakpoints
 @media screen and (min-width: 1600px) {
     .lg-span {
         @include spans(24);
     }
+
+    .lg-span-half {
+        flex: 0 1 #{(($grid-column-width/2)/$grid-column-width * 100%)};
+    }
+
+    .lg-span-quarter {
+        flex: 0 1 #{(($grid-column-width/4)/$grid-column-width * 100%)};
+    }
+
+    .lg-span-third {
+        flex: 0 1 #{(($grid-column-width/3)/$grid-column-width * 100%)};
+    }
+
 }
 
 @media screen and (max-width: 900px) {
     .md-span {
         @include spans(24);
     }
+
+    .md-span-half {
+        flex: 0 1 #{(($grid-column-width/2)/$grid-column-width * 100%)};
+    }
+
+    .md-span-quarter {
+        flex: 0 1 #{(($grid-column-width/4)/$grid-column-width * 100%)};
+    }
+
+    .md-span-third {
+        flex: 0 1 #{(($grid-column-width/3)/$grid-column-width * 100%)};
+    }
+
 }
 
 @media screen and (max-width: 450px) {
     .sm-span {
         @include spans(24);
     }
+
+    .sm-span-half {
+        flex: 0 1 #{(($grid-column-width/2)/$grid-column-width * 100%)};
+    }
+
+    .sm-span-quarter {
+        flex: 0 1 #{(($grid-column-width/4)/$grid-column-width * 100%)};
+    }
+
+    .sm-span-third {
+        flex: 0 1 #{(($grid-column-width/3)/$grid-column-width * 100%)};
+    }
+
 }
 
 
-// Span Utilities
+// Span Modifiers
 .left {
     order: -1;
 }
 
 .right {
     order: 1;
+}
+
+.offset-plus {
+    @include offset(24, left);
+}
+
+.offset-negative {
+    @include offset(24, right);
+}
+
+.nested {
+    display: flex;
 }
