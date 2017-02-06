@@ -1,8 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Block from '../Block/Block.jsx';
 import styles from './Grid.css';
-
+import Block from '../Block/Block.jsx';
+import Col from '../Col/Col.jsx';
 
 const displayName = 'Grid';
 
@@ -35,9 +35,7 @@ class Grid extends React.Component {
 
 		return (
 			<main className={gridClasses} {...filteredProps}>
-				<Block>
-					{children}
-				</Block>
+				{children}
 			</main>
 		);
 	}
@@ -49,4 +47,5 @@ Grid.propTypes = propTypes;
 
 Grid.defaultProps = defaultProps;
 
+export { Block, Col, Grid };
 export default Grid;
