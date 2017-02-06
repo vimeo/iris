@@ -42,26 +42,26 @@
 
 
 // Span breakpoints
-@media screen and (min-width: 1600px) {
-    .lg-span {
+@media screen and (min-width: $screen-sm) {
+    .sm-span {
         @include spans(24);
     }
 
-    .lg-span-half {
+    .sm-span-half {
         flex: 0 1 #{(($grid-column-width/2)/$grid-column-width * 100%)};
     }
 
-    .lg-span-quarter {
+    .sm-span-quarter {
         flex: 0 1 #{(($grid-column-width/4)/$grid-column-width * 100%)};
     }
 
-    .lg-span-third {
+    .sm-span-third {
         flex: 0 1 #{(($grid-column-width/3)/$grid-column-width * 100%)};
     }
 
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (min-width: $screen-md) {
     .md-span {
         @include spans(24);
     }
@@ -80,20 +80,20 @@
 
 }
 
-@media screen and (max-width: 450px) {
-    .sm-span {
+@media screen and (min-width: $screen-lg) {
+    .lg-span {
         @include spans(24);
     }
 
-    .sm-span-half {
+    .lg-span-half {
         flex: 0 1 #{(($grid-column-width/2)/$grid-column-width * 100%)};
     }
 
-    .sm-span-quarter {
+    .lg-span-quarter {
         flex: 0 1 #{(($grid-column-width/4)/$grid-column-width * 100%)};
     }
 
-    .sm-span-third {
+    .lg-span-third {
         flex: 0 1 #{(($grid-column-width/3)/$grid-column-width * 100%)};
     }
 
