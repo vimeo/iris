@@ -9,14 +9,14 @@ class GridDocs extends React.Component {
 			<div>
 				<div data-code>
 					<Grid>
-						<Block mdSpan={4} smSpan={3}></Block>
+						<Block mdSpan="3" smSpan="3"></Block>
 					</Grid>
 				</div>
 
 				<ExampleSource>
 					{`
 						<Grid>
-							<Block mdSpan={4} smSpan={3}></Block>
+							<Block mdSpan="3" smSpan="3"></Block>
 						</Grid>
 					`}
 				</ExampleSource>
