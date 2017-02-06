@@ -7,7 +7,6 @@ const displayName = 'Block';
 
 
 const propTypes =  {
-	direction: React.PropTypes.string,
 	nowrap: React.PropTypes.bool
 };
 
@@ -21,7 +20,6 @@ class Block extends React.Component {
 		//Class builder
 		const blockClass = classNames(
 			styles.Block,
-			(this.props.direction ? styles[this.props.direction] : null),
 			(this.props.nowrap ? styles['nowrap'] : null),
 			this.props.className
 		);
