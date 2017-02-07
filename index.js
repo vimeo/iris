@@ -22,4 +22,6 @@ exports.paths = {
   
   'iris/Col':'iris/src/components/Col/Col',
   
+  'iris/Grid':'iris/src/components/Grid/Grid',
+  
 };
