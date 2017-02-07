@@ -9,10 +9,13 @@ const propTypes =  {
     lgSpan: React.PropTypes.string,
     mdSpan: React.PropTypes.string,
     smSpan: React.PropTypes.string,
+    offset: React.PropTypes.number,
+    lgOffset: React.PropTypes.number,
+    mdOffset: React.PropTypes.number,
+    smOffset: React.PropTypes.number,
     nested: React.PropTypes.bool,
     rail: React.PropTypes.bool,
-    className: React.PropTypes.string,
-    offset: React.PropTypes.number
+    className: React.PropTypes.string
 };
 
 const defaultProps = {
@@ -45,6 +48,9 @@ class Col extends React.Component {
         (this.props.mdSpan && spanStringCheck ? styles['span-' + this.props.mdSpan]: null),
         (this.props.smSpan && spanStringCheck ? styles['span-' + this.props.smSpan]: null),
         (this.props.offset ? styles['offset-' + offsetType + this.props.offset]: null),
+        (this.props.lgOffset ? styles['lg-offset-' + offsetType + this.props.lgOffset]: null),
+        (this.props.mdOffset ? styles['md-offset-' + offsetType + this.props.mdOffset]: null),
+        (this.props.smOffset ? styles['sm-offset-' + offsetType + this.props.smOffset]: null),
         (this.props.nested ? styles['nested']: null),
         styles[this.props.align],
         this.props.className
