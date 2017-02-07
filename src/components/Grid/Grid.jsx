@@ -48,4 +48,4 @@ Grid.propTypes = propTypes;
 Grid.defaultProps = defaultProps;
 
 export { Block, Col, Grid };
-export default Grid;
+// export default Grid;
