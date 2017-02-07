@@ -42,7 +42,7 @@
 
 
 // Span breakpoints
-@media screen and (min-width: $screen-sm) {
+@include breakpointSm {
     .sm-span {
         @include spans(24);
     }
@@ -61,7 +61,7 @@
 
 }
 
-@media screen and (min-width: $screen-md) {
+@include breakpointMd {
     .md-span {
         @include spans(24);
     }
@@ -80,7 +80,7 @@
 
 }
 
-@media screen and (min-width: $screen-lg) {
+@include breakpointLg {
     .lg-span {
         @include spans(24);
     }
@@ -115,6 +115,38 @@
 
 .offset-negative {
     @include offset(24, right);
+}
+
+//Offset Breakpoints
+
+@include breakpointSm {
+    .sm-offset-plus {
+        @include offset(24, left);
+    }
+
+    .sm-offset-negative {
+        @include offset(24, right);
+    }
+}
+
+@include breakpointMd {
+    .md-offset-plus {
+        @include offset(24, left);
+    }
+
+    .md-offset-negative {
+        @include offset(24, right);
+    }
+}
+
+@include breakpointLg {
+    .lg-offset-plus {
+        @include offset(24, left);
+    }
+
+    .lg-offset-negative {
+        @include offset(24, right);
+    }
 }
 
 .nested {
