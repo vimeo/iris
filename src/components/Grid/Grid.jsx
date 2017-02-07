@@ -7,38 +7,38 @@ import Col from '../Col/Col.jsx';
 const displayName = 'Grid';
 
 
-const propTypes =  {
-	className: React.PropTypes.string,
-	centered: React.PropTypes.bool
+const propTypes = {
+    className: React.PropTypes.string,
+    centered: React.PropTypes.bool,
 };
 
 const defaultProps = {
-	className: '',
-	centered: false
+    className: '',
+    centered: false,
 };
 
 class Grid extends React.Component {
 
-	render () {
+    render() {
 
-		//classes
-		let gridClasses = classNames(
+		// classes
+        const gridClasses = classNames(
 			styles.Grid,
-			(this.props.centered ? styles[center] : null),
+			(this.props.centered ? styles[this.props.centered] : null),
 			this.props.className
 		);
 
-		const {
+        const {
 			children,
-			filteredProps
+			filteredProps,
 		} = this.props;
 
-		return (
+        return (
 			<main className={gridClasses} {...filteredProps}>
 				{children}
 			</main>
-		);
-	}
+        );
+    }
 }
 
 Grid.displayName = displayName;

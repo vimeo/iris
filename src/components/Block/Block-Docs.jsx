@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Block from './Block'
+import Block from './Block';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 class BlockDocs extends React.Component {
-	render() {
-		return (
+    render() {
+        return (
 			<div>
 				<div data-code>
 					<Block />
@@ -17,9 +17,9 @@ class BlockDocs extends React.Component {
 				</ExampleSource>
 			</div>
 
-		);
-	}
+        );
+    }
 
-};
+}
 
 export default BlockDocs;

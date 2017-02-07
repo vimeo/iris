@@ -1,131 +1,114 @@
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import styles from './Button.css';
 
 const displayName = 'Button';
 
 const buttonSizes = [
-  'xSmall',
-  'small',
-  'medium',
-  'large'
+    'xs',
+    'sm',
+    'md',
+    'lg',
 ];
 
 const buttonTypes = [
-  'primary',
-  'primaryOutline',
-  'secondary',
-  'secondaryOutline',
-  'positive',
-  'positiveOutline',
-  'negative',
-  'negativeOutline',
-  'transparent'
+    'primary',
+    'primaryOutline',
+    'secondary',
+    'secondaryOutline',
+    'alternative',
+    'success',
+    'successOutline',
+    'warning',
+    'lightTransparent',
 ];
 
-const buttonBreakpoints =  [
-  'small',
-  'medium',
-  'large',
-  'xLarge',
-  'fluid'
+const buttonBreakpoints = [
+    'xs',
+    'sm',
+    'md',
+    'lg',
+    'fluid',
 ];
 
-const iconLocations =  [
-  'beforeLabel',
-  'afterLabel'
+const iconLocations = [
+    'beforeLabel',
+    'afterLabel',
 ];
 
-const propTypes =  {
-  autoWidth: React.PropTypes.oneOf(buttonBreakpoints),
-  buttonElement: React.PropTypes.bool,
-  icon: React.PropTypes.element,
-  iconLocation: React.PropTypes.oneOf(iconLocations),
-  size: React.PropTypes.oneOf(buttonSizes),
-  type: React.PropTypes.oneOf(buttonTypes),
+const propTypes = {
+    autoWidth: React.PropTypes.oneOf(buttonBreakpoints),
+    isButtonElement: React.PropTypes.bool,
+    children: React.PropTypes.node,
+    className: React.PropTypes.string,
+    format: React.PropTypes.oneOf(buttonTypes),
+    icon: React.PropTypes.element,
+    iconLocation: React.PropTypes.oneOf(iconLocations),
+    size: React.PropTypes.oneOf(buttonSizes),
 };
 
 const defaultProps = {
-  autoWidth: 'medium',
-  buttonElement: true,
-  icon: null,
-  iconLocation: 'beforeLabel',
-  size: 'medium',
-  type: 'primary'
+    autoWidth: 'sm',
+    format: 'primary',
+    isButtonElement: true,
+    iconLocation: 'beforeLabel',
+    size: 'md',
 };
 
-class Button extends React.Component {
+const Button = (props) => {
 
-  render () {
+    // filter out props that are not meant to be passed in as an attribute from props and store the rest as "filteredProps" to be printed into the component as attrubutes in the tag (e.g. HTML attribute pass-through, event handlers)
+    const {
+        autoWidth,
+        isButtonElement,
+        icon,
+        iconLocation,
+        size,
+        format,
+        className,
+        ...filteredProps
+    } = props;
 
     // className builder
     const componentClass = classNames(
-      styles.Button,
-      styles[this.props.type],
-      styles[this.props.size],
-      (this.props.autoWidth !== 'fluid' ? styles['autoWidth_'+this.props.autoWidth]: null),
-      this.props.className
+        styles.Button,
+        styles[format],
+        styles[size],
+        (autoWidth !== 'fluid' ? styles['autoWidth_' + autoWidth] : null),
+        className
     );
 
-    // iconClass
+    // icons
     const iconClass = classNames(
-      styles.Icon,
-      styles['Icon_' + this.props.iconLocation],
-      styles['Icon_' + this.props.size]
+        styles.Icon,
+        styles['Icon_' + iconLocation]
     );
 
-    // filter out presentational props from this.props and store the rest as "filteredProps" to be printed into the component as properties (e.g. HTML attribute pass-through, event handlers)
-    const {
-      autoWidth,
-      buttonElement,
-      icon,
-      iconLocation,
-      size,
-      type,
-      className,
-      ...filteredProps
-    } = this.props;
-
-    let hasIconBefore = this.props.icon && this.props.iconLocation === iconLocations[0];
-    let hasIconAfter = this.props.icon && this.props.iconLocation === iconLocations[1];
-    let buttonContent;
-
-    if (hasIconBefore) {
-      buttonContent =  <span><span className = {iconClass}>{this.props.icon}</span>{this.props.children}</span>;
-    } else if (hasIconAfter) {
-      buttonContent =  <span>{this.props.children}<span className = {iconClass}>{this.props.icon}</span></span>;
-    } else {
-      buttonContent =  this.props.children;
-    }
+    const hasIconBefore = icon && iconLocation === iconLocations[0];
+    const hasIconAfter = icon && iconLocation === iconLocations[1];
 
 
-    if (this.props.buttonElement){
-        return (
-          <button
-            {...filteredProps}
-            className={componentClass}
-          >
+    const iconElement = (
+        <span className = {iconClass}>
+            {icon}
+        </span>
+    );
 
-            {buttonContent}
+    // Check if it should be a button element or a span that is styled to be button-like
+    const ButtonElement = isButtonElement ? 'button' : 'span';
 
-          </button>
-        )
-      } else {
-        return (
-          <span
-            {...filteredProps}
-            className={componentClass}
-          >
-
-            {hasIconBefore ? <span className = {iconClass}>{this.props.icon}</span> : null}
-            {this.props.children}
-            {hasIconAfter ? <span className = {iconClass}>{this.props.icon}</span> : null}
-
-          </span>
-        )
-      }
-  }
-
+    return (
+            <ButtonElement
+                {...filteredProps}
+                className={componentClass}
+            >
+                <span className = {styles.buttonLabel}>
+                    {hasIconBefore ? iconElement : null}
+                    {props.children}
+                    {hasIconAfter ? iconElement : null}
+                </span>
+            </ButtonElement >
+    );
 };
 
 Button.displayName = displayName;
@@ -133,5 +116,7 @@ Button.displayName = displayName;
 Button.propTypes = propTypes;
 
 Button.defaultProps = defaultProps;
+
+export { buttonSizes, buttonTypes, buttonBreakpoints, iconLocations };
 
 export default Button;

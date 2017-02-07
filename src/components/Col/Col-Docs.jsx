@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Col from './Col'
+import Col from './Col';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 export default function ColDocs() {
 
-	return (
+    return (
 		<div>
 			<div data-code>
 				<Col />
@@ -17,5 +17,5 @@ export default function ColDocs() {
 			</ExampleSource>
 		</div>
 
-	);
-};
+    );
+}

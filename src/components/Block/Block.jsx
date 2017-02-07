@@ -6,8 +6,8 @@ import styles from './Block.css';
 const displayName = 'Block';
 
 
-const propTypes =  {
-	nowrap: React.PropTypes.bool
+const propTypes = {
+    nowrap: React.PropTypes.bool,
 };
 
 const defaultProps = {
@@ -15,27 +15,27 @@ const defaultProps = {
 
 
 class Block extends React.Component {
-	render() {
+    render() {
 
-		//Class builder
-		const blockClass = classNames(
+		// Class builder
+        const blockClass = classNames(
 			styles.Block,
-			(this.props.nowrap ? styles['nowrap'] : null),
+			(this.props.nowrap ? styles.nowrap : null),
 			this.props.className
 		);
 
-		const {
+        const {
 			children,
-			filteredProps
+			filteredProps,
 		} = this.props;
 
-		return (
+        return (
 			<div className={blockClass} {...filteredProps}>
 				{children}
 			</div>
-		);
+        );
 
-	}
+    }
 }
 
 

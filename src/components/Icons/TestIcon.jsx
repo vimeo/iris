@@ -10,7 +10,12 @@ class TestIcon extends React.Component {
 
     render() {
         return (
-            <svg { ...this.props }  viewBox="298 390 16 12"><path d="M313.7 391.4l-1.1-1.1c-.4-.4-1-.4-1.4 0l-7.2 7.2-3.2-3.2c-.4-.4-1-.4-1.4 0l-1.1 1.1c-.4.4-.4 1 0 1.4l5 5c.4.4 1 .4 1.4 0l9-9c.4-.4.4-1 0-1.4z"/></svg>
+
+              <svg { ...this.props } viewBox="0 0 16 16" >
+                  <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                      <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="16" height="16"></rect>
+                  </g>
+              </svg>
         );
     }
 }

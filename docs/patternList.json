@@ -1,11 +1,8 @@
 {
-	"Brand": [
-		["Colors", "Color Palette", true]
-	],
-  	"Components": [
-		["Button", "Buttons"]
-	],
-	"Layout": [
-		["Grid", "Grid", true]
-	]
+    "Brand": [
+        ["Colors", "Color Palette", true]
+    ],
+    "Components": [
+        ["Button", "Buttons"]
+    ]
 }
