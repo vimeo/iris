@@ -32,12 +32,9 @@ export default function GridDocs() {
 			</ExampleSource>
 			<p>Set-up your Grid component and place the amount of needed columns into the space:</p>
 			<div data-code>
-				<Grid>
+				<Grid className="sg-grid">
 				    <Block>
-				    <Col></Col>
-				    <Col></Col>
-				    <Col></Col>
-				    <Col></Col>
+				    <Col className="sg-col"></Col>
 				    </Block>
 				</Grid>
 			</div>
@@ -45,9 +42,6 @@ export default function GridDocs() {
 				{`
 					<Grid>
 					    <Block>
-					    <Col></Col>
-					    <Col></Col>
-					    <Col></Col>
 					    <Col></Col>
 					    </Block>
 					</Grid>
@@ -57,12 +51,12 @@ export default function GridDocs() {
 			<h3>Basic Usage</h3>
 			<p>Column widths are controlled by a <code>span</code> prop. Span props accept strings as values that must be between 1-24 or use the keyword <code>half</code>, <code>third</code>, or <code>quarter</code>. To trigger responsive design breakpoints have been set up as props. <code>lgSpan</code> (100em+), <code>mdSpan</code> (40.625em+), and <code>smSpan</code> (38em+). Columns by default are set to span the full 24 column space of its parent.</p>
 			<div data-code>
-				<Grid>
+				<Grid className="sg-grid">
 					<Block>
-					<Col span="4"></Col>
-					<Col span="4" lgSpan="20" mdSpan="16" smSpan="24"></Col>
-					<Col span="quarter"></Col>
-					<Col span="4"></Col>
+					<Col className="sg-col" span="6"></Col>
+					<Col className="sg-col" span="6" lgSpan="20" mdSpan="16" smSpan="24"></Col>
+					<Col className="sg-col" span="quarter"></Col>
+					<Col className="sg-col" span="6"></Col>
 					</Block>
 				</Grid>
 			</div>
@@ -70,10 +64,10 @@ export default function GridDocs() {
 				{`
 					<Grid>
 					    <Block>
-					    <Col span="4"></Col>
-					    <Col span="4" lgSpan="20" mdSpan="16" smSpan="24"></Col>
+					    <Col span="6"></Col>
+					    <Col span="6" lgSpan="20" mdSpan="16" smSpan="24"></Col>
 					    <Col span="quarter"></Col>
-					    <Col span="4"></Col>
+					    <Col span="6"></Col>
 					    </Block>
 					</Grid>
 				`}
@@ -82,17 +76,17 @@ export default function GridDocs() {
 			<h3>Nesting</h3>
 			<p>Nesting Columns is easy as pie, inside of a <code>{`<Col></Col>`}</code>  wrap the children in a <code>{`<Block></Block>`}</code> . It's important to keep in mind that nested children are also built out of a columns. In the example below the nested children <code>{`<Col span="12"></Col>`}</code>  map to half of the parents (24/2 = 12 therefore 12 columns is half the space of the parent container).</p>
 			<div data-code>
-				<Grid>
+				<Grid className="sg-grid">
 					<Block>
-					<Col span="4"></Col>
-					<Col span="4">
-						<Block>
-							<Col span="12"></Col>
-							<Col span="12"></Col>
+					<Col className="sg-col" span="4"></Col>
+					<Col className="sg-col" span="4">
+						<Block className="sg-block">
+							<Col className="sg-col" span="12"></Col>
+							<Col className="sg-col" span="12"></Col>
 						</Block>
 					</Col>
-					<Col span="4"></Col>
-					<Col span="4"></Col>
+					<Col className="sg-col" span="4"></Col>
+					<Col className="sg-col" span="4"></Col>
 					</Block>
 				</Grid>
 			</div>
@@ -117,10 +111,10 @@ export default function GridDocs() {
 			<h3>Offsets</h3>
 			<p>Authors can push content to the left or right using the <code>offset</code> prop. Positive numbers will push content in the main writing direction (Ex. left for English and Spanish but right for Arabic) and negative numbers will push content in the opposite of a page’s writing direction. Like <code>span</code>, offset also can be set for responsive breakpoints: <code>lgOffset</code>, <code>mdOffset</code>, and <code>smOffset</code>.</p>
 			<div data-code>
-				<Grid>
+				<Grid className="sg-grid">
 					<Block>
-					<Col span="4"></Col>
-					<Col span="8" offset="4"></Col>
+					<Col className="sg-col" span="4"></Col>
+					<Col className="sg-col" span="8" offset={4}></Col>
 					</Block>
 				</Grid>
 			</div>
@@ -129,7 +123,7 @@ export default function GridDocs() {
 					<Grid>
 					    <Block>
 					    <Col span="4"></Col>
-					    <Col span="8" offset="4"></Col>
+					    <Col span="8" offset={4}></Col>
 					    </Block>
 					</Grid>
 				`}
@@ -138,7 +132,7 @@ export default function GridDocs() {
 			<h3>Additional Styling with Classes</h3>
 			<p>Authors can pass through any additional styling needs to all Grid components by using the ‘className’ prop and passing it a string.</p>
 			<div data-code>
-				<Col className="my-class"></Col>
+				<Col className="sg-col my-class"></Col>
 			</div>
 			<ExampleSource>
 				{`

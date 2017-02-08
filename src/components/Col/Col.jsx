@@ -45,9 +45,9 @@ class Col extends React.Component {
         const colClass = classNames(
         styles.Col,
         (this.props.span && spanStringCheck ? styles['span-' + this.props.span] : null),
-        (this.props.lgSpan && spanStringCheck ? styles['span-' + this.props.lgSpan] : null),
-        (this.props.mdSpan && spanStringCheck ? styles['span-' + this.props.mdSpan] : null),
-        (this.props.smSpan && spanStringCheck ? styles['span-' + this.props.smSpan] : null),
+        (this.props.lgSpan && spanStringCheck ? styles['lg-span-' + this.props.lgSpan] : null),
+        (this.props.mdSpan && spanStringCheck ? styles['md-span-' + this.props.mdSpan] : null),
+        (this.props.smSpan && spanStringCheck ? styles['sm-span-' + this.props.smSpan] : null),
         (this.props.offset ? styles['offset-' + offsetType + this.props.offset] : null),
         (this.props.lgOffset ? styles['lg-offset-' + offsetType + this.props.lgOffset] : null),
         (this.props.mdOffset ? styles['md-offset-' + offsetType + this.props.mdOffset] : null),
