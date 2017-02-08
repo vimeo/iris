@@ -1,1 +1,1 @@
-.Block{width:100%;flex-grow:1;flex-wrap:wrap;display:flex;padding:0;margin-left:-.75rem;margin-right:-.75rem}
+.Block{width:calc(100% + 24px);flex-grow:1;flex-wrap:wrap;display:flex;padding:0;margin-left:-.75rem;margin-right:-.75rem}

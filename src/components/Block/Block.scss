@@ -3,7 +3,7 @@
 
 .Block {
     /* Fill space of parent and content set to wrap by default  */
-    width: 100%;
+    width: calc(100% + #{($grid-column-width * 1px)});
     flex-grow: 1;
     flex-wrap: wrap;
 
