@@ -9,7 +9,7 @@ $Button_primary-bg-color_hover: $blue1;
 $Button_secondary-text-color: $gray1;
 $Button_secondary-text-color_outline: $gray1;
 $Button_secondary-bg-color: $gray9;
-$Button_secondary-bg-color_hover: $gray5;
+$Button_secondary-bg-color_hover: $gray7;
 
 
 $Button_alternative-text-color: $white;
@@ -30,44 +30,50 @@ $Button_icon-size-small: rem-calc(14);
 $Button_icon-size-xSmall: rem-calc(10);
 
 @function calculateLineHeightTarget($fontSize, $targetLineHeight)  {
-  @return $targetLineHeight/$fontSize;
+    @return $targetLineHeight/$fontSize;
 }
 
 @mixin autoWidthSettings() {
-  width: auto;
-  margin-left: rem-calc(8);
+    width: auto;
+    margin-left: rem-calc(8);
+}
+
+@mixin outlineButton() {
+    background-color: transparent;
+    letter-spacing: .25px;
 }
 
 .Button {
-  position: relative;
-  appearance: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 0 rem-calc(8) 0;
-  font-family: $g-font-family-primary;
-  font-weight: 500;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: rem-calc($g-radius);
-  text-align: center;
-  transition: all #{$iris_transition-base};
-  vertical-align: middle;
-  letter-spacing: .02rem;
-  width: 100%;
+    position: relative;
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 rem-calc(8) 0;
+    font-family: $g-font-family-primary;
+    font-weight: 500;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: rem-calc($g-radius);
+    text-align: center;
+    transition: all #{$iris_transition-base};
+    vertical-align: middle;
+    letter-spacing: .5px;
+    width: 100%;
+    -webkit-font-smoothing: antialiasing;
 
-  &:hover {
-    cursor: pointer;
-  }
+    &:hover {
+        cursor: pointer;
+    }
 
-  &:active {
-    outline: 0;
-    transform: scale(.98);
-  }
+    &:active {
+        outline: 0;
+        transform: scale(.98);
+    }
 
-  &:first-of-type  {
-    margin-left: 0;
-  }
+    &:first-of-type  {
+        margin-left: 0;
+    }
 }
 
 .buttonLabel {
@@ -78,36 +84,36 @@ $Button_icon-size-xSmall: rem-calc(10);
 }
 
 .autoWidth_xs {
-  @include autoWidthSettings();
+    @include autoWidthSettings();
 }
 
 //Todo: replace with shared media queries
 @media screen and (min-width: 38em) {
-  .autoWidth_sm{
-    @include autoWidthSettings();
-  }
+    .autoWidth_sm{
+        @include autoWidthSettings();
+    }
 }
 
 @media screen and (min-width: 50em) {
-  .autoWidth_md {
-    @include autoWidthSettings();
-  }
+    .autoWidth_md {
+        @include autoWidthSettings();
+    }
 }
 
 @media screen and (min-width: 60em) {
-  .autoWidth_lg {
-    @include autoWidthSettings();
-  }
+    .autoWidth_lg {
+        @include autoWidthSettings();
+    }
 }
 
 
 //-------------------------  button sizes
 .xs {
-  font-size: rem-calc(12);
-  line-height: 1.9;
-  padding: 0 .375rem;
-  border-radius: rem-calc($g-radius-sm);
-  min-width: rem-calc(48);
+    font-size: rem-calc(12);
+    line-height: 1.9;
+    padding: 0 .375rem;
+    border-radius: rem-calc($g-radius-sm);
+    min-width: rem-calc(48);
 }
 
 .sm {
@@ -135,202 +141,204 @@ $Button_icon-size-xSmall: rem-calc(10);
 
 .primary,
 .primaryOutline:hover {
-  color: $Button_primary-text-color;
-  background-color: $Button_primary-bg-color;
-  border-color: $Button_primary-bg-color;
+    color: $Button_primary-text-color;
+    background-color: $Button_primary-bg-color;
+    border-color: $Button_primary-bg-color;
 }
 
 .primary:hover {
-  background-color: $Button_primary-bg-color_hover;
-  border-color: $Button_primary-bg-color_hover;
+    background-color: $Button_primary-bg-color_hover;
+    border-color: $Button_primary-bg-color_hover;
 }
 
 .primary:active,
 .primaryOutline:active {
-  background-color: darken($Button_primary-bg-color_hover, 10%);
+    background-color: darken($Button_primary-bg-color_hover, 10%);
 }
 
 .primaryOutline {
-  background-color: transparent;
-  border-color: $Button_primary-bg-color;
-  color: $Button_primary-bg-color;
+    @include outlineButton;
+    border-color: $Button_primary-bg-color;
+    color: $Button_primary-bg-color;
 }
 
 
 
-.alternative {
-  color: $Button_alternative-text-color;
-  background-color: $Button_alternative-bg-color;
-  border-color: $Button_alternative-bg-color;
+.alternative,
+.secondaryOutline:hover {
+    color: $Button_alternative-text-color;
+    background-color: $Button_alternative-bg-color;
+    border-color: $Button_alternative-bg-color;
 }
 
 .alternative:hover {
-  background-color: $Button_alternative-bg-color_hover;
-  border-color: $Button_alternative-bg-color_hover;
+    background-color: $Button_alternative-bg-color_hover;
+    border-color: $Button_alternative-bg-color_hover;
 }
 
-.alternative:active {
+.alternative:active,
+.secondaryOutline:active {
     background-color: darken($Button_alternative-bg-color_hover, 6%);
 }
 
 
 
-.secondary,
-.secondaryOutline:hover {
-  color: $Button_secondary-text-color;
-  background-color: $Button_secondary-bg-color;
-  border-color: $Button_secondary-bg-color;
+.secondary {
+    color: $Button_secondary-text-color;
+    background-color: $Button_secondary-bg-color;
+    border-color: $Button_secondary-bg-color;
+    letter-spacing: .25px;
 }
+
 
 .secondary:hover {
-  background-color: $Button_secondary-bg-color_hover;
-  border-color: $Button_secondary-bg-color_hover;
+    background-color: $Button_secondary-bg-color_hover;
+    border-color: $Button_secondary-bg-color_hover;
 }
 
-.secondary:active,
-.secondaryOutline:active {
+.secondary:active {
     background-color: darken($Button_secondary-bg-color_hover, 6%);
 }
 
 .secondaryOutline {
-  background-color: transparent;
-  border-color: $Button_secondary-text-color;
-  color: $Button_secondary-text-color;
+    @include outlineButton;
+    border-color: $Button_secondary-text-color;
+    color: $Button_secondary-text-color;
 }
 
 
 
 .warning,
 .warningOutline:hover {
-  color: $Button_warning-text-color;
-  background-color: $Button_warning-bg-color;
-  border-color: $Button_warning-bg-color;
+    color: $Button_warning-text-color;
+    background-color: $Button_warning-bg-color;
+    border-color: $Button_warning-bg-color;
 }
 
 .warning:hover {
-  background-color: $Button_warning-bg-color_hover;
-  border-color: $Button_warning-bg-color_hover;
+    background-color: $Button_warning-bg-color_hover;
+    border-color: $Button_warning-bg-color_hover;
 }
 
 .warning:active,
 .warningOutline:active {
-  background-color: darken($Button_warning-bg-color_hover, 10%);
+    background-color: darken($Button_warning-bg-color_hover, 10%);
 }
 
 
 .warningOutline {
-  background-color: transparent;
-  border-color: $Button_warning-bg-color;
-  color: $Button_warning-bg-color;
+    @include outlineButton;
+    border-color: $Button_warning-bg-color;
+    color: $Button_warning-bg-color;
 }
 
 
 
 .success,
 .successOutline:hover {
-  color: $Button_success-text-color;
-  background-color: $Button_success-bg-color;
-  border-color: $Button_success-bg-color;
+    color: $Button_success-text-color;
+    background-color: $Button_success-bg-color;
+    border-color: $Button_success-bg-color;
 }
 
 .success:hover {
-  background-color: $Button_success-bg-color_hover;
-  border-color: $Button_success-bg-color_hover;
+    background-color: $Button_success-bg-color_hover;
+    border-color: $Button_success-bg-color_hover;
 }
 
 .success:active,
 .successOutline:active {
-  background-color: darken($Button_success-bg-color_hover, 10%);
+    background-color: darken($Button_success-bg-color_hover, 10%);
 }
 
 
 .successOutline {
-  background-color: transparent;
-  border-color: $Button_success-bg-color;
-  color: $Button_success-bg-color;
+    @include outlineButton;
+    border-color: $Button_success-bg-color;
+    color: $Button_success-bg-color;
 }
 
 .lightTransparent{
-  background-color: rgba(255,255,255,.3);
-  border-color: transparent;
-  color: $white;
+    background-color: rgba(255,255,255,.3);
+    border-color: transparent;
+    color: $white;
 
-  &:hover {
-    background-color: rgba(255,255,255,.5);
-  }
+    &:hover {
+        background-color: rgba(255,255,255,.5);
+    }
 
-  &:active {
-    background-color: rgba(255,255,255,.7);
-  }
+    &:active {
+        background-color: rgba(255,255,255,.7);
+    }
 }
 
 //-------------------------  button icons
 
 .Icon {
-  display: inline-flex;
-  align-items: center;
+    display: inline-flex;
+    align-items: center;
 
-  svg * {
-      fill: currentColor;
+    svg * {
+        fill: currentColor;
     }
 
 }
 
 .Icon_beforeLabel {
-  margin-right: rem-calc(4);
+    margin-right: rem-calc(4);
 }
 
 .Icon_afterLabel{
-  margin-left: rem-calc(4);
+    margin-left: rem-calc(4);
 }
 
 
 .xs{
-  .Icon svg
-   {
-    height: $Button_icon-size-xSmall;
-    width: $Button_icon-size-xSmall;
-  }
+    .Icon svg
+    {
+        height: $Button_icon-size-xSmall;
+        width: $Button_icon-size-xSmall;
+    }
 }
 
 .sm{
-  .Icon svg
-   {
-    height: $Button_icon-size-small;
-    width: $Button_icon-size-small;
-  }
+    .Icon svg
+    {
+        height: $Button_icon-size-small;
+        width: $Button_icon-size-small;
+    }
 }
 
 .md{
-  .Icon svg
-   {
-    height: $Button_icon-size-medium;
-    width: $Button_icon-size-medium;
-  }
+    .Icon svg
+    {
+        height: $Button_icon-size-medium;
+        width: $Button_icon-size-medium;
+    }
 }
 
 .lg {
-  .Icon svg
-   {
-    height: $Button_icon-size-large;
-    width: $Button_icon-size-large;
-  }
+    .Icon svg
+    {
+        height: $Button_icon-size-large;
+        width: $Button_icon-size-large;
+    }
 
-  .Icon_beforeLabel {
-    margin-right: rem-calc(6);
-  }
+    .Icon_beforeLabel {
+        margin-right: rem-calc(6);
+    }
 
-  .Icon_afterLabel{
-    margin-left: rem-calc(6);
-  }
+    .Icon_afterLabel{
+        margin-left: rem-calc(6);
+    }
 
 }
 
 
 // All Disable Buttons are the same and override any other applied styles
 .Button:disabled{
-  color: $gray6;
-  background-color: $gray7;
-  border-color: $gray7;
-  cursor: not-allowed;
+    color: $gray6;
+    background-color: $gray7;
+    border-color: $gray7;
+    cursor: not-allowed;
 }
