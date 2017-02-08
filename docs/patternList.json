@@ -4,5 +4,8 @@
     ],
     "Components": [
         ["Button", "Buttons"]
+    ],
+    "Layout": [
+        ["Grid", "Grid", true]
     ]
 }
