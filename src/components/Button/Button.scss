@@ -60,7 +60,7 @@ $Button_icon-size-xSmall: rem-calc(10);
     vertical-align: middle;
     letter-spacing: .5px;
     width: 100%;
-    -webkit-font-smoothing: antialiasing;
+    -webkit-font-smoothing: antialiased;
 
     &:hover {
         cursor: pointer;
