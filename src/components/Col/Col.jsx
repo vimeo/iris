@@ -9,10 +9,10 @@ const propTypes = {
     lgSpan: React.PropTypes.string,
     mdSpan: React.PropTypes.string,
     smSpan: React.PropTypes.string,
-    offset: React.PropTypes.number,
-    lgOffset: React.PropTypes.number,
-    mdOffset: React.PropTypes.number,
-    smOffset: React.PropTypes.number,
+    offset: React.PropTypes.string,
+    lgOffset: React.PropTypes.string,
+    mdOffset: React.PropTypes.string,
+    smOffset: React.PropTypes.string,
     nested: React.PropTypes.bool,
     rail: React.PropTypes.bool,
     className: React.PropTypes.string,
@@ -32,10 +32,12 @@ class Col extends React.Component {
     // set up offset class naming
         let offsetType;
 
-        if (this.props.offset && this.props.offset >= 1) {
+        const offsetNumber = parseInt(this.props.offset, 10);
+
+        if (offsetNumber && offsetNumber >= 1) {
             offsetType = 'plus-';
         }
-        else if (this.props.offset && this.props.offset <= 1) {
+        else if (offsetNumber && offsetNumber <= 1) {
             offsetType = 'negative-';
         }
 
