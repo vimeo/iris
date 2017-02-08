@@ -12,14 +12,18 @@ export default function GridDocs() {
 
 			<ul>
 				<li>Grid is composed of 3 components:
-					<li>Container: <code>{'<Grid></Grid>'}</code> The container is the parent of all elements and establishes: max-width for content, gutter spacing outside the content, and the grid styles for its children.</li>
-					<li>Blocks: <code>{`<Block></Block>`}</code> sets a grid's context and can be used to group grid items together.</li>
-					<li>Columns: <code>{`<Col></Col>`}</code> Are vertical structures where the actual content exists and is manipulated onto the grid.</li>
+					<ul>
+						<li>Container: <code>{'<Grid></Grid>'}</code> The container is the parent of all elements and establishes: max-width for content, gutter spacing outside the content, and the grid styles for its children.</li>
+						<li>Blocks: <code>{`<Block></Block>`}</code> sets a grid's context and can be used to group grid items together.</li>
+						<li>Columns: <code>{`<Col></Col>`}</code> Are vertical structures where the actual content exists and is manipulated onto the grid.</li>
+					</ul>
 				</li>
 				<li>Small Screens First
-					<li>
-						The grid's columns are be default set for the smallest screen size also called the xsm breakpoint. Therefore a <code>span</code> declaration styles begin at 0 breakpoints and will continue to exist until a <code>sm</code>, <code>md</code>, or <code>lg</code> override has been passed through. In other words larger breakpoints take precedence over the smaller ones that precede them. Style changes for a breakpoint override appear after a browser has reached the minimum width of larger screen size.
-					</li>
+					<ul>
+						<li>
+							The grid's columns are be default set for the smallest screen size also called the xsm breakpoint. Therefore a <code>span</code> declaration styles begin at 0 breakpoints and will continue to exist until a <code>sm</code>, <code>md</code>, or <code>lg</code> override has been passed through. In other words larger breakpoints take precedence over the smaller ones that precede them. Style changes for a breakpoint override appear after a browser has reached the minimum width of larger screen size.
+						</li>
+					</ul>
 				</li>
 			</ul>
 
@@ -78,15 +82,15 @@ export default function GridDocs() {
 			<div data-code>
 				<Grid className="sg-grid">
 					<Block>
-					<Col className="sg-col" span="4"></Col>
-					<Col className="sg-col" span="4">
+					<Col className="sg-col" span="6"></Col>
+					<Col className="sg-col" span="6">
 						<Block className="sg-block">
 							<Col className="sg-col" span="12"></Col>
 							<Col className="sg-col" span="12"></Col>
 						</Block>
 					</Col>
-					<Col className="sg-col" span="4"></Col>
-					<Col className="sg-col" span="4"></Col>
+					<Col className="sg-col" span="6"></Col>
+					<Col className="sg-col" span="6"></Col>
 					</Block>
 				</Grid>
 			</div>
@@ -114,7 +118,7 @@ export default function GridDocs() {
 				<Grid className="sg-grid">
 					<Block>
 					<Col className="sg-col" span="4"></Col>
-					<Col className="sg-col" span="8" offset={4}></Col>
+					<Col className="sg-col" span="8" offset="4"></Col>
 					</Block>
 				</Grid>
 			</div>
@@ -123,7 +127,7 @@ export default function GridDocs() {
 					<Grid>
 					    <Block>
 					    <Col span="4"></Col>
-					    <Col span="8" offset={4}></Col>
+					    <Col span="8" offset="4"></Col>
 					    </Block>
 					</Grid>
 				`}
