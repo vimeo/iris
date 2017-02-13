@@ -16,6 +16,7 @@ const propTypes = {
     nested: React.PropTypes.bool,
     rail: React.PropTypes.bool,
     className: React.PropTypes.string,
+    align: React.PropTypes.string,
 };
 
 const defaultProps = {

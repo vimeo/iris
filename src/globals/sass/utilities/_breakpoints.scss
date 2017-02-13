@@ -1,3 +1,9 @@
+@mixin breakpointXLg {
+    @media screen and (min-width: $screen-xlg) {
+        @content;
+    }
+}
+
 @mixin breakpointLg {
     @media screen and (min-width: $screen-lg) {
         @content;
