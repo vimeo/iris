@@ -6,10 +6,12 @@ const displayName = 'Col';
 
 const propTypes = {
     span: React.PropTypes.string,
+    xlgSpan: React.PropTypes.string,
     lgSpan: React.PropTypes.string,
     mdSpan: React.PropTypes.string,
     smSpan: React.PropTypes.string,
     offset: React.PropTypes.string,
+    xlgOffset: React.PropTypes.string,
     lgOffset: React.PropTypes.string,
     mdOffset: React.PropTypes.string,
     smOffset: React.PropTypes.string,
@@ -48,10 +50,12 @@ class Col extends React.Component {
         const colClass = classNames(
         styles.Col,
         (this.props.span && spanStringCheck ? styles['span-' + this.props.span] : null),
+        (this.props.xlgSpan && spanStringCheck ? styles['xlg-span-' + this.props.xlgSpan] : null),
         (this.props.lgSpan && spanStringCheck ? styles['lg-span-' + this.props.lgSpan] : null),
         (this.props.mdSpan && spanStringCheck ? styles['md-span-' + this.props.mdSpan] : null),
         (this.props.smSpan && spanStringCheck ? styles['sm-span-' + this.props.smSpan] : null),
         (this.props.offset ? styles['offset-' + offsetType + this.props.offset] : null),
+        (this.props.xlgOffset ? styles['xlg-offset-' + offsetType + this.props.xlgOffset] : null),
         (this.props.lgOffset ? styles['lg-offset-' + offsetType + this.props.lgOffset] : null),
         (this.props.mdOffset ? styles['md-offset-' + offsetType + this.props.mdOffset] : null),
         (this.props.smOffset ? styles['sm-offset-' + offsetType + this.props.smOffset] : null),
@@ -63,7 +67,7 @@ class Col extends React.Component {
     // filter out presentational props from this.props and store the rest as "filteredProps" to be printed into the component as properties (e.g. HTML attribute pass-through, event handlers)
         const {
         rail,
-        filteredProps,
+        ...filteredProps
     } = this.props;
 
         const colContent = this.props.children;

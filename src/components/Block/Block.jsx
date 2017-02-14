@@ -26,7 +26,7 @@ class Block extends React.Component {
 
         const {
 			children,
-			filteredProps,
+			...filteredProps
 		} = this.props;
 
         return (
