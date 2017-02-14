@@ -1,0 +1,10 @@
+<svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+<g id="user_32">
+	<path d="M16,0C7.163,0,0,7.163,0,16c0,8.837,7.163,16,16,16s16-7.163,16-16C32,7.163,24.837,0,16,0z M16,29.12
+		C8.766,29.12,2.88,23.234,2.88,16S8.766,2.88,16,2.88S29.12,8.766,29.12,16S23.234,29.12,16,29.12z"/>
+	<path d="M10,23c0,0,1,4,6,4s6-4,6-4H10z"/>
+	<circle cx="9" cy="19" r="2"/>
+	<circle cx="23" cy="19" r="2"/>
+</g>
+</svg>

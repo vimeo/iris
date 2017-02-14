@@ -1,6 +1,7 @@
 {
     "Brand": [
-        ["Colors", "Color Palette", true]
+        ["Colors", "Color Palette", true],
+        ["Svgs", "SVG Icons", true]
     ],
     "Components": [
         ["Button", "Buttons"]

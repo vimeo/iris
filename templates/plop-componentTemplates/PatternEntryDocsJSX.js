@@ -1,13 +1,20 @@
-import * as React from 'react';
+import React from 'react';
+import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
-export default function {{pascalCase name}}Docs() {
+const {{pascalCase name}}Docs = (props) => {
+    return (
+        <div>
+            <div data-code>
+                <p>HTML Example</p>
+            </div>
 
-	return (
-		<div>
-			<div data-code>
-				{/* HTML Example Here*/}
-			</div>
-		</div>
-
-	);
+            <ExampleSource>
+                {`
+                    <p>HTML Example</p>
+                    `}
+                </ExampleSource>
+            </div>
+    );
 };
+
+export default {{pascalCase name}}Docs;

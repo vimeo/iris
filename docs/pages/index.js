@@ -2,4 +2,5 @@
 *That page will become available at /page/{componentName}
 */
 
-export TestPage from "./TestPage/TestPage";
+/* Example: */
+// export Component  from "./Component/Component";

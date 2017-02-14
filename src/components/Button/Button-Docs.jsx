@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Button from './Button';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import TestIcon from '../Icons/TestIcon';
-import TestCheckIcon from '../Icons/TestCheckIcon';
+import TestIcon from '../../globals/svg/iris_icon_test_block_16.svg';
+import CheckIcon from '../../globals/svg/iris_icon_checkmark.svg';
 
 class ButtonDocs extends React.Component {
     clickExample() {
@@ -101,35 +101,35 @@ class ButtonDocs extends React.Component {
                 <p>Buttons can include SVG icons. These icons get passed in as JSX elements to the <code>icon</code> prop. Icons should aways be on the left (the default) unless there is a compelling reason to have it on the right (e.g. forward button with right arrow), using the <code>iconLocation</code></p>
                 <div data-code>
                     <div>
-                        <Button size="lg" format="warning" icon={<TestCheckIcon />}>warning lg</Button>
+                        <Button size="lg" format="warning" icon={<CheckIcon />}>warning lg</Button>
                         <Button size="lg" format="success" icon={<TestIcon />} iconLocation="afterLabel">Success lg</Button>
                     </div>
                     <div>
-                        <Button format="alternative" icon={<TestCheckIcon />}>Alternative</Button>
+                        <Button format="alternative" icon={<CheckIcon />}>Alternative</Button>
                         <Button format="secondaryOutline" icon={<TestIcon />} iconLocation="afterLabel">Secondary Outline</Button>
                     </div>
                     <div>
                         <Button size="sm" format="primary" icon={<TestIcon />}>Primary sm</Button>
-                        <Button size="sm" format="secondary" icon={<TestCheckIcon />} iconLocation="afterLabel">Secondary sm</Button>
+                        <Button size="sm" format="secondary" icon={<CheckIcon />} iconLocation="afterLabel">Secondary sm</Button>
                     </div>
 
                     <div>
                         <Button size="xs" format="primaryOutline" icon={<TestIcon />}>Primary xs</Button>
-                        <Button size="xs" format="secondaryOutline" icon={<TestCheckIcon />} iconLocation="afterLabel">Secondary xs</Button>
+                        <Button size="xs" format="secondaryOutline" icon={<CheckIcon />} iconLocation="afterLabel">Secondary xs</Button>
                     </div>
 
                 </div>
 
                 <ExampleSource>
                     {`
-<Button size="lg" format="warning" icon={<TestCheckIcon />}>warning lg</Button>
+<Button size="lg" format="warning" icon={<CheckIcon />}>warning lg</Button>
 <Button size="lg" format="success"  icon={<TestIcon />} iconLocation="afterLabel">Success lg</Button>
-<Button format="alternative" icon={<TestCheckIcon />}>Alternative</Button>
+<Button format="alternative" icon={<CheckIcon />}>Alternative</Button>
 <Button format="secondaryOutline" icon={<TestIcon />} iconLocation="afterLabel">Secondary Outline</Button>
 <Button size="sm" format="primary" icon={<TestIcon />}>Primary sm</Button>
-<Button size="sm" format="secondary"  icon={<TestCheckIcon />} iconLocation="afterLabel">Secondary sm</Button>
+<Button size="sm" format="secondary"  icon={<CheckIcon />} iconLocation="afterLabel">Secondary sm</Button>
 <Button size="xs" format="primaryOutline" icon={<TestIcon />}>Primary xs</Button>
-<Button size="xs" format="secondaryOutline"  icon={<TestCheckIcon />} iconLocation="afterLabel">Secondary xs</Button>
+<Button size="xs" format="secondaryOutline"  icon={<CheckIcon />} iconLocation="afterLabel">Secondary xs</Button>
                     `}
                 </ExampleSource>
 

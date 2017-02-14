@@ -24,7 +24,8 @@ module.exports = {
                 path.resolve(__dirname, 'index.jsx'),
                 path.resolve(__dirname, STYLEGUIDE_DIR),
             ] },
-      { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]_[local]--[hash:base64:5]!postcss-loader') },
+            { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]_[local]--[hash:base64:5]!postcss-loader') },
+            { test: /\.svg$/, loader: 'babel?presets[]=es2015,presets[]=react!svg-react' },
         ],
     },
 
@@ -37,7 +38,7 @@ module.exports = {
     ],
 
     resolve: {
-        extensions: ['', '.js', '.jsx', '.json'],
+        extensions: ['', '.js', '.jsx', '.json', '.svg'],
         modulesDirectories: ['node_modules', 'components'],
     },
 

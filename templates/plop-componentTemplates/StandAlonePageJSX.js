@@ -1,12 +1,14 @@
 import * as React from 'react';
 
-let {{pascalCase name}} = React.createClass({
 
-			render : function(){
-						return (
-						 <p>Add your content here</p>
-						);
-			}
-});
+const {{pascalCase name}} = (props) => {
+    return (
+        <div>
+            <div>
+                <p>Content Here</p>
+            </div>
+
+    );
+};
 
 export default {{pascalCase name}};
