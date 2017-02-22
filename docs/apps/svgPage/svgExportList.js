@@ -570,6 +570,8 @@
   
  exports.IrisIconSourceUrl64 = require('../../../src/globals/svg/iris_icon_source_url_64.svg');
   
+ exports.IrisIconSpatial16 = require('../../../src/globals/svg/iris_icon_spatial_16.svg');
+  
  exports.IrisIconSports32 = require('../../../src/globals/svg/iris_icon_sports_32.svg');
   
  exports.IrisIconSports64 = require('../../../src/globals/svg/iris_icon_sports_64.svg');
