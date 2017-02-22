@@ -4,6 +4,7 @@
         ["Svgs", "SVG Icons", true]
     ],
     "Components": [
+        ["Badge", "Badges"],
         ["Button", "Buttons"]
     ]
 }
