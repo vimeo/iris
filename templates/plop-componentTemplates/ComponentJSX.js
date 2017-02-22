@@ -26,12 +26,12 @@ const {{pascalCase name}} = (props) => {
     );
 
     return (
-            <{{pascalCase name}}
+            <div
                 {...filteredProps}
                 className={componentClass}
             >
                     {props.children}
-            </{{pascalCase name}}>
+            </div>
     );
 };
 

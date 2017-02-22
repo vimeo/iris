@@ -1,0 +1,202 @@
+/* @description Generates styles for the Badge component */
+
+@import '../../globals/sass/helpers-all';
+
+$iris_badge-radius: rem-calc(2); //measurement from designs
+
+//Font Sizing
+$iris_badge-size: rem-calc(9);
+$iris_badge-rating-size: rem-calc(16);
+
+//Spacing
+$iris_badge-spacing--ver: 3;
+$iris_badge-spacing--hor: 4;
+$iris_badge-spacing: rem-calc($iris_badge-spacing--ver) rem-calc($iris_badge-spacing--hor);
+
+//Colors
+$iris_badge--alum: $purple1;
+$iris_badge--orange: $yellow1;
+$iris_badge--explicit: $red1;
+$iris_badge--magenta: $red3;
+$iris_badge-txt--gold: $yellow2;
+$iris_badge--help: $white;
+$iris_badge--help_bg: $gray2;
+$iris_badge--new: $red2;
+$iris_badge--plus: $blue2;
+$iris_badge--pro: $gray1;
+$iris_badge--business: $green2;
+$iris_badge--staff: $yellow2;
+$iris_badge--staff_text: $yellow1;  // STAFF/CURATION/SUPPORT have a different text color
+
+@mixin vimeo_badge($base_color, $hover: true) {
+    color: $base_color;
+    background-color: transparentize($base_color, 0.85);
+
+    @if($hover == true) {
+        &:hover {
+            color: darken($base_color, 10%);
+            background-color: transparentize($base_color, 0.8);
+        }
+    }
+}
+
+
+// Component Root
+.Badge {
+    display: inline-block;
+
+    margin: rem-calc(-2) 0.5rem 0 0.313rem;
+    padding: $iris_badge-spacing;
+
+    font-size: $iris_badge-size;
+    font-weight: 700;
+    line-height: 1.2;
+
+    border-radius: $iris_badge-radius;
+
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    letter-spacing: -0.04rem;
+    text-transform: uppercase;
+    text-shadow: none;
+
+    &::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+    }
+}
+
+// formats
+
+.alum {
+    color: $iris_badge--alum;
+    // Per email thread, alum is 25% instead of normal mixin
+    background-color: transparentize($iris_badge--alum, 0.75);
+    &:hover {
+        background-color: transparentize($iris_badge--alum, 0.7);
+    }
+}
+
+.beta {
+    color: $iris_badge--orange;
+}
+
+.business,
+.sponsor {
+    @include vimeo_badge($iris_badge--business);
+}
+
+.curation,
+.staff,
+.support {
+    color: $iris_badge--staff_text;
+    background-color: transparentize($iris_badge--staff, 0.85);
+    &:hover {
+        color: darken($iris_badge--staff_text, 10%);
+        background-color: transparentize($iris_badge--staff, 0.75);
+    }
+}
+
+.explicit {
+    color: $iris_badge--explicit;
+    border: 1px solid $iris_badge--explicit;
+    background-color: transparent;
+}
+
+a.explicit {
+    &:focus,
+    &:active,
+    &:hover {
+        color: $iris_badge--explicit;
+        background-color: $red6;
+    }
+}
+
+.featured {
+    color: $iris_badge--magenta;
+}
+
+.hd {
+    font-style: italic;
+    color: $blue5;
+}
+
+.help {
+    cursor: help;
+
+    &:hover,
+    &:focus {
+        color: $iris_badge--help;
+        background-color: $iris_badge--help_bg;
+    }
+}
+
+.info {
+    color: $gray6;
+
+    cursor: help;
+
+    &:hover,
+    &:focus {
+        color: $white !important;
+        background: $gray4;
+    }
+}
+
+.new {
+    color: $iris_badge--new;
+    vertical-align: top;
+}
+
+.partner,
+.pro {
+    @include vimeo_badge($iris_badge--pro);
+}
+
+.partner {
+    color: $gray5;
+    background-color: $gray7;
+}
+
+
+.plus {
+    border: none;
+
+    @include vimeo_badge($iris_badge--plus);
+}
+
+.spatial,
+.unrated {
+    color: $gray4;
+    border: 1px solid $gray6;
+    background-color: transparent;
+
+    &:focus,
+    &:active,
+    &:hover {
+        color: text-color(meta);
+        background-color: $gray9;
+    }
+}
+
+
+.vod {
+    @include vimeo_badge(rgba(247, 180, 44, 0.2));
+    border: 1px dotted rgba(247, 180, 44, 0.5);
+}
+
+
+// Sizes
+
+.lg {
+    margin-left: 2px;
+    padding: rem-calc(5); // !flag: use em()
+
+    font-size: $iris_badge-rating-size;
+    line-height: 0.8;
+    cursor: default;
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-weight: 500;
+}

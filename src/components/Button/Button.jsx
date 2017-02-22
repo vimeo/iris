@@ -39,7 +39,7 @@ const iconLocations = [
 const propTypes = {
     autoWidth: React.PropTypes.oneOf(buttonBreakpoints),
     isButtonElement: React.PropTypes.bool,
-    children: React.PropTypes.node,
+    children: React.PropTypes.node.isRequired,
     className: React.PropTypes.string,
     format: React.PropTypes.oneOf(buttonTypes),
     icon: React.PropTypes.element,
