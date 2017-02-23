@@ -9,7 +9,7 @@
     "precommit": "gulp precommit"
   },
   "pre-commit": [
-  "precommit"
+    "precommit"
   ],
   "repository": {
     "type": "git",
