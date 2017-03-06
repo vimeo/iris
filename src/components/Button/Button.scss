@@ -38,6 +38,10 @@ $Button_icon-size-xSmall: rem-calc(10);
 
     &.autoMargins{
         margin-left: rem-calc(8);
+
+        &:first-of-type  {
+            margin-left: 0;
+        }
     }
 }
 
