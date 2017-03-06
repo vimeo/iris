@@ -37,6 +37,7 @@ const iconLocations = [
 ];
 
 const propTypes = {
+    autoMargins: React.PropTypes.bool,
     autoWidth: React.PropTypes.oneOf(buttonBreakpoints),
     isButtonElement: React.PropTypes.bool,
     children: React.PropTypes.node.isRequired,
@@ -48,6 +49,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+    autoMargins: true,
     autoWidth: 'sm',
     format: 'primary',
     isButtonElement: true,
@@ -59,6 +61,7 @@ const Button = (props) => {
 
     // filter out props that are not meant to be passed in as an attribute from props and store the rest as "filteredProps" to be printed into the component as attrubutes in the tag (e.g. HTML attribute pass-through, event handlers)
     const {
+        autoMargins,
         autoWidth,
         isButtonElement,
         icon,
@@ -75,6 +78,7 @@ const Button = (props) => {
         styles[format],
         styles[size],
         (autoWidth !== 'fluid' ? styles['autoWidth_' + autoWidth] : null),
+        (autoMargins ? styles.autoMargins : null),
         className
     );
 

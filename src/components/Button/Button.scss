@@ -35,7 +35,10 @@ $Button_icon-size-xSmall: rem-calc(10);
 
 @mixin autoWidthSettings() {
     width: auto;
-    margin-left: rem-calc(8);
+
+    &.autoMargins{
+        margin-left: rem-calc(8);
+    }
 }
 
 @mixin outlineButton() {
@@ -49,7 +52,7 @@ $Button_icon-size-xSmall: rem-calc(10);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin: 0 0 rem-calc(8) 0;
+    margin: 0;
     font-family: $g-font-family-primary;
     font-weight: 500;
     border-width: 1px;
@@ -70,6 +73,12 @@ $Button_icon-size-xSmall: rem-calc(10);
         outline: 0;
         transform: scale(.98);
     }
+}
+
+//-------------------------  autoMargins
+
+.autoMargins{
+    margin: 0 0 rem-calc(8) 0;
 
     &:first-of-type  {
         margin-left: 0;
@@ -105,7 +114,6 @@ $Button_icon-size-xSmall: rem-calc(10);
         @include autoWidthSettings();
     }
 }
-
 
 //-------------------------  button sizes
 .xs {

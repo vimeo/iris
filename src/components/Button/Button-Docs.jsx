@@ -189,6 +189,40 @@ class ButtonDocs extends React.Component {
                         `}
                     </ExampleSource>
 
+                    <h3>Button AutoMargins</h3>
+                    <p>Buttons will have automatic margin on the bottom and also all but the first of type will have left margins. To suppress this, set "autoMargins" to `false.`</p>
+                    <div data-code>
+                        <div>
+                            <Button autoMargins={false}>autoMargins = false</Button>
+                            <Button format="secondary" autoMargins={false}>autoMargins = false</Button>
+                        </div>
+                        <div>
+                            <Button>autoMargins = true</Button>
+                            <Button format="secondary">autoMargins = true</Button>
+                        </div>
+                        <div>
+                            <Button autoMargins={false}>autoMargins = false</Button>
+                            <Button format="secondary" autoMargins={false}>autoMargins = false</Button>
+                        </div>
+                    </div>
+
+                    <ExampleSource>
+                        {`
+<div>
+    <Button autoMargins={false}>Primary</Button>
+    <Button  format="secondary" autoMargins={false}>Secondary</Button>
+</div>
+<div>
+    <Button>Primary</Button>
+    <Button  format="secondary">Secondary</Button>
+</div>
+<div>
+    <Button autoMargins={false}>Primary</Button>
+    <Button  format="secondary" autoMargins={false}>Secondary</Button>
+</div>
+                        `}
+                    </ExampleSource>
+
 
                     <h3>Button Sizing</h3>
                     <p>Butons are full 100% width on sm screen and width: auto on default. You can change the point at which the buttons become full width with the <code>autoWidth</code> prop.</p>
