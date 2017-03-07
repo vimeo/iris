@@ -57,7 +57,7 @@ export default function GridDocs() {
 			<div data-code>
 				<Grid className="sg-grid">
 					<Block>
-					<Col className="sg-col" span="6"></Col>
+					<Col className="sg-col" span="26">testing</Col>
 					<Col className="sg-col" span="6" lgSpan="20" mdSpan="16" smSpan="24"></Col>
 					<Col className="sg-col" span="quarter"></Col>
 					<Col className="sg-col" span="6"></Col>

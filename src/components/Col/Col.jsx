@@ -30,7 +30,8 @@ class Col extends React.Component {
     render() {
 
     // check from span string for 1-24 and keywords
-        const spanStringCheck = /\b(0?[1-9]|1[0-9]|2[0-4])\b/ || 'quarter' || 'third' || 'half';
+        const spanStringCheck = /\b([1-9]|1[0-9]|2[0-4])\b/ || 'quarter' || 'third' || 'half';
+        let fixed;
 
     // set up offset class naming
         let offsetType;
@@ -45,15 +46,15 @@ class Col extends React.Component {
         }
 
     // set-up breakpoints for offsets
-
+        console.log(this.props.span === spanStringCheck);
     // className builder
         const colClass = classNames(
         styles.Col,
-        (this.props.span && spanStringCheck ? styles['span-' + this.props.span] : null),
-        (this.props.xlgSpan && spanStringCheck ? styles['xlg-span-' + this.props.xlgSpan] : null),
-        (this.props.lgSpan && spanStringCheck ? styles['lg-span-' + this.props.lgSpan] : null),
-        (this.props.mdSpan && spanStringCheck ? styles['md-span-' + this.props.mdSpan] : null),
-        (this.props.smSpan && spanStringCheck ? styles['sm-span-' + this.props.smSpan] : null),
+        (this.props.span === spanStringCheck ? styles['span-' + this.props.span] : null),
+        (this.props.xlgSpan === spanStringCheck ? styles['xlg-span-' + this.props.xlgSpan] : null),
+        (this.props.lgSpan === spanStringCheck ? styles['lg-span-' + this.props.lgSpan] : null),
+        (this.props.mdSpan === spanStringCheck ? styles['md-span-' + this.props.mdSpan] : null),
+        (this.props.smSpan === spanStringCheck ? styles['sm-span-' + this.props.smSpan] : null),
         (this.props.offset ? styles['offset-' + offsetType + this.props.offset] : null),
         (this.props.xlgOffset ? styles['xlg-offset-' + offsetType + this.props.xlgOffset] : null),
         (this.props.lgOffset ? styles['lg-offset-' + offsetType + this.props.lgOffset] : null),
