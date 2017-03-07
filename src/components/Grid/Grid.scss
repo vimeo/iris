@@ -11,6 +11,10 @@
     padding-right: rem-calc($grid-gutter-width);
 }
 
+.infinite {
+    max-width: none;
+}
+
 .center {
     justify-content: center;
 }

@@ -10,11 +10,13 @@ const displayName = 'Grid';
 const propTypes = {
     className: React.PropTypes.string,
     centered: React.PropTypes.bool,
+    infinite: React.PropTypes.bool,
 };
 
 const defaultProps = {
     className: '',
     centered: false,
+    infinite: false,
 };
 
 class Grid extends React.Component {
@@ -24,7 +26,8 @@ class Grid extends React.Component {
 		// classes
         const gridClasses = classNames(
 			styles.Grid,
-			(this.props.centered ? styles[this.props.centered] : null),
+			(this.props.centered ? styles['center'] : null),
+			(this.props.infinite ? styles['infinite'] : null),
 			this.props.className
 		);
 
