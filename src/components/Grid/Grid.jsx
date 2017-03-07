@@ -26,8 +26,8 @@ class Grid extends React.Component {
 		// classes
         const gridClasses = classNames(
 			styles.Grid,
-			(this.props.centered ? styles['center'] : null),
-			(this.props.infinite ? styles['infinite'] : null),
+			(this.props.centered ? styles.center : null),
+			(this.props.infinite ? styles.infinite : null),
 			this.props.className
 		);
 
