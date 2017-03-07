@@ -30,10 +30,10 @@ class Col extends React.Component {
     render() {
 
     // check from span string for 1-24 and keywords
-        const spanStringCheck = /\b([1-9]|1[0-9]|2[0-4])\b/ || 'quarter' || 'third' || 'half';
-        let fixed;
-
-    // set up offset class naming
+        const spanStringCheck = /\b([1-9]|1[0-9]|2[0-4]|quarter|half|third)(\-fixed)?\b/;
+        // let fixed;
+        
+        // set up offset class naming
         let offsetType;
 
         const offsetNumber = parseInt(this.props.offset, 10);
@@ -46,15 +46,17 @@ class Col extends React.Component {
         }
 
     // set-up breakpoints for offsets
-        console.log(this.props.span === spanStringCheck);
+        console.log(this.props.span);
+        console.log(spanStringCheck);
+        console.log(spanStringCheck.test(this.props.span));
     // className builder
         const colClass = classNames(
         styles.Col,
-        (this.props.span === spanStringCheck ? styles['span-' + this.props.span] : null),
-        (this.props.xlgSpan === spanStringCheck ? styles['xlg-span-' + this.props.xlgSpan] : null),
-        (this.props.lgSpan === spanStringCheck ? styles['lg-span-' + this.props.lgSpan] : null),
-        (this.props.mdSpan === spanStringCheck ? styles['md-span-' + this.props.mdSpan] : null),
-        (this.props.smSpan === spanStringCheck ? styles['sm-span-' + this.props.smSpan] : null),
+        (spanStringCheck.test(this.props.span) ? styles['span-' + this.props.span] : null),
+        (spanStringCheck.test(this.props.xlgSpan) ? styles['xlg-span-' + this.props.xlgSpan] : null),
+        (spanStringCheck.test(this.props.lgSpan) ? styles['lg-span-' + this.props.lgSpan] : null),
+        (spanStringCheck.test(this.props.mdSpan) ? styles['md-span-' + this.props.mdSpan] : null),
+        (spanStringCheck.test(this.props.smSpan) ? styles['sm-span-' + this.props.smSpan] : null),
         (this.props.offset ? styles['offset-' + offsetType + this.props.offset] : null),
         (this.props.xlgOffset ? styles['xlg-offset-' + offsetType + this.props.xlgOffset] : null),
         (this.props.lgOffset ? styles['lg-offset-' + offsetType + this.props.lgOffset] : null),
@@ -68,7 +70,7 @@ class Col extends React.Component {
     // filter out presentational props from this.props and store the rest as "filteredProps" to be printed into the component as properties (e.g. HTML attribute pass-through, event handlers)
         const {
         rail,
-        ...filteredProps
+        filteredProps
     } = this.props;
 
         const colContent = this.props.children;
