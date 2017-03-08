@@ -6,9 +6,9 @@ const displayName = 'Col';
 
 //List out proptypes for Iris API generator
 const spanTypes = [
-    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '22', '23', '24',
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24',
     '1-fixed', '2-fixed', '3-fixed', '4-fixed', '5-fixed', '6-fixed', '7-fixed', '8-fixed', '9-fixed', '10-fixed', '11-fixed',
-    '12-fixed', '13-fixed', '14-fixed', '15-fixed', '16-fixed', '17-fixed', '18-fixed', '19-fixed', '22-fixed', '23-fixed', '24-fixed',
+    '12-fixed', '13-fixed', '14-fixed', '15-fixed', '16-fixed', '17-fixed', '18-fixed', '19-fixed', '20-fixed', '21-fixed', '22-fixed', '23-fixed', '24-fixed',
     'quarter', 'half', 'third',
     'quarter-fixed', 'half-fixed', 'third-fixed'
 ];
