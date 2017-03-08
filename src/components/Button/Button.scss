@@ -151,6 +151,12 @@ $Button_icon-size-xSmall: rem-calc(10);
 
 //-------------------------  button types
 
+.textOnly{
+    font-weight: inherit;
+    border: 0;
+    background-color: transparent;
+}
+
 .primary,
 .primaryOutline:hover {
     color: $Button_primary-text-color;

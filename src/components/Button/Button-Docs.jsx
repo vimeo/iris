@@ -20,6 +20,7 @@ class ButtonDocs extends React.Component {
                     <Button format="secondary">Secondary</Button>
                     <Button format="success">Success</Button>
                     <Button format="warning">Warning</Button>
+                    <Button format="textOnly">TextOnly</Button>
                 </div>
 
                 <ExampleSource>
@@ -29,6 +30,7 @@ class ButtonDocs extends React.Component {
 <Button format="secondary">Secondary</Button>
 <Button format="success">Success</Button>
 <Button format="warning">Warning</Button>
+<Button format="textOnly">TextOnly</Button>
                     `}
                 </ExampleSource>
 
