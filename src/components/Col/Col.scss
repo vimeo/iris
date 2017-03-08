@@ -14,6 +14,16 @@
     }
 }
 
+
+//update $containerWidth to $gridWidth?
+@mixin fixedSpans($containerWidth, $count) {
+    @for $i from 1 through $count {
+        &-#{$i}-fixed {
+            flex: 0 0 rem-calc((($i/$count)*$containerWidth));
+        }
+    }
+}
+
 @mixin offset($count, $offsetDirection) {
     @for $i from 1 through $count {
         &-#{$i} {
@@ -24,6 +34,7 @@
 
 .span {
   @include spans(24);
+  @include fixedSpans(1440, 24);
 }
 
 .span-half {
@@ -43,6 +54,7 @@
 @include breakpointSm {
     .sm-span {
         @include spans(24);
+        @include fixedSpans(480, 24);
     }
 
     .sm-span-half {
@@ -62,6 +74,7 @@
 @include breakpointMd {
     .md-span {
         @include spans(24);
+        @include fixedSpans(768, 24);
     }
 
     .md-span-half {
@@ -81,6 +94,7 @@
 @include breakpointLg {
     .lg-span {
         @include spans(24);
+        @include fixedSpans(1280, 24);
     }
 
     .lg-span-half {
@@ -100,6 +114,7 @@
 @include breakpointXLg {
     .xlg-span {
         @include spans(24);
+        @include fixedSpans(1440, 24);
     }
 
     .xlg-span-half {
