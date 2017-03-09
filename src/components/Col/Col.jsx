@@ -35,13 +35,44 @@ const spanTypes = [
     'third', 'third-fixed'
 ];
 
+
+const offsetTypes = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+    '13',
+    '14',
+    '15',
+    '16',
+    '17',
+    '18',
+    '19',
+    '20',
+    '21',
+    '22',
+    '23',
+    '24',
+    'quarter',
+    'half',
+    'third'
+];
+
 const propTypes = {
-    xsmSpan: React.PropTypes.oneOf(spanTypes),
+    xsSpan: React.PropTypes.oneOf(spanTypes),
     smSpan: React.PropTypes.oneOf(spanTypes),
     mdSpan: React.PropTypes.oneOf(spanTypes),
     lgSpan: React.PropTypes.oneOf(spanTypes),
     xlgSpan: React.PropTypes.oneOf(spanTypes),
-    offset: React.PropTypes.oneOf(spanTypes),
+    offset: React.PropTypes.oneOf(offsetTypes),
     smOffset: React.PropTypes.string,
     mdOffset: React.PropTypes.string,
     lgOffset: React.PropTypes.string,
@@ -53,7 +84,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-    xsmSpan: '24',
+    xsSpan: '24',
 };
 
 let offsetType;
@@ -75,7 +106,7 @@ class Col extends React.Component {
     // className builder
         const colClass = classNames(
         styles.Col,
-        (this.props.xsmSpan ? styles['span-' + this.props.xsmSpan] : null),
+        (this.props.xsSpan ? styles['span-' + this.props.xsSpan] : null),
         (this.props.xlgSpan ? styles['xlg-span-' + this.props.xlgSpan] : null),
         (this.props.lgSpan ? styles['lg-span-' + this.props.lgSpan] : null),
         (this.props.mdSpan ? styles['md-span-' + this.props.mdSpan] : null),
