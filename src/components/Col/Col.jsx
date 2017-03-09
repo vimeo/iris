@@ -6,11 +6,33 @@ const displayName = 'Col';
 
 //List out proptypes for Iris API generator
 const spanTypes = [
-    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24',
-    '1-fixed', '2-fixed', '3-fixed', '4-fixed', '5-fixed', '6-fixed', '7-fixed', '8-fixed', '9-fixed', '10-fixed', '11-fixed',
-    '12-fixed', '13-fixed', '14-fixed', '15-fixed', '16-fixed', '17-fixed', '18-fixed', '19-fixed', '20-fixed', '21-fixed', '22-fixed', '23-fixed', '24-fixed',
-    'quarter', 'half', 'third',
-    'quarter-fixed', 'half-fixed', 'third-fixed'
+    '1', '1-fixed',
+    '2', '2-fixed',
+    '3', '3-fixed',
+    '4', '4-fixed',
+    '5', '5-fixed',
+    '6', '6-fixed',
+    '7', '7-fixed',
+    '8', '8-fixed',
+    '9', '9-fixed',
+    '10', '10-fixed',
+    '11', '11-fixed',
+    '12', '12-fixed',
+    '13', '13-fixed',
+    '14', '14-fixed',
+    '15', '15-fixed',
+    '16', '16-fixed',
+    '17', '17-fixed',
+    '18', '18-fixed',
+    '19', '19-fixed',
+    '20', '20-fixed',
+    '21', '21-fixed',
+    '22', '22-fixed',
+    '23', '23-fixed',
+    '24', '24-fixed',
+    'quarter', 'quarter-fixed',
+    'half', 'half-fixed',
+    'third', 'third-fixed'
 ];
 
 const propTypes = {
@@ -36,7 +58,7 @@ const defaultProps = {
 
 let offsetType;
 
-let offsetCheck = function(offsetValue) {
+const offsetCheck = function(offsetValue) {
     if (offsetValue && offsetValue >= 1) {
         offsetType = 'plus-';
     }
@@ -50,12 +72,6 @@ let offsetCheck = function(offsetValue) {
 class Col extends React.Component {
 
     render() {
-        // set up offset class naming
-       
-
-        const offsetNumber = parseInt(this.props.offset, 10);
-
-      
     // className builder
         const colClass = classNames(
         styles.Col,
