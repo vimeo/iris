@@ -76,7 +76,7 @@ const propTypes = {
     xlOffset: React.PropTypes.string,
     isAside: React.PropTypes.bool,
     className: React.PropTypes.string,
-    align: React.PropTypes.string,
+    alignment: React.PropTypes.string,
 };
 
 const defaultProps = {
@@ -114,7 +114,7 @@ class GridCol extends React.Component {
         (this.props.mdOffset ? styles['md-offset-' + offsetCheck(this.props.mdOffset) + this.props.mdOffset] : null),
         (this.props.smOffset ? styles['sm-offset-' + offsetCheck(this.props.smOffset) + this.props.smOffset] : null),
         (this.props.nested ? styles.nested : null),
-        styles[this.props.align],
+        styles[this.props.alignment],
         this.props.className
     );
 
