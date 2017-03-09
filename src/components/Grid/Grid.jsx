@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import styles from './Grid.css';
-import Block from '../Block/Block.jsx';
+import GridBlock from '../GridBlock/GridBlock.jsx';
 import GridCol from '../GridCol/GridCol.jsx';
 
 const displayName = 'Grid';
@@ -50,5 +50,5 @@ Grid.propTypes = propTypes;
 
 Grid.defaultProps = defaultProps;
 
-export { Block, GridCol, Grid };
+export { GridBlock, GridCol, Grid };
 // export default Grid;

@@ -17,11 +17,11 @@ exports.paths = {
   
   'iris/Badge':'iris/src/components/Badge/Badge',
   
-  'iris/Block':'iris/src/components/Block/Block',
-  
   'iris/Button':'iris/src/components/Button/Button',
   
   'iris/Grid':'iris/src/components/Grid/Grid',
+  
+  'iris/GridBlock':'iris/src/components/GridBlock/GridBlock',
   
   'iris/GridCol':'iris/src/components/GridCol/GridCol',
   

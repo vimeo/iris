@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Block, GridCol, Grid} from  '../../../src/components/Grid/Grid.jsx';
+import { GridBlock, GridCol, Grid } from '../../../src/components/Grid/Grid.jsx';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 export default function GridDocs() {
@@ -14,7 +14,7 @@ export default function GridDocs() {
 				<li>Grid is composed of 3 components:
 					<ul>
 						<li>Container: <code>{'<Grid></Grid>'}</code> The container is the parent of all elements and establishes: max-width for content, gutter spacing outside the content, and the grid styles for its children.</li>
-						<li>Blocks: <code>{`<Block></Block>`}</code> sets a grid's context and can be used to group grid items together.</li>
+						<li>GridBlocks: <code>{`<GridBlock></GridBlock>`}</code> sets a grid's context and can be used to group grid items together.</li>
 						<li>GridColumns: <code>{`<GridCol></GridCol>`}</code> Are vertical structures where the actual content exists and is manipulated onto the grid.</li>
 					</ul>
 				</li>
@@ -28,26 +28,26 @@ export default function GridDocs() {
 			</ul>
 
 			<h3>Simple Set-Up:</h3>
-			<p>Import the Grid, Block, and GridColumn components into your working space:</p>
+			<p>Import the Grid, GridBlock, and GridColumn components into your working space:</p>
 			<ExampleSource>
 				{`
-					import {Block, GridCol, Grid} from 'iris/Grid';
+					import {GridBlock, GridCol, Grid} from 'iris/Grid';
 				`}
 			</ExampleSource>
 			<p>Set-up your Grid component and place the amount of needed columns into the space:</p>
 			<div data-code>
 				<Grid className="sg-grid">
-				    <Block>
-				    <GridCol className="sg-col"></GridCol>
-				    </Block>
+					<GridBlock>
+						<GridCol className="sg-col"></GridCol>
+					</GridBlock>
 				</Grid>
 			</div>
 			<ExampleSource>
 				{`
 					<Grid>
-					    <Block>
-					    <GridCol></GridCol>
-					    </Block>
+					    <GridBlock>
+						    <GridCol></GridCol>
+					    </GridBlock>
 					</Grid>
 				`}
 			</ExampleSource>
@@ -56,58 +56,58 @@ export default function GridDocs() {
 			<p>Column widths are controlled by a <code>span</code> prop. Span props accept strings as values that must be between 1-24 or use the keyword <code>half</code>, <code>third</code>, or <code>quarter</code>. To trigger responsive design breakpoints have been set up as props.  <code>xlSpan</code> (105em+), <code>lgSpan</code> (80em+), <code>mdSpan</code> (48em+), and <code>smSpan</code> (30em+). Columns by default are set to span the full 24 column space of its parent.</p>
 			<div data-code>
 				<Grid className="sg-grid">
-					<Block>
-					<GridCol className="sg-col" xsSpan="6-fixed">testing</GridCol>
-					<GridCol className="sg-col" xsSpan="6" lgSpan="20" mdSpan="16" smSpan="24"></GridCol>
-					<GridCol className="sg-col" xsSpan="quarter"></GridCol>
-					<GridCol className="sg-col" xsSpan="6"></GridCol>
-					</Block>
+					<GridBlock>
+						<GridCol className="sg-col" xsSpan="6-fixed">testing</GridCol>
+						<GridCol className="sg-col" xsSpan="6" lgSpan="20" mdSpan="16" smSpan="24"></GridCol>
+						<GridCol className="sg-col" xsSpan="quarter"></GridCol>
+						<GridCol className="sg-col" xsSpan="6"></GridCol>
+					</GridBlock>
 				</Grid>
 			</div>
 			<ExampleSource>
 				{`
 					<Grid>
-					    <Block>
-					    <GridCol xsSpan="6"></GridCol>
-					    <GridCol xsSpan="6" lgSpan="20" mdSpan="16" smSpan="24"></GridCol>
-					    <GridCol xsSpan="quarter"></GridCol>
-					    <GridCol xsSpan="6"></GridCol>
-					    </Block>
+						<GridBlock>
+							<GridCol className="sg-col" xsSpan="6-fixed"></GridCol>
+							<GridCol className="sg-col" xsSpan="6" lgSpan="20" mdSpan="16" smSpan="24"></GridCol>
+							<GridCol className="sg-col" xsSpan="quarter"></GridCol>
+							<GridCol className="sg-col" xsSpan="6"></GridCol>
+						</GridBlock>
 					</Grid>
 				`}
 			</ExampleSource>
 
 			<h3>Nesting</h3>
-			<p>Nesting Columns is easy as pie, inside of a <code>{`<GridCol></GridCol>`}</code>  wrap the children in a <code>{`<Block></Block>`}</code> . It's important to keep in mind that nested children are also built out of a columns. In the example below the nested children <code>{`<GridCol xsSpan="12"></GridCol>`}</code>  map to half of the parents (24/2 = 12 therefore 12 GridColumns is half the space of the parent container).</p>
+			<p>Nesting Columns is easy as pie, inside of a <code>{`<GridCol></GridCol>`}</code>  wrap the children in a <code>{`<GridBlock></GridBlock>`}</code> . It's important to keep in mind that nested children are also built out of a columns. In the example below the nested children <code>{`<GridCol xsSpan="12"></GridCol>`}</code>  map to half of the parents (24/2 = 12 therefore 12 GridColumns is half the space of the parent container).</p>
 			<div data-code>
 				<Grid className="sg-grid">
-					<Block>
-					<GridCol className="sg-col" xsSpan="6"></GridCol>
-					<GridCol className="sg-col" xsSpan="6">
-						<Block className="sg-block">
-							<GridCol className="sg-col" xsSpan="12"></GridCol>
-							<GridCol className="sg-col" xsSpan="12"></GridCol>
-						</Block>
-					</GridCol>
-					<GridCol className="sg-col" xsSpan="6"></GridCol>
-					<GridCol className="sg-col" xsSpan="6"></GridCol>
-					</Block>
+					<GridBlock>
+						<GridCol className="sg-col" xsSpan="6"></GridCol>
+						<GridCol className="sg-col" xsSpan="6">
+							<GridBlock className="sg-block">
+								<GridCol className="sg-col" xsSpan="12"></GridCol>
+								<GridCol className="sg-col" xsSpan="12"></GridCol>
+							</GridBlock>
+						</GridCol>
+						<GridCol className="sg-col" xsSpan="6"></GridCol>
+						<GridCol className="sg-col" xsSpan="6"></GridCol>
+					</GridBlock>
 				</Grid>
 			</div>
 			<ExampleSource>
 				{`
 					<Grid>
-					    <Block>
-					    <GridCol xsSpan="4"></GridCol>
-					    <GridCol xsSpan="4">
-					        <Block>
-					            <GridCol xsSpan="12"></GridCol>
-					            <GridCol xsSpan="12"></GridCol>
-					        </Block>
-					    </GridCol>
-					    <GridCol xsSpan="4"></GridCol>
-					    <GridCol xsSpan="4"></GridCol>
-					    </Block>
+					    <GridBlock>
+							<GridCol xsSpan="4"></GridCol>
+							<GridCol xsSpan="4">
+								<GridBlock>
+									<GridCol xsSpan="12"></GridCol>
+									<GridCol xsSpan="12"></GridCol>
+								</GridBlock>
+							</GridCol>
+							<GridCol xsSpan="4"></GridCol>
+							<GridCol xsSpan="4"></GridCol>
+					    </GridBlock>
 					</Grid>
 				`}
 			</ExampleSource>
@@ -116,19 +116,19 @@ export default function GridDocs() {
 			<p>Authors can push content to the left or right using the <code>offset</code> prop. Positive numbers will push content in the main writing direction (Ex. left for English and Spanish but right for Arabic) and negative numbers will push content in the opposite of a page’s writing direction. Like <code>span</code>, offset also can be set for responsive breakpoints: <code>lgOffset</code>, <code>mdOffset</code>, and <code>smOffset</code>.</p>
 			<div data-code>
 				<Grid className="sg-grid">
-					<Block>
-					<GridCol className="sg-col" xsSpan="4"></GridCol>
-					<GridCol className="sg-col" xsSpan="8" offset="4"></GridCol>
-					</Block>
+					<GridBlock>
+						<GridCol className="sg-col" xsSpan="4"></GridCol>
+						<GridCol className="sg-col" xsSpan="8" offset="4"></GridCol>
+					</GridBlock>
 				</Grid>
 			</div>
 			<ExampleSource>
 				{`
 					<Grid>
-					    <Block>
-					    <GridCol xsSpan="4"></GridCol>
-					    <GridCol xsSpan="8" offset="4"></GridCol>
-					    </Block>
+					    <GridBlock>
+							<GridCol xsSpan="4"></GridCol>
+							<GridCol xsSpan="8" offset="4"></GridCol>
+					    </GridBlock>
 					</Grid>
 				`}
 			</ExampleSource>

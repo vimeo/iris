@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Block from './Block';
+import GridBlock from './GridBlock';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 class BlockDocs extends React.Component {
@@ -7,12 +7,12 @@ class BlockDocs extends React.Component {
         return (
 			<div>
 				<div data-code>
-					<Block />
+					<GridBlock />
 				</div>
 
 				<ExampleSource>
 					{`
-					<Block />
+					<GridBlock />
 					`}
 				</ExampleSource>
 			</div>

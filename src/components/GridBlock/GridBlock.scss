@@ -1,7 +1,7 @@
 /* @description Generates styles for the Block component */
 @import '../../globals/sass/helpers-all';
 
-.Block {
+.GridBlock {
     /* Fill space of parent and content set to wrap by default  */
     width: calc(100% + #{($grid-column-width * 1px)});
     flex-grow: 1;
