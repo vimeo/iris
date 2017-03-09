@@ -21,8 +21,8 @@ exports.paths = {
   
   'iris/Button':'iris/src/components/Button/Button',
   
-  'iris/Col':'iris/src/components/Col/Col',
-  
   'iris/Grid':'iris/src/components/Grid/Grid',
+  
+  'iris/GridCol':'iris/src/components/GridCol/GridCol',
   
 };

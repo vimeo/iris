@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import styles from './Grid.css';
 import Block from '../Block/Block.jsx';
-import Col from '../Col/Col.jsx';
+import GridCol from '../GridCol/GridCol.jsx';
 
 const displayName = 'Grid';
 
@@ -50,5 +50,5 @@ Grid.propTypes = propTypes;
 
 Grid.defaultProps = defaultProps;
 
-export { Block, Col, Grid };
+export { Block, GridCol, Grid };
 // export default Grid;

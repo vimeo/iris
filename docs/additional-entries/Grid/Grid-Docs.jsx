@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Block, Col, Grid} from  '../../../src/components/Grid/Grid.jsx';
+import {Block, GridCol, Grid} from  '../../../src/components/Grid/Grid.jsx';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 export default function GridDocs() {
@@ -15,7 +15,7 @@ export default function GridDocs() {
 					<ul>
 						<li>Container: <code>{'<Grid></Grid>'}</code> The container is the parent of all elements and establishes: max-width for content, gutter spacing outside the content, and the grid styles for its children.</li>
 						<li>Blocks: <code>{`<Block></Block>`}</code> sets a grid's context and can be used to group grid items together.</li>
-						<li>Columns: <code>{`<Col></Col>`}</code> Are vertical structures where the actual content exists and is manipulated onto the grid.</li>
+						<li>GridColumns: <code>{`<GridCol></GridCol>`}</code> Are vertical structures where the actual content exists and is manipulated onto the grid.</li>
 					</ul>
 				</li>
 				<li>Small Screens First
@@ -28,17 +28,17 @@ export default function GridDocs() {
 			</ul>
 
 			<h3>Simple Set-Up:</h3>
-			<p>Import the Grid, Block, and Column components into your working space:</p>
+			<p>Import the Grid, Block, and GridColumn components into your working space:</p>
 			<ExampleSource>
 				{`
-					import {Block, Col, Grid} from 'iris/Grid';
+					import {Block, GridCol, Grid} from 'iris/Grid';
 				`}
 			</ExampleSource>
 			<p>Set-up your Grid component and place the amount of needed columns into the space:</p>
 			<div data-code>
 				<Grid className="sg-grid">
 				    <Block>
-				    <Col className="sg-col"></Col>
+				    <GridCol className="sg-col"></GridCol>
 				    </Block>
 				</Grid>
 			</div>
@@ -46,7 +46,7 @@ export default function GridDocs() {
 				{`
 					<Grid>
 					    <Block>
-					    <Col></Col>
+					    <GridCol></GridCol>
 					    </Block>
 					</Grid>
 				`}
@@ -57,10 +57,10 @@ export default function GridDocs() {
 			<div data-code>
 				<Grid className="sg-grid">
 					<Block>
-					<Col className="sg-col" xsSpan="6-fixed">testing</Col>
-					<Col className="sg-col" xsSpan="6" lgSpan="20" mdSpan="16" smSpan="24"></Col>
-					<Col className="sg-col" xsSpan="quarter"></Col>
-					<Col className="sg-col" xsSpan="6"></Col>
+					<GridCol className="sg-col" xsSpan="6-fixed">testing</GridCol>
+					<GridCol className="sg-col" xsSpan="6" lgSpan="20" mdSpan="16" smSpan="24"></GridCol>
+					<GridCol className="sg-col" xsSpan="quarter"></GridCol>
+					<GridCol className="sg-col" xsSpan="6"></GridCol>
 					</Block>
 				</Grid>
 			</div>
@@ -68,29 +68,29 @@ export default function GridDocs() {
 				{`
 					<Grid>
 					    <Block>
-					    <Col xsSpan="6"></Col>
-					    <Col xsSpan="6" lgSpan="20" mdSpan="16" smSpan="24"></Col>
-					    <Col xsSpan="quarter"></Col>
-					    <Col xsSpan="6"></Col>
+					    <GridCol xsSpan="6"></GridCol>
+					    <GridCol xsSpan="6" lgSpan="20" mdSpan="16" smSpan="24"></GridCol>
+					    <GridCol xsSpan="quarter"></GridCol>
+					    <GridCol xsSpan="6"></GridCol>
 					    </Block>
 					</Grid>
 				`}
 			</ExampleSource>
 
 			<h3>Nesting</h3>
-			<p>Nesting Columns is easy as pie, inside of a <code>{`<Col></Col>`}</code>  wrap the children in a <code>{`<Block></Block>`}</code> . It's important to keep in mind that nested children are also built out of a columns. In the example below the nested children <code>{`<Col xsSpan="12"></Col>`}</code>  map to half of the parents (24/2 = 12 therefore 12 columns is half the space of the parent container).</p>
+			<p>Nesting Columns is easy as pie, inside of a <code>{`<GridCol></GridCol>`}</code>  wrap the children in a <code>{`<Block></Block>`}</code> . It's important to keep in mind that nested children are also built out of a columns. In the example below the nested children <code>{`<GridCol xsSpan="12"></GridCol>`}</code>  map to half of the parents (24/2 = 12 therefore 12 GridColumns is half the space of the parent container).</p>
 			<div data-code>
 				<Grid className="sg-grid">
 					<Block>
-					<Col className="sg-col" xsSpan="6"></Col>
-					<Col className="sg-col" xsSpan="6">
+					<GridCol className="sg-col" xsSpan="6"></GridCol>
+					<GridCol className="sg-col" xsSpan="6">
 						<Block className="sg-block">
-							<Col className="sg-col" xsSpan="12"></Col>
-							<Col className="sg-col" xsSpan="12"></Col>
+							<GridCol className="sg-col" xsSpan="12"></GridCol>
+							<GridCol className="sg-col" xsSpan="12"></GridCol>
 						</Block>
-					</Col>
-					<Col className="sg-col" xsSpan="6"></Col>
-					<Col className="sg-col" xsSpan="6"></Col>
+					</GridCol>
+					<GridCol className="sg-col" xsSpan="6"></GridCol>
+					<GridCol className="sg-col" xsSpan="6"></GridCol>
 					</Block>
 				</Grid>
 			</div>
@@ -98,15 +98,15 @@ export default function GridDocs() {
 				{`
 					<Grid>
 					    <Block>
-					    <Col xsSpan="4"></Col>
-					    <Col xsSpan="4">
+					    <GridCol xsSpan="4"></GridCol>
+					    <GridCol xsSpan="4">
 					        <Block>
-					            <Col xsSpan="12"></Col>
-					            <Col xsSpan="12"></Col>
+					            <GridCol xsSpan="12"></GridCol>
+					            <GridCol xsSpan="12"></GridCol>
 					        </Block>
-					    </Col>
-					    <Col xsSpan="4"></Col>
-					    <Col xsSpan="4"></Col>
+					    </GridCol>
+					    <GridCol xsSpan="4"></GridCol>
+					    <GridCol xsSpan="4"></GridCol>
 					    </Block>
 					</Grid>
 				`}
@@ -117,8 +117,8 @@ export default function GridDocs() {
 			<div data-code>
 				<Grid className="sg-grid">
 					<Block>
-					<Col className="sg-col" xsSpan="4"></Col>
-					<Col className="sg-col" xsSpan="8" offset="4"></Col>
+					<GridCol className="sg-col" xsSpan="4"></GridCol>
+					<GridCol className="sg-col" xsSpan="8" offset="4"></GridCol>
 					</Block>
 				</Grid>
 			</div>
@@ -126,8 +126,8 @@ export default function GridDocs() {
 				{`
 					<Grid>
 					    <Block>
-					    <Col xsSpan="4"></Col>
-					    <Col xsSpan="8" offset="4"></Col>
+					    <GridCol xsSpan="4"></GridCol>
+					    <GridCol xsSpan="8" offset="4"></GridCol>
 					    </Block>
 					</Grid>
 				`}
@@ -136,11 +136,11 @@ export default function GridDocs() {
 			<h3>Additional Styling with Classes</h3>
 			<p>Authors can pass through any additional styling needs to all Grid components by using the ‘className’ prop and passing it a string.</p>
 			<div data-code>
-				<Col className="sg-col my-class"></Col>
+				<GridCol className="sg-col my-class"></GridCol>
 			</div>
 			<ExampleSource>
 				{`
-					<Col className="my-class"></Col>
+					<GridCol className="my-class"></GridCol>
 				`}
 			</ExampleSource>
 		</div>

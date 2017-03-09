@@ -1,8 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import styles from './Col.css';
+import styles from './GridCol.css';
 
-const displayName = 'Col';
+const displayName = 'GridCol';
 
 //List out proptypes for Iris API generator
 const spanTypes = [
@@ -97,12 +97,12 @@ const offsetCheck = function(offsetValue) {
     return offsetType;
 };
 
-class Col extends React.Component {
+class GridCol extends React.Component {
 
     render() {
     // className builder
-        const colClass = classNames(
-        styles.Col,
+        const GridColClass = classNames(
+        styles.GridCol,
         (this.props.xsSpan ? styles['span-' + this.props.xsSpan] : null),
         (this.props.xlSpan ? styles['xl-span-' + this.props.xlSpan] : null),
         (this.props.lgSpan ? styles['lg-span-' + this.props.lgSpan] : null),
@@ -124,15 +124,15 @@ class Col extends React.Component {
             ...filteredProps
         } = this.props;
 
-        const colContent = this.props.children;
+        const GridColContent = this.props.children;
 
         if (!rail) {
             return (
           <div
             {...filteredProps}
-            className={colClass}
+            className={GridColClass}
           >
-            {colContent}
+            {GridColContent}
           </div>
             );
         }
@@ -140,9 +140,9 @@ class Col extends React.Component {
         return (
           <aside
             {...filteredProps}
-            className={colClass}
+            className={GridColClass}
           >
-            {colContent}
+            {GridColContent}
         </aside>
         );
 
@@ -151,10 +151,10 @@ class Col extends React.Component {
 }
 
 
-Col.displayName = displayName;
+GridCol.displayName = displayName;
 
-Col.propTypes = propTypes;
+GridCol.propTypes = propTypes;
 
-Col.defaultProps = defaultProps;
+GridCol.defaultProps = defaultProps;
 
-export default Col;
+export default GridCol;
