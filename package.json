@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "plop": "plop"
+    "plop": "plop",
+    "precommit": "gulp precommit"
   },
+  "pre-commit": [
+    "precommit"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.vimeows.com/Vimeo/Iris"
@@ -24,11 +28,16 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-shell": "^0.5.2",
+    "gulp-svgo": "^1.0.3",
     "gulp-template": "^4.0.0",
     "plop": "^1.7.1",
+    "pre-commit": "^1.2.2",
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2",
-    "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#f-grid"
+    "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git",
+    "svg-react-loader": "^0.3.7",
+    "uppercamelcase": "^1.1.0",
+    "walk": "^2.3.9"
   },
   "dependencies": {
     "autoprefixer": "^6.5.3",

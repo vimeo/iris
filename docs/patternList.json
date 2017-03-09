@@ -1,8 +1,10 @@
 {
     "Brand": [
-        ["Colors", "Color Palette", true]
+        ["Colors", "Color Palette", true],
+        ["Svgs", "SVG Icons", true]
     ],
     "Components": [
+        ["Badge", "Badges"],
         ["Button", "Buttons"]
     ],
     "Layout": [

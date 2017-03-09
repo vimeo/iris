@@ -13,8 +13,9 @@
 //Export Global CSS and all components ------------------
 exports.paths = {
   'iris/GlobalCSS':'iris/src/globals/css/globals.css',
-  'iris/icons':'iris/src/components/Icons/',
-  'iris/icon':'iris/src/components/Icons/',
+  'iris/icons':'iris/src/globals/svg/',
+  
+  'iris/Badge':'iris/src/components/Badge/Badge',
   
   'iris/Block':'iris/src/components/Block/Block',
   

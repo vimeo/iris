@@ -51,16 +51,8 @@ gulp.task('serve', function() {
 
 gulp.task('default', function(cb) {
     runSequence(
-'cleanStyleguideDistFile',
-'compileComponentListJSX',
-'reactDocGenBuild',
-'reactDocGenParse',
-'compileColorVariables',
-['sassStyleguide', 'sassComponents', 'sassGlobals'],
-'copyStaticAssets',
-'compilePackageIndexJSX',
-'esLint',
-'webpackReact',
-'serve',
-cb);
+        'build',
+        'serve',
+        cb
+    );
 });
