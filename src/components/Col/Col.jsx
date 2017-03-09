@@ -60,10 +60,7 @@ const offsetTypes = [
     '21',
     '22',
     '23',
-    '24',
-    'quarter',
-    'half',
-    'third'
+    '24'
 ];
 
 const propTypes = {
