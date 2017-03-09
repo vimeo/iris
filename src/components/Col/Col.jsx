@@ -77,7 +77,6 @@ const propTypes = {
     mdOffset: React.PropTypes.string,
     lgOffset: React.PropTypes.string,
     xlOffset: React.PropTypes.string,
-    nested: React.PropTypes.bool,
     rail: React.PropTypes.bool,
     className: React.PropTypes.string,
     align: React.PropTypes.string,
