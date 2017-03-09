@@ -86,10 +86,11 @@ const defaultProps = {
 let offsetType;
 
 const offsetCheck = function(offsetValue) {
-    if (offsetValue && offsetValue >= 1) {
+    const offsetValueInt = parseInt(offsetValue, 10);
+    if (offsetValueInt && offsetValueInt >= 1) {
         offsetType = 'plus-';
     }
-    else if (offsetValue && offsetValue <= 1) {
+    else if (offsetValueInt && offsetValueInt <= 1) {
         offsetType = 'negative-';
     }
 
