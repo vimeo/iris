@@ -34,21 +34,28 @@ const defaultProps = {
     xsmSpan: '24',
 };
 
+let offsetType;
+
+let offsetCheck = function(offsetValue) {
+    if (offsetValue && offsetValue >= 1) {
+        offsetType = 'plus-';
+    }
+    else if (offsetValue && offsetValue <= 1) {
+        offsetType = 'negative-';
+    }
+
+    return offsetType;
+};
+
 class Col extends React.Component {
 
     render() {
         // set up offset class naming
-        let offsetType;
+       
 
         const offsetNumber = parseInt(this.props.offset, 10);
 
-        if (offsetNumber && offsetNumber >= 1) {
-            offsetType = 'plus-';
-        }
-        else if (offsetNumber && offsetNumber <= 1) {
-            offsetType = 'negative-';
-        }
-
+      
     // className builder
         const colClass = classNames(
         styles.Col,
@@ -57,11 +64,11 @@ class Col extends React.Component {
         (this.props.lgSpan ? styles['lg-span-' + this.props.lgSpan] : null),
         (this.props.mdSpan ? styles['md-span-' + this.props.mdSpan] : null),
         (this.props.smSpan ? styles['sm-span-' + this.props.smSpan] : null),
-        (this.props.offset ? styles['offset-' + offsetType + this.props.offset] : null),
-        (this.props.xlgOffset ? styles['xlg-offset-' + offsetType + this.props.xlgOffset] : null),
-        (this.props.lgOffset ? styles['lg-offset-' + offsetType + this.props.lgOffset] : null),
-        (this.props.mdOffset ? styles['md-offset-' + offsetType + this.props.mdOffset] : null),
-        (this.props.smOffset ? styles['sm-offset-' + offsetType + this.props.smOffset] : null),
+        (this.props.offset ? styles['offset-' + offsetCheck(this.props.offset) + this.props.offset] : null),
+        (this.props.xlgOffset ? styles['xlg-offset-' + offsetCheck(this.props.xlgOffset) + this.props.xlgOffset] : null),
+        (this.props.lgOffset ? styles['lg-offset-' + offsetCheck(this.props.lgOffset) + this.props.lgOffset] : null),
+        (this.props.mdOffset ? styles['md-offset-' + offsetCheck(this.props.mdOffset) + this.props.mdOffset] : null),
+        (this.props.smOffset ? styles['sm-offset-' + offsetCheck(this.props.smOffset) + this.props.smOffset] : null),
         (this.props.nested ? styles.nested : null),
         styles[this.props.align],
         this.props.className
