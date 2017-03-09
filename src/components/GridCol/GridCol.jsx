@@ -74,7 +74,7 @@ const propTypes = {
     mdOffset: React.PropTypes.string,
     lgOffset: React.PropTypes.string,
     xlOffset: React.PropTypes.string,
-    rail: React.PropTypes.bool,
+    isAside: React.PropTypes.bool,
     className: React.PropTypes.string,
     align: React.PropTypes.string,
 };
@@ -120,13 +120,13 @@ class GridCol extends React.Component {
 
     // filter out presentational props from this.props and store the rest as "filteredProps" to be printed into the component as properties (e.g. HTML attribute pass-through, event handlers)
         const {
-            rail,
+            isAside,
             ...filteredProps
         } = this.props;
 
         const GridColContent = this.props.children;
 
-        if (!rail) {
+        if (!isAside) {
             return (
           <div
             {...filteredProps}
