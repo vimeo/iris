@@ -1,5 +1,5 @@
 @mixin breakpointXl {
-    @media screen and (min-width: $screen-xlg) {
+    @media screen and (min-width: $screen-xl) {
         @content;
     }
 }
