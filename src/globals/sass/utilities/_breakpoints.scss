@@ -1,29 +1,42 @@
-@mixin breakpointXxl {
-    @media screen and (min-width: #{$screen-xxl-em}) {
-        @content;
+@mixin mq($breakpoint-screen-size) {
+    @if ($breakpoint-screen-size == xs ) {
+        @media screen and (min-width: 0) {
+            @content;
+        }
     }
-}
 
-@mixin xlBreakpoint {
-    @media screen and (min-width: #{$screen-xl-em}) {
-        @content;
+    @else if ($breakpoint-screen-size == sm ) {
+        @media screen and (min-width: #{$screen-sm-em}) {
+            @content;
+        }
     }
-}
 
-@mixin lgBreakpoint {
-    @media screen and (min-width: #{$screen-lg-em}) {
-        @content;
+    @else if ($breakpoint-screen-size == md ) {
+        @media screen and (min-width: #{$screen-md-em}) {
+            @content;
+        }
     }
-}
 
-@mixin mdBreakpoint {
-    @media screen and (min-width: #{$screen-md-em}) {
-        @content;
+    @else if ($breakpoint-screen-size == lg ) {
+        @media screen and (min-width: #{$screen-lg-em}) {
+            @content;
+        }
     }
-}
 
-@mixin smBreakpoint {
-    @media screen and (min-width: #{$screen-sm-em}) {
-        @content;
+    @else if ($breakpoint-screen-size ==  xl) {
+        @media screen and (min-width: #{$screen-xl-em}) {
+            @content;
+        }
+    }
+
+    @else if ($breakpoint-screen-size ==  xxl) {
+        @media screen and (min-width: #{$screen-xxl-em}) {
+            @content;
+        }
+    }
+    
+
+    @else {
+        @warn "Invalid mq value: " +$breakname;
     }
 }
