@@ -1,7 +1,25 @@
-$screen-xs: 360px;
-$screen-sm: 480px;
-$screen-md: 768px;
-$screen-lg: 1280px;
-$screen-xl: 1440px;
-$screen-xxl: 1680px;
+$screen-xs: 360;
+$screen-xs-em: em-calc($screen-xs);
+$screen-xs-rem: rem-calc($screen-xs);
+
+$screen-sm: 480;
+$screen-sm-em: em-calc($screen-sm);
+$screen-sm-rem: rem-calc($screen-sm);
+
+$screen-md: 768;
+$screen-md-em: em-calc($screen-md);
+$screen-md-rem: rem-calc($screen-md);
+
+$screen-lg: 1280;
+$screen-lg-em: em-calc($screen-lg);
+$screen-lg-rem: rem-calc($screen-lg);
+
+$screen-xl: 1440;
+$screen-xl-em: em-calc($screen-xl);
+$screen-xl-rem: rem-calc($screen-xl);
+
+$screen-xxl: 1680;
+$screen-xxl-em: em-calc($screen-xxl);
+$screen-xxl-rem: rem-calc($screen-xxl);
+
  
