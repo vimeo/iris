@@ -18,17 +18,19 @@ const defaultProps = {
 class GridBlock extends React.Component {
     render() {
 
+        const {
+			children,
+            className,
+            nowrap,
+            ...filteredProps
+		} = this.props;
+
         // Class builder
         const gridBlockClasses = classNames(
             styles.GridBlock,
-            (this.props.nowrap ? styles.nowrap : null),
-            this.props.className
+            (nowrap ? styles.nowrap : null),
+            className
         );
-
-        const {
-			children,
-            ...filteredProps
-		} = this.props;
 
         return (
             <div className={gridBlockClasses} {...filteredProps}>

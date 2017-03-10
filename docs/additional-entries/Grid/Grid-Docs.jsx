@@ -57,10 +57,10 @@ export default function GridDocs() {
 			<div data-code>
 				<Grid className="sg-grid">
 					<GridBlock>
-						<GridCol className="sg-col" xsSpan="6-fixed">testing</GridCol>
-						<GridCol className="sg-col" xsSpan="6" lgSpan="20" mdSpan="16" smSpan="24"></GridCol>
-						<GridCol className="sg-col" xsSpan="quarter"></GridCol>
-						<GridCol className="sg-col" xsSpan="6"></GridCol>
+						<GridCol className="sg-col" xsSpan={6}>testing</GridCol>
+						<GridCol className="sg-col" xsSpan={6} lgSpan={20} mdSpan={16} smSpan={24}></GridCol>
+						<GridCol className="sg-col" xsSpan={6}></GridCol>
+						<GridCol className="sg-col" xsSpan={6}></GridCol>
 					</GridBlock>
 				</Grid>
 			</div>
@@ -68,29 +68,29 @@ export default function GridDocs() {
 				{`
 					<Grid>
 						<GridBlock>
-							<GridCol className="sg-col" xsSpan="6-fixed"></GridCol>
-							<GridCol className="sg-col" xsSpan="6" lgSpan="20" mdSpan="16" smSpan="24"></GridCol>
-							<GridCol className="sg-col" xsSpan="quarter"></GridCol>
-							<GridCol className="sg-col" xsSpan="6"></GridCol>
+							<GridCol className="sg-col" xsSpan={6}></GridCol>
+							<GridCol className="sg-col" xsSpan={6} lgSpan={20} mdSpan={16} smSpan={24}></GridCol>
+							<GridCol className="sg-col" xsSpan={6}></GridCol>
+							<GridCol className="sg-col" xsSpan={6}></GridCol>
 						</GridBlock>
 					</Grid>
 				`}
 			</ExampleSource>
 
 			<h3>Nesting</h3>
-			<p>Nesting Columns is easy as pie, inside of a <code>{`<GridCol></GridCol>`}</code>  wrap the children in a <code>{`<GridBlock></GridBlock>`}</code> . It's important to keep in mind that nested children are also built out of a columns. In the example below the nested children <code>{`<GridCol xsSpan="12"></GridCol>`}</code>  map to half of the parents (24/2 = 12 therefore 12 GridColumns is half the space of the parent container).</p>
+			<p>Nesting Columns is easy as pie, inside of a <code>{`<GridCol></GridCol>`}</code>  wrap the children in a <code>{`<GridBlock></GridBlock>`}</code> . It's important to keep in mind that nested children are also built out of a columns. In the example below the nested children <code>{`<GridCol xsSpan={12}></GridCol>`}</code>  map to half of the parents (24/2 = 12 therefore 12 GridColumns is half the space of the parent container).</p>
 			<div data-code>
 				<Grid className="sg-grid">
 					<GridBlock>
-						<GridCol className="sg-col" xsSpan="6"></GridCol>
-						<GridCol className="sg-col" xsSpan="6">
+						<GridCol className="sg-col" xsSpan={6}></GridCol>
+						<GridCol className="sg-col" xsSpan={6}>
 							<GridBlock className="sg-block">
-								<GridCol className="sg-col" xsSpan="12"></GridCol>
-								<GridCol className="sg-col" xsSpan="12"></GridCol>
+								<GridCol className="sg-col" xsSpan={12}></GridCol>
+								<GridCol className="sg-col" xsSpan={12}></GridCol>
 							</GridBlock>
 						</GridCol>
-						<GridCol className="sg-col" xsSpan="6"></GridCol>
-						<GridCol className="sg-col" xsSpan="6"></GridCol>
+						<GridCol className="sg-col" xsSpan={6}></GridCol>
+						<GridCol className="sg-col" xsSpan={6}></GridCol>
 					</GridBlock>
 				</Grid>
 			</div>
@@ -98,15 +98,15 @@ export default function GridDocs() {
 				{`
 					<Grid>
 					    <GridBlock>
-							<GridCol xsSpan="4"></GridCol>
-							<GridCol xsSpan="4">
+							<GridCol xsSpan={4}></GridCol>
+							<GridCol xsSpan={4}>
 								<GridBlock>
-									<GridCol xsSpan="12"></GridCol>
-									<GridCol xsSpan="12"></GridCol>
+									<GridCol xsSpan={12}></GridCol>
+									<GridCol xsSpan={12}></GridCol>
 								</GridBlock>
 							</GridCol>
-							<GridCol xsSpan="4"></GridCol>
-							<GridCol xsSpan="4"></GridCol>
+							<GridCol xsSpan={4}></GridCol>
+							<GridCol xsSpan={4}></GridCol>
 					    </GridBlock>
 					</Grid>
 				`}
@@ -117,8 +117,8 @@ export default function GridDocs() {
 			<div data-code>
 				<Grid className="sg-grid">
 					<GridBlock>
-						<GridCol className="sg-col" xsSpan="4"></GridCol>
-						<GridCol className="sg-col" xsSpan="8" offset="4"></GridCol>
+						<GridCol className="sg-col" xsSpan={4}></GridCol>
+						<GridCol className="sg-col" xsSpan={8} offset={4}></GridCol>
 					</GridBlock>
 				</Grid>
 			</div>
@@ -126,8 +126,8 @@ export default function GridDocs() {
 				{`
 					<Grid>
 					    <GridBlock>
-							<GridCol xsSpan="4"></GridCol>
-							<GridCol xsSpan="8" offset="4"></GridCol>
+							<GridCol xsSpan={4}></GridCol>
+							<GridCol xsSpan={8} offset={4}></GridCol>
 					    </GridBlock>
 					</Grid>
 				`}
