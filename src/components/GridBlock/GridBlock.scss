@@ -3,7 +3,7 @@
 
 .GridBlock {
     /* Fill space of parent and content set to wrap by default  */
-    width: calc(100% + #{($grid-column-width * 1px)});
+    width: calc(100% + #{($grid-gutter-width * 1px)});
     flex-grow: 1;
     flex-wrap: wrap;
 
