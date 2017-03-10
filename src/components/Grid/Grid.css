@@ -1,1 +1,1 @@
-.Grid{display:flex;flex-wrap:wrap;max-width:1600px;margin:0 auto;padding-left:.625rem;padding-right:.625rem}.infinite{max-width:none}.center{justify-content:center}
+.Grid{display:flex;flex-wrap:wrap;max-width:none;margin:0 auto;padding-left:.625rem;padding-right:.625rem}.hasMaxWidth{max-width:1440px}.center{justify-content:center}
