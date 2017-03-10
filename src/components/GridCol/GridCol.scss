@@ -2,8 +2,8 @@
 @import '../../globals/sass/helpers-all';
 
 .GridCol {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: rem-calc($grid-column-width/2);
+    padding-right: rem-calc($grid-column-width/2);
 }
 
 @mixin spans($count) {
