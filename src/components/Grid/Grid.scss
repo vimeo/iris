@@ -12,7 +12,7 @@
 }
 
 .hasMaxWidth {
-    max-width: 1440px; //convert to ems
+    max-width: $grid-max-width;
 }
 
 .center {
