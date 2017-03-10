@@ -1,29 +1,29 @@
 @mixin breakpointXxl {
-    @media screen and (min-width: $screen-xxl-em) {
+    @media screen and (min-width: #{$screen-xxl-em}) {
         @content;
     }
 }
 
 @mixin xlBreakpoint {
-    @media screen and (min-width: $screen-xl-em) {
+    @media screen and (min-width: #{$screen-xl-em}) {
         @content;
     }
 }
 
 @mixin lgBreakpoint {
-    @media screen and (min-width: $screen-lg-em) {
+    @media screen and (min-width: #{$screen-lg-em}) {
         @content;
     }
 }
 
 @mixin mdBreakpoint {
-    @media screen and (min-width: $screen-md-em) {
+    @media screen and (min-width: #{$screen-md-em}) {
         @content;
     }
 }
 
 @mixin smBreakpoint {
-    @media screen and (min-width: $screen-sm-em) {
+    @media screen and (min-width: #{$screen-sm-em}) {
         @content;
     }
 }

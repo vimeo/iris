@@ -6,8 +6,8 @@ $grid-column-count: 24;
 
 //   Module Styles
 .GridCol {
-    padding-left: rem-calc($grid-gutter-width/2);
-    padding-right: rem-calc($grid-gutter-width/2);
+    padding-left: rem-calc($grid-gutter-width);
+    padding-right: rem-calc($grid-gutter-width);
 }   
 
 @mixin spans($count) {
