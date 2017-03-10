@@ -4,25 +4,25 @@
     }
 }
 
-@mixin breakpointXl {
+@mixin xlBreakpoint {
     @media screen and (min-width: $screen-xl) {
         @content;
     }
 }
 
-@mixin breakpointLg {
+@mixin lgBreakpoint {
     @media screen and (min-width: $screen-lg) {
         @content;
     }
 }
 
-@mixin breakpointMd {
+@mixin mdBreakpoint {
     @media screen and (min-width: $screen-md) {
         @content;
     }
 }
 
-@mixin breakpointSm {
+@mixin smBreakpoint {
     @media screen and (min-width: $screen-sm) {
         @content;
     }

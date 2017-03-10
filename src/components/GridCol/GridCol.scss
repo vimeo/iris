@@ -37,28 +37,28 @@
 }
 
 // Span breakpoints
-@include breakpointSm {
+@include smBreakpoint {
     .sm-span {
         @include spans($grid-column-count);
         @include fixedSpans($screen-sm, $grid-column-count);
     }
 }
 
-@include breakpointMd {
+@include mdBreakpoint {
     .md-span {
         @include spans($grid-column-count);
         @include fixedSpans($screen-md, $grid-column-count);
     }
 }
 
-@include breakpointLg {
+@include lgBreakpoint {
     .lg-span {
         @include spans($grid-column-count);
         @include fixedSpans($screen-lg, $grid-column-count);
     }
 }
 
-@include breakpointXl {
+@include xlBreakpoint {
     .xl-span {
         @include spans($grid-column-count);
         @include fixedSpans($screen-xl, $grid-column-count);
@@ -83,7 +83,7 @@
 }
 
 //Offset Breakpoints
-@include breakpointSm {
+@include smBreakpoint {
     .sm-offset-plus {
         @include offset($grid-column-count, left);
     }
@@ -93,7 +93,7 @@
     }
 }
 
-@include breakpointMd {
+@include mdBreakpoint {
     .md-offset-plus {
         @include offset($grid-column-count, left);
     }
@@ -103,7 +103,7 @@
     }
 }
 
-@include breakpointLg {
+@include lgBreakpoint {
     .lg-offset-plus {
         @include offset($grid-column-count, left);
     }
@@ -113,7 +113,7 @@
     }
 }
 
-@include breakpointXl {
+@include xlBreakpoint {
     .xl-offset-plus {
         @include offset($grid-column-count, left);
     }
