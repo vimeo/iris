@@ -111,7 +111,7 @@
 
 }
 
-@include breakpointXLg {
+@include breakpointXl {
     .xl-span {
         @include spans(24);
         @include fixedSpans(1440, 24);
