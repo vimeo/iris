@@ -4,7 +4,7 @@
 .GridCol {
     padding-left: rem-calc($grid-gutter-width/2);
     padding-right: rem-calc($grid-gutter-width/2);
-}
+}   
 
 @mixin spans($count) {
     @for $i from 1 through $count {
@@ -13,7 +13,6 @@
         }
     }
 }
-
 
 //update $containerWidth to $gridWidth?
 @mixin fixedSpans($containerWidth, $count) {
@@ -33,103 +32,38 @@
 }
 
 .xs-span {
-  @include spans(24);
-  @include fixedSpans(1440, 24);
+  @include spans($grid-column-count);
+  @include fixedSpans($screen-xs, $grid-column-count);
 }
-
-.xs-span-half {
-    flex: 0 1 #{(($grid-gutter-width/2)/$grid-gutter-width * 100%)};
-}
-
-.xs-span-quarter {
-    flex: 0 1 #{(($grid-gutter-width/4)/$grid-gutter-width * 100%)};
-}
-
-.xs-span-third {
-    flex: 0 1 #{(($grid-gutter-width/3)/$grid-gutter-width * 100%)};
-}
-
 
 // Span breakpoints
 @include breakpointSm {
     .sm-span {
-        @include spans(24);
-        @include fixedSpans(480, 24);
+        @include spans($grid-column-count);
+        @include fixedSpans($screen-sm, $grid-column-count);
     }
-
-    .sm-span-half {
-        flex: 0 1 #{(($grid-gutter-width/2)/$grid-gutter-width * 100%)};
-    }
-
-    .sm-span-quarter {
-        flex: 0 1 #{(($grid-gutter-width/4)/$grid-gutter-width * 100%)};
-    }
-
-    .sm-span-third {
-        flex: 0 1 #{(($grid-gutter-width/3)/$grid-gutter-width * 100%)};
-    }
-
 }
 
 @include breakpointMd {
     .md-span {
-        @include spans(24);
-        @include fixedSpans(768, 24);
+        @include spans($grid-column-count);
+        @include fixedSpans($screen-md, $grid-column-count);
     }
-
-    .md-span-half {
-        flex: 0 1 #{(($grid-gutter-width/2)/$grid-gutter-width * 100%)};
-    }
-
-    .md-span-quarter {
-        flex: 0 1 #{(($grid-gutter-width/4)/$grid-gutter-width * 100%)};
-    }
-
-    .md-span-third {
-        flex: 0 1 #{(($grid-gutter-width/3)/$grid-gutter-width * 100%)};
-    }
-
 }
 
 @include breakpointLg {
     .lg-span {
-        @include spans(24);
-        @include fixedSpans(1280, 24);
+        @include spans($grid-column-count);
+        @include fixedSpans($screen-lg, $grid-column-count);
     }
-
-    .lg-span-half {
-        flex: 0 1 #{(($grid-gutter-width/2)/$grid-gutter-width * 100%)};
-    }
-
-    .lg-span-quarter {
-        flex: 0 1 #{(($grid-gutter-width/4)/$grid-gutter-width * 100%)};
-    }
-
-    .lg-span-third {
-        flex: 0 1 #{(($grid-gutter-width/3)/$grid-gutter-width * 100%)};
-    }
-
 }
 
 @include breakpointXl {
     .xl-span {
-        @include spans(24);
-        @include fixedSpans(1440, 24);
-    }
-
-    .xl-span-half {
-        flex: 0 1 #{(($grid-gutter-width/2)/$grid-gutter-width * 100%)};
-    }
-
-    .xl-span-quarter {
-        flex: 0 1 #{(($grid-gutter-width/4)/$grid-gutter-width * 100%)};
-    }
-
-    .xl-span-third {
-        flex: 0 1 #{(($grid-gutter-width/3)/$grid-gutter-width * 100%)};
+        @include spans($grid-column-count);
+        @include fixedSpans($screen-xl, $grid-column-count);
     }
 }
-
 
 // Span Modifiers
 .left {
@@ -141,52 +75,51 @@
 }
 
 .offset-plus {
-    @include offset(24, left);
+    @include offset($grid-column-count, left);
 }
 
 .offset-negative {
-    @include offset(24, right);
+    @include offset($grid-column-count, right);
 }
 
 //Offset Breakpoints
-
 @include breakpointSm {
     .sm-offset-plus {
-        @include offset(24, left);
+        @include offset($grid-column-count, left);
     }
 
     .sm-offset-negative {
-        @include offset(24, right);
+        @include offset($grid-column-count, right);
     }
 }
 
 @include breakpointMd {
     .md-offset-plus {
-        @include offset(24, left);
+        @include offset($grid-column-count, left);
     }
 
     .md-offset-negative {
-        @include offset(24, right);
+        @include offset($grid-column-count, right);
     }
 }
 
 @include breakpointLg {
     .lg-offset-plus {
-        @include offset(24, left);
+        @include offset($grid-column-count, left);
     }
 
     .lg-offset-negative {
-        @include offset(24, right);
+        @include offset($grid-column-count, right);
     }
 }
 
 @include breakpointXl {
     .xl-offset-plus {
-        @include offset(24, left);
+        @include offset($grid-column-count, left);
     }
 
     .xl-offset-negative {
-        @include offset(24, right);
+        @include offset($grid-column-count, right);
     }
 }
 

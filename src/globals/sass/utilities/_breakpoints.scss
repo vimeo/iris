@@ -1,3 +1,9 @@
+@mixin breakpointXxl {
+    @media screen and (min-width: $screen-xxl) {
+        @content;
+    }
+}
+
 @mixin breakpointXl {
     @media screen and (min-width: $screen-xl) {
         @content;
@@ -21,4 +27,3 @@
         @content;
     }
 }
- 
