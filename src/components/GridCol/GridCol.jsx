@@ -6,61 +6,7 @@ const displayName = 'GridCol';
 
 //List out proptypes for Iris API generator
 const spanTypes = [
-    '1', '1-fixed',
-    '2', '2-fixed',
-    '3', '3-fixed',
-    '4', '4-fixed',
-    '5', '5-fixed',
-    '6', '6-fixed',
-    '7', '7-fixed',
-    '8', '8-fixed',
-    '9', '9-fixed',
-    '10', '10-fixed',
-    '11', '11-fixed',
-    '12', '12-fixed',
-    '13', '13-fixed',
-    '14', '14-fixed',
-    '15', '15-fixed',
-    '16', '16-fixed',
-    '17', '17-fixed',
-    '18', '18-fixed',
-    '19', '19-fixed',
-    '20', '20-fixed',
-    '21', '21-fixed',
-    '22', '22-fixed',
-    '23', '23-fixed',
-    '24', '24-fixed',
-    'quarter', 'quarter-fixed',
-    'half', 'half-fixed',
-    'third', 'third-fixed'
-];
-
-
-const offsetTypes = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
-    '11',
-    '12',
-    '13',
-    '14',
-    '15',
-    '16',
-    '17',
-    '18',
-    '19',
-    '20',
-    '21',
-    '22',
-    '23',
-    '24'
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24
 ];
 
 const propTypes = {
@@ -69,28 +15,34 @@ const propTypes = {
     mdSpan: React.PropTypes.oneOf(spanTypes),
     lgSpan: React.PropTypes.oneOf(spanTypes),
     xlSpan: React.PropTypes.oneOf(spanTypes),
-    offset: React.PropTypes.oneOf(offsetTypes),
+    offset: React.PropTypes.oneOf(spanTypes),
     smOffset: React.PropTypes.string,
     mdOffset: React.PropTypes.string,
     lgOffset: React.PropTypes.string,
     xlOffset: React.PropTypes.string,
-    isAside: React.PropTypes.bool,
+    xsFixed: React.PropTypes.bool,
+    smFixed: React.PropTypes.bool,
+    mdFixed: React.PropTypes.bool,
+    lgFixed: React.PropTypes.bool,
+    xlFixed: React.PropTypes.bool,
     className: React.PropTypes.string,
     alignment: React.PropTypes.string,
+    CustomElement: React.PropTypes.oneOf(['div', 'main', 'aside', 'section'])
 };
 
 const defaultProps = {
-    xsSpan: '24',
+    xsSpan: 24,
+    CustomElement: 'div'
 };
 
 let offsetType;
 
-const offsetCheck = function(offsetValue) {
-    const offsetValueInt = parseInt(offsetValue, 10);
-    if (offsetValueInt && offsetValueInt >= 1) {
+const offsetCheck = function (offsetValue) {
+
+    if (offsetValue && offsetValue >= 1) {
         offsetType = 'plus-';
     }
-    else if (offsetValueInt && offsetValueInt <= 1) {
+    else if (offsetValue && offsetValue <= 1) {
         offsetType = 'negative-';
     }
 
@@ -100,52 +52,39 @@ const offsetCheck = function(offsetValue) {
 class GridCol extends React.Component {
 
     render() {
-    // className builder
+        // className builder
         const GridColClass = classNames(
-        styles.GridCol,
-        (this.props.xsSpan ? styles['span-' + this.props.xsSpan] : null),
-        (this.props.xlSpan ? styles['xl-span-' + this.props.xlSpan] : null),
-        (this.props.lgSpan ? styles['lg-span-' + this.props.lgSpan] : null),
-        (this.props.mdSpan ? styles['md-span-' + this.props.mdSpan] : null),
-        (this.props.smSpan ? styles['sm-span-' + this.props.smSpan] : null),
-        (this.props.offset ? styles['offset-' + offsetCheck(this.props.offset) + this.props.offset] : null),
-        (this.props.xlOffset ? styles['xl-offset-' + offsetCheck(this.props.xlOffset) + this.props.xlOffset] : null),
-        (this.props.lgOffset ? styles['lg-offset-' + offsetCheck(this.props.lgOffset) + this.props.lgOffset] : null),
-        (this.props.mdOffset ? styles['md-offset-' + offsetCheck(this.props.mdOffset) + this.props.mdOffset] : null),
-        (this.props.smOffset ? styles['sm-offset-' + offsetCheck(this.props.smOffset) + this.props.smOffset] : null),
-        (this.props.nested ? styles.nested : null),
-        styles[this.props.alignment],
-        this.props.className
-    );
+            styles.GridCol,
+            (this.props.xsSpan ? styles['span-' + (this.props.xsFixed ? '-fixed' : '') + this.props.xsSpan] : null),
+            (this.props.xlSpan ? styles['xl-span-' + (this.props.xlFixed ? '-fixed' : '') + this.props.xlSpan] : null),
+            (this.props.lgSpan ? styles['lg-span-' + (this.props.lgFixed ? '-fixed' : '') + this.props.lgSpan] : null),
+            (this.props.mdSpan ? styles['md-span-' + (this.props.mdFixed ? '-fixed' : '') + this.props.mdSpan] : null),
+            (this.props.smSpan ? styles['sm-span-' + (this.props.smFixed ? '-fixed' : '') + this.props.smSpan] : null),
+            (this.props.offset ? styles['offset-' + offsetCheck(this.props.offset) + this.props.offset] : null),
+            (this.props.xlOffset ? styles['xl-offset-' + offsetCheck(this.props.xlOffset) + this.props.xlOffset] : null),
+            (this.props.lgOffset ? styles['lg-offset-' + offsetCheck(this.props.lgOffset) + this.props.lgOffset] : null),
+            (this.props.mdOffset ? styles['md-offset-' + offsetCheck(this.props.mdOffset) + this.props.mdOffset] : null),
+            (this.props.smOffset ? styles['sm-offset-' + offsetCheck(this.props.smOffset) + this.props.smOffset] : null),
+            (this.props.nested ? styles.nested : null),
+            styles[this.props.alignment],
+            this.props.className
+        );
 
-    // filter out presentational props from this.props and store the rest as "filteredProps" to be printed into the component as properties (e.g. HTML attribute pass-through, event handlers)
+        // filter out presentational props from this.props and store the rest as "filteredProps" to be printed into the component as properties (e.g. HTML attribute pass-through, event handlers)
         const {
-            isAside,
+            CustomElement,
             ...filteredProps
         } = this.props;
 
         const GridColContent = this.props.children;
-
-        if (!isAside) {
-            return (
-          <div
-            {...filteredProps}
-            className={GridColClass}
-          >
-            {GridColContent}
-          </div>
-            );
-        }
-
         return (
-          <aside
-            {...filteredProps}
-            className={GridColClass}
-          >
-            {GridColContent}
-        </aside>
+            <CustomElement
+                {...filteredProps}
+                className={GridColClass}
+            >
+                {GridColContent}
+            </CustomElement>
         );
-
     }
 
 }
