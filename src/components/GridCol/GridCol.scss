@@ -9,7 +9,7 @@
 @mixin spans($count) {
     @for $i from 1 through $count {
         &-#{$i} {
-            flex: 0 1 #{($i/$grid-column-width * 100%)};
+            flex: 0 1 #{($i/$count * 100%)};
         }
     }
 }
