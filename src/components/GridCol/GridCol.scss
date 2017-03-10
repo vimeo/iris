@@ -32,20 +32,20 @@
     }
 }
 
-.span {
+.xs-span {
   @include spans(24);
   @include fixedSpans(1440, 24);
 }
 
-.span-half {
+.xs-span-half {
     flex: 0 1 #{(($grid-column-width/2)/$grid-column-width * 100%)};
 }
 
-.span-quarter {
+.xs-span-quarter {
     flex: 0 1 #{(($grid-column-width/4)/$grid-column-width * 100%)};
 }
 
-.span-third {
+.xs-span-third {
     flex: 0 1 #{(($grid-column-width/3)/$grid-column-width * 100%)};
 }
 
@@ -112,20 +112,20 @@
 }
 
 @include breakpointXLg {
-    .xlg-span {
+    .xl-span {
         @include spans(24);
         @include fixedSpans(1440, 24);
     }
 
-    .xlg-span-half {
+    .xl-span-half {
         flex: 0 1 #{(($grid-column-width/2)/$grid-column-width * 100%)};
     }
 
-    .xlg-span-quarter {
+    .xl-span-quarter {
         flex: 0 1 #{(($grid-column-width/4)/$grid-column-width * 100%)};
     }
 
-    .xlg-span-third {
+    .xl-span-third {
         flex: 0 1 #{(($grid-column-width/3)/$grid-column-width * 100%)};
     }
 }
@@ -180,12 +180,12 @@
     }
 }
 
-@include breakpointXLg {
-    .xlg-offset-plus {
+@include breakpointXl {
+    .xl-offset-plus {
         @include offset(24, left);
     }
 
-    .xlg-offset-negative {
+    .xl-offset-negative {
         @include offset(24, right);
     }
 }

@@ -55,7 +55,7 @@ class GridCol extends React.Component {
         // className builder
         const GridColClass = classNames(
             styles.GridCol,
-            (this.props.xsSpan ? styles['span-' + (this.props.xsFixed ? '-fixed' : '') + this.props.xsSpan] : null),
+            (this.props.xsSpan ? styles['xs-span-' + (this.props.xsFixed ? '-fixed' : '') + this.props.xsSpan] : null),
             (this.props.xlSpan ? styles['xl-span-' + (this.props.xlFixed ? '-fixed' : '') + this.props.xlSpan] : null),
             (this.props.lgSpan ? styles['lg-span-' + (this.props.lgFixed ? '-fixed' : '') + this.props.lgSpan] : null),
             (this.props.mdSpan ? styles['md-span-' + (this.props.mdFixed ? '-fixed' : '') + this.props.mdSpan] : null),
