@@ -39,6 +39,7 @@ export default function GridDocs() {
 				<Grid className="sg-grid">
 					<GridBlock>
 						<GridCol className="sg-col">xs.24</GridCol>
+						<GridCol className="sg-col">xs.24</GridCol>
 					</GridBlock>
 				</Grid>
 			</div>
@@ -46,6 +47,7 @@ export default function GridDocs() {
 				{`
 					<Grid>
 					    <GridBlock>
+						    <GridCol className="sg-col">xs.24</GridCol>
 						    <GridCol className="sg-col">xs.24</GridCol>
 					    </GridBlock>
 					</Grid>
