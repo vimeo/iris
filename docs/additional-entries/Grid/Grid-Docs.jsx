@@ -38,8 +38,8 @@ export default function GridDocs() {
 			<div data-code>
 				<Grid className="sg-grid">
 					<GridBlock>
-						<GridCol className="sg-col">xs.24</GridCol>
-						<GridCol className="sg-col">xs.24</GridCol>
+						<GridCol>xs.24</GridCol>
+						<GridCol>xs.24</GridCol>
 					</GridBlock>
 				</Grid>
 			</div>
@@ -47,8 +47,8 @@ export default function GridDocs() {
 				{`
 					<Grid>
 					    <GridBlock>
-						    <GridCol className="sg-col">xs.24</GridCol>
-						    <GridCol className="sg-col">xs.24</GridCol>
+						    <GridCol>xs.24</GridCol>
+						    <GridCol>xs.24</GridCol>
 					    </GridBlock>
 					</Grid>
 				`}
@@ -59,10 +59,10 @@ export default function GridDocs() {
 			<div data-code>
 				<Grid className="sg-grid">
 					<GridBlock>
-						<GridCol className="sg-col" xsSpan={6}>xs.6</GridCol>
-						<GridCol className="sg-col" xsSpan={6} lgSpan={20} mdSpan={16} smSpan={24}>xs.6 lg.20 md.16 sm.24</GridCol>
-						<GridCol className="sg-col" xsSpan={6}>xs.6</GridCol>
-						<GridCol className="sg-col" xsSpan={6}>xs. 6</GridCol>
+						<GridCol xsSpan={6}>xs.6</GridCol>
+						<GridCol xsSpan={6} lgSpan={20} mdSpan={16} smSpan={24}>xs.6 lg.20 md.16 sm.24</GridCol>
+						<GridCol xsSpan={6}>xs.6</GridCol>
+						<GridCol xsSpan={6}>xs. 6</GridCol>
 					</GridBlock>
 				</Grid>
 			</div>
@@ -70,30 +70,30 @@ export default function GridDocs() {
 				{`
 					<Grid>
 						<GridBlock>
-							<GridCol className="sg-col" xsSpan={6}>xs.6</GridCol>
-							<GridCol className="sg-col" xsSpan={6} lgSpan={20} mdSpan={16} smSpan={24}>xs.6 lg.20 md.16 sm.24</GridCol>
-							<GridCol className="sg-col" xsSpan={6}>xs.6</GridCol>
-							<GridCol className="sg-col" xsSpan={6}>xs. 6</GridCol>
+							<GridCol xsSpan={6}>xs.6</GridCol>
+							<GridCol xsSpan={6} lgSpan={20} mdSpan={16} smSpan={24}>xs.6 lg.20 md.16 sm.24</GridCol>
+							<GridCol xsSpan={6}>xs.6</GridCol>
+							<GridCol xsSpan={6}>xs. 6</GridCol>
 						</GridBlock>
 					</Grid>
 				`}
 			</ExampleSource>
 
 			<h3>Nesting</h3>
-			<p>Nesting Columns can be achieved inside of any <code>{`<GridCol></GridCol>`}</code> component. Simply, wrap its children in a <code>{`<GridBlock></GridBlock>`}</code> component. This will create a new 24 column grid bound by the width of its containing column.</p>
+			<p>Nesting Columns can be achieved inside of any <code>{`<GridCol></GridCol>`}</code> component. Simply, wrap the children in a <code>{`<GridBlock></GridBlock>`}</code> component. This will create a new 24 column grid bound by the width of its containing column. Note that in the example below the nested children <code>{`<GridCol xsSpan={12}></GridCol>`}</code>  map to half of the parents (24/2 = 12 therefore 12 GridColumns is half the space of the parent container).</p>
 			<div data-code>
 				<Grid className="sg-grid">
 					<GridBlock>
-						<GridCol className="sg-col" xsSpan={6}>xs.6</GridCol>
-						<GridCol className="sg-col" xsSpan={6}>
+						<GridCol xsSpan={6}>xs.6</GridCol>
+						<GridCol xsSpan={6}>
 							xs.6
 							<GridBlock className="sg-block">
-								<GridCol className="sg-col" xsSpan={12}>xs.12</GridCol>
-								<GridCol className="sg-col" xsSpan={12}>xs.12</GridCol>
+								<GridCol xsSpan={12}>xs.12</GridCol>
+								<GridCol xsSpan={12}>xs.12</GridCol>
 							</GridBlock>
 						</GridCol>
-						<GridCol className="sg-col" xsSpan={6}>xs. 6</GridCol>
-						<GridCol className="sg-col" xsSpan={6}>xs. 6</GridCol>
+						<GridCol xsSpan={6}>xs. 6</GridCol>
+						<GridCol xsSpan={6}>xs. 6</GridCol>
 					</GridBlock>
 				</Grid>
 			</div>
@@ -101,16 +101,16 @@ export default function GridDocs() {
 				{`
 					<Grid>
 					    <GridBlock>
-							<GridCol className="sg-col" xsSpan={6}>xs.6</GridCol>
-							<GridCol className="sg-col" xsSpan={6}>
+							<GridCol xsSpan={6}>xs.6</GridCol>
+							<GridCol xsSpan={6}>
 								xs.6
 								<GridBlock className="sg-block">
-									<GridCol className="sg-col" xsSpan={12}>xs.12</GridCol>
-									<GridCol className="sg-col" xsSpan={12}>xs.12</GridCol>
+									<GridCol xsSpan={12}>xs.12</GridCol>
+									<GridCol xsSpan={12}>xs.12</GridCol>
 								</GridBlock>
 							</GridCol>
-							<GridCol className="sg-col" xsSpan={6}>xs.6</GridCol>
-							<GridCol className="sg-col" xsSpan={6}>xs.6</GridCol>
+							<GridCol xsSpan={6}>xs.6</GridCol>
+							<GridCol xsSpan={6}>xs.6</GridCol>
 						</GridBlock>
 					</Grid>
 				`}
@@ -121,8 +121,8 @@ export default function GridDocs() {
 			<div data-code>
 				<Grid className="sg-grid">
 					<GridBlock>
-						<GridCol className="sg-col" xsSpan={4}>xs.4</GridCol>
-						<GridCol className="sg-col" xsSpan={8} offset={4}>xs.8 xsOffset.4</GridCol>
+						<GridCol xsSpan={4}>xs.4</GridCol>
+						<GridCol xsSpan={8} offset={4}>xs.8 xsOffset.4</GridCol>
 					</GridBlock>
 				</Grid>
 			</div>
