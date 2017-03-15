@@ -80,7 +80,7 @@ class GridCol extends React.Component {
         // className builder
         const GridColClass = classNames(
             styles.GridCol,
-            (xsSpan ? styles['xs-span-' + (xsFixed ? '-fixed' : '') + xsSpan] : null),
+            (styles['xs-span-' + (xsFixed ? '-fixed' : '') + xsSpan]),
             (xlSpan ? styles['xl-span-' + (xlFixed ? '-fixed' : '') + xlSpan] : null),
             (lgSpan ? styles['lg-span-' + (lgFixed ? '-fixed' : '') + lgSpan] : null),
             (mdSpan ? styles['md-span-' + (mdFixed ? '-fixed' : '') + mdSpan] : null),
