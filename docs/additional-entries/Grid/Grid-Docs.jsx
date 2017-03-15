@@ -80,7 +80,7 @@ export default function GridDocs() {
 			</ExampleSource>
 
 			<h3>Nesting</h3>
-			<p>Nesting Columns is easy as pie, inside of a <code>{`<GridCol></GridCol>`}</code>  wrap the children in a <code>{`<GridBlock></GridBlock>`}</code> . It's important to keep in mind that nested children are also built out of a columns. In the example below the nested children <code>{`<GridCol xsSpan={12}></GridCol>`}</code>  map to half of the parents (24/2 = 12 therefore 12 GridColumns is half the space of the parent container).</p>
+			<p>Nesting Columns is easy as pie: inside of any <code>{`<GridCol></GridCol>`}</code>  wrap its children in the <code>{`<GridBlock></GridBlock>`}</code> component. This will create a new 24 column grid bound by the width of its containing column. Note that in the example below the nested children <code>{`<GridCol xsSpan={12}></GridCol>`}</code>  map to half of the parents (24/2 = 12 therefore 12 GridColumns is half the space of the parent container).</p>
 			<div data-code>
 				<Grid className="sg-grid">
 					<GridBlock>
