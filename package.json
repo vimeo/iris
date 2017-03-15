@@ -34,7 +34,7 @@
     "pre-commit": "^1.2.2",
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2",
-    "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git",
+    "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#f-grid",
     "svg-react-loader": "^0.3.7",
     "uppercamelcase": "^1.1.0",
     "walk": "^2.3.9"

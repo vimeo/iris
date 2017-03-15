@@ -97,14 +97,13 @@ class GridCol extends React.Component {
 
         // filter out presentational props from this.props and store the rest as "filteredProps" to be printed into the component as properties (e.g. HTML attribute pass-through, event handlers)
 
-        const GridColContent = children;
         const ColumnElement = columnElement;
         return (
             <ColumnElement
                 {...filteredProps}
                 className={GridColClass}
             >
-                {GridColContent}
+                {children}
             </ColumnElement>
         );
     }
