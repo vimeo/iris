@@ -27,12 +27,12 @@ const propTypes = {
     xlFixed: React.PropTypes.bool,
     className: React.PropTypes.string,
     alignment: React.PropTypes.string,
-    CustomElement: React.PropTypes.oneOf(['div', 'main', 'aside', 'section'])
+    columnElement: React.PropTypes.oneOf(['div', 'main', 'aside', 'section'])
 };
 
 const defaultProps = {
     xsSpan: 24,
-    CustomElement: 'div'
+    columnElement: 'div'
 };
 
 let offsetType;
@@ -54,7 +54,7 @@ class GridCol extends React.Component {
     render() {
 
         const {
-            CustomElement,
+            columnElement,
             xsSpan,
             xlSpan,
             lgSpan,
@@ -97,13 +97,14 @@ class GridCol extends React.Component {
         // filter out presentational props from this.props and store the rest as "filteredProps" to be printed into the component as properties (e.g. HTML attribute pass-through, event handlers)
 
         const GridColContent = this.props.children;
+        const ColumnElement = columnElement;
         return (
-            <CustomElement
+            <ColumnElement
                 {...filteredProps}
                 className={GridColClass}
             >
                 {GridColContent}
-            </CustomElement>
+            </ColumnElement>
         );
     }
 

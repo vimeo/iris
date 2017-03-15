@@ -21,7 +21,7 @@ export default function GridDocs() {
 				<li>Small Screens First
 					<ul>
 						<li>
-							The grid's columns are be default set for the smallest screen size also called the xsm breakpoint. Therefore a <code>span</code> declaration styles begin at 0 breakpoints and will continue to exist until a <code>sm</code>, <code>md</code>, or <code>lg</code> override has been passed through. In other words larger breakpoints take precedence over the smaller ones that precede them. Style changes for a breakpoint override appear after a browser has reached the minimum width of larger screen size.
+							Grid sizing starts with the xsSpan prop. Values passed to this prop will determine the column sizing from the smallest width available in the browser upwards. Additional span props such as "mdSpan" can be added to resize the column at corresponding breakpoints (see breakpoints). If no xsSpan sizing prop is passed, the column will default to <code>xsSpan={24}</code>.
 						</li>
 					</ul>
 				</li>
@@ -38,7 +38,7 @@ export default function GridDocs() {
 			<div data-code>
 				<Grid className="sg-grid">
 					<GridBlock>
-						<GridCol className="sg-col"></GridCol>
+						<GridCol className="sg-col">xs.24</GridCol>
 					</GridBlock>
 				</Grid>
 			</div>
@@ -46,7 +46,7 @@ export default function GridDocs() {
 				{`
 					<Grid>
 					    <GridBlock>
-						    <GridCol></GridCol>
+						    <GridCol className="sg-col">xs.24</GridCol>
 					    </GridBlock>
 					</Grid>
 				`}
@@ -57,10 +57,10 @@ export default function GridDocs() {
 			<div data-code>
 				<Grid className="sg-grid">
 					<GridBlock>
-						<GridCol className="sg-col" xsSpan={6}>testing</GridCol>
-						<GridCol className="sg-col" xsSpan={6} lgSpan={20} mdSpan={16} smSpan={24}></GridCol>
-						<GridCol className="sg-col" xsSpan={6}></GridCol>
-						<GridCol className="sg-col" xsSpan={6}></GridCol>
+						<GridCol className="sg-col" xsSpan={6}>xs.6</GridCol>
+						<GridCol className="sg-col" xsSpan={6} lgSpan={20} mdSpan={16} smSpan={24}>xs.6 lg.20 md.16 sm.24</GridCol>
+						<GridCol className="sg-col" xsSpan={6}>xs.6</GridCol>
+						<GridCol className="sg-col" xsSpan={6}>xs. 6</GridCol>
 					</GridBlock>
 				</Grid>
 			</div>
@@ -68,10 +68,10 @@ export default function GridDocs() {
 				{`
 					<Grid>
 						<GridBlock>
-							<GridCol className="sg-col" xsSpan={6}></GridCol>
-							<GridCol className="sg-col" xsSpan={6} lgSpan={20} mdSpan={16} smSpan={24}></GridCol>
-							<GridCol className="sg-col" xsSpan={6}></GridCol>
-							<GridCol className="sg-col" xsSpan={6}></GridCol>
+							<GridCol className="sg-col" xsSpan={6}>xs.6</GridCol>
+							<GridCol className="sg-col" xsSpan={6} lgSpan={20} mdSpan={16} smSpan={24}>xs.6 lg.20 md.16 sm.24</GridCol>
+							<GridCol className="sg-col" xsSpan={6}>xs.6</GridCol>
+							<GridCol className="sg-col" xsSpan={6}>xs. 6</GridCol>
 						</GridBlock>
 					</Grid>
 				`}
@@ -82,15 +82,16 @@ export default function GridDocs() {
 			<div data-code>
 				<Grid className="sg-grid">
 					<GridBlock>
-						<GridCol className="sg-col" xsSpan={6}></GridCol>
+						<GridCol className="sg-col" xsSpan={6}>xs.6</GridCol>
 						<GridCol className="sg-col" xsSpan={6}>
+							xs.6
 							<GridBlock className="sg-block">
-								<GridCol className="sg-col" xsSpan={12}></GridCol>
-								<GridCol className="sg-col" xsSpan={12}></GridCol>
+								<GridCol className="sg-col" xsSpan={12}>xs.12</GridCol>
+								<GridCol className="sg-col" xsSpan={12}>xs.12</GridCol>
 							</GridBlock>
 						</GridCol>
-						<GridCol className="sg-col" xsSpan={6}></GridCol>
-						<GridCol className="sg-col" xsSpan={6}></GridCol>
+						<GridCol className="sg-col" xsSpan={6}>xs. 6</GridCol>
+						<GridCol className="sg-col" xsSpan={6}>xs. 6</GridCol>
 					</GridBlock>
 				</Grid>
 			</div>
@@ -98,16 +99,17 @@ export default function GridDocs() {
 				{`
 					<Grid>
 					    <GridBlock>
-							<GridCol xsSpan={4}></GridCol>
-							<GridCol xsSpan={4}>
-								<GridBlock>
-									<GridCol xsSpan={12}></GridCol>
-									<GridCol xsSpan={12}></GridCol>
+							<GridCol className="sg-col" xsSpan={6}>xs.6</GridCol>
+							<GridCol className="sg-col" xsSpan={6}>
+								xs.6
+								<GridBlock className="sg-block">
+									<GridCol className="sg-col" xsSpan={12}>xs.12</GridCol>
+									<GridCol className="sg-col" xsSpan={12}>xs.12</GridCol>
 								</GridBlock>
 							</GridCol>
-							<GridCol xsSpan={4}></GridCol>
-							<GridCol xsSpan={4}></GridCol>
-					    </GridBlock>
+							<GridCol className="sg-col" xsSpan={6}>xs.6</GridCol>
+							<GridCol className="sg-col" xsSpan={6}>xs.6</GridCol>
+						</GridBlock>
 					</Grid>
 				`}
 			</ExampleSource>
@@ -117,8 +119,8 @@ export default function GridDocs() {
 			<div data-code>
 				<Grid className="sg-grid">
 					<GridBlock>
-						<GridCol className="sg-col" xsSpan={4}></GridCol>
-						<GridCol className="sg-col" xsSpan={8} offset={4}></GridCol>
+						<GridCol className="sg-col" xsSpan={4}>xs.4</GridCol>
+						<GridCol className="sg-col" xsSpan={8} offset={4}>xs.8 xsOffset.4</GridCol>
 					</GridBlock>
 				</Grid>
 			</div>
@@ -126,21 +128,10 @@ export default function GridDocs() {
 				{`
 					<Grid>
 					    <GridBlock>
-							<GridCol xsSpan={4}></GridCol>
-							<GridCol xsSpan={8} offset={4}></GridCol>
+							<GridCol xsSpan={4}>xs.4</GridCol>
+							<GridCol xsSpan={8} offset={4}>xs.8</GridCol>
 					    </GridBlock>
 					</Grid>
-				`}
-			</ExampleSource>
-
-			<h3>Additional Styling with Classes</h3>
-			<p>Authors can pass through any additional styling needs to all Grid components by using the ‘className’ prop and passing it a string.</p>
-			<div data-code>
-				<GridCol className="sg-col my-class"></GridCol>
-			</div>
-			<ExampleSource>
-				{`
-					<GridCol className="my-class"></GridCol>
 				`}
 			</ExampleSource>
 		</div>
