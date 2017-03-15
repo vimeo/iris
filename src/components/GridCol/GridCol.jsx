@@ -73,6 +73,7 @@ class GridCol extends React.Component {
             mdFixed,
             lgFixed,
             smFixed,
+            children,
             ...filteredProps
         } = this.props;
 
@@ -96,7 +97,7 @@ class GridCol extends React.Component {
 
         // filter out presentational props from this.props and store the rest as "filteredProps" to be printed into the component as properties (e.g. HTML attribute pass-through, event handlers)
 
-        const GridColContent = this.props.children;
+        const GridColContent = children;
         const ColumnElement = columnElement;
         return (
             <ColumnElement
