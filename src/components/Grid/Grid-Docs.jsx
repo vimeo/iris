@@ -5,7 +5,7 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 class GridDocs extends React.Component {
     render() {
         return (
-			<div>
+			<div className="Pattern__docs">
 				<div data-code>
 					<Grid>
 						<GridBlock mdSpan="3" smSpan="3" />

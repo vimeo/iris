@@ -4,7 +4,7 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 
 const BadgeDocs = (props) => {
     return (
-        <div>
+        <div className="Pattern__docs">
             <h3>Regular Badges (small)</h3>
             <div style={{ 'padding': '1em', 'width': '100%' }} data-code>
                 <Badge href="#">default</Badge>

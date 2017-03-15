@@ -5,7 +5,7 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 export default function GridDocs() {
 
 	return (
-		<div>
+		<div className="Pattern__docs">
 			<p>The Iris Grid system is a 24 column responsive flexbox based grid. The Grid component provides an engineer-friendly re-useable abstraction of the HTML structure required to use this grid.</p>
 
 			<h3>Easy Fundamentals: Grid Components</h3>
@@ -80,7 +80,7 @@ export default function GridDocs() {
 			</ExampleSource>
 
 			<h3>Nesting</h3>
-			<p>Nesting Columns is easy as pie: inside of any <code>{`<GridCol></GridCol>`}</code>  wrap its children in the <code>{`<GridBlock></GridBlock>`}</code> component. This will create a new 24 column grid bound by the width of its containing column. Note that in the example below the nested children <code>{`<GridCol xsSpan={12}></GridCol>`}</code>  map to half of the parents (24/2 = 12 therefore 12 GridColumns is half the space of the parent container).</p>
+			<p>Nesting Columns can be achieved inside of any <code>{`<GridCol></GridCol>`}</code> component. Simply, wrap its children in a <code>{`<GridBlock></GridBlock>`}</code> component. This will create a new 24 column grid bound by the width of its containing column.</p>
 			<div data-code>
 				<Grid className="sg-grid">
 					<GridBlock>

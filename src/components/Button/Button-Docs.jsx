@@ -11,7 +11,7 @@ class ButtonDocs extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="Pattern__docs">
                 <h3>Regular Buttons</h3>
                 <p>These are the core set of button for Iris. The style of the button is determined by the <code>format</code> prop. <strong>Primary</strong> is the default.</p>
                 <div data-code>

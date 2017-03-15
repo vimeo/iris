@@ -5,7 +5,7 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 class BlockDocs extends React.Component {
     render() {
         return (
-			<div>
+			<div className="Pattern__docs">
 				<div data-code>
 					<GridBlock />
 				</div>

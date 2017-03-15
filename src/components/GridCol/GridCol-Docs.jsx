@@ -5,7 +5,7 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 export default function ColDocs() {
 
     return (
-		<div>
+		<div className="Pattern__docs">
 			<div data-code>
 				<Col />
 			</div>
