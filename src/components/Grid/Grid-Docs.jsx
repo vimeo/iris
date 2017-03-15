@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { GridBlock, GridCol, Grid } from '../../../src/components/Grid/Grid.jsx';
+import { GridBlock, Grid } from '../../../src/components/Grid/Grid.jsx';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 class GridDocs extends React.Component {
