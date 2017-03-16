@@ -116,13 +116,14 @@ export default function GridDocs() {
 				`}
 			</ExampleSource>
 
-			<h3>Fixed Columns</h3>
-			<p>Fixed columns are available, <code>{`<GridCol></GridCol>`}</code> can switch between being fluid and fixed at different breakpoint sizes.</p> 
+			<h3>Fixed & Fluid Columns</h3>
+			<p>Fixed columns are available, <code>{`<GridCol></GridCol>`}</code> can switch between being fluid and fixed at different breakpoint sizes. Fixed Columns
+			are paired with fluid columns that fill in the remaining space of a container.</p> 
 			<p>Accesibility note: when working with aside content/rail content, place the element after the main content in the DOM structure. This ensures that screen readers will read the content first.</p> 
 			<div data-code>
 				<Grid className="sg-grid">
 					<GridBlock>
-						<GridCol xsSpan={16} lgSpan={18} columnElement="main">xs.16</GridCol>
+						<GridCol xsSpan="fluid" columnElement="main">xs.fluid</GridCol>
 						<GridCol mdSpan={8} mdFixed lgSpan={6} lgFixed alignment="left" columnElement="aside">md.8 lg.6</GridCol>
 					</GridBlock>
 				</Grid>
