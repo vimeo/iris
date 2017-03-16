@@ -132,7 +132,7 @@ export default function GridDocs() {
 				{`
 					<Grid>
 					    <GridBlock>
-							<GridCol xsSpan={16} lgSpan={18} columnElement="main">xs.16 lg.18</GridCol>
+							<GridCol xsSpan="fluid" columnElement="main">xs.fluid</GridCol>
 							<GridCol mdSpan={8} mdFixed lgSpan={6} lgFixed alignment="left" columnElement="aside">md.8 lg.6</GridCol>
 					    </GridBlock>
 					</Grid>
