@@ -50,5 +50,4 @@ nbproject
 # Build artifacts
 ########################
 data
-docs/patternList.json
 build-styleguide
