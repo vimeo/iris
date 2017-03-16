@@ -116,6 +116,28 @@ export default function GridDocs() {
 				`}
 			</ExampleSource>
 
+			<h3>Fixed Columns</h3>
+			<p>Fixed columns are available, <code>{`<GridCol></GridCol>`}</code> can switch between being fluid and fixed at different breakpoint sizes.</p> 
+			<p>Accesibility note: when working with aside content/rail content, place the element after the main content in the DOM structure. This ensures that screen readers will read the content first.</p> 
+			<div data-code>
+				<Grid className="sg-grid">
+					<GridBlock>
+						<GridCol xsSpan={16} lgSpan={18} columnElement="main">xs.16</GridCol>
+						<GridCol mdSpan={8} mdFixed lgSpan={6} lgFixed alignment="left" columnElement="aside">md.8 lg.6</GridCol>
+					</GridBlock>
+				</Grid>
+			</div>
+			<ExampleSource>
+				{`
+					<Grid>
+					    <GridBlock>
+							<GridCol xsSpan={16} lgSpan={18} columnElement="main">xs.16 lg.18</GridCol>
+							<GridCol mdSpan={8} mdFixed lgSpan={6} lgFixed alignment="left" columnElement="aside">md.8 lg.6</GridCol>
+					    </GridBlock>
+					</Grid>
+				`}
+			</ExampleSource>
+
 			<h3>Offsets</h3>
 			<p>Authors can push content to the left or right using the <code>offset</code> prop. Positive numbers will push content in the main writing direction (Ex. left for English and Spanish but right for Arabic) and negative numbers will push content in the opposite of a page’s writing direction. Like <code>span</code>, offset also can be set for responsive breakpoints: <code>lgOffset</code>, <code>mdOffset</code>, and <code>smOffset</code>.</p>
 			<div data-code>

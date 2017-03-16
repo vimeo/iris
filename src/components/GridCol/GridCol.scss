@@ -75,7 +75,7 @@ $rem-pixel: ((1/$g-font-size) * 1rem);
 }
 
 .right {
-    order: 1;
+    order: 2;
 }
 
 .offset-plus {
@@ -125,8 +125,4 @@ $rem-pixel: ((1/$g-font-size) * 1rem);
     .xl-offset-negative {
         @include offset($grid-column-count, right);
     }
-}
-
-.nested {
-    display: flex;
 }
