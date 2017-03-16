@@ -7,7 +7,7 @@ var STYLEGUIDE_DIR = 'node_modules/steadicam';
 // Webpack settings for React Docs
 
 module.exports = {
-    entry: './apps/svgPage/svgPage.jsx',
+    entry: './doc-assets/apps/svgPage/svgPage.jsx',
 
     output: {
         filename: 'svgPage.bundle.js',
