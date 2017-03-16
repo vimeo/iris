@@ -1,10 +1,10 @@
 node_modules/*
-**/build-styleguide/*
+**/docs/*
 src/globals/js/vendor/*
 index.js
 data/*
 templates/**/*
 gulpfile.babel.js
 gulp-tasks/**/*
-docs/**/*
+doc-assets/**/*
 src/components/Icons/*

@@ -75,7 +75,7 @@ module.exports = (plop) => {
         actions: [
             {
                 type: 'add',
-                path: 'docs/additional-entries/{{pascalCase name}}/{{pascalCase name}}-Docs.jsx',
+                path: 'doc-assets/additional-entries/{{pascalCase name}}/{{pascalCase name}}-Docs.jsx',
                 templateFile: 'templates/plop-componentTemplates/PatternEntryDocsJSX.js',
             },
         ],
@@ -110,7 +110,7 @@ module.exports = (plop) => {
         actions: [
             {
                 type: 'add',
-                path: 'docs/pages/{{pascalCase name}}/{{pascalCase name}}.jsx',
+                path: 'doc-assets/pages/{{pascalCase name}}/{{pascalCase name}}.jsx',
                 templateFile: 'templates/plop-componentTemplates/StandAlonePageJSX.js',
             },
         ],
