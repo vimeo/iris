@@ -17,6 +17,7 @@ const buttonTypes = [
     'secondary',
     'secondaryOutline',
     'alternative',
+    'alternativeOutline',
     'success',
     'successOutline',
     'warning',

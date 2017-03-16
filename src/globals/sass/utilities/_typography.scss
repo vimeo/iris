@@ -32,3 +32,8 @@
 
 	}
 }
+
+// Calculate Unitless Line Height
+@function calculateLineHeightTarget($fontSize, $targetLineHeight)  {
+    @return $targetLineHeight/$fontSize;
+}
