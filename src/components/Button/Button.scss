@@ -10,7 +10,8 @@ $Button_secondary-text-color: $gray1;
 $Button_secondary-text-color_outline: $gray1;
 $Button_secondary-bg-color: $gray9;
 $Button_secondary-bg-color_hover: $gray7;
-
+$Button_secondary-outline-text-color: $gray4;
+$Button_secondary-outline-bg-color_hover: $gray6;
 
 $Button_alternative-text-color: $white;
 $Button_alternative-bg-color: $gray2;
@@ -28,10 +29,6 @@ $Button_icon-size-large: rem-calc(18);
 $Button_icon-size-medium: rem-calc(16);
 $Button_icon-size-small: rem-calc(14);
 $Button_icon-size-xSmall: rem-calc(10);
-
-@function calculateLineHeightTarget($fontSize, $targetLineHeight)  {
-    @return $targetLineHeight/$fontSize;
-}
 
 @mixin autoWidthSettings() {
     width: auto;
@@ -58,7 +55,7 @@ $Button_icon-size-xSmall: rem-calc(10);
     justify-content: center;
     margin: 0;
     font-family: $g-font-family-primary;
-    font-weight: 500;
+    font-weight: 700;
     border-width: 1px;
     border-style: solid;
     border-radius: rem-calc($g-radius);
@@ -151,12 +148,6 @@ $Button_icon-size-xSmall: rem-calc(10);
 
 //-------------------------  button types
 
-.textOnly{
-    font-weight: inherit;
-    border: 0;
-    background-color: transparent;
-}
-
 .primary,
 .primaryOutline:hover {
     color: $Button_primary-text-color;
@@ -183,7 +174,7 @@ $Button_icon-size-xSmall: rem-calc(10);
 
 
 .alternative,
-.secondaryOutline:hover {
+.alternativeOutline:hover {
     color: $Button_alternative-text-color;
     background-color: $Button_alternative-bg-color;
     border-color: $Button_alternative-bg-color;
@@ -195,7 +186,7 @@ $Button_icon-size-xSmall: rem-calc(10);
 }
 
 .alternative:active,
-.secondaryOutline:active {
+.alternativeOutline:active {
     background-color: darken($Button_alternative-bg-color_hover, 6%);
 }
 
@@ -208,17 +199,26 @@ $Button_icon-size-xSmall: rem-calc(10);
     letter-spacing: .25px;
 }
 
-
-.secondary:hover {
-    background-color: $Button_secondary-bg-color_hover;
-    border-color: $Button_secondary-bg-color_hover;
+.secondaryOutline {
+    @include outlineButton;
+    border-color: $Button_secondary-outline-text-color;
+    color: $Button_secondary-outline-text-color;
+    letter-spacing: .25px;
 }
 
-.secondary:active {
+.secondary:hover,
+.secondaryOutline:hover {
+    background-color: $Button_secondary-bg-color_hover;
+    border-color: $Button_secondary-bg-color_hover;
+    color: $Button_secondary-text-color;
+}
+
+.secondary:active
+.secondaryOutline:active {
     background-color: darken($Button_secondary-bg-color_hover, 6%);
 }
 
-.secondaryOutline {
+.alternativeOutline {
     @include outlineButton;
     border-color: $Button_secondary-text-color;
     color: $Button_secondary-text-color;
@@ -343,11 +343,11 @@ $Button_icon-size-xSmall: rem-calc(10);
     }
 
     .Icon_beforeLabel {
-        margin-right: rem-calc(6);
+        margin-right: rem-calc(8);
     }
 
     .Icon_afterLabel{
-        margin-left: rem-calc(6);
+        margin-left: rem-calc(8);
     }
 
 }
