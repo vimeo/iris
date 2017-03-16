@@ -6,9 +6,9 @@
 // Import all documentation ------------------
 
 
-  export ColorsDocs from "../doc-assets/additional-entries/Colors/Colors-Docs";
+  export ColorsDocs from "../docs/additional-entries/Colors/Colors-Docs";
 
-  export SvgsDocs from "../doc-assets/additional-entries/Svgs/Svgs-Docs";
+  export SvgsDocs from "../docs/additional-entries/Svgs/Svgs-Docs";
 
   export BadgeDocs from "../src/components/Badge/Badge-Docs";
 

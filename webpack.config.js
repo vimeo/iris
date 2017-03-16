@@ -12,13 +12,13 @@ module.exports = {
 
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve('./docs'),
+        path: path.resolve('./build-styleguide'),
     },
 
     module: {
         loaders: [
             { test: /\.jsx?$/, loader: 'babel-loader', exclude: '/node_modules/', include: [
-                path.resolve(__dirname, 'doc-assets'),
+                path.resolve(__dirname, 'docs'),
                 path.resolve(__dirname, 'data'),
                 path.resolve(__dirname, 'src'),
                 path.resolve(__dirname, 'index.jsx'),

@@ -11,9 +11,9 @@ module.exports = {
         componentData: COMPONENT_DATA,
         componentSrc: './src/components/',
         globalsSrc: './src/globals/',
-        localDocsSrc: LOCAL_PATH + '/doc-assets/',
+        localDocsSrc: LOCAL_PATH + '/docs/',
         localData: LOCAL_DATA,
-        styleguideDist: './docs/',
+        styleguideDist: './build-styleguide/',
         styleguideSrc: './node_modules/steadicam/',
     },
 };

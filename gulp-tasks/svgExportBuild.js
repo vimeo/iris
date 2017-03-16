@@ -10,6 +10,6 @@ gulp.task('svgExportBuild', function () {
 	let svgs = {"svgs": [svgData]};
 	return gulp.src('./templates/_svg-exports.js.template')
 	.pipe(template(svgs))
-	.pipe(rename('doc-assets/apps/svgPage/svgExportList.js'))
+	.pipe(rename('docs/apps/svgPage/svgExportList.js'))
 	.pipe(gulp.dest('./'));
 });

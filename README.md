@@ -23,7 +23,7 @@ In order to enable the import paths from Iris you need to do two things in the w
 var Iris = require('iris');
 ```
 
-2) Use [webpack resolve.alias](http://webpack.github.io/doc-assets/configuration.html#resolve-alias) to map the paths by using `Iris.paths`.
+2) Use [webpack resolve.alias](http://webpack.github.io/docs/configuration.html#resolve-alias) to map the paths by using `Iris.paths`.
 
 ```
 resolve: {
@@ -54,8 +54,8 @@ import styles from 'iris/GlobalCSS'
 ## File Structure
 
 * docs: contains files used to document patterns
-  * doc-assets/additional-entries: components which generate pages for patterns which do not have an associated component (e.g. type)
-  * doc-assets/pages: components that generate free-form stand-alone pages.
+  * docs/additional-entries: components which generate pages for patterns which do not have an associated component (e.g. type)
+  * docs/pages: components that generate free-form stand-alone pages.
 * src: the files which generate contain the Iris React Components and global CSS, as well as any required image assets and js helpers.
 * templates: a collection of templates used by various build processes.
 
@@ -107,7 +107,7 @@ Sometimes you will need to show pattern documentation for something that does no
 * run `plop` from command-line at the root of the project
 * Choose 'Additional Pattern Entry' from the first menu
 * Enter the pattern's name in PascalCase (e.g. GlobalTypographyStandards)
-* Edit the file that gets created at `doc-assets/additional-entries/{Pattern Name Here}/{Pattern Name Here}-Docs.jsx`,
+* Edit the file that gets created at `docs/additional-entries/{Pattern Name Here}/{Pattern Name Here}-Docs.jsx`,
 * Add an entry to the pattern list. Be sure to set the third argument to true. For example if you where adding a "Type" entry it would look like this:
 
 ```
@@ -128,8 +128,8 @@ Sometimes you need an entire new "blank slate" page to document something. These
 * run `plop` from command-line at the root of the project
 * Choose 'Stand-Alone Page' from the first menu
 * Enter the page's name in PascalCase (e.g. GridDemo)
-* Edit the file that gets created at `doc-assets/pages/{Page Name Here}/{Page Name Here}.jsx`,
-* Add an export entry for the component here to `doc-assets/pages/index.js` like this (where the page is called "PageName"):
+* Edit the file that gets created at `docs/pages/{Page Name Here}/{Page Name Here}.jsx`,
+* Add an export entry for the component here to `docs/pages/index.js` like this (where the page is called "PageName"):
 
 ```
 export PageName from "./PageName/PageName";
