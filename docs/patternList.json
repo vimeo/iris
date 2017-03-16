@@ -8,6 +8,9 @@
         ["Button", "Buttons"]
     ],
     "Layout": [
-        ["Grid", "Grid", true]
+        ["GridFull", "Grid", true],
+        ["Grid", "Grid Wrapper"],
+        ["GridBlock", "Grid Block"],
+        ["GridCol", "Grid Column"]
     ]
 }

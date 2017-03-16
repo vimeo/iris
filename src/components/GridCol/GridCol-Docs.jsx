@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Col from './Col';
+import GridCol from './GridCol';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 export default function ColDocs() {
@@ -7,12 +7,12 @@ export default function ColDocs() {
     return (
 		<div className="Pattern__docs">
 			<div data-code>
-				<Col />
+				<GridCol />
 			</div>
 
 			<ExampleSource>
 				{`
-				<Col />
+				<GridCol />
 				`}
 			</ExampleSource>
 		</div>

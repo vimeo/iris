@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { GridBlock, Grid } from '../../../src/components/Grid/Grid.jsx';
+import Grid from '../../../src/components/Grid/Grid.jsx';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 class GridDocs extends React.Component {
@@ -7,16 +7,12 @@ class GridDocs extends React.Component {
         return (
 			<div className="Pattern__docs">
 				<div data-code>
-					<Grid>
-						<GridBlock mdSpan="3" smSpan="3" />
-					</Grid>
+					<Grid></Grid>
 				</div>
 
 				<ExampleSource>
 					{`
-						<Grid>
-							<GridBlock mdSpan="3" smSpan="3"></GridBlock>
-						</Grid>
+						<Grid></Grid>
 					`}
 				</ExampleSource>
 			</div>

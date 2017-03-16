@@ -2,7 +2,7 @@ import * as React from 'react';
 import { GridBlock, GridCol, Grid } from '../../../src/components/Grid/Grid.jsx';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
-export default function GridDocs() {
+export default function GridFullDocs() {
 
 	return (
 		<div className="Pattern__docs">
