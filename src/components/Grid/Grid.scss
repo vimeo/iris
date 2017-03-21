@@ -12,7 +12,7 @@
 }
 
 .hasMaxWidth {
-    max-width: $grid-max-width;
+    max-width: rem-calc($grid-max-width);
 }
 
 .center {
