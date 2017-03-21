@@ -19,30 +19,29 @@ const defaultProps = {
     hasMaxWidth: true,
 };
 
-class Grid extends React.Component {
+const Grid = (props) => {
+    const {
+        className,
+        centered,
+        children,
+        hasMaxWidth,
+        ...filteredProps
+    } = props;
 
-    render() {
+    // classes
+    const gridClasses = classNames(
+        styles.Grid,
+        (centered ? styles.center : null),
+        (hasMaxWidth ? styles.hasMaxWidth : null),
+        className
+    );
 
-		// classes
-        const gridClasses = classNames(
-			styles.Grid,
-			(this.props.centered ? styles.center : null),
-			(this.props.hasMaxWidth ? styles.hasMaxWidth : null),
-			this.props.className
-		);
-
-        const {
-			children,
-			filteredProps,
-		} = this.props;
-
-        return (
-			<main className={gridClasses} {...filteredProps}>
-				{children}
-			</main>
-        );
-    }
-}
+    return (
+        <main className={gridClasses} {...filteredProps}>
+            {children}
+        </main>
+    );
+};
 
 Grid.displayName = displayName;
 
