@@ -49,7 +49,7 @@ nbproject
 ########################
 # Build artifacts
 ########################
-data
+data/*
+!data/README.md
 build-styleguide
-data
 docs/main.jsx
