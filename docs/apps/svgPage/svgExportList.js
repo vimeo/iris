@@ -684,6 +684,8 @@
   
  exports.IrisIconUpload16 = require('../../../src/globals/svg/iris_icon_upload_16.svg');
   
+ exports.IrisIconUpload18 = require('../../../src/globals/svg/iris_icon_upload_18.svg');
+  
  exports.IrisIconUpload24 = require('../../../src/globals/svg/iris_icon_upload_24.svg');
   
  exports.IrisIconUpload32 = require('../../../src/globals/svg/iris_icon_upload_32.svg');
