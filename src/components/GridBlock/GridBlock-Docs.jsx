@@ -2,24 +2,20 @@ import * as React from 'react';
 import GridBlock from './GridBlock';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
-class BlockDocs extends React.Component {
-    render() {
-        return (
-			<div className="Pattern__docs">
-				<div data-code>
-					<GridBlock />
-				</div>
+const BlockDocs = (props) => {
+    return (
+        <div className="Pattern__docs">
+            <div data-code>
+                <GridBlock />
+            </div>
 
-				<ExampleSource>
-					{`
+            <ExampleSource>
+                {`
 					<GridBlock />
 					`}
-				</ExampleSource>
-			</div>
-
-        );
-    }
-
-}
+            </ExampleSource>
+        </div>
+    );
+};
 
 export default BlockDocs;
