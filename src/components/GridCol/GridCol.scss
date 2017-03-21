@@ -1,9 +1,6 @@
 /* @description Generates styles for the Col component */
 @import '../../globals/sass/helpers-all';
 
-//   Variables
-$rem-pixel: ((1/$g-font-size) * 1rem);
-
 //   Module Styles
 .GridCol {
     padding-left: rem-calc($grid-gutter-width);

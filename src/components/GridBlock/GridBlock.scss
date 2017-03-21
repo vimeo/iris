@@ -1,7 +1,5 @@
 /* @description Generates styles for the Block component */
 @import '../../globals/sass/helpers-all';
-//   Variables
-$rem-pixel: ((1/$g-font-size) * 1rem);
 
 .GridBlock {
     /* Fill space of parent and content set to wrap by default  */
