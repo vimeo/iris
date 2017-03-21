@@ -104,7 +104,7 @@ export default function GridFullDocs() {
 							<GridCol xsSpan={6}>xs.6</GridCol>
 							<GridCol xsSpan={6}>
 								xs.6
-								<GridBlock className="sg-block">
+								<GridBlock>
 									<GridCol xsSpan={12}>xs.12</GridCol>
 									<GridCol xsSpan={12}>xs.12</GridCol>
 								</GridBlock>
@@ -119,7 +119,7 @@ export default function GridFullDocs() {
 			<h3>Fixed & Fluid Columns</h3>
 			<p>Fixed columns are available, <code>{`<GridCol></GridCol>`}</code> can switch between being fluid and fixed at different breakpoint sizes. Fixed Columns
 			are paired with fluid columns that fill in the remaining space of a container.</p> 
-			<p>Accesibility note: when working with aside content/rail content, place the element after the main content in the DOM structure. This ensures that screen readers will read the content first.</p> 
+			<p>Accessibility note: when working with aside content/rail content, place the element after the main content in the DOM structure. This ensures that screen readers will read the content first.</p> 
 			<div data-code>
 				<Grid className="sg-grid">
 					<GridBlock>
