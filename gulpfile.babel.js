@@ -9,6 +9,7 @@ const browserSync = require('browser-sync').create();
 const historyApiFallback = require('connect-history-api-fallback');
 const reload = browserSync.reload;
 
+
 // incuded here to make browserSync instance available to all functions
 // const browserSync = require('browser-sync').create();
 // const reload = browserSync.reload;
@@ -18,7 +19,6 @@ const COMPONENT_SRC = config.paths.componentSrc;
 const GLOBALS_SRC = config.paths.globalsSrc;
 const LOCAL_DOCS_SRC = config.paths.localDocsSrc;
 const STYLEGUIDE_DIST = config.paths.styleguideDist;
-
 
 // Pulling in all tasks from the tasks folders in Iris and Steadicam
 requireDir('./gulp-tasks', { recurse: true });
@@ -53,6 +53,23 @@ gulp.task('default', function(cb) {
     runSequence(
         'build',
         'serve',
+        cb
+    );
+});
+
+gulp.task('svg', function(cb) {
+    runSequence(
+        'build',
+        'svgProcessing',
+        'serve',
+        cb
+    );
+});
+
+gulp.task('deploy', function(cb) {
+    runSequence(
+        'build-Prod',
+        'svgProcessing',
         cb
     );
 });
