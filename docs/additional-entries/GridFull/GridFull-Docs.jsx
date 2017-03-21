@@ -13,7 +13,7 @@ export default function GridFullDocs() {
 			<ul>
 				<li>Grid is composed of 3 components:
 					<ul>
-						<li>Container: <code>{'<Grid></Grid>'}</code> The container is the parent of all elements and establishes: max-width for content, gutter spacing outside the content, and the grid styles for its children.</li>
+						<li>Grid: <code>{'<Grid></Grid>'}</code> is the parent container of all elements and establishes: max-width for content, gutter spacing outside the content, and the grid styles for its children.</li>
 						<li>GridBlocks: <code>{`<GridBlock></GridBlock>`}</code> sets a grid's context and can be used to group grid items together.</li>
 						<li>GridColumns: <code>{`<GridCol></GridCol>`}</code> Are vertical structures where the actual content exists and is manipulated onto the grid.</li>
 					</ul>
@@ -80,7 +80,7 @@ export default function GridFullDocs() {
 			</ExampleSource>
 
 			<h3>Nesting</h3>
-			<p>Nesting Columns can be achieved inside of any <code>{`<GridCol></GridCol>`}</code> component. Simply, wrap the children in a <code>{`<GridBlock></GridBlock>`}</code> component. This will create a new 24 column grid bound by the width of its containing column. Note that in the example below the nested children <code>{`<GridCol xsSpan={12}></GridCol>`}</code>  map to half of the parents (24/2 = 12 therefore 12 GridColumns is half the space of the parent container).</p>
+			<p>Nesting Columns can be achieved inside of any <code>{`<GridCol></GridCol>`}</code> component. Simply wrap the children in a <code>{`<GridBlock></GridBlock>`}</code> component. This will create a new 24 column grid bound by the width of its containing column. Note that in the example below the nested children <code>{`<GridCol xsSpan={12}></GridCol>`}</code>  map to half of the parents (24/2 = 12 therefore 12 GridColumns is half the space of the parent container).</p>
 			<div data-code>
 				<Grid className="sg-grid">
 					<GridBlock>
