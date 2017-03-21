@@ -11,6 +11,6 @@
         ["GridFull", "Grid", true],
         ["Grid", "Grid Wrapper"],
         ["GridBlock", "Grid Block"],
-        ["GridCol", "Grid Column"]
+        ["GridCol", "Grid Columns"]
     ]
 }
