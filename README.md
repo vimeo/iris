@@ -142,5 +142,4 @@ Did you remember to set up the Webpack aliases as described above?
 
 ##Contact
 * Jory Cunningham: jory@vimeo.com
-* Dina Smither: dina@vimeo.com
 * Malika Butler: malika@vimeo.com

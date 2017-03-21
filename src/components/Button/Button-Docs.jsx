@@ -1,8 +1,7 @@
 import * as React from 'react';
 import Button from './Button';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import TestIcon from '../../globals/svg/iris_icon_test_block_16.svg';
-import CheckIcon from '../../globals/svg/iris_icon_checkmark.svg';
+import DownloadIcon from '../../globals/svg/iris_icon_download_16.svg';
 
 class ButtonDocs extends React.Component {
     clickExample() {
@@ -15,22 +14,20 @@ class ButtonDocs extends React.Component {
                 <h3>Regular Buttons</h3>
                 <p>These are the core set of button for Iris. The style of the button is determined by the <code>format</code> prop. <strong>Primary</strong> is the default.</p>
                 <div data-code>
-                    <Button id="foo" className="someArbitraryClass" onClick={this.clickExample}>Primary</Button>
-                    <Button format="alternative">Alternative</Button>
+                    <Button className="someArbitraryClass" onClick={this.clickExample}>Primary</Button>
                     <Button format="secondary">Secondary</Button>
+                    <Button format="alternative">Alternative</Button>
                     <Button format="success">Success</Button>
                     <Button format="warning">Warning</Button>
-                    <Button format="textOnly">TextOnly</Button>
                 </div>
 
                 <ExampleSource>
                     {`
-<Button id="foo" className="someArbitraryClass" onClick={this.clickExample}>Primary</Button>
-<Button format="alternative">Alternative</Button>
+<Button className="someArbitraryClass" onClick={this.clickExample}>Primary</Button>
 <Button format="secondary">Secondary</Button>
+<Button format="alternative">Alternative</Button>
 <Button format="success">Success</Button>
 <Button format="warning">Warning</Button>
-<Button format="textOnly">TextOnly</Button>
                     `}
                 </ExampleSource>
 
@@ -41,13 +38,15 @@ class ButtonDocs extends React.Component {
                 <div data-code style={{ 'padding': '1em', 'width': '100%' }}>
                     <Button format="primaryOutline">Primary Outline</Button>
                     <Button format="secondaryOutline">Secondary Outline</Button>
+                    <Button format="alternativeOutline">Alternative Outline</Button>
                     <Button format="successOutline">Success Outline</Button>
                 </div>
 
-                <div style={{ 'backgroundColor': '#f2f9e5', 'padding': '1em', 'width': '100%' }}>
+                <div style={{ 'backgroundColor': '#f2f4f5', 'padding': '1em', 'width': '100%' }}>
 
                     <Button format="primaryOutline">Primary Outline</Button>
                     <Button format="secondaryOutline">Secondary Outline</Button>
+                    <Button format="alternativeOutline">Alternative Outline</Button>
                     <Button format="successOutline">Success Outline</Button>
                 </div>
 
@@ -55,6 +54,7 @@ class ButtonDocs extends React.Component {
                     {`
 <Button format="primaryOutline">Primary Outline</Button>
 <Button format="secondaryOutline">Secondary Outline</Button>
+<Button format="alternativeOutline">Alternative Outline</Button>
 <Button format="successOutline">Success Outline</Button>
                     `}
                 </ExampleSource>
@@ -103,35 +103,35 @@ class ButtonDocs extends React.Component {
                 <p>Buttons can include SVG icons. These icons get passed in as JSX elements to the <code>icon</code> prop. Icons should aways be on the left (the default) unless there is a compelling reason to have it on the right (e.g. forward button with right arrow), using the <code>iconLocation</code></p>
                 <div data-code>
                     <div>
-                        <Button size="lg" format="warning" icon={<CheckIcon />}>warning lg</Button>
-                        <Button size="lg" format="success" icon={<TestIcon />} iconLocation="afterLabel">Success lg</Button>
+                        <Button size="lg" format="warning" icon={<DownloadIcon />}>warning lg</Button>
+                        <Button size="lg" format="success" icon={<DownloadIcon />} iconLocation="afterLabel">Success lg</Button>
                     </div>
                     <div>
-                        <Button format="alternative" icon={<CheckIcon />}>Alternative</Button>
-                        <Button format="secondaryOutline" icon={<TestIcon />} iconLocation="afterLabel">Secondary Outline</Button>
+                        <Button format="alternative" icon={<DownloadIcon />}>Alternative</Button>
+                        <Button format="secondaryOutline" icon={<DownloadIcon />} iconLocation="afterLabel">Secondary Outline</Button>
                     </div>
                     <div>
-                        <Button size="sm" format="primary" icon={<TestIcon />}>Primary sm</Button>
-                        <Button size="sm" format="secondary" icon={<CheckIcon />} iconLocation="afterLabel">Secondary sm</Button>
+                        <Button size="sm" format="primary" icon={<DownloadIcon />}>Primary sm</Button>
+                        <Button size="sm" format="secondary" icon={<DownloadIcon />} iconLocation="afterLabel">Secondary sm</Button>
                     </div>
 
                     <div>
-                        <Button size="xs" format="primaryOutline" icon={<TestIcon />}>Primary xs</Button>
-                        <Button size="xs" format="secondaryOutline" icon={<CheckIcon />} iconLocation="afterLabel">Secondary xs</Button>
+                        <Button size="xs" format="primaryOutline" icon={<DownloadIcon />}>Primary xs</Button>
+                        <Button size="xs" format="secondaryOutline" icon={<DownloadIcon />} iconLocation="afterLabel">Secondary xs</Button>
                     </div>
 
                 </div>
 
                 <ExampleSource>
                     {`
-<Button size="lg" format="warning" icon={<CheckIcon />}>warning lg</Button>
-<Button size="lg" format="success"  icon={<TestIcon />} iconLocation="afterLabel">Success lg</Button>
-<Button format="alternative" icon={<CheckIcon />}>Alternative</Button>
-<Button format="secondaryOutline" icon={<TestIcon />} iconLocation="afterLabel">Secondary Outline</Button>
-<Button size="sm" format="primary" icon={<TestIcon />}>Primary sm</Button>
-<Button size="sm" format="secondary"  icon={<CheckIcon />} iconLocation="afterLabel">Secondary sm</Button>
-<Button size="xs" format="primaryOutline" icon={<TestIcon />}>Primary xs</Button>
-<Button size="xs" format="secondaryOutline"  icon={<CheckIcon />} iconLocation="afterLabel">Secondary xs</Button>
+<Button size="lg" format="warning" icon={<DownloadIcon />}>warning lg</Button>
+<Button size="lg" format="success"  icon={<DownloadIcon />} iconLocation="afterLabel">Success lg</Button>
+<Button format="alternative" icon={<DownloadIcon />}>Alternative</Button>
+<Button format="secondaryOutline" icon={<DownloadIcon />} iconLocation="afterLabel">Secondary Outline</Button>
+<Button size="sm" format="primary" icon={<DownloadIcon />}>Primary sm</Button>
+<Button size="sm" format="secondary"  icon={<DownloadIcon />} iconLocation="afterLabel">Secondary sm</Button>
+<Button size="xs" format="primaryOutline" icon={<DownloadIcon />}>Primary xs</Button>
+<Button size="xs" format="secondaryOutline"  icon={<DownloadIcon />} iconLocation="afterLabel">Secondary xs</Button>
                     `}
                 </ExampleSource>
 
