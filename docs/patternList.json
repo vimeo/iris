@@ -12,5 +12,8 @@
         ["Grid", "Grid Wrapper"],
         ["GridBlock", "Grid Block"],
         ["GridCol", "Grid Columns"]
+    ],
+    "Utilities": [
+        ["Utilities", "Utilities", true]
     ]
 }
