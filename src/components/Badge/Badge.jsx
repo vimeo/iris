@@ -25,7 +25,7 @@ const badgeFormats = [
     'staff',
     'support',
     'unrated',
-    'vod'
+    'vod',
 ];
 
 const propTypes = {
@@ -38,12 +38,12 @@ const propTypes = {
         .oneOf(badgeFormats),
     size: React
         .PropTypes
-        .oneOf(badgeSizes)
+        .oneOf(badgeSizes),
 };
 
 const defaultProps = {
     format: 'default',
-    size: 'sm'
+    size: 'sm',
 };
 
 const Badge = (props) => {
