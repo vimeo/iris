@@ -8,7 +8,7 @@ var STYLEGUIDE_DIR = 'node_modules/steadicam';
 // Webpack settings for React Docs
 
 module.exports = {
-    entry: './' + STYLEGUIDE_DIR + '/main.jsx',
+    entry: './docs/main.jsx',
 
     output: {
         filename: '[name].bundle.js',

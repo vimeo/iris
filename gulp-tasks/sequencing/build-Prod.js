@@ -1,10 +1,10 @@
 const gulp = require('gulp');
 const runSequence = require('run-sequence');
 
-gulp.task('build' , function(cb) {
+gulp.task('build-Prod' , function(cb) {
 	runSequence(
         'cleanStyleguideDistFile',
-        ['compileComponentListJSX','compileEntryPoints-Dev'],
+        ['compileComponentListJSX','compileEntryPoints-Prod'],
         'reactDocGenBuild',
         'reactDocGenParse',
         'compileColorVariables',
@@ -12,5 +12,6 @@ gulp.task('build' , function(cb) {
         'copyStaticAssets',
         'compilePackageIndexJSX',
         'webpackReact',
+        'copyProdHtaccess',
 		cb);
 });

@@ -4,10 +4,7 @@ import styles from './Badge.css';
 
 const displayName = 'Badge';
 
-const badgeSizes = [
-    'sm',
-    'lg',
-];
+const badgeSizes = ['sm', 'lg'];
 
 const badgeFormats = [
     'alum',
@@ -36,8 +33,12 @@ const propTypes = {
     children: React.PropTypes.string.isRequired,
     href: React.PropTypes.string,
     label: React.PropTypes.string,
-    format: React.PropTypes.oneOf(badgeFormats),
-    size: React.PropTypes.oneOf(badgeSizes),
+    format: React
+        .PropTypes
+        .oneOf(badgeFormats),
+    size: React
+        .PropTypes
+        .oneOf(badgeSizes),
 };
 
 const defaultProps = {
@@ -47,7 +48,9 @@ const defaultProps = {
 
 const Badge = (props) => {
 
-    // filter out props that are not meant to be passed in as an attribute from props and store the rest as "filteredProps" to be printed into the component as attrubutes in the tag (e.g. HTML attribute pass-through, event handlers)
+    // filter out props that are not meant to be passed in as an attribute from
+    // props and store the rest as "filteredProps" to be printed into the component
+    // as attrubutes in the tag (e.g. HTML attribute pass-through, event handlers)
 
     const {
         children,
@@ -59,23 +62,16 @@ const Badge = (props) => {
     } = props;
 
     // className builder
-    const componentClass = classNames(
-        styles.Badge,
-        styles[format],
-        styles[size],
-        className
-    );
+    const componentClass = classNames(styles.Badge, styles[format], styles[size], className);
 
-    const BadgeElement = href ? 'a' : 'span';
+    const BadgeElement = href
+        ? 'a'
+        : 'span';
 
     return (
-            <BadgeElement
-                {...filteredProps}
-                className={componentClass}
-                href={href}
-            >
-                    {children}
-            </BadgeElement>
+        <BadgeElement {...filteredProps} className={componentClass} href={href}>
+            {children}
+        </BadgeElement>
     );
 };
 
@@ -84,6 +80,5 @@ Badge.displayName = displayName;
 Badge.propTypes = propTypes;
 
 Badge.defaultProps = defaultProps;
-
 
 export default Badge;

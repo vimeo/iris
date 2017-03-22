@@ -646,8 +646,6 @@
   
  exports.IrisIconTalks64 = require('../../../src/globals/svg/iris_icon_talks_64.svg');
   
- exports.IrisIconTestBlock16 = require('../../../src/globals/svg/iris_icon_test_block_16.svg');
-  
  exports.IrisIconTip16 = require('../../../src/globals/svg/iris_icon_tip_16.svg');
   
  exports.IrisIconTipJar16 = require('../../../src/globals/svg/iris_icon_tip_jar_16.svg');
@@ -685,6 +683,8 @@
  exports.IrisIconUpload12 = require('../../../src/globals/svg/iris_icon_upload_12.svg');
   
  exports.IrisIconUpload16 = require('../../../src/globals/svg/iris_icon_upload_16.svg');
+  
+ exports.IrisIconUpload18 = require('../../../src/globals/svg/iris_icon_upload_18.svg');
   
  exports.IrisIconUpload24 = require('../../../src/globals/svg/iris_icon_upload_24.svg');
   

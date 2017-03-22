@@ -1,0 +1,44 @@
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { BrowserRouter, Switch, Route, Link, browserHistory, IndexRoute } from 'react-router-dom';
+import MainLayout from 'steadicam/components/layouts/MainLayout/MainLayout';
+import StyleListing from 'steadicam/components/styleListings/StyleListing/StyleListing';
+import SingleStyleListing from 'steadicam/components/styleListings/SingleStyleListing/SingleStyleListing';
+import PageLayout from 'steadicam/components/layouts/PageLayout/PageLayout';
+import ProjectDependencies from './ProjectDependencies';
+
+// THIS FILE IS GENERATED FROM templates/_MainJSXPath.template //
+
+let App = function App() {
+    return (
+        <div>
+            <BrowserRouter
+            history={browserHistory}
+            <% if(rootPath) { %>
+             basename="<%- rootPath %>">
+            <% } %>
+            >
+                <Switch>
+                    <Route
+                        path="/pattern/:category/:componentName" component={SingleStyleListing}
+                    />
+                    <Route
+                        path="/page/:page"
+                        component={PageLayout}
+                    />
+                    <Route
+                        path="/"
+                        component={StyleListing}
+                    />
+                </Switch>
+            </BrowserRouter>
+            <ProjectDependencies />
+        </div>
+)
+};
+
+
+ReactDOM.render(
+    <App />,
+    document.getElementById('app-root')
+);
