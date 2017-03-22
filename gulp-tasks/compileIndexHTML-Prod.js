@@ -7,9 +7,6 @@ const path = require('path');
 const dirPath = path.resolve(__dirname, '../');
 
 
-
-// Compile the list of component docs files to be included by styleguide.
-// Reads 'patternList.js' to do this.
 gulp.task('compileIndexHTML-Prod', function () {
 
 

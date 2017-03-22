@@ -7,11 +7,6 @@ const path = require('path');
 const dirPath = path.resolve(__dirname, '../');
 const fs = require('fs');
 
-
-
-
-// Compile the list of component docs files to be included by styleguide.
-// Reads 'patternList.js' to do this.
 gulp.task('compileMainJSX-Prod', function () {
      if(argv.folderPath){
         let rootPath = config.paths.routingProjectFolder+ argv.folderPath;
