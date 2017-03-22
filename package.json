@@ -25,9 +25,9 @@
     "eslint-plugin-flowtype": "^2.30.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.9.0",
-    "git-branch-name": "^1.1.0",
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
+    "gulp-param": "^1.0.3",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-shell": "^0.5.2",
@@ -41,7 +41,8 @@
     "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git",
     "svg-react-loader": "^0.3.7",
     "uppercamelcase": "^1.1.0",
-    "walk": "^2.3.9"
+    "walk": "^2.3.9",
+    "yargs": "^7.0.2"
   },
   "dependencies": {
     "autoprefixer": "^6.5.3",

@@ -3,7 +3,6 @@ const rename = require('gulp-rename');
 const template = require('gulp-template');
 const config = require('../config.js');
 const path = require('path');
-const getGitBranchName = require('git-branch-name');
 const dirPath = path.resolve(__dirname, '../');
 
 
@@ -11,11 +10,6 @@ const dirPath = path.resolve(__dirname, '../');
 // Compile the list of component docs files to be included by styleguide.
 // Reads 'patternList.js' to do this.
 gulp.task('compileIndexHTML-Dev', function () {
-
-
-    getGitBranchName(dirPath, function(err, branchName) {
-
-      let thisBranch = branchName;
       let rootPath = '';
       let destination = dirPath + '/build-styleguide/';
       let templateFile = dirPath + '/templates/_indexHTML.template';
@@ -24,8 +18,4 @@ gulp.task('compileIndexHTML-Dev', function () {
       .pipe(template({'rootPath': rootPath}))
       .pipe(rename('index.html'))
       .pipe(gulp.dest(destination));
-    });
-
-
-
 });
