@@ -1,7 +1,8 @@
 RewriteEngine On
+RewriteBase /vimeo/iris/master/
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}) -d [OR]
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} \.(js|css|jpe?g|gif|png|bmp|ico)$ [NC]
 RewriteRule ^ - [L]
 
-RewriteRule ^ /vimeo/iris/master/index.html [L]
+RewriteRule ^ index.html [L]
