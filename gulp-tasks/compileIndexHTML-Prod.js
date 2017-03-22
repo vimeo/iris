@@ -14,7 +14,7 @@ gulp.task('compileIndexHTML-Prod', function () {
 
 
     if(argv.folderPath){
-      let rootPath = config.paths.routingBase + config.paths.routingProjectFolder+ argv.folderPath;
+      let rootPath = config.paths.routingBase + config.paths.routingProjectFolder+ argv.folderPath + '/';
       let destination = dirPath + '/build-styleguide/';
       let templateFile = dirPath + '/templates/_indexHTML.template';
 
