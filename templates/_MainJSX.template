@@ -12,11 +12,7 @@ import ProjectDependencies from './ProjectDependencies';
 let App = function App() {
     return (
         <div>
-            <BrowserRouter
-            history={browserHistory}<% if(rootPath) {
-                %>basename="<%- rootPath %>">
-            <% } %>
-            >
+            <BrowserRouter history={browserHistory}<% if(rootPath) {%> basename="<%- rootPath %>" <% } %>>
                 <Switch>
                     <Route
                         path="/pattern/:category/:componentName" component={SingleStyleListing}
