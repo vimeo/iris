@@ -1,7 +1,2 @@
 RewriteEngine On
-RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
-RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}) -d [OR]
-RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} \.(js|css|jpe?g|gif|png|bmp|ico)$ [NC]
-RewriteRule ^ - [L]
 
-RewriteRule ^ /index.html [L]

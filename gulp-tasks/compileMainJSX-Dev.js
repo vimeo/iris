@@ -15,7 +15,7 @@ gulp.task('compileMainJSX-Dev', function () {
       let templateFile = dirPath + '/templates/_MainJSX.template';
 
       return gulp.src(templateFile)
-      .pipe(template({'rootPath': ''}))
+      .pipe(template({'rootPath': 'http://localhost:3000'}))
       .pipe(rename('main.jsx'))
       .pipe(gulp.dest(destination));
 });
