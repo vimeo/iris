@@ -3,6 +3,9 @@
         ["Colors", "Color Palette", true],
         ["Svgs", "SVG Icons", true]
     ],
+    "Utilities": [
+        ["MediaQueries", "Named Media Queries", true]
+    ],
     "Components": [
         ["Badge", "Badges"],
         ["Button", "Buttons"]
@@ -12,8 +15,5 @@
         ["Grid", "Grid Wrapper"],
         ["GridBlock", "Grid Block"],
         ["GridCol", "Grid Columns"]
-    ],
-    "Utilities": [
-        ["Utilities", "Utilities", true]
     ]
 }
