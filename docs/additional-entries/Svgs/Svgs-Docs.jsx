@@ -8,7 +8,7 @@ const SvgsDocs = (props) => {
         <div>
             <p>SVGs are loaded in using <a href="https://github.com/jhamlet/svg-react-loader" target="_blank">svg-react-loader</a></p>
             <h4>All Iris Icons</h4>
-            <p><a href="/svgPage.html" target="_blank">See all SVG Icons Here</a></p>
+            <p><a href="svgPage.html" target="_blank">See all SVG Icons Here</a></p>
 
             <h4>Using an Iris Icon</h4>
             <p>Icons are loaded with the <a href="https://github.com/jhamlet/svg-react-loader" target="_blank">SVG React Loader</a>.To include an icon you need to know its "Component Name" and File Name.</p>

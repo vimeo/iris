@@ -12,6 +12,5 @@ gulp.task('build-Prod' , function(cb) {
         'copyStaticAssets',
         'compilePackageIndexJSX',
         'webpackReact',
-        'compileHtaccess-Prod',
 		cb);
 });
