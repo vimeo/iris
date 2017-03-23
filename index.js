@@ -19,8 +19,6 @@ exports.paths = {
   
   'iris/Button':'iris/src/components/Button/Button',
   
-  'iris/CircleLoader':'iris/src/components/CircleLoader/CircleLoader',
-  
   'iris/Grid':'iris/src/components/Grid/Grid',
   
   'iris/GridBlock':'iris/src/components/GridBlock/GridBlock',
