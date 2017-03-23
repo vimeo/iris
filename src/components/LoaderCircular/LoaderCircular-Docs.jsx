@@ -1,21 +1,21 @@
 import React from 'react';
-import {{pascalCase name}} from './{{pascalCase name}}'
+import LoaderCircular from './LoaderCircular';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
-const {{pascalCase name}}Docs = (props) => {
+const LoaderCircularDocs = (props) => {
     return (
-        <div className="Pattern__docs">
+        <div>
             <div data-code>
-                <{{pascalCase name}} />
+                <LoaderCircular />
             </div>
 
             <ExampleSource>
                 {`
-                    <{{pascalCase name}} />
+                    <LoaderCircular />
                     `}
                 </ExampleSource>
-            </div>    
+            </div>
     );
 };
 
-export default {{pascalCase name}}Docs;
+export default LoaderCircularDocs;

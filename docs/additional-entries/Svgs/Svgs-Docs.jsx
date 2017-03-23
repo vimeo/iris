@@ -5,7 +5,7 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 
 const SvgsDocs = (props) => {
     return (
-        <div>
+        <div className="Pattern__docs">
             <p>SVGs are loaded in using <a href="https://github.com/jhamlet/svg-react-loader" target="_blank">svg-react-loader</a></p>
             <h4>All Iris Icons</h4>
             <p><a href="svgPage.html" target="_blank">See all SVG Icons Here</a></p>
