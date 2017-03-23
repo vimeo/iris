@@ -14,7 +14,6 @@ const propTypes = {
 };
 
 const defaultProps = {
-    className: '',
     centered: false,
     hasMaxWidth: true,
 };
