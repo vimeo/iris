@@ -142,3 +142,7 @@
   }
   @return $remValues;
 }
+
+@function em-calc($values, $context: $rem-base) {
+  @return #{$values/$context * 1em};
+}

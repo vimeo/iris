@@ -4,7 +4,7 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 
 const {{pascalCase name}}Docs = (props) => {
     return (
-        <div>
+        <div className="Pattern__docs">
             <div data-code>
                 <{{pascalCase name}} />
             </div>

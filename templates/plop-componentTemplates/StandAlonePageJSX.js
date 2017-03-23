@@ -3,7 +3,7 @@ import * as React from 'react';
 
 const {{pascalCase name}} = (props) => {
     return (
-        <div>
+        <div className="Pattern__docs">
             <div>
                 <p>Content Here</p>
             </div>
