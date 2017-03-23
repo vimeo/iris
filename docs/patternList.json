@@ -8,7 +8,8 @@
     ],
     "Components": [
         ["Badge", "Badges"],
-        ["Button", "Buttons"]
+        ["Button", "Buttons"],
+        ["LoaderCircular", "Circular Loader"]
     ],
     "Layout": [
         ["GridFull", "Grid", true],
