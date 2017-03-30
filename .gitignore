@@ -1,7 +1,7 @@
 # node / npm
 node_modules
 *.log
-
+*.orig
 
 
 ########################
@@ -39,6 +39,7 @@ nbproject
 *.sublime-workspace
 .vscode
 
+
 ########################
 # Caches
 ########################
@@ -52,4 +53,5 @@ nbproject
 data/*
 !data/README.md
 build-styleguide
+data
 docs/main.jsx
