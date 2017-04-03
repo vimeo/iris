@@ -26,6 +26,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.9.0",
     "gulp": "^3.9.1",
+    "gulp-csscomb": "^3.0.8",
     "gulp-eslint": "^3.0.1",
     "gulp-param": "^1.0.3",
     "gulp-rename": "^1.2.2",

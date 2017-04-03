@@ -37,9 +37,10 @@ img {
 
 fieldset,
 legend {
-    border: 0;
-    padding: 0;
     margin: 0;
+    padding: 0;
+
+    border: 0;
 }
 
 acronym {
@@ -80,8 +81,10 @@ ul {
 }
 
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
-*, *:before, *:after {
-  box-sizing: inherit;
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
