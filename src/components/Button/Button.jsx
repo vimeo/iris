@@ -14,14 +14,17 @@ const buttonSizes = [
 const buttonTypes = [
     'primary',
     'primaryOutline',
+    'primaryTextOnly',
     'secondary',
     'secondaryOutline',
+    'secondaryTextOnly',
     'alternative',
     'alternativeOutline',
     'success',
     'successOutline',
     'warning',
     'lightTransparent',
+    'lightTextOnly',
 ];
 
 const buttonBreakpoints = [

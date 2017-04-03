@@ -7,7 +7,7 @@ export default function GridFullDocs() {
 	return (
 		<div className="Pattern__docs">
 			<p>The Iris Grid system is a 24 column responsive flexbox based grid. The Grid component provides an engineer-friendly re-useable abstraction of the HTML structure required to use this grid.</p>
-
+			<a style={{marginBottom: '20px', display: 'block'}} href="https://www.dropbox.com/s/2gr5ns35oshxbqy/Iris%20Grid.sketch?dl=0">Grid Sketch Files</a>
 			<h3>Easy Fundamentals: Grid Components</h3>
 
 			<ul>
