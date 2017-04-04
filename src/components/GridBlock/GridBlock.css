@@ -1,1 +1,1 @@
-.GridBlock{width:calc(100% + 1.25rem);flex-grow:1;flex-wrap:wrap;display:flex;padding:0;margin-left:-.625rem;margin-right:-.625rem}.nowrap{flex-wrap:nowrap}
+.GridBlock{width:calc(100% + $grid-gutter-width-rems);flex-grow:1;flex-wrap:wrap;display:flex;padding:0;margin-left:-.625rem;margin-right:-.625rem}.nowrap{flex-wrap:nowrap}

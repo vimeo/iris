@@ -1,8 +1,9 @@
 html {
-  background: $g-white;
+    background: $g-white;
 }
 mark {
     display: inline;
+
     color: inherit;
     background: $g-selection-color; //!flag highlighted text color is not confirmed
 }

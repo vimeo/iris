@@ -13,7 +13,6 @@ $g-green-error: $green2;
 $g-svg-path-fill: currentColor;
 $g-selection-color: $blue4;
 $g-quote-bg: $gray10;
-
 $g-black: #000000;
 $g-white: #FFFFFF;
 $g-smoke: rgba(23,35,34,0.75);
@@ -25,23 +24,23 @@ $g-transparent: rgba(0, 0, 0, 0);
 // TEXT COLORS
 //============================================================================
 
-$header-color:                   #40545C;
-$subheader-color:                #607680;
-$body-color:                     #4E5A5E;
-$meta-color:                     #8A9599;
-$link-primary-color:             #009FDE;
-$link-secondary-color:           #17272E;
-$link-primary-hover-color:       #007CBA;
-$link-secondary-hover-color:     #0088cc;
-$disabled-color:                 $gray6;
-$meta-blue-color:                #88bcd1;
-$meta-green-color:               #abc28f;
-$meta-red-color:                 #cfa1a5;
-$meta-yellow-color:              #cfbd97;
-$vod-header-color:               #c3d0d8;
-$vod-sub-header-color:           #81969f;
-$vod-body-color:                 #ced4d9;
-$vod-meta-color:                 #828c93;
+$header-color: #40545C;
+$subheader-color: #607680;
+$body-color: #4E5A5E;
+$meta-color: #8A9599;
+$link-primary-color: #009FDE;
+$link-secondary-color: #17272E;
+$link-primary-hover-color: #007CBA;
+$link-secondary-hover-color: #0088CC;
+$disabled-color: $gray6;
+$meta-blue-color: #88BCD1;
+$meta-green-color: #ABC28F;
+$meta-red-color: #CFA1A5;
+$meta-yellow-color: #CFBD97;
+$vod-header-color: #C3D0D8;
+$vod-sub-header-color: #81969F;
+$vod-body-color: #CED4D9;
+$vod-meta-color: #828C93;
 
 
 //Font colors
@@ -64,6 +63,6 @@ $g-input-color: $gray4;
 //============================================================================
 // VENDOR COLORS
 //============================================================================
-$g-dropbox-blue:  #007EE5;
-$g-facebook-blue: #4c70ba;
-$g-twitter-blue:  #4099FF;
+$g-dropbox-blue: #007EE5;
+$g-facebook-blue: #4C70BA;
+$g-twitter-blue: #4099FF;

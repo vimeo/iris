@@ -9,8 +9,10 @@
 
 @mixin spans($count) {
     @for $i from 1 through $count {
-        &-#{$i} {
-            flex: 0 1 #{($i/$count * 100%)};
+        $spanOffsetPercentage: $i/$count * 100%;
+        $spanName: -#{$i};
+        &#{$spanName} {
+            flex: 0 1 $spanOffsetPercentage;
         }
     }
 }
@@ -26,8 +28,9 @@
 
 @mixin offset($count, $offsetDirection) {
     @for $i from 1 through $count {
+        $marginOffset: $i/$grid-gutter-width-percentage;
         &-#{$i} {
-            margin-#{$offsetDirection}: calc( #{($i/$grid-gutter-width * 100%)} + #{ ($grid-gutter-width * ($i - 1)) * $rem-pixel } );
+            margin-#{$offsetDirection}: calc( $marginOffset + $grid-gutter-width-rems );
         }
     }
 }
