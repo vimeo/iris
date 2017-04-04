@@ -44,6 +44,7 @@ const propTypes = {
     autoMargins: React.PropTypes.bool,
     autoWidth: React.PropTypes.oneOf(buttonBreakpoints),
     isButtonElement: React.PropTypes.bool,
+    isInline: React.PropTypes.bool,
     children: React.PropTypes.node.isRequired,
     className: React.PropTypes.string,
     format: React.PropTypes.oneOf(buttonTypes),
@@ -57,6 +58,7 @@ const defaultProps = {
     autoWidth: 'sm',
     format: 'primary',
     isButtonElement: true,
+    isInline: false,
     iconLocation: 'beforeLabel',
     size: 'md',
 };
@@ -68,6 +70,7 @@ const Button = (props) => {
         autoMargins,
         autoWidth,
         isButtonElement,
+        isInline,
         icon,
         iconLocation,
         size,
@@ -82,7 +85,8 @@ const Button = (props) => {
         styles[format],
         styles[size],
         (autoWidth !== 'fluid' ? styles['autoWidth_' + autoWidth] : null),
-        (autoMargins ? styles.autoMargins : null),
+        (autoMargins ? styles.autoMarginsHorizontal : null),
+        (isInline || !autoMargins ? null : styles.autoMarginsVertical),
         className
     );
 

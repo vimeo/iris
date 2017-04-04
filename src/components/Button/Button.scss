@@ -36,7 +36,7 @@ $Button_transparent_for_animation: rgba(255,255,255,0);
 @mixin autoWidthSettings() {
     width: auto;
 
-    &.autoMargins{
+    &.autoMarginsHorizontal {
         margin-right: rem-calc(8);
 
         &:last-of-type  {
@@ -81,12 +81,8 @@ $Button_transparent_for_animation: rgba(255,255,255,0);
 
 //-------------------------  autoMargins
 
-.autoMargins{
+.autoMarginsVertical {
     margin: 0 0 rem-calc(8) 0;
-
-    &:first-of-type  {
-        margin-right: 0;
-    }
 }
 
 .buttonLabel {

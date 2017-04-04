@@ -261,6 +261,18 @@ class ButtonDocs extends React.Component {
                         `}
                     </ExampleSource>
 
+                     <h3>Inline Button</h3>
+                    <p>If a button needs to be displayed inline without automatic bottom margins, use the <code>isInline</code> flag.</p>
+                    <div data-code>
+                        <Button isInline>Primary</Button>
+                    </div>
+
+                    <ExampleSource>
+                        {`
+<Button isInline>Primary</Button>
+                        `}
+                    </ExampleSource>
+
 
                     <h3>Button Sizing</h3>
                     <p>Butons are full 100% width on sm screen and width: auto on default. You can change the point at which the buttons become full width with the <code>autoWidth</code> prop.</p>
