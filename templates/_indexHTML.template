@@ -14,6 +14,7 @@
 	</head>
 	<body>
 		<div id="app-root" class="sg-App"></div>
+		<script src="js/vendor/tota11y.js"></script>
 	</body>
 	<script src="js/vendor/prism.js"></script>
 	<script src="js/vendor/smooth-scroll.min.js"></script>
