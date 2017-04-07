@@ -12,8 +12,7 @@
         $spanOffsetPercentage: $i/$count * 100%;
         $spanName: -#{$i};
         &#{$spanName} {
-            flex: 1 1 0;
-            max-width: $spanOffsetPercentage;
+            flex: 1 1 $spanOffsetPercentage;
         }
     }
 }
@@ -22,8 +21,7 @@
 @mixin fixedSpans($containerWidth, $count) {
     @for $i from 1 through $count {
         &-#{$i}-fixed {
-            flex: 1 1 0;
-            max-width: rem-calc((($i/$count)*$containerWidth));
+            flex: 1 1 rem-calc((($i/$count)*$containerWidth));
         }
     }
 }
