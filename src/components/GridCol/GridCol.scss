@@ -12,7 +12,8 @@
         $spanOffsetPercentage: $i/$count * 100%;
         $spanName: -#{$i};
         &#{$spanName} {
-            flex: 0 1 $spanOffsetPercentage;
+            flex: 1 1 0;
+            max-width: $spanOffsetPercentage;
         }
     }
 }
@@ -21,16 +22,16 @@
 @mixin fixedSpans($containerWidth, $count) {
     @for $i from 1 through $count {
         &-#{$i}-fixed {
-            flex: 0 0 rem-calc((($i/$count)*$containerWidth));
+            flex: 1 1 0;
+            max-width: rem-calc((($i/$count)*$containerWidth));
         }
     }
 }
 
 @mixin offset($count, $offsetDirection) {
     @for $i from 1 through $count {
-        $marginOffset: $i/$grid-gutter-width-percentage;
         &-#{$i} {
-            margin-#{$offsetDirection}: calc( $marginOffset + $grid-gutter-width-rems );
+            margin-#{$offsetDirection}: calc( #{($i/$grid-gutter-width * 100%)} + #{ ($grid-gutter-width * ($i - 1)) * $rem-pixel } );
         }
     }
 }
