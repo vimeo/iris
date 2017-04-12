@@ -59,7 +59,43 @@ class ButtonDocs extends React.Component {
                     `}
                 </ExampleSource>
 
+                 <h3>Text-Only Buttons</h3>
+                <p>In cases where we need a button element but want it to appear like text, we use the Text-only buttons</p>
+                <div data-code style={{ 'padding': '1em', 'width': '100%' }}>
+                    <Button format="primaryTextOnly" icon={<DownloadIcon />}>Primary TextOnly</Button>
+                    <Button format="secondaryTextOnly" >Secondary Outline</Button>
+                </div>
 
+                <div style={{ 'backgroundColor': '#000', 'padding': '1em', 'width': '100%' }}>
+                    <Button format="primaryTextOnly" icon={<DownloadIcon />}>Primary TextOnly</Button>
+                    <Button format="lightTextOnly" icon={<DownloadIcon />}>Light Outline</Button>
+                </div>
+
+                 <ExampleSource>
+                    {`
+<Button format="primaryTextOnly" icon={<DownloadIcon />}>Primary TextOnly</Button>
+<Button format="secondaryTextOnly">Secondary Outline</Button>
+<Button format="lightTextOnly" icon={<DownloadIcon />}>Light Outline</Button>
+                    `}
+                </ExampleSource>
+
+                <div data-code style={{ 'padding': '1em', 'width': '100%' }}>
+                    <Button format="primaryTextOnly" size="lg" icon={<DownloadIcon />}>Primary TextOnly</Button>
+                    <Button format="primaryTextOnly" size="md" icon={<DownloadIcon />}>Primary TextOnly</Button>
+                    <Button format="primaryTextOnly" size="sm" icon={<DownloadIcon />}>Primary TextOnly</Button>
+                    <Button format="primaryTextOnly" size="xs" icon={<DownloadIcon />}>Primary TextOnly</Button>
+                </div>
+
+                <ExampleSource>
+                    {`
+<Button format="primaryTextOnly" size="lg" icon={<DownloadIcon />}>Primary TextOnly</Button>
+<Button format="primaryTextOnly" size="md" icon={<DownloadIcon />}>Primary TextOnly</Button>
+<Button format="primaryTextOnly" size="sm" icon={<DownloadIcon />}>Primary TextOnly</Button>
+<Button format="primaryTextOnly" size="xs" icon={<DownloadIcon />}>Primary TextOnly</Button>
+                    `}
+                </ExampleSource>
+
+                <h3>Light Transparent Button</h3>
                 <p>The Light Transparent button type is used when a button is overlayed over a complex image background.</p>
                 <div data-code style={{ 'backgroundImage': 'url(https://placekitten.com/1000/800)', 'backgroundSize': 'cover', 'backgroundPosition': 'center', 'padding': '4rem 1rem', 'width': '100%' }}>
                     <Button format="lightTransparent">Light Transparent</Button>
@@ -222,6 +258,18 @@ class ButtonDocs extends React.Component {
     <Button autoMargins={false}>Primary</Button>
     <Button  format="secondary" autoMargins={false}>Secondary</Button>
 </div>
+                        `}
+                    </ExampleSource>
+
+                     <h3>Inline Button</h3>
+                    <p>If a button needs to be displayed inline without automatic bottom margins, use the <code>isInline</code> flag.</p>
+                    <div data-code>
+                        <Button isInline>Primary</Button>
+                    </div>
+
+                    <ExampleSource>
+                        {`
+<Button isInline>Primary</Button>
                         `}
                     </ExampleSource>
 

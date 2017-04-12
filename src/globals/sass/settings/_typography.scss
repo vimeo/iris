@@ -1,9 +1,7 @@
 $g-font-size: 16;
 $g-font-base: 14;
-
-$g-base-font-size:    $g-font-size *1px !default;
-$g-base-line-height:  24px !default;
-
+$g-base-font-size: $g-font-size *1px !default;
+$g-base-line-height: 24px !default;
 $rem-base: $g-font-size; // used by rem calc function
 
 $g-header-1: 36;
@@ -12,13 +10,8 @@ $g-header-3: 18;
 $g-header-4: 16;
 $g-header-5: 14;
 $g-header-6: 12;
-
 $g-header-7: 15;
-
 $g-header-spacing: 0.5rem;
-
-
 $g-font-family-primary: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
 $g-line: 1.2;
 $g-modal-header: 20;
