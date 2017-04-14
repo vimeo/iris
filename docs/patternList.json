@@ -4,7 +4,8 @@
         ["Svgs", "SVG Icons", true]
     ],
     "Utilities": [
-        ["MediaQueries", "Named Media Queries", true]
+        ["MediaQueries", "Named Media Queries", true],
+        ["VerticalSpacing", "Vertical Spacing Variables", true]
     ],
     "Components": [
         ["Badge", "Badges"],

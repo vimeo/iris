@@ -1,0 +1,27 @@
+@function nullCeil($unit) {
+    $ceilValue: 0;
+    @if(type-of($unit) == number) {
+        $ceilValue: $unit;
+    }
+    @return ceil($ceilValue);
+}
+
+@function calculateSpacingUnit($multiplier) {
+    @return rem-calc($spacing-base * nullCeil($multiplier));
+}
+
+@function spacingUnit($unit1, $unit2: null, $unit3: null, $unit4: null) {
+    $returnUnits: calculateSpacingUnit($unit1);
+
+    @if ($unit2) {
+        $returnUnits: #{$returnUnits} #{calculateSpacingUnit($unit2)};
+    }
+    @if ($unit3) {
+        $returnUnits: #{$returnUnits} #{calculateSpacingUnit($unit3)};
+    }
+    @if ($unit4) {
+        $returnUnits: #{$returnUnits} #{calculateSpacingUnit($unit4)};
+    }
+
+    @return $returnUnits;
+}
