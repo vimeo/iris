@@ -1,7 +1,7 @@
-@import 'helpers-all';
-
-// Base
-@import 'base/base-all';
-
-// Brand
-@import 'brand/brand-all';
+:global {
+    @import 'helpers-all';
+    // Base
+    @import 'base/base-all';
+    // Brand
+    @import 'brand/brand-all';
+}

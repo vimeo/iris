@@ -147,7 +147,7 @@
     font-size: 8px;
     font-weight: 700;
     line-height: 8px;
-    color: $white;
+    color: $White;
     text-align: center;
     text-transform: uppercase;
     vertical-align: middle;
@@ -534,7 +534,7 @@
 }
 
 //Used to add triangles—carrots—to containers (e.g. the mature badge tooltip)
-@mixin g-carrot($position1: top, $position2: right, $bgcolor: $g-white, $border-color: null) {
+@mixin g-carrot($position1: top, $position2: right, $bgcolor: $White, $border-color: null) {
     $carrotPosition: (
         top: (
             right: (top:-11px, right:30px),

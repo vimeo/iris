@@ -1,6 +1,7 @@
 {
     "Brand": [
         ["Colors", "Color Palette", true],
+         ["ColorRibbon", "Color Ribbon", true],
         ["Svgs", "SVG Icons", true]
     ],
     "Utilities": [

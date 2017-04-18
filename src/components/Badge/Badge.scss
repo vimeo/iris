@@ -13,19 +13,19 @@ $iris_badge-spacing--hor: 4;
 $iris_badge-spacing: rem-calc($iris_badge-spacing--ver) rem-calc($iris_badge-spacing--hor);
 
 //Colors
-$iris_badge--alum: $purple1;
-$iris_badge--orange: $yellow1;
-$iris_badge--explicit: $red1;
-$iris_badge--magenta: $red3;
-$iris_badge-txt--gold: $yellow2;
-$iris_badge--help: $white;
-$iris_badge--help_bg: $gray2;
-$iris_badge--new: $red2;
-$iris_badge--plus: $blue2;
-$iris_badge--pro: $gray1;
-$iris_badge--business: $green2;
-$iris_badge--staff: $yellow2;
-$iris_badge--staff_text: $yellow1;  // STAFF/CURATION/SUPPORT have a different text color
+$iris_badge--alum: #503873;
+$iris_badge--orange: #FF8A00;
+$iris_badge--explicit: $SunsetOrange-Darkened;
+$iris_badge--magenta: #FF9D9D;
+$iris_badge-txt--gold: #FFB21E;
+$iris_badge--help: $White;
+$iris_badge--help_bg: #3A5161;
+$iris_badge--new: $SunsetOrange;
+$iris_badge--plus: $VimeoBlue;
+$iris_badge--pro: $AstroGranite;
+$iris_badge--business: $Pistachio;
+$iris_badge--staff: #FFB21E;
+$iris_badge--staff_text: #FF8A00;  // STAFF/CURATION/SUPPORT have a different text color
 
 @mixin vimeo_badge($base_color, $hover: true) {
     color: $base_color;
@@ -109,7 +109,7 @@ a.explicit {
     &:active,
     &:hover {
         color: $iris_badge--explicit;
-        background-color: $red6;
+        background-color: $PalePink;
     }
 }
 
@@ -120,7 +120,7 @@ a.explicit {
 .hd {
     font-style: italic;
 
-    color: $blue5;
+    color: #CCEFFC;
 }
 
 .help {
@@ -134,14 +134,14 @@ a.explicit {
 }
 
 .info {
-    color: $gray6;
+    color: #D0D8DB;
 
     cursor: help;
 
     &:hover,
     &:focus {
-        color: $white !important;
-        background: $gray4;
+        color: $White !important;
+        background: $RegentGray;
     }
 }
 
@@ -157,8 +157,8 @@ a.explicit {
 }
 
 .partner {
-    color: $gray5;
-    background-color: $gray7;
+    color: #A2AFB8;
+    background-color: $Porcelain;
 }
 
 
@@ -170,15 +170,15 @@ a.explicit {
 
 .spatial,
 .unrated {
-    color: $gray4;
-    border: 1px solid $gray6;
+    color: $RegentGray;
+    border: 1px solid #D0D8DB;
     background-color: transparent;
 
     &:focus,
     &:active,
     &:hover {
         color: text-color(meta);
-        background-color: $gray9;
+        background-color: $Plaster;
     }
 }
 

@@ -1,23 +1,23 @@
 /* @description Generates styles for the Button component */
 @import '../../globals/sass/helpers-all';
-$Button_primary-text-color: $white;
-$Button_primary-bg-color: $blue2;
-$Button_primary-bg-color_hover: $blue1;
-$Button_secondary-text-color: $gray1;
-$Button_secondary-text-color_outline: $gray1;
-$Button_secondary-bg-color: $gray9;
-$Button_secondary-bg-color_hover: $gray7;
-$Button_secondary-outline-text-color: $gray4;
-$Button_secondary-outline-bg-color_hover: $gray6;
-$Button_alternative-text-color: $white;
-$Button_alternative-bg-color: $gray2;
-$Button_alternative-bg-color_hover: $gray1;
-$Button_warning-text-color: $white;
-$Button_warning-bg-color: $red2;
-$Button_warning-bg-color_hover: $red1;
-$Button_success-text-color: $white;
-$Button_success-bg-color: $green2;
-$Button_success-bg-color_hover: $green1;
+$Button_primary-text-color: $White;
+$Button_primary-bg-color: $VimeoBlue;
+$Button_primary-bg-color_hover: $VimeoBlue-Darkened;
+$Button_secondary-text-color: $AstroGranite;
+$Button_secondary-text-color_outline: $AstroGranite;
+$Button_secondary-bg-color: $Plaster;
+$Button_secondary-bg-color_hover: $Porcelain;
+$Button_secondary-outline-text-color: $RegentGray;
+$Button_secondary-outline-bg-color_hover: #D0D8DB;
+$Button_alternative-text-color: $White;
+$Button_alternative-bg-color: #3A5161;
+$Button_alternative-bg-color_hover: $AstroGranite;
+$Button_warning-text-color: $White;
+$Button_warning-bg-color: $SunsetOrange;
+$Button_warning-bg-color_hover: $SunsetOrange-Darkened;
+$Button_success-text-color: $White;
+$Button_success-bg-color: $Pistachio;
+$Button_success-bg-color_hover: $Pistachio-Darkened;
 $Button_icon-size-large: rem-calc(18);
 $Button_icon-size-medium: rem-calc(16);
 $Button_icon-size-small: rem-calc(14);
@@ -313,7 +313,7 @@ $Button_transparent_for_animation: rgba(255,255,255,0);
 }
 
 .lightTransparent {
-    color: $white;
+    color: $White;
     border-color: $Button_transparent_for_animation;
     background-color: rgba(255,255,255,0.3);
 
@@ -327,7 +327,7 @@ $Button_transparent_for_animation: rgba(255,255,255,0);
 }
 
 .lightTextOnly {
-    color: $white;
+    color: $White;
     border-color: $Button_transparent_for_animation;
     background-color: $Button_transparent_for_animation;
 
@@ -396,9 +396,9 @@ $Button_transparent_for_animation: rgba(255,255,255,0);
 
 // All Disable Buttons are the same and override any other applied styles
 .Button:disabled {
-    color: $gray6;
-    border-color: $gray7;
-    background-color: $gray7;
+    color: #D0D8DB;
+    border-color: $Porcelain;
+    background-color: $Porcelain;
 
     cursor: not-allowed;
 }

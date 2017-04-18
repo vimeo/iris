@@ -2,16 +2,16 @@ body {
     font-family: $g-font-family-primary; //"Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: $g-base-font-size;
 
-    color: $g-primary-color;
+    color: $BodyTextColor-Dark;
 }
 
 
 ::selection {
-    background-color: $g-selection-color;
+    background-color: #A6E2F9;
 }
 
 ::-moz-selection {
-    background-color: $g-selection-color;
+    background-color: #A6E2F9;
 }
 
 strong {
@@ -19,14 +19,14 @@ strong {
 }
 
 a {
-    color: $g-default-link-color;
+    color: $DarkLinkColor;
 
     cursor: pointer;
     text-decoration: none;
     &:hover,
     &:focus,
     &.selected {
-        color: $g-default-link-color-hover;
+        color: $DarkLinkColor-Hover;
     }
     img {
         border: 0;
@@ -46,7 +46,7 @@ h6 {
     font-weight: 700;
     line-height: 1.189;
 
-    color: $g-primary-header-color;
+    color: $HeaderTextColor;
 }
 
 // Form Type _____________________________________________________________________
