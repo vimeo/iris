@@ -202,6 +202,8 @@
   
  exports.IrisIconFlag16 = require('../../../src/globals/svg/iris_icon_flag_16.svg');
   
+ exports.IrisIconFlarePremiere = require('../../../src/globals/svg/iris_icon_flare_premiere.svg');
+  
  exports.IrisIconFood32 = require('../../../src/globals/svg/iris_icon_food_32.svg');
   
  exports.IrisIconFood64 = require('../../../src/globals/svg/iris_icon_food_64.svg');
