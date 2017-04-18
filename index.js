@@ -19,6 +19,8 @@ exports.paths = {
   
   'iris/Button':'iris/src/components/Button/Button',
   
+  'iris/ButtonIconOnly':'iris/src/components/ButtonIconOnly/ButtonIconOnly',
+  
   'iris/Grid':'iris/src/components/Grid/Grid',
   
   'iris/GridBlock':'iris/src/components/GridBlock/GridBlock',
