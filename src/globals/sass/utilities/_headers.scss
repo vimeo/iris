@@ -6,8 +6,8 @@
 //============================================================================
 // VARIABLES
 //============================================================================
-$header-color: text-color(header);
-$subline-color: text-color(meta);
+$header-color: $HeaderTextColor;
+$subline-color: $MetaTextColor;
 
 $subline-font-base: 13px;
 
