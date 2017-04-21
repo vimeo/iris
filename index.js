@@ -29,4 +29,12 @@ exports.paths = {
   
   'iris/LoaderCircular':'iris/src/components/LoaderCircular/LoaderCircular',
   
+  'iris/Notification':'iris/src/components/Notification/Notification',
+  
+  'iris/NotificationNeutral':'iris/src/components/NotificationNeutral/NotificationNeutral',
+  
+  'iris/NotificationSuccess':'iris/src/components/NotificationSuccess/NotificationSuccess',
+  
+  'iris/NotificationWarning':'iris/src/components/NotificationWarning/NotificationWarning',
+  
 };

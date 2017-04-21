@@ -1,0 +1,78 @@
+/* @description Generates styles for the Notification component */
+@import '../../globals/sass/helpers-all';
+$Notification_padding-horizontal: rem-calc(16);
+$Notification_padding-vertical: rem-calc(12);
+$Notification_icon-size: rem-calc(18);
+$Notification_icon-margin: rem-calc(12);
+$Notification_dismiss-icon-size: rem-calc(18);
+
+.NotificationWrap {
+    margin-bottom: rem-calc(16);
+}
+
+.Notification {
+    position: relative;
+
+    width: 100%;
+    padding-top: $Notification_padding-vertical;
+    padding-right: $Notification_dismiss-icon-size + $Notification_padding-horizontal + $Notification_icon-margin;
+    padding-bottom: $Notification_padding-vertical;
+    padding-left: $Notification_padding-horizontal;
+
+    font-size: 0.875rem;
+
+    border-radius: rem-calc($g-radius);
+
+    transition: all #{$iris_transition-base};
+
+    &.hasIcon {
+        padding-left: $Notification_icon-size + $Notification_padding-horizontal+ $Notification_icon-margin;
+    }
+}
+
+
+
+// icon
+
+.iconWrapper {
+    position: absolute;
+    top: $Notification_padding-vertical;
+    left: $Notification_padding-horizontal;
+
+    svg {
+        width: $Notification_icon-size;
+        height: $Notification_icon-size;
+    }
+}
+
+// dismiss button
+.dismissButton {
+    position: absolute;
+    top: rem-calc(10);
+    right: $Notification_padding-horizontal;
+
+    width: $Notification_dismiss-icon-size;
+    height: $Notification_dismiss-icon-size;
+
+    opacity: 0.75;
+    border: 0;
+    background: transparent;
+
+    appearance: none;
+
+
+    &:hover {
+        opacity: 1;
+
+        cursor: pointer;
+    }
+
+    svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        width: $Notification_dismiss-icon-size;
+        height: $Notification_dismiss-icon-size;
+    }
+}

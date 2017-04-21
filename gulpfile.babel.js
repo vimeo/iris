@@ -19,6 +19,7 @@ const COMPONENT_SRC = config.paths.componentSrc;
 const GLOBALS_SRC = config.paths.globalsSrc;
 const LOCAL_DOCS_SRC = config.paths.localDocsSrc;
 const STYLEGUIDE_DIST = config.paths.styleguideDist;
+const ANIMATIONS_SRC = config.paths.animationsSrc;
 
 // Pulling in all tasks from the tasks folders in Iris and Steadicam
 requireDir('./gulp-tasks', { recurse: true });
@@ -42,8 +43,8 @@ gulp.task('serve', function() {
 
 // Set watching for reloads...
     gulp.watch([GLOBALS_SRC + '**/*.scss'], ['rebuildSassGlobals']);
-    gulp.watch([COMPONENT_SRC + '**/*.scss'], ['rebuildSassComponents']);
-    gulp.watch([COMPONENT_SRC + '/**/*.jsx', LOCAL_DOCS_SRC + '/**/*.jsx'], ['rebuildJSX']);
+    gulp.watch([COMPONENT_SRC + '**/*.scss', ANIMATIONS_SRC + '/**/*.scss'], ['rebuildSassComponents']);
+    gulp.watch([COMPONENT_SRC + '/**/*.jsx', LOCAL_DOCS_SRC + '/**/*.jsx', ANIMATIONS_SRC + '/**/*.js'], ['rebuildJSX']);
     gulp.watch([STYLEGUIDE_DIST + '*'], ['delayedReload']);
 
 });

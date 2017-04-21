@@ -8,6 +8,14 @@
 
 //Export Global CSS and all components ------------------
   
+ exports.AlertIris = require('../../../src/globals/svg/alert_iris.svg');
+  
+ exports.CheckmarkIris = require('../../../src/globals/svg/checkmark_iris.svg');
+  
+ exports.DismissIris = require('../../../src/globals/svg/dismiss_iris.svg');
+  
+ exports.InfoIris = require('../../../src/globals/svg/info_iris.svg');
+  
  exports.IrisIconAccount16 = require('../../../src/globals/svg/iris_icon_account_16.svg');
   
  exports.IrisIconActionAndThriller32 = require('../../../src/globals/svg/iris_icon_action_and_thriller_32.svg');
@@ -105,8 +113,6 @@
  exports.IrisIconDecrease32 = require('../../../src/globals/svg/iris_icon_decrease_32.svg');
   
  exports.IrisIconDecrease64 = require('../../../src/globals/svg/iris_icon_decrease_64.svg');
-  
- exports.IrisIconDelete12 = require('../../../src/globals/svg/iris_icon_delete_12.svg');
   
  exports.IrisIconDelete16 = require('../../../src/globals/svg/iris_icon_delete_16.svg');
   
