@@ -1,0 +1,11 @@
+/* @description Generates styles for the NotificationNeutral component */
+@import '../../globals/sass/helpers-all';
+
+.NotificationNeutral {
+    background-color: $Foam;
+}
+
+.iconColor *,
+.dismissIconColor * {
+    fill: $VimeoBlue;
+}

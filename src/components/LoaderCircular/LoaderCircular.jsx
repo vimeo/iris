@@ -30,7 +30,7 @@ const LoaderCircular = (props) => {
         size,
         format,
         className,
-        ...filteredProps,
+        ...filteredProps
     } = props;
 
     const componentClass = classNames(

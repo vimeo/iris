@@ -50,7 +50,7 @@ $ButtonIconOnly_icon-size: rem-calc(16);
 // formats
 
 .dark {
-    color: $gray3;
+    color: $AstroGranite;
 
     &:hover {
         background-color: rgba(162, 175, 184, 0.16);
@@ -58,16 +58,16 @@ $ButtonIconOnly_icon-size: rem-calc(16);
 }
 
 .warning {
-    color: $red2;
+    color: $SunsetOrange;
 
     &:hover {
-        color: $white;
-        background-color: $red2;
+        color: $White;
+        background-color: $SunsetOrange;
     }
 }
 
 .light {
-    color: $white;
+    color: $White;
     background-color: rgba(0,0,0,0.5);
 
     &:hover {
@@ -76,7 +76,7 @@ $ButtonIconOnly_icon-size: rem-calc(16);
 }
 
 .alternative {
-    color: $gray5;
+    color: $RegentGray;
 
     &:hover {
         background-color: rgba(162, 175,184,0.16);

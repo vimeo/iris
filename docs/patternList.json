@@ -1,7 +1,7 @@
 {
     "Brand": [
         ["Colors", "Color Palette", true],
-         ["ColorRibbon", "Color Ribbon", true],
+        ["ColorRibbon", "Color Ribbon", true],
         ["Svgs", "SVG Icons", true]
     ],
     "Utilities": [
@@ -19,5 +19,13 @@
         ["Grid", "Grid Wrapper"],
         ["GridBlock", "Grid Block"],
         ["GridCol", "Grid Columns"]
+    ],
+    "Components": [
+        ["Badge", "Badges"],
+        ["Button", "Buttons"],
+        ["LoaderCircular", "Circular Loader"],
+        ["NotificationNeutral", "Neutral Notification"],
+        ["NotificationSuccess", "Success Notification"],
+        ["NotificationWarning", "Warning Notification"]
     ]
 }

@@ -177,7 +177,6 @@ a.explicit {
     &:focus,
     &:active,
     &:hover {
-        color: text-color(meta);
         background-color: $Plaster;
     }
 }

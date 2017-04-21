@@ -1,21 +1,28 @@
 import React from 'react';
-import {{pascalCase name}} from './{{pascalCase name}}'
+import {{pascalCase name}} from './{{pascalCase name}}';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
-const {{pascalCase name}}Docs = (props) => {
-    return (
-        <div className="Pattern__docs">
-            <div data-code>
-                <{{pascalCase name}} />
-            </div>
 
-            <ExampleSource>
-                {`
+class {{pascalCase name}}Docs extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <div className="Pattern__docs">
+                <div data-code>
                     <{{pascalCase name}} />
-                    `}
-                </ExampleSource>
-            </div>    
-    );
+                </div>
+
+                <ExampleSource>
+                    {`
+                        <{{pascalCase name}} />
+                        `}
+                    </ExampleSource>
+                </div>
+        );
+    };
 };
 
 export default {{pascalCase name}}Docs;
