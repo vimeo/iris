@@ -11,6 +11,7 @@ gulp.task('build-Prod' , function(cb) {
         ['sassStyleguide', 'sassComponents', 'sassGlobals'],
         'copyStaticAssets',
         'compilePackageIndexJSX',
+        'copyFavicon',
         'webpackReact',
         'compileHtaccess-Prod',
 		cb);

@@ -11,6 +11,7 @@ gulp.task('build' , function(cb) {
         ['sassStyleguide', 'sassComponents', 'sassGlobals'],
         'copyStaticAssets',
         'compilePackageIndexJSX',
+        'copyFavicon',
         'webpackReact',
 		cb);
 });
