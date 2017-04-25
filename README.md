@@ -44,12 +44,6 @@ Then use the components as per Iris Documentation.
 <Button type="secondary">Secondary</Button>
 ```
 
-### Require the Global CSS
-At the root of your App (e.g. main.jsx), require the global.css file. This will bring in the global styles. All other CSS modules will be included automatically by including their associated React component in your bundle.
-```
-import styles from 'iris/GlobalCSS'
-```
-
 
 ## File Structure
 
