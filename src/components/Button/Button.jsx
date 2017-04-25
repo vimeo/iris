@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './Button.css';
+import styles from './Button.scss';
 
 const displayName = 'Button';
 

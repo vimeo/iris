@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import styles from './Grid.css';
+import styles from './Grid.scss';
 import GridBlock from '../GridBlock/GridBlock.jsx';
 import GridCol from '../GridCol/GridCol.jsx';
 

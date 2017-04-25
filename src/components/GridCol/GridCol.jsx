@@ -1,12 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import styles from './GridCol.css';
+import styles from './GridCol.scss';
 
 const displayName = 'GridCol';
 
 // List out proptypes for Iris API generator
 const spanTypes = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 'fluid'
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 'fluid',
 ];
 
 const propTypes = {
@@ -27,7 +27,7 @@ const propTypes = {
     xlFixed: React.PropTypes.bool,
     className: React.PropTypes.string,
     alignment: React.PropTypes.string,
-    columnElement: React.PropTypes.oneOf(['div', 'main', 'aside', 'section'])
+    columnElement: React.PropTypes.oneOf(['div', 'main', 'aside', 'section']),
 };
 
 const defaultProps = {

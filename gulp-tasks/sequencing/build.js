@@ -8,9 +8,10 @@ gulp.task('build' , function(cb) {
         'reactDocGenBuild',
         'reactDocGenParse',
         'compileColorVariables',
-        ['sassStyleguide', 'sassComponents', 'sassGlobals'],
+        ['sassStyleguide', 'sassGlobals'],
         'copyStaticAssets',
         'compilePackageIndexJSX',
+        'copyFavicon',
         'webpackReact',
 		cb);
 });

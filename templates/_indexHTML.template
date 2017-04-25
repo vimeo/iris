@@ -8,7 +8,7 @@
          <base href="<%- rootPath %>">
         <% } else { %> <base href="/"><%}%>
 		<meta name="viewport" content="width=device-width" />
-		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="shortcut icon" href="favicon.png">
 		<link rel="stylesheet" href="css/modules.css" />
 		<link rel="stylesheet" href="css/styleguide.css" />
 	</head>

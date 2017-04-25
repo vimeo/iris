@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './LoaderCircular.css';
+import styles from './LoaderCircular.scss';
 
 const displayName = 'LoaderCircular';
 

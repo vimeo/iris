@@ -1,1 +1,0 @@
-@keyframes rotate{0%{transform:rotate(0deg)}50%{transform:rotate(170deg)}100%{transform:rotate(360deg)}}.LoaderCircular{border-bottom-color:transparent !important;animation:rotate 800ms linear infinite}.primary{border:.125rem solid #00adef}.md{width:1.5rem;height:1.5rem;border-radius:1.5rem}
