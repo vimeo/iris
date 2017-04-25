@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './ButtonIconOnly.css';
+import styles from './ButtonIconOnly.scss';
 
 const displayName = 'ButtonIconOnly';
 

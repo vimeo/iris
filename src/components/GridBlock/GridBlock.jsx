@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import styles from './GridBlock.css';
+import styles from './GridBlock.scss';
 
 const displayName = 'GridBlock';
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from '../src/globals/css/globals.css';
+import styles from '../src/globals/sass/globals.scss';
 
 const ProjectDependencies = React.createClass({
 

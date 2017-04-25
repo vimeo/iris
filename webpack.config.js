@@ -24,7 +24,14 @@ module.exports = {
                 path.resolve(__dirname, 'index.jsx'),
                 path.resolve(__dirname, STYLEGUIDE_DIR),
             ] },
-            { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]_[local]--[hash:base64:5]!postcss-loader') },
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract('style-loader', [
+                    'css?modules&importLoaders=2&localIdentName=[name]_[local]--[hash:base64:5]',
+                    'postcss-loader',
+                    'sass',
+                ]),
+            },
             { test: /\.svg$/, loader: 'babel?presets[]=es2015,presets[]=react!svg-react' },
         ],
     },

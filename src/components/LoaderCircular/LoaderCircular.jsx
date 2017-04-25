@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './LoaderCircular.css';
+import styles from './LoaderCircular.scss';
 
 const displayName = 'LoaderCircular';
 
@@ -30,7 +30,7 @@ const LoaderCircular = (props) => {
         size,
         format,
         className,
-        ...filteredProps,
+        ...filteredProps
     } = props;
 
     const componentClass = classNames(
