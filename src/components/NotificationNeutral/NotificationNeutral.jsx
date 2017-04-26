@@ -1,7 +1,7 @@
 
 import React from 'react';
 import classNames from 'classnames';
-import styles from './NotificationNeutral.css';
+import styles from './NotificationNeutral.scss';
 import Notification from '../Notification/Notification';
 import InfoIcon from '../../globals/svg/info_iris';
 import dropInOut from '../../animations/dropInOut/dropInOut';

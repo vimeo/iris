@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './Notification.css';
+import styles from './Notification.scss';
 import DeleteIcon from '../../globals/svg/dismiss_iris';
 
 /* Note: This component is the base component for themed notifications, do not use it by itself */

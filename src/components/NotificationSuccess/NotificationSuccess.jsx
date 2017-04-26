@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './NotificationSuccess.css';
+import styles from './NotificationSuccess.scss';
 import Notification from '../Notification/Notification';
 import SuccessIcon from '../../globals/svg/checkmark_iris';
 import dropInOut from '../../animations/dropInOut/dropInOut';
