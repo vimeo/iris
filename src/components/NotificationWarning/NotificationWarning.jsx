@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './NotificationWarning.scss';
 import Notification from '../Notification/Notification';
-import InfoIcon from '../../globals/svg/info_iris';
+import AlertIcon from '../../globals/svg/alert_iris';
 import dropInOut from '../../animations/dropInOut/dropInOut';
 
 const displayName = 'NotificationWarning';
@@ -46,7 +46,7 @@ class NotificationWarning extends React.Component {
         return (
             <Notification
                 {...filteredProps}
-                icon={hasIcon ? <InfoIcon className={styles.iconColor} /> : null}
+                icon={hasIcon ? <AlertIcon className={styles.iconColor} /> : null}
                 onDismiss={onDismiss}
                 dismissIconClassName = {styles.dismissIconColor}
                 className={componentClass}
