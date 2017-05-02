@@ -5,6 +5,7 @@ import styles from './NotificationNeutral.scss';
 import Notification from '../Notification/Notification';
 import InfoIcon from '../../globals/svg/info_iris';
 import dropInOut from '../../animations/dropInOut/dropInOut';
+import animationStyles from '../../animations/dropInOut/dropInOut.scss';
 
 const displayName = 'NotificationNeutral';
 
@@ -29,7 +30,6 @@ class NotificationNeutral extends React.Component {
     }
 
     render() {
-
         const {
             hasIcon,
             onDismiss,
@@ -41,6 +41,7 @@ class NotificationNeutral extends React.Component {
     // className builder
         const componentClass = classNames(
             styles.NotificationNeutral,
+            animationStyles.RootElement,
             className
         );
 

@@ -1,21 +1,38 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import anime from 'animejs';
+import styles from './dropInOut.scss';
 
 
 function dropInOut(Component) {
     return class dropInOutAnimation extends React.Component {
 
-        componentWillEnter(callback) {
+        // componentWillMount() {
+        //     const el = findDOMNode(this);
+        //     el.classList.add();
+        //     // anime({
+        //     //     targets: [el],
+        //     //     duration: 300,
+        //     //     easing: 'easeInQuart',
+        //     //     maxHeight: [0, elHeight],
+        //     //     overflow: ['hidden', 'show'],
+        //     //     complete: callback,
+        //     // });
+        // }
+
+        componentDidMount() {
             const el = findDOMNode(this);
             const elHeight = el.clientHeight;
+            const elContent = el.querySelectorAll('*');
+            el.classList.add(styles.measured);
+
             anime({
-                targets: [el],
-                duration: 4000,
+                targets: [el, elContent],
+                duration: 400,
+                delay: 300,
                 easing: 'easeInQuart',
-                maxHeight: [0, elHeight],
-                overflow: ['hidden', 'show'],
-                complete: callback,
+                height: elHeight,
+                opacity: 1,
             });
         }
 
