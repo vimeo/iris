@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './Notification.scss';
 import DeleteIcon from '../../globals/svg/dismiss_iris';
+import animationStyles from '../../animations/dropInOut/dropInOut.scss';
 
 /* Note: This component is the base component for themed notifications, do not use it by itself */
 
@@ -30,6 +31,7 @@ const Notification = (props) => {
     // className builder
     const componentClass = classNames(
         styles.Notification,
+        (onDismiss ? animationStyles.measureableElement : null),
         (icon ? styles.hasIcon : null),
         className
     );
@@ -48,10 +50,11 @@ const Notification = (props) => {
     );
 
     return (
-        <div className={styles.NotificationWrap}>
+        <div>
             <div
                 {...filteredProps}
                 className={componentClass}
+                data-measureable
             >
                     {icon ? iconElement : null}
                     {children}
