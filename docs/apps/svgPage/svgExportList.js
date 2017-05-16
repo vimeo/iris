@@ -14,6 +14,10 @@
   
  exports.DismissIris = require('../../../src/globals/svg/dismiss_iris.svg');
   
+ exports.GearIris = require('../../../src/globals/svg/gear_iris.svg');
+  
+ exports.GraphIris = require('../../../src/globals/svg/graph_iris.svg');
+  
  exports.InfoIris = require('../../../src/globals/svg/info_iris.svg');
   
  exports.IrisIconAccount16 = require('../../../src/globals/svg/iris_icon_account_16.svg');
@@ -789,6 +793,8 @@
  exports.IrisIconZoomToFit16 = require('../../../src/globals/svg/iris_icon_zoom_to_fit_16.svg');
   
  exports.LogoVimeo = require('../../../src/globals/svg/logo_vimeo.svg');
+  
+ exports.ReviewIris = require('../../../src/globals/svg/review_iris.svg');
   
  exports.UploadCloud = require('../../../src/globals/svg/upload_cloud.svg');
   

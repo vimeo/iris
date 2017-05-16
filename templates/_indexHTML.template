@@ -1,22 +1,22 @@
 <!doctype html>
 <html>
 <!-- THIS FILE IS GENERATED FROM // THIS FILE IS GENERATED FROM templates/_indexHTMLJSXPath.template // -->
-	<head>
-		<meta charset="utf-8">
-		<title>Styleguide</title>
-		<% if(rootPath) { %>
-         <base href="<%- rootPath %>">
+    <head>
+        <meta charset="utf-8">
+        <title>Styleguide</title>
+        <% if(rootPath) { %>
+        <base href="<%- rootPath %>">
         <% } else { %> <base href="/"><%}%>
-		<meta name="viewport" content="width=device-width" />
-		<link rel="shortcut icon" href="favicon.png">
-		<link rel="stylesheet" href="css/modules.css" />
-		<link rel="stylesheet" href="css/styleguide.css" />
-	</head>
-	<body>
-		<div id="app-root" class="sg-App"></div>
-		<script src="js/vendor/tota11y.js"></script>
-	</body>
-	<script src="js/vendor/prism.js"></script>
-	<script src="js/vendor/smooth-scroll.min.js"></script>
-	<script src="main.bundle.js"></script>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/modules.css" />
+        <link rel="stylesheet" href="css/styleguide.css" />
+    </head>
+    <body>
+        <div id="app-root" class="sg-App"></div>
+        <script src="js/vendor/tota11y.js"></script>
+        <script src="js/vendor/prism.js"></script>
+        <script src="js/vendor/smooth-scroll.min.js"></script>
+        <script src="main.bundle.js"></script>
+    </body>
 </html>
