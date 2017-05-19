@@ -4,30 +4,21 @@ import styles from './LoaderCircular.scss';
 
 const displayName = 'LoaderCircular';
 
-const sizes = [
-    'sm',
-    'md',
-    'lg',
-];
-
 const formats = [
     'primary',
 ];
 
 const propTypes = {
     className: React.PropTypes.string,
-    size: React.PropTypes.oneOf(sizes),
     format: React.PropTypes.oneOf(formats),
 };
 
 const defaultProps = {
-    size: 'md',
     format: 'primary',
 };
 
 const LoaderCircular = (props) => {
     const {
-        size,
         format,
         className,
         ...filteredProps
@@ -36,7 +27,6 @@ const LoaderCircular = (props) => {
     const componentClass = classNames(
         styles.LoaderCircular,
         styles[format],
-        styles[size],
         className,
     );
 

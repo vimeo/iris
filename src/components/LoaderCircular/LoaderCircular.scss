@@ -21,19 +21,14 @@ $LoaderCircular_border_size-primary: rem-calc(2);
     border-bottom-color: transparent !important;
 
     animation: rotate $LoaderCircular_animation_timing linear infinite;
+
+    width: $LoaderCircular_size-md;
+    height: $LoaderCircular_size-md;
+
+    border-radius: $LoaderCircular_size-md;
 }
 
 //-------------------------  formats
 .primary {
     border: $LoaderCircular_border_size-primary solid $LoaderCircular_color-primary;
-}
-
-//-------------------------  sizes
-
-
-.md {
-    width: $LoaderCircular_size-md;
-    height: $LoaderCircular_size-md;
-
-    border-radius: $LoaderCircular_size-md;
 }
