@@ -12,20 +12,17 @@
         ["Badge", "Badges"],
         ["Button", "Buttons"],
         ["ButtonIconOnly", "Buttons (Icon Only)"],
-        ["LoaderCircular", "Circular Loader"]
+        ["InputText", "Inputs: Text-Like"],
+        ["TextArea", "Inputs: TextArea"],
+        ["LoaderCircular", "Circular Loader"],
+        ["NotificationNeutral", "Neutral Notification"],
+        ["NotificationSuccess", "Success Notification"],
+        ["NotificationWarning", "Warning Notification"]
     ],
     "Layout": [
         ["GridFull", "Grid", true],
         ["Grid", "Grid Wrapper"],
         ["GridBlock", "Grid Block"],
         ["GridCol", "Grid Columns"]
-    ],
-    "Components": [
-        ["Badge", "Badges"],
-        ["Button", "Buttons"],
-        ["LoaderCircular", "Circular Loader"],
-        ["NotificationNeutral", "Neutral Notification"],
-        ["NotificationSuccess", "Success Notification"],
-        ["NotificationWarning", "Warning Notification"]
     ]
 }

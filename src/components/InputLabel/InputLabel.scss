@@ -1,0 +1,15 @@
+/* @description Generates styles for the InputLabel component */
+@import '../../globals/sass/helpers-all';
+.InputLabel {
+    display: inline-block;
+
+    margin-bottom: spacingUnit(2);
+
+    font-size: rem-calc(14);
+    font-weight: 700;
+    line-height: calculateLineHeightTarget(14, 16);
+}
+
+.disabled {
+    color: $inputs_text-color-disabled;
+}

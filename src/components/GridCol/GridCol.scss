@@ -5,6 +5,11 @@
 .GridCol {
     padding-left: rem-calc($grid-gutter-width);
     padding-right: rem-calc($grid-gutter-width);
+
+    &.formColumn {
+        padding-left: rem-calc($grid-gutter-width-form);
+        padding-right: rem-calc($grid-gutter-width-form);
+    }
 }   
 
 @mixin spans($count) {
@@ -13,7 +18,6 @@
         $spanName: -#{$i};
         &#{$spanName} {
             flex: 1 1 $spanOffsetPercentage;
-            max-width: $spanOffsetPercentage;
         }
     }
 }
@@ -23,7 +27,6 @@
     @for $i from 1 through $count {
         &-#{$i}-fixed {
             flex: 1 1 rem-calc((($i/$count)*$containerWidth));
-            max-width: rem-calc((($i/$count)*$containerWidth));
         }
     }
 }
@@ -32,6 +35,9 @@
     @for $i from 1 through $count {
         &-#{$i} {
             margin-#{$offsetDirection}: calc( #{($i/$grid-gutter-width * 100%)} + #{ ($grid-gutter-width * ($i - 1)) * $rem-pixel } );
+            &.formColumn {
+                margin-#{$offsetDirection}: calc( #{($i/$grid-gutter-width-form * 100%)} + #{ ($grid-gutter-width-form * ($i - 1)) * $rem-pixel } );
+            }
         }
     }
 }

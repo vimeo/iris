@@ -25,9 +25,11 @@ const propTypes = {
     mdFixed: React.PropTypes.bool,
     lgFixed: React.PropTypes.bool,
     xlFixed: React.PropTypes.bool,
+    children: React.PropTypes.node,
     className: React.PropTypes.string,
     alignment: React.PropTypes.string,
     columnElement: React.PropTypes.oneOf(['div', 'main', 'aside', 'section']),
+    formColumn: React.PropTypes.bool,
 };
 
 const defaultProps = {
@@ -61,7 +63,6 @@ const GridCol = (props) => {
         lgOffset,
         mdOffset,
         smOffset,
-        nested,
         alignment,
         className,
         xsFixed,
@@ -69,6 +70,7 @@ const GridCol = (props) => {
         mdFixed,
         lgFixed,
         smFixed,
+        formColumn,
         children,
         ...filteredProps
     } = props;
@@ -86,7 +88,7 @@ const GridCol = (props) => {
         (lgOffset ? styles['lg-offset-' + offsetCheck(lgOffset) + lgOffset] : null),
         (mdOffset ? styles['md-offset-' + offsetCheck(mdOffset) + mdOffset] : null),
         (smOffset ? styles['sm-offset-' + offsetCheck(smOffset) + smOffset] : null),
-        (nested ? styles.nested : null),
+        (formColumn ? styles.formColumn : null),
         styles[alignment],
         className
     );

@@ -1,0 +1,15 @@
+/* @description Generates styles for the Input component */
+@import '../../globals/sass/helpers-all';
+.InputText {
+    display: inline-block;
+
+    width: 100%;
+}
+
+.InputWrapper {
+    margin-bottom: $inputs_margin-bottom;
+
+    &.isInline {
+        margin-bottom: 0;
+    }
+}

@@ -27,6 +27,16 @@ exports.paths = {
   
   'iris/GridCol':'iris/src/components/GridCol/GridCol',
   
+  'iris/InputField':'iris/src/components/InputField/InputField',
+  
+  'iris/InputLabel':'iris/src/components/InputLabel/InputLabel',
+  
+  'iris/InputMessage':'iris/src/components/InputMessage/InputMessage',
+  
+  'iris/InputMessageArea':'iris/src/components/InputMessageArea/InputMessageArea',
+  
+  'iris/InputText':'iris/src/components/InputText/InputText',
+  
   'iris/LoaderCircular':'iris/src/components/LoaderCircular/LoaderCircular',
   
   'iris/Notification':'iris/src/components/Notification/Notification',
@@ -36,5 +46,7 @@ exports.paths = {
   'iris/NotificationSuccess':'iris/src/components/NotificationSuccess/NotificationSuccess',
   
   'iris/NotificationWarning':'iris/src/components/NotificationWarning/NotificationWarning',
+  
+  'iris/TextArea':'iris/src/components/TextArea/TextArea',
   
 };
