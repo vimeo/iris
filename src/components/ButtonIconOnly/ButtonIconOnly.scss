@@ -97,13 +97,15 @@ $ButtonIconOnly_icon-size: rem-calc(16);
 // icon style
 .Icon {
     display: inline-flex;
+
     align-items: center;
     flex: 1;
 
     svg {
-        flex: 1;
         width: $ButtonIconOnly_icon-size;
         height: $ButtonIconOnly_icon-size;
+
+        flex: 1;
     }
 
     svg * {
