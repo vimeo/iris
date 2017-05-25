@@ -12,6 +12,7 @@
         ["Badge", "Badges"],
         ["Button", "Buttons"],
         ["ButtonIconOnly", "Buttons (Icon Only)"],
+        ["CircularButton", "Circular Button"],
         ["InputText", "Inputs: Text-Like"],
         ["TextArea", "Inputs: TextArea"],
         ["LoaderCircular", "Circular Loader"],
