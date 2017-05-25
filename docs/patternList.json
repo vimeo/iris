@@ -9,6 +9,7 @@
         ["VerticalSpacing", "Vertical Spacing Variables", true]
     ],
     "Components": [
+        ["Avatar", "Avatars"],
         ["Badge", "Badges"],
         ["Button", "Buttons"],
         ["ButtonIconOnly", "Buttons (Icon Only)"],
