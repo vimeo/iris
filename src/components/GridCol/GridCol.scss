@@ -13,6 +13,7 @@
         $spanName: -#{$i};
         &#{$spanName} {
             flex: 1 1 $spanOffsetPercentage;
+            max-width: $spanOffsetPercentage;
         }
     }
 }
@@ -22,6 +23,7 @@
     @for $i from 1 through $count {
         &-#{$i}-fixed {
             flex: 1 1 rem-calc((($i/$count)*$containerWidth));
+            max-width: rem-calc((($i/$count)*$containerWidth));
         }
     }
 }
