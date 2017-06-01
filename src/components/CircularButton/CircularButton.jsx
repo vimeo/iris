@@ -24,6 +24,9 @@ const circularButtonTypes = [
     'alternativeDashed',
     'whitePrimary',
     'whiteSecondary',
+    'negative',
+    'negativeDashed',
+    'negativeOutline',
 ];
 
 const propTypes = {

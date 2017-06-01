@@ -5,6 +5,8 @@ import styles from './GridBlock.scss';
 const displayName = 'GridBlock';
 
 const propTypes = {
+    children: React.propTypes.node,
+    className: React.PropTypes.string,
     nowrap: React.PropTypes.bool,
 };
 

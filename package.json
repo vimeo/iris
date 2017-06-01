@@ -41,7 +41,7 @@
     "react-router-dom": "^4.0.0",
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2",
-    "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#f-avatar",
+    "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git",
     "svg-react-loader": "^0.3.7",
     "uppercamelcase": "^1.1.0",
     "walk": "^2.3.9",

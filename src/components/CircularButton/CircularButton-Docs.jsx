@@ -22,7 +22,7 @@ const CircularButtonDocs = (props) => {
                     icon={<IrisIconDelete16 />}
                      />
                 <CircularButton
-                    format="warning"
+                    format="negative"
                     icon={<IrisIconDelete16 />}
                      />
             </div>
@@ -41,7 +41,7 @@ const CircularButtonDocs = (props) => {
     icon={<IrisIconDelete16 />}
      />
 <CircularButton
-    format="warning"
+    format="negative"
     icon={<IrisIconDelete16 />}
      />
                     `}
@@ -66,7 +66,7 @@ const CircularButtonDocs = (props) => {
                     icon={<IrisIconDelete16 />}
                      />
                 <CircularButton
-                    format="warningOutline"
+                    format="negativeOutline"
                     icon={<IrisIconDelete16 />}
                      />
             </div>
@@ -86,7 +86,7 @@ const CircularButtonDocs = (props) => {
     icon={<IrisIconDelete16 />}
      />
 <CircularButton
-    format="warningOutline"
+    format="negativeOutline"
     icon={<IrisIconDelete16 />}
      />
                     `}
@@ -112,7 +112,7 @@ const CircularButtonDocs = (props) => {
                     icon={<IrisIconDelete16 />}
                      />
                 <CircularButton
-                    format="warningDashed"
+                    format="negativeDashed"
                     size="lg"
                     icon={<IrisIconDelete16 />}
                      />
@@ -133,7 +133,7 @@ const CircularButtonDocs = (props) => {
     icon={<IrisIconDelete16 />}
      />
 <CircularButton
-    format="warningDashed"
+    format="negativeDashed"
     icon={<IrisIconDelete16 />}
      />
                     `}

@@ -8,6 +8,7 @@ const displayName = 'Grid';
 
 
 const propTypes = {
+    children: React.propTypes.node,
     className: React.PropTypes.string,
     centered: React.PropTypes.bool,
     hasMaxWidth: React.PropTypes.bool,

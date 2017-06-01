@@ -92,12 +92,10 @@ const AvatarDocs = (props) => {
             </ExampleSource>
 
             <h3>Accessibility Notes</h3>
-            <p>
                 <ul>
                     <li> Avatars are <strong>required to have meaningful alternative text</strong> through the <code>alt</code> prop. Example : "Photo of UserX".</li>
                     <li> Avatars that link to other pages should be wrapped in <code>{'<a></a>'}</code> tags. </li>
                 </ul>
-            </p>
         </div>
     );
 };

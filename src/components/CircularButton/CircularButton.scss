@@ -11,8 +11,8 @@ $circular-alternative: #3A5161;
 $circular-alternative-hovered: $AstroGranite;
 $circular-secondary: $RegentGray;
 $circular-secondary-hovered: $AstroGranite;
-$circular-warning: $SunsetOrange;
-$circular-warning-hovered: $SunsetOrange-Darkened;
+$circular-negative: $SunsetOrange;
+$circular-negative-hovered: $SunsetOrange-Darkened;
 
 // Build dashborders
 @mixin dash-border($size, $format) {
@@ -38,11 +38,11 @@ $circular-warning-hovered: $SunsetOrange-Darkened;
                 background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26px" height="26px" viewBox="0 0 26 26"><path fill="none" stroke="#{$circular-alternative-hovered}" stroke-width="0.6667" stroke-dasharray="2,1.3333" d="M13,25C6.4,25,1,19.6,1,13 S6.4,1,13,1s12,5.4,12,12S19.6,25,13,25z"/></svg>');
             }
         }
-        @else if($format == 'warning') {
-            background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26px" height="26px" viewBox="0 0 26 26"><path fill="none" stroke="#{$circular-warning}" stroke-width="0.6667" stroke-dasharray="2,1.3333" d="M13,25C6.4,25,1,19.6,1,13 S6.4,1,13,1s12,5.4,12,12S19.6,25,13,25z"/></svg>');
+        @else if($format == 'negative') {
+            background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26px" height="26px" viewBox="0 0 26 26"><path fill="none" stroke="#{$circular-negative}" stroke-width="0.6667" stroke-dasharray="2,1.3333" d="M13,25C6.4,25,1,19.6,1,13 S6.4,1,13,1s12,5.4,12,12S19.6,25,13,25z"/></svg>');
 
             &:hover {
-                background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26px" height="26px" viewBox="0 0 26 26"><path fill="none" stroke="#{$circular-warning-hovered}" stroke-width="0.6667" stroke-dasharray="2,1.3333" d="M13,25C6.4,25,1,19.6,1,13 S6.4,1,13,1s12,5.4,12,12S19.6,25,13,25z"/></svg>');
+                background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26px" height="26px" viewBox="0 0 26 26"><path fill="none" stroke="#{$circular-negative-hovered}" stroke-width="0.6667" stroke-dasharray="2,1.3333" d="M13,25C6.4,25,1,19.6,1,13 S6.4,1,13,1s12,5.4,12,12S19.6,25,13,25z"/></svg>');
             }
         }
     }
@@ -69,11 +69,11 @@ $circular-warning-hovered: $SunsetOrange-Darkened;
                 background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36px" height="36px" viewBox="0 0 36 36"><path style="fill:none;stroke:#{$circular-alternative-hovered};stroke-width:0.6667;stroke-dasharray:2,1.3333;" d="M18,35C8.6,35,1,27.4,1,18 S8.6,1,18,1s17,7.6,17,17S27.4,35,18,35z"/></svg>');
             }
         }
-        @else if($format == 'warning') {
-            background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36px" height="36px" viewBox="0 0 36 36"><path style="fill:none;stroke:#{$circular-warning};stroke-width:0.6667;stroke-dasharray:2,1.3333;" d="M18,35C8.6,35,1,27.4,1,18 S8.6,1,18,1s17,7.6,17,17S27.4,35,18,35z"/></svg>');
+        @else if($format == 'negative') {
+            background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36px" height="36px" viewBox="0 0 36 36"><path style="fill:none;stroke:#{$circular-negative};stroke-width:0.6667;stroke-dasharray:2,1.3333;" d="M18,35C8.6,35,1,27.4,1,18 S8.6,1,18,1s17,7.6,17,17S27.4,35,18,35z"/></svg>');
 
             &:hover {
-                background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36px" height="36px" viewBox="0 0 36 36"><path style="fill:none;stroke:#{$circular-warning-hovered};stroke-width:0.6667;stroke-dasharray:2,1.3333;" d="M18,35C8.6,35,1,27.4,1,18 S8.6,1,18,1s17,7.6,17,17S27.4,35,18,35z"/></svg>');
+                background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36px" height="36px" viewBox="0 0 36 36"><path style="fill:none;stroke:#{$circular-negative-hovered};stroke-width:0.6667;stroke-dasharray:2,1.3333;" d="M18,35C8.6,35,1,27.4,1,18 S8.6,1,18,1s17,7.6,17,17S27.4,35,18,35z"/></svg>');
             }
         }
     }
@@ -100,11 +100,11 @@ $circular-warning-hovered: $SunsetOrange-Darkened;
                 background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="42px" height="42px" viewBox="0 0 42 42"><path fill="none" stroke="#{$circular-alternative-hovered}" stroke-width="0.6667" stroke-dasharray="2,1.3333" d="M21,41C10,41,1,32,1,21 S10,1,21,1s20,9,20,20S32,41,21,41z"/></svg>');
             }
         }
-        @else if($format == 'warning') {
-            background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="42px" height="42px" viewBox="0 0 42 42"><path fill="none" stroke="#{$circular-warning}" stroke-width="0.6667" stroke-dasharray="2,1.3333" d="M21,41C10,41,1,32,1,21 S10,1,21,1s20,9,20,20S32,41,21,41z"/></svg>');
+        @else if($format == 'negative') {
+            background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="42px" height="42px" viewBox="0 0 42 42"><path fill="none" stroke="#{$circular-negative}" stroke-width="0.6667" stroke-dasharray="2,1.3333" d="M21,41C10,41,1,32,1,21 S10,1,21,1s20,9,20,20S32,41,21,41z"/></svg>');
 
             &:hover {
-                background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="42px" height="42px" viewBox="0 0 42 42"><path fill="none" stroke="#{$circular-warning-hovered}" stroke-width="0.6667" stroke-dasharray="2,1.3333" d="M21,41C10,41,1,32,1,21 S10,1,21,1s20,9,20,20S32,41,21,41z"/></svg>');
+                background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="42px" height="42px" viewBox="0 0 42 42"><path fill="none" stroke="#{$circular-negative-hovered}" stroke-width="0.6667" stroke-dasharray="2,1.3333" d="M21,41C10,41,1,32,1,21 S10,1,21,1s20,9,20,20S32,41,21,41z"/></svg>');
             }
         }
     }
@@ -251,36 +251,36 @@ $circular-warning-hovered: $SunsetOrange-Darkened;
     }
 }
 
-.warning {
-    background-color: $circular-warning;
+.negative {
+    background-color: $circular-negative;
 
     &:hover {
-        background-color: $circular-warning-hovered;
+        background-color: $circular-negative-hovered;
     }
 
     &:active {
-        background-color: darken($circular-warning, 10%);
+        background-color: darken($circular-negative, 10%);
     }
 }
 
-.warningOutline,
-.warningDashed,
-.warningSecondary {
-    color: $circular-warning;
+.negativeOutline,
+.negativeDashed,
+.negativeSecondary {
+    color: $circular-negative;
 
     &:hover {
-        color: $circular-warning-hovered;
+        color: $circular-negative-hovered;
     }
 
     &:active {
-        color: darken($circular-warning, 10%);
+        color: darken($circular-negative, 10%);
     }
 }
 
 .primary,
 .alternative,
 .secondary,
-.warning {
+.negative {
     border: none;
 }
 
@@ -290,8 +290,8 @@ $circular-warning-hovered: $SunsetOrange-Darkened;
 .primaryDashed,
 .alternativeDashed,
 .secondaryDashed,
-.warningOutline,
-.warningDashed {
+.negativeOutline,
+.negativeDashed {
     background-color: transparent;
 
     svg * {
@@ -302,7 +302,7 @@ $circular-warning-hovered: $SunsetOrange-Darkened;
 .primaryOutline,
 .alternativeOutline,
 .secondaryOutline,
-.warningOutline {
+.negativeOutline {
     border: 1px solid;
 }
 
@@ -320,7 +320,7 @@ $circular-warning-hovered: $SunsetOrange-Darkened;
 .primaryDashed,
 .alternativeDashed,
 .secondaryDashed,
-.warningDashed {
+.negativeDashed {
     border: none;
     border-radius: 0;
     background-size: cover;
@@ -368,16 +368,16 @@ $circular-warning-hovered: $SunsetOrange-Darkened;
     }
 }
 
-.warningDashed {
+.negativeDashed {
     &.sm {
-        @include dash-border('sm', 'warning');
+        @include dash-border('sm', 'negative');
     }
 
     &.md {
-        @include dash-border('md', 'warning');
+        @include dash-border('md', 'negative');
     }
 
     &.lg {
-        @include dash-border('lg', 'warning');
+        @include dash-border('lg', 'negative');
     }
 }
