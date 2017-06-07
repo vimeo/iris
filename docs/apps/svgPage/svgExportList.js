@@ -12,10 +12,6 @@
   
  exports.BellIris = require('../../../src/globals/svg/bell_iris.svg');
   
- exports.CheckIris = require('../../../src/globals/svg/check_iris.svg');
-  
- exports.CheckSmIris = require('../../../src/globals/svg/check_sm_iris.svg');
-  
  exports.CheckmarkSmIris = require('../../../src/globals/svg/checkmark-sm_iris.svg');
   
  exports.CheckmarkIris = require('../../../src/globals/svg/checkmark_iris.svg');
@@ -723,8 +719,6 @@
  exports.IrisIconUpload12 = require('../../../src/globals/svg/iris_icon_upload_12.svg');
   
  exports.IrisIconUpload16 = require('../../../src/globals/svg/iris_icon_upload_16.svg');
-  
- exports.IrisIconUpload18 = require('../../../src/globals/svg/iris_icon_upload_18.svg');
   
  exports.IrisIconUpload24 = require('../../../src/globals/svg/iris_icon_upload_24.svg');
   
