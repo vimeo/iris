@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
-    <title>check</title>
+    <title>check_sm</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Exportable" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="check" fill-rule="nonzero" fill="#1A2E3B">
-            <path d="M3.55978655,10.3950293 L2.5,11.4493314 L6.54467249,15.5290582 C6.83665908,15.8235753 7.31218821,15.8236579 7.60427666,15.5292421 L17.5,5.55466996 L16.4405782,4.5 L7.07474935,13.9404554 L3.55978655,10.3950293 Z" id="Path-2"></path>
+        <g id="check_sm" fill-rule="nonzero" fill="#1A2E3B">
+            <path d="M5.53275207,9.88197593 L4.46724793,10.9377699 L7.529214,14.027897 C7.82262539,14.3240069 8.30119827,14.3240384 8.59464865,14.0279671 L15.5326826,7.02796711 L14.4673174,5.97203289 L8.0620362,12.434522 L5.53275207,9.88197593 Z" id="Path-2"></path>
         </g>
     </g>
 </svg>

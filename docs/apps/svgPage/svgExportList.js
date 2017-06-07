@@ -10,13 +10,41 @@
   
  exports.AlertIris = require('../../../src/globals/svg/alert_iris.svg');
   
+ exports.BellIris = require('../../../src/globals/svg/bell_iris.svg');
+  
+ exports.CheckIris = require('../../../src/globals/svg/check_iris.svg');
+  
+ exports.CheckSmIris = require('../../../src/globals/svg/check_sm_iris.svg');
+  
+ exports.CheckmarkSmIris = require('../../../src/globals/svg/checkmark-sm_iris.svg');
+  
  exports.CheckmarkIris = require('../../../src/globals/svg/checkmark_iris.svg');
+  
+ exports.ChevronDoubleIris = require('../../../src/globals/svg/chevron-double_iris.svg');
+  
+ exports.ChevronIris = require('../../../src/globals/svg/chevron_iris.svg');
+  
+ exports.CollectionsIris = require('../../../src/globals/svg/collections_iris.svg');
+  
+ exports.DeleteIris = require('../../../src/globals/svg/delete_iris.svg');
   
  exports.DismissIris = require('../../../src/globals/svg/dismiss_iris.svg');
   
+ exports.DismissLrgIris = require('../../../src/globals/svg/dismiss_lrg_iris.svg');
+  
+ exports.DownloadIris = require('../../../src/globals/svg/download_iris.svg');
+  
+ exports.FolderIris = require('../../../src/globals/svg/folder_iris.svg');
+  
  exports.GearIris = require('../../../src/globals/svg/gear_iris.svg');
   
+ exports.GlobeIris = require('../../../src/globals/svg/globe_iris.svg');
+  
  exports.GraphIris = require('../../../src/globals/svg/graph_iris.svg');
+  
+ exports.GridIris = require('../../../src/globals/svg/grid_iris.svg');
+  
+ exports.HeartIris = require('../../../src/globals/svg/heart_iris.svg');
   
  exports.InfoIris = require('../../../src/globals/svg/info_iris.svg');
   
@@ -792,11 +820,37 @@
   
  exports.IrisIconZoomToFit16 = require('../../../src/globals/svg/iris_icon_zoom_to_fit_16.svg');
   
+ exports.KebabIris = require('../../../src/globals/svg/kebab_iris.svg');
+  
+ exports.ListIris = require('../../../src/globals/svg/list_iris.svg');
+  
+ exports.LockIris = require('../../../src/globals/svg/lock_iris.svg');
+  
  exports.LogoVimeo = require('../../../src/globals/svg/logo_vimeo.svg');
+  
+ exports.MoveIris = require('../../../src/globals/svg/move_iris.svg');
+  
+ exports.PencilIris = require('../../../src/globals/svg/pencil_iris.svg');
+  
+ exports.PinIris = require('../../../src/globals/svg/pin_iris.svg');
+  
+ exports.PlusCircleIris = require('../../../src/globals/svg/plus-circle_iris.svg');
+  
+ exports.PlusIris = require('../../../src/globals/svg/plus_iris.svg');
   
  exports.ReviewIris = require('../../../src/globals/svg/review_iris.svg');
   
+ exports.SearchTextFieldIris = require('../../../src/globals/svg/search-text field_iris.svg');
+  
+ exports.SearchIris = require('../../../src/globals/svg/search_iris.svg');
+  
+ exports.StatsIris = require('../../../src/globals/svg/stats_iris.svg');
+  
  exports.UploadCloud = require('../../../src/globals/svg/upload_cloud.svg');
+  
+ exports.VideosIris = require('../../../src/globals/svg/videos_iris.svg');
+  
+ exports.WatchLaterIris = require('../../../src/globals/svg/watch-later_iris.svg');
   
  exports.Facebook = require('../../../src/globals/svg/third_party_logos/facebook.svg');
   

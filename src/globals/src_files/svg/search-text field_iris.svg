@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>search - text field</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Exportable" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="search---text-field" fill-rule="nonzero" fill="#1A2D3A">
+            <path d="M14.807209,13.7465488 L18.3942911,17.3336309 C18.6871843,17.6265242 18.6871843,18.1013979 18.3942911,18.3942911 C18.1013979,18.6871843 17.6265242,18.6871843 17.3336309,18.3942911 L13.7465488,14.807209 C12.4536459,15.865226 10.8009526,16.5 9,16.5 C4.85786438,16.5 1.5,13.1421356 1.5,9 C1.5,4.85786438 4.85786438,1.5 9,1.5 C13.1421356,1.5 16.5,4.85786438 16.5,9 C16.5,10.8009526 15.865226,12.4536459 14.807209,13.7465488 Z M9,15 C12.3137085,15 15,12.3137085 15,9 C15,5.6862915 12.3137085,3 9,3 C5.6862915,3 3,5.6862915 3,9 C3,12.3137085 5.6862915,15 9,15 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
+</svg>
