@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import classNames from 'classnames';
 import styles from './InputMessage.scss';
@@ -6,46 +7,43 @@ import anime from 'animejs';
 
 const displayName = 'InputMessage';
 
-const formats = [
-    'helper',
-    'negative',
-];
-
-const propTypes = {
-    className: React.PropTypes.string,
-    children: React.PropTypes.node,
-    format: React.PropTypes.oneOf(formats),
-};
-
 const defaultProps = {
     format: 'helper',
 };
 
-// Animation Decorator
+type Props = {
+    className: string,
+    format: 'helper' | 'negative',
+};
 
 class InputMessage extends React.Component {
-    constructor(props) {
+
+    static defaultProps: Object;
+
+    constructor(props: Props) {
         super(props);
     }
 
     componentDidMount() {
         const el = findDOMNode(this);
-        const elHeight = el.clientHeight;
-        const elContent = el.querySelectorAll('*');
-        el.classList.add(styles.measured);
+        if (el instanceof HTMLElement) {
+            const elHeight = el.clientHeight;
+            const elContent = el.querySelectorAll('*');
+            el.classList.add(styles.measured);
 
-        anime({
-            targets: [el, elContent],
-            duration: 400,
-            delay: 300,
-            easing: 'easeInQuart',
-            height: elHeight,
-            opacity: 1,
-        });
+            anime({
+                targets: [el, elContent],
+                duration: 400,
+                delay: 300,
+                easing: 'easeInQuart',
+                height: elHeight,
+                opacity: 1,
+            });
+        }
     }
 
 
-    componentWillLeave(callback) {
+    componentWillLeave(callback: any) {
         const el = findDOMNode(this);
         anime({
             targets: [el],
@@ -64,7 +62,6 @@ class InputMessage extends React.Component {
         // filter out props that are not meant to be passed in as an attribute from props and store the rest as "filteredProps" to be printed into the component as attrubutes in the tag (e.g. HTML attribute pass-through, event handlers)
         const {
             format,
-            children,
             className,
             ...filteredProps
         } = this.props;
@@ -80,16 +77,12 @@ class InputMessage extends React.Component {
                 <div
                     {...filteredProps}
                     className={componentClass}
-                >
-                    {children}
-                </div>
+                />
         );
     }
 }
 
 InputMessage.displayName = displayName;
-
-InputMessage.propTypes = propTypes;
 
 InputMessage.defaultProps = defaultProps;
 

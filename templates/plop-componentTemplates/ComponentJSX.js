@@ -1,23 +1,18 @@
+// @flow
 import React from 'react';
 import classNames from 'classnames';
-import styles from './{{pascalCase name}}.css';
+import styles from './{{pascalCase name}}.scss';
 
 const displayName = '{{pascalCase name}}';
 
-
-const propTypes = {
+type Props = {
+    className?: string,
 };
 
-const defaultProps = {
-};
-
-const {{pascalCase name}} = (props) => {
-
-    // filter out props that are not meant to be passed in as an attribute from props and store the rest as "filteredProps" to be printed into the component as attrubutes in the tag (e.g. HTML attribute pass-through, event handlers)
-    const {
-        className,
-        ...filteredProps
-    } = props;
+const  {{pascalCase name}} = ({
+                        className,
+                        ...filteredProps
+                    }: Props): React$Element<*> => {
 
     // className builder
     const componentClass = classNames(
@@ -36,10 +31,5 @@ const {{pascalCase name}} = (props) => {
 };
 
 {{pascalCase name}}.displayName = displayName;
-
-{{pascalCase name}}.propTypes = propTypes;
-
-{{pascalCase name}}.defaultProps = defaultProps;
-
 
 export default {{pascalCase name}};

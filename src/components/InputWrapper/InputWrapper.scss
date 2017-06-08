@@ -1,40 +1,19 @@
-/* @description Generates styles for the InputField component */
+/* @description Generates styles for the InputWrapper component */
 @import '../../globals/sass/helpers-all';
-$Input_icon-size: rem-calc(18);
 
-.InputField {
-    @include sharedInputBaseStyles();
-    @include sharedTextInputs();
+.InputWrapper {
+    margin-bottom: $inputs_margin-bottom;
 
-    &::placeholder {
-        color: $inputs_placeholder-color;
+    &.isInline {
+        margin-bottom: 0;
     }
 }
 
-.InputWrapper {
+.InputFieldWrapper {
+    // provides positional context for icons
     position: relative;
 
     padding: 0;
-}
-
-// Sizes 
-.md {
-    @include sharedInputMediumStyles();
-}
-
-.lg {
-    @include sharedInputLargeStyles();
-}
-
-// Icons
-
-.hasIcon {
-    &.md {
-        padding-left: $Input_icon-size + rem-calc(18);
-    }
-    &.lg {
-        padding-left: $Input_icon-size + rem-calc(21);
-    }
 }
 
 .Icon {
@@ -43,8 +22,8 @@ $Input_icon-size: rem-calc(18);
     left: 0;
 
     & svg {
-        width: $Input_icon-size;
-        height: $Input_icon-size;
+        width: $inputs_icon-size;
+        height: $inputs_icon-size;
 
         animation-name: iconSlideIn;
         animation-duration: $inputs_animation-timing;
@@ -65,7 +44,7 @@ $Input_icon-size: rem-calc(18);
         opacity: 0;
     }
     to {
-        width: $Input_icon-size;
+        width: $inputs_icon-size;
 
         opacity: 1;
     }

@@ -3,6 +3,7 @@ const runSequence = require('run-sequence');
 
 gulp.task('build' , function(cb) {
 	runSequence(
+        'cleanStyleguideDistFile',
         ['compileComponentListJSX','compileEntryPoints-Dev'],
         'reactDocGenBuild',
         'reactDocGenParse',

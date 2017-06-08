@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import classNames from 'classnames';
 import styles from './CircularButton.scss';
@@ -5,58 +6,26 @@ import styles from './CircularButton.scss';
 
 const displayName = 'CircularButton';
 
-
-const circularButtonSizes = [
-    'sm',
-    'md',
-    'lg',
-];
-
-const circularButtonTypes = [
-    'primary',
-    'primaryOutline',
-    'primaryDashed',
-    'secondary',
-    'secondaryOutline',
-    'secondaryDashed',
-    'alternative',
-    'alternativeOutline',
-    'alternativeDashed',
-    'whitePrimary',
-    'whiteSecondary',
-    'negative',
-    'negativeDashed',
-    'negativeOutline',
-];
-
-const propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    format: React.PropTypes.oneOf(circularButtonTypes),
-    size: React.PropTypes.oneOf(circularButtonSizes),
-    icon: React.PropTypes.object.isRequired,
-    element: React.PropTypes.oneOf(['a', 'button', 'span']),
-    autoMarginsHorizontal: React.PropTypes.bool,
+type Props = {
+    autoMarginsHorizontal?: boolean,
+    children?: React$Element<*>,
+    className?: string,
+    element?: 'a'| 'button'| 'span',
+    format?: 'primary' | 'primaryOutline' | 'primaryDashed' | 'secondary' | 'secondaryOutline' | 'secondaryDashed' | 'alternative' | 'alternativeOutline' | 'alternativeDashed' | 'whitePrimary' | 'whiteSecondary' | 'negative' | 'negativeDashed' | 'negativeOutline',
+    icon?: React$Element<*>,
+    size?: 'sm' | 'md' | 'lg',
 };
 
-const defaultProps = {
-    autoMarginsHorizontal: true,
-    size: 'md',
-    format: 'primary',
-    element: 'button',
-};
-
-const CircularButton = (props) => {
-
-    const {
-        autoMarginsHorizontal,
-        className,
-        element,
-        format,
-        icon,
-        size,
-        ...filteredProps
-    } = props;
+const CircularButton = ({
+                        autoMarginsHorizontal = true,
+                        className,
+                        children,
+                        element = 'button',
+                        format = 'primary',
+                        icon,
+                        size = 'md',
+                        ...filteredProps
+                    }: Props): React$Element<*> => {
 
     // className builder
     const componentClass = classNames(
@@ -72,16 +41,12 @@ const CircularButton = (props) => {
             <CircularButtonElement
                 {...filteredProps}
                 className={componentClass}
-             >
+            >
                 {icon}
-             </CircularButtonElement>
+            </CircularButtonElement>
     );
 };
 
 CircularButton.displayName = displayName;
-
-CircularButton.propTypes = propTypes;
-
-CircularButton.defaultProps = defaultProps;
 
 export default CircularButton;

@@ -26,7 +26,8 @@
         "jsx": true
     },
     "globals": {
-        "console": false
+        "console": false,
+        "React$Element": true
     },
     "rules": {
         "global-strict": 0,

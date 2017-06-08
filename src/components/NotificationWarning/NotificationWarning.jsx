@@ -1,29 +1,31 @@
+// @flow
 import React from 'react';
 import classNames from 'classnames';
 import styles from './NotificationWarning.scss';
 import Notification from '../Notification/Notification';
-import AlertIcon from '../../globals/svg/alert_iris';
+import AlertIcon from '../../globals/svg/alert_iris.svg';
 import dropInOut from '../../animations/dropInOut/dropInOut';
 
 const displayName = 'NotificationWarning';
-
-const propTypes = {
-    children: React.PropTypes.node.isRequired,
-    className: React.PropTypes.string,
-    hasIcon: React.PropTypes.bool,
-    onDismiss: React.PropTypes.func,
-};
 
 const defaultProps = {
     hasIcon: true,
 };
 
+type Props = {
+    children: string,
+    className?: string,
+    hasIcon?: boolean,
+    onDismiss?: any,
+};
 // Animation Decorator
 @dropInOut
 
 class NotificationWarning extends React.Component {
 
-    constructor(props) {
+    static defaultProps: Object;
+
+    constructor(props: Props) {
         super(props);
     }
 
@@ -59,8 +61,6 @@ class NotificationWarning extends React.Component {
 }
 
 NotificationWarning.displayName = displayName;
-
-NotificationWarning.propTypes = propTypes;
 
 NotificationWarning.defaultProps = defaultProps;
 

@@ -1,22 +1,22 @@
-
+// @flow
 import React from 'react';
 import classNames from 'classnames';
 import styles from './NotificationNeutral.scss';
 import Notification from '../Notification/Notification';
-import InfoIcon from '../../globals/svg/info_iris';
+import InfoIcon from '../../globals/svg/info_iris.svg';
 import dropInOut from '../../animations/dropInOut/dropInOut';
 
 const displayName = 'NotificationNeutral';
 
-const propTypes = {
-    children: React.PropTypes.node.isRequired,
-    className: React.PropTypes.string,
-    hasIcon: React.PropTypes.bool,
-    onDismiss: React.PropTypes.func,
-};
-
 const defaultProps = {
     hasIcon: true,
+};
+
+type Props = {
+    children: string,
+    className?: string,
+    hasIcon?: boolean,
+    onDismiss?: any,
 };
 
 // Animation Decorator
@@ -24,7 +24,9 @@ const defaultProps = {
 
 class NotificationNeutral extends React.Component {
 
-    constructor(props) {
+    static defaultProps: Object;
+
+    constructor(props: Props) {
         super(props);
     }
 
@@ -59,8 +61,6 @@ class NotificationNeutral extends React.Component {
 }
 
 NotificationNeutral.displayName = displayName;
-
-NotificationNeutral.propTypes = propTypes;
 
 NotificationNeutral.defaultProps = defaultProps;
 

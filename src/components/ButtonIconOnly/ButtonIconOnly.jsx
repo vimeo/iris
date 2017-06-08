@@ -1,49 +1,30 @@
+// @flow
+
 import React from 'react';
 import classNames from 'classnames';
 import styles from './ButtonIconOnly.scss';
 
 const displayName = 'ButtonIconOnly';
 
-
-const sizes = [
-    'sm',
-    'md',
-];
-
-const buttonTypes = [
-    'dark',
-    'alternative',
-    'light',
-    'warning',
-];
-
-const propTypes = {
-    autoSpacingHorizontal: React.PropTypes.bool,
-    className: React.PropTypes.string,
-    format: React.PropTypes.oneOf(buttonTypes),
-    icon: React.PropTypes.element.isRequired,
-    isButtonElement: React.PropTypes.bool,
-    size: React.PropTypes.oneOf(sizes),
+type Props = {
+    autoSpacingHorizontal?: boolean,
+    className?: string,
+    format?: 'dark'| 'alternative' | 'light' | 'warning',
+    icon: React$Element<*>,
+    isButtonElement?: boolean,
+    size?: 'sm' | 'md',
 };
 
-const defaultProps = {
-    autoSpacingHorizontal: true,
-    format: 'dark',
-    isButtonElement: true,
-    size: 'sm',
-};
-const ButtonIconOnly = (props) => {
+const ButtonIconOnly = ({
+                        autoSpacingHorizontal = true,
+                        className,
+                        format = 'dark',
+                        icon,
+                        isButtonElement = true,
+                        size = 'sm',
+                        ...filteredProps
+                    }: Props): React$Element<*> => {
 
-    // filter out props that are not meant to be passed in as an attribute from props and store the rest as "filteredProps" to be printed into the component as attrubutes in the tag (e.g. HTML attribute pass-through, event handlers)
-    const {
-        autoSpacingHorizontal,
-        className,
-        icon,
-        isButtonElement,
-        format,
-        size,
-        ...filteredProps
-    } = props;
 
     // className builder
     const componentClass = classNames(
@@ -67,10 +48,5 @@ const ButtonIconOnly = (props) => {
 };
 
 ButtonIconOnly.displayName = displayName;
-
-ButtonIconOnly.propTypes = propTypes;
-
-ButtonIconOnly.defaultProps = defaultProps;
-
 
 export default ButtonIconOnly;

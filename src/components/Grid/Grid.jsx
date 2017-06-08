@@ -1,4 +1,5 @@
-import * as React from 'react';
+// @flow
+import React from 'react';
 import classNames from 'classnames';
 import styles from './Grid.scss';
 import GridBlock from '../GridBlock/GridBlock.jsx';
@@ -6,27 +7,20 @@ import GridCol from '../GridCol/GridCol.jsx';
 
 const displayName = 'Grid';
 
-
-const propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    centered: React.PropTypes.bool,
-    hasMaxWidth: React.PropTypes.bool,
+type Props = {
+    children: boolean,
+    className?: string,
+    centered?: boolean,
+    hasMaxWidth?: boolean,
 };
 
-const defaultProps = {
-    centered: false,
-    hasMaxWidth: true,
-};
-
-const Grid = (props) => {
-    const {
-        className,
-        centered,
-        children,
-        hasMaxWidth,
-        ...filteredProps
-    } = props;
+const Grid = ({
+                    className,
+                    children,
+                    centered = false,
+                    hasMaxWidth = true,
+                    ...filteredProps
+                }: Props): React$Element<*> => {
 
     // classes
     const gridClasses = classNames(
@@ -44,9 +38,5 @@ const Grid = (props) => {
 };
 
 Grid.displayName = displayName;
-
-Grid.propTypes = propTypes;
-
-Grid.defaultProps = defaultProps;
 
 export { GridBlock, GridCol, Grid };

@@ -1,110 +1,73 @@
+// @flow
 import React from 'react';
 import classNames from 'classnames';
 import styles from './TextArea.scss';
-import InputLabel from '../InputLabel/InputLabel';
-import InputMessageArea from '../InputMessageArea/InputMessageArea';
-
+import InputWrapper from '../InputWrapper/InputWrapper';
 
 const displayName = 'TextArea';
 
-const textareaSizes = [
-    'md',
-    'lg',
-];
-
-const textareaFormats = [
-    'negative',
-    'positive',
-    'neutral',
-];
-
-
-const propTypes = {
-    className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    errorMsg: React.PropTypes.node,
-    format: React.PropTypes.oneOf(textareaFormats),
-    helperMsg: React.PropTypes.node,
-    id: React.PropTypes.string.isRequired,
-    label: React.PropTypes.string.isRequired,
-    showLabel: React.PropTypes.bool,
-    size: React.PropTypes.oneOf(textareaSizes),
-    type: React.PropTypes.string.isRequired,
+type Props = {
+    className?: string,
+    disabled?: boolean,
+    errorMsg?: React$Element<*>,
+    format?: 'negative' | 'positive' | 'neutral',
+    helperMsg?: React$Element<*>,
+    label: string,
+    id: string,
+    showLabel?: boolean,
 };
 
-const defaultProps = {
-    format: 'neutral',
-    showLabel: true,
-    size: 'md',
-    type: 'text',
-};
+const TextArea = ({
+                        className,
+                        disabled,
+                        errorMsg,
+                        format = 'neutral',
+                        helperMsg,
+                        label,
+                        id,
+                        showLabel = true,
+                        ...filteredProps
+                    }: Props): React$Element<*> => {
 
-const TextArea = (props) => {
-
-    // filter out props that are not meant to be passed in as an attribute from props and store the rest as "filteredProps" to be printed into the component as attrubutes in the tag (e.g. HTML attribute pass-through, event handlers)
-    const {
-        className,
-        disabled,
-        errorMsg,
-        helperMsg,
-        id,
-        format,
-        label,
-        showLabel,
-        size,
-        ...filteredProps
-    } = props;
-
+    const isNegative = format === 'negative';
+    const ariaInvalid = isNegative;
+    const hasIcon = isNegative || format === 'positive';
 
     // className builder
     const componentClass = classNames(
         styles.TextArea,
         styles[format],
-        styles[size],
+        (hasIcon ? styles.hasIcon : null),
         className
     );
 
-    const labelElement = (
-        <InputLabel disabled={disabled} htmlFor={id}>{label}</InputLabel>
-    );
-
     let ariaLabel;
-
-    let ariaInvalid;
 
     if (!showLabel) {
         ariaLabel = label;
     }
 
-    if (format === 'negative') {
-        ariaInvalid = true;
-    }
-
     return (
-        <div>
-            {showLabel ? labelElement : null}
-            <div className={styles.TextAreaWrapper}>
-                <textarea
-                    aria-label={ariaLabel}
-                    aria-invalid={ariaInvalid}
-                    disabled={disabled}
-                    {...filteredProps}
-                    className={componentClass}
-                />
-                <InputMessageArea
-                        errorMsg={errorMsg}
-                        helperMsg={helperMsg}
+            <InputWrapper
+                    showLabel= {showLabel}
+                    disabled= {disabled}
+                    errorMsg = {errorMsg}
+                    format = {format}
+                    helperMsg = {helperMsg}
+                    label = {label}
+                    labelForId = {id}
+                >
+                    <textarea
+                        aria-label={ariaLabel}
+                        aria-invalid={ariaInvalid}
+                        disabled={disabled}
+                        {...filteredProps}
+                        className={componentClass}
                     />
-            </div>
-        </div>
+                </InputWrapper>
     );
 };
 
 TextArea.displayName = displayName;
-
-TextArea.propTypes = propTypes;
-
-TextArea.defaultProps = defaultProps;
-
 
 export default TextArea;

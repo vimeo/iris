@@ -1,29 +1,31 @@
+// @flow
 import React from 'react';
 import classNames from 'classnames';
 import styles from './NotificationSuccess.scss';
 import Notification from '../Notification/Notification';
-import SuccessIcon from '../../globals/svg/checkmark_iris';
+import SuccessIcon from '../../globals/svg/checkmark_iris.svg';
 import dropInOut from '../../animations/dropInOut/dropInOut';
 
 const displayName = 'NotificationSuccess';
-
-const propTypes = {
-    children: React.PropTypes.node.isRequired,
-    className: React.PropTypes.string,
-    hasIcon: React.PropTypes.bool,
-    onDismiss: React.PropTypes.func,
-};
 
 const defaultProps = {
     hasIcon: true,
 };
 
+type Props = {
+    children: string,
+    className?: string,
+    hasIcon?: boolean,
+    onDismiss?: any,
+};
 // Animation Decorator
 @dropInOut
 
 class NotificationSuccess extends React.Component {
 
-    constructor(props) {
+    static defaultProps: Object;
+
+    constructor(props: Props) {
         super(props);
     }
 
@@ -59,8 +61,6 @@ class NotificationSuccess extends React.Component {
 }
 
 NotificationSuccess.displayName = displayName;
-
-NotificationSuccess.propTypes = propTypes;
 
 NotificationSuccess.defaultProps = defaultProps;
 

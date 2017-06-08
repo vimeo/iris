@@ -1,0 +1,10 @@
+[ignore]
+.*/templates/.*
+
+[include]
+
+[libs]
+
+[options]
+module.name_mapper='.*\(.scss\)' -> 'empty/object'
+esproposal.decorators=ignore

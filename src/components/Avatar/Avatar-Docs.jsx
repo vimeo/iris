@@ -57,7 +57,7 @@ const AvatarDocs = (props) => {
             </ExampleSource>
 
             <h3>Inline or Block</h3>
-            <p>The default display for avatars is set to inline, meaning your avatar will be inline with any text elements. However, should the need come to have your element take up its own horizontal space, the inline can be set to false, triggering a display block.</p>
+            <p>The default display for avatars is set to inline, meaning your avatar will be inline with any text elements. However, should the need come to have your element take up its own horizontal space, <code>isInline</code> can be set to false, triggering a display block.</p>
             <div data-code>
                 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
                     srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
@@ -71,7 +71,7 @@ const AvatarDocs = (props) => {
                     srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
                     alt="Avatar Block Example"
                     size="lg"
-                    inline={false} />
+                    isInline={false} />
             </div>
             <ExampleSource>
                 {` 
@@ -87,7 +87,7 @@ const AvatarDocs = (props) => {
     srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
     alt="Avatar Block Example"
     size="lg"
-    inline={false} />
+    isInline={false} />
                 `}
             </ExampleSource>
 

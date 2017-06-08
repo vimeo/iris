@@ -18,6 +18,13 @@ $inputs_text-color-disabled: $BodyTextColor-Light;
 $inputs_placeholder-color: $RegentGray;
 $inputs_error-color: $SunsetOrange;
 $inputs_positive-color: $Pistachio;
+$inputs_inlineInputs_size: 1.25rem;
+$inputs_inlineInputs_element-background-color: $VimeoBlue;
+$inputs_inlineInputs_fill-color: $White;
+$inputs_inlineInputs_fill-size: 0.625rem;
+$inputs_icon-size: 1.125rem;
+$input_has-icon-padding-md: $inputs_icon-size + 1.125rem;
+$input_has-icon-padding-lg: $inputs_icon-size + 1.3125rem;
 
 @mixin inputs_focus_border-shadow($color) {
     box-shadow: inset 0 0 0 rem-calc(1) $color;
@@ -94,4 +101,86 @@ $inputs_positive-color: $Pistachio;
 
     font-size: rem-calc(16);
     line-height: calculateLineHeightTarget(16, 20);
+}
+
+// shared styles for inline input elements like checkboxes and radios
+@mixin sharedInlineInputWrapperStyles() {
+    display: flex;
+
+    position: relative;
+
+    width: 100%;
+
+    flex-wrap: wrap;
+}
+
+@mixin sharedInlineInputStyles() {
+    display: inline-flex;
+
+    position: absolute;
+    z-index: 2;
+    top: $inputs_inlineInputs_size/2;
+    left: $inputs_inlineInputs_size/2;
+
+    width: rem-calc(1);
+    height: rem-calc(1);
+    margin: 0;
+
+    appearance: none;
+    align-items: center;
+    justify-content: center;
+
+    // states
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+
+@mixin sharedInlineInputMediumBeforeStyles() {
+    width: $inputs_inlineInputs_size;
+    height: $inputs_inlineInputs_size;
+}
+
+@mixin sharedInlineInputMediumAfterStyles() {
+    width: $inputs_inlineInputs_size;
+    height: $inputs_inlineInputs_size;
+}
+
+@mixin sharedInlineInputFillStyles() {
+    position: absolute;
+
+    content: '';
+    transition: all 200ms ease-out;
+    transform: scale(0);
+}
+
+@mixin sharedInlineInputActivatedFillStyles() {
+    transform: scale(1);
+}
+
+@mixin sharedInlineInputElementReplaceStyles() {
+    display: block;
+
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+
+    width: $inputs_inlineInputs_size;
+    height: $inputs_inlineInputs_size;
+
+    border-width: rem-calc(1);
+    border-style: solid;
+    border-color: $inputs_border-color;
+    background-color: $White;
+}
+
+@mixin sharedInlineInputMediumFillStyles() {
+    top: rem-calc(4);
+    left: rem-calc(4);
+
+    width: $inputs_inlineInputs_fill-size;
+    height: $inputs_inlineInputs_fill-size;
 }

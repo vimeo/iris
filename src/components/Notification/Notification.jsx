@@ -1,22 +1,23 @@
+// @flow
 import React from 'react';
 import classNames from 'classnames';
 import styles from './Notification.scss';
-import DeleteIcon from '../../globals/svg/dismiss_iris';
+import DeleteIcon from '../../globals/svg/dismiss_iris.svg';
 import animationStyles from '../../animations/dropInOut/dropInOut.scss';
 
 /* Note: This component is the base component for themed notifications, do not use it by itself */
 
 const displayName = 'Notification';
 
-const propTypes = {
-    children: React.PropTypes.node.isRequired,
-    className: React.PropTypes.string,
-    dismissIconClassName: React.PropTypes.string,
-    icon: React.PropTypes.element,
-    onDismiss: React.PropTypes.func,
+type Props = {
+    children: React$Element<*>,
+    className?: string,
+    dismissIconClassName?: string,
+    icon: React$Element<*>,
+    onDismiss: any,
 };
 
-const Notification = (props) => {
+const Notification = (props: Props): React$Element<*> => {
 
     // filter out props that are not meant to be passed in as an attribute from props and store the rest as "filteredProps" to be printed into the component as attrubutes in the tag (e.g. HTML attribute pass-through, event handlers)
     const {
@@ -65,8 +66,5 @@ const Notification = (props) => {
 };
 
 Notification.displayName = displayName;
-
-Notification.propTypes = propTypes;
-
 
 export default Notification;

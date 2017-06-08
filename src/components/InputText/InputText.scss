@@ -1,15 +1,31 @@
 /* @description Generates styles for the Input component */
 @import '../../globals/sass/helpers-all';
-.InputText {
-    display: inline-block;
 
-    width: 100%;
+.InputText {
+    @include sharedInputBaseStyles();
+    @include sharedTextInputs();
+
+    &::placeholder {
+        color: $inputs_placeholder-color;
+    }
 }
 
-.InputWrapper {
-    margin-bottom: $inputs_margin-bottom;
+// Sizes 
+.md {
+    @include sharedInputMediumStyles();
+}
 
-    &.isInline {
-        margin-bottom: 0;
+.lg {
+    @include sharedInputLargeStyles();
+}
+
+// Icons
+
+.hasIcon {
+    &.md {
+        padding-left: $input_has-icon-padding-md;
+    }
+    &.lg {
+        padding-left: $input_has-icon-padding-lg;
     }
 }

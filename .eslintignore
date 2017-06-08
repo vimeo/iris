@@ -3,7 +3,8 @@ node_modules/*
 src/globals/js/vendor/*
 index.js
 data/*
-templates/**/*
+templates/*
+templates/plop-componentTemplates/ComponentJSX.js
 gulpfile.babel.js
 gulp-tasks/**/*
 docs/**/*

@@ -1,0 +1,72 @@
+/* @description Generates styles for the InputCheckbox component */
+@import '../../globals/sass/helpers-all';
+$InputCheck_fill-size: 1rem;
+
+.InputCheckboxWrapper {
+    @include sharedInlineInputWrapperStyles();
+
+    margin-bottom: spacingUnit(2);
+    padding-left: spacingUnit(8);
+}
+
+.InputCheckboxLabel {
+    min-height: 1.125rem;
+}
+
+.InputCheckbox {
+    @include sharedInlineInputStyles();
+
+    &:checked:after {
+        @include sharedInlineInputActivatedFillStyles();
+    }
+
+    &:checked:before,
+    &:checked:focus:before {
+        border: 0;
+        background: $inputs_inlineInputs_element-background-color;
+        box-shadow: none;
+    }
+}
+
+
+.InputCheckboxOverlay {
+    @include sharedInlineInputElementReplaceStyles();
+
+    border-radius: rem-calc($g-radius-sm);
+
+    &::after {
+        @include sharedInlineInputFillStyles();
+
+        top: 0.16rem;
+        left: 0.155rem;
+
+        width: $InputCheck_fill-size;
+        height: $InputCheck_fill-size;
+
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'><path fill='%23fff' d='M6.667 14.39L1.306 9.22l1.388-1.44 3.973 3.83 8.639-8.33 1.388 1.44z'/></svg>");
+        background-repeat: no-repeat;
+        background-position: 2% 2%;
+        background-size: 98%;
+    }
+}
+
+.InputCheckbox:focus + .InputCheckboxOverlay {
+    border-color: $inputs_border-color-focused;
+}
+
+.InputCheckbox:checked + .InputCheckboxOverlay {
+    border: 0;
+    background: $inputs_inlineInputs_element-background-color;
+
+    &:after {
+        @include sharedInlineInputActivatedFillStyles();
+    }
+}
+
+.FocusBloop {
+    top: rem-calc(-7);
+    left: rem-calc(-7);
+
+    width: rem-calc(34);
+    height: rem-calc(34);
+}

@@ -31,15 +31,29 @@ exports.paths = {
   
   'iris/GridCol':'iris/src/components/GridCol/GridCol',
   
-  'iris/InputField':'iris/src/components/InputField/InputField',
+  'iris/InputCheckbox':'iris/src/components/InputCheckbox/InputCheckbox',
   
   'iris/InputLabel':'iris/src/components/InputLabel/InputLabel',
+  
+  'iris/InputLabelInline':'iris/src/components/InputLabelInline/InputLabelInline',
   
   'iris/InputMessage':'iris/src/components/InputMessage/InputMessage',
   
   'iris/InputMessageArea':'iris/src/components/InputMessageArea/InputMessageArea',
   
+  'iris/InputRadio':'iris/src/components/InputRadio/InputRadio',
+  
+  'iris/InputRadioSet':'iris/src/components/InputRadioSet/InputRadioSet',
+  
+  'iris/InputSelect':'iris/src/components/InputSelect/InputSelect',
+  
   'iris/InputText':'iris/src/components/InputText/InputText',
+  
+  'iris/InputToggle':'iris/src/components/InputToggle/InputToggle',
+  
+  'iris/InputWrapper':'iris/src/components/InputWrapper/InputWrapper',
+  
+  'iris/InputWrapperInline':'iris/src/components/InputWrapperInline/InputWrapperInline',
   
   'iris/LoaderCircular':'iris/src/components/LoaderCircular/LoaderCircular',
   

@@ -1,21 +1,18 @@
+// @flow
 import React from 'react';
 import classNames from 'classnames';
 import styles from './InputLabel.scss';
 
 const displayName = 'InputLabel';
 
-
-const propTypes = {
-    className: React.PropTypes.string,
-    children: React.PropTypes.node.isRequired,
-    disabled: React.PropTypes.bool,
+type Props = {
+    className?: string,
+    children?: React$Element<*>,
+    disabled?: boolean,
 };
 
-const defaultProps = {
-    disabled: false,
-};
 
-const InputLabel = (props) => {
+const InputLabel = (props: Props): React$Element<*> => {
 
     // filter out props that are not meant to be passed in as an attribute from props and store the rest as "filteredProps" to be printed into the component as attrubutes in the tag (e.g. HTML attribute pass-through, event handlers)
     const {
@@ -40,10 +37,5 @@ const InputLabel = (props) => {
 };
 
 InputLabel.displayName = displayName;
-
-InputLabel.propTypes = propTypes;
-
-InputLabel.defaultProps = defaultProps;
-
 
 export default InputLabel;

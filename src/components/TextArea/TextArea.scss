@@ -3,6 +3,9 @@
 .TextArea {
     @include sharedInputBaseStyles();
     @include sharedTextInputs();
+    @include sharedInputMediumStyles();
+
+    height: auto;
 
     &::placeholder {
         color: $inputs_placeholder-color;
@@ -13,12 +16,9 @@
     margin-bottom: $inputs_margin-bottom;
 }
 
-// Sizes 
 
-.md {
-    @include sharedInputMediumStyles();
-}
+// Icons
 
-.lg {
-    @include sharedInputLargeStyles();
+.hasIcon {
+    padding-left: $input_has-icon-padding-md;
 }

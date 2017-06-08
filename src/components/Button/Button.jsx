@@ -1,83 +1,38 @@
+// @flow
 import React from 'react';
 import classNames from 'classnames';
 import styles from './Button.scss';
 
 const displayName = 'Button';
 
-const buttonSizes = [
-    'xs',
-    'sm',
-    'md',
-    'lg',
-];
-
-const buttonTypes = [
-    'primary',
-    'primaryOutline',
-    'primaryTextOnly',
-    'secondary',
-    'secondaryOutline',
-    'secondaryTextOnly',
-    'alternative',
-    'alternativeOutline',
-    'success',
-    'successOutline',
-    'warning',
-    'lightTransparent',
-    'lightTextOnly',
-];
-
-const buttonBreakpoints = [
-    'xs',
-    'sm',
-    'md',
-    'lg',
-    'fluid',
-];
-
-const iconLocations = [
-    'beforeLabel',
-    'afterLabel',
-];
-
-const propTypes = {
-    autoMargins: React.PropTypes.bool,
-    autoWidth: React.PropTypes.oneOf(buttonBreakpoints),
-    isButtonElement: React.PropTypes.bool,
-    isInline: React.PropTypes.bool,
-    children: React.PropTypes.node.isRequired,
-    className: React.PropTypes.string,
-    format: React.PropTypes.oneOf(buttonTypes),
-    icon: React.PropTypes.element,
-    iconLocation: React.PropTypes.oneOf(iconLocations),
-    size: React.PropTypes.oneOf(buttonSizes),
+type Props = {
+    autoMargins?: boolean,
+    autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid',
+    children: React$Element<*>,
+    className?: string,
+    format?: 'primary' | 'primaryOutline' | 'primaryTextOnly' | 'secondary' | 'secondaryOutline' | 'secondaryTextOnly' | 'alternative' | 'alternativeOutline' | 'success' | 'successOutline' | 'warning' | 'lightTransparent' | 'lightTextOnly',
+    icon?: React$Element<*>,
+    iconLocation?: 'beforeLabel' | 'afterLabel',
+    isButtonElement?: boolean,
+    isInline?: boolean,
+    showLabel?: boolean,
+    size?: 'xs' | 'sm' | 'md' | 'lg',
 };
 
-const defaultProps = {
-    autoMargins: true,
-    autoWidth: 'sm',
-    format: 'primary',
-    isButtonElement: true,
-    isInline: false,
-    iconLocation: 'beforeLabel',
-    size: 'md',
-};
-
-const Button = (props) => {
-
-    // filter out props that are not meant to be passed in as an attribute from props and store the rest as "filteredProps" to be printed into the component as attrubutes in the tag (e.g. HTML attribute pass-through, event handlers)
-    const {
-        autoMargins,
-        autoWidth,
-        isButtonElement,
-        isInline,
-        icon,
-        iconLocation,
-        size,
-        format,
-        className,
-        ...filteredProps
-    } = props;
+const Button = ({
+                        autoMargins = true,
+                        autoWidth = 'sm',
+                        className,
+                        children,
+                        format = 'primary',
+                        icon,
+                        iconLocation = 'beforeLabel',
+                        isButtonElement = true,
+                        isInline = false,
+                        showLabel = true,
+                        size = 'md',
+                        ...filteredProps
+                    }: Props): React$Element<*> => {
 
     // className builder
     const componentClass = classNames(
@@ -96,8 +51,8 @@ const Button = (props) => {
         styles['Icon_' + iconLocation]
     );
 
-    const hasIconBefore = icon && iconLocation === iconLocations[0];
-    const hasIconAfter = icon && iconLocation === iconLocations[1];
+    const hasIconBefore = icon && iconLocation === 'beforeLabel';
+    const hasIconAfter = icon && iconLocation === 'afterLabel';
 
 
     const iconElement = (
@@ -116,19 +71,13 @@ const Button = (props) => {
             >
                 <span className = {styles.buttonLabel}>
                     {hasIconBefore ? iconElement : null}
-                    {props.children}
+                    {children}
                     {hasIconAfter ? iconElement : null}
                 </span>
-            </ButtonElement >
+            </ButtonElement>
     );
 };
 
 Button.displayName = displayName;
-
-Button.propTypes = propTypes;
-
-Button.defaultProps = defaultProps;
-
-export { buttonSizes, buttonTypes, buttonBreakpoints, iconLocations };
 
 export default Button;

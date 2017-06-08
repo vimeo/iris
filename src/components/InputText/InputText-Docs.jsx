@@ -44,18 +44,18 @@ class InputTextDocs extends React.Component {
 
     render() {
         return (
-            <div className="Pattern__docs">
+            <div>
                 <p>Input components provide text-like (text, email, phone, etc..) input fields for forms, including the label and error messaging. Inputs are <code>type="text"</code> by default.</p>
                 <p>Inputs provide no logic for field valdation themselves but expose three modes through the <code>format</code> prop which should be changed through parent state. Any event handlers passed to the component will be attached to the input field itself.</p>
                 <div data-code>
                     <InputText
                         name="foo"
                         id="foo"
-                        label="Default Input"
+                        label={'Default Input'}
                         placeholder="Placeholder Text"
                     />
 
-                     <InputText
+                    <InputText
                         name="noPlace"
                         id="NoPlace"
                         label="No Placeholder"

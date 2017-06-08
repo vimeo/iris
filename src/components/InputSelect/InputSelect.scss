@@ -1,0 +1,131 @@
+/* @description Generates styles for the InputSelect component */
+@import '../../globals/sass/helpers-all';
+$InputSelect_arrow-size: rem-calc(24);
+
+.InputSelect {
+    @include sharedInputBaseStyles();
+    @include sharedTextInputs();
+    &:-moz-focusring {
+        color: transparent !important;
+        text-shadow: 0 0 0 #000000 !important;
+    }
+}
+
+/* Container used for styling the custom select, the buttom class below adds the
+ * bg gradient, corners, etc. */
+.InputSelectWrapper {
+    position: relative;
+}
+
+.IconArrow {
+    display: none;
+
+    position: absolute;
+    top: $inputs_border-size * 2;
+    right: $inputs_border-size * 2;
+
+    width: $InputSelect_arrow-size * 3.5;
+
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 30%);
+
+    pointer-events: none;
+
+    svg {
+        position: absolute;
+        right: spacingUnit(2);
+
+        width: $InputSelect_arrow-size;
+        height: $InputSelect_arrow-size;
+    }
+
+    &.IconArrow-neutral svg * {
+        stroke: $inputs_text-color;
+    }
+    &.IconArrow-negative svg * {
+        stroke: $inputs_error-color;
+    }
+    &.IconArrow-positive svg * {
+        stroke: $inputs_positive-color;
+    }
+    &.IconArrow-disabled {
+        background: $inputs_background-color-disabled;
+        svg * {
+            stroke: $inputs_text-color-disabled;
+        }
+    }
+
+    &.IconArrow-md {
+        height: $inputs_height-md - ($inputs_border-size * 4);
+
+        svg {
+            top: rem-calc(8);
+        }
+    }
+    &.IconArrow-lg {
+        height: $inputs_height-lg - ($inputs_border-size * 4);
+
+        svg {
+            top: rem-calc(10);
+        }
+    }
+}
+
+@supports ( -webkit-appearance: none ) or ( appearance: none ) {
+    // show arrow icon
+    .IconArrow {
+        display: block;
+    }
+
+    /* Remove select styling */
+    .InputSelect {
+        appearance: none;
+    }
+}
+
+
+// Sizes 
+.md {
+    @include sharedInputMediumStyles();
+}
+
+.lg {
+    @include sharedInputLargeStyles();
+}
+
+
+@supports ( -webkit-appearance: none ) or ( appearance: none )
+	or ( ( -moz-appearance: none ) and ( mask-type: alpha ) ) {
+    /* Show custom arrow */
+    .custom-select::after {
+        display: block;
+    }
+
+    /* Remove select styling */
+    .custom-select select {
+        padding-right: 2em; /* Match-01 */
+        /* inside @supports so that Android <= 4.3 display the native arrow */
+
+        border: 1px solid transparent; /* Match-05 */
+        /* inside @supports so that iOS <= 8 display the native arrow */
+        background: none; /* Match-04 */
+
+        -webkit-appearance: none;
+           -moz-appearance: none;
+                appearance: none;
+    }
+    .custom-select select:focus {
+        border-color: #AAAAAA; /* Match-03 */
+    }
+}
+
+
+// Icons
+
+.hasIcon {
+    &.md {
+        padding-left: $input_has-icon-padding-md;
+    }
+    &.lg {
+        padding-left: $input_has-icon-padding-lg;
+    }
+}

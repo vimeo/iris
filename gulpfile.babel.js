@@ -44,7 +44,7 @@ gulp.task('serve', function() {
 // Set watching for reloads...
     gulp.watch([GLOBALS_SRC + '**/*.scss'], ['rebuildSassGlobals']);
     gulp.watch([COMPONENT_SRC + '**/*.scss', ANIMATIONS_SRC + '/**/*.scss'], ['rebuildSassComponents']);
-    gulp.watch([COMPONENT_SRC + '/**/*.jsx', LOCAL_DOCS_SRC + '/**/*.jsx', ANIMATIONS_SRC + '/**/*.js'], ['rebuildJSX']);
+    gulp.watch([COMPONENT_SRC + '/**/*.jsx', LOCAL_DOCS_SRC + '/**/*.jsx', ANIMATIONS_SRC + '/**/*.js', ANIMATIONS_SRC + '/**/*.jsx'], ['rebuildJSX']);
     gulp.watch([STYLEGUIDE_DIST + '*'], ['delayedReload']);
 
 });

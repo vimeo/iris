@@ -82,7 +82,7 @@ class TextAreaDocs extends React.Component {
                         format = {this.state.format}
                         errorMsg = {this.state.errorProp}
                         placeholder="Placeholder Text"
-                        defaultValue="Something is getting better!"
+                        defaultValue="My liege, and madam, to expostulate What majesty should be, what duty is, What day is day, night night, and time is time, were nothing but to waste night, day, and time; Therefore, since brevity is the soul of wit, And tediousness the limbs and outward flourishes I will be brief. Your noble son is mad."
                     />
                 </div>
                 <Button format="secondaryOutline" size="xs" onClick={this.handleClick}>Toggle Field State to "{this.state.nextState}"</Button>

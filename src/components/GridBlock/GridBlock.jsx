@@ -1,26 +1,22 @@
-import * as React from 'react';
+// @flow
+import React from 'react';
 import classNames from 'classnames';
 import styles from './GridBlock.scss';
 
 const displayName = 'GridBlock';
 
-const propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    nowrap: React.PropTypes.bool,
+type Props = {
+    children: React$Element<*>,
+    className?: string,
+    nowrap?: boolean,
 };
 
-const defaultProps = {
-    nowrap: false,
-};
-
-const GridBlock = (props) => {
-    const {
-        children,
-        className,
-        nowrap,
-        ...filteredProps
-    } = props;
+const GridBlock = ({
+                    children,
+                    className,
+                    nowrap = false,
+                    ...filteredProps
+                }: Props): React$Element<*> => {
 
     // Class builder
     const gridBlockClasses = classNames(
@@ -38,9 +34,5 @@ const GridBlock = (props) => {
 
 
 GridBlock.displayName = displayName;
-
-GridBlock.propTypes = propTypes;
-
-GridBlock.defaultProps = defaultProps;
 
 export default GridBlock;
