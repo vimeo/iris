@@ -24,7 +24,7 @@ $InputSelect_arrow-size: rem-calc(24);
     top: $inputs_border-size * 2;
     right: $inputs_border-size * 2;
 
-    width: $InputSelect_arrow-size * 3.5;
+    width: rem-calc(48);
 
     background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 30%);
 

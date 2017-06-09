@@ -27,6 +27,7 @@
         ["NotificationWarning", "Warning Notification"]
     ],
     "Layout": [
+        ["Forms", "Forms", true],
         ["GridFull", "Grid", true],
         ["Grid", "Grid Wrapper"],
         ["GridBlock", "Grid Block"],
