@@ -43,7 +43,8 @@ $InputCheck_fill-size: 1rem;
         width: $InputCheck_fill-size;
         height: $InputCheck_fill-size;
 
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'><path fill='%23fff' d='M6.667 14.39L1.306 9.22l1.388-1.44 3.973 3.83 8.639-8.33 1.388 1.44z'/></svg>");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%23ffffff' d='M6.667 14.39L1.306 9.22l1.388-1.44 3.973 3.83 8.639-8.33 1.388 1.44z'/%3E%3C/svg%3E");
+    
         background-repeat: no-repeat;
         background-position: 2% 2%;
         background-size: 98%;
