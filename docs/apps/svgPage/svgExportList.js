@@ -142,6 +142,8 @@
   
  exports.IrisIconDecrease64 = require('../../../src/globals/svg/iris_icon_decrease_64.svg');
   
+ exports.IrisIconDelete12 = require('../../../src/globals/svg/iris_icon_delete_12.svg');
+  
  exports.IrisIconDelete16 = require('../../../src/globals/svg/iris_icon_delete_16.svg');
   
  exports.IrisIconDelete24 = require('../../../src/globals/svg/iris_icon_delete_24.svg');
