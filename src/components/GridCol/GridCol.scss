@@ -36,10 +36,7 @@
 @mixin offset($count, $offsetDirection) {
     @for $i from 1 through $count {
         &-#{$i} {
-            margin-#{$offsetDirection}: calc( #{($i/$grid-gutter-width * 100%)} + #{ ($grid-gutter-width * ($i - 1)) * $rem-pixel } );
-            &.formColumn {
-                margin-#{$offsetDirection}: calc( #{($i/$grid-gutter-width-form * 100%)} + #{ ($grid-gutter-width-form * ($i - 1)) * $rem-pixel } );
-            }
+            margin-#{$offsetDirection}:  100% * ($i/24);
         }
     }
 }
