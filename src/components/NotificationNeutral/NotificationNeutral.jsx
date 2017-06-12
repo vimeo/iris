@@ -30,6 +30,8 @@ class NotificationNeutral extends React.Component {
         super(props);
     }
 
+    props: Props;
+
     render() {
         const {
             hasIcon,

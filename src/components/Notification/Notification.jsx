@@ -13,7 +13,7 @@ type Props = {
     children: React$Element<*>,
     className?: string,
     dismissIconClassName?: string,
-    icon: React$Element<*>,
+    icon?: any,
     onDismiss: any,
 };
 
