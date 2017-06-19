@@ -29,6 +29,8 @@ class NotificationSuccess extends React.Component {
         super(props);
     }
 
+    props: Props;
+
     render() {
 
         // filter out props that are not meant to be passed in as an attribute from props and store the rest as "filteredProps" to be printed into the component as attrubutes in the tag (e.g. HTML attribute pass-through, event handlers)
