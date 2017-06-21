@@ -8,7 +8,7 @@ import GridCol from '../GridCol/GridCol.jsx';
 const displayName = 'Grid';
 
 type Props = {
-    children: boolean,
+    children: React$Element<*>,
     className?: string,
     centered?: boolean,
     hasMaxWidth?: boolean,
