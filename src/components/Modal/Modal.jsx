@@ -29,37 +29,23 @@ class Modal extends React.Component {
         this._handleModalClose.bind(this);
     }
 
+    componentDidMount() {
+        if (this.props.isShowing) {
+            this._openModal();
+        }
+    }
+
     componentDidUpdate(prevProps: any) {
         if (this.props.isShowing && !prevProps.isShowing) {
-            this._freezeBodyScroll();
-
-            const elementListCallback = () => {
-                this._bindEvents();
-            };
-
-            if (!this.thisEl) {
-                const el = ReactDOM.findDOMNode(this);
-                this.thisEl = el;
-            }
-
-            if (!this.previouslyFocusedElement) {
-                this._getOriginalFocusedEl();
-            }
-
-            this._setFocusableElementList(
-                elementListCallback.bind(this)
-            );
+            this._openModal();
         }
         else if (!this.props.isShowing && prevProps.isShowing) {
-            this. _unfreezeBodyScroll();
-            this._resetOriginalFocus();
-            this._unbindEvents();
+            this._closeModal();
         }
     }
 
     componentWillUnmount() {
-        this. _unfreezeBodyScroll();
-        this._resetOriginalFocus();
+        this._closeModal();
     }
 
     props: Props;
@@ -150,6 +136,32 @@ class Modal extends React.Component {
         if (previouslyFocusedElement) {
             this.previouslyFocusedElement = previouslyFocusedElement;
         }
+    }
+
+    _closeModal() {
+        this. _unfreezeBodyScroll();
+        this._resetOriginalFocus();
+        this._unbindEvents();
+    }
+    _openModal() {
+        this._freezeBodyScroll();
+
+        const elementListCallback = () => {
+            this._bindEvents();
+        };
+
+        if (!this.thisEl) {
+            const el = ReactDOM.findDOMNode(this);
+            this.thisEl = el;
+        }
+
+        if (!this.previouslyFocusedElement) {
+            this._getOriginalFocusedEl();
+        }
+
+        this._setFocusableElementList(
+                elementListCallback.bind(this)
+            );
     }
 
     _setFocusableElementList(callback: any) {
