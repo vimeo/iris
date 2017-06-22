@@ -3,10 +3,10 @@
 $Modal_animation-speed: 350ms;
 
 .Modal {
-    overflow: scroll;
+    overflow: auto;
 
     position: relative;
-    z-index: 9998;
+    z-index: 9999;
     top: 15vh;
 
     width: 80%;
@@ -38,7 +38,7 @@ $Modal_animation-speed: 350ms;
 
 .Overlay {
     position: fixed;
-    z-index: 9999;
+    z-index: 9998;
     top: 0;
     left: 0;
 
