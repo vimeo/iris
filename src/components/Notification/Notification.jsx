@@ -2,7 +2,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './Notification.scss';
-import DeleteIcon from '../../globals/svg/dismiss_iris.svg';
+import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
+
 import animationStyles from '../../animations/dropInOut/dropInOut.scss';
 
 /* Note: This component is the base component for themed notifications, do not use it by itself */
@@ -44,10 +45,17 @@ const Notification = (props: Props): React$Element<*> => {
         </span>
     );
 
+    const dismissElementClass = classNames(
+        styles.dismissButton,
+        (dismissIconClassName ? dismissIconClassName : null)
+    );
+
     const dismissElement = (
-            <button className = {styles.dismissButton} onClick={onDismiss}>
-                <DeleteIcon title="Dismiss this notification" className={dismissIconClassName} />
-            </button>
+            <ButtonDialogClose
+                className={dismissElementClass}
+                onClick={onDismiss}
+                buttonTitle="Dismiss this notification"
+             />
     );
 
     return (

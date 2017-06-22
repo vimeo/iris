@@ -8,3 +8,4 @@
 [options]
 module.name_mapper='.*\(.scss\)' -> 'empty/object'
 esproposal.decorators=ignore
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
