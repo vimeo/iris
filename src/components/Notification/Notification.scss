@@ -44,32 +44,12 @@ $Notification_dismiss-icon-size: rem-calc(18);
 
 // dismiss button
 .dismissButton {
-    position: absolute;
     top: rem-calc(10);
     right: $Notification_padding-horizontal;
 
-    width: $Notification_dismiss-icon-size;
-    height: $Notification_dismiss-icon-size;
-
     opacity: 0.75;
-    border: 0;
-    background: transparent;
-
-    appearance: none;
-
 
     &:hover {
         opacity: 1;
-
-        cursor: pointer;
-    }
-
-    svg {
-        position: absolute;
-        top: 0;
-        right: 0;
-
-        width: $Notification_dismiss-icon-size;
-        height: $Notification_dismiss-icon-size;
     }
 }

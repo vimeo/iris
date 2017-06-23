@@ -22,6 +22,7 @@
         ["InputToggle", "Inputs: Toggle"],
         ["TextArea", "Inputs: TextArea"],
         ["LoaderCircular", "Circular Loader"],
+        ["Modal", "Modal Dialog"],
         ["NotificationNeutral", "Neutral Notification"],
         ["NotificationSuccess", "Success Notification"],
         ["NotificationWarning", "Warning Notification"]

@@ -1,0 +1,232 @@
+import React from 'react';
+import Modal from './Modal';
+import Button from '../Button/Button';
+import InputText from '../InputText/InputText';
+import { GridBlock, GridCol, Grid } from '../../../src/components/Grid/Grid';
+import styles from './Modal-Docs.scss';
+import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+
+class ModalDocs extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showModalOne: false,
+            showModalTwo: false,
+            showModalThree: false,
+        };
+        this.openModal1 = this.openModal1.bind(this);
+        this.openModal2 = this.openModal2.bind(this);
+        this.openModal3 = this.openModal3.bind(this);
+        this.closeModal1 = this.closeModal1.bind(this);
+        this.closeModal2 = this.closeModal2.bind(this);
+        this.closeModal3 = this.closeModal3.bind(this);
+    }
+
+    closeModal1() {
+        this.setState({ showModalOne: false });
+    }
+
+    openModal1() {
+        this.setState({ showModalOne: true });
+    }
+
+    closeModal2() {
+        this.setState({ showModalTwo: false });
+    }
+
+    openModal2() {
+        this.setState({ showModalTwo: true });
+    }
+
+    closeModal3() {
+        this.setState({ showModalThree: false });
+    }
+
+    openModal3() {
+        this.setState({ showModalThree: true });
+    }
+
+    render() {
+
+        return (
+            <div className="Pattern__docs">
+                <div data-code />
+                <h3>Modal With Title Bar</h3>
+                <p>By passing a string to <code>modalTitle</code> a pre-formatted title bar will appear at the top of the modal. This is the standard modal dialog.</p>
+
+                <Modal
+                        modalLabelId="exampleModal2Label"
+                        modalDescriptionId="exampleModal2Desc"
+                        modalCloseLabel="Close this dialog."
+                        modalTitle="Modal With Title Bar"
+                        onDismiss={this.closeModal2}
+                        isShowing = {this.state.showModalTwo}
+                    >
+                    <Grid>
+                            <GridBlock>
+                                <GridCol
+                                        formColumn
+                                    >
+                                        <p id="exampleModal2Desc">Click these buttons to do stuff... or don't. It's up to you really.</p>
+                                    </GridCol>
+                                    <GridCol
+                                            mdSpan={6}
+                                            mdOffset={12}
+                                            formColumn
+                                        >
+                                            <Button
+                                            autoWidth="fluid"
+                                            onClick={this.closeModal2}
+                                            >
+                                                Do it.
+                                            </Button>
+                                        </GridCol>
+                                        <GridCol
+                                            mdSpan={6}
+                                            formColumn
+                                        >
+                                            <Button
+                                            autoWidth="fluid"
+                                            format="secondary"
+                                            onClick={this.closeModal2}
+                                            >
+                                                Cancel
+                                            </Button>
+                                        </GridCol>
+                                </GridBlock>
+                            </Grid>
+                    </Modal>
+
+                    <Button format="primaryOutline"
+                    onClick={this.openModal2}
+                >
+                    Show Modal
+                </Button>
+
+                    <ExampleSource>
+                    {`
+<Modal
+    modalLabelId="exampleModal2Label"
+    modalDescriptionId="exampleModal2Desc"
+    modalCloseLabel="Close this dialog."
+    modalTitle="Modal With Title Bar"
+    onDismiss={this.closeModal2}
+    isShowing = {this.state.showModalTwo}
+>
+    ... content here
+</Modal>
+                        `}
+                    </ExampleSource>
+                    <h3>Free-form Modal</h3>
+                    <p>If there is a string passed to <code>modalTitle</code> The modal will print be open for any content.</p>
+                    <Modal
+                        modalLabelId="exampleModalLabel"
+                        modalDescriptionId="exampleModalDesc"
+                        modalCloseLabel="Close this dialog."
+                        onDismiss={this.closeModal1}
+                        isShowing = {this.state.showModalOne}
+                    >
+                        <h2 className={styles.centeredHeadline} id="exampleModaLabel">Modal Title</h2>
+                        <p id="exampleModalDesc">This is what a log-in modal might look like.</p>
+
+                        <InputText
+                            name="modalFormEmailLogin"
+                            id="modalFormUsername"
+                            label="Email Address"
+                        />
+
+                        <InputText
+                            name="modalFormPasswordLogin"
+                            id="modalFormPasswordLogin"
+                            label="Password"
+                            type="password"
+                        />
+
+                        <Button
+                            autoWidth="fluid"
+                            format="primary"
+                            onClick={this.closeModal1}
+                        >
+                            Log In
+                        </Button>
+                        <Button
+                            autoWidth="fluid"
+                            format="secondary"
+                            onClick={this.closeModal1}
+                        >
+                            Cancel
+                        </Button>
+
+                    </Modal>
+                    <Button
+                        format="primaryOutline"
+                        onClick={this.openModal1}
+                    >
+                        Show Modal
+                    </Button>
+                <ExampleSource>
+                    {`
+ <Modal
+    modalLabelId="exampleModalLabel"
+    modalDescriptionId="exampleModalDesc"
+    modalCloseLabel="Close this dialog."
+    onDismiss={this.closeModal1}
+    isShowing = {this.state.showModalOne}
+>
+    ... content here
+</Modal>
+                        `}
+                    </ExampleSource>
+                    <h3>Non Dismissible Modal</h3>
+                    <p>If we do not want the user to have access to the usual closing controls, do not pass anything to the <code>onDismiss</code> prop. The modal will not print the close button and the background will not do anything on click.</p>
+                    <Modal
+                        fullBleed
+                        modalLabelId="exampleNoCloseModalLabel"
+                        modalDescriptionId="exampleModalDesc"
+                        isShowing = {this.state.showModalThree}
+                    >
+                        <h1 id = "exampleNoCloseModalLabel">I Will Not Be Dismissed or Padded!</h1>
+                        <p id="exampleModalDescNoClose">Sometimes we don't want modals to be dimissible</p>
+                        <p>I also have no padding!</p>
+
+                        <Button
+                            autoWidth="fluid"
+                            format="primary"
+                            onClick={this.closeModal3}
+                        >
+                            I'll close the modal
+                        </Button>
+                    </Modal>
+                    <Button
+                        format="primaryOutline"
+                        onClick={this.openModal3}
+                    >
+                        Show Modal
+                    </Button>
+                    <ExampleSource>
+                    {`
+  <Modal
+    fullBleed
+    modalLabelId="exampleNoCloseModalLabel"
+    modalDescriptionId="exampleModalDesc"
+    isShowing = {this.state.showModalThree}
+>
+    ... content here
+</Modal>
+                        `}
+                    </ExampleSource>
+                    <h3>Implementation Notes</h3>
+                    <ul>
+                        <li>The modal does not handle the logic behind opening or closing itself. The modal should be shown or hidden based on its <code>isShowing</code>.</li>
+                        <li> <code>onDismiss</code> receives a function to call when any action that should close the modal is triggered</li>
+                        <li>The modal needs a string passed to <code>modalLabelId</code> representing an id for an elment that labels the modal. If the <code>modalTitle</code> prop is used. This id will be applied to that element.</li>
+                        <li>The <code>modalDescriptionId</code> prop should be a string representing the an element that desribes the modal's intention.</li>
+                        <li><code>modalCloseLabel</code> should be a text string describing what clicking the close icon will do. For example, "Close this Dialog".</li>
+                         <li><code>fullBleed</code> is a boolean for suppressing padding in the modal for. Passing <code>true</code> to it suppresses padding.</li>
+                    </ul>
+                </div>
+        );
+    }
+}
+
+export default ModalDocs;

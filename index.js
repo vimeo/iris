@@ -21,6 +21,8 @@ exports.paths = {
   
   'iris/Button':'iris/src/components/Button/Button',
   
+  'iris/ButtonDialogClose':'iris/src/components/ButtonDialogClose/ButtonDialogClose',
+  
   'iris/ButtonIconOnly':'iris/src/components/ButtonIconOnly/ButtonIconOnly',
   
   'iris/CircularButton':'iris/src/components/CircularButton/CircularButton',
@@ -56,6 +58,8 @@ exports.paths = {
   'iris/InputWrapperInline':'iris/src/components/InputWrapperInline/InputWrapperInline',
   
   'iris/LoaderCircular':'iris/src/components/LoaderCircular/LoaderCircular',
+  
+  'iris/Modal':'iris/src/components/Modal/Modal',
   
   'iris/Notification':'iris/src/components/Notification/Notification',
   
