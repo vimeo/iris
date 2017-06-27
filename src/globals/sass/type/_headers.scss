@@ -1,0 +1,88 @@
+@import "../utilities/rem-calc";
+@import "../utilities/spacing";
+@import "../utilities/typography";
+@import "../settings/typography";
+@import "../settings/color-assignments";
+
+// Headers _____________________________________________________________________
+
+@mixin Headers {
+    margin: 0;
+    padding: 0;
+
+    font-family: $FontFamily;
+
+    color: $HeaderTextColor;
+}
+
+@mixin Header1 {
+    @include Headers;
+
+    margin-bottom: spacingUnit(5);
+
+    font-size: rem-calc($Header1);
+    font-weight: $FontWeightMedium;
+    line-height: calculateLineHeightTarget($Header1, 40);
+
+    letter-spacing: $LetterSpacingLg;
+}
+
+@mixin Header2 {
+    @include Headers;
+
+    margin-bottom: spacingUnit(4);
+
+    font-size: rem-calc($Header2);
+    font-weight: $FontWeightMedium;
+    line-height: calculateLineHeightTarget($Header2, 32);
+
+    letter-spacing: $LetterSpacingLg;
+}
+
+@mixin Header3 {
+    @include Headers;
+
+    margin-bottom: spacingUnit(2);
+
+    font-size: rem-calc($Header3);
+    font-weight: $FontWeightMedium;
+    line-height: calculateLineHeightTarget($Header3, 28);
+
+    letter-spacing: $LetterSpacingMd;
+}
+
+@mixin Header4 {
+    @include Headers;
+
+    margin-bottom: spacingUnit(1);
+
+    font-size: rem-calc($Header4);
+    font-weight: $FontWeightBold;
+    line-height: calculateLineHeightTarget($Header4, 24);
+
+    letter-spacing: $LetterSpacingMd;
+}
+
+@mixin Header5 {
+    @include Headers;
+
+    margin-bottom: spacingUnit(2);
+
+    font-size: rem-calc($Header5);
+    font-weight: $FontWeightBold;
+    line-height: calculateLineHeightTarget($Header5, 20);
+
+    letter-spacing: $LetterSpacingMd;
+}
+
+@mixin Header6 {
+    @include Headers;
+
+    margin-bottom: spacingUnit(2);
+
+    font-size: rem-calc($Header6);
+    font-weight: $FontWeightBold;
+    line-height: calculateLineHeightTarget($Header6, 20);
+
+    letter-spacing: $LetterSpacingMd;
+}

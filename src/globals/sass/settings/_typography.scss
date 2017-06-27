@@ -1,9 +1,31 @@
+$FontBase: 16;
+$rem-base: $FontBase; // used by rem calc function
+$FontFamily: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$FontWeightMedium: 500;
+$FontWeightBold: 600;
+$LetterSpacingLg: 0.04rem;
+$LetterSpacingMd: 0.01rem;
+$LetterSpacing: 0.1;
+$Header1: 36;
+$Header2: 28;
+$Header3: 22;
+$Header4: 18;
+$Header5: $FontBase;
+$Header6: 14;
+$BodyLg: $FontBase;
+$BodyLg-maxWidth: 548;
+$BodyMd: 14;
+$BodyMd-maxWidth: 468;
+$BodySm: 12;
+$BodySm-maxWidth: 400;
+
+
+
+// Deprecated Header Styles (DO NOT USE)
 $g-font-size: 16;
 $g-font-base: 14;
 $g-base-font-size: $g-font-size *1px !default;
 $g-base-line-height: 24px !default;
-$rem-base: $g-font-size; // used by rem calc function
-
 $g-header-1: 36;
 $g-header-2: 24;
 $g-header-3: 18;

@@ -19,16 +19,14 @@
 	@else if $size == 'xlg' {
 		@return $g-header-1/$g-font-size * 1rem; //36px, 2.571rem
 	}
-	@else{
+	@else {
 		@if type-of($size) != "number" {
 	    @warn "`#{$size}` is not a number of `add-10`.";
 	    @return false;
-	  }
-		@else{
-			//Use @warn if compiler gives this error: '' isn't a valid CSS value.
-			//@warn "`#{$size}` is this value.";
-			@return $size/$g-font-size * 1rem;
-		}
+	}
+	@else {
+		@return $size/$g-font-size * 1rem;
+	}
 
 	}
 }
@@ -36,4 +34,15 @@
 // Calculate Unitless Line Height
 @function calculateLineHeightTarget($fontSize, $targetLineHeight)  {
     @return $targetLineHeight/$fontSize;
+}
+
+
+// Set antialiasing for Retina Displays
+@mixin retinaAntialiasing() {
+	@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+        /* Retina specific font antialiasing */
+        //Chrome, Safari, Opera, and FF
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 }
