@@ -45,7 +45,9 @@ class Modal extends React.Component {
     }
 
     componentWillUnmount() {
-        this._closeModal();
+        if (this.props.isShowing) {
+            this._closeModal();
+        }
     }
 
     props: Props;
@@ -61,15 +63,17 @@ class Modal extends React.Component {
             this._handleEsc.bind(this)
         );
 
-        this.lastFocusableElement.addEventListener(
-            'keydown',
-            this._handleForwardFocusLooping.bind(this)
-        );
+        if (this.lastFocusableElement && this.firstFocusableElement) {
+            this.lastFocusableElement.addEventListener(
+                'keydown',
+                this._handleForwardFocusLooping.bind(this)
+            );
 
-        this.firstFocusableElement.addEventListener(
-            'keydown',
-            this._handleBackwardFocusLooping.bind(this)
-        );
+            this.firstFocusableElement.addEventListener(
+                'keydown',
+                this._handleBackwardFocusLooping.bind(this)
+            );
+        }
     }
 
     _unbindEvents() {
