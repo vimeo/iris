@@ -1,10 +1,13 @@
+@import "./colors";
+
 // Text Colors
 $BodyTextColor-Dark: $AstroGranite;
-$BodyTextColor-Light: #8699A6;
+$BodyTextColor-Light: $RegentGray;
 $MetaTextColor: #8A9599;
 $HeaderTextColor: $AstroGranite;
 $LightLinkColor: $VimeoBlue;
 $LightLinkColor-Hover: $VimeoBlue-Darkened;
 $DarkLinkColor: #17272E;
-$DarkLinkColor-Hover: $VimeoBlue;
+$DarkLinkColor-Hover: $AstroGranite;
+$SelectionHover: $VimeoBlue;
 $FormPlaceholderColor: $RegentGray;
