@@ -16,7 +16,8 @@ gulp.task('cssCombGlobal', function() {
   return gulp.src([
       config.paths.globalsSrc + '**/*.scss',
       '!' + config.paths.globalsSrc + 'sass/fills/_libsass.scss',
-       '!' + config.paths.globalsSrc + 'sass/utilities/*.scss'
+      '!' + config.paths.globalsSrc + 'sass/utilities/*.scss',
+      '!' + config.paths.globalsSrc + 'sass/settings/_colors.scss',
       ])
     .pipe(csscomb())
     .pipe(gulp.dest(config.paths.globalsSrc));
