@@ -3,7 +3,7 @@ import NotificationWarning from './NotificationWarning';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import Button from '../Button/Button';
 import { TransitionGroup } from 'react-transition-group';
-
+import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
 
 class NotificationWarningDocs extends React.Component {
     // test handler for onDismiss event
@@ -29,9 +29,9 @@ class NotificationWarningDocs extends React.Component {
 
         return (
             <div>
-                <p>The Warning Notification is used for most message types.</p>
-                <h3>Animating the Notification Dismissal</h3>
-                <p>See Neutral Notification for instructions</p>
+                <ParagraphMd>The Warning Notification is used for most message types.</ParagraphMd>
+                <Header3>Animating the Notification Dismissal</Header3>
+                <ParagraphMd>See Neutral Notification for instructions</ParagraphMd>
                 <div data-code>
                     <TransitionGroup>
                                 {this.state.showNotification ? DismissableNotification : null}

@@ -1,18 +1,18 @@
 import React from 'react';
 import IrisIconAlert16 from '../../../src/globals/svg/iris_icon_alert_16';
-
+import { ParagraphMd, Header3, Header4 } from '../../../src/utility_components/Type/Type';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 const SvgsDocs = (props) => {
     return (
         <div className="Pattern__docs">
-            <p>SVGs are loaded in using <a href="https://github.com/jhamlet/svg-react-loader" target="_blank">svg-react-loader</a></p>
-            <h4>All Iris Icons</h4>
-            <p><a href="svgPage.html" target="_blank">See all SVG Icons Here</a></p>
+            <ParagraphMd>SVGs are loaded in using <a href="https://github.com/jhamlet/svg-react-loader" target="_blank">svg-react-loader</a></ParagraphMd>
+            <Header3>All Iris Icons</Header3>
+            <ParagraphMd><a href="svgPage.html" target="_blank">See all SVG Icons Here</a></ParagraphMd>
 
-            <h4>Using an Iris Icon</h4>
-            <p>Icons are loaded with the <a href="https://github.com/jhamlet/svg-react-loader" target="_blank">SVG React Loader</a>.To include an icon you need to know its "Component Name" and File Name.</p>
-            <p>Icons are then imported and included as JSX tags. Note: you can pass through any props you would like to this tag. (See example below)</p>
+            <Header3>Using an Iris Icon</Header3>
+            <ParagraphMd>Icons are loaded with the <a href="https://github.com/jhamlet/svg-react-loader" target="_blank">SVG React Loader</a>.To include an icon you need to know its "Component Name" and File Name.</ParagraphMd>
+            <ParagraphMd>Icons are then imported and included as JSX tags. Note: you can pass through any props you would like to this tag. (See example below)</ParagraphMd>
             <ExampleSource>
                 {`
 // import it
@@ -22,19 +22,19 @@ import '{ComponentName}' from 'iris/icons/{fileName}';
 <ComponentName />
                     `}
                 </ExampleSource>
-            <h4>Example: IrisIconAlert16</h4>
+            <Header4>Example: IrisIconAlert16</Header4>
             <div style={{'width' : '3em', 'height' : '3em'}} data-code>
                 <IrisIconAlert16 title="See your alerts" className="someSVGClass" id="someSVGid" style={{'width': '75%'}} />
             </div>
-            <p><strong>ComponentName:</strong> IrisIconAlert16</p>
-            <p><strong>File Name:</strong> iris_icon_alert_16.svg</p>
-            <p><strong>Import it:</strong></p>
+            <ParagraphMd><strong>ComponentName:</strong> IrisIconAlert16</ParagraphMd>
+            <ParagraphMd><strong>File Name:</strong> iris_icon_alert_16.svg</ParagraphMd>
+            <ParagraphMd><strong>Import it:</strong></ParagraphMd>
             <ExampleSource>
                 {`
 import 'IrisIconAlert16' from 'iris/icons/iris_icon_alert_16';
                     `}
                 </ExampleSource>
-                <p><strong>Use it as a JSX tag:</strong></p>
+                <ParagraphMd><strong>Use it as a JSX tag:</strong></ParagraphMd>
                 <ExampleSource>
                     {`
 <IrisIconAlert16 title="See your alerts" className="someSVGClass" id="someSVGid" style={{'width': '75%'}} />

@@ -3,7 +3,7 @@ import NotificationNeutral from './NotificationNeutral';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import Button from '../Button/Button';
 import { TransitionGroup } from 'react-transition-group';
-
+import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
 
 class NotificationNeutralDocs extends React.Component {
     // test handler for onDismiss event
@@ -24,15 +24,15 @@ class NotificationNeutralDocs extends React.Component {
                <NotificationNeutral
                     onDismiss={this.handleClick}
                 >
-                    <p>This component is a neutral notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</p>
+                    <ParagraphMd>This component is a neutral notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</ParagraphMd>
                 </NotificationNeutral>
         );
 
         return (
             <div>
-                <p>The Neutral Notification is used for most message types.</p>
-                <h3>Animating the Notification Dismissal</h3>
-                <p>If you are making the notification dismissable by passing a function to <code>onDismiss</code>, be sure to wrap the notification in the `TransitionGroup` component, provided by importing `react-transition-group`</p>
+                <ParagraphMd>The Neutral Notification is used for most message types.</ParagraphMd>
+                <Header3>Animating the Notification Dismissal</Header3>
+                <ParagraphMd>If you are making the notification dismissable by passing a function to <code>onDismiss</code>, be sure to wrap the notification in the `TransitionGroup` component, provided by importing `react-transition-group`</ParagraphMd>
 
                 <div data-code>
                     <TransitionGroup>

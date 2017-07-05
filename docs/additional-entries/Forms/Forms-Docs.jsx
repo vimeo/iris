@@ -5,14 +5,15 @@ import InputSelect from '../../../src/components/InputSelect/InputSelect';
 import InputText from '../../../src/components/InputText/InputText';
 import InputRadioSet from '../../../src/components/InputRadioSet/InputRadioSet';
 import InputCheckbox from '../../../src/components/InputCheckbox/InputCheckbox';
+import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 
 const FormsDocs = (props) => {
     return (
         <div className="Pattern__docs">
-            <h3>Basic Form Example</h3>
-            <p>Here is an example form using the <code>formColumn</code> mode of the grid</p>
+            <Header3>Basic Form Example</Header3>
+            <ParagraphMd>Here is an example form using the <code>formColumn</code> mode of the grid</ParagraphMd>
             <div data-code>
                 <Grid>
                     <GridBlock>
@@ -45,7 +46,7 @@ const FormsDocs = (props) => {
                                 label="Address"
                             />
                         </GridCol>
-                          <GridCol
+                        <GridCol
                             formColumn
                         >
                             <InputText
@@ -128,7 +129,7 @@ const FormsDocs = (props) => {
                                 <option value="WY">Wyoming</option>
                             </InputSelect>
                         </GridCol>
-                          <GridCol
+                        <GridCol
                             mdSpan={6}
                             formColumn
                         >
@@ -139,7 +140,7 @@ const FormsDocs = (props) => {
                             />
                         </GridCol>
                     </GridBlock>
-                     <GridBlock>
+                    <GridBlock>
                         <GridCol
                             formColumn
                         >
@@ -158,7 +159,7 @@ const FormsDocs = (props) => {
                                         id: 'RadioForm2',
                                         value: '2',
                                     },
-                                     {
+                                    {
                                         label: '...a Mineral',
                                         id: 'RadioForm3',
                                         value: '3',
@@ -187,7 +188,7 @@ const FormsDocs = (props) => {
                         </GridCol>
                     </GridBlock>
                     <GridBlock>
-                      <GridCol
+                    <GridCol
                             mdSpan={6}
                             mdOffset={12}
                             formColumn

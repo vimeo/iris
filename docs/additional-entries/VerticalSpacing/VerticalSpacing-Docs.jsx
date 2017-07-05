@@ -1,15 +1,15 @@
 import React from 'react';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-
+import {ParagraphMd} from '../../../src/utility_components/Type/Type';
 const VerticalSpacingDocs = (props) => {
     return (
         <div className="Pattern__docs">
-            <p>
+            <ParagraphMd>
                 Vertical spacing is created within CSS. It is based on a base-4 system 
                 where the function returns a single unit of 0.25rem (4px). In any sass file that has included
                 the Iris helper styles at the head of the document. The <code>spacingUnit()</code> can be used for
                 long-hand properties by passing in up to 4 comma separated arguments.
-            </p>
+            </ParagraphMd>
 
             <ExampleSource>
                 {`

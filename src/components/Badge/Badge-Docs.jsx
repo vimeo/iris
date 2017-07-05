@@ -1,11 +1,11 @@
 import React from 'react';
 import Badge from './Badge';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-
+import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
 const BadgeDocs = (props) => {
     return (
         <div className="Pattern__docs">
-            <h3>Regular Badges (small)</h3>
+            <Header3>Regular Badges (small)</Header3>
             <div style={{ 'padding': '1em', 'width': '100%' }} data-code>
                 <Badge href="#">default</Badge>
                 <Badge href="#" format="alum">alum</Badge>
@@ -64,7 +64,7 @@ const BadgeDocs = (props) => {
                 `}
                 </ExampleSource>
 
-                <h3>Large Badges</h3>
+                <Header3>Large Badges</Header3>
                 <div data-code>
                     <Badge href="#" format="explicit" size="lg">explicit</Badge>
                     <Badge href="#" format="unrated" size="lg">unrated</Badge>
@@ -79,8 +79,8 @@ const BadgeDocs = (props) => {
                     `}
                     </ExampleSource>
 
-                    <h3>Non-link Badges</h3>
-                    <p>Most badges are links, but if you need a badge that is not a link, just omit the href attribute and the badge will be a span.</p>
+                    <Header3>Non-link Badges</Header3>
+                    <ParagraphMd>Most badges are links, but if you need a badge that is not a link, just omit the href attribute and the badge will be a span.</ParagraphMd>
                     <div data-code>
                         <Badge href="#" format="staff">link</Badge>
                         <Badge format="pro">span</Badge>

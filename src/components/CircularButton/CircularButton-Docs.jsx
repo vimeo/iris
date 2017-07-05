@@ -2,13 +2,13 @@ import React from 'react';
 import CircularButton from './CircularButton';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import IrisIconDelete16 from '../../../src/globals/svg/iris_icon_delete_16';
-
+import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
 const CircularButtonDocs = (props) => {
     return (
         <div className="Pattern__docs">
-            <h3>Regular Circular Buttons</h3>
-            <p>These are used as an alternative button style to default buttons. The format prop styles the color, fill, and stroke of this component. Primary is the default.
-            </p>
+            <Header3>Regular Circular Buttons</Header3>
+            <ParagraphMd>These are used as an alternative button style to default buttons. The format prop styles the color, fill, and stroke of this component. Primary is the default.
+            </ParagraphMd>
             <div data-code>
                 <CircularButton
                     icon={<IrisIconDelete16 />}
@@ -48,10 +48,10 @@ const CircularButtonDocs = (props) => {
             </ExampleSource>
 
 
-            <h3>Outline Circular Buttons</h3>
-            <p>In busy UIs sometimes a lighter weight button is necessary. Instances that require a circular button with a less dominant presence are a great use case for outlined
+            <Header3>Outline Circular Buttons</Header3>
+            <ParagraphMd>In busy UIs sometimes a lighter weight button is necessary. Instances that require a circular button with a less dominant presence are a great use case for outlined
                 circular buttons.
-            </p>
+            </ParagraphMd>
             <div data-code>
                 <CircularButton
                     format="primaryOutline"
@@ -93,9 +93,9 @@ const CircularButtonDocs = (props) => {
             </ExampleSource>
 
 
-            <h3>Dashed Circular Buttons</h3>
-            <p>Great for empty states for user related actions.
-            </p>
+            <Header3>Dashed Circular Buttons</Header3>
+            <ParagraphMd>Great for empty states for user related actions.
+            </ParagraphMd>
             <div data-code>
                 <CircularButton
                     format="primaryDashed"
@@ -139,9 +139,9 @@ const CircularButtonDocs = (props) => {
                     `}
             </ExampleSource>
 
-            <h3>White Circular Buttons</h3>
-            <p>For darker UIs, white circular buttons can be used in place of the default filled in buttons.
-            </p>
+            <Header3>White Circular Buttons</Header3>
+            <ParagraphMd>For darker UIs, white circular buttons can be used in place of the default filled in buttons.
+            </ParagraphMd>
             <div data-code style={{ backgroundColor: '#f6f7f8', padding: '1.25rem' }} >
                 <CircularButton
                     format="whitePrimary"
@@ -166,9 +166,9 @@ const CircularButtonDocs = (props) => {
                     `}
             </ExampleSource>
 
-            <h3>Sizes</h3>
-            <p>Circular buttons come in three default sizes: sm, md, lg. The size prop can be used to trigger these different states, medium is the default size.
-            </p>
+            <Header3>Sizes</Header3>
+            <ParagraphMd>Circular buttons come in three default sizes: sm, md, lg. The size prop can be used to trigger these different states, medium is the default size.
+            </ParagraphMd>
             <div data-code>
                 <CircularButton
                     size="sm"
@@ -199,9 +199,9 @@ const CircularButtonDocs = (props) => {
                     `}
             </ExampleSource>
 
-            <h3>Auto Horizontal Margins</h3>
-            <p>By default, circular buttons follow the same convention as buttons of 8px spacing between two or more circular button siblings. The prop can be turned off by setting the <code>autoMarginsHorizontal</code> prop to false.
-            </p>
+            <Header3>Auto Horizontal Margins</Header3>
+            <ParagraphMd>By default, circular buttons follow the same convention as buttons of 8px spacing between two or more circular button siblings. The prop can be turned off by setting the <code>autoMarginsHorizontal</code> prop to false.
+            </ParagraphMd>
             <div data-code>
                 <CircularButton
                     icon={<IrisIconDelete16 />} />

@@ -5,6 +5,7 @@ import InputText from '../InputText/InputText';
 import { GridBlock, GridCol, Grid } from '../../../src/components/Grid/Grid';
 import styles from './Modal-Docs.scss';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import { ParagraphMd, Header1, Header2, Header3 } from '../../../src/utility_components/Type/Type';
 
 class ModalDocs extends React.Component {
     constructor(props) {
@@ -51,8 +52,8 @@ class ModalDocs extends React.Component {
         return (
             <div className="Pattern__docs">
                 <div data-code />
-                <h3>Modal With Title Bar</h3>
-                <p>By passing a string to <code>modalTitle</code> a pre-formatted title bar will appear at the top of the modal. This is the standard modal dialog.</p>
+                <Header3>Modal With Title Bar</Header3>
+                <ParagraphMd>By passing a string to <code>modalTitle</code> a pre-formatted title bar will appear at the top of the modal. This is the standard modal dialog.</ParagraphMd>
 
                 <Modal
                         modalLabelId="exampleModal2Label"
@@ -67,7 +68,7 @@ class ModalDocs extends React.Component {
                                 <GridCol
                                         formColumn
                                     >
-                                        <p id="exampleModal2Desc">Click these buttons to do stuff... or don't. It's up to you really.</p>
+                                        <ParagraphMd id="exampleModal2Desc">Click these buttons to do stuff... or don't. It's up to you really.</ParagraphMd>
                                     </GridCol>
                                     <GridCol
                                             mdSpan={6}
@@ -117,8 +118,8 @@ class ModalDocs extends React.Component {
 </Modal>
                         `}
                     </ExampleSource>
-                    <h3>Free-form Modal</h3>
-                    <p>If there is a string passed to <code>modalTitle</code> The modal will print be open for any content.</p>
+                    <Header3>Free-form Modal</Header3>
+                    <ParagraphMd>If there is a string passed to <code>modalTitle</code> The modal will print be open for any content.</ParagraphMd>
                     <Modal
                         modalLabelId="exampleModalLabel"
                         modalDescriptionId="exampleModalDesc"
@@ -126,8 +127,8 @@ class ModalDocs extends React.Component {
                         onDismiss={this.closeModal1}
                         isShowing = {this.state.showModalOne}
                     >
-                        <h2 className={styles.centeredHeadline} id="exampleModaLabel">Modal Title</h2>
-                        <p id="exampleModalDesc">This is what a log-in modal might look like.</p>
+                        <Header2 className={styles.centeredHeadline} id="exampleModaLabel">Modal Title</Header2>
+                        <ParagraphMd id="exampleModalDesc">This is what a log-in modal might look like.</ParagraphMd>
 
                         <InputText
                             name="modalFormEmailLogin"
@@ -177,17 +178,17 @@ class ModalDocs extends React.Component {
 </Modal>
                         `}
                     </ExampleSource>
-                    <h3>Non Dismissible Modal</h3>
-                    <p>If we do not want the user to have access to the usual closing controls, do not pass anything to the <code>onDismiss</code> prop. The modal will not print the close button and the background will not do anything on click.</p>
+                    <Header3>Non Dismissible Modal</Header3>
+                    <ParagraphMd>If we do not want the user to have access to the usual closing controls, do not pass anything to the <code>onDismiss</code> prop. The modal will not print the close button and the background will not do anything on click.</ParagraphMd>
                     <Modal
                         fullBleed
                         modalLabelId="exampleNoCloseModalLabel"
                         modalDescriptionId="exampleModalDesc"
                         isShowing = {this.state.showModalThree}
                     >
-                        <h1 id = "exampleNoCloseModalLabel">I Will Not Be Dismissed or Padded!</h1>
-                        <p id="exampleModalDescNoClose">Sometimes we don't want modals to be dimissible</p>
-                        <p>I also have no padding!</p>
+                        <Header1 id = "exampleNoCloseModalLabel">I Will Not Be Dismissed or Padded!</Header1>
+                        <ParagraphMd id="exampleModalDescNoClose">Sometimes we don't want modals to be dimissible</ParagraphMd>
+                        <ParagraphMd>I also have no padding!</ParagraphMd>
 
                         <Button
                             autoWidth="fluid"
@@ -215,7 +216,7 @@ class ModalDocs extends React.Component {
 </Modal>
                         `}
                     </ExampleSource>
-                    <h3>Implementation Notes</h3>
+                    <Header3>Implementation Notes</Header3>
                     <ul>
                         <li>The modal does not handle the logic behind opening or closing itself. The modal should be shown or hidden based on its <code>isShowing</code>.</li>
                         <li> <code>onDismiss</code> receives a function to call when any action that should close the modal is triggered</li>

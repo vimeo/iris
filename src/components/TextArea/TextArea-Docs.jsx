@@ -27,7 +27,7 @@ class TextAreaDocs extends React.Component {
         }
         else if (this.state.nextState === 'error') {
             this.setState({
-                errorProp: (<p>This is a problem!</p>),
+                errorProp: (<ParagraphMd>This is a problem!</ParagraphMd>),
                 format: 'negative',
                 nextState: 'positive',
             });

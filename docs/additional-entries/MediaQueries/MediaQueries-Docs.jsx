@@ -1,11 +1,11 @@
 import React from 'react';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-
+import { ParagraphMd } from '../../../src/utility_components/Type/Type';
 const MediaQueriesDocs = (props) => {
     return (
         <div className="Pattern__docs">
-                <p>The Named Media Query Mixin can be used in components to ensure that breakpoints in the Grid. The breakpoints sizes are:</p>
-                <p>The mixin <code>mq()</code> takes the name of the media queries as its single argument. Valid values are:</p>
+                <ParagraphMd>The Named Media Query Mixin can be used in components to ensure that breakpoints in the Grid. The breakpoints sizes are:</ParagraphMd>
+                <ParagraphMd>The mixin <code>mq()</code> takes the name of the media queries as its single argument. Valid values are:</ParagraphMd>
                 <table className="ApiTable">
                     <thead>
                         <tr>
@@ -48,7 +48,7 @@ const MediaQueriesDocs = (props) => {
                     </tbody>
                 </table>
 
-                <p>The mixins below can be used in SCSS files:</p>
+                <ParagraphMd>The mixins below can be used in SCSS files:</ParagraphMd>
 
             <ExampleSource>
                 {`
