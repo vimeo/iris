@@ -8,6 +8,8 @@
 
 //Export Global CSS and all components ------------------
   
+ exports.AddIris = require('../../../src/globals/svg/add_iris.svg');
+  
  exports.AlertIris = require('../../../src/globals/svg/alert_iris.svg');
   
  exports.BellIris = require('../../../src/globals/svg/bell_iris.svg');

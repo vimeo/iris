@@ -26,6 +26,8 @@ exports.paths = {
   
   'iris/ButtonIconOnly':'iris/src/components/ButtonIconOnly/ButtonIconOnly',
   
+  'iris/ButtonToggleState':'iris/src/components/ButtonToggleState/ButtonToggleState',
+  
   'iris/CircularButton':'iris/src/components/CircularButton/CircularButton',
   
   'iris/Grid':'iris/src/components/Grid/Grid',
