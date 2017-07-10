@@ -8,7 +8,7 @@
     "Utilities": [
         ["MediaQueries", "Named Media Queries", true],
         ["VerticalSpacing", "Vertical Spacing Variables", true],
-        ["ZIndexHelper", "Z-Index Helper", true]
+        ["ZindexHelper", "Z-Index Helper", true]
     ],
     "Components": [
         ["Avatar", "Avatars"],
