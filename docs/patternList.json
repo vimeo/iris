@@ -30,7 +30,8 @@
         ["Modal", "Modal Dialog"],
         ["NotificationNeutral", "Neutral Notification"],
         ["NotificationSuccess", "Success Notification"],
-        ["NotificationWarning", "Warning Notification"]
+        ["NotificationWarning", "Warning Notification"],
+        ["SearchField", "Search Field"]
     ],
     "Layout": [
         ["Forms", "Forms", true],

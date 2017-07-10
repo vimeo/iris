@@ -78,6 +78,8 @@ exports.paths = {
   
   'iris/NotificationWarning':'iris/src/components/NotificationWarning/NotificationWarning',
   
+  'iris/SearchField':'iris/src/components/SearchField/SearchField',
+  
   'iris/TextArea':'iris/src/components/TextArea/TextArea',
   
 };
