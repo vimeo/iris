@@ -1,0 +1,25 @@
+@import '../settings/z-index';
+
+// See settings/z-index for input values
+
+@function get-z-index(
+    $elementName,
+    $elementList: $z-indexed-elements,
+    $overrides: $z-index-overrides
+    ) {
+
+    $z-index: 0;
+
+    @if map-has-key($overrides, $elementName) {
+        $z-index: map-get($overrides, $elementName);
+    } @else {
+        $z-index: index($elementList, $elementName);
+    }
+    
+    @if $z-index {
+        @return $z-index;
+    }
+
+    @warn 'There is no item "#{$elementName}"';
+    @return null;
+}

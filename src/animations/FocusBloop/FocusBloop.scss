@@ -27,7 +27,7 @@
 .FocusBloop {
     // position is determined by the component that is being decorated
     position: absolute;
-    z-index: 1;
+    z-index: get-z-index('FocusBloop');
 }
 
 input:focus ~ .FocusBloop {

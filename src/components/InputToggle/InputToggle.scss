@@ -29,7 +29,7 @@ $InputToggle_bloopSize-lg: 38;
     display: inline-block;
 
     position: absolute;
-    z-index: 4;
+    z-index: get-z-index('InputToggleOverlay');
     top: 0;
     left: 0;
 
