@@ -24,6 +24,12 @@ exports.paths = {
   
   'iris/ButtonDialogClose':'iris/src/components/ButtonDialogClose/ButtonDialogClose',
   
+  'iris/ButtonFileUpload':'iris/src/components/ButtonFileUpload/ButtonFileUpload',
+  
+  'iris/ButtonFileUploadIconOnly':'iris/src/components/ButtonFileUploadIconOnly/ButtonFileUploadIconOnly',
+  
+  'iris/ButtonFileUploadWrapper':'iris/src/components/ButtonFileUploadWrapper/ButtonFileUploadWrapper',
+  
   'iris/ButtonIconOnly':'iris/src/components/ButtonIconOnly/ButtonIconOnly',
   
   'iris/ButtonToggleState':'iris/src/components/ButtonToggleState/ButtonToggleState',
