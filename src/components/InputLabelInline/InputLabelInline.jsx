@@ -2,18 +2,23 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './InputLabelInline.scss';
+import InputLabelStateIcon from '../InputLabelStateIcon/InputLabelStateIcon';
 
 const displayName = 'InputLabelInline';
 
 type Props = {
     className?: string,
+    children: React$Element<*>,
     disabled?: boolean,
     format?: 'negative' | 'positive' | 'neutral',
+    fieldLevelErrors?: boolean;
 };
 
 const InputLabelInline = ({
                             className,
+                            children,
                             format = 'neutral',
+                            fieldLevelErrors,
                             disabled,
                         ...filteredProps
                     }: Props): React$Element<*> => {
@@ -27,11 +32,22 @@ const InputLabelInline = ({
         className
     );
 
+    const Icon = (
+            <InputLabelStateIcon
+                format = {format}
+            />
+    );
+
     return (
             <label
                 {...filteredProps}
                 className={componentClass}
-            />
+            >
+            <span>
+            {children}
+            { format !== 'neutral' && fieldLevelErrors ? Icon : null}
+            </span>
+            </label>
     );
 };
 

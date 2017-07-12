@@ -21,6 +21,7 @@ class InputRadioSetDocs extends React.Component {
                                 label: 'Radio 1',
                                 id: 'Radio1Set1',
                                 value: '1',
+                                defaultChecked: true,
                             },
                             {
                                 label: 'Radio 2',
@@ -31,11 +32,11 @@ class InputRadioSetDocs extends React.Component {
                         ]}
                     />
                     <InputRadioSet
-                        errorMsg="There has been an error."
                         format="negative"
                         label="Radio Set 2 (Errored)"
                         id="RadioSet2"
                         name="radioSet2"
+                        errorMsg="Please select one of these inputs"
                         radios = {[
                             {
                                 label: 'Radio 1',
@@ -63,6 +64,7 @@ class InputRadioSetDocs extends React.Component {
             label: 'Radio 1',
             id: 'Radio1Set1',
             value: '1',
+            defaultChecked: true,
         },
         {
             label: 'Radio 2',
@@ -74,11 +76,11 @@ class InputRadioSetDocs extends React.Component {
 />
 
 <InputRadioSet
-    errorMsg="There has been an error."
     format="negative"
     label="Radio Set 2 (Errored)"
     id="RadioSet2"
     name="radioSet2"
+    errorMsg="Please select one of these inputs"
     radios = {[
         {
             label: 'Radio 1',

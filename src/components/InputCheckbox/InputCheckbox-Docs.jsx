@@ -31,12 +31,20 @@ class InputCheckboxDocs extends React.Component {
                         value="3"
                     />
                     <InputCheckbox
-                        label="Errored Checkbox"
+                        label="Errored Field"
                         name="demoCheckbox4"
-                        errorMsg="This field is required!"
                         format="negative"
                         id="Checkbox4"
                         value="4"
+                        required
+                    />
+                    <InputCheckbox
+                        label="Checkbox has a very long label. Sometimes we need to tell people that they must agree to terms and conditions before they submit a form."
+                        name="demoCheckbox5"
+                        errorMsg="This field is required!"
+                        format="negative"
+                        id="Checkbox5"
+                        value="5"
                         required
                     />
                 </div>

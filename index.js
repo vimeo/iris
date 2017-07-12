@@ -36,6 +36,8 @@ exports.paths = {
   
   'iris/CircularButton':'iris/src/components/CircularButton/CircularButton',
   
+  'iris/FieldSet':'iris/src/components/FieldSet/FieldSet',
+  
   'iris/Grid':'iris/src/components/Grid/Grid',
   
   'iris/GridBlock':'iris/src/components/GridBlock/GridBlock',
@@ -47,6 +49,8 @@ exports.paths = {
   'iris/InputLabel':'iris/src/components/InputLabel/InputLabel',
   
   'iris/InputLabelInline':'iris/src/components/InputLabelInline/InputLabelInline',
+  
+  'iris/InputLabelStateIcon':'iris/src/components/InputLabelStateIcon/InputLabelStateIcon',
   
   'iris/InputMessage':'iris/src/components/InputMessage/InputMessage',
   

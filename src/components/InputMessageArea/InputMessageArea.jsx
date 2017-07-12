@@ -12,11 +12,13 @@ type Props = {
     className?: string,
     errorMsg?: React$Element<*>,
     helperMsg?: React$Element<*>,
+    format?: 'bottom' | 'sublabel',
 };
 
 const InputMessageArea = ({
                         className,
                         errorMsg,
+                        format = 'bottom',
                         helperMsg,
                         ...filteredProps
                     }: Props): React$Element<*> => {
@@ -24,6 +26,7 @@ const InputMessageArea = ({
         // className builder
     const componentClass = classNames(
             styles.InputMessageArea,
+            styles[format],
             className
         );
 

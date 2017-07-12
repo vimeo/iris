@@ -2,9 +2,8 @@
 
 import React from 'react';
 import classNames from 'classnames';
-import InputLabel from '../InputLabel/InputLabel';
 import InputRadio from '../InputRadio/InputRadio';
-import InputWrapperInline from '../InputWrapperInline/InputWrapperInline';
+import FieldSet from '../FieldSet/FieldSet';
 
 const displayName = 'InputRadioSet';
 
@@ -39,10 +38,6 @@ const InputRadioSet = ({
         className
     );
 
-    const labelElement = (
-        <InputLabel disabled={disabled} htmlFor={id}>{label}</InputLabel>
-    );
-
     const radioSet = [];
 
     radios.map(function(key, i) {
@@ -51,15 +46,16 @@ const InputRadioSet = ({
     });
 
     return (
-            <InputWrapperInline
+            <FieldSet
                 {...filteredProps}
                 errorMsg={errorMsg}
+                format={format}
                 helperMsg={helperMsg}
                 className={componentClass}
+                label={label}
             >
-                {label ? labelElement : null}
                 {radioSet}
-            </InputWrapperInline>
+            </FieldSet>
     );
 };
 

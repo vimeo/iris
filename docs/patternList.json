@@ -19,6 +19,7 @@
         ["ButtonFileUploadIconOnly", "Button: File Upload (Icon Only)"],
         ["ButtonToggleState", "Buttons: ToggleState"],
         ["CircularButton", "Circular Button"],
+        ["FieldSet", "FieldSet"],
         ["InputCheckbox", "Inputs: Checkbox"],
         ["InputRadio", "Inputs: Radio"],
         ["InputRadioSet", "Inputs: Radio Set"],
