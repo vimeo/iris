@@ -11,6 +11,7 @@ $Notification_dismiss-icon-size: rem-calc(18);
     position: relative;
 
     width: 100%;
+    margin-bottom: spacingUnit(4);
     padding-top: $Notification_padding-vertical;
     padding-right: $Notification_dismiss-icon-size + $Notification_padding-horizontal + $Notification_icon-margin;
     padding-bottom: $Notification_padding-vertical;

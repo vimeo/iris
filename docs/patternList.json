@@ -10,6 +10,10 @@
         ["VerticalSpacing", "Vertical Spacing Variables", true],
         ["ZindexHelper", "Z-Index Helper", true]
     ],
+
+     "Animation": [
+        ["SlideUpDownAnimation", "Slide Up/ Slide Down", true]
+    ],
     "Components": [
         ["Avatar", "Avatars"],
         ["Badge", "Badges"],

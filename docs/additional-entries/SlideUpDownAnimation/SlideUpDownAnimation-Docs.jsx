@@ -1,11 +1,13 @@
 import React from 'react';
-import NotificationSuccess from './NotificationSuccess';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import Button from '../Button/Button';
-import SlideUpDown from '../../animations/SlideUpDown/SlideUpDown';
-import { ParagraphMd } from '../../../src/utility_components/Type/Type';
+import NotificationSuccess from '../../../src/components/NotificationSuccess/NotificationSuccess';
+import Button from '../../../src/components/Button/Button';
+import SlideUpDown from '../../../src/animations/SlideUpDown/SlideUpDown';
+import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
 
-class NotificationSuccessDocs extends React.Component {
+
+
+class SlideUpDownAnimationDocs extends React.Component {
     // test handler for onDismiss event
 
     constructor(props) {
@@ -21,8 +23,7 @@ class NotificationSuccessDocs extends React.Component {
     render() {
         return (
             <div>
-                <ParagraphMd>The Success Notification is used to let the user know that they have been successful in their activity.</ParagraphMd>
-                <ParagraphMd>If the notification can be dismissed, Animation should be acheived by the SlideUpDown component. <a href="/pattern/Animation/SlideUpDownAnimation">See documentation.</a></ParagraphMd>
+                <ParagraphMd>The SlideUpDown animation is acheived by wrapping a component in the SlideUpDown animation component and using the boolean <code>isHidden</code> prop to control visibility of the component.</ParagraphMd>
                 <div data-code>
                     <SlideUpDown
                         isHidden={this.state.hideNotification}
@@ -34,12 +35,6 @@ class NotificationSuccessDocs extends React.Component {
                         </NotificationSuccess>
                     </SlideUpDown>
                     <Button format="secondaryOutline" size="xs" onClick={this.handleClick}>Toggle Notifcation</Button>
-                    <NotificationSuccess hasIcon={false}>
-                        <p>This is a Success notification without an icon.  I am  NOT dismissable.</p>
-                    </NotificationSuccess>
-                    <NotificationSuccess >
-                        <p>This is a Success notification. Also in order to make this a little longer I'm going to remind you that you can't be Success on a moving train.</p>
-                    </NotificationSuccess>
                 </div>
 
                 <ExampleSource>
@@ -53,13 +48,6 @@ class NotificationSuccessDocs extends React.Component {
             <p>This component is a Success notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</p>
     </NotificationSuccess>
 </SlideUpDown>
-<Button format="secondaryOutline" size="xs" onClick={this.handleClick}>Toggle Notifcation</Button>
-<NotificationSuccess hasIcon={false}>
-    <p>This is a Success notification without an icon.  I am  NOT dismissable.</p>
-</NotificationSuccess>
-<NotificationSuccess >
-    <p>This is a Success notification. Also in order to make this a little longer I'm going to remind you that you can't be Success on a moving train.</p>
-</NotificationSuccess>
                         `}
                     </ExampleSource>
                 </div>
@@ -67,4 +55,4 @@ class NotificationSuccessDocs extends React.Component {
     }
 }
 
-export default NotificationSuccessDocs;
+export default SlideUpDownAnimationDocs;

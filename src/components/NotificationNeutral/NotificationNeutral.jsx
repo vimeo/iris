@@ -4,13 +4,8 @@ import classNames from 'classnames';
 import styles from './NotificationNeutral.scss';
 import Notification from '../Notification/Notification';
 import InfoIcon from '../../globals/svg/info_iris.svg';
-import dropInOut from '../../animations/dropInOut/dropInOut';
 
 const displayName = 'NotificationNeutral';
-
-const defaultProps = {
-    hasIcon: true,
-};
 
 type Props = {
     children: string,
@@ -19,52 +14,33 @@ type Props = {
     onDismiss?: any,
 };
 
-// Animation Decorator
-@dropInOut
-
-class NotificationNeutral extends React.Component {
-
-    static defaultProps: Object;
-
-    constructor(props: Props) {
-        super(props);
-    }
-
-    props: Props;
-
-    render() {
-        const {
-            hasIcon,
-            onDismiss,
-            className,
-            children,
-            ...filteredProps
-        } = this.props;
+const NotificationNeutral = ({
+                        children,
+                        className,
+                        hasIcon = true,
+                        onDismiss,
+                        ...filteredProps
+                    }: Props): React$Element<*> => {
 
     // className builder
-        const componentClass = classNames(
+    const componentClass = classNames(
             styles.NotificationNeutral,
             className
         );
 
-        return (
+    return (
             <Notification
                 {...filteredProps}
                 icon={hasIcon ? <InfoIcon className={styles.iconColor} /> : null}
                 onDismiss={onDismiss}
                 dismissIconClassName = {styles.dismissIconColor}
                 className={componentClass}
-                children
             >
                     {children}
             </Notification>
-        );
-    }
-}
+    );
+};
 
 NotificationNeutral.displayName = displayName;
-
-NotificationNeutral.defaultProps = defaultProps;
-
 
 export default NotificationNeutral;
