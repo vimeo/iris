@@ -1,0 +1,22 @@
+:global {
+    .sg-grid {
+        background-color:rgba(3, 169, 244, 0.36);
+
+        [class^="GridBlock"] {
+            height: 100%;
+        }
+
+        [class^="GridCol"] {
+            background-color: rgba(3, 169, 244, 0.36);
+            background-clip: content-box;
+            height: 30px;
+            font-size: 12px;
+
+            [class^="GridCol"] + [class^="GridCol"] {
+                background-color: rgba(3, 169, 244, 0.36);
+                height: 100%;
+            }
+        }
+
+    }
+}

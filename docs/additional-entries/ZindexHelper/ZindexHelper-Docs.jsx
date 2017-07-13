@@ -1,13 +1,14 @@
 import React from 'react';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import {ParagraphMd, Header3} from '../../../src/utility_components/Type/Type';
 
 const ZindexHelperDocs = (props) => {
     return (
         <div className="Pattern__docs">
             <div data-code>
-                <p>The Z-index Helper is a SASS function used to centrally manage the z-index stack.</p>
-                <h3>Step 1: Setting Z-Index order</h3>
-                <p>Z-index is established by <code>src/globals/sass/settings/_z-index.scss</code> where there are two SASS variables:</p>
+                <ParagraphMd>The Z-index Helper is a SASS function used to centrally manage the z-index stack.</ParagraphMd>
+                <Header3>Step 1: Setting Z-Index order</Header3>
+                <ParagraphMd>Z-index is established by <code>src/globals/sass/settings/_z-index.scss</code> where there are two SASS variables:</ParagraphMd>
                 <ol>
                     <li><code>$z-index-overrides</code> is a map of element name: z-index value for elements that need special extreme overrides (such as the modals).</li>
                     <li><code>$z-indexed-elements</code> is a list of element names. the get-z-index` will look for the element name passed to it in this list and return its index in the order so that elements will be z-indexed in that order.</li>
@@ -29,9 +30,9 @@ $z-index-overrides: (
                     `}
                 </ExampleSource>
 
-                <h3>Step 2: Use the get-z-index() SASS Function</h3>
+                <Header3>Step 2: Use the get-z-index() SASS Function</Header3>
 
-                <p>This function found in src/globals/sass/utilities/_z-index.scss provides the helper function that supports the above settings.</p>
+                <ParagraphMd>This function found in src/globals/sass/utilities/_z-index.scss provides the helper function that supports the above settings.</ParagraphMd>
 
 
             </div>

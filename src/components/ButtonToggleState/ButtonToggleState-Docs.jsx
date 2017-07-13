@@ -1,7 +1,7 @@
 import React from 'react';
 import ButtonToggleState from './ButtonToggleState';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-
+import { ParagraphMd } from '../../utility_components/Type/Type';
 
 class ButtonToggleStateDocs extends React.Component {
     constructor(props) {
@@ -38,11 +38,11 @@ class ButtonToggleStateDocs extends React.Component {
 
         return (
             <div className="Pattern__docs">
-            <p>The Toggle State Button wraps the Button component in behaviors and configurations for buttons that represent a Toggled state like the Vimeo Follow Button or App Connector</p>
-            <p>The button is available in two formats named after their intial state when they are in "off" (e.g. "+ follow") mode.</p>
-            <p>The buttons will switch to a special "turnOffAction" text (e.g 'x unfollow') state on hover unless the user has not yet triggered a 'mouseleave' event after clicking the button from "follow" to "following", in the example of the follow button.</p>
-            <p>The button keeps no internal state of whether or not it is currently active or not. This is controlled by the <code>isActive</code> boolean prop.</p>
-            <p>The button also does not manage the business logic intiating or reacting to a request, for instance,  to follow or unfollow, a function that does this should be passed to <code>onClick</code>.</p>
+            <ParagraphMd>The Toggle State Button wraps the Button component in behaviors and configurations for buttons that represent a Toggled state like the Vimeo Follow Button or App Connector</ParagraphMd>
+            <ParagraphMd>The button is available in two formats named after their intial state when they are in "off" (e.g. "+ follow") mode.</ParagraphMd>
+            <ParagraphMd>The buttons will switch to a special "turnOffAction" text (e.g 'x unfollow') state on hover unless the user has not yet triggered a 'mouseleave' event after clicking the button from "follow" to "following", in the example of the follow button.</ParagraphMd>
+            <ParagraphMd>The button keeps no internal state of whether or not it is currently active or not. This is controlled by the <code>isActive</code> boolean prop.</ParagraphMd>
+            <ParagraphMd>The button also does not manage the business logic intiating or reacting to a request, for instance,  to follow or unfollow, a function that does this should be passed to <code>onClick</code>.</ParagraphMd>
                 <div data-code>
                     <ButtonToggleState
                         format="primaryOutline"
