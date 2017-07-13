@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { TransitionGroup } from 'react-transition-group';
-import slideUpDown from './SlideUpDownAnimation';
+import SlideUpDownAnimation from './SlideUpDownAnimation';
 
 const displayName = 'SlideUpDown';
 const defaultProps = {
@@ -19,7 +19,6 @@ class SlideUpDown extends React.Component {
 
     constructor(props: Props) {
         super(props);
-        this.AnimatedComponent = slideUpDown(props.children);
     }
 
     props: Props;
@@ -27,7 +26,11 @@ class SlideUpDown extends React.Component {
 
     render() {
 
-        const AnimatedComponent = <this.AnimatedComponent animateOpenOnMount={this.props.animateOpenOnMount}/>;
+        const AnimatedComponent = (
+            <SlideUpDownAnimation animateOpenOnMount={this.props.animateOpenOnMount}>
+                {this.props.children}
+            </SlideUpDownAnimation>
+        );
 
         return (
             <TransitionGroup>
