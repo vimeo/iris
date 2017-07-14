@@ -7,16 +7,19 @@ $Modal_animation-speed: 350ms;
 
     position: relative;
     z-index: get-z-index('modalContent');
-    top: 15vh;
+    top: 50%;
 
-    width: 80%;
-    max-width: 46rem;
-    max-height: 70vh;
+    width: 76%;
+    min-height: rem-calc(180);
+    max-height: 76vh;
     margin: 0 auto;
 
-    border-radius: rem-calc($g-radius);
     background: $White;
+    box-shadow: 0 rem-calc(6) rem-calc(10) 0 rgba(0,0,0,0.12);
+
+    transform: translateY(-50%);
 }
+
 
 .ModalWrapper {
     position: fixed;
@@ -51,25 +54,51 @@ $Modal_animation-speed: 350ms;
 .ModalCloseButton {
     position: absolute;
     top: rem-calc(22);
-    right: spacingUnit(5);
+    right: rem-calc(22);
 
-    svg * {
-        fill: $RegentGray;
+    &.dark {
+        svg * {
+            fill: $RegentGray;
+        }
+
+        &:hover svg * {
+            fill: $AstroGranite;
+        }
     }
 
-    &:hover svg * {
-        fill: $AstroGranite;
+    &.light {
+        svg * {
+            fill: $White;
+        }
+
+        &:hover svg {
+            opacity: 0.8;
+        }
     }
 }
 
-.TitleBar {
+.Title {
     width: 100%;
-    padding: spacingUnit(6) spacingUnit(8) spacingUnit(6) spacingUnit(6);
+    margin-bottom: spacingUnit(3);
+    padding-right: spacingUnit(2);
+}
 
-    font-size: 1rem;
+// Modal Sizes
 
-    border-radius: rem-calc($g-radius) rem-calc($g-radius) 0 0;
-    background: $Paste;
+@include mq(sm) {
+    .sm {
+        width: rem-calc(340);
+    }
+}
+
+@include mq(md) {
+    .md {
+        width: rem-calc(440);
+    }
+
+    .lg {
+        width: rem-calc(660);
+    }
 }
 
 

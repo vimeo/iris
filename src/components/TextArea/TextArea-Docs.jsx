@@ -2,7 +2,6 @@ import React from 'react';
 import TextArea from './TextArea';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import Button from '../Button/Button';
-
 const initialState = {
     errorProp: null,
     format: 'neutral',

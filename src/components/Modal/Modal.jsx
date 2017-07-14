@@ -6,13 +6,14 @@ import styles from './Modal.scss';
 import KEY_CODES from '../../globals/js/constants/KEY_CODES';
 import { CSSTransitionGroup } from 'react-transition-group';
 import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
-
+import { Header4 } from '../../utility_components/Type/Type';
 const displayName = 'Modal';
 const modalSpeed = 350;
 
 type Props = {
     children: React$Element<*>,
     className?: string,
+    dismissButtonFormat: 'light'| 'dark',
     fullBleed?: boolean,
     isShowing?: boolean;
     modalLabelId: string,
@@ -20,9 +21,15 @@ type Props = {
     modalCloseLabel: string,
     modalTitle?: string,
     onDismiss?: Function,
+    hideDismissButton?: boolean,
+    size?: 'sm' | 'md' | 'lg',
 };
 
 class Modal extends React.Component {
+    static defaultProps = {
+        size: 'md',
+        dismissButtonFormat: 'dark',
+    };
 
     constructor(props: Props) {
         super(props);
@@ -41,6 +48,9 @@ class Modal extends React.Component {
         }
         else if (!this.props.isShowing && prevProps.isShowing) {
             this._closeModal();
+        }
+        else if (this.props.isShowing && prevProps.isShowing) {
+            this._resetModal();
         }
     }
 
@@ -165,7 +175,23 @@ class Modal extends React.Component {
 
         this._setFocusableElementList(
                 elementListCallback.bind(this)
-            );
+        );
+    }
+
+    _resetModal() {
+        this._unbindEvents();
+        const elementListCallback = () => {
+            this._bindEvents();
+        };
+
+        if (!this.thisEl) {
+            const el = ReactDOM.findDOMNode(this);
+            this.thisEl = el;
+        }
+
+        this._setFocusableElementList(
+                elementListCallback.bind(this)
+        );
     }
 
     _setFocusableElementList(callback: any) {
@@ -212,19 +238,23 @@ class Modal extends React.Component {
         const {
             children,
             className,
+            dismissButtonFormat,
             fullBleed,
+            hideDismissButton,
             isShowing,
             modalCloseLabel,
             modalDescriptionId,
             modalLabelId,
             modalTitle,
             onDismiss,
+            size,
             ...filteredProps
         } = this.props;
 
         // className builder
         const componentClass = classNames(
             styles.Modal,
+            styles[size],
             className
         );
 
@@ -233,15 +263,20 @@ class Modal extends React.Component {
             (fullBleed ? styles.fullBleed : null)
         );
 
+        const dismissClass = classNames(
+            styles.ModalCloseButton,
+            styles[dismissButtonFormat],
+        );
+
         const ModalTitleElement = (
-            <h2 id={modalLabelId} className={styles.TitleBar}>
+            <Header4 id={modalLabelId} element="h2" className={styles.Title}>
                 {modalTitle}
-            </h2>
+            </Header4>
         );
 
         const CloseButton = (
             <ButtonDialogClose
-                className={styles.ModalCloseButton}
+                className={dismissClass}
                 onClick={onDismiss ? ()=> this._handleModalClose(onDismiss) : null}
                 buttonTitle={modalCloseLabel}
             />
@@ -256,11 +291,11 @@ class Modal extends React.Component {
                     aria-describedby={modalDescriptionId}
                     className={componentClass}
                 >
-                    {modalTitle ? ModalTitleElement : null}
                     <div className={contentClass}>
+                    {modalTitle ? ModalTitleElement : null}
                         {children}
                     </div>
-                    { onDismiss ? CloseButton : null}
+                    { onDismiss && !hideDismissButton ? CloseButton : null}
                 </div>
                 <div
                     className={styles.Overlay}
