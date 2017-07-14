@@ -83,7 +83,7 @@ $input_has-icon-padding-lg: $inputs_icon-size + 1.3125rem;
 @mixin sharedTextInputs() {
     width: 100%;
 
-    font-family: $g-font-family-primary;
+    font-family: $FontFamily;
 }
 
 
@@ -110,6 +110,7 @@ $input_has-icon-padding-lg: $inputs_icon-size + 1.3125rem;
     position: relative;
 
     width: 100%;
+    margin-bottom: spacingUnit(2);
 
     flex-wrap: wrap;
 }
@@ -118,7 +119,7 @@ $input_has-icon-padding-lg: $inputs_icon-size + 1.3125rem;
     display: inline-flex;
 
     position: absolute;
-    z-index: 2;
+    z-index: get-z-index('InlineInputs');
     top: $inputs_inlineInputs_size/2;
     left: $inputs_inlineInputs_size/2;
 
@@ -164,7 +165,7 @@ $input_has-icon-padding-lg: $inputs_icon-size + 1.3125rem;
     display: block;
 
     position: absolute;
-    z-index: 3;
+    z-index: get-z-index('InlineInputsReplacementElements');
     top: 0;
     left: 0;
 

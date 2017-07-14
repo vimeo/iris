@@ -11,6 +11,8 @@ $ButtonDialogClose_icon-size: rem-calc(18);
     border: 0;
     background: transparent;
 
+    transition: all #{$iris_transition-base};
+
     appearance: none;
 
 

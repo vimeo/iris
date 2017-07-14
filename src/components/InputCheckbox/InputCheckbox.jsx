@@ -51,6 +51,7 @@ const InputCheckbox = ({
                     format={format}
                     disabled={disabled}
                     className={styles.InputCheckboxLabel}
+                    fieldLevelErrors
                 >
                     <input
                         {...filteredProps}

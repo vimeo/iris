@@ -2,62 +2,57 @@ import React from 'react';
 import NotificationSuccess from './NotificationSuccess';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import Button from '../Button/Button';
-import { TransitionGroup } from 'react-transition-group';
-
+import SlideUpDown from '../../animations/SlideUpDown/SlideUpDown';
+import { ParagraphMd } from '../../../src/utility_components/Type/Type';
 
 class NotificationSuccessDocs extends React.Component {
     // test handler for onDismiss event
 
     constructor(props) {
         super(props);
-        this.state = { showNotification: true };
+        this.state = { hideNotification: false };
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick() {
-        this.setState({ showNotification: !this.state.showNotification });
+        this.setState({ hideNotification: !this.state.hideNotification });
     }
 
     render() {
-        const DismissableNotification = (
-               <NotificationSuccess
-                    onDismiss={this.handleClick}
-                >
-                    <p>This component is a Success notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</p>
-                </NotificationSuccess>
-        );
-
         return (
             <div>
-                <p>The Success Notification is used for most message types.</p>
-                <h3>Animating the Notification Dismissal</h3>
-                <p>See Neutral Notification for instructions</p>
+                <ParagraphMd>The Success Notification is used to let the user know that they have been successful in their activity.</ParagraphMd>
+                <ParagraphMd>If the notification can be dismissed, Animation should be acheived by the SlideUpDown component. <a href="/pattern/Animation/SlideUpDownAnimation">See documentation.</a></ParagraphMd>
                 <div data-code>
-                    <TransitionGroup>
-                        {this.state.showNotification ? DismissableNotification : null}
-                    </TransitionGroup>
+                    <SlideUpDown
+                        isHidden={this.state.hideNotification}
+                    >
+                        <NotificationSuccess
+                                onDismiss={this.handleClick}
+                        >
+                                <ParagraphMd>This component is a Success notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</ParagraphMd>
+                        </NotificationSuccess>
+                    </SlideUpDown>
                     <Button format="secondaryOutline" size="xs" onClick={this.handleClick}>Toggle Notifcation</Button>
                     <NotificationSuccess hasIcon={false}>
-                        <p>This is a Success notification without an icon.  I am  NOT dismissable.</p>
+                        <ParagraphMd>This is a Success notification without an icon.  I am  NOT dismissable.</ParagraphMd>
                     </NotificationSuccess>
                 </div>
 
                 <ExampleSource>
                     {`
-const DismissableNotification = (
+<SlideUpDown
+    isHidden={this.state.hideNotification}
+>
     <NotificationSuccess
             onDismiss={this.handleClick}
         >
-            <p>This component is a Success notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</p>
+            <ParagraphMd>This component is a Success notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</ParagraphMd>
         </NotificationSuccess>
-);
-
-<TransitionGroup>
-    {this.state.showNotification ? DismissableNotification : null}
-</TransitionGroup>
-
+</SlideUpDown>
+<Button format="secondaryOutline" size="xs" onClick={this.handleClick}>Toggle Notifcation</Button>
 <NotificationSuccess hasIcon={false}>
-    <p>This is a Success notification without an icon.  I am  NOT dismissable.</p>
+    <ParagraphMd>This is a Success notification without an icon.  I am  NOT dismissable.</ParagraphMd>
 </NotificationSuccess>
                         `}
                     </ExampleSource>

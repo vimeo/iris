@@ -6,6 +6,7 @@ import StyleListing from 'steadicam/components/styleListings/StyleListing/StyleL
 import SingleStyleListing from 'steadicam/components/styleListings/SingleStyleListing/SingleStyleListing';
 import PageLayout from 'steadicam/components/layouts/PageLayout/PageLayout';
 import ProjectDependencies from './ProjectDependencies';
+import styles from './styleguide-assets/sass/styleguide.scss';
 
 // THIS FILE IS GENERATED FROM templates/_MainJSXPath.template //
 

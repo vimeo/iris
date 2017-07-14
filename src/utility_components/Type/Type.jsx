@@ -6,7 +6,7 @@ import styles from './Type.scss';
 function typeGenerator(tagname, defaultElement) {
     type Props = {
         children: React$Element<*>,
-        element?: 'h1'| 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span',
+        element?: 'h1'| 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'label' | 'legend',
         className?: string,
     };
 

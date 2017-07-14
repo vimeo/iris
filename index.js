@@ -24,9 +24,19 @@ exports.paths = {
   
   'iris/ButtonDialogClose':'iris/src/components/ButtonDialogClose/ButtonDialogClose',
   
+  'iris/ButtonFileUpload':'iris/src/components/ButtonFileUpload/ButtonFileUpload',
+  
+  'iris/ButtonFileUploadIconOnly':'iris/src/components/ButtonFileUploadIconOnly/ButtonFileUploadIconOnly',
+  
+  'iris/ButtonFileUploadWrapper':'iris/src/components/ButtonFileUploadWrapper/ButtonFileUploadWrapper',
+  
   'iris/ButtonIconOnly':'iris/src/components/ButtonIconOnly/ButtonIconOnly',
   
+  'iris/ButtonToggleState':'iris/src/components/ButtonToggleState/ButtonToggleState',
+  
   'iris/CircularButton':'iris/src/components/CircularButton/CircularButton',
+  
+  'iris/FieldSet':'iris/src/components/FieldSet/FieldSet',
   
   'iris/Grid':'iris/src/components/Grid/Grid',
   
@@ -39,6 +49,8 @@ exports.paths = {
   'iris/InputLabel':'iris/src/components/InputLabel/InputLabel',
   
   'iris/InputLabelInline':'iris/src/components/InputLabelInline/InputLabelInline',
+  
+  'iris/InputLabelStateIcon':'iris/src/components/InputLabelStateIcon/InputLabelStateIcon',
   
   'iris/InputMessage':'iris/src/components/InputMessage/InputMessage',
   
@@ -69,6 +81,8 @@ exports.paths = {
   'iris/NotificationSuccess':'iris/src/components/NotificationSuccess/NotificationSuccess',
   
   'iris/NotificationWarning':'iris/src/components/NotificationWarning/NotificationWarning',
+  
+  'iris/SearchField':'iris/src/components/SearchField/SearchField',
   
   'iris/TextArea':'iris/src/components/TextArea/TextArea',
   

@@ -5,7 +5,6 @@ $InputCheck_fill-size: 1rem;
 .InputCheckboxWrapper {
     @include sharedInlineInputWrapperStyles();
 
-    margin-bottom: spacingUnit(2);
     padding-left: spacingUnit(8);
 }
 

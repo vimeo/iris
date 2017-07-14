@@ -2,14 +2,14 @@ import * as React from 'react';
 import { GridBlock, GridCol, Grid } from '../../../src/components/Grid/Grid.jsx';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import InputText from '../../../src/components/InputText/InputText';
-
+import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
 export default function GridFullDocs() {
 
     return (
         <div className="Pattern__docs">
-            <p>The Iris Grid system is a 24 column responsive flexbox based grid. The Grid component provides an engineer-friendly re-useable abstraction of the HTML structure required to use this grid.</p>
+            <ParagraphMd>The Iris Grid system is a 24 column responsive flexbox based grid. The Grid component provides an engineer-friendly re-useable abstraction of the HTML structure required to use this grid.</ParagraphMd>
             <a style={{marginBottom: '20px', display: 'block'}} href="https://www.dropbox.com/s/2gr5ns35oshxbqy/Iris%20Grid.sketch?dl=0">Grid Sketch Files</a>
-            <h3>Easy Fundamentals: Grid Components</h3>
+            <Header3>Easy Fundamentals: Grid Components</Header3>
 
             <ul>
                 <li>Grid is composed of 3 components:
@@ -28,14 +28,14 @@ export default function GridFullDocs() {
                 </li>
             </ul>
 
-            <h3>Simple Set-Up:</h3>
-            <p>Import the Grid, GridBlock, and GridColumn components into your working space:</p>
+            <Header3>Simple Set-Up:</Header3>
+            <ParagraphMd>Import the Grid, GridBlock, and GridColumn components into your working space:</ParagraphMd>
             <ExampleSource>
                 {`
                     import {GridBlock, GridCol, Grid} from 'iris/Grid';
                 `}
             </ExampleSource>
-            <p>Set-up your Grid component and place the amount of needed columns into the space:</p>
+            <ParagraphMd>Set-up your Grid component and place the amount of needed columns into the space:</ParagraphMd>
             <div data-code>
                 <Grid className="sg-grid">
                     <GridBlock>
@@ -55,8 +55,8 @@ export default function GridFullDocs() {
                 `}
             </ExampleSource>
 
-            <h3>Basic Usage</h3>
-            <p>Column widths are controlled by a <code>span</code> prop. Span props accept strings as values that must be between 1-24 or use the keyword <code>half</code>, <code>third</code>, or <code>quarter</code>. To trigger responsive design breakpoints have been set up as props.  <code>xlSpan</code> (105em+), <code>lgSpan</code> (80em+), <code>mdSpan</code> (48em+), and <code>smSpan</code> (30em+). Columns by default are set to span the full 24 column space of its parent.</p>
+            <Header3>Basic Usage</Header3>
+            <ParagraphMd>Column widths are controlled by a <code>span</code> prop. Span props accept strings as values that must be between 1-24 or use the keyword <code>half</code>, <code>third</code>, or <code>quarter</code>. To trigger responsive design breakpoints have been set up as props.  <code>xlSpan</code> (105em+), <code>lgSpan</code> (80em+), <code>mdSpan</code> (48em+), and <code>smSpan</code> (30em+). Columns by default are set to span the full 24 column space of its parent.</ParagraphMd>
             <div data-code>
                 <Grid className="sg-grid">
                     <GridBlock>
@@ -80,8 +80,8 @@ export default function GridFullDocs() {
                 `}
             </ExampleSource>
 
-            <h3>Nesting</h3>
-            <p>Nesting Columns can be achieved inside of any <code>{`<GridCol></GridCol>`}</code> component. Simply wrap the children in a <code>{`<GridBlock></GridBlock>`}</code> component. This will create a new 24 column grid bound by the width of its containing column. Note that in the example below the nested children <code>{`<GridCol xsSpan={12}></GridCol>`}</code>  map to half of the parents (24/2 = 12 therefore 12 GridColumns is half the space of the parent container).</p>
+            <Header3>Nesting</Header3>
+            <ParagraphMd>Nesting Columns can be achieved inside of any <code>{`<GridCol></GridCol>`}</code> component. Simply wrap the children in a <code>{`<GridBlock></GridBlock>`}</code> component. This will create a new 24 column grid bound by the width of its containing column. Note that in the example below the nested children <code>{`<GridCol xsSpan={12}></GridCol>`}</code>  map to half of the parents (24/2 = 12 therefore 12 GridColumns is half the space of the parent container).</ParagraphMd>
             <div data-code>
                 <Grid className="sg-grid">
                     <GridBlock>
@@ -117,11 +117,11 @@ export default function GridFullDocs() {
                 `}
             </ExampleSource>
 
-            <h3>Fixed & Fluid Columns</h3>
-            <p>Fixed columns are available, <code>{`<GridCol></GridCol>`}</code> can switch between being fluid and fixed at different breakpoint sizes. Fixed Columns
-            are paired with fluid columns that fill in the remaining space of a container.</p>
-            <p>Columns are made "fluid" by passing a "0" span value as in <code>{`xsSpan={0}`}</code>.</p>
-            <p>Accessibility note: when working with aside content/rail content, place the element after the main content in the DOM structure. This ensures that screen readers will read the content first.</p> 
+            <Header3>Fixed & Fluid Columns</Header3>
+            <ParagraphMd>Fixed columns are available, <code>{`<GridCol></GridCol>`}</code> can switch between being fluid and fixed at different breakpoint sizes. Fixed Columns
+            are paired with fluid columns that fill in the remaining space of a container.</ParagraphMd>
+            <ParagraphMd>Columns are made "fluid" by passing a "0" span value as in <code>{`xsSpan={0}`}</code>.</ParagraphMd>
+            <ParagraphMd>Accessibility note: when working with aside content/rail content, place the element after the main content in the DOM structure. This ensures that screen readers will read the content first.</ParagraphMd> 
 
             <div data-code>
                 <Grid className="sg-grid">
@@ -142,8 +142,8 @@ export default function GridFullDocs() {
                 `}
             </ExampleSource>
 
-            <h3>Offsets</h3>
-            <p>Authors can push content to the left or right using the <code>offset</code> prop. Positive numbers will push content in the main writing direction (Ex. left for English and Spanish but right for Arabic) and negative numbers will push content in the opposite of a page’s writing direction. Like <code>span</code>, offset also can be set for responsive breakpoints: <code>lgOffset</code>, <code>mdOffset</code>, and <code>smOffset</code>.</p>
+            <Header3>Offsets</Header3>
+            <ParagraphMd>Authors can push content to the left or right using the <code>offset</code> prop. Positive numbers will push content in the main writing direction (Ex. left for English and Spanish but right for Arabic) and negative numbers will push content in the opposite of a page’s writing direction. Like <code>span</code>, offset also can be set for responsive breakpoints: <code>lgOffset</code>, <code>mdOffset</code>, and <code>smOffset</code>.</ParagraphMd>
             <div data-code>
                 <Grid className="sg-grid">
                     <GridBlock>
@@ -163,8 +163,8 @@ export default function GridFullDocs() {
                 `}
             </ExampleSource>
 
-            <h3>Form Grid</h3>
-            <p>Forms have tighter spacing. Add the <code>formColumn</code> property to the GridCol component to use the grid for forms.</p>
+            <Header3>Form Grid</Header3>
+            <ParagraphMd>Forms have tighter spacing. Add the <code>formColumn</code> property to the GridCol component to use the grid for forms.</ParagraphMd>
             <div data-code>
                 <Grid>
                     <GridBlock>

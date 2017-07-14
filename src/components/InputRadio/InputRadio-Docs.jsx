@@ -1,7 +1,7 @@
 import React from 'react';
 import InputRadio from './InputRadio';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-
+import { ParagraphMd } from '../../../src/utility_components/Type/Type';
 
 class InputRadioDocs extends React.Component {
     constructor(props) {
@@ -11,7 +11,7 @@ class InputRadioDocs extends React.Component {
     render() {
         return (
             <div className="Pattern__docs">
-            <p>Radio components can be used by themselves but the recommended use is to construct them with the <a href="/pattern/Components/InputRadioSet">Input Radio Set</a> component.</p>
+            <ParagraphMd>Radio components can be used by themselves but the recommended use is to construct them with the <a href="/pattern/Components/InputRadioSet">Input Radio Set</a> component.</ParagraphMd>
                 <div data-code>
                         <InputRadio
                             label="Sample Radio"
