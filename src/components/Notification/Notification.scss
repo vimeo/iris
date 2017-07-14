@@ -17,8 +17,6 @@ $Notification_dismiss-icon-size: rem-calc(18);
     padding-bottom: $Notification_padding-vertical;
     padding-left: $Notification_padding-horizontal;
 
-    font-size: 0.875rem;
-
     border-radius: rem-calc($g-radius);
 
     transition: all #{$iris_transition-base};
@@ -26,8 +24,11 @@ $Notification_dismiss-icon-size: rem-calc(18);
     &.hasIcon {
         padding-left: $Notification_icon-size + $Notification_padding-horizontal+ $Notification_icon-margin;
     }
-}
 
+    p:last-of-type {
+        margin-bottom: 0; // remove global last paragraph margin
+    }
+}
 
 
 // icon

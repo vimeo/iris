@@ -83,7 +83,7 @@ $input_has-icon-padding-lg: $inputs_icon-size + 1.3125rem;
 @mixin sharedTextInputs() {
     width: 100%;
 
-    font-family: $g-font-family-primary;
+    font-family: $FontFamily;
 }
 
 
@@ -110,6 +110,7 @@ $input_has-icon-padding-lg: $inputs_icon-size + 1.3125rem;
     position: relative;
 
     width: 100%;
+    margin-bottom: spacingUnit(2);
 
     flex-wrap: wrap;
 }

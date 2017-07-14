@@ -30,15 +30,12 @@ class NotificationSuccessDocs extends React.Component {
                         <NotificationSuccess
                                 onDismiss={this.handleClick}
                         >
-                                <p>This component is a Success notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</p>
+                                <ParagraphMd>This component is a Success notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</ParagraphMd>
                         </NotificationSuccess>
                     </SlideUpDown>
                     <Button format="secondaryOutline" size="xs" onClick={this.handleClick}>Toggle Notifcation</Button>
                     <NotificationSuccess hasIcon={false}>
-                        <p>This is a Success notification without an icon.  I am  NOT dismissable.</p>
-                    </NotificationSuccess>
-                    <NotificationSuccess >
-                        <p>This is a Success notification. Also in order to make this a little longer I'm going to remind you that you can't be Success on a moving train.</p>
+                        <ParagraphMd>This is a Success notification without an icon.  I am  NOT dismissable.</ParagraphMd>
                     </NotificationSuccess>
                 </div>
 
@@ -49,16 +46,13 @@ class NotificationSuccessDocs extends React.Component {
 >
     <NotificationSuccess
             onDismiss={this.handleClick}
-    >
-            <p>This component is a Success notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</p>
-    </NotificationSuccess>
+        >
+            <ParagraphMd>This component is a Success notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</ParagraphMd>
+        </NotificationSuccess>
 </SlideUpDown>
 <Button format="secondaryOutline" size="xs" onClick={this.handleClick}>Toggle Notifcation</Button>
 <NotificationSuccess hasIcon={false}>
-    <p>This is a Success notification without an icon.  I am  NOT dismissable.</p>
-</NotificationSuccess>
-<NotificationSuccess >
-    <p>This is a Success notification. Also in order to make this a little longer I'm going to remind you that you can't be Success on a moving train.</p>
+    <ParagraphMd>This is a Success notification without an icon.  I am  NOT dismissable.</ParagraphMd>
 </NotificationSuccess>
                         `}
                     </ExampleSource>

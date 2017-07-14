@@ -6,12 +6,8 @@
 
     width: 100%;
     margin: 0;
+    margin-bottom: 0;
 
     align-items: center;
     flex-wrap: wrap;
-}
-
-.md {
-    font-size: rem-calc(14);
-    line-height: calculateLineHeightTarget(14, 16);
 }

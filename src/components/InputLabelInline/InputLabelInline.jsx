@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './InputLabelInline.scss';
 import InputLabelStateIcon from '../InputLabelStateIcon/InputLabelStateIcon';
+import { ParagraphMd } from '../../utility_components/Type/Type';
 
 const displayName = 'InputLabelInline';
 
@@ -39,15 +40,16 @@ const InputLabelInline = ({
     );
 
     return (
-            <label
+            <ParagraphMd
                 {...filteredProps}
+                element="label"
                 className={componentClass}
             >
             <span>
             {children}
             { format !== 'neutral' && fieldLevelErrors ? Icon : null}
             </span>
-            </label>
+            </ParagraphMd>
     );
 };
 

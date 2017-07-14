@@ -1,9 +1,5 @@
 /* @description Generates styles for the InputMessageArea component */
 @import '../../globals/sass/helpers-all';
-.InputMessageArea {
-    font-size: rem-calc(12);
-    line-height: calculateLineHeightTarget(12, 14);
-}
 
 .sublabel {
     margin-bottom: spacingUnit(2);

@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './InputLabel.scss';
 import InputLabelStateIcon from '../InputLabelStateIcon/InputLabelStateIcon';
-
+import { Header6 } from '../../utility_components/Type/Type';
 
 const displayName = 'InputLabel';
 
@@ -41,16 +41,15 @@ const InputLabel = (props: Props): React$Element<*> => {
         />
     );
 
-    const Element = element;
-
     return (
-        <Element
+        <Header6
             {...filteredProps}
+            element={element}
             className={componentClass}
         >
             {children}
             {format !== 'neutral' ? Icon : null}
-        </Element>
+        </Header6>
     );
 };
 

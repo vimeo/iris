@@ -37,10 +37,7 @@ class NotificationWarningDocs extends React.Component {
                 </SlideUpDown>
                     <Button format="secondaryOutline" size="xs" onClick={this.handleClick}>Toggle Notifcation</Button>
                     <NotificationWarning hasIcon={false}>
-                        <p>This is a Warning notification without an icon.  I am  NOT dismissable.</p>
-                    </NotificationWarning>
-                    <NotificationWarning>
-                        <p>This is a Warning notification. Also in order to make this a little longer I'm going to remind you that you can't be Warning on a moving train.</p>
+                        <ParagraphMd>This is a Warning notification without an icon.  I am  NOT dismissable.</ParagraphMd>
                     </NotificationWarning>
                 </div>
 
@@ -50,18 +47,18 @@ class NotificationWarningDocs extends React.Component {
     isHidden={this.state.hideNotification}
 >
     <NotificationWarning
-        onDismiss={this.handleClick}
-    >
-        <p>This component is a Warning notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</p>
-    </NotificationWarning>
-</SlideUpDown>
+            onDismiss={this.handleClick}
+        >
+            <ParagraphMd>This component is a Warning notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</ParagraphMd>
+        </NotificationWarning>
+);
 
 <NotificationWarning hasIcon={false}>
     <p>This is a Warning notification without an icon.  I am  NOT dismissable.</p>
 </NotificationWarning>
 
-<NotificationWarning>
-    <p>This is a Warning notification. Also in order to make this a little longer I'm going to remind you that you can't be Warning on a moving train.</p>
+<NotificationWarning hasIcon={false}>
+    <ParagraphMd>This is a Warning notification without an icon.  I am  NOT dismissable.</ParagraphMd>
 </NotificationWarning>
                         `}
                     </ExampleSource>

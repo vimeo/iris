@@ -33,15 +33,16 @@ class NotificationNeutralDocs extends React.Component {
                         <NotificationNeutral
                             onDismiss={this.handleClick}
                         >
-                            <p>This component is a neutral notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</p>
+                            <ParagraphMd>This component is a neutral notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</ParagraphMd>
                         </NotificationNeutral>
                     </SlideUpDown>
                     <Button format="secondaryOutline" size="xs" onClick={this.handleClick}>Toggle Notifcation</Button>
                     <NotificationNeutral hasIcon={false}>
-                        <p>This is a neutral notification without an icon.  I am  NOT dismissable.</p>
+                        <ParagraphMd>This is a neutral notification without an icon.  I am  NOT dismissable.</ParagraphMd>
                     </NotificationNeutral>
                     <NotificationNeutral>
-                        <p>This is a neutral notification. Also in order to make this a little longer I'm going to remind you that you can't be neutral on a moving train.</p>
+                        <ParagraphMd>In order to make this a little longer I'm quoting the Jabberwockky:</ParagraphMd>
+                        <ParagraphMd>Twas brillig, and the slithy toves. Did gyre and gimble in the wabe: All mimsy were the borogoves, And the mome raths outgrabe.</ParagraphMd>
                     </NotificationNeutral>
                 </div>
 
@@ -58,10 +59,12 @@ class NotificationNeutralDocs extends React.Component {
 </SlideUpDown>
 <Button format="secondaryOutline" size="xs" onClick={this.handleClick}>Toggle Notifcation</Button>
 <NotificationNeutral hasIcon={false}>
-    <p>This is a neutral notification without an icon.  I am  NOT dismissable.</p>
+    <ParagraphMd>This is a neutral notification without an icon.  I am  NOT dismissable.</ParagraphMd>
 </NotificationNeutral>
+
 <NotificationNeutral>
-    <p>This is a neutral notification. Also in order to make this a little longer I'm going to remind you that you can't be neutral on a moving train.</p>
+    <ParagraphMd>In order to make this a little longer I'm quoting the Jabberwockky:</ParagraphMd>
+    <ParagraphMd>Twas brillig, and the slithy toves. Did gyre and gimble in the wabe: All mimsy were the borogoves, And the mome raths outgrabe.</ParagraphMd>
 </NotificationNeutral>
                         `}
                     </ExampleSource>
