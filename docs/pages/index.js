@@ -4,3 +4,4 @@
 
 /* Example: */
 // export Component  from "./Component/Component";
+export TypeSpecimen from "./TypeSpecimen/TypeSpecimen";

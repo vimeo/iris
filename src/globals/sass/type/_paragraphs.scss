@@ -1,0 +1,56 @@
+@import "../utilities/spacing";
+@import "../utilities/rem-calc";
+@import "../utilities/typography";
+@import "../settings/color-assignments";
+
+// Paragraphs ____________________________________________________________________
+@mixin Paragraphs {
+    font-family: $FontFamily;
+    font-weight: normal;
+
+    color: $BodyTextColor-Dark;
+
+    strong {
+        font-weight: 500;
+    }
+}
+
+@mixin ParagraphMd {
+    @include Paragraphs;
+
+    max-width: rem-calc($BodyMd-maxWidth);
+    margin-bottom: spacingUnit(5);
+
+    font-size: rem-calc($BodyMd);
+    line-height: calculateLineHeightTarget($BodyMd, 20);
+
+    letter-spacing: $LetterSpacing;
+}
+
+@mixin ParagraphLg {
+    @include Paragraphs;
+
+    max-width: rem-calc($BodyLg-maxWidth);
+    margin-bottom: spacingUnit(6);
+
+    font-size: rem-calc($BodyLg);
+    line-height: calculateLineHeightTarget($BodyLg, 24);
+
+    letter-spacing: $LetterSpacing;
+}
+
+@mixin ParagraphSm {
+    @include Paragraphs;
+
+    max-width: rem-calc($BodySm-maxWidth);
+    margin-bottom: spacingUnit(4);
+
+    font-size: rem-calc($BodySm);
+    line-height: calculateLineHeightTarget($BodySm, 18);
+
+    letter-spacing: $LetterSpacing;
+}
+
+@mixin ParagraphAlt {
+    color: $BodyTextColor-Light;
+}
