@@ -20,28 +20,6 @@
     display: block;
     }
 
-    .sg-HTMLExampleToggle{
-        background: $RegentGray;
-        width: 100%;
-        position: fixed;
-        bottom: 0;
-        color: $White;
-        padding: .5rem 1rem;
-
-        .sg-HTMLExampleToggle__hide-label{
-        display: none;
-        }
-    }
-
-    .sg-HTMLExampleToggle.isOpen{
-    .sg-HTMLExampleToggle__show-label{
-        display: none;
-    }
-
-    .sg-HTMLExampleToggle__hide-label{
-        display: inline-block;
-    }
-    }
 
     /**
     * xonokai theme for JavaScript, CSS and HTML

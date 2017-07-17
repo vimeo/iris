@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Button from './Button';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import DownloadIcon from '../../globals/svg/iris_icon_download_16.svg';
