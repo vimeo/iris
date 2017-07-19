@@ -7,7 +7,7 @@
     ],
     "Utilities": [
         ["MediaQueries", "Named Media Queries", true],
-        ["VerticalSpacing", "Vertical Spacing Variables", true],
+        ["SpacingUnit", "Spacing Units", true],
         ["ZindexHelper", "Z-Index Helper", true]
     ],
 
