@@ -15,7 +15,7 @@ $Modal_animation-speed: 350ms;
     margin: 0 auto;
 
     background: $White;
-    box-shadow: 0 rem-calc(6) rem-calc(10) 0 rgba(0,0,0,0.12);
+    box-shadow: $subtleIrisBoxShadow;
 
     transform: translateY(-50%);
 }

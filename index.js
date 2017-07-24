@@ -86,4 +86,6 @@ exports.paths = {
   
   'iris/TextArea':'iris/src/components/TextArea/TextArea',
   
+  'iris/Toastification':'iris/src/components/Toastification/Toastification',
+  
 };

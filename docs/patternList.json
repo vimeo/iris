@@ -36,7 +36,8 @@
         ["NotificationNeutral", "Neutral Notification"],
         ["NotificationSuccess", "Success Notification"],
         ["NotificationWarning", "Warning Notification"],
-        ["SearchField", "Search Field"]
+        ["SearchField", "Search Field"],
+        ["Toastification", "Toastification"]
     ],
     "Layout": [
         ["Forms", "Forms", true],

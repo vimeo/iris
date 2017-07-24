@@ -6,6 +6,7 @@ $z-indexed-elements: FocusBloop,
 
 // for elements that need special, usually extreme, z-indexing, this map will provide override values.
 $z-index-overrides: (
+    toastification: 9997,
     modalOverlay: 9998,
     modalContent: 9999
 );
