@@ -88,4 +88,8 @@ exports.paths = {
   
   'iris/Toastification':'iris/src/components/Toastification/Toastification',
   
+  'iris/Tooltip':'iris/src/components/Tooltip/Tooltip',
+  
+  'iris/TooltipOverlay':'iris/src/components/TooltipOverlay/TooltipOverlay',
+  
 };

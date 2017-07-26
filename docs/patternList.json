@@ -11,7 +11,7 @@
         ["ZindexHelper", "Z-Index Helper", true]
     ],
 
-     "Animation": [
+    "Animation": [
         ["SlideUpDownAnimation", "Slide Up/ Slide Down", true]
     ],
     "Components": [
@@ -37,6 +37,7 @@
         ["NotificationSuccess", "Success Notification"],
         ["NotificationWarning", "Warning Notification"],
         ["SearchField", "Search Field"],
+        ["TooltipOverlay", "Tooltip Overlay"],
         ["Toastification", "Toastification"]
     ],
     "Layout": [
