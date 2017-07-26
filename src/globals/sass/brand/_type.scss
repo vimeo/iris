@@ -1,17 +1,17 @@
 body {
-    font-family: $g-font-family-primary; //"Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: $g-base-font-size;
+    font-family: $FontFamily; //"Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: rem-calc($FontBase);
 
     color: $BodyTextColor-Dark;
 }
 
 
 ::selection {
-    background-color: #A6E2F9;
+    background-color: $VimeoBlue;
 }
 
 ::-moz-selection {
-    background-color: #A6E2F9;
+    background-color: $VimeoBlue;
 }
 
 strong {
