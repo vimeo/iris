@@ -7,11 +7,11 @@
     margin-left: rem-calc(18);
 
     font-size: inherit;
+    font-weight: 500;
 
     list-style-position: outside;
 
     color: currentColor;
-    font-weight: 500;
 
     ol & {
         list-style-type: decimal;

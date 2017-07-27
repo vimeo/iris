@@ -21,7 +21,7 @@ class ListItemDocs extends React.Component {
                 </ExampleSource>
             </div>
         );
-    };
-};
+    }
+}
 
 export default ListItemDocs;
