@@ -70,6 +70,10 @@ exports.paths = {
   
   'iris/InputWrapperInline':'iris/src/components/InputWrapperInline/InputWrapperInline',
   
+  'iris/List':'iris/src/components/List/List',
+  
+  'iris/ListItem':'iris/src/components/ListItem/ListItem',
+  
   'iris/LoaderCircular':'iris/src/components/LoaderCircular/LoaderCircular',
   
   'iris/Modal':'iris/src/components/Modal/Modal',

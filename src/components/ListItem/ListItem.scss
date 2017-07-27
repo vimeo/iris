@@ -1,0 +1,37 @@
+/* @description Generates styles for the ListItem component */
+
+@import '../../globals/sass/helpers-all';
+
+.ListItem {
+    display: flex;
+    margin-bottom: rem-calc(16);
+
+    &:first-of-type,
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+
+    ol & {
+        counter-increment: step-counter;
+        align-items: baseline;
+        &::before {
+            content: counter(step-counter) ".";
+            margin-right: rem-calc(6);
+            color: inherit;
+            font-weight: 500;
+            font-size: inherit;
+        }
+    }
+
+    ul & {
+        align-items: center;
+        &::before {
+            content: '';
+            margin-right: rem-calc(8);
+            width: 0.375em;
+            height: 0.375em; //bullet size should be relative to the list font-size, not the page
+            border-radius: 50%;
+            background-color: currentColor; //bullet should be the same color as text
+        }
+    }
+}

@@ -31,6 +31,7 @@
         ["InputText", "Inputs: Text-Like"],
         ["InputToggle", "Inputs: Toggle"],
         ["TextArea", "Inputs: TextArea"],
+        ["List", "Lists"],
         ["LoaderCircular", "Circular Loader"],
         ["Modal", "Modal Dialog"],
         ["NotificationNeutral", "Neutral Notification"],
