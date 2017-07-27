@@ -3,8 +3,8 @@
 @import '../../globals/sass/helpers-all';
 
 .ListItem {
-    margin-bottom: rem-calc(16);
-    margin-left: rem-calc(18);
+    margin-bottom: rem-calc(12);
+    margin-left: rem-calc(18); //fixes default list outside margin
 
     font-size: inherit;
     font-weight: 500;
