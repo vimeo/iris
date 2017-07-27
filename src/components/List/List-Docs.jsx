@@ -1,6 +1,5 @@
 import React from 'react';
-import List from './List';
-import ListItem from '../ListItem/ListItem';
+import { List, ListItem } from './List';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import { ParagraphMd, Header6 } from '../../../src/utility_components/Type/Type';
 

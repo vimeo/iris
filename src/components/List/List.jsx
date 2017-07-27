@@ -1,7 +1,9 @@
 // @flow
 import React from 'react';
 import classNames from 'classnames';
+import ListItem from '../ListItem/ListItem';
 import styles from './List.scss';
+
 
 const displayName = 'List';
 
@@ -38,4 +40,4 @@ const List = ({
 
 List.displayName = displayName;
 
-export default List;
+export { List, ListItem };
