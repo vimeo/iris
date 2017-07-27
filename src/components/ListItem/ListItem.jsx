@@ -27,7 +27,9 @@ const ListItem = ({
             {...filteredProps}
             className={componentClass}
         >
-            {children}
+            <span>
+                {children}
+            </span>
         </li>
     );
 };

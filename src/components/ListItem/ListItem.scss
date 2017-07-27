@@ -5,9 +5,13 @@
 .ListItem {
     margin-bottom: rem-calc(16);
     margin-left: rem-calc(18);
-    list-style-position: outside;
-    color: currentColor;
+
     font-size: inherit;
+
+    list-style-position: outside;
+
+    color: currentColor;
+    font-weight: 500;
 
     ol & {
         list-style-type: decimal;
@@ -40,5 +44,9 @@
 
         //     content: '';
         // }
+    }
+
+    span {
+        font-weight: normal;
     }
 }
