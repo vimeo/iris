@@ -3,35 +3,42 @@
 @import '../../globals/sass/helpers-all';
 
 .ListItem {
-    display: flex;
     margin-bottom: rem-calc(16);
-
-    &:first-of-type,
-    &:last-of-type {
-        margin-bottom: 0;
-    }
+    margin-left: rem-calc(18);
+    list-style-position: outside;
+    color: currentColor;
+    font-size: inherit;
 
     ol & {
-        counter-increment: step-counter;
-        align-items: baseline;
-        &::before {
-            content: counter(step-counter) ".";
-            margin-right: rem-calc(6);
-            color: inherit;
-            font-weight: 500;
-            font-size: inherit;
-        }
+        list-style-type: decimal;
+        // counter-increment: step-counter;
+
+        // align-items: baseline;
+        // &::before {
+        //     margin-right: rem-calc(6);
+
+        //     font-size: inherit;
+        //     font-weight: 500;
+
+        //     color: inherit;
+
+        //     content: counter(step-counter) ".";
+        // }
     }
 
     ul & {
-        align-items: center;
-        &::before {
-            content: '';
-            margin-right: rem-calc(8);
-            width: 0.375em;
-            height: 0.375em; //bullet size should be relative to the list font-size, not the page
-            border-radius: 50%;
-            background-color: currentColor; //bullet should be the same color as text
-        }
+        list-style-type: disc;
+        // &::before {
+        //     margin-top: rem-calc(6);
+        //     min-width: 6px;
+        //     width: 0.375em;
+        //     height: 0.375em; //bullet size should be relative to the list font-size, not the page
+        //     margin-right: rem-calc(8);
+
+        //     border-radius: 50%;
+        //     background-color: currentColor; //bullet should be the same color as text
+
+        //     content: '';
+        // }
     }
 }
