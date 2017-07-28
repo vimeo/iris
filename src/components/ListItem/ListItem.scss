@@ -1,52 +1,31 @@
 /* @description Generates styles for the ListItem component */
 
 @import '../../globals/sass/helpers-all';
-
 .ListItem {
     margin-bottom: rem-calc(12);
     margin-left: rem-calc(18); //fixes default list outside margin
-
     font-size: inherit;
     font-weight: 500;
-
     list-style-position: outside;
-
     color: currentColor;
-
-    ol & {
-        list-style-type: decimal;
-        // counter-increment: step-counter;
-
-        // align-items: baseline;
-        // &::before {
-        //     margin-right: rem-calc(6);
-
-        //     font-size: inherit;
-        //     font-weight: 500;
-
-        //     color: inherit;
-
-        //     content: counter(step-counter) ".";
-        // }
-    }
-
-    ul & {
-        list-style-type: disc;
-        // &::before {
-        //     margin-top: rem-calc(6);
-        //     min-width: 6px;
-        //     width: 0.375em;
-        //     height: 0.375em; //bullet size should be relative to the list font-size, not the page
-        //     margin-right: rem-calc(8);
-
-        //     border-radius: 50%;
-        //     background-color: currentColor; //bullet should be the same color as text
-
-        //     content: '';
-        // }
-    }
-
     span {
         font-weight: normal;
+    }
+
+    li:first-of-type {
+        margin-top: rem-calc(6);
+    }
+}
+
+ol {
+
+    > li {
+        list-style-type: decimal; // counter-increment: step-counter;
+    }
+}
+
+ul {
+    > li {
+        list-style-type: disc;
     }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, ListItem } from './List';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd, Header6 } from '../../../src/utility_components/Type/Type';
+import { ParagraphMd, Header3, Header6 } from '../../../src/utility_components/Type/Type';
 
 class ListDocs extends React.Component {
     constructor(props) {
@@ -42,6 +42,126 @@ class ListDocs extends React.Component {
     <ListItem>PRO support</ListItem>
     <ListItem>Advanced privacy settings</ListItem>
     <ListItem>Private link sharing</ListItem>
+</List>
+                        `}
+                    </ExampleSource>
+
+                    <Header3>Multi-dimensional Lists</Header3>
+                    <ParagraphMd>Ul in Ul example</ParagraphMd>
+                    <List>
+                        <ListItem>You get to flex brain muscles</ListItem>
+                        <ListItem>Everyday is different
+                            <List>
+                                <ListItem>Monday</ListItem>
+                                <ListItem>Tuesday</ListItem>
+                                <ListItem>Wednesday</ListItem>
+                                <ListItem>Thursday
+                                    <List>
+                                        <ListItem>Scrum</ListItem>
+                                        <ListItem>Design Review</ListItem>
+                                        <ListItem>Demos</ListItem>
+                                    </List>
+                                </ListItem>
+                                <ListItem>Friday</ListItem>
+                            </List>
+                        </ListItem>
+                        <ListItem>It can take you in lots of directions</ListItem>
+                        <ListItem>Good designers are in demand
+                            <List>
+                                <ListItem>NYC Job Openings</ListItem>
+                                <ListItem>LA Job Openings</ListItem>
+                            </List>
+                        </ListItem>
+                        <ListItem>You can wear trainers to work</ListItem>
+                    </List>
+
+                    <ExampleSource>
+                    {`
+<List>
+    <ListItem>You get to flex brain muscles</ListItem>
+    <ListItem>Everyday is different
+        <List>
+            <ListItem>Monday</ListItem>
+            <ListItem>Tuesday</ListItem>
+            <ListItem>Wednesday</ListItem>
+            <ListItem>Thursday
+                <List>
+                    <ListItem>Scrum</ListItem>
+                    <ListItem>Design Review</ListItem>
+                    <ListItem>Demos</ListItem>
+                </List>
+            </ListItem>
+            <ListItem>Friday</ListItem>
+        </List>
+    </ListItem>
+    <ListItem>It can take you in lots of directions</ListItem>
+    <ListItem>Good designers are in demand
+        <List>
+            <ListItem>NYC Job Openings</ListItem>
+            <ListItem>LA Job Openings</ListItem>
+        </List>
+    </ListItem>
+    <ListItem>You can wear trainers to work</ListItem>
+</List>
+                        `}
+                    </ExampleSource>
+
+                    <ParagraphMd>Ol in Ul example</ParagraphMd>
+                    <List>
+                        <ListItem>Perseverance and optimism</ListItem>
+                        <ListItem>Organization and focus</ListItem>
+                        <ListItem>Linear thinking
+                            <List isOrdered>
+                                <ListItem>Lexical Scoping</ListItem>
+                                <ListItem>Synchronous programming</ListItem>
+                            </List>
+                        </ListItem>
+                        <ListItem>Adaptability</ListItem>
+                        <ListItem>Resourcefulness</ListItem>
+                    </List>
+                    <ExampleSource>
+                    {`
+<List>
+    <ListItem>Perseverance and optimism</ListItem>
+    <ListItem>Organization and focus</ListItem>
+    <ListItem>Linear thinking
+        <List isOrdered>
+            <ListItem>Lexical Scoping</ListItem>
+            <ListItem>Synchronous programming</ListItem>
+        </List>
+    </ListItem>
+    <ListItem>Adaptability</ListItem>
+    <ListItem>Resourcefulness</ListItem>
+</List>
+                        `}
+                    </ExampleSource>
+
+                    <ParagraphMd>UL in Ol example</ParagraphMd>
+                    <List isOrdered>
+                        <ListItem>Perseverance and optimism</ListItem>
+                        <ListItem>Organization and focus</ListItem>
+                        <ListItem>Linear thinking
+                            <List>
+                                <ListItem>Lexical Scoping</ListItem>
+                                <ListItem>Synchronous programming</ListItem>
+                            </List>
+                        </ListItem>
+                        <ListItem>Adaptability</ListItem>
+                        <ListItem>Resourcefulness</ListItem>
+                    </List>
+                    <ExampleSource>
+                    {`
+<List isOrdered>
+    <ListItem>Perseverance and optimism</ListItem>
+    <ListItem>Organization and focus</ListItem>
+    <ListItem>Linear thinking
+        <List>
+            <ListItem>Lexical Scoping</ListItem>
+            <ListItem>Synchronous programming</ListItem>
+        </List>
+    </ListItem>
+    <ListItem>Adaptability</ListItem>
+    <ListItem>Resourcefulness</ListItem>
 </List>
                         `}
                     </ExampleSource>
