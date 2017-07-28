@@ -174,7 +174,8 @@ class Modal extends React.Component {
         }
 
         this._setFocusableElementList(
-                elementListCallback.bind(this)
+                elementListCallback.bind(this),
+                true
         );
     }
 
@@ -190,11 +191,12 @@ class Modal extends React.Component {
         }
 
         this._setFocusableElementList(
-                elementListCallback.bind(this)
+                elementListCallback.bind(this),
+                false
         );
     }
 
-    _setFocusableElementList(callback: any) {
+    _setFocusableElementList(callback: any, shouldSetFocus: boolean) {
         if (this.thisEl instanceof Element) {
             const focusableList = this.thisEl.querySelectorAll(
                 'a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]'
@@ -205,13 +207,16 @@ class Modal extends React.Component {
                 this.firstFocusableElement = Array.prototype.slice.call(focusableList)[0];
 
                 this.lastFocusableElement = Array.prototype.slice.call(focusableList)[focusableList.length - 1];
-
-                this._setFirstFocus();
             }
         }
         if (typeof callback === 'function') {
             callback();
         }
+
+        if (shouldSetFocus) {
+            this._setFirstFocus();
+        }
+
     }
 
     _resetOriginalFocus() {
