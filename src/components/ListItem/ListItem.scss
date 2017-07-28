@@ -4,9 +4,12 @@
 .ListItem {
     margin-bottom: rem-calc(12);
     margin-left: rem-calc(18); //fixes default list outside margin
+
     font-size: inherit;
     font-weight: 500;
+
     list-style-position: outside;
+
     color: currentColor;
     span {
         font-weight: normal;
@@ -18,14 +21,13 @@
 }
 
 ol {
-
-    > li {
+    > .ListItem {
         list-style-type: decimal; // counter-increment: step-counter;
     }
 }
 
 ul {
-    > li {
+    > .ListItem {
         list-style-type: disc;
     }
 }
