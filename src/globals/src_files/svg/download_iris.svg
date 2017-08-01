@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
-    <title>download</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Exportable" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="download" fill-rule="nonzero" fill="#1A2E3B">
-            <path d="M9.25,13.0961941 L4.87347584,8.71966991 L3.81281566,9.78033009 L9.46966991,15.4371843 C9.76256313,15.7300776 10.2374369,15.7300776 10.5303301,15.4371843 L16.1871843,9.78033009 L15.1265242,8.71966991 L10.75,13.0961941 L10.75,0.25 L9.25,0.25 L9.25,13.0961941 Z M4.4408921e-16,19 C4.4408921e-16,18.5857864 0.330450833,18.25 0.759601593,18.25 L19.2403984,18.25 C19.6599148,18.25 20,18.5828986 20,19 C20,19.4142136 19.6695492,19.75 19.2403984,19.75 L0.759601593,19.75 C0.340085217,19.75 4.4408921e-16,19.4171014 4.4408921e-16,19 Z" id="Combined-Shape"></path>
-        </g>
-    </g>
-</svg>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 19"><title> Download</title><path d="M12,18a1,1,0,0,0,.71-.29l7-7L18.29,9.29,13,14.59V2H11V14.59L5.71,9.29,4.29,10.71l7,7A1,1,0,0,0,12,18Z" transform="translate(-3 -2)" fill="#1a2e3b"/><path d="M20,19H4a1,1,0,0,0,0,2H20a1,1,0,0,0,0-2Z" transform="translate(-3 -2)" fill="#1a2e3b"/></svg>

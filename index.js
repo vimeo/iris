@@ -15,6 +15,7 @@ exports.paths = {
   'iris/GlobalCSS':'iris/src/globals/css/globals.css',
   'iris/Type':'iris/src/utility_components/Type/Type',
   'iris/icons':'iris/src/globals/svg/',
+  'iris/SlideUpDown' : 'iris/src/animations/SlideUpDown/SlideUpDown',
   
   'iris/Avatar':'iris/src/components/Avatar/Avatar',
   
@@ -35,6 +36,8 @@ exports.paths = {
   'iris/ButtonToggleState':'iris/src/components/ButtonToggleState/ButtonToggleState',
   
   'iris/CircularButton':'iris/src/components/CircularButton/CircularButton',
+  
+  'iris/CounterIcon':'iris/src/components/CounterIcon/CounterIcon',
   
   'iris/FieldSet':'iris/src/components/FieldSet/FieldSet',
   
@@ -70,6 +73,8 @@ exports.paths = {
   
   'iris/InputWrapperInline':'iris/src/components/InputWrapperInline/InputWrapperInline',
   
+  'iris/LinkText':'iris/src/components/LinkText/LinkText',
+  
   'iris/LoaderCircular':'iris/src/components/LoaderCircular/LoaderCircular',
   
   'iris/Modal':'iris/src/components/Modal/Modal',
@@ -84,6 +89,14 @@ exports.paths = {
   
   'iris/SearchField':'iris/src/components/SearchField/SearchField',
   
+  'iris/Tag':'iris/src/components/Tag/Tag',
+  
   'iris/TextArea':'iris/src/components/TextArea/TextArea',
+  
+  'iris/Toastification':'iris/src/components/Toastification/Toastification',
+  
+  'iris/Tooltip':'iris/src/components/Tooltip/Tooltip',
+  
+  'iris/TooltipOverlay':'iris/src/components/TooltipOverlay/TooltipOverlay',
   
 };

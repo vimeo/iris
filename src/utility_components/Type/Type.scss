@@ -49,3 +49,7 @@
 .Header6 {
     @include Header6;
 }
+
+.light {
+    @include lightText;
+}

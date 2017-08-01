@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import GridCol from './GridCol';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 

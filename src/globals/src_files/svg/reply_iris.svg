@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon / Dark / Reply@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon-/-Dark-/-Reply" stroke="#1A2E3B" stroke-width="2">
+            <g id="Reply-icon" transform="translate(4.000000, 2.000000)">
+                <path d="M0.00402832032,0.997436523 L0.00402832032,3.99802941 C0.00402832032,9.33267647 2.66935221,12 8,12 C11.0501941,12 14.0501941,12 17,12" id="Path-2"></path>
+                <polyline id="Path-5" stroke-linejoin="round" points="10 5 17 12 10 18.9951172"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

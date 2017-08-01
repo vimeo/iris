@@ -12,6 +12,10 @@
   
  exports.AlertIris = require('../../../src/globals/svg/alert_iris.svg');
   
+ exports.ArrowLeftIris = require('../../../src/globals/svg/arrow-left_iris.svg');
+  
+ exports.ArrowRightIris = require('../../../src/globals/svg/arrow-right_iris.svg');
+  
  exports.BellIris = require('../../../src/globals/svg/bell_iris.svg');
   
  exports.CheckmarkSmIris = require('../../../src/globals/svg/checkmark-sm_iris.svg');
@@ -23,6 +27,8 @@
  exports.ChevronIris = require('../../../src/globals/svg/chevron_iris.svg');
   
  exports.CollectionsIris = require('../../../src/globals/svg/collections_iris.svg');
+  
+ exports.CommentsIris = require('../../../src/globals/svg/comments_iris.svg');
   
  exports.DeleteIris = require('../../../src/globals/svg/delete_iris.svg');
   
@@ -41,6 +47,12 @@
  exports.GraphIris = require('../../../src/globals/svg/graph_iris.svg');
   
  exports.GridIris = require('../../../src/globals/svg/grid_iris.svg');
+  
+ exports.HeartBrokenIris = require('../../../src/globals/svg/heart-broken_iris.svg');
+  
+ exports.HeartFilledIris = require('../../../src/globals/svg/heart-filled_iris.svg');
+  
+ exports.HeartFilledIris = require('../../../src/globals/svg/heart_filled_iris.svg');
   
  exports.HeartIris = require('../../../src/globals/svg/heart_iris.svg');
   
@@ -776,8 +788,6 @@
   
  exports.IrisIconViewSelected16 = require('../../../src/globals/svg/iris_icon_view_selected_16.svg');
   
- exports.IrisIconVip162 = require('../../../src/globals/svg/iris_icon_vip_16 2.svg');
-  
  exports.IrisIconVip16 = require('../../../src/globals/svg/iris_icon_vip_16.svg');
   
  exports.IrisIconVod16 = require('../../../src/globals/svg/iris_icon_vod_16.svg');
@@ -832,15 +842,25 @@
   
  exports.PinIris = require('../../../src/globals/svg/pin_iris.svg');
   
+ exports.PlayIris = require('../../../src/globals/svg/play_iris.svg');
+  
  exports.PlusCircleIris = require('../../../src/globals/svg/plus-circle_iris.svg');
   
  exports.PlusIris = require('../../../src/globals/svg/plus_iris.svg');
   
+ exports.ReplyIris = require('../../../src/globals/svg/reply_iris.svg');
+  
  exports.ReviewIris = require('../../../src/globals/svg/review_iris.svg');
   
- exports.SearchTextFieldIris = require('../../../src/globals/svg/search-text field_iris.svg');
+ exports.SearchTextFieldIris = require('../../../src/globals/svg/search-text-field_iris.svg');
   
  exports.SearchIris = require('../../../src/globals/svg/search_iris.svg');
+  
+ exports.ShareIris = require('../../../src/globals/svg/share_iris.svg');
+  
+ exports.StarFilledIris = require('../../../src/globals/svg/star-filled_iris.svg');
+  
+ exports.StarIris = require('../../../src/globals/svg/star_iris.svg');
   
  exports.StatsIris = require('../../../src/globals/svg/stats_iris.svg');
   

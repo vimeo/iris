@@ -1,17 +1,20 @@
 import React from 'react';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import {ParagraphMd} from '../../../src/utility_components/Type/Type';
-const VerticalSpacingDocs = (props) => {
+import NotifcationNeutral from '../../../src/components/NotificationNeutral/NotificationNeutral'
+const SpacingUnit = (props) => {
     return (
         <div className="Pattern__docs">
             <ParagraphMd>
-                Vertical spacing is created within CSS. It is based on a base-4 system 
-                where the function returns a single unit of 0.25rem (4px). In any sass file that has included
-                the Iris helper styles at the head of the document. The <code>spacingUnit()</code> can be used for
-                long-hand properties by passing in up to 4 comma separated arguments.
+                Spacing within and between components in Iris based on a 0.25rem (4px) unit.
+                The <code>spacingUnit()</code> SASS function generates a multiple of this unit for easy reuse.
             </ParagraphMd>
+            <NotifcationNeutral>
+                <ParagraphMd>This function should be used for Padding and Margins whenever possible.</ParagraphMd>
+            </NotifcationNeutral>
 
-            <ExampleSource>
+
+            <ExampleSource language="css">
                 {`
 //Sass
 .foo {
@@ -33,4 +36,4 @@ const VerticalSpacingDocs = (props) => {
     );
 };
 
-export default VerticalSpacingDocs;
+export default SpacingUnit;

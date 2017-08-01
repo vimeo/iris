@@ -24,7 +24,7 @@
     font-size: rem-calc($BodyMd);
     line-height: calculateLineHeightTarget($BodyMd, 20);
 
-    letter-spacing: $LetterSpacing;
+    letter-spacing: $LetterSpacingMd;
 }
 
 @mixin ParagraphLg {
@@ -36,7 +36,7 @@
     font-size: rem-calc($BodyLg);
     line-height: calculateLineHeightTarget($BodyLg, 24);
 
-    letter-spacing: $LetterSpacing;
+    letter-spacing: $LetterSpacingMd;
 }
 
 @mixin ParagraphSm {
@@ -48,7 +48,7 @@
     font-size: rem-calc($BodySm);
     line-height: calculateLineHeightTarget($BodySm, 18);
 
-    letter-spacing: $LetterSpacing;
+    letter-spacing: $LetterSpacingMd;
 }
 
 @mixin ParagraphAlt {

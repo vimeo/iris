@@ -12,23 +12,23 @@ const AvatarDocs = (props) => {
             <ParagraphMd>The sizes prop allows users to easily select a default size for the avatar. The default is auto, meaning the avatar will simply fill in the space of its parent element.</ParagraphMd>
             <div data-code>
                 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-                    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
+                    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg  2x"
                     alt="Avatar Extra Small Example"
                     size="xs" />
                 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-                    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
+                    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg  2x"
                     alt="Avatar Small Example"
                     size="sm" />
                 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-                    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
+                    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg  2x"
                     alt="Avatar Medium Example"
                     size="md" />
                 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-                    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
+                    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg  2x"
                     alt="Avatar Large Example"
                     size="lg" />
                 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-                    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
+                    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg  2x"
                     alt="Avatar Extra Large Example"
                     size="xl" />
             </div>
@@ -36,23 +36,23 @@ const AvatarDocs = (props) => {
             <ExampleSource>
                 {`
 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
+    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg  2x"
     alt="Avatar Extra Small Example"
     size="xs" />
 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
+    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg  2x"
     alt="Avatar Small Example"
     size="sm" />
 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
+    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg  2x"
     alt="Avatar Large Example"
     size="md" />
 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
+    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg 2x"
     alt="Avatar Large Example"
     size="lg" />
 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
+    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg  2x"
     alt="Avatar Extra Large Example"
     size="xl" />`}
             </ExampleSource>
@@ -61,15 +61,15 @@ const AvatarDocs = (props) => {
             <ParagraphMd>The default display for avatars is set to inline, meaning your avatar will be inline with any text elements. However, should the need come to have your element take up its own horizontal space, <code>isInline</code> can be set to false, triggering a display block.</ParagraphMd>
             <div data-code>
                 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-                    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
+                    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg  2x"
                     alt="Avatar Inline Example"
                     size="lg" />
                 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-                    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
+                    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg  2x"
                     alt="Avatar Inline Example"
                     size="md" />
                 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-                    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
+                    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg  2x"
                     alt="Avatar Block Example"
                     size="lg"
                     isInline={false} />
@@ -77,15 +77,15 @@ const AvatarDocs = (props) => {
             <ExampleSource>
                 {` 
 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
+    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg  2x"
     alt="Avatar Inline Example"
     size="lg" />
 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
+    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg  2x"
     alt="Avatar Inline Example"
     size="md" />
 <Avatar src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg"
+    srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg  2x"
     alt="Avatar Block Example"
     size="lg"
     isInline={false} />

@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route, browserHistory } from 'react-router-dom';
 import MainLayout from 'steadicam/components/layouts/MainLayout/MainLayout';
 import StyleListing from 'steadicam/components/styleListings/StyleListing/StyleListing';

@@ -3,6 +3,9 @@ import ButtonToggleState from './ButtonToggleState';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import { ParagraphMd } from '../../utility_components/Type/Type';
 
+import PlusIcon from '../../globals/svg/add_iris.svg';
+import CheckIcon from '../../globals/svg/checkmark_iris.svg';
+import DeleteIcon from '../../globals/svg/dismiss_iris.svg';
 class ButtonToggleStateDocs extends React.Component {
     constructor(props) {
         super(props);
@@ -39,6 +42,7 @@ class ButtonToggleStateDocs extends React.Component {
         return (
             <div className="Pattern__docs">
             <ParagraphMd>The Toggle State Button wraps the Button component in behaviors and configurations for buttons that represent a Toggled state like the Vimeo Follow Button or App Connector</ParagraphMd>
+            <ParagraphMd>Icons for each state should be passed to their corresponding icon prop (see example).</ParagraphMd>
             <ParagraphMd>The button is available in two formats named after their intial state when they are in "off" (e.g. "+ follow") mode.</ParagraphMd>
             <ParagraphMd>The buttons will switch to a special "turnOffAction" text (e.g 'x unfollow') state on hover unless the user has not yet triggered a 'mouseleave' event after clicking the button from "follow" to "following", in the example of the follow button.</ParagraphMd>
             <ParagraphMd>The button keeps no internal state of whether or not it is currently active or not. This is controlled by the <code>isActive</code> boolean prop.</ParagraphMd>
@@ -47,34 +51,46 @@ class ButtonToggleStateDocs extends React.Component {
                     <ButtonToggleState
                         format="primaryOutline"
                         isActive={this.state.following}
+                        offIcon={<PlusIcon />}
                         offStateText={followText}
+                        onIcon={<CheckIcon />}
                         onStateText={followingText}
                         onClick={this.followToggle}
                         turnOffActionText={unfollowText}
+                        turnOffIcon = {<DeleteIcon />}
                     />
                     <ButtonToggleState
                         format="primary"
                         isActive={this.state.following}
+                        offIcon={<PlusIcon />}
                         offStateText={followText}
+                        onIcon={<CheckIcon />}
                         onStateText={followingText}
                         onClick={this.followToggle}
                         turnOffActionText={unfollowText}
+                        turnOffIcon = {<DeleteIcon />}
                     />
                       <ButtonToggleState
                         format="primaryOutline"
                         isActive={this.state.connected}
+                        offIcon={<PlusIcon />}
                         offStateText={connectText}
+                        onIcon={<CheckIcon />}
                         onStateText={connectedText}
                         onClick={this.connectToggle}
                         turnOffActionText={disconnectText}
+                        turnOffIcon = {<DeleteIcon />}
                     />
                     <ButtonToggleState
                         format="primary"
                         isActive={this.state.connected}
+                        offIcon={<PlusIcon />}
                         offStateText={connectText}
+                        onIcon={<CheckIcon />}
                         onStateText={connectedText}
                         onClick={this.connectToggle}
                         turnOffActionText={disconnectText}
+                        turnOffIcon = {<DeleteIcon />}
                     />
                 </div>
 

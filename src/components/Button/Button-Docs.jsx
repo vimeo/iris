@@ -1,7 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import Button from './Button';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import DownloadIcon from '../../globals/svg/iris_icon_download_16.svg';
+import ShareIcon from '../../globals/svg/share_iris.svg';
+import HeartIcon from '../../globals/svg/heart_iris.svg';
+import DownloadIcon from '../../globals/svg/download_iris.svg';
 import { ParagraphMd, Header3, Header4 } from '../../../src/utility_components/Type/Type';
 class ButtonDocs extends React.Component {
     clickExample() {
@@ -62,36 +64,36 @@ class ButtonDocs extends React.Component {
                  <Header3>Text-Only Buttons</Header3>
                 <ParagraphMd>In cases where we need a button element but want it to appear like text, we use the Text-only buttons</ParagraphMd>
                 <div data-code style={{ 'padding': '1em', 'width': '100%' }}>
-                    <Button format="primaryTextOnly" icon={<DownloadIcon />}>Primary TextOnly</Button>
+                    <Button format="primaryTextOnly" icon={<ShareIcon />}>Primary TextOnly</Button>
                     <Button format="secondaryTextOnly" >Secondary Outline</Button>
                 </div>
 
                 <div style={{ 'backgroundColor': '#000', 'padding': '1em', 'width': '100%' }}>
-                    <Button format="primaryTextOnly" icon={<DownloadIcon />}>Primary TextOnly</Button>
-                    <Button format="lightTextOnly" icon={<DownloadIcon />}>Light Outline</Button>
+                    <Button format="primaryTextOnly" icon={<ShareIcon />}>Primary TextOnly</Button>
+                    <Button format="lightTextOnly" icon={<ShareIcon />}>Light Outline</Button>
                 </div>
 
                 <ExampleSource>
                     {`
-<Button format="primaryTextOnly" icon={<DownloadIcon />}>Primary TextOnly</Button>
+<Button format="primaryTextOnly" icon={<ShareIcon />}>Primary TextOnly</Button>
 <Button format="secondaryTextOnly">Secondary Outline</Button>
-<Button format="lightTextOnly" icon={<DownloadIcon />}>Light Outline</Button>
+<Button format="lightTextOnly" icon={<ShareIcon />}>Light Outline</Button>
                     `}
                 </ExampleSource>
 
                 <div data-code style={{ 'padding': '1em', 'width': '100%' }}>
-                    <Button format="primaryTextOnly" size="lg" icon={<DownloadIcon />}>Primary TextOnly</Button>
-                    <Button format="primaryTextOnly" size="md" icon={<DownloadIcon />}>Primary TextOnly</Button>
-                    <Button format="primaryTextOnly" size="sm" icon={<DownloadIcon />}>Primary TextOnly</Button>
-                    <Button format="primaryTextOnly" size="xs" icon={<DownloadIcon />}>Primary TextOnly</Button>
+                    <Button format="primaryTextOnly" size="lg" icon={<ShareIcon />}>Primary TextOnly</Button>
+                    <Button format="primaryTextOnly" size="md" icon={<ShareIcon />}>Primary TextOnly</Button>
+                    <Button format="primaryTextOnly" size="sm" icon={<ShareIcon />}>Primary TextOnly</Button>
+                    <Button format="primaryTextOnly" size="xs" icon={<ShareIcon />}>Primary TextOnly</Button>
                 </div>
 
                 <ExampleSource>
                     {`
-<Button format="primaryTextOnly" size="lg" icon={<DownloadIcon />}>Primary TextOnly</Button>
-<Button format="primaryTextOnly" size="md" icon={<DownloadIcon />}>Primary TextOnly</Button>
-<Button format="primaryTextOnly" size="sm" icon={<DownloadIcon />}>Primary TextOnly</Button>
-<Button format="primaryTextOnly" size="xs" icon={<DownloadIcon />}>Primary TextOnly</Button>
+<Button format="primaryTextOnly" size="lg" icon={<ShareIcon />}>Primary TextOnly</Button>
+<Button format="primaryTextOnly" size="md" icon={<ShareIcon />}>Primary TextOnly</Button>
+<Button format="primaryTextOnly" size="sm" icon={<ShareIcon />}>Primary TextOnly</Button>
+<Button format="primaryTextOnly" size="xs" icon={<ShareIcon />}>Primary TextOnly</Button>
                     `}
                 </ExampleSource>
 
@@ -139,35 +141,45 @@ class ButtonDocs extends React.Component {
                 <ParagraphMd>Buttons can include SVG icons. These icons get passed in as JSX elements to the <code>icon</code> prop. Icons should aways be on the left (the default) unless there is a compelling reason to have it on the right (e.g. forward button with right arrow), using the <code>iconLocation</code></ParagraphMd>
                 <div data-code>
                     <div>
-                        <Button size="lg" format="warning" icon={<DownloadIcon />}>warning lg</Button>
+                        <Button size="lg" format="warning" icon={<ShareIcon />}>warning lg</Button>
                         <Button size="lg" format="success" icon={<DownloadIcon />} iconLocation="afterLabel">Success lg</Button>
                     </div>
                     <div>
-                        <Button format="alternative" icon={<DownloadIcon />}>Alternative</Button>
-                        <Button format="secondaryOutline" icon={<DownloadIcon />} iconLocation="afterLabel">Secondary Outline</Button>
+                        <Button format="alternative" icon={<ShareIcon />}>Alternative</Button>
+                        <Button format="secondaryOutline" icon={<HeartIcon />} iconLocation="afterLabel">Secondary Outline</Button>
                     </div>
                     <div>
-                        <Button size="sm" format="primary" icon={<DownloadIcon />}>Primary sm</Button>
+                        <Button size="sm" format="primary" icon={<ShareIcon />}>Primary sm</Button>
                         <Button size="sm" format="secondary" icon={<DownloadIcon />} iconLocation="afterLabel">Secondary sm</Button>
                     </div>
 
                     <div>
-                        <Button size="xs" format="primaryOutline" icon={<DownloadIcon />}>Primary xs</Button>
-                        <Button size="xs" format="secondaryOutline" icon={<DownloadIcon />} iconLocation="afterLabel">Secondary xs</Button>
+                        <Button size="xs" format="primaryOutline" icon={<ShareIcon />}>Primary xs</Button>
+                        <Button size="xs" format="secondaryOutline" icon={<ShareIcon />} iconLocation="afterLabel">Secondary xs</Button>
                     </div>
 
                 </div>
 
                 <ExampleSource>
                     {`
-<Button size="lg" format="warning" icon={<DownloadIcon />}>warning lg</Button>
-<Button size="lg" format="success"  icon={<DownloadIcon />} iconLocation="afterLabel">Success lg</Button>
-<Button format="alternative" icon={<DownloadIcon />}>Alternative</Button>
-<Button format="secondaryOutline" icon={<DownloadIcon />} iconLocation="afterLabel">Secondary Outline</Button>
-<Button size="sm" format="primary" icon={<DownloadIcon />}>Primary sm</Button>
-<Button size="sm" format="secondary"  icon={<DownloadIcon />} iconLocation="afterLabel">Secondary sm</Button>
-<Button size="xs" format="primaryOutline" icon={<DownloadIcon />}>Primary xs</Button>
-<Button size="xs" format="secondaryOutline"  icon={<DownloadIcon />} iconLocation="afterLabel">Secondary xs</Button>
+ <div>
+    <Button size="lg" format="warning" icon={<ShareIcon />}>warning lg</Button>
+    <Button size="lg" format="success" icon={<DownloadIcon />} iconLocation="afterLabel">Success lg</Button>
+</div>
+<div>
+    <Button format="alternative" icon={<ShareIcon />}>Alternative</Button>
+    <Button format="secondaryOutline" icon={<HeartIcon />} iconLocation="afterLabel">Secondary Outline</Button>
+</div>
+<div>
+    <Button size="sm" format="primary" icon={<ShareIcon />}>Primary sm</Button>
+    <Button size="sm" format="secondary" icon={<DownloadIcon />} iconLocation="afterLabel">Secondary sm</Button>
+</div>
+
+<div>
+    <Button size="xs" format="primaryOutline" icon={<ShareIcon />}>Primary xs</Button>
+    <Button size="xs" format="secondaryOutline" icon={<ShareIcon />} iconLocation="afterLabel">Secondary xs</Button>
+</div>
+
                     `}
                 </ExampleSource>
 

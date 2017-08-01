@@ -6,6 +6,8 @@
 [libs]
 
 [options]
+module.system.node.resolve_dirname=src
+module.system.node.resolve_dirname=node_modules
 module.name_mapper='.*\(.scss\)' -> 'empty/object'
 esproposal.decorators=ignore
 suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe

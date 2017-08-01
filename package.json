@@ -1,6 +1,6 @@
 {
   "name": "iris",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Iris UI Pattern Framework",
   "main": "index.js",
   "scripts": {
@@ -47,7 +47,6 @@
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2",
     "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git",
-    "svg-react-loader": "^0.3.7",
     "uppercamelcase": "^1.1.0",
     "walk": "^2.3.9",
     "yargs": "^7.0.2"
@@ -70,9 +69,11 @@
     "postcss-loader": "^1.1.1",
     "react": "^15.4.1",
     "react-dom": "^15.3.2",
+    "react-tether": "^0.5.7",
     "react-transition-group": "^1.1.1",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.1",
+    "svg-react-loader": "^0.4.4",
     "webpack": "^1.15.0"
   }
 }
