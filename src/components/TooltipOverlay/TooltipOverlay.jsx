@@ -13,7 +13,7 @@ const displayName = 'TooltipOverlay';
 
 type Props = {
     children: React$Element<*>,
-    attachment: 'top' | 'right' | 'left',
+    attachment?: 'top' | 'right' | 'left' | 'bottom',
     isShowing: boolean,
     href: string,
     onBlur: any,
@@ -206,6 +206,10 @@ class TooltipOverlay extends React.Component {
             case 'top':
                 tooltipDirection = 'top center';
                 constraintAttachment = 'bottom center';
+                break;
+            case 'bottom':
+                tooltipDirection = 'bottom center';
+                constraintAttachment = 'top center';
                 break;
             case 'right':
                 tooltipDirection = 'middle right';

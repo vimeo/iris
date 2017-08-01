@@ -3,7 +3,7 @@ import ButtonIconOnly from './ButtonIconOnly';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import SettingsIcon from '../../globals/svg/iris_icon_settings_16.svg';
 import DownloadIcon from '../../globals/svg/iris_icon_download_16.svg';
-import DeleteIcon from '../../globals/svg/iris_icon_delete_16.svg';
+import DeleteIcon from '../../globals/svg/delete_iris.svg';
 import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
 const ButtonIconOnlyDocs = (props) => {
     return (
@@ -35,8 +35,8 @@ const ButtonIconOnlyDocs = (props) => {
                     size="md"
                 />
             </div>
-
-             <div style={{ 'padding': '1rem', 'width': '100%' }} data-code>
+ <ParagraphMd>For buttons on image backgrounds we use the light formats. The <code>light</code> format is the standard, <code>lightWarning</code> is used for destructive actions.</ParagraphMd>
+            <div style={{ 'padding': '1rem', 'width': '100%' }} data-code>
                 <ButtonIconOnly
                     icon={<DeleteIcon title="Delete"/>}
                     format="warning"
@@ -48,7 +48,7 @@ const ButtonIconOnlyDocs = (props) => {
                     size="sm"
                 />
 
-                 <ButtonIconOnly
+                <ButtonIconOnly
                     icon={<DeleteIcon title="Delete"/>}
                     format="warning"
                     size="md"
@@ -85,26 +85,25 @@ const ButtonIconOnlyDocs = (props) => {
                     />
             </div>
             <div data-code style={{ 'backgroundImage': 'url(https://placekitten.com/1000/800)', 'backgroundSize': 'cover', 'backgroundPosition': 'center', 'padding': '1rem', 'width': '100%' }}>
-                 <ButtonIconOnly
+                <ButtonIconOnly
                     icon={<SettingsIcon title="Settings" />}
                     format="light"
                     size="sm"
                 />
-
                 <ButtonIconOnly
                     icon={<DownloadIcon title="Download" />}
-                    format="light"
-                    size="sm"
-                />
-                 <ButtonIconOnly
-                    icon={<SettingsIcon title="Settings" />}
                     format="light"
                     size="md"
                 />
 
                 <ButtonIconOnly
-                    icon={<DownloadIcon title="Download" />}
-                    format="light"
+                    icon={<DeleteIcon title="Delete" />}
+                    format="lightWarning"
+                    size="sm"
+                />
+                <ButtonIconOnly
+                    icon={<DeleteIcon title="Delete" />}
+                    format="lightWarning"
                     size="md"
                 />
             </div>
@@ -135,6 +134,12 @@ const ButtonIconOnlyDocs = (props) => {
     icon={<SettingsIcon title="Settings" />}
     format="light"
     size="sm"
+/>
+//lightWarning
+ <ButtonIconOnly
+    icon={<DeleteIcon title="Delete" />}
+    format="lightWarning"
+    size="md"
 />
                 `}
                 </ExampleSource>
