@@ -3,7 +3,8 @@
         ["Colors", "Color Palette", true],
         ["ColorRibbon", "Color Ribbon", true],
         ["Svgs", "SVG Icons", true],
-        ["Typography", "Typography", true]
+        ["Typography", "Typography", true],
+        ["LinkText", "Links"]
     ],
     "Utilities": [
         ["MediaQueries", "Named Media Queries", true],
