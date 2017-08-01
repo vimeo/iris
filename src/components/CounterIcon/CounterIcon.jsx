@@ -3,8 +3,8 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './CounterIcon.scss';
 
-import { ParagraphLg } from 'utility_components/Type/Type';
-import TooltipOverlay from 'components/TooltipOverlay/TooltipOverlay';
+import { ParagraphLg } from '../../utility_components/Type/Type';
+import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';
 
 const displayName = 'CounterIcon';
 
