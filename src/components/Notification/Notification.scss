@@ -26,7 +26,8 @@ $Notification_dismiss-icon-size: rem-calc(18);
     }
 
     p:last-of-type {
-        margin-bottom: 0; // remove global last paragraph margin
+        max-width: 44rem;
+        margin-bottom: 0 !important; // remove global last paragraph margin
     }
 }
 

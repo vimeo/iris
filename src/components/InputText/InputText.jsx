@@ -73,6 +73,7 @@ const InputText = ({
                         aria-invalid={ariaInvalid}
                         disabled={disabled}
                         className={componentClass}
+                        type={type}
                     />
             </InputWrapper>
 

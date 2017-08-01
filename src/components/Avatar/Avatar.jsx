@@ -34,7 +34,7 @@ const Avatar = ({
     );
 
     return (
-        <img src={src} srcSet={`${srcSet} 2x`} alt={alt} className={componentClass} {...filteredProps} />
+        <img src={src} srcSet={srcSet} alt={alt} className={componentClass} {...filteredProps} />
     );
 
 };

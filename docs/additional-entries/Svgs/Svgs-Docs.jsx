@@ -2,13 +2,14 @@ import React from 'react';
 import IrisIconAlert16 from '../../../src/globals/svg/iris_icon_alert_16';
 import { ParagraphMd, Header3, Header4 } from '../../../src/utility_components/Type/Type';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import LinkText from '../../../src/components/LinkText/LinkText';
 
 const SvgsDocs = (props) => {
     return (
         <div className="Pattern__docs">
             <ParagraphMd>SVGs are loaded in using <a href="https://github.com/jhamlet/svg-react-loader" target="_blank">svg-react-loader</a></ParagraphMd>
             <Header3>All Iris Icons</Header3>
-            <ParagraphMd><a href="svgPage.html" target="_blank">See all SVG Icons Here</a></ParagraphMd>
+            <ParagraphMd><LinkText href="svgPage.html" target="_blank">See all SVG Icons Here</LinkText></ParagraphMd>
 
             <Header3>Using an Iris Icon</Header3>
             <ParagraphMd>Icons are loaded with the <a href="https://github.com/jhamlet/svg-react-loader" target="_blank">SVG React Loader</a>.To include an icon you need to know its "Component Name" and File Name.</ParagraphMd>

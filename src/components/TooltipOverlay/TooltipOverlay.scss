@@ -1,0 +1,22 @@
+/* @description Generates styles for the TriggerOverlay component */
+@import '../../globals/sass/helpers-all';
+
+.TriggerOverlay {
+    z-index: get-z-index('tooltipOverlay');
+}
+
+.Wrapper {
+    z-index: get-z-index('tooltipOverlay');
+}
+
+.TriggerWrapper {
+    display: inline-block;
+}
+
+.TooltipWrapper {
+    margin: spacingUnit(2);
+}
+
+.Link {
+    display: inline-block;
+}

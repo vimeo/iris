@@ -67,11 +67,20 @@ $ButtonIconOnly_icon-size: rem-calc(16);
 }
 
 .light {
-    color: $White;
-    background-color: rgba(0,0,0,0.5);
+    color: $AstroGranite;
+    background-color: $White;
 
     &:hover {
-        background-color: rgba(0,0,0,0.7);
+        color: $VimeoBlue;
+    }
+}
+
+.lightWarning {
+    color: $AstroGranite;
+    background-color: $White;
+
+    :hover {
+        color: $SunsetOrange;
     }
 }
 
@@ -79,7 +88,7 @@ $ButtonIconOnly_icon-size: rem-calc(16);
     color: $RegentGray;
 
     &:hover {
-        background-color: rgba(162, 175,184,0.16);
+        background-color: $LightGreyHoverBgColor;
     }
 }
 
