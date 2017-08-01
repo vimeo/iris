@@ -2,7 +2,7 @@ import React from 'react';
 import InputSelect from './InputSelect';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import Button from '../Button/Button';
-
+import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
 const demoOptions = (
                     <optgroup label="Option Group">
                         <option value="" defaultValue disabled hidden>Select something...</option>
@@ -52,7 +52,7 @@ class InputSelectDocs extends React.Component {
         }
         else if (this.state.nextState === 'error') {
             this.setState({
-                errorProp: (<p>This is a problem!</p>),
+                errorProp: (<ParagraphMd>This is a problem!</ParagraphMd>),
                 format: 'negative',
                 nextState: 'positive',
             });
@@ -67,7 +67,7 @@ class InputSelectDocs extends React.Component {
     render() {
         return (
             <div className="Pattern__docs">
-            <p>Our select menus are a theming of the native select menu component. <a href = "https://caniuse.com/#feat=css-appearance" target="_blank">Browsers that do not support the "Appearance" CSS property</a>, (specifically IE and Opera) will receive a slightly less styled component.</p>
+            <ParagraphMd>Our select menus are a theming of the native select menu component. <a href = "https://caniuse.com/#feat=css-appearance" target="_blank">Browsers that do not support the "Appearance" CSS property</a>, (specifically IE and Opera) will receive a slightly less styled component.</ParagraphMd>
                 <div data-code>
                     <InputSelect
                         name="ExampleSelect1"
@@ -86,7 +86,7 @@ class InputSelectDocs extends React.Component {
                     </InputSelect>
                     <InputSelect
                         name="ExampleSelect2"
-                        helperMsg = {<p>I am helpful text!</p>}
+                        helperMsg = {<ParagraphMd>I am helpful text!</ParagraphMd>}
                         id="ExampleSelect2"
                         label="Default with Helper Text"
                     >
@@ -97,7 +97,7 @@ class InputSelectDocs extends React.Component {
                         format="negative"
                         id="ExampleSelect2"
                         label="Negative"
-                        errorMsg = {<p>This is a problem!</p>}
+                        errorMsg = {<ParagraphMd>This is a problem!</ParagraphMd>}
                     >
                         {demoOptions}
                     </InputSelect>
@@ -150,7 +150,7 @@ const demoOptions = (
                         <option value="1">Value 1</option>
                         <option value="2">Value 2 has a long label</option>
                         <option value="3" disabled>Value 2 (Disabled)</option>
-                    </optgroup>
+                    </optgrouParagraphMd>
                     );
 
 <InputSelect
@@ -170,7 +170,7 @@ const demoOptions = (
 </InputSelect>
 <InputSelect
     name="ExampleSelect2"
-    helperMsg = {<p>I am helpful text!</p>}
+    helperMsg = {<ParagraphMd>I am helpful text!</ParagraphMd>}
     id="ExampleSelect2"
     label="Default with Helper Text"
 >
@@ -181,7 +181,7 @@ const demoOptions = (
     format="negative"
     id="ExampleSelect2"
     label="Negative"
-    errorMsg = {<p>This is a problem!</p>}
+    errorMsg = {<ParagraphMd>This is a problem!</ParagraphMd>}
 >
     {demoOptions}
 </InputSelect>
@@ -223,9 +223,9 @@ const demoOptions = (
 </InputSelect>
                         `}
                 </ExampleSource>
-                <h3>Generating select options from an array (optional)</h3>
-                <p>You can pass an optional array of options to a select to have it print out option tags. <code>"text"</code> and <code>"value"</code> should be included for every option.</p>
-                <p>If no options array is passed, the select menu will print out its child content.</p>
+                <Header3>Generating select options from an array (optional)</Header3>
+                <ParagraphMd>You can pass an optional array of options to a select to have it print out option tags. <code>"text"</code> and <code>"value"</code> should be included for every option.</ParagraphMd>
+                <ParagraphMd>If no options array is passed, the select menu will print out its child content.</ParagraphMd>
                 <div data-code>
                     <InputSelect
                         name="ExampleSelect1Large"

@@ -8,7 +8,7 @@ gulp.task('build-Prod' , function(cb) {
         'reactDocGenBuild',
         'reactDocGenParse',
         'compileColorVariables',
-        ['sassStyleguide', 'sassGlobals'],
+        'sassGlobals',
         'copyStaticAssets',
         'compilePackageIndexJSX',
         'copyFavicon',

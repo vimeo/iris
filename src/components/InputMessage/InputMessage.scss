@@ -2,6 +2,8 @@
 @import '../../globals/sass/helpers-all';
 
 .InputMessage {
+    @include ParagraphSm;
+
     visibility: hidden;
     overflow: hidden;
 

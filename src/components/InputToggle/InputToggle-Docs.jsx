@@ -1,7 +1,7 @@
 import React from 'react';
 import InputToggle from './InputToggle';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-
+import { ParagraphMd } from '../../../src/utility_components/Type/Type';
 
 class InputToggleDocs extends React.Component {
     constructor(props) {
@@ -11,7 +11,7 @@ class InputToggleDocs extends React.Component {
     render() {
         return (
             <div className="Pattern__docs">
-            <p>Toggles are an alternative UI for checkbox inputs. They are most appropriate for binary settings rather than a one time choice such as accepting terms and conditions.</p>
+            <ParagraphMd>Toggles are an alternative UI for checkbox inputs. They are most appropriate for binary settings rather than a one time choice such as accepting terms and conditions.</ParagraphMd>
                 <div data-code>
                     <InputToggle
                         label="Toggle (medium)"

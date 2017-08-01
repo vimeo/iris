@@ -2,9 +2,9 @@ import React from 'react';
 import InputText from './InputText';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import Button from '../Button/Button';
-
+import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
 const errorState = {
-    errorProp: (<p>This is a problem!</p>),
+    errorProp: (<ParagraphMd>This is a problem!</ParagraphMd>),
     format: 'negative',
     nextState: 'positive',
 };
@@ -45,8 +45,8 @@ class InputTextDocs extends React.Component {
     render() {
         return (
             <div>
-                <p>Input components provide text-like (text, email, phone, etc..) input fields for forms, including the label and error messaging. Inputs are <code>type="text"</code> by default.</p>
-                <p>Inputs provide no logic for field valdation themselves but expose three modes through the <code>format</code> prop which should be changed through parent state. Any event handlers passed to the component will be attached to the input field itself.</p>
+                <ParagraphMd>Input components provide text-like (text, email, phone, etc..) input fields for forms, including the label and error messaging. Inputs are <code>type="text"</code> by default.</ParagraphMd>
+                <ParagraphMd>Inputs provide no logic for field valdation themselves but expose three modes through the <code>format</code> prop which should be changed through parent state. Any event handlers passed to the component will be attached to the input field itself.</ParagraphMd>
                 <div data-code>
                     <InputText
                         name="foo"
@@ -73,14 +73,14 @@ class InputTextDocs extends React.Component {
                         id="helpful"
                         label="Helpful Input"
                         placeholder="I have some helper text"
-                        helperMsg = {<p>See? I told you so.</p>}
+                        helperMsg = {<ParagraphMd>See? I told you so.</ParagraphMd>}
                     />
                     <InputText
                         name="oops"
                         id="oops"
                         label="Errored Input"
                         format="negative"
-                        errorMsg = {<p>This is a problem!</p>}
+                        errorMsg = {<ParagraphMd>This is a problem!</ParagraphMd>}
                         placeholder="Placeholder Text"
                         defaultValue="Something is wrong!"
                     />
@@ -121,14 +121,14 @@ class InputTextDocs extends React.Component {
     id="helpful"
     label="Helpful Input"
     placeholder="I have some helper text"
-    helperMsg = {<p>See? I told you so.</p>}
+    helperMsg = {<ParagraphMd>See? I told you so.</ParagraphMd>}
 />
 <InputText
     name="oops"
     id="oops"
     label="Errored Input"
     format="negative"
-    errorMsg = {<p>This is a problem!</p>}
+    errorMsg = {<ParagraphMd>This is a problem!</ParagraphMd>}
     placeholder="Placeholder Text"
     defaultValue="Something is wrong!"
 />
@@ -141,8 +141,8 @@ class InputTextDocs extends React.Component {
 />
                     `}
                     </ExampleSource>
-                    <h3>Input Animation</h3>
-                    <p>When the props passed to the input by parent state change, the input field animates the transition.</p>
+                    <Header3>Input Animation</Header3>
+                    <ParagraphMd>When the props passed to the input by parent state change, the input field animates the transition.</ParagraphMd>
                     <InputText
                         name="betterNow"
                         id="betterNow"
@@ -152,7 +152,7 @@ class InputTextDocs extends React.Component {
                         placeholder="Placeholder Text"
                         defaultValue="Something is getting better!"
                     />
-                     <InputText
+                    <InputText
                         name="betterNowLg"
                         id="betterNowLg"
                         label="Animate Input (Large)"
@@ -165,9 +165,9 @@ class InputTextDocs extends React.Component {
                     <Button format="secondaryOutline" size="xs" onClick={this.handleClick}>Toggle Field State to "{this.state.nextState}"</Button>
 
 
-                    <h3>Hidden Labels</h3>
-                    <p>The label tag can be suppressed by setting <code>showLabel</code> to <code>false</code>.</p>
-                    <p>In that case, an <code>aria-label</code> attribute will be added the input with the label text.</p>
+                    <Header3>Hidden Labels</Header3>
+                    <ParagraphMd>The label tag can be suppressed by setting <code>showLabel</code> to <code>false</code>.</ParagraphMd>
+                    <ParagraphMd>In that case, an <code>aria-label</code> attribute will be added the input with the label text.</ParagraphMd>
                     <div data-code>
                         <InputText
                             name="hiddenLabel"
@@ -190,8 +190,8 @@ class InputTextDocs extends React.Component {
                         `}
                     </ExampleSource>
 
-                <h3>Input Sizes</h3>
-                <p>Inputs can also be medium or large and are sized to line up with the buttons of the same size prop.</p>
+                <Header3>Input Sizes</Header3>
+                <ParagraphMd>Inputs can also be medium or large and are sized to line up with the buttons of the same size prop.</ParagraphMd>
                 <div data-code>
                     <InputText
                         name="medInput"
@@ -226,8 +226,8 @@ class InputTextDocs extends React.Component {
                         `}
                     </ExampleSource>
 
-                    <h3>Inline Fields</h3>
-                    <p>Fields have bottom margin by default. To suppress this margin (for instance in stand alone search field), use <code>isInline=true</code>. This will usually be used in tandem with the hidden field option above.</p>
+                    <Header3>Inline Fields</Header3>
+                    <ParagraphMd>Fields have bottom margin by default. To suppress this margin (for instance in stand alone search field), use <code>isInline=true</code>. This will usually be used in tandem with the hidden field option above.</ParagraphMd>
                     <div data-code>
                         <InputText
                             name="inlineInput"

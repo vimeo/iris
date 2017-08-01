@@ -11,12 +11,11 @@ $Notification_dismiss-icon-size: rem-calc(18);
     position: relative;
 
     width: 100%;
+    margin-bottom: spacingUnit(4);
     padding-top: $Notification_padding-vertical;
     padding-right: $Notification_dismiss-icon-size + $Notification_padding-horizontal + $Notification_icon-margin;
     padding-bottom: $Notification_padding-vertical;
     padding-left: $Notification_padding-horizontal;
-
-    font-size: 0.875rem;
 
     border-radius: rem-calc($g-radius);
 
@@ -25,8 +24,11 @@ $Notification_dismiss-icon-size: rem-calc(18);
     &.hasIcon {
         padding-left: $Notification_icon-size + $Notification_padding-horizontal+ $Notification_icon-margin;
     }
-}
 
+    p:last-of-type {
+        margin-bottom: 0; // remove global last paragraph margin
+    }
+}
 
 
 // icon

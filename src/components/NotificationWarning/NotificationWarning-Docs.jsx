@@ -2,62 +2,63 @@ import React from 'react';
 import NotificationWarning from './NotificationWarning';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import Button from '../Button/Button';
-import { TransitionGroup } from 'react-transition-group';
-
+import SlideUpDown from '../../animations/SlideUpDown/SlideUpDown';
+import { ParagraphMd } from '../../../src/utility_components/Type/Type';
 
 class NotificationWarningDocs extends React.Component {
     // test handler for onDismiss event
 
     constructor(props) {
         super(props);
-        this.state = { showNotification: true };
+        this.state = { hideNotification: false };
         this.handleClick = this.handleClick.bind(this);
+
     }
 
     handleClick() {
-        this.setState({ showNotification: !this.state.showNotification });
+        this.setState({ hideNotification: !this.state.hideNotification });
     }
 
     render() {
-        const DismissableNotification = (
-               <NotificationWarning
-                    onDismiss={this.handleClick}
-                >
-                    <p>This component is a Warning notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</p>
-                </NotificationWarning>
-        );
 
         return (
             <div>
-                <p>The Warning Notification is used for most message types.</p>
-                <h3>Animating the Notification Dismissal</h3>
-                <p>See Neutral Notification for instructions</p>
+                <ParagraphMd>The Success Notification is used to let the user know that there has been an error or their attention is needed.</ParagraphMd>
+                <ParagraphMd>If the notification can be dismissed, Animation should be acheived by the SlideUpDown component. <a href="/pattern/Animation/SlideUpDownAnimation">See documentation.</a></ParagraphMd>
                 <div data-code>
-                    <TransitionGroup>
-                                {this.state.showNotification ? DismissableNotification : null}
-                    </TransitionGroup>
+                <SlideUpDown
+                    isHidden={this.state.hideNotification}
+                >
+                    <NotificationWarning
+                        onDismiss={this.handleClick}
+                    >
+                        <p>This component is a Warning notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</p>
+                    </NotificationWarning>
+                </SlideUpDown>
                     <Button format="secondaryOutline" size="xs" onClick={this.handleClick}>Toggle Notifcation</Button>
                     <NotificationWarning hasIcon={false}>
-                        <p>This is a Warning notification without an icon.  I am  NOT dismissable.</p>
+                        <ParagraphMd>This is a Warning notification without an icon.  I am  NOT dismissable.</ParagraphMd>
                     </NotificationWarning>
                 </div>
 
                 <ExampleSource>
                     {`
-const DismissableNotification = (
+<SlideUpDown
+    isHidden={this.state.hideNotification}
+>
     <NotificationWarning
             onDismiss={this.handleClick}
         >
-            <p>This component is a Warning notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</p>
+            <ParagraphMd>This component is a Warning notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</ParagraphMd>
         </NotificationWarning>
 );
 
-<TransitionGroup>
-    {this.state.showNotification ? DismissableNotification : null}
-</TransitionGroup>
-
 <NotificationWarning hasIcon={false}>
     <p>This is a Warning notification without an icon.  I am  NOT dismissable.</p>
+</NotificationWarning>
+
+<NotificationWarning hasIcon={false}>
+    <ParagraphMd>This is a Warning notification without an icon.  I am  NOT dismissable.</ParagraphMd>
 </NotificationWarning>
                         `}
                     </ExampleSource>

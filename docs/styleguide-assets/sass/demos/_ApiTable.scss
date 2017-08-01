@@ -1,0 +1,26 @@
+:global {
+  .ApiTable{
+  border-collapse: collapse;
+
+    th{
+      background-color: $RegentGray;
+      color: $White;
+      text-align: center;
+    }
+
+    td {
+      text-align: left;
+    }
+
+    td,
+    th {
+      border: 1px solid $RegentGray;
+      padding: .5rem 1rem;
+    }
+
+    tr:nth-child(even){
+      background-color: $Plaster;
+    }
+    
+  }
+}

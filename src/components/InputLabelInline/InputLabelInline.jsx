@@ -2,18 +2,24 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './InputLabelInline.scss';
+import InputLabelStateIcon from '../InputLabelStateIcon/InputLabelStateIcon';
+import { ParagraphMd } from '../../utility_components/Type/Type';
 
 const displayName = 'InputLabelInline';
 
 type Props = {
     className?: string,
+    children: React$Element<*>,
     disabled?: boolean,
     format?: 'negative' | 'positive' | 'neutral',
+    fieldLevelErrors?: boolean;
 };
 
 const InputLabelInline = ({
                             className,
+                            children,
                             format = 'neutral',
+                            fieldLevelErrors,
                             disabled,
                         ...filteredProps
                     }: Props): React$Element<*> => {
@@ -27,11 +33,23 @@ const InputLabelInline = ({
         className
     );
 
-    return (
-            <label
-                {...filteredProps}
-                className={componentClass}
+    const Icon = (
+            <InputLabelStateIcon
+                format = {format}
             />
+    );
+
+    return (
+            <ParagraphMd
+                {...filteredProps}
+                element="label"
+                className={componentClass}
+            >
+            <span>
+            {children}
+            { format !== 'neutral' && fieldLevelErrors ? Icon : null}
+            </span>
+            </ParagraphMd>
     );
 };
 
