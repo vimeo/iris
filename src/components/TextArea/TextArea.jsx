@@ -58,6 +58,7 @@ const TextArea = ({
                     labelForId = {id}
                 >
                     <textarea
+                        id={id}
                         aria-label={ariaLabel}
                         aria-invalid={ariaInvalid}
                         disabled={disabled}

@@ -88,7 +88,7 @@ $ButtonIconOnly_icon-size: rem-calc(16);
     color: $RegentGray;
 
     &:hover {
-        background-color: rgba(162, 175,184,0.16);
+        background-color: $LightGreyHoverBgColor;
     }
 }
 

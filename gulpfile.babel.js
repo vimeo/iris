@@ -69,6 +69,7 @@ gulp.task('svg', function(cb) {
 
 gulp.task('deploy', function(cb) {
     runSequence(
+        'cleanStyleguideDistFile',
         'build-Prod',
         'svgProcessing',
         cb

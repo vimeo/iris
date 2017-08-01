@@ -2,22 +2,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Button from '../Button/Button';
-import PlusIcon from '../../globals/svg/add_iris.svg';
-import CheckIcon from '../../globals/svg/checkmark_iris.svg';
-import DeleteIcon from '../../globals/svg/dismiss_iris.svg';
+
 
 const displayName = 'ButtonToggleState';
 
 const defaultProps = {
+    autoMargins: true,
+    autoWidth: 'sm',
     format: 'primaryOutline',
 };
 
 type Props = {
+    autoMargins?: boolean,
+    autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid',
+    offIcon: React$Element<*>,
     offStateText: string,
+    onIcon: React$Element<*>,
     onStateText: string,
     format?: 'primaryOutline' | 'primary';
     isActive?: boolean,
     turnOffActionText: string,
+    turnOffIcon: React$Element<*>,
     onClick?: Function,
 };
 
@@ -102,20 +107,20 @@ class ButtonToggleState extends React.Component {
             case 'on':
                 toggleState = {
                     format: OnFormat,
-                    icon: 'Check',
+                    icon: 'On',
                     children: this.props.onStateText,
                 };
                 break;
             case 'off':
                 toggleState = {
                     format: this.props.format,
-                    icon: 'Plus',
+                    icon: 'Off',
                     children: this.props.offStateText,
                 };
                 break;
             case 'toggleHover':
                 toggleState = {
-                    icon: 'Delete',
+                    icon: 'TurnOff',
                     format: 'secondary',
                     children: this.props.turnOffActionText,
                 };
@@ -151,29 +156,36 @@ class ButtonToggleState extends React.Component {
 
     render() {
         const {
+            autoMargins,
+            autoWidth,
             offStateText,  // eslint-disable-line no-unused-vars
+            offIcon,
             onStateText, // eslint-disable-line no-unused-vars
+            onIcon,
             isActive, // eslint-disable-line no-unused-vars
             turnOffActionText, // eslint-disable-line no-unused-vars
+            turnOffIcon,
             ...filteredProps
         } = this.props;
 
-
         let Icon;
         switch (this.state.toggleState.icon) {
-            case 'Check':
-                Icon = (<CheckIcon />);
+            case 'On':
+                Icon = onIcon;
                 break;
-            case 'Plus':
-                Icon = (<PlusIcon />);
+            case 'Off':
+                Icon = offIcon;
                 break;
-            case 'Delete':
-                Icon = (<DeleteIcon />);
+            case 'TurnOff':
+                Icon = turnOffIcon;
                 break;
         }
 
+
         return (
                 <Button
+                    autoMargins={autoMargins}
+                    autoWidth={autoWidth}
                     {...filteredProps}
                     format={this.state.toggleState.format}
                     children={this.state.toggleState.children}

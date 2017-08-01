@@ -59,6 +59,8 @@ $InputToggle_bloopSize-lg: 38;
 }
 
 .toggleOverlay-md {
+    top: rem-calc(2);
+
     width: rem-calc(24);
     padding: rem-calc(7) 0;
 
@@ -96,7 +98,7 @@ $InputToggle_bloopSize-lg: 38;
 }
 
 .FocusBloop-md {
-    top: rem-calc(-9);
+    top: rem-calc(-7);
     left: rem-calc(-4);
 
     width: rem-calc($InputToggle_bloopSize-md);
