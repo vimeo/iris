@@ -8,7 +8,7 @@ import { ParagraphSm } from '../../../src/utility_components/Type/Type';
 const displayName = 'Toastification';
 
 // this value should be kept in sync with the timing variable in the Toastification.scss
-const animationTime = styles.Toastification_AnimationTime;
+const animationTime = parseInt(styles.Toastification_AnimationTime);
 const fastDelayTime = 3000;
 const slowDelayTime = 6000;
 
