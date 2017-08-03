@@ -166,8 +166,9 @@ class TooltipOverlay extends React.Component {
             this.props.onFocus();
         }
 
-        const triggerClasses = this.refs.trigger.classList;
-        const hoveredElement = document.querySelectorAll('a.' + triggerClasses[0] + ':hover')[0];
+        const triggerElement = this.refs.trigger;
+        const hoveredElement = document.querySelector(triggerElement + ':hover');
+        console.log(hoveredElement);
 
         if (!this.props.triggerOnClick && this.refs.trigger !== hoveredElement) {
             if (this.state.shouldFocusReapply === true) {
