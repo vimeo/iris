@@ -17,7 +17,7 @@ type Props = {
     id: string,
     isInline?: boolean,
     label: string,
-    options: Array<{text: string, value: string}>,
+    options: Array<{label: string, value: string}>,
     showLabel?: boolean,
     size?: 'md' | 'lg',
 };
@@ -72,11 +72,11 @@ const InputSelect = ({
         options.map(function(key, i) {
             const thisOption = options[i];
             const {
-                text,
+                label, // eslint-disable-line no-shadow
                 ...optionProps
             } = thisOption;
 
-            optionList.push(<option {...optionProps} key={i}>{text}</option>);
+            optionList.push(<option {...optionProps} key={i}>{label}</option>);
         });
     }
 
