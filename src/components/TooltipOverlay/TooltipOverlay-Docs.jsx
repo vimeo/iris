@@ -98,6 +98,9 @@ class TooltipOverlayDocs extends React.Component {
 <TooltipOverlay tooltipText="Kirby's Hometown">
     <Button isButtonElement={false} autoMargins={false}>Planet Popstar</Button>
 </TooltipOverlay>
+<TooltipOverlay tooltipText="Star Fox's Home Planet" attachment="bottom">
+    <Button isButtonElement={false} autoMargins={false}>Corneria</Button>
+</TooltipOverlay>
 <TooltipOverlay tooltipText="Geno's Home world" attachment="left">
     <Button isButtonElement={false} autoMargins={false}>Star road</Button>
 </TooltipOverlay>
