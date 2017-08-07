@@ -1,2 +1,2 @@
 //Converts a single pixel into a length of 1 rem
-$rem-pixel: ((1/$g-font-size) * 1rem);
+$rem-pixel: ((1/$FontBase) * 1rem);
