@@ -77,8 +77,10 @@ import { List, ListItem } from './List';
                         <ListItem>It can take you in lots of directions</ListItem>
                         <ListItem>Good designers are in demand
                             <List>
-                                <ListItem>NYC Job Openings</ListItem>
-                                <ListItem>LA Job Openings</ListItem>
+                                <ListItem>UI/Interation</ListItem>
+                                <ListItem>Brand</ListItem>
+                                <ListItem>Motion</ListItem>
+                                <ListItem>3D</ListItem>
                             </List>
                         </ListItem>
                         <ListItem>You can wear trainers to work</ListItem>
