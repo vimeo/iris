@@ -141,7 +141,7 @@ class ListDocs extends React.Component {
                         <ListItem>Perseverance and optimism</ListItem>
                         <ListItem>Organization and focus</ListItem>
                         <ListItem>Linear thinking
-                            <List>
+                            <List isOrdered alphabet={true}>
                                 <ListItem>Lexical Scoping</ListItem>
                                 <ListItem>Synchronous programming</ListItem>
                             </List>
@@ -155,7 +155,7 @@ class ListDocs extends React.Component {
     <ListItem>Perseverance and optimism</ListItem>
     <ListItem>Organization and focus</ListItem>
     <ListItem>Linear thinking
-        <List>
+        <List isOrdered alphabet={true}>
             <ListItem>Lexical Scoping</ListItem>
             <ListItem>Synchronous programming</ListItem>
         </List>

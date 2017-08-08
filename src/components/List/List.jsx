@@ -10,13 +10,15 @@ const displayName = 'List';
 type Props = {
     children: React$Element<*>,
     className?: string,
-    isOrdered: boolean;
+    isOrdered: boolean,
+    alphabet: boolean,
 };
 
 const List = ({
                 children,
                 className,
                 isOrdered,
+                alphabet,
                 ...filteredProps
 }: Props): React$Element<*> => {
 
@@ -32,6 +34,7 @@ const List = ({
         <ListElement
             {...filteredProps}
             className={componentClass}
+            type={alphabet ? 'a' : null}
         >
             {children}
         </ListElement>

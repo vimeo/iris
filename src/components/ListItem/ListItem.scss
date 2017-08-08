@@ -26,6 +26,12 @@ ol {
     }
 }
 
+ol[type="a"] {
+    > .ListItem {
+        list-style-type: lower-alpha;
+    }
+}
+
 ul {
     > .ListItem {
         list-style-type: disc;
