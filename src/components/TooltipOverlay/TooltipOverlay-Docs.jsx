@@ -71,10 +71,15 @@ class TooltipOverlayDocs extends React.Component {
                         `}
                 </ExampleSource>
                 <Header3>Attachment Directions</Header3>
-                <ParagraphMd>Tooltip attachments can be set in the following direction: top, left, and right using the <code>attachment</code> prop. The default for tooltips is top.</ParagraphMd>
+                <ParagraphMd>Tooltip attachments can be set in the following directions: top, bottom, left, and right using the <code>attachment</code> prop. The default for tooltips is top.</ParagraphMd>
                 <div style={{ marginBottom: '1rem' }}>
                     <TooltipOverlay tooltipText="Kirby's Hometown">
                         <Button isButtonElement={false} autoMargins={false}>Planet Popstar</Button>
+                    </TooltipOverlay>
+                </div>
+                <div style={{ marginBottom: '1rem' }}>
+                    <TooltipOverlay tooltipText="Star Fox's Home Planet" attachment="bottom">
+                        <Button isButtonElement={false} autoMargins={false}>Corneria</Button>
                     </TooltipOverlay>
                 </div>
                 <div style={{ marginBottom: '1rem' }}>
@@ -92,6 +97,9 @@ class TooltipOverlayDocs extends React.Component {
                     {`
 <TooltipOverlay tooltipText="Kirby's Hometown">
     <Button isButtonElement={false} autoMargins={false}>Planet Popstar</Button>
+</TooltipOverlay>
+<TooltipOverlay tooltipText="Star Fox's Home Planet" attachment="bottom">
+    <Button isButtonElement={false} autoMargins={false}>Corneria</Button>
 </TooltipOverlay>
 <TooltipOverlay tooltipText="Geno's Home world" attachment="left">
     <Button isButtonElement={false} autoMargins={false}>Star road</Button>

@@ -26,6 +26,7 @@ import { ParagraphMd, Header1, Header2} from 'iris/Type;
             </ExampleSource>
 
             <Header4>Using Type Components</Header4>
+            <ParagraphMd>The most basic use is by calling the component by name and having it generate the element that matches its name.</ParagraphMd>
             <Header1>Header 1</Header1>
             <Header2>Header 2</Header2>
             <Header3>Header 3</Header3>
@@ -52,7 +53,37 @@ import { ParagraphMd, Header1, Header2} from 'iris/Type;
 <ParagraphSm>ParagraphSm</ParagraphSm>
 <ParagraphAltLg>ParagraphLg (Alternative)</ParagraphAltLg>
 <ParagraphAltMd>ParagraphMd (Alternative)</ParagraphAltMd>
-<ParagraphAltSm>ParagraphSm (Alternative)</ParagraphAltSm>                          `}
+<ParagraphAltSm>ParagraphSm (Alternative)</ParagraphAltSm>
+                `}
+            </ExampleSource>
+            <Header4>Light Text Format</Header4>
+            <ParagraphMd>For text on a dark background add <code>format="light"</code> to the element.</ParagraphMd>
+            <div style={{ 'backgroundColor': '#000', 'padding': '1em', 'width': '100%' }}>
+
+                <Header1 format="light">Header 1</Header1>
+                <Header2 format="light">Header 2</Header2>
+                <Header3 format="light">Header 3</Header3>
+                <Header4 format="light">Header 4</Header4>
+                <Header5 format="light">Header 5</Header5>
+                <Header6 format="light">Header 6</Header6>
+                <ParagraphLg format="light">ParagraphLg</ParagraphLg>
+                <ParagraphMd format="light">ParagraphMd</ParagraphMd>
+                <ParagraphSm format="light">ParagraphSm</ParagraphSm>
+            </div>
+
+             <ExampleSource>
+                {`
+<Header4 format="light">Using Type Components</Header4>
+<Header1 format="light">Header 1</Header1>
+<Header2 format="light">Header 2</Header2>
+<Header3 format="light">Header 3</Header3>
+<Header4 format="light">Header 4</Header4>
+<Header5 format="light">Header 5</Header5>
+<Header6 format="light">Header 6</Header6>
+<ParagraphLg format="light">ParagraphLg</ParagraphLg>
+<ParagraphMd format="light">ParagraphMd</ParagraphMd>
+<ParagraphSm format="light">ParagraphSm</ParagraphSm>
+                `}
             </ExampleSource>
 
             <Header3>Type Components With Element Overrides</Header3>

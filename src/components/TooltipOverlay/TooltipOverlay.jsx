@@ -13,7 +13,7 @@ const displayName = 'TooltipOverlay';
 
 type Props = {
     children: React$Element<*>,
-    attachment: 'top' | 'right' | 'left',
+    attachment?: 'top' | 'right' | 'left' | 'bottom',
     isShowing: boolean,
     href: string,
     onBlur: any,
@@ -154,7 +154,7 @@ class TooltipOverlay extends React.Component {
                 this.hideTooltip();
 
                 this.setState({
-                    shouldFocusReapply: true,
+                    shaouldFocusReapply: true,
                     animationBlocked: true,
                 });
             }
@@ -166,7 +166,10 @@ class TooltipOverlay extends React.Component {
             this.props.onFocus();
         }
 
-        if (!this.props.triggerOnClick) {
+        const triggerElement = this.refs.trigger;
+        const hoveredElement = document.querySelector(triggerElement + ':hover');
+
+        if (!this.props.triggerOnClick && this.refs.trigger !== hoveredElement) {
             if (this.state.shouldFocusReapply === true) {
                 this.setState({
                     shouldFocusReapply: false,
@@ -185,9 +188,8 @@ class TooltipOverlay extends React.Component {
             this.setState({
                 shouldFocusReapply: true,
             });
-
-            this.hideTooltip();
         }
+        this.hideTooltip();
     }
 
     render() {
@@ -206,6 +208,10 @@ class TooltipOverlay extends React.Component {
             case 'top':
                 tooltipDirection = 'top center';
                 constraintAttachment = 'bottom center';
+                break;
+            case 'bottom':
+                tooltipDirection = 'bottom center';
+                constraintAttachment = 'top center';
                 break;
             case 'right':
                 tooltipDirection = 'middle right';
@@ -249,6 +255,7 @@ class TooltipOverlay extends React.Component {
                         aria-label={tooltipText}
                         href={href}
                         className={styles.Link}
+                        tabIndex="0"
                     >
                         {children}
                     </a>

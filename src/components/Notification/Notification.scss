@@ -27,7 +27,7 @@ $Notification_dismiss-icon-size: rem-calc(18);
 
     p:last-of-type {
         max-width: 44rem;
-        margin-bottom: 0; // remove global last paragraph margin
+        margin-bottom: 0 !important; // remove global last paragraph margin
     }
 }
 

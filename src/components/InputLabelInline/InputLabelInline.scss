@@ -6,7 +6,8 @@
 
     width: 100%;
     margin: 0;
-    margin-bottom: 0;
+    // override global p margin, we need important because this is a single element and inheritence override is not available.
+    margin-bottom: 0 !important;
 
     align-items: center;
     flex-wrap: wrap;

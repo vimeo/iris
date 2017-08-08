@@ -3,7 +3,8 @@
         ["Colors", "Color Palette", true],
         ["ColorRibbon", "Color Ribbon", true],
         ["Svgs", "SVG Icons", true],
-        ["Typography", "Typography", true]
+        ["Typography", "Typography", true],
+        ["LinkText", "Links"]
     ],
     "Utilities": [
         ["MediaQueries", "Named Media Queries", true],
@@ -23,6 +24,7 @@
         ["ButtonFileUploadIconOnly", "Button: File Upload (Icon Only)"],
         ["ButtonToggleState", "Buttons: ToggleState"],
         ["CircularButton", "Circular Button"],
+        ["CounterIcon", "Counter Icons"],
         ["FieldSet", "FieldSet"],
         ["InputCheckbox", "Inputs: Checkbox"],
         ["InputRadio", "Inputs: Radio"],
@@ -38,6 +40,7 @@
         ["NotificationSuccess", "Success Notification"],
         ["NotificationWarning", "Warning Notification"],
         ["SearchField", "Search Field"],
+        ["Tag", "Tag"],
         ["TooltipOverlay", "Tooltip Overlay"],
         ["Toastification", "Toastification"]
     ],

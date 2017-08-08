@@ -1,0 +1,58 @@
+/* @description Generates styles for the CounterIcon component */
+@import '../../globals/sass/helpers-all';
+$CounterIcon_iconSize: rem-calc(18);
+
+
+.Wrapper {
+    display: inline-block;
+    &.autoMargins {
+        margin-right: spacingUnit(3);
+        margin-bottom: spacingUnit(3);
+        &:last-child {
+            margin-right: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+.CounterIcon {
+    display: inline-flex;
+    display: inline-block;
+
+    position: relative;
+
+    padding: rem-calc(4) rem-calc(4) rem-calc(4) $CounterIcon_iconSize + rem-calc(10);
+
+    color: $AstroGranite;
+    border: 0;
+    border-radius: rem-calc($g-radius);
+    background: transparent;
+
+    transition: all #{$iris_transition-base};
+    text-align: center;
+    vertical-align: middle;
+
+    appearance: none;
+    align-items: center;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+
+    .Wrapper:hover & {
+        background-color: $LightGreyHoverBgColor;
+    }
+}
+
+.Icon {
+    position: absolute;
+    top: rem-calc(8);
+    left: rem-calc(4);
+
+    width: $CounterIcon_iconSize;
+    height: $CounterIcon_iconSize;
+    svg {
+        width: $CounterIcon_iconSize;
+        height: $CounterIcon_iconSize;
+        * {
+            fill: $AstroGranite;
+        }
+    }
+}
