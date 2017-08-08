@@ -73,11 +73,11 @@ exports.paths = {
   
   'iris/InputWrapperInline':'iris/src/components/InputWrapperInline/InputWrapperInline',
   
+  'iris/LinkText':'iris/src/components/LinkText/LinkText',
+  
   'iris/List':'iris/src/components/List/List',
   
   'iris/ListItem':'iris/src/components/ListItem/ListItem',
-  
-  'iris/LinkText':'iris/src/components/LinkText/LinkText',
   
   'iris/LoaderCircular':'iris/src/components/LoaderCircular/LoaderCircular',
   

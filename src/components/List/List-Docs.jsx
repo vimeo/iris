@@ -21,7 +21,7 @@ import { List, ListItem } from './List';
                 </ExampleSource>
                 <div data-code>
                     <Header3>Usage</Header3>
-                    <ParagraphMd>List items can be styled as either <code>ul</code> or <code>ol</code> using the <code>isOrdered</code> prop.</ParagraphMd>
+                    <ParagraphMd>List items can be styled as either <code>ul</code> or <code>ol</code> using the <code>format</code> prop.</ParagraphMd>
                     <Header6>Unordered List</Header6>
                     <List>
                         <ListItem>Gorgeous, high-quality video sharing on desktop, mobile, tablet, and TV</ListItem>
@@ -30,7 +30,7 @@ import { List, ListItem } from './List';
                         <ListItem>Private link sharing</ListItem>
                     </List>
                     <Header6>Ordered List</Header6>
-                    <List isOrdered>
+                    <List format="ordered">
                         <ListItem>Gorgeous, high-quality video sharing on desktop, mobile, tablet, and TV</ListItem>
                         <ListItem>PRO support</ListItem>
                         <ListItem>Advanced privacy settings</ListItem>
@@ -46,7 +46,7 @@ import { List, ListItem } from './List';
     <ListItem>Advanced privacy settings</ListItem>
     <ListItem>Private link sharing</ListItem>
 </List>
-<List isOrdered>
+<List format="ordered">
     <ListItem>Gorgeous, high-quality video sharing on desktop, mobile, tablet, and TV</ListItem>
     <ListItem>PRO support</ListItem>
     <ListItem>Advanced privacy settings</ListItem>
@@ -122,7 +122,7 @@ import { List, ListItem } from './List';
                         <ListItem>Perseverance and optimism</ListItem>
                         <ListItem>Organization and focus</ListItem>
                         <ListItem>Linear thinking
-                            <List isOrdered>
+                            <List format="ordered">
                                 <ListItem>Lexical Scoping</ListItem>
                                 <ListItem>Synchronous programming</ListItem>
                             </List>
@@ -136,7 +136,7 @@ import { List, ListItem } from './List';
     <ListItem>Perseverance and optimism</ListItem>
     <ListItem>Organization and focus</ListItem>
     <ListItem>Linear thinking
-        <List isOrdered>
+        <List format="ordered">
             <ListItem>Lexical Scoping</ListItem>
             <ListItem>Synchronous programming</ListItem>
         </List>
@@ -148,11 +148,12 @@ import { List, ListItem } from './List';
                     </ExampleSource>
 
                     <Header6>UL in Ol example</Header6>
-                    <List isOrdered>
+                    <ParagraphMd>Lowercase alphabtical lists can be created as well, but should only be used when needed. In most cases bullets and numbers are the preferred options.</ParagraphMd>
+                    <List format="ordered">
                         <ListItem>Perseverance and optimism</ListItem>
                         <ListItem>Organization and focus</ListItem>
                         <ListItem>Linear thinking
-                            <List isOrdered alphabet={true}>
+                            <List format="alphabet">
                                 <ListItem>Lexical Scoping</ListItem>
                                 <ListItem>Synchronous programming</ListItem>
                             </List>
@@ -162,11 +163,11 @@ import { List, ListItem } from './List';
                     </List>
                     <ExampleSource>
                     {`
-<List isOrdered>
+<List format="ordered">
     <ListItem>Perseverance and optimism</ListItem>
     <ListItem>Organization and focus</ListItem>
     <ListItem>Linear thinking
-        <List isOrdered alphabet={true}>
+        <List format="alphabet">
             <ListItem>Lexical Scoping</ListItem>
             <ListItem>Synchronous programming</ListItem>
         </List>
