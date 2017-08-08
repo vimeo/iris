@@ -35,7 +35,8 @@ export default function GridFullDocs() {
                     import {GridBlock, GridCol, Grid} from 'iris/Grid';
                 `}
             </ExampleSource>
-            <ParagraphMd>Set-up your Grid component and place the amount of needed columns into the space:</ParagraphMd>
+            <ParagraphMd>Set-up your Grid component and place the amount of needed columns into the space.</ParagraphMd>
+            <ParagraphMd>The Grid component will generate a <code>&lt;main></code> tag by default. An <code>element</code> prop can be passed to override this.</ParagraphMd>
             <div data-code>
                 <Grid className="sg-grid">
                     <GridBlock>
@@ -169,7 +170,7 @@ export default function GridFullDocs() {
                 <Grid>
                     <GridBlock>
                         <GridCol
-                            mdSpan={6}
+                            mdSpan={12}
                             formColumn
                         >
                              <InputText
@@ -179,7 +180,7 @@ export default function GridFullDocs() {
                             />
                         </GridCol>
                         <GridCol
-                            mdSpan={6}
+                            mdSpan={12}
                             formColumn
                         >
                             <InputText

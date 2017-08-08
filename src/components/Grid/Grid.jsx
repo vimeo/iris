@@ -11,6 +11,7 @@ type Props = {
     children: React$Element<*>,
     className?: string,
     centered?: boolean,
+    element?: 'div' | 'main' | 'aside' | 'section',
     hasMaxWidth?: boolean,
 };
 
@@ -18,6 +19,7 @@ const Grid = ({
                     className,
                     children,
                     centered = false,
+                    element = 'main',
                     hasMaxWidth = true,
                     ...filteredProps
                 }: Props): React$Element<*> => {
@@ -30,10 +32,11 @@ const Grid = ({
         className
     );
 
+    const Element = element;
     return (
-        <main className={gridClasses} {...filteredProps}>
+        <Element className={gridClasses} {...filteredProps}>
             {children}
-        </main>
+        </Element>
     );
 };
 
