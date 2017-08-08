@@ -11,7 +11,16 @@ class ListDocs extends React.Component {
     render() {
         return (
             <div className="Pattern__docs">
+                <div>
+                    <ParagraphMd>Lists can be added to your component by importing both the <code>List</code> and <code>ListItem</code> components.</ParagraphMd>
+                </div>
+                <ExampleSource>
+{`
+import { List, ListItem } from './List';
+`}
+                </ExampleSource>
                 <div data-code>
+                    <Header3>Usage</Header3>
                     <ParagraphMd>List items can be styled as either <code>ul</code> or <code>ol</code> using the <code>isOrdered</code> prop.</ParagraphMd>
                     <Header6>Unordered List</Header6>
                     <List>
@@ -47,7 +56,7 @@ class ListDocs extends React.Component {
                     </ExampleSource>
 
                     <Header3>Multi-dimensional Lists</Header3>
-                    <ParagraphMd>Ul in Ul example</ParagraphMd>
+                    <Header6>Ul in Ul example</Header6>
                     <List>
                         <ListItem>You get to flex brain muscles</ListItem>
                         <ListItem>Everyday is different
@@ -106,7 +115,7 @@ class ListDocs extends React.Component {
                         `}
                     </ExampleSource>
 
-                    <ParagraphMd>Ol in Ul example</ParagraphMd>
+                    <Header6>Ol in Ul example</Header6>
                     <List>
                         <ListItem>Perseverance and optimism</ListItem>
                         <ListItem>Organization and focus</ListItem>
@@ -136,7 +145,7 @@ class ListDocs extends React.Component {
                         `}
                     </ExampleSource>
 
-                    <ParagraphMd>UL in Ol example</ParagraphMd>
+                    <Header6>UL in Ol example</Header6>
                     <List isOrdered>
                         <ListItem>Perseverance and optimism</ListItem>
                         <ListItem>Organization and focus</ListItem>
