@@ -20,20 +20,16 @@
     }
 }
 
-ol {
-    > .ListItem {
-        list-style-type: decimal; // counter-increment: step-counter;
-    }
+
+ol > .ListItem {
+    list-style-type: decimal; // counter-increment: step-counter;
 }
 
-ol[type="a"] {
-    > .ListItem {
-        list-style-type: lower-alpha;
-    }
+
+ol[type="a"] > .ListItem {
+    list-style-type: lower-alpha;
 }
 
-ul {
-    > .ListItem {
-        list-style-type: disc;
-    }
+ul > .ListItem {
+    list-style-type: disc;
 }

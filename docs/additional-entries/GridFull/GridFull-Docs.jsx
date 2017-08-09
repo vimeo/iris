@@ -3,32 +3,25 @@ import { GridBlock, GridCol, Grid } from '../../../src/components/Grid/Grid.jsx'
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import InputText from '../../../src/components/InputText/InputText';
 import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
+import LinkText from '../../../src/components/LinkText/LinkText';
+import { List, ListItem }from  '../../../src/components/List/List';
+
 export default function GridFullDocs() {
 
     return (
         <div className="Pattern__docs">
             <ParagraphMd>The Iris Grid system is a 24 column responsive flexbox based grid. The Grid component provides an engineer-friendly re-useable abstraction of the HTML structure required to use this grid.</ParagraphMd>
             <a style={{marginBottom: '20px', display: 'block'}} href="https://www.dropbox.com/s/2gr5ns35oshxbqy/Iris%20Grid.sketch?dl=0">Grid Sketch Files</a>
-            <Header3>Easy Fundamentals: Grid Components</Header3>
+                <Header3>Grid Components</Header3>
+                <List>
+                    <ListItem>Grid: <code>{'<Grid></Grid>'}</code> is the parent container of all elements and establishes: max-width for content, gutter spacing outside the content, and the grid styles for its children. The grid will create a padding around all content by default from the small breakpoint up. If you are using the grid within another layout, this padding can be removed by setting the <code>isNested</code> prop to true. </ListItem>
+                    <ListItem>GridBlocks: <code>{`<GridBlock></GridBlock>`}</code> sets a grid's context and can be used to group grid items together.</ListItem>
+                    <ListItem>GridColumns: <code>{`<GridCol></GridCol>`}</code> Are vertical structures where the actual content exists and is manipulated onto the grid.</ListItem>
+                </List>
+                <Header3>Small Screens First</Header3>
+                <ParagraphMd> Grid sizing starts with the xsSpan prop. Values passed to this prop will determine the column sizing from the smallest width available in the browser upwards. Additional span props such as "mdSpan" can be added to resize the column at corresponding breakpoints (see breakpoints). If no xsSpan sizing prop is passed, the column will default to <code>xsSpan={24}</code>.</ParagraphMd>
 
-            <ul>
-                <li>Grid is composed of 3 components:
-                    <ul>
-                        <li>Grid: <code>{'<Grid></Grid>'}</code> is the parent container of all elements and establishes: max-width for content, gutter spacing outside the content, and the grid styles for its children.</li>
-                        <li>GridBlocks: <code>{`<GridBlock></GridBlock>`}</code> sets a grid's context and can be used to group grid items together.</li>
-                        <li>GridColumns: <code>{`<GridCol></GridCol>`}</code> Are vertical structures where the actual content exists and is manipulated onto the grid.</li>
-                    </ul>
-                </li>
-                <li>Small Screens First
-                    <ul>
-                        <li>
-                            Grid sizing starts with the xsSpan prop. Values passed to this prop will determine the column sizing from the smallest width available in the browser upwards. Additional span props such as "mdSpan" can be added to resize the column at corresponding breakpoints (see breakpoints). If no xsSpan sizing prop is passed, the column will default to <code>xsSpan={24}</code>.
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-            <Header3>Simple Set-Up:</Header3>
+            <Header3>Importing the Grid</Header3>
             <ParagraphMd>Import the Grid, GridBlock, and GridColumn components into your working space:</ParagraphMd>
             <ExampleSource>
                 {`

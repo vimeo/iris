@@ -14,10 +14,10 @@ type Props = {
 };
 
 const List = ({
-                children,
-                className,
-                format = 'ordered',
-                ...filteredProps
+    children,
+    className,
+    format = 'unordered',
+    ...filteredProps
 }: Props): React$Element<*> => {
 
     // className builder
@@ -26,9 +26,10 @@ const List = ({
         className
     );
 
-    let ListElement = 'ul';
-    if (format === 'ordered' || 'alphabet') {
-        ListElement = 'ol';
+    let ListElement = 'ol';
+
+    if (format === 'unordered') {
+        ListElement = 'ul';
     }
 
     return (
