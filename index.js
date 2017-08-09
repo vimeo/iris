@@ -75,6 +75,10 @@ exports.paths = {
   
   'iris/LinkText':'iris/src/components/LinkText/LinkText',
   
+  'iris/List':'iris/src/components/List/List',
+  
+  'iris/ListItem':'iris/src/components/ListItem/ListItem',
+  
   'iris/LoaderCircular':'iris/src/components/LoaderCircular/LoaderCircular',
   
   'iris/Modal':'iris/src/components/Modal/Modal',
