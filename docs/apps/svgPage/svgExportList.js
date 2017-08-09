@@ -12,6 +12,10 @@
   
  exports.AlertIris = require('../../../src/globals/svg/alert_iris.svg');
   
+ exports.AllVideosIris = require('../../../src/globals/svg/all_videos_iris.svg');
+  
+ exports.AllVideosSolidIris = require('../../../src/globals/svg/all_videos_solid_iris.svg');
+  
  exports.ArrowLeftIris = require('../../../src/globals/svg/arrow-left_iris.svg');
   
  exports.ArrowRightIris = require('../../../src/globals/svg/arrow-right_iris.svg');
@@ -39,6 +43,8 @@
  exports.DownloadIris = require('../../../src/globals/svg/download_iris.svg');
   
  exports.FolderIris = require('../../../src/globals/svg/folder_iris.svg');
+  
+ exports.FolderSolidIris = require('../../../src/globals/svg/folder_solid_iris.svg');
   
  exports.GearIris = require('../../../src/globals/svg/gear_iris.svg');
   
