@@ -32,7 +32,7 @@ class NotificationWarningDocs extends React.Component {
                     <NotificationWarning
                         onDismiss={this.handleClick}
                     >
-                        <p>This component is a Warning notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</p>
+                        <ParagraphMd>This component is a Warning notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</ParagraphMd>
                     </NotificationWarning>
                 </SlideUpDown>
                     <Button format="secondaryOutline" size="xs" onClick={this.handleClick}>Toggle Notifcation</Button>
