@@ -54,7 +54,7 @@ class NotificationWarningDocs extends React.Component {
 );
 
 <NotificationWarning hasIcon={false}>
-    <p>This is a Warning notification without an icon.  I am  NOT dismissable.</p>
+    <ParagraphMd>This is a Warning notification without an icon.  I am  NOT dismissable.</ParagraphMd>
 </NotificationWarning>
 
 <NotificationWarning hasIcon={false}>
