@@ -8,7 +8,7 @@ const displayName = 'Badge';
 type Props = {
     children: React$Element<*>,
     className?: string,
-    format?: 'alum' | 'beta' | 'business' | 'curation' | 'default' | 'explicit' | 'featured' | 'hd' | 'info' | 'new' | 'partner' | 'plus' | 'pro' | 'spatial' | 'sponsor' | 'staff' | 'support' | 'unrated' | 'vod',
+    format?: 'alum' | 'beta' | 'business' | 'curation' | 'default' | 'explicit' | 'featured' | 'hd' | 'info' | 'live' | 'live-archive' | 'new' | 'partner' | 'plus' | 'pro' | 'spatial' | 'sponsor' | 'staff' | 'support' | 'unrated' | 'vod',
     href: string,
     label: string,
     size?: 'sm' | 'lg',

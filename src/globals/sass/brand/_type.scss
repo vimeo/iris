@@ -7,10 +7,12 @@ body {
 
 
 ::selection {
+    color: $White;
     background-color: $VimeoBlue;
 }
 
 ::-moz-selection {
+    color: $White;
     background-color: $VimeoBlue;
 }
 

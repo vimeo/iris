@@ -15,6 +15,8 @@ const BadgeDocs = (props) => {
                 <Badge href="#" format="featured">featured</Badge>
                 <Badge href="#" format="hd">hd</Badge>
                 <Badge href="#" format="info">info</Badge>
+                <Badge href="#" format="live">live</Badge>
+                <Badge href="#" format="live-archive">live</Badge>
                 <Badge href="#" format="new">new</Badge>
                 <Badge href="#" format="partner">partner</Badge>
                 <Badge href="#" format="plus">plus</Badge>
