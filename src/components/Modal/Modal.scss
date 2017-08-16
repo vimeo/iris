@@ -23,7 +23,7 @@ $Modal_animation-speed: 350ms;
 
 .ModalWrapper {
     position: fixed;
-    z-index: 97;
+    z-index: get-z-index('modalWrapper');
     top: 0;
     left: 0;
 
@@ -140,6 +140,6 @@ $Modal_animation-speed: 350ms;
 
     position: fixed;
 
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }

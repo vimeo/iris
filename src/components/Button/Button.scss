@@ -104,19 +104,19 @@ $Button_transparent_for_animation: rgba(255,255,255,0);
 }
 
 //Todo: replace with shared media queries
-@media screen and (min-width: 38em) {
+@include mq(sm) {
     .autoWidth_sm {
         @include autoWidthSettings();
     }
 }
 
-@media screen and (min-width: 50em) {
+@include mq(md) {
     .autoWidth_md {
         @include autoWidthSettings();
     }
 }
 
-@media screen and (min-width: 60em) {
+@include mq(lg) {
     .autoWidth_lg {
         @include autoWidthSettings();
     }

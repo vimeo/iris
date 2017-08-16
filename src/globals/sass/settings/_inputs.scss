@@ -115,6 +115,11 @@ $input_has-icon-padding-lg: $inputs_icon-size + 1.3125rem;
     flex-wrap: wrap;
 }
 
+@mixin sharedInlineInputWrapperDisabledStyles() {
+    opacity: 0.5;
+}
+
+
 @mixin sharedInlineInputStyles() {
     display: inline-flex;
 

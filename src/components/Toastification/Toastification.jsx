@@ -3,7 +3,8 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './Toastification.scss';
 import { CSSTransitionGroup } from 'react-transition-group';
-import { ParagraphSm } from '../../../src/utility_components/Type/Type';
+import { ParagraphLg } from '../../../src/utility_components/Type/Type';
+import InfoIcon from '../../globals/svg/info_iris.svg';
 
 const displayName = 'Toastification';
 
@@ -16,6 +17,7 @@ type Props = {
     actionLabel?: string,
     children: React$Element<*>,
     className?: string,
+    format?: 'warning' | 'neutral',
     isShowing?: boolean,
     onActionClick?: Function,
     onComplete?: Function,
@@ -130,19 +132,23 @@ class Toastification extends React.Component<void, Props, State> {
             actionLabel,
             className,
             children,
+            format,
             isShowing, // eslint-disable-line no-unused-vars
             onActionClick, // eslint-disable-line no-unused-vars
             onComplete, // eslint-disable-line no-unused-vars
             ...filteredProps
         } = this.props;
 
+        const hasIcon = format === 'warning';
+
         // className builder
         const componentClass = classNames(
             styles.Toastification,
+            (hasIcon ? styles.hasIcon : null),
             className
         );
 
-        const ToastificationAction = (
+        const MaybeAction = actionLabel ? (
             <span>
                 &nbsp;
                 <a
@@ -153,7 +159,13 @@ class Toastification extends React.Component<void, Props, State> {
                     {actionLabel}
                 </a>
             </span>
-        );
+        ) : null;
+
+        const MaybeIcon = hasIcon ? (
+            <span className={styles.IconWrapper}>
+                <InfoIcon className={styles.Icon} />
+            </span>
+        ) : null;
 
         const ToastificationComponent = (
             <div className={styles.Wrapper}>
@@ -163,10 +175,14 @@ class Toastification extends React.Component<void, Props, State> {
                     onMouseEnter={this._handleToastMouseEnter}
                     onMouseLeave={this._handleToastMouseLeave}
                 >
-                    <ParagraphSm className={styles.Content}>
+                    <ParagraphLg
+                        className={styles.Content}
+                        format="light"
+                    >
+                        {MaybeIcon}
                         {children}
-                        {actionLabel ? ToastificationAction : null}
-                    </ParagraphSm>
+                        {MaybeAction}
+                    </ParagraphLg>
                 </div>
             </div>
         );

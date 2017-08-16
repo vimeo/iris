@@ -19,6 +19,13 @@ class InputRadioDocs extends React.Component {
                             id="SampleRadio"
                             value="1"
                         />
+                        <InputRadio
+                            label="Disabled Radio"
+                            name="DisabledRadio"
+                            id="DisabledRadio"
+                            value="1"
+                            disabled
+                        />
                 </div>
                 <ExampleSource>
                     {`
@@ -27,6 +34,13 @@ class InputRadioDocs extends React.Component {
     name="SampleRadio"
     id="SampleRadio"
     value="1"
+/>
+<InputRadio
+    label="Disabled Radio"
+    name="DisabledRadio"
+    id="DisabledRadio"
+    value="1"
+    disabled
 />                     `}
                     </ExampleSource>
                 </div>

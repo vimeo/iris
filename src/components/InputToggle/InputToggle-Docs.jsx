@@ -36,6 +36,14 @@ class InputToggleDocs extends React.Component {
                         value="3"
                         required
                     />
+                    <InputToggle
+                        label="Disabled(Large)"
+                        name="demoToggleDisabled"
+                        id="ToggleLgDisabled"
+                        size="lg"
+                        value="4"
+                        disabled
+                    />
                 </div>
 
                 <ExampleSource>
@@ -62,6 +70,14 @@ class InputToggleDocs extends React.Component {
     size="lg"
     value="3"
     required
+/>
+<InputToggle
+    label="Disabled(Large)"
+    name="demoToggleDisabled"
+    id="ToggleLgDisabled"
+    size="lg"
+    value="4"
+    disabled
 />
                         `}
                     </ExampleSource>

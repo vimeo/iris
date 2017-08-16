@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './Tag.scss';
 import Button from '../Button/Button';
+import DeleteIcon from '../../globals/svg/dismiss_iris.svg';
 
 const displayName = 'Tag';
 
@@ -13,6 +14,7 @@ type Props = {
     className?: string,
     isButtonElement?: boolean,
     isInline?: boolean,
+    onDismiss: any,
     size?: 'xs' | 'sm' | 'md' | 'lg',
 };
 
@@ -22,6 +24,7 @@ const Tag = ({
                 children,
                 className,
                 isButtonElement,
+                onDismiss,
                 size = 'md',
                 ...filteredProps
             }: Props): React$Element<*> => {
@@ -32,9 +35,26 @@ const Tag = ({
         className
     );
 
+    const handleDismiss = (e) => {
+        e.preventDefault();
+        if (typeof onDismiss === 'function') {
+            onDismiss(e);
+        }
+    };
+
+    let iconProps;
+
+    if (onDismiss) {
+        iconProps = {
+            icon: <DeleteIcon />,
+            iconLocation: 'afterLabel',
+        };
+    }
+
     return (
         <Button
             {...filteredProps}
+            {...iconProps}
             autoMargins={autoMargins}
             autoWidth={autoWidth}
             isButtonElement={isButtonElement}
@@ -42,6 +62,7 @@ const Tag = ({
             format="secondary"
             size={size}
             children={children}
+            onClick={handleDismiss}
         />
     );
 };
