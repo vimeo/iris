@@ -6,6 +6,10 @@ $InputToggle_bloopSize-lg: 38;
 
 .InputToggleWrapper {
     @include sharedInlineInputWrapperStyles();
+
+    &.isDisabled {
+        @include sharedInlineInputWrapperDisabledStyles();
+    }
 }
 
 .InputToggleWrapper-md {
@@ -95,6 +99,11 @@ $InputToggle_bloopSize-lg: 38;
 
 .InputToggle:hover:checked + .toggleOverlay {
     background-color: $VimeoBlue-Darkened;
+}
+.InputToggle:disabled + .toggleOverlay {
+    background-color: $SoutherlySky !important;
+
+    cursor: not-allowed !important;
 }
 
 .FocusBloop-md {

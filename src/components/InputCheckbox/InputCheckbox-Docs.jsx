@@ -39,6 +39,13 @@ class InputCheckboxDocs extends React.Component {
                         required
                     />
                     <InputCheckbox
+                        label="DisabledField"
+                        name="demoCheckboxDisabled"
+                        id="CheckboxDisabled"
+                        value="disabled"
+                        disabled
+                    />
+                    <InputCheckbox
                         label="Checkbox has a very long label. Sometimes we need to tell people that they must agree to terms and conditions before they submit a form."
                         name="demoCheckbox5"
                         errorMsg="This field is required!"
@@ -68,6 +75,13 @@ class InputCheckboxDocs extends React.Component {
     name="demoCheckbox3"
     id="Checkbox3"
     value="3"
+/>
+<InputCheckbox
+    label="DisabledField"
+    name="demoCheckboxDisabled"
+    id="CheckboxDisabled"
+    value="disabled"
+    disabled
 />
 <InputCheckbox
     label="Errored Checkbox"

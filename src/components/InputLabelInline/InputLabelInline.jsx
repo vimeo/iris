@@ -29,7 +29,7 @@ const InputLabelInline = ({
         styles.InputLabelInline,
         styles.md,
         styles[format],
-        (disabled ? styles.disabled : null),
+        (disabled ? styles.isDisabled : null),
         className
     );
 

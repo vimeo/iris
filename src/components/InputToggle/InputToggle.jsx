@@ -43,6 +43,7 @@ const InputToggle = ({
     const toggleWrapperClass = classNames(
         styles.InputToggleWrapper,
         styles['InputToggleWrapper-' + size],
+        (disabled ? styles.isDisabled : null),
     );
 
     // Toggle cLass
