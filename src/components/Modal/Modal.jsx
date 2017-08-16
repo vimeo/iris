@@ -33,7 +33,6 @@ class Modal extends React.Component {
 
     constructor(props: Props) {
         super(props);
-        this._handleModalClose.bind(this);
     }
 
     componentDidMount() {
@@ -70,18 +69,18 @@ class Modal extends React.Component {
     _bindEvents() {
         document.addEventListener(
             'keydown',
-            this._handleEsc.bind(this)
+            this._handleEsc
         );
 
         if (this.lastFocusableElement && this.firstFocusableElement) {
             this.lastFocusableElement.addEventListener(
                 'keydown',
-                this._handleForwardFocusLooping.bind(this)
+                this._handleForwardFocusLooping
             );
 
             this.firstFocusableElement.addEventListener(
                 'keydown',
-                this._handleBackwardFocusLooping.bind(this)
+                this._handleBackwardFocusLooping
             );
         }
     }
@@ -89,28 +88,28 @@ class Modal extends React.Component {
     _unbindEvents() {
         document.removeEventListener(
             'keydown',
-            this._handleEsc.bind(this)
+            this._handleEsc
         );
         this.lastFocusableElement.removeEventListener(
             'keydown',
-            this._handleForwardFocusLooping.bind(this)
+            this._handleForwardFocusLooping
         );
 
         this.firstFocusableElement.removeEventListener(
             'keydown',
-            this._handleBackwardFocusLooping.bind(this)
+            this._handleBackwardFocusLooping
         );
     }
 
     // close modal on esc key
-    _handleEsc(event: Event) {
+    _handleEsc = (event: Event) => {
         if (event.keyCode === KEY_CODES.esc && this.props.onDismiss) {
             this._handleModalClose(this.props.onDismiss);
         }
     }
 
     // don't let the user tab forwards out of the modal, set them back to the first focusable element
-    _handleForwardFocusLooping(event: Event) {
+    _handleForwardFocusLooping = (event: Event) => {
         if (event.keyCode === KEY_CODES.tab) {
             this._setFirstFocus();
             event.preventDefault();
@@ -118,7 +117,7 @@ class Modal extends React.Component {
     }
 
     // don't let the user tab backwards out of the modal, set them back to the last focusable element
-    _handleBackwardFocusLooping(event: Event) {
+    _handleBackwardFocusLooping = (event: Event) => {
         // shift + tab
         if (event.shiftKey && event.keyCode === KEY_CODES.tab) {
             this._setLastFocus();
@@ -126,7 +125,7 @@ class Modal extends React.Component {
         }
     }
 
-    _handleModalClose(onDismiss: Function) {
+    _handleModalClose = (onDismiss: Function) => {
         if (typeof onDismiss === 'function') {
             onDismiss();
         }
