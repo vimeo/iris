@@ -16,6 +16,7 @@ $Toastification_Spacing: rem-calc(28);
 
     width: 100%;
 }
+
 .Toastification {
     position: absolute;
     bottom: $Toastification_Spacing;
@@ -30,12 +31,29 @@ $Toastification_Spacing: rem-calc(28);
 
     transform: translateX(-50%);
     text-align: center;
+
+    &.hasIcon {
+        padding-left: rem-calc(42);
+
+        text-align: left;
+    }
 }
 
 .Content {
-    color: $White;
     &:last-of-type {
         margin-bottom: 0; // remove global last paragraph margin
+    }
+}
+
+.Icon {
+    position: absolute;
+    top: rem-calc(14);
+    left: rem-calc(16);
+
+    width: rem-calc(18);
+    height: auto;
+    * {
+        fill: $White;
     }
 }
 

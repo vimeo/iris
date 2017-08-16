@@ -86,8 +86,9 @@ This is Toastification 1!
 </Toastification>
                         `}
                     </ExampleSource>
-                    <Header3>Toastifications with Actions</Header3>
+                    <Header3>Toastifications with Actions and/or Warning Icon</Header3>
                     <ParagraphMd>Toastifications may have a action associated with them. To include an action, add a label string to the <code>actionLabel</code> prop and pass a callback function to the <code>onActionClick</code> prop. This will create an action link and also slow-down the duration of the toastification.</ParagraphMd>
+                    <ParagraphMd>Passing <code>warning</code> to the <code>format</code> prop will make the notification include an icon to draw the user's attention</ParagraphMd>
                     <div data-code>
                         <Button
                             onClick={this._showToast2}
@@ -96,6 +97,7 @@ This is Toastification 1!
                         </Button>
 
                         <Toastification
+                            format="warning"
                             isShowing={this.state.showToast2}
                             onComplete={this._onComplete2}
                             onActionClick={this._demoAction}
@@ -107,6 +109,7 @@ This is Toastification 1!
                     <ExampleSource>
                     {`
 <Toastification
+    format="warning"
     isShowing={this.state.showToast2}
     onComplete={this._onComplete2}
     onActionClick={this._demoAction}
