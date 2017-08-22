@@ -39,6 +39,7 @@ class TooltipOverlay extends React.Component {
             isShowing: props.isShowing,
             shouldFocusReapply: true,
             animationBlocked: false,
+            isHovered: false,
         };
     }
 
@@ -128,6 +129,7 @@ class TooltipOverlay extends React.Component {
     handleMouseEnter = () => {
         this.setState({
             animationBlocked: false,
+            isHovered: true,
         });
 
         if (typeof this.props.onMouseEnter === 'function') {
@@ -135,9 +137,9 @@ class TooltipOverlay extends React.Component {
         }
 
         if (!this.props.triggerOnClick) {
-
-            const el = findDOMNode(this.refs.trigger);
-            if (el instanceof HTMLElement && el !== document.activeElement) {
+            const thisComponent = findDOMNode(this);
+            const el = thisComponent instanceof HTMLElement ? thisComponent.querySelector('[data-tooltip-trigger]') : null;
+            if (el !== document.activeElement) {
                 this.showTooltip();
             }
         }
@@ -148,7 +150,8 @@ class TooltipOverlay extends React.Component {
             this.props.onMouseLeave();
         }
 
-        const el = findDOMNode(this.refs.trigger);
+        const thisComponent = findDOMNode(this);
+        const el = thisComponent instanceof HTMLElement ? thisComponent.querySelector('[data-tooltip-trigger]') : null;
         if (!this.props.triggerOnClick && el !== document.activeElement) {
             if (this.state.isShowing === true) {
                 this.hideTooltip();
@@ -156,6 +159,7 @@ class TooltipOverlay extends React.Component {
                 this.setState({
                     shaouldFocusReapply: true,
                     animationBlocked: true,
+                    isHovered: false,
                 });
             }
         }
@@ -166,10 +170,7 @@ class TooltipOverlay extends React.Component {
             this.props.onFocus();
         }
 
-        const triggerElement = this.refs.trigger;
-        const hoveredElement = document.querySelector(triggerElement + ':hover');
-
-        if (!this.props.triggerOnClick && this.refs.trigger !== hoveredElement) {
+        if (!this.props.triggerOnClick && !this.state.isHovered) {
             if (this.state.shouldFocusReapply === true) {
                 this.setState({
                     shouldFocusReapply: false,
@@ -198,6 +199,8 @@ class TooltipOverlay extends React.Component {
             attachment,
             href,
             tooltipText,
+            triggerOnClick, // eslint-disable-line no-unused-vars
+            ...filteredProps
         } = this.props;
 
         // set up attachment direction and reversal when tooltip hits browser edge
@@ -251,7 +254,8 @@ class TooltipOverlay extends React.Component {
                     onMouseLeave={this.handleMouseLeave}
                 >
                     <a
-                        ref="trigger"
+                        {...filteredProps}
+                        data-tooltip-trigger
                         aria-label={tooltipText}
                         href={href}
                         className={styles.Link}
