@@ -149,13 +149,13 @@ a.explicit {
 }
 
 .live {
-    background: $iris_badge--live;
     color: $White;
+    background: $iris_badge--live;
 }
 
 .live-archive {
-    border: 1px solid $iris_badge--live-archive;
     color: $iris_badge--live-archive;
+    border: 1px solid $iris_badge--live-archive;
 }
 
 .new {
