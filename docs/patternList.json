@@ -41,6 +41,7 @@
         ["NotificationWarning", "Warning Notification"],
         ["SearchField", "Search Field"],
         ["Tag", "Tag"],
+        ["TooltipAnnotationIcon", "Tooltip Annotation Icon"],
         ["TooltipOverlay", "Tooltip Overlay"],
         ["Toastification", "Toastification"]
     ],

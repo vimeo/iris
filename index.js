@@ -101,6 +101,8 @@ exports.paths = {
   
   'iris/Tooltip':'iris/src/components/Tooltip/Tooltip',
   
+  'iris/TooltipAnnotationIcon':'iris/src/components/TooltipAnnotationIcon/TooltipAnnotationIcon',
+  
   'iris/TooltipOverlay':'iris/src/components/TooltipOverlay/TooltipOverlay',
   
 };

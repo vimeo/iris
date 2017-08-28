@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { findDOMNode } from 'react-dom';
+import classNames from 'classnames';
 import TetherComponent from 'react-tether';
 import { TransitionGroup } from 'react-transition-group';
 import anime from 'animejs';
@@ -10,17 +11,19 @@ import styles from './TooltipOverlay.scss';
 
 
 const displayName = 'TooltipOverlay';
+const AnimationDuration = 300;
 
 type Props = {
     children: React$Element<*>,
+    className?: string,
     attachment?: 'top' | 'right' | 'left' | 'bottom',
     isShowing: boolean,
     href: string,
-    onBlur: any,
-    onClick: any,
-    onFocus: any,
-    onMouseEnter: any,
-    onMouseLeave: any,
+    onBlur: () => void,
+    onClick: () => void,
+    onFocus: () => void,
+    onMouseEnter: () => void,
+    onMouseLeave: () => void,
     tooltipText: string,
     triggerOnClick: boolean,
 };
@@ -36,23 +39,19 @@ class TooltipOverlay extends React.Component {
     constructor(props: Props) {
         super(props);
         this.state = {
+            isAnimating: false,
             isShowing: props.isShowing,
-            shouldFocusReapply: true,
-            animationBlocked: false,
             isHovered: false,
         };
     }
 
     state: Object;
-    componentDidMount() {
-        this.fadeOut();
-    }
 
-    componentDidUpdate() {
-        if (this.state.isShowing) {
+    componentDidUpdate(prevProps: Object, prevState: Object) {
+        if (this.state.isShowing && !prevState.isShowing) {
             this.fadeIn();
         }
-        else {
+        else if (!this.state.isShowing && prevState.isShowing) {
             this.fadeOut();
         }
     }
@@ -62,13 +61,28 @@ class TooltipOverlay extends React.Component {
 
 // Functions
 
+    // the isAnimating state blocks state changes when the animation is active
+    animationStart = () => {
+        this.setState({
+            isAnimating: true,
+        });
+    }
+
+    animationEnd = () => {
+        this.setState({
+            isAnimating: false,
+        });
+    }
+
     fadeIn = () => {
         const el = this.overlay;
         if (el instanceof HTMLElement) {
+            this.animationStart();
             anime({
+                complete: this.animationEnd,
                 targets: [el],
-                delay: this.props.triggerOnClick ? 0 : 800,
-                duration: 300,
+                delay: 0,
+                duration: AnimationDuration,
                 easing: 'easeInQuart',
                 translateY: 0,
                 opacity: 1,
@@ -79,9 +93,11 @@ class TooltipOverlay extends React.Component {
     fadeOut = () => {
         const el = this.overlay;
         if (el instanceof HTMLElement) {
+            this.animationStart();
             anime({
+                complete: this.animationEnd,
                 targets: [el],
-                duration: 350,
+                duration: AnimationDuration,
                 easing: 'easeOutQuart',
                 translateY: 2,
                 opacity: 0,
@@ -113,11 +129,6 @@ class TooltipOverlay extends React.Component {
             if (typeof this.onClick === 'function') {
                 this.props.onClick();
             }
-
-            // create a state that turns on if clicked to block focus actions
-            this.setState({
-                shouldFocusReapply: false,
-            });
             this.toggleTooltip();
         }
 
@@ -128,7 +139,6 @@ class TooltipOverlay extends React.Component {
 
     handleMouseEnter = () => {
         this.setState({
-            animationBlocked: false,
             isHovered: true,
         });
 
@@ -146,6 +156,10 @@ class TooltipOverlay extends React.Component {
     }
 
     handleMouseLeave = () => {
+        this.setState({
+            isHovered: false,
+        });
+
         if (typeof this.props.onMouseLeave === 'function') {
             this.props.onMouseLeave();
         }
@@ -153,14 +167,17 @@ class TooltipOverlay extends React.Component {
         const thisComponent = findDOMNode(this);
         const el = thisComponent instanceof HTMLElement ? thisComponent.querySelector('[data-tooltip-trigger]') : null;
         if (!this.props.triggerOnClick && el !== document.activeElement) {
-            if (this.state.isShowing === true) {
+            // if the animation isn't still running hide the tooltip on mouseLeave
+            if (this.state.isShowing && !this.state.isAnimating) {
                 this.hideTooltip();
-
-                this.setState({
-                    shaouldFocusReapply: true,
-                    animationBlocked: true,
-                    isHovered: false,
-                });
+            }
+            // if the animation IS still running, wait for the animation duration and check if we are still not hovering. We do this to prevent tooltip blinking if the animated tooltip passes under the cursor durnng animation and temporarily fires mouseLeave.
+            else if (this.state.isShowing && this.state.isAnimating) {
+                setTimeout(function() {
+                    if (this.state.isShowing && !this.state.isAnimating && !this.state.isHovered) {
+                        this.hideTooltip();
+                    }
+                }, AnimationDuration);
             }
         }
     }
@@ -171,12 +188,7 @@ class TooltipOverlay extends React.Component {
         }
 
         if (!this.props.triggerOnClick && !this.state.isHovered) {
-            if (this.state.shouldFocusReapply === true) {
-                this.setState({
-                    shouldFocusReapply: false,
-                });
-                this.showTooltip();
-            }
+            this.showTooltip();
         }
     }
 
@@ -184,18 +196,13 @@ class TooltipOverlay extends React.Component {
         if (typeof this.props.onBlur === 'function') {
             this.props.onBlur();
         }
-
-        if (this.state.shouldFocusReapply === false) {
-            this.setState({
-                shouldFocusReapply: true,
-            });
-        }
         this.hideTooltip();
     }
 
     render() {
         const {
             children,
+            className,
             attachment,
             href,
             tooltipText,
@@ -206,15 +213,18 @@ class TooltipOverlay extends React.Component {
         // set up attachment direction and reversal when tooltip hits browser edge
         let tooltipDirection;
         let constraintAttachment;
+        let tooltipOffset = '0 0';
 
         switch (attachment) {
             case 'top':
                 tooltipDirection = 'top center';
                 constraintAttachment = 'bottom center';
+                tooltipOffset = '-2px 0';
                 break;
             case 'bottom':
                 tooltipDirection = 'bottom center';
                 constraintAttachment = 'top center';
+                tooltipOffset = '2px 0';
                 break;
             case 'right':
                 tooltipDirection = 'middle right';
@@ -227,9 +237,14 @@ class TooltipOverlay extends React.Component {
         }
 
         const tooltipComponent = (
-            <Tooltip className={this.state.animationBlocked ? styles.blocked : ''}>
+            <Tooltip className={this.state.isAnimating ? styles.blocked : ''}>
                 {tooltipText}
             </Tooltip>
+        );
+
+        const LinkClass = classNames(
+            styles.Link,
+            className,
         );
 
         return (
@@ -243,7 +258,7 @@ class TooltipOverlay extends React.Component {
                 classes={{
                     element: styles.Wrapper,
                 }}
-                offset="0 0"
+                offset={tooltipOffset}
             >
                 {/* Element that receives the tooltip */}
                 <span className={styles.TriggerWrapper}
@@ -258,7 +273,7 @@ class TooltipOverlay extends React.Component {
                         data-tooltip-trigger
                         aria-label={tooltipText}
                         href={href}
-                        className={styles.Link}
+                        className={LinkClass}
                         tabIndex="0"
                     >
                         {children}

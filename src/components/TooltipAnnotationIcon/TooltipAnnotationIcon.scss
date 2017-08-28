@@ -1,0 +1,35 @@
+/* @description Generates styles for the TooltipAnnotationIcon component */
+@import '../../globals/sass/helpers-all';
+
+.TooltipAnnotationIcon {
+    position: absolute;
+
+    margin-left: spacingUnit(1);
+
+    color: $RegentGray;
+    * {
+        fill: currentColor;
+    }
+}
+
+.Tooltip:hover .TooltipAnnotationIcon {
+    color: $VimeoBlue;
+}
+
+.md {
+    top: rem-calc(1);
+
+    width: rem-calc(16);
+    height: rem-calc(16);
+
+    &.textBlock {
+        top: rem-calc(2);
+    }
+}
+
+.lg {
+    top: 0;
+
+    width: rem-calc(18);
+    height: rem-calc(18);
+}

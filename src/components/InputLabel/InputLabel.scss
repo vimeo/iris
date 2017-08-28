@@ -2,6 +2,8 @@
 @import '../../globals/sass/helpers-all';
 .InputLabel {
     display: inline-block;
+
+    position: relative;
 }
 
 .disabled {
