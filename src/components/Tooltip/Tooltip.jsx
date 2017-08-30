@@ -2,7 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './Tooltip.scss';
-import { ParagraphSm } from '../../../src/utility_components/Type/Type';
+import { ParagraphMd } from '../../../src/utility_components/Type/Type';
 
 const displayName = 'Tooltip';
 
@@ -43,9 +43,9 @@ const Tooltip = ({
             {...filteredProps}
         >
             <div className={styles.content}>
-                <ParagraphSm>
+                <ParagraphMd>
                     {children}
-                </ParagraphSm>
+                </ParagraphMd>
             </div>
         </div>
     );

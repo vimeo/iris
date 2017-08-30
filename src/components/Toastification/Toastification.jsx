@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './Toastification.scss';
 import { CSSTransitionGroup } from 'react-transition-group';
-import { ParagraphLg } from '../../../src/utility_components/Type/Type';
+import { ParagraphMd } from '../../../src/utility_components/Type/Type';
 import InfoIcon from '../../globals/svg/circle-info.svg';
 
 const displayName = 'Toastification';
@@ -175,14 +175,14 @@ class Toastification extends React.Component<void, Props, State> {
                     onMouseEnter={this._handleToastMouseEnter}
                     onMouseLeave={this._handleToastMouseLeave}
                 >
-                    <ParagraphLg
+                    <ParagraphMd
                         className={styles.Content}
                         format="light"
                     >
                         {MaybeIcon}
                         {children}
                         {MaybeAction}
-                    </ParagraphLg>
+                    </ParagraphMd>
                 </div>
             </div>
         );
