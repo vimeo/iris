@@ -59,7 +59,7 @@ class TooltipOverlay extends React.Component {
                 if (thisTrigger instanceof HTMLElement) {
                     thisTrigger.focus();
                 }
-                this.setState({ shouldReFocus: false });
+                this.clearRefocusState();
             }
         }
         else if (!this.state.isShowing && prevState.isShowing) {
@@ -71,6 +71,10 @@ class TooltipOverlay extends React.Component {
     overlay: any;
 
 // Functions
+
+    clearRefocusState = () => {
+        this.setState({ shouldReFocus: false });
+    }
 
     fadeIn = () => {
         const el = this.overlay;
