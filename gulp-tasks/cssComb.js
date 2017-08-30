@@ -6,7 +6,8 @@ const runSequence = require('run-sequence');
 gulp.task('cssCombComponents', function() {
   return gulp.src([
       config.paths.componentSrc + '**/*.scss',
-      '!' + config.paths.componentSrc + 'Grid*/*.scss'
+      '!' + config.paths.componentSrc + 'Grid*/*.scss',
+      '!' + config.paths.componentSrc + 'Modal/Modal.scss'
       ])
     .pipe(csscomb())
     .pipe(gulp.dest(config.paths.componentSrc));

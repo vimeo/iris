@@ -2,11 +2,10 @@ import React from 'react';
 import Modal from './Modal';
 import Button from '../Button/Button';
 import InputText from '../InputText/InputText';
-import { GridBlock, GridCol, Grid } from '../Grid/Grid';
 import { ParagraphMd, Header1, Header2, Header3 } from '../../utility_components/Type/Type';
 import styles from './Modal-Docs.scss';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-
+import { List, ListItem } from '../List/List';
 class ModalDocs extends React.Component {
     constructor(props) {
         super(props);
@@ -59,57 +58,46 @@ class ModalDocs extends React.Component {
     }
 
     render() {
-
         return (
             <div className="Pattern__docs">
                 <div data-code />
                 <Header3>Implementation Notes</Header3>
-                <ul>
-                    <li>The modal does not handle the logic behind opening or closing itself. The modal should be shown or hidden based on its <code>isShowing</code>.</li>
-                    <li> <code>onDismiss</code> receives a function to call when any action that should close the modal is triggered</li>
-                    <li>The modal needs a string passed to <code>modalLabelId</code> representing an id for an elment that labels the modal. If the <code>modalTitle</code> prop is used. This id will be applied to that element.</li>
-                    <li>The <code>modalDescriptionId</code> prop should be a string representing the an element that desribes the modal's intention.</li>
-                    <li><code>modalCloseLabel</code> should be a text string describing what clicking the close icon will do. For example, "Close this Dialog".</li>
-                    <li><code>fullBleed</code> is a boolean for suppressing padding in the modal for. Passing <code>true</code> to it suppresses padding.</li>
-                </ul>
-                <Header3>Modal With Title Bar (Size: "sm")</Header3>
+                <List>
+                    <ListItem>The modal does not handle the logic behind opening or closing itself. The modal should be shown or hidden based on its <code>isShowing</code>.</ListItem>
+                    <ListItem> <code>onDismiss</code> receives a function to call when any action that should close the modal is triggered</ListItem>
+                    <ListItem>The modal needs a string passed to <code>modalLabelId</code> representing an id for an elment that labels the modal. If the <code>modalTitle</code> prop is used. This id will be applied to that element.</ListItem>
+                    <ListItem>The <code>modalDescriptionId</code> prop should be a string representing the an element that desribes the modal's intention.</ListItem>
+                    <ListItem><code>modalCloseLabel</code> should be a text string describing what clicking the close icon will do. For example, "Close this Dialog".</ListItem>
+                    <ListItem><code>fullBleed</code> is a boolean for suppressing padding in the modal for. Passing <code>true</code> to it suppresses padding.</ListItem>
+                    <ListItem>Passing a CSS selector to <code>firstFocusSelector</code> will tell the modal to set focus on the first matching item on open. If nothing is passed to this prop or there are no matches the modal will focus on the close button, if there is not a close button then it will fall back to the first focusable element.</ListItem>
+                </List>
+                <Header3>Modal With Title Bar and Action Area (Size: "md")</Header3>
                 <ParagraphMd>By passing a string to <code>modalTitle</code> a pre-formatted title bar will appear at the top of the modal. This is the standard modal dialog.</ParagraphMd>
+                <ParagraphMd>The modal "action area" is the preferred way to display the buttons that represent a modal action. This area <strong>must</strong> have a primary button and can have a secondary button. To create this area pass a button props object to <code>primaryButtonProps</code> and (optionally) <code>secondaryButtonProps</code>. All key/value prop pairs passed to these props will be spread to their button. To preserve formatting the following props are hard coded: <code>autoWidth="sm"</code> <code>format="secondary"</code>, <code>isInline</code> and <code>size="md"</code>. NOTE: The button's label text is is passed via the <code>children</code> prop.</ParagraphMd>
 
                 <Modal
+                        firstFocusSelector="#Modal1PrimaryAction"
                         modalLabelId="exampleModal2Label"
                         modalDescriptionId="exampleModal2Desc"
                         modalCloseLabel="Close this dialog."
                         modalTitle="Modal With Title Bar"
                         onDismiss={this.closeModal2}
+                        primaryButtonProps = {{
+                            children: 'Submit',
+                            id: 'Modal1PrimaryAction',
+                            onClick: this.closeModal2,
+                        }}
+                        secondaryButtonProps = {{
+                            children: 'Cancel',
+                            onClick: this.closeModal2,
+                        }}
                         isShowing = {this.state.showModalTwo}
-                        size="sm"
+                        size="md"
                     >
-                    <ParagraphMd id="exampleModal2Desc">I am a Small-sized Modal. Click these buttons to do stuff... or don't. It's up to you really.</ParagraphMd>
-                    <Grid>
-                            <GridBlock>
-                                    <GridCol
-                                            formColumn
-                                        >
-                                            <Button
-                                            autoWidth="fluid"
-                                            onClick={this.closeModal2}
-                                            >
-                                                Do it.
-                                            </Button>
-                                        </GridCol>
-                                        <GridCol
-                                            formColumn
-                                        >
-                                            <Button
-                                            autoWidth="fluid"
-                                            format="secondary"
-                                            onClick={this.closeModal2}
-                                            >
-                                                Cancel
-                                            </Button>
-                                        </GridCol>
-                                </GridBlock>
-                            </Grid>
+                        <ParagraphMd id="exampleModal2Desc">I am a Small-sized Modal. Click these buttons to do stuff... or don't. It's up to you really.</ParagraphMd>
+                        <ParagraphMd>Modals are about presenting a choice to the user and also disprupting them from what they were doing to get their attention. Because of this they are not everyone's cup of tea.</ParagraphMd>
+                        <ParagraphMd>`Twas brillig, and the slithy toves Did gyre and gimble in the wabe: All mimsy were the borogoves, And the mome raths outgrabe.</ParagraphMd>
+                        <ParagraphMd>"Beware the Jabberwock, my son! The jaws that bite, the claws that catch! Beware the Jubjub bird, and shun The frumious Bandersnatch!"</ParagraphMd>
                     </Modal>
 
                     <Button format="primaryOutline"
@@ -121,18 +109,29 @@ class ModalDocs extends React.Component {
                     <ExampleSource>
                     {`
 <Modal
+    firstFocusSelector="#Modal1PrimaryAction"
     modalLabelId="exampleModal2Label"
     modalDescriptionId="exampleModal2Desc"
     modalCloseLabel="Close this dialog."
     modalTitle="Modal With Title Bar"
     onDismiss={this.closeModal2}
+    primaryButtonProps = {{
+        children: 'Submit',
+        id: 'Modal1PrimaryAction',
+        onClick: this.closeModal2,
+    }}
+    secondaryButtonProps = {{
+        children: 'Cancel',
+        onClick: this.closeModal2,
+    }}
     isShowing = {this.state.showModalTwo}
+    size="md"
 >
     ... content here
 </Modal>
                         `}
                     </ExampleSource>
-                    <Header3>Free-form Modal, no dismiss button (Size: "md")</Header3>
+                    <Header3>Free-form Modal, no dismiss button (Size: "sm")</Header3>
                     <ParagraphMd>If there is a string passed to <code>modalTitle</code> The modal will print a pre-formatted title.</ParagraphMd>
                     <ParagraphMd>The dismiss button can be hidden with the <code>hideDismissButton</code> prop.</ParagraphMd>
                     <Modal
@@ -142,7 +141,7 @@ class ModalDocs extends React.Component {
                         onDismiss={this.closeModal1}
                         hideDismissButton
                         isShowing = {this.state.showModalOne}
-                        size="md"
+                        size="sm"
                     >
                         <Header2 className={styles.centeredHeadline} id="exampleModaLabel">Modal Title</Header2>
                         <ParagraphMd id="exampleModalDesc">This is what a log-in modal might look like.</ParagraphMd>
@@ -184,12 +183,14 @@ class ModalDocs extends React.Component {
                     </Button>
                 <ExampleSource>
                     {`
- <Modal
+<Modal
     modalLabelId="exampleModalLabel"
     modalDescriptionId="exampleModalDesc"
     modalCloseLabel="Close this dialog."
     onDismiss={this.closeModal1}
+    hideDismissButton
     isShowing = {this.state.showModalOne}
+    size="sm"
 >
     ... content here
 </Modal>
@@ -245,7 +246,7 @@ class ModalDocs extends React.Component {
                         isShowing = {this.state.showModalFour}
                         size="lg"
                     >
-                         <div data-code style={{ 'backgroundImage': 'url(https://placekitten.com/1000/800)', 'backgroundSize': 'cover', 'backgroundPosition': 'center', 'height': '10rem', 'width': '100%' }} />
+                        <div data-code style={{ 'backgroundImage': 'url(https://placekitten.com/1000/800)', 'backgroundSize': 'cover', 'backgroundPosition': 'center', 'height': '10rem', 'width': '100%' }} />
                         <Header1 id = "exampleLightButtonModalLabel">I am a large, full-bleed,light-dismiss button modal.</Header1>
                         <ParagraphMd id="exampleLightButtonDesc">I demonstrate the dismissButtonFormat option.</ParagraphMd>
                         <ParagraphMd>I also have no padding!</ParagraphMd>

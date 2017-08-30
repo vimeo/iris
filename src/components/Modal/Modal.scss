@@ -1,27 +1,41 @@
 /* @description Generates styles for the Modal component */
 @import '../../globals/sass/helpers-all';
-$Modal_animation-speed: 350ms;
+$Modal_animation-speed-integer: 250;
+$Modal_animation-speed: $Modal_animation-speed-integer * 1ms;
+$Modal_actionArea-height-small-screen: rem-calc(134);
+$Modal_actionArea-height-large-screen: rem-calc(80);
+$Modal_Vertical_Cutoff: 300px;
+
+:export {
+    Modal_AnimationTime: $Modal_animation-speed-integer;
+};
 
 .Modal {
-    overflow: auto;
-
     position: relative;
     z-index: get-z-index('modalContent');
-    top: 50%;
 
     width: 76%;
-    min-height: rem-calc(180);
-    max-height: 76vh;
+    min-height: $Modal_Vertical_Cutoff;
     margin: 0 auto;
 
     background: $White;
     box-shadow: $subtleIrisBoxShadow;
 
-    transform: translateY(-50%);
+    // Modals scroll in the window until $Modal_Vertical_Cutoff height
+    @media (min-height: $Modal_Vertical_Cutoff) {
+        top: 50%;
+
+        min-height: rem-calc(180);
+        max-height: 76vh;
+
+        transform: translateY(-50%);
+    }
 }
 
 
 .ModalWrapper {
+    overflow: scroll;
+
     position: fixed;
     z-index: get-z-index('modalWrapper');
     top: 0;
@@ -32,10 +46,43 @@ $Modal_animation-speed: 350ms;
 }
 
 .ModalContent {
-    padding: spacingUnit(5);
+    padding: spacingUnit(5) spacingUnit(5);
+    // Modals scroll in the window until $Modal_Vertical_Cutoff height
+    // After that they scroll within the modal content box
+    @media (min-height: $Modal_Vertical_Cutoff) {
+        overflow: auto;
+
+        max-height: 76vh;
+    }
+
+
 
     &.fullBleed {
         padding: 0;
+    }
+
+    &.hasActionArea {
+        @include mq(sm) {
+            @media (min-height: $Modal_Vertical_Cutoff) {
+                max-height: calc(76vh - #{$Modal_actionArea-height-large-screen});
+            }
+        }
+
+        padding-bottom: 0;
+        // This background creates a gradiant that looks like a shadow
+        // when there is content overflow.
+        // This technique comes from http://lea.verou.me/2012/04/background-attachment-local/
+
+        background: /* These hide the shadow when there is NO scroll */
+        linear-gradient($White 30%, rgba(255,255,255,0)),
+        linear-gradient(rgba(255,255,255,0), white 70%) 0 100%,
+
+        /* These are the shadows when there IS scroll */
+        radial-gradient(farthest-side at 50% 0, rgba(0,0,0,0.2), rgba(0,0,0,0)),
+        radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,0.2), rgba(0,0,0,0)) 0 100%;
+        background-repeat: no-repeat;
+        background-attachment: local, local, scroll, scroll;
+        background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
     }
 }
 
@@ -56,7 +103,13 @@ $Modal_animation-speed: 350ms;
     top: rem-calc(22);
     right: rem-calc(22);
 
+    @media (min-height: $Modal_Vertical_Cutoff) {
+        position: fixed;
+    }
+
+
     &.dark {
+        background: rgba(255,255,255,0.9);
         svg * {
             fill: $RegentGray;
         }
@@ -83,6 +136,22 @@ $Modal_animation-speed: 350ms;
     padding-right: spacingUnit(2);
 }
 
+.ActionArea {
+    @include mq(sm) {
+        height: $Modal_actionArea-height-large-screen;
+    }
+
+    overflow: hidden;
+
+    width: 100%;
+    height: $Modal_actionArea-height-small-screen;
+    padding: spacingUnit(5) spacingUnit(5) spacingUnit(3);
+
+    background: $White;
+
+    text-align: right;;
+}
+
 // Modal Sizes
 
 @include mq(sm) {
@@ -100,6 +169,8 @@ $Modal_animation-speed: 350ms;
         width: rem-calc(660);
     }
 }
+
+
 
 
 // Animation
@@ -136,8 +207,6 @@ $Modal_animation-speed: 350ms;
 
 // this class is added to the body tag when the modal is open.
 .freezeBodyScroll {
-    overflow: hidden;
-
     position: fixed;
 
     width: 100%;

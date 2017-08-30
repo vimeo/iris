@@ -5,15 +5,19 @@ import classNames from 'classnames';
 import styles from './Modal.scss';
 import KEY_CODES from '../../globals/js/constants/KEY_CODES';
 import { CSSTransitionGroup } from 'react-transition-group';
+import Button from '../Button/Button';
 import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
 import { Header4 } from '../../utility_components/Type/Type';
 const displayName = 'Modal';
-const modalSpeed = 350;
+
+// this value should be kept in sync with the timing variable in the Modal.scss
+const modalSpeed = parseInt(styles.Modal_AnimationTime, 10);
 
 type Props = {
     children: React$Element<*>,
     className?: string,
     dismissButtonFormat: 'light'| 'dark',
+    firstFocusSelector: string,
     fullBleed?: boolean,
     isShowing?: boolean;
     modalLabelId: string,
@@ -21,6 +25,8 @@ type Props = {
     modalCloseLabel: string,
     modalTitle?: string,
     onDismiss?: Function,
+    primaryButtonProps?: Object,
+    secondaryButtonProps?: Object,
     hideDismissButton?: boolean,
     size?: 'sm' | 'md' | 'lg',
 };
@@ -132,15 +138,21 @@ class Modal extends React.Component {
     }
 
     _freezeBodyScroll() {
-            // Flow does not like using classList on document body
-            // $FlowFixMe
+        const topOffset = `-${window.pageYOffset}px`;
+        // Flow does not like using classList or style on document body
+
+        // $FlowFixMe
         document.body.classList.add(styles.freezeBodyScroll);
+        // $FlowFixMe
+        document.body.style.top = topOffset;
     }
 
     _unfreezeBodyScroll() {
-            // Flow does not like using classList on document body
-            // $FlowFixMe
+        // Flow does not like using classList on document body
+        // $FlowFixMe
         document.body.classList.remove(styles.freezeBodyScroll);
+        // $FlowFixMe
+        document.body.style.top = null;
     }
 
     _getOriginalFocusedEl() {
@@ -198,7 +210,7 @@ class Modal extends React.Component {
     _setFocusableElementList(callback: any, shouldSetFocus: boolean) {
         if (this.thisEl instanceof Element) {
             const focusableList = this.thisEl.querySelectorAll(
-                'a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]'
+                'a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled])'
             );
             if (focusableList.length) {
                 this.focusableElementList = focusableList;
@@ -227,7 +239,33 @@ class Modal extends React.Component {
     }
 
     _setFirstFocus() {
-        if (this.firstFocusableElement) {
+        const selector = this.props.firstFocusSelector;
+
+        // this is only going to work if this.thisEl is properly set...
+        if (this.thisEl instanceof Element) {
+
+            // if a selector was set on this.props.firstFocusSelector we first try to focus on that.
+            if (selector) {
+
+                const firstFocusEl = this.thisEl.querySelector(selector);
+
+                if (firstFocusEl instanceof Element) {
+                    firstFocusEl.focus();
+                    return;
+                }
+            }
+
+            // then we try to focus on the modal close button if it is there
+            else if (!this.props.hideDismissButton) {
+                const modalCloseButton = this.thisEl.querySelector('[data-js-modalCloseButton]');
+
+                modalCloseButton.focus();
+                return;
+            }
+        }
+
+        // finally, we try to focuson the first focusable element if there is one.
+        else if (this.firstFocusableElement) {
             this.firstFocusableElement.focus();
         }
     }
@@ -243,6 +281,7 @@ class Modal extends React.Component {
             children,
             className,
             dismissButtonFormat,
+            firstFocusSelector, // eslint-disable-line no-unused-vars
             fullBleed,
             hideDismissButton,
             isShowing,
@@ -251,6 +290,8 @@ class Modal extends React.Component {
             modalLabelId,
             modalTitle,
             onDismiss,
+            primaryButtonProps,
+            secondaryButtonProps,
             size,
             ...filteredProps
         } = this.props;
@@ -264,12 +305,34 @@ class Modal extends React.Component {
 
         const contentClass = classNames(
             styles.ModalContent,
-            (fullBleed ? styles.fullBleed : null)
+            (primaryButtonProps ? styles.hasActionArea : null),
+            (fullBleed ? styles.fullBleed : null),
         );
 
         const dismissClass = classNames(
             styles.ModalCloseButton,
             styles[dismissButtonFormat],
+        );
+
+        const actionAreaElement = (
+            <div className={styles.ActionArea}>
+                {secondaryButtonProps ? (
+                    <Button
+                        {...secondaryButtonProps}
+                        autoWidth="sm"
+                        format="secondary"
+                        isInline
+                        size="md"
+                    />
+                ) : null}
+                <Button
+                    {...primaryButtonProps}
+                    autoWidth="sm"
+                    format="primary"
+                    isInline
+                    size="md"
+                />
+            </div>
         );
 
         const ModalTitleElement = (
@@ -280,9 +343,10 @@ class Modal extends React.Component {
 
         const CloseButton = (
             <ButtonDialogClose
-                className={dismissClass}
-                onClick={onDismiss ? ()=> this._handleModalClose(onDismiss) : null}
                 buttonTitle={modalCloseLabel}
+                className={dismissClass}
+                onClick={onDismiss ? () => this._handleModalClose(onDismiss) : null}
+                data-js-modalCloseButton
             />
         );
 
@@ -296,10 +360,11 @@ class Modal extends React.Component {
                     className={componentClass}
                 >
                     <div className={contentClass}>
-                    {modalTitle ? ModalTitleElement : null}
+                        {modalTitle ? ModalTitleElement : null}
                         {children}
                     </div>
-                    { onDismiss && !hideDismissButton ? CloseButton : null}
+                    {primaryButtonProps ? actionAreaElement : null}
+                    {onDismiss && !hideDismissButton ? CloseButton : null}
                 </div>
                 <div
                     className={styles.Overlay}
