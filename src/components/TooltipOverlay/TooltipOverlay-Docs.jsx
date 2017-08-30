@@ -2,7 +2,7 @@ import React from 'react';
 import TooltipOverlay from './TooltipOverlay';
 import Button from '../Button/Button';
 import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
-import DeleteIcon from '../../globals/svg/delete_iris.svg';
+import DeleteIcon from '../../globals/svg/trash.svg';
 import LinkText from '../LinkText/LinkText';
 import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
