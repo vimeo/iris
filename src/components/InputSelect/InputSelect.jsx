@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './InputSelect.scss';
 import InputWrapper from '../InputWrapper/InputWrapper';
-import ChevronIris from '../../globals/svg/chevron_iris.svg';
+import ChevronIris from '../../globals/svg/chevron-down.svg';
 
 const displayName = 'InputSelect';
 

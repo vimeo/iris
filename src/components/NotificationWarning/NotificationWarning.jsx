@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './NotificationWarning.scss';
 import Notification from '../Notification/Notification';
-import InfoIcon from '../../globals/svg/info_iris.svg';
+import WarningIcon from '../../globals/svg/circle-warning.svg';
 
 const displayName = 'NotificationWarning';
 
@@ -31,7 +31,7 @@ const NotificationWarning = ({
     return (
             <Notification
                 {...filteredProps}
-                icon={hasIcon ? <InfoIcon className={styles.iconColor} /> : null}
+                icon={hasIcon ? <WarningIcon className={styles.iconColor} /> : null}
                 onDismiss={onDismiss}
                 dismissIconClassName = {styles.dismissIconColor}
                 className={componentClass}

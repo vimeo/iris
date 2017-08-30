@@ -1,7 +1,7 @@
 import React from 'react';
 import CircularButton from './CircularButton';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import IrisIconDelete16 from '../../../src/globals/svg/iris_icon_delete_16';
+import IrisIconDelete16 from '../../../src/globals/svg/trash.svg';
 import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
 const CircularButtonDocs = (props) => {
     return (

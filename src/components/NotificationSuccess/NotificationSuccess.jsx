@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './NotificationSuccess.scss';
 import Notification from '../Notification/Notification';
-import SuccessIcon from '../../globals/svg/checkmark_iris.svg';
+import SuccessIcon from '../../globals/svg/checkmark.svg';
 
 const displayName = 'NotificationSuccess';
 

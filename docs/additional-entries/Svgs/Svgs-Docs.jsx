@@ -1,5 +1,5 @@
 import React from 'react';
-import IrisIconAlert16 from '../../../src/globals/svg/iris_icon_alert_16';
+import BellIris from '../../../src/globals/svg/bell.svg';
 import { ParagraphMd, Header3, Header4 } from '../../../src/utility_components/Type/Type';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import LinkText from '../../../src/components/LinkText/LinkText';
@@ -23,22 +23,22 @@ import '{ComponentName}' from 'iris/icons/{fileName}';
 <ComponentName />
                     `}
                 </ExampleSource>
-            <Header4>Example: IrisIconAlert16</Header4>
+            <Header4>Example: BellIris</Header4>
             <div style={{'width' : '3em', 'height' : '3em'}} data-code>
-                <IrisIconAlert16 title="See your alerts" className="someSVGClass" id="someSVGid" style={{'width': '75%'}} />
+                <BellIris title="See your alerts" className="someSVGClass" id="someSVGid" style={{'width': '75%'}} />
             </div>
-            <ParagraphMd><strong>ComponentName:</strong> IrisIconAlert16</ParagraphMd>
-            <ParagraphMd><strong>File Name:</strong> iris_icon_alert_16.svg</ParagraphMd>
+            <ParagraphMd><strong>ComponentName:</strong> BellIris</ParagraphMd>
+            <ParagraphMd><strong>File Name:</strong> bell.svg</ParagraphMd>
             <ParagraphMd><strong>Import it:</strong></ParagraphMd>
             <ExampleSource>
                 {`
-import 'IrisIconAlert16' from 'iris/icons/iris_icon_alert_16';
+import BellIris from '../../../src/globals/svg/bell.svg';
                     `}
                 </ExampleSource>
                 <ParagraphMd><strong>Use it as a JSX tag:</strong></ParagraphMd>
                 <ExampleSource>
                     {`
-<IrisIconAlert16 title="See your alerts" className="someSVGClass" id="someSVGid" style={{'width': '75%'}} />
+<BellIris title="See your alerts" className="someSVGClass" id="someSVGid" style={{'width': '75%'}} />
                         `}
                     </ExampleSource>
             </div>

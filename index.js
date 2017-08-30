@@ -15,6 +15,7 @@ exports.paths = {
   'iris/GlobalCSS':'iris/src/globals/css/globals.css',
   'iris/Type':'iris/src/utility_components/Type/Type',
   'iris/icons':'iris/src/globals/svg/',
+  'iris/legacyIcons':'iris/src/globals/legacy_svg/',
   'iris/SlideUpDown' : 'iris/src/animations/SlideUpDown/SlideUpDown',
   
   'iris/Avatar':'iris/src/components/Avatar/Avatar',

@@ -2,8 +2,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './InputLabelStateIcon.scss';
-import AlertIcon from '../../globals/svg/alert_iris.svg';
-import SuccessIcon from '../../globals/svg/checkmark_iris.svg';
+import AlertIcon from '../../globals/svg/circle-warning.svg';
+import SuccessIcon from '../../globals/svg/checkmark.svg';
 
 const displayName = 'InputLabelStateIcon';
 

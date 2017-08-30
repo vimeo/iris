@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './SearchField.scss';
 import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
 import InputText from '../InputText/InputText';
-import SearchIcon from '../../globals/svg/search_iris.svg';
+import SearchIcon from '../../globals/svg/search.svg';
 
 const displayName = 'SearchField';
 

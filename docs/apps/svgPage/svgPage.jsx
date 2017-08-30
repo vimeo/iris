@@ -23,6 +23,9 @@ const SvgEntry = (props) => {
     return (
         <div className="sg-svgEntry">
              <h3>{props.iconName}</h3>
+             <div className="sg-svgIcon sg-svgIcon--xlarge">
+             <IconTag />
+            </div>
             <div className="sg-svgIcon sg-svgIcon--large">
                 <IconTag />
             </div>
@@ -32,9 +35,12 @@ const SvgEntry = (props) => {
             <div className="sg-svgIcon sg-svgIcon--small">
                 <IconTag />
             </div>
+            <div className="sg-svgIcon sg-svgIcon--xsmall">
+                <IconTag />
+            </div>
             <div className="sg-svgIconInfo">
                 <p><strong>ComponentName:</strong> {props.iconName}</p>
-                <p><strong>File Name:</strong> {props.fileName}</p>
+                <p><strong>File Name:</strong> {props.fileName}.svg</p>
             </div>
         </div>
     )
