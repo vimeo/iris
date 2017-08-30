@@ -3,7 +3,6 @@ import React from 'react';
 import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import TetherComponent from 'react-tether';
-import { TransitionGroup } from 'react-transition-group';
 import anime from 'animejs';
 
 import Tooltip from '../Tooltip/Tooltip';
@@ -42,6 +41,7 @@ class TooltipOverlay extends React.Component {
             isAnimating: false,
             isShowing: props.isShowing,
             isHovered: false,
+            shouldRefocus: false,
         };
     }
 
@@ -50,6 +50,17 @@ class TooltipOverlay extends React.Component {
     componentDidUpdate(prevProps: Object, prevState: Object) {
         if (this.state.isShowing && !prevState.isShowing) {
             this.fadeIn();
+            // refocus the tooltip, it lost focus when the dom updated, we need it to still be focused to detect blur
+            const thisEl = findDOMNode(this);
+
+            if (this.state.shouldReFocus && thisEl instanceof HTMLElement) {
+                const thisTrigger = thisEl.querySelector('a[data-tooltip-trigger]');
+
+                if (thisTrigger instanceof HTMLElement) {
+                    thisTrigger.focus();
+                }
+                this.setState({ shouldReFocus: false });
+            }
         }
         else if (!this.state.isShowing && prevState.isShowing) {
             this.fadeOut();
@@ -61,25 +72,10 @@ class TooltipOverlay extends React.Component {
 
 // Functions
 
-    // the isAnimating state blocks state changes when the animation is active
-    animationStart = () => {
-        this.setState({
-            isAnimating: true,
-        });
-    }
-
-    animationEnd = () => {
-        this.setState({
-            isAnimating: false,
-        });
-    }
-
     fadeIn = () => {
         const el = this.overlay;
         if (el instanceof HTMLElement) {
-            this.animationStart();
             anime({
-                complete: this.animationEnd,
                 targets: [el],
                 delay: 0,
                 duration: AnimationDuration,
@@ -93,9 +89,7 @@ class TooltipOverlay extends React.Component {
     fadeOut = () => {
         const el = this.overlay;
         if (el instanceof HTMLElement) {
-            this.animationStart();
             anime({
-                complete: this.animationEnd,
                 targets: [el],
                 duration: AnimationDuration,
                 easing: 'easeOutQuart',
@@ -125,13 +119,13 @@ class TooltipOverlay extends React.Component {
 
 // Event Handlers
     handleClick = (e: Event) => {
-        if (this.props.triggerOnClick) {
-            if (typeof this.onClick === 'function') {
-                this.props.onClick();
-            }
-            this.toggleTooltip();
+        if (typeof this.props.onClick === 'function') {
+            this.props.onClick();
         }
 
+        if (this.props.triggerOnClick) {
+            this.toggleTooltip();
+        }
         if (this.props.href === '#') {
             e.preventDefault();
         }
@@ -167,22 +161,15 @@ class TooltipOverlay extends React.Component {
         const thisComponent = findDOMNode(this);
         const el = thisComponent instanceof HTMLElement ? thisComponent.querySelector('[data-tooltip-trigger]') : null;
         if (!this.props.triggerOnClick && el !== document.activeElement) {
-            // if the animation isn't still running hide the tooltip on mouseLeave
-            if (this.state.isShowing && !this.state.isAnimating) {
+            if (this.state.isShowing) {
                 this.hideTooltip();
-            }
-            // if the animation IS still running, wait for the animation duration and check if we are still not hovering. We do this to prevent tooltip blinking if the animated tooltip passes under the cursor durnng animation and temporarily fires mouseLeave.
-            else if (this.state.isShowing && this.state.isAnimating) {
-                setTimeout(function() {
-                    if (this.state.isShowing && !this.state.isAnimating && !this.state.isHovered) {
-                        this.hideTooltip();
-                    }
-                }, AnimationDuration);
             }
         }
     }
 
     handleFocus = () => {
+        this.setState({ shouldReFocus: true });
+
         if (typeof this.props.onFocus === 'function') {
             this.props.onFocus();
         }
@@ -219,12 +206,12 @@ class TooltipOverlay extends React.Component {
             case 'top':
                 tooltipDirection = 'top center';
                 constraintAttachment = 'bottom center';
-                tooltipOffset = '-2px 0';
+                tooltipOffset = '6px 0';
                 break;
             case 'bottom':
                 tooltipDirection = 'bottom center';
                 constraintAttachment = 'top center';
-                tooltipOffset = '2px 0';
+                tooltipOffset = '-10px 0';
                 break;
             case 'right':
                 tooltipDirection = 'middle right';
@@ -236,18 +223,38 @@ class TooltipOverlay extends React.Component {
                 break;
         }
 
-        const tooltipComponent = (
-            <Tooltip className={this.state.isAnimating ? styles.blocked : ''}>
-                {tooltipText}
-            </Tooltip>
-        );
-
         const LinkClass = classNames(
             styles.Link,
             className,
         );
 
-        return (
+        const tooltipComponent = (
+            <Tooltip
+                className={this.state.isAnimating ? styles.blocked : ''}
+            >
+                {tooltipText}
+            </Tooltip>
+        );
+
+        const tooltippedElement = (
+                <a
+                    {...filteredProps}
+                    onClick={this.handleClick}
+                    onFocus={this.handleFocus}
+                    onBlur={this.handleBlur}
+                    onMouseEnter={this.handleMouseEnter}
+                    onMouseLeave={this.handleMouseLeave}
+                    data-tooltip-trigger
+                    aria-label={tooltipText}
+                    href={href}
+                    className={LinkClass}
+                    tabIndex="0"
+                >
+                    {children}
+                </a>
+        );
+
+        const activatedTooltip = (
             <TetherComponent
                 attachment={constraintAttachment}
                 targetAttachment={tooltipDirection}
@@ -260,38 +267,24 @@ class TooltipOverlay extends React.Component {
                 }}
                 offset={tooltipOffset}
             >
-                {/* Element that receives the tooltip */}
-                <span className={styles.TriggerWrapper}
-                    onClick={this.handleClick}
-                    onFocus={this.handleFocus}
-                    onBlur={this.handleBlur}
-                    onMouseEnter={this.handleMouseEnter}
-                    onMouseLeave={this.handleMouseLeave}
-                >
-                    <a
-                        {...filteredProps}
-                        data-tooltip-trigger
-                        aria-label={tooltipText}
-                        href={href}
-                        className={LinkClass}
-                        tabIndex="0"
-                    >
-                        {children}
-                    </a>
-                </span>
+            {tooltippedElement}
 
-                {/* Tooltip */}
-                <TransitionGroup>
-                    <div
-                        className={styles.TooltipWrapper}
-                        ref={(overlay) => {
-                            this.overlay = overlay;
-                        }}
-                    >
-                        {this.state.isShowing ? tooltipComponent : null}
-                    </div>
-                </TransitionGroup>
-            </TetherComponent>
+            {/* Tooltip */}
+                <div
+                    className={styles.TooltipWrapper}
+                    ref={(overlay) => {
+                        this.overlay = overlay;
+                    }}
+                >
+                    {tooltipComponent}
+                </div>
+        </TetherComponent>
+        );
+
+        return (
+            <div className={styles.TriggerWrapper}>
+                {this.state.isShowing ? activatedTooltip : tooltippedElement}
+            </div>
         );
     }
 }

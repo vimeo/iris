@@ -1,13 +1,20 @@
 import React from 'react';
 import TooltipOverlay from './TooltipOverlay';
 import Button from '../Button/Button';
+import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
+import DeleteIcon from '../../globals/svg/delete_iris.svg';
 import LinkText from '../LinkText/LinkText';
 import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import NotificationWarning from '../NotificationWarning/NotificationWarning';
 
 class TooltipOverlayDocs extends React.Component {
     constructor(props) {
         super(props);
+    }
+
+    clickTest = () => {
+        alert('click!'); // eslint-disable-line no-alert
     }
 
     render() {
@@ -16,13 +23,18 @@ class TooltipOverlayDocs extends React.Component {
                 <div data-code>
                     <ParagraphMd>Tooltips Overlays can be used to add additional information to elements on a page. Note that any prop that can be passed to the Tooltip component can be passed to the TooltipOverlay as well.</ParagraphMd>
                     <ParagraphMd>Any props that are not in the API table below will be spread to to anchor tag that wraps the triggering element</ParagraphMd>
-                    <Header3>Tooltip Overlays Over Text</Header3>
+                    <NotificationWarning>
+                    <ParagraphMd>The element passed to the component as child must not, itself be interactive. If you use a button, use the <code>isButtonElement=false</code> flag. If you are passing a bit of text formatted by the LinkText component, use <code>element="span"</code></ParagraphMd>
+                    </NotificationWarning>
+                    <Header3>Tooltip Overlays</Header3>
 
                     <ParagraphMd>If you are using a plain-text string for a tooltip trigger you must use the <code>LinkText</code> component with the <code>element="string"</code> prop option to style the link while the TootipOverlay component provides the actual linking.</ParagraphMd>
 
-                    <div style={{ marginBottom: '1rem' }}>
-                        <TooltipOverlay tooltipText="Peach's Hometown"
-                        data-foo="bar"
+                    <div>
+                        <TooltipOverlay
+                            tooltipText="Peach's Hometown"
+                            data-foo="bar"
+                            onClick={this.clickTest}
                         >
                             <LinkText
                                 element="span"
@@ -31,16 +43,41 @@ class TooltipOverlayDocs extends React.Component {
                             </LinkText>
                         </TooltipOverlay>
                     </div>
+                    <div>
+                        <TooltipOverlay
+                            tooltipText="Delete"
+                            onClick={this.clickTest}
+                        >
+                            <ButtonIconOnly
+                                icon={<DeleteIcon title="Delete"/>}
+                                format="warning"
+                                isButtonElement={false}
+                                size="md"
+                            />
+                        </TooltipOverlay>
+                    </div>
                     <ExampleSource>
                     {`
 <TooltipOverlay tooltipText="Peach's Hometown"
-data-foo="bar"
+    data-foo="bar"
+    onClick={this.clickTest}
 >
     <LinkText
         element="span"
     >
         mushroom kingdom
     </LinkText>
+</TooltipOverlay>
+<TooltipOverlay
+tooltipText="Delete"
+onClick={this.clickTest}
+>
+    <ButtonIconOnly
+        icon={<DeleteIcon title="Delete"/>}
+        format="warning"
+        isButtonElement={false}
+        size="md"
+    />
 </TooltipOverlay>
                     `}
                     </ExampleSource>
