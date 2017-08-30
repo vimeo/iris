@@ -96,8 +96,9 @@ import { ParagraphMd, Header1, Header2} from 'iris/Type;
 <Header1 element="p">I'm really a p tag</Header1>
                 `}
             </ExampleSource>
-            <NotificationWarning>
-                <Header3>Overriding Type Styles</Header3>
+            <NotificationWarning
+                headerText="Overriding Type Styles"
+            >
                 <ParagraphMd>There are instances when design may require a modification to Iris type styles, such as a need to remove default treatments of margins or padding. This can be acheived by passing a class to the type component and styling it in your module.</ParagraphMd>
                 <ParagraphMd>Before pushing changes that adjust Iris type styles be sure to cc the <a href="https://github.vimeows.com/orgs/Vimeo/teams/iris">Iris</a> <code>@Vimeo/iris</code> team in your PR for review.</ParagraphMd>
             </NotificationWarning>

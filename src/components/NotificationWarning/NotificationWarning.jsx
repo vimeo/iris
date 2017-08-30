@@ -11,6 +11,7 @@ type Props = {
     children: string,
     className?: string,
     hasIcon?: boolean,
+    headerText?: string,
     onDismiss?: any,
 };
 
@@ -18,6 +19,7 @@ const NotificationWarning = ({
                         children,
                         className,
                         hasIcon = true,
+                        headerText,
                         onDismiss,
                         ...filteredProps
                     }: Props): React$Element<*> => {
@@ -31,6 +33,7 @@ const NotificationWarning = ({
     return (
             <Notification
                 {...filteredProps}
+                headerText={headerText}
                 icon={hasIcon ? <WarningIcon className={styles.iconColor} /> : null}
                 onDismiss={onDismiss}
                 dismissIconClassName = {styles.dismissIconColor}

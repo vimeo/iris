@@ -45,6 +45,10 @@ $Notification_dismiss-icon-size: rem-calc(18);
     }
 }
 
+.hasHeader .iconWrapper {
+    top: rem-calc(14);
+}
+
 // dismiss button
 .dismissButton {
     top: rem-calc(10);

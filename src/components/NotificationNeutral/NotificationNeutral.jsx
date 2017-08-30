@@ -11,6 +11,7 @@ type Props = {
     children: string,
     className?: string,
     hasIcon?: boolean,
+    headerText?: string,
     onDismiss?: any,
 };
 
@@ -18,6 +19,7 @@ const NotificationNeutral = ({
                         children,
                         className,
                         hasIcon = true,
+                        headerText,
                         onDismiss,
                         ...filteredProps
                     }: Props): React$Element<*> => {
@@ -31,6 +33,7 @@ const NotificationNeutral = ({
     return (
             <Notification
                 {...filteredProps}
+                headerText={headerText}
                 icon={hasIcon ? <InfoIcon className={styles.iconColor} /> : null}
                 onDismiss={onDismiss}
                 dismissIconClassName = {styles.dismissIconColor}

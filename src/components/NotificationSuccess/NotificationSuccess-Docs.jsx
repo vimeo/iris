@@ -37,6 +37,11 @@ class NotificationSuccessDocs extends React.Component {
                     <NotificationSuccess hasIcon={false}>
                         <ParagraphMd>This is a Success notification without an icon.  I am  NOT dismissable.</ParagraphMd>
                     </NotificationSuccess>
+                    <NotificationSuccess
+                        headerText="Notification With Header"
+                    >
+                        <ParagraphMd>Twas brillig, and the slithy toves. Did gyre and gimble in the wabe: All mimsy were the borogoves, And the mome raths outgrabe.</ParagraphMd>
+                    </NotificationSuccess>
                 </div>
 
                 <ExampleSource>
@@ -54,6 +59,11 @@ class NotificationSuccessDocs extends React.Component {
 <NotificationSuccess hasIcon={false}>
     <ParagraphMd>This is a Success notification without an icon.  I am  NOT dismissable.</ParagraphMd>
 </NotificationSuccess>
+<NotificationSuccess
+headerText="Notification With Header"
+>
+    <ParagraphMd>Twas brillig, and the slithy toves. Did gyre and gimble in the wabe: All mimsy were the borogoves, And the mome raths outgrabe.</ParagraphMd>
+</NotificationSuccess>  
                         `}
                     </ExampleSource>
                 </div>

@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './Notification.scss';
 import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
+import { Header5 } from '../../utility_components/Type/Type';
 
 
 /* Note: This component is the base component for themed notifications, do not use it by itself */
@@ -13,6 +14,7 @@ type Props = {
     children: string,
     className?: string,
     dismissIconClassName?: string,
+    headerText?: string,
     icon?: any,
     onDismiss?: any,
 };
@@ -21,6 +23,7 @@ const Notification = ({
             className,
             children,
             dismissIconClassName,
+            headerText,
             icon,
             onDismiss,
             ...filteredProps
@@ -31,6 +34,7 @@ const Notification = ({
     const componentClass = classNames(
             styles.Notification,
             (icon ? styles.hasIcon : null),
+            (headerText ? styles.hasHeader : null),
             className
         );
 
@@ -51,7 +55,13 @@ const Notification = ({
                 className={dismissElementClass}
                 onClick={onDismiss}
                 buttonTitle="Dismiss this notification"
-             />
+            />
+    );
+
+    const headerTextElement = (
+        <Header5>
+            {headerText}
+        </Header5>
     );
 
     return (
@@ -60,6 +70,7 @@ const Notification = ({
                 className={componentClass}
             >
                 {icon ? iconElement : null}
+                {headerText ? headerTextElement : null}
                 {children}
                 {onDismiss ? dismissElement : null}
             </div>

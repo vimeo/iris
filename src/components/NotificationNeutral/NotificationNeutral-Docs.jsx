@@ -44,6 +44,11 @@ class NotificationNeutralDocs extends React.Component {
                         <ParagraphMd>In order to make this a little longer I'm quoting the Jabberwockky:</ParagraphMd>
                         <ParagraphMd>Twas brillig, and the slithy toves. Did gyre and gimble in the wabe: All mimsy were the borogoves, And the mome raths outgrabe.</ParagraphMd>
                     </NotificationNeutral>
+                    <NotificationNeutral
+                        headerText="Notification With Header"
+                    >
+                        <ParagraphMd>Twas brillig, and the slithy toves. Did gyre and gimble in the wabe: All mimsy were the borogoves, And the mome raths outgrabe.</ParagraphMd>
+                    </NotificationNeutral>
                 </div>
 
                 <ExampleSource>
@@ -64,6 +69,11 @@ class NotificationNeutralDocs extends React.Component {
 
 <NotificationNeutral>
     <ParagraphMd>In order to make this a little longer I'm quoting the Jabberwockky:</ParagraphMd>
+    <ParagraphMd>Twas brillig, and the slithy toves. Did gyre and gimble in the wabe: All mimsy were the borogoves, And the mome raths outgrabe.</ParagraphMd>
+</NotificationNeutral>
+<NotificationNeutral
+headerText="Notification With Header"
+>
     <ParagraphMd>Twas brillig, and the slithy toves. Did gyre and gimble in the wabe: All mimsy were the borogoves, And the mome raths outgrabe.</ParagraphMd>
 </NotificationNeutral>
                         `}

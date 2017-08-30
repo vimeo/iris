@@ -39,6 +39,11 @@ class NotificationWarningDocs extends React.Component {
                     <NotificationWarning hasIcon={false}>
                         <ParagraphMd>This is a Warning notification without an icon.  I am  NOT dismissable.</ParagraphMd>
                     </NotificationWarning>
+                    <NotificationWarning
+                        headerText="Notification With Header"
+                    >
+                        <ParagraphMd>Twas brillig, and the slithy toves. Did gyre and gimble in the wabe: All mimsy were the borogoves, And the mome raths outgrabe.</ParagraphMd>
+                    </NotificationWarning>
                 </div>
 
                 <ExampleSource>
@@ -59,6 +64,11 @@ class NotificationWarningDocs extends React.Component {
 
 <NotificationWarning hasIcon={false}>
     <ParagraphMd>This is a Warning notification without an icon.  I am  NOT dismissable.</ParagraphMd>
+</NotificationWarning>
+<NotificationWarning
+headerText="Notification With Header"
+>
+    <ParagraphMd>Twas brillig, and the slithy toves. Did gyre and gimble in the wabe: All mimsy were the borogoves, And the mome raths outgrabe.</ParagraphMd>
 </NotificationWarning>
                         `}
                     </ExampleSource>
