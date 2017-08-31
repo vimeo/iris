@@ -36,8 +36,6 @@
   
  exports.Collections = require('../../../src/globals/svg/collections.svg');
   
- exports.CommentsIris = require('../../../src/globals/svg/comments_iris.svg');
-  
  exports.DismissX = require('../../../src/globals/svg/dismiss-x.svg');
   
  exports.DotsMenu = require('../../../src/globals/svg/dots-menu.svg');
@@ -64,8 +62,6 @@
   
  exports.Heart = require('../../../src/globals/svg/heart.svg');
   
- exports.IrisIconUser32 = require('../../../src/globals/svg/iris_icon_user_32.svg');
-  
  exports.List = require('../../../src/globals/svg/list.svg');
   
  exports.Lock = require('../../../src/globals/svg/lock.svg');
@@ -81,8 +77,6 @@
  exports.Plus = require('../../../src/globals/svg/plus.svg');
   
  exports.PlusIris = require('../../../src/globals/svg/plus_iris.svg');
-  
- exports.ReviewIris = require('../../../src/globals/svg/review_iris.svg');
   
  exports.Search = require('../../../src/globals/svg/search.svg');
   
