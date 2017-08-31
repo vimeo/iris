@@ -14,6 +14,7 @@ class TooltipOverlayDocs extends React.Component {
     }
 
     clickTest = () => {
+        // fires to test onClick events
         alert('click!'); // eslint-disable-line no-alert
     }
 
