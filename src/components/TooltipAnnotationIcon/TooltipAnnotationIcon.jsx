@@ -42,6 +42,9 @@ const TooltipAnnotationIcon = ({
                 className={styles.Tooltip}
                 tooltipText={tooltipText}
                 onClick = {catchEvent}
+                tooltipOptions = {{
+                    offset: '20px 0',
+                }}
             >
                 <InfoIcon className={componentClass} />
             </TooltipOverlay>

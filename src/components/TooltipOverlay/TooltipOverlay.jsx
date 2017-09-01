@@ -10,7 +10,8 @@ import styles from './TooltipOverlay.scss';
 
 
 const displayName = 'TooltipOverlay';
-const AnimationDuration = 300;
+const AnimationDuration = 150;
+const TooltipOffsetDistance = 4; // pixel offset for tooltip spacing
 
 type Props = {
     children: React$Element<*>,
@@ -23,6 +24,7 @@ type Props = {
     onFocus: () => void,
     onMouseEnter: () => void,
     onMouseLeave: () => void,
+    tooltipOptions?: Object,
     tooltipText: string,
     triggerOnClick: boolean,
 };
@@ -41,7 +43,6 @@ class TooltipOverlay extends React.Component {
             isAnimating: false,
             isShowing: props.isShowing,
             isHovered: false,
-            shouldRefocus: false,
         };
     }
 
@@ -49,18 +50,9 @@ class TooltipOverlay extends React.Component {
 
     componentDidUpdate(prevProps: Object, prevState: Object) {
         if (this.state.isShowing && !prevState.isShowing) {
+            this.tether.enable();
+            this.tether.position();
             this.fadeIn();
-            // refocus the tooltip, it lost focus when the dom updated, we need it to still be focused to detect blur
-            const thisEl = findDOMNode(this);
-
-            if (this.state.shouldReFocus && thisEl instanceof HTMLElement) {
-                const thisTrigger = thisEl.querySelector('a[data-tooltip-trigger]');
-
-                if (thisTrigger instanceof HTMLElement) {
-                    thisTrigger.focus();
-                }
-                this.clearRefocusState();
-            }
         }
         else if (!this.state.isShowing && prevState.isShowing) {
             this.fadeOut();
@@ -69,14 +61,13 @@ class TooltipOverlay extends React.Component {
 
     props: Props;
     overlay: any;
+    tether: any;
+    menu: any;
 
 // Functions
 
-    clearRefocusState = () => {
-        this.setState({ shouldReFocus: false });
-    }
-
     fadeIn = () => {
+
         const el = this.overlay;
         if (el instanceof HTMLElement) {
             anime({
@@ -92,8 +83,13 @@ class TooltipOverlay extends React.Component {
 
     fadeOut = () => {
         const el = this.overlay;
+        const fadeComplete = () => {
+            this.tether.disable();
+        };
+
         if (el instanceof HTMLElement) {
             anime({
+                complete: fadeComplete,
                 targets: [el],
                 duration: AnimationDuration,
                 easing: 'easeOutQuart',
@@ -197,33 +193,31 @@ class TooltipOverlay extends React.Component {
             attachment,
             href,
             tooltipText,
+            tooltipOptions,
             triggerOnClick, // eslint-disable-line no-unused-vars
             ...filteredProps
         } = this.props;
 
         // set up attachment direction and reversal when tooltip hits browser edge
-        let tooltipDirection;
-        let constraintAttachment;
-        let tooltipOffset = '0 0';
+        let tooltipAttachment;
+        let tooltipOffset;
 
         switch (attachment) {
             case 'top':
-                tooltipDirection = 'top center';
-                constraintAttachment = 'bottom center';
-                tooltipOffset = '6px 0';
-                break;
-            case 'bottom':
-                tooltipDirection = 'bottom center';
-                constraintAttachment = 'top center';
-                tooltipOffset = '-10px 0';
+                tooltipAttachment = 'bottom center';
+                tooltipOffset = `${TooltipOffsetDistance}px 0`;
                 break;
             case 'right':
-                tooltipDirection = 'middle right';
-                constraintAttachment = 'middle left';
+                tooltipAttachment = 'middle left';
+                tooltipOffset = `0 ${TooltipOffsetDistance * -1}px`;
+                break;
+            case 'bottom':
+                tooltipAttachment = 'top center';
+                tooltipOffset = `${TooltipOffsetDistance * -1}px 0`;
                 break;
             case 'left':
-                tooltipDirection = 'middle left';
-                constraintAttachment = 'middle right';
+                tooltipAttachment = 'middle right';
+                tooltipOffset = `0 ${TooltipOffsetDistance}px`;
                 break;
         }
 
@@ -232,62 +226,60 @@ class TooltipOverlay extends React.Component {
             className,
         );
 
+        const TooltipWrapperClass = classNames(
+            styles.TooltipWrapper,
+            (this.state.isShowing ? styles.isShowing : null),
+        );
+
         const tooltipComponent = (
-            <Tooltip
-                className={this.state.isAnimating ? styles.blocked : ''}
-            >
-                {tooltipText}
-            </Tooltip>
-        );
-
-        const tooltippedElement = (
-                <a
-                    {...filteredProps}
-                    onClick={this.handleClick}
-                    onFocus={this.handleFocus}
-                    onBlur={this.handleBlur}
-                    onMouseEnter={this.handleMouseEnter}
-                    onMouseLeave={this.handleMouseLeave}
-                    data-tooltip-trigger
-                    aria-label={tooltipText}
-                    href={href}
-                    className={LinkClass}
-                    tabIndex="0"
-                >
-                    {children}
-                </a>
-        );
-
-        const activatedTooltip = (
-            <TetherComponent
-                attachment={constraintAttachment}
-                targetAttachment={tooltipDirection}
-                constraints={[{
-                    to: 'window',
-                    attachment: 'together',
-                }]}
-                classes={{
-                    element: styles.Wrapper,
+            <div
+                className={TooltipWrapperClass}
+                ref={(overlay) => {
+                    this.overlay = overlay;
                 }}
-                offset={tooltipOffset}
             >
-            {tooltippedElement}
-
-            {/* Tooltip */}
-                <div
-                    className={styles.TooltipWrapper}
-                    ref={(overlay) => {
-                        this.overlay = overlay;
-                    }}
-                >
-                    {tooltipComponent}
-                </div>
-        </TetherComponent>
+                <Tooltip>
+                    {tooltipText}
+                </Tooltip>
+            </div>
         );
+
 
         return (
             <div className={styles.TriggerWrapper}>
-                {this.state.isShowing ? activatedTooltip : tooltippedElement}
+                <TetherComponent
+                    attachment={tooltipAttachment}
+                    constraints={[{
+                        to: 'window',
+                        attachment: 'together',
+                    }]}
+                    classes={{
+                        element: styles.Wrapper,
+                    }}
+                    enabled={false}
+                    ref={(tether) => {
+                        this.tether = tether;
+                    }}
+                    offset={tooltipOffset}
+                    {...tooltipOptions}
+                >
+                    <a
+                        {...filteredProps}
+                        onClick={this.handleClick}
+                        onFocus={this.handleFocus}
+                        onBlur={this.handleBlur}
+                        onMouseEnter={this.handleMouseEnter}
+                        onMouseLeave={this.handleMouseLeave}
+                        data-tooltip-trigger
+                        aria-label={tooltipText}
+                        href={href}
+                        className={LinkClass}
+                        tabIndex="0"
+                    >
+                        {children}
+                    </a>
+                    {this.state.isShowing && tooltipComponent}
+                </TetherComponent>
             </div>
         );
     }
