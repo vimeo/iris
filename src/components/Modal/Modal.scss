@@ -18,9 +18,9 @@ $Modal_Vertical_Cutoff: 300px;
     min-height: $Modal_Vertical_Cutoff;
     margin: 0 auto;
 
+    border-radius: rem-calc(3);
     background: $White;
     box-shadow: $subtleIrisBoxShadow;
-
     // Modals scroll in the window until $Modal_Vertical_Cutoff height
     @media (min-height: $Modal_Vertical_Cutoff) {
         top: 50%;
@@ -47,6 +47,8 @@ $Modal_Vertical_Cutoff: 300px;
 
 .ModalContent {
     padding: spacingUnit(5) spacingUnit(5);
+
+    border-radius: rem-calc(3);
     // Modals scroll in the window until $Modal_Vertical_Cutoff height
     // After that they scroll within the modal content box
     @media (min-height: $Modal_Vertical_Cutoff) {
@@ -147,9 +149,10 @@ $Modal_Vertical_Cutoff: 300px;
     height: $Modal_actionArea-height-small-screen;
     padding: spacingUnit(5) spacingUnit(5) spacingUnit(3);
 
+    border-radius: 0 0 rem-calc(3) rem-calc(3);
     background: $White;
 
-    text-align: right;;
+    text-align: right;
 }
 
 // Modal Sizes

@@ -5,6 +5,8 @@
 
 // Paragraphs ____________________________________________________________________
 @mixin Paragraphs {
+    max-width: 44rem;
+
     font-family: $FontFamily;
     font-weight: normal;
 
@@ -30,7 +32,6 @@
 @mixin ParagraphLg {
     @include Paragraphs;
 
-    max-width: rem-calc($BodyLg-maxWidth);
     margin-bottom: spacingUnit(6);
 
     font-size: rem-calc($BodyLg);
@@ -42,7 +43,6 @@
 @mixin ParagraphSm {
     @include Paragraphs;
 
-    max-width: rem-calc($BodySm-maxWidth);
     margin-bottom: spacingUnit(4);
 
     font-size: rem-calc($BodySm);
