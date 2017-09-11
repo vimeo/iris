@@ -1,6 +1,6 @@
 {
   "name": "iris",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "description": "Iris UI Pattern Framework",
   "main": "index.js",
   "scripts": {
