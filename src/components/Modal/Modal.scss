@@ -23,18 +23,16 @@ $Modal_Vertical_Cutoff: 300px;
     box-shadow: $subtleIrisBoxShadow;
     // Modals scroll in the window until $Modal_Vertical_Cutoff height
     @media (min-height: $Modal_Vertical_Cutoff) {
-        top: 50%;
-
         min-height: rem-calc(180);
         max-height: 76vh;
-
-        transform: translateY(-50%);
     }
 }
 
 
 .ModalWrapper {
+    display: flex;
     overflow: scroll;
+    flex-direction: column;
 
     position: fixed;
     z-index: get-z-index('modalWrapper');
@@ -43,6 +41,8 @@ $Modal_Vertical_Cutoff: 300px;
 
     width: 100%;
     height: 100%;
+
+    justify-content: center;
 }
 
 .ModalContent {
@@ -104,11 +104,6 @@ $Modal_Vertical_Cutoff: 300px;
     position: absolute;
     top: rem-calc(22);
     right: rem-calc(22);
-
-    @media (min-height: $Modal_Vertical_Cutoff) {
-        position: fixed;
-    }
-
 
     &.dark {
         background: rgba(255,255,255,0.9);
