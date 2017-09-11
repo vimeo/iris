@@ -18,23 +18,21 @@ $Modal_Vertical_Cutoff: 300px;
     min-height: $Modal_Vertical_Cutoff;
     margin: 0 auto;
 
+    border-radius: rem-calc(3);
     background: $White;
     box-shadow: $subtleIrisBoxShadow;
-
     // Modals scroll in the window until $Modal_Vertical_Cutoff height
     @media (min-height: $Modal_Vertical_Cutoff) {
-        top: 50%;
-
         min-height: rem-calc(180);
         max-height: 76vh;
-
-        transform: translateY(-50%);
     }
 }
 
 
 .ModalWrapper {
+    display: flex;
     overflow: scroll;
+    flex-direction: column;
 
     position: fixed;
     z-index: get-z-index('modalWrapper');
@@ -43,10 +41,14 @@ $Modal_Vertical_Cutoff: 300px;
 
     width: 100%;
     height: 100%;
+
+    justify-content: center;
 }
 
 .ModalContent {
     padding: spacingUnit(5) spacingUnit(5);
+
+    border-radius: rem-calc(3);
     // Modals scroll in the window until $Modal_Vertical_Cutoff height
     // After that they scroll within the modal content box
     @media (min-height: $Modal_Vertical_Cutoff) {
@@ -103,11 +105,6 @@ $Modal_Vertical_Cutoff: 300px;
     top: rem-calc(22);
     right: rem-calc(22);
 
-    @media (min-height: $Modal_Vertical_Cutoff) {
-        position: fixed;
-    }
-
-
     &.dark {
         background: rgba(255,255,255,0.9);
         svg * {
@@ -147,9 +144,10 @@ $Modal_Vertical_Cutoff: 300px;
     height: $Modal_actionArea-height-small-screen;
     padding: spacingUnit(5) spacingUnit(5) spacingUnit(3);
 
+    border-radius: 0 0 rem-calc(3) rem-calc(3);
     background: $White;
 
-    text-align: right;;
+    text-align: right;
 }
 
 // Modal Sizes

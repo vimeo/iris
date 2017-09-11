@@ -9,8 +9,6 @@ $tooltip-vertial-padding: 10;
     min-width: rem-calc(80);
     padding: rem-calc($tooltip-vertial-padding - 1) $tooltip-horizontal-padding;
 
-    line-height: 1.2;
-
     color: $tooltip-text-color;
     border-radius: rem-calc($g-radius);
     background-color: $tooltip-bg-color;
