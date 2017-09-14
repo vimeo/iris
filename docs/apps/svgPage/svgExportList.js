@@ -62,6 +62,8 @@
   
  exports.Heart = require('../../../src/globals/svg/heart.svg');
   
+ exports.Link = require('../../../src/globals/svg/link.svg');
+  
  exports.List = require('../../../src/globals/svg/list.svg');
   
  exports.Lock = require('../../../src/globals/svg/lock.svg');
