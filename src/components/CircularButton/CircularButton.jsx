@@ -8,18 +8,16 @@ const displayName = 'CircularButton';
 
 type Props = {
     autoMarginsHorizontal?: boolean,
-    children?: React$Element<*>,
     className?: string,
     element?: 'a'| 'button'| 'span',
     format?: 'primary' | 'primaryOutline' | 'primaryDashed' | 'secondary' | 'secondaryOutline' | 'secondaryDashed' | 'alternative' | 'alternativeOutline' | 'alternativeDashed' | 'whitePrimary' | 'whiteSecondary' | 'negative' | 'negativeDashed' | 'negativeOutline',
-    icon?: React$Element<*>,
+    icon: React$Element<*>,
     size?: 'sm' | 'md' | 'lg',
 };
 
 const CircularButton = ({
                         autoMarginsHorizontal = true,
                         className,
-                        children,
                         element = 'button',
                         format = 'primary',
                         icon,
