@@ -1,9 +1,12 @@
 // Elements will get a z-index equal to their order in this list.
 $z-indexed-elements: FocusBloop,
-InlineInputs,
-InlineInputsReplacementElements,
-InputToggleOverlay,
-tooltipOverlay;
+    InlineInputs,
+    InlineInputsReplacementElements,
+    InputToggleOverlay,
+    MenuPointerArrowBottom,
+    Menu,
+    MenuPointerArrowTop,
+    tooltipOverlay;
 
 // for elements that need special, usually extreme, z-indexing, this map will provide override values.
 $z-index-overrides: (

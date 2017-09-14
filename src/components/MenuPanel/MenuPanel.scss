@@ -1,0 +1,53 @@
+/* @description Generates styles for the MenuPanel component */
+@import '../../globals/sass/helpers-all';
+$MenuPanelBorderColor: $Porcelain;
+$MenuPanelBorderSize: 1;
+$MenuPanelBorderSizeRem: rem-calc($MenuPanelBorderSize);
+$MenuPanelWidth-sm: 124;
+$MenuPanelWidth-md: 200;
+$MenuPanelWidth-lg: 320;
+
+
+.MenuPanelTetherWrapper {
+    z-index: get-z-index('Menu');
+}
+
+.MenuPanelWrapper {
+    display: inline-block;
+}
+
+.MenuTrigger {
+    display: inline-block; // this ensures proper menu placement;
+}
+
+.MenuPanel {
+    display: none;
+
+    border: $MenuPanelBorderSizeRem solid $MenuPanelBorderColor;
+    background: $White;
+    box-shadow: 0 0 rem-calc(1) 0 rgba(0,0,0,0.15), 0 rem-calc(4) rem-calc(8) 0 rgba(0,0,0,0.15);
+
+    &.isShowing {
+        display: block;
+    }
+}
+
+.sm {
+    width: rem-calc($MenuPanelWidth-sm);
+}
+
+.md {
+    width: rem-calc($MenuPanelWidth-md);
+}
+
+.lg {
+    width: rem-calc($MenuPanelWidth-lg);
+}
+
+.left {
+    margin-left: (spacingUnit(2) * -1);
+}
+
+.right {
+    margin-right: (spacingUnit(2) * -1);
+}

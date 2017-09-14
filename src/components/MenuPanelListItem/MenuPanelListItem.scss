@@ -1,0 +1,30 @@
+/* @description Generates styles for the MenuPanelList component */
+@import '../../globals/sass/helpers-all';
+
+
+.MenuPanelListItem {
+    display: inline-block;
+
+    width: 100%;
+    padding: spacingUnit(1) spacingUnit(4);
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: $Plaster;
+    }
+}
+
+.MenuItemLink {
+    color: $AstroGranite;
+
+    text-decoration: none;
+
+    &:hover {
+        color: $AstroGranite;
+    }
+}
+
+.MenuItemLabel {
+    margin-bottom: 0;
+}

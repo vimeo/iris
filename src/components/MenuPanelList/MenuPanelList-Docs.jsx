@@ -1,0 +1,49 @@
+import React from 'react';
+import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import { ParagraphMd } from '../../../src/utility_components/Type/Type';
+import LinkText from '../LinkText/LinkText';
+import NotificationWarning from '../NotificationWarning/NotificationWarning';
+
+class MenuPanelListDocs extends React.Component {
+
+    render() {
+        return (
+            <div className="Pattern__docs">
+            <NotificationWarning>
+                <ParagraphMd>This component is only for use with the MenuPanel component</ParagraphMd>
+            </NotificationWarning>
+            <ParagraphMd>The Menu Panel List Component provides an interface for adding Menu items to the <LinkText href="/pattern/Components/MenuPanel">MenuPanel component</LinkText>. Items in the menu are added by passing an array to the <code>menuItems</code> props.</ParagraphMd>
+            <ParagraphMd>
+                The <code>label</code> and <code>href</code> props should be supplied but any other key/value pairs will be passed as props to the anchor tag for the menu item so event handlers and data attributes can be added to the menu item.
+            </ParagraphMd>
+            <ParagraphMd>The <code>hasDivider</code> prop will add a thin dividing line to the top of the menu ul set.</ParagraphMd>
+                <div data-code />
+
+                <ExampleSource>
+                    {`
+<MenuPanelList
+    menuItems = {[
+        {
+            label: 'Menu Item 1',
+            href: '#',
+        },
+        {
+            label: 'Menu Item 2',
+            href: '#',
+            'data-foo': 'bar',
+        },
+        {
+            label: 'Menu Item 3',
+            href: '#',
+            hasDivider: true,
+        },
+    ]}
+/>
+                    `}
+                    </ExampleSource>
+                </div>
+        );
+    }
+}
+
+export default MenuPanelListDocs;

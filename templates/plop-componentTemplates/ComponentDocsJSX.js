@@ -4,10 +4,6 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 import {ParagraphMd} from '../../../src/utility_components/Type/Type';
 
 class {{pascalCase name}}Docs extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div className="Pattern__docs">

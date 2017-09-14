@@ -1,0 +1,12 @@
+/* @description Generates styles for the MenuPanelList component */
+@import '../../globals/sass/helpers-all';
+.MenuPanelList {
+    margin: 0;
+    padding: spacingUnit(2) 0;
+
+    list-style-type: none;
+
+    &.hasDivider {
+        border-top: rem-calc(1) solid $Porcelain;
+    }
+}

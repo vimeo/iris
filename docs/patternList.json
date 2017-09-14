@@ -35,6 +35,8 @@
         ["TextArea", "Inputs: TextArea"],
         ["List", "Lists"],
         ["LoaderCircular", "Circular Loader"],
+        ["MenuPanel", "Menu Panel"],
+        ["MenuPanelList", "Menu Panel List"],
         ["Modal", "Modal Dialog"],
         ["NotificationNeutral", "Neutral Notification"],
         ["NotificationSuccess", "Success Notification"],

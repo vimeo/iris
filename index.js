@@ -82,6 +82,12 @@ exports.paths = {
   
   'iris/LoaderCircular':'iris/src/components/LoaderCircular/LoaderCircular',
   
+  'iris/MenuPanel':'iris/src/components/MenuPanel/MenuPanel',
+  
+  'iris/MenuPanelList':'iris/src/components/MenuPanelList/MenuPanelList',
+  
+  'iris/MenuPanelListItem':'iris/src/components/MenuPanelListItem/MenuPanelListItem',
+  
   'iris/Modal':'iris/src/components/Modal/Modal',
   
   'iris/Notification':'iris/src/components/Notification/Notification',
