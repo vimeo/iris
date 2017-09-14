@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
-    <title>move</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Exportable" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="move" fill-rule="nonzero" fill="#1A2E3B">
-            <path d="M9.88446064,5.63999987 L9.02115043,6.54399987 L11.9882166,9.37799987 L5.82000017,9.37799987 L5.82000017,10.6279999 L11.9852155,10.6279999 L9.02115043,13.4609999 L9.885461,14.3649999 L13.9769312,10.4529999 C14.1009758,10.3349999 14.1700006,10.1719999 14.1700006,10.0009999 C14.1700006,9.82999987 14.1009758,9.66699987 13.9769312,9.54899987 L9.88446064,5.63999987 Z" id="Shape"></path>
-            <path d="M10,18.5 C14.6944204,18.5 18.5,14.6944204 18.5,10 C18.5,5.30557963 14.6944204,1.5 10,1.5 C5.30557963,1.5 1.5,5.30557963 1.5,10 C1.5,14.6944204 5.30557963,18.5 10,18.5 Z M10,20 C4.4771525,20 0,15.5228475 0,10 C0,4.4771525 4.4771525,0 10,0 C15.5228475,0 20,4.4771525 20,10 C20,15.5228475 15.5228475,20 10,20 Z" id="Oval-2"></path>
-        </g>
-    </g>
-</svg>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Arrow-Right-Circle</title><path d="M12,22A10,10,0,1,1,22,12,10,10,0,0,1,12,22ZM12,4a8,8,0,1,0,8,8A8,8,0,0,0,12,4Z" transform="translate(-2 -2)" fill="#1a2e3b"/><path d="M16.71,11.29l-4-4L11.29,8.71,13.59,11H8v2h5.59l-2.29,2.29,1.41,1.41,4-4A1,1,0,0,0,16.71,11.29Z" transform="translate(-2 -2)" fill="#1a2e3b"/></svg>

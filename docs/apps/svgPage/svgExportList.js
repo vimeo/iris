@@ -16,6 +16,10 @@
   
  exports.Bell = require('../../../src/globals/svg/bell.svg');
   
+ exports.CameraFilled = require('../../../src/globals/svg/camera-filled.svg');
+  
+ exports.Camera = require('../../../src/globals/svg/camera.svg');
+  
  exports.Checkmark = require('../../../src/globals/svg/checkmark.svg');
   
  exports.ChevronDownDouble = require('../../../src/globals/svg/chevron-down-double.svg');
@@ -34,6 +38,8 @@
   
  exports.Clock = require('../../../src/globals/svg/clock.svg');
   
+ exports.Code = require('../../../src/globals/svg/code.svg');
+  
  exports.Collections = require('../../../src/globals/svg/collections.svg');
   
  exports.DismissX = require('../../../src/globals/svg/dismiss-x.svg');
@@ -51,8 +57,6 @@
  exports.Gear = require('../../../src/globals/svg/gear.svg');
   
  exports.Globe = require('../../../src/globals/svg/globe.svg');
-  
- exports.Graph = require('../../../src/globals/svg/graph.svg');
   
  exports.Grid = require('../../../src/globals/svg/grid.svg');
   
@@ -77,8 +81,6 @@
  exports.Play = require('../../../src/globals/svg/play.svg');
   
  exports.Plus = require('../../../src/globals/svg/plus.svg');
-  
- exports.PlusIris = require('../../../src/globals/svg/plus_iris.svg');
   
  exports.Search = require('../../../src/globals/svg/search.svg');
   
