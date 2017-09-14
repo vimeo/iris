@@ -168,8 +168,6 @@ class TooltipOverlay extends React.Component {
     }
 
     handleFocus = () => {
-        this.setState({ shouldReFocus: true });
-
         if (typeof this.props.onFocus === 'function') {
             this.props.onFocus();
         }
