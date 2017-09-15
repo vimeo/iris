@@ -130,19 +130,6 @@
     @return url("data:image/svg+xml;charset=utf8,#{$encoded}");
 }
 
-//Foundation Function
-@function rem-calc($values, $base-value: $rem-base) {
-  $max: length($values);
-
-  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
-
-  $remValues: ();
-  @for $i from 1 through $max {
-    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
-  }
-  @return $remValues;
-}
-
 @function em-calc($values, $context: $rem-base) {
   @return #{$values/$context * 1em};
 }
