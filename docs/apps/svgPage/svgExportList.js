@@ -82,6 +82,10 @@
   
  exports.Plus = require('../../../src/globals/svg/plus.svg');
   
+ exports.PopIn = require('../../../src/globals/svg/pop-in.svg');
+  
+ exports.PopOut = require('../../../src/globals/svg/pop-out.svg');
+  
  exports.Search = require('../../../src/globals/svg/search.svg');
   
  exports.SpeechBubbleRounded = require('../../../src/globals/svg/speech-bubble-rounded.svg');
