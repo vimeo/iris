@@ -1,3 +1,5 @@
+@import '../utilities/_functions.scss';
+@import '../utilities/_rem-calc.scss';
 $screen-xs: 360;
 $screen-xs-em: em-calc($screen-xs);
 $screen-xs-rem: rem-calc($screen-xs);
