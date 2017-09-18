@@ -48,6 +48,7 @@ $Modal_Vertical_Cutoff: 300px;
 .ModalContent {
     padding: spacingUnit(5) spacingUnit(5);
 
+    opacity: 1;
     border-radius: rem-calc(3);
     // Modals scroll in the window until $Modal_Vertical_Cutoff height
     // After that they scroll within the modal content box
