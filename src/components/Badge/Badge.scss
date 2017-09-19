@@ -150,12 +150,11 @@ a.explicit {
 
 .live {
     color: $White;
-    border: rem-calc(1) solid $iris_badge--live;
     background: $iris_badge--live;
 
     &:hover {
-        color: $iris_badge--live;
-        background: $White;
+        color: $White;
+        background: $SunsetOrange-Darkened;
     }
 }
 
