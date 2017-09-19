@@ -150,12 +150,23 @@ a.explicit {
 
 .live {
     color: $White;
+    border: rem-calc(1) solid $iris_badge--live;
     background: $iris_badge--live;
+
+    &:hover {
+        color: $iris_badge--live;
+        background: $White;
+    }
 }
 
 .live-archive {
     color: $iris_badge--live-archive;
     border: 1px solid $iris_badge--live-archive;
+
+    &:hover {
+        color: $AstroGranite;
+        border-color: $AstroGranite;
+    }
 }
 
 .new {
