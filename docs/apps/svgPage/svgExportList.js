@@ -28,6 +28,8 @@
   
  exports.ChevronRight = require('../../../src/globals/svg/chevron-right.svg');
   
+ exports.CircleFilled = require('../../../src/globals/svg/circle-filled.svg');
+  
  exports.CircleInfo = require('../../../src/globals/svg/circle-info.svg');
   
  exports.CirclePlus = require('../../../src/globals/svg/circle-plus.svg');
