@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import TetherComponent from 'react-tether';
 import anime from 'animejs';
@@ -141,11 +140,7 @@ class TooltipOverlay extends React.Component {
         }
 
         if (!this.props.triggerOnClick) {
-            const thisComponent = findDOMNode(this);
-            const el = thisComponent instanceof HTMLElement ? thisComponent.querySelector('[data-tooltip-trigger]') : null;
-            if (el !== document.activeElement) {
-                this.showTooltip();
-            }
+            this.showTooltip();
         }
     }
 
@@ -158,9 +153,7 @@ class TooltipOverlay extends React.Component {
             this.props.onMouseLeave();
         }
 
-        const thisComponent = findDOMNode(this);
-        const el = thisComponent instanceof HTMLElement ? thisComponent.querySelector('[data-tooltip-trigger]') : null;
-        if (!this.props.triggerOnClick && el !== document.activeElement) {
+        if (!this.props.triggerOnClick) {
             if (this.state.isShowing) {
                 this.hideTooltip();
             }
