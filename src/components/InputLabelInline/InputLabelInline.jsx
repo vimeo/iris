@@ -12,7 +12,8 @@ type Props = {
     children: React$Element<*>,
     disabled?: boolean,
     format?: 'negative' | 'positive' | 'neutral',
-    fieldLevelErrors?: boolean;
+    fieldLevelErrors?: boolean,
+    hideLabel?: boolean,
 };
 
 const InputLabelInline = ({
@@ -20,6 +21,7 @@ const InputLabelInline = ({
                             children,
                             format = 'neutral',
                             fieldLevelErrors,
+                            hideLabel,
                             disabled,
                         ...filteredProps
                     }: Props): React$Element<*> => {
@@ -30,6 +32,7 @@ const InputLabelInline = ({
         styles.md,
         styles[format],
         (disabled ? styles.isDisabled : null),
+        (hideLabel ? styles.isHiddenLabel : null),
         className
     );
 
@@ -45,10 +48,10 @@ const InputLabelInline = ({
                 element="label"
                 className={componentClass}
             >
-            <span>
-            {children}
-            { format !== 'neutral' && fieldLevelErrors ? Icon : null}
-            </span>
+                <span>
+                    {children}
+                    { format !== 'neutral' && fieldLevelErrors ? Icon : null}
+                </span>
             </ParagraphMd>
     );
 };

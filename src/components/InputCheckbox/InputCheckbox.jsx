@@ -16,6 +16,7 @@ type Props = {
     helperMsg?: React$Element<*>,
     id: string,
     label: string,
+    hideLabel?: boolean,
 };
 
 const InputCheckbox = ({
@@ -24,6 +25,7 @@ const InputCheckbox = ({
                         errorMsg,
                         format = 'neutral',
                         helperMsg,
+                        hideLabel,
                         id,
                         label,
                         ...filteredProps
@@ -40,6 +42,10 @@ const InputCheckbox = ({
         className
     );
 
+    const labelWrapperClass = classNames(
+        (hideLabel ? styles.isHiddenLabel : null)
+    );
+
     return (
         <InputWrapperInline
             errorMsg={errorMsg}
@@ -52,9 +58,11 @@ const InputCheckbox = ({
                     disabled={disabled}
                     className={styles.InputCheckboxLabel}
                     fieldLevelErrors
+                    hideLabel={hideLabel}
                 >
                     <input
                         {...filteredProps}
+                        aria-label={hideLabel ? label : null}
                         type="checkbox"
                         id={id}
                         className={componentClass}
@@ -62,7 +70,7 @@ const InputCheckbox = ({
                     />
                     <span className={overlayClass} />
                     <FocusBloop className={styles.FocusBloop} />
-                    {label}
+                    <span className={labelWrapperClass}>{label}</span>
                 </InputLabelInline>
             </div>
         </InputWrapperInline>
