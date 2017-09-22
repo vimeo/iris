@@ -6,10 +6,12 @@ import classNames from 'classnames';
 import styles from './MenuPanel.scss';
 import TetherComponent from 'react-tether';
 import KEY_CODES from '../../globals/js/constants/KEY_CODES';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 const displayName = 'MenuPanel';
 
-const offsetSpacing = 4;
+// this is defined in the MenuPanel.scss file
+const menuSpeed = parseInt(styles.MenuPanel_AnimationTime, 10);
 
 type Props = {
     alignment?: 'left' | 'right' | 'center',
@@ -38,6 +40,20 @@ class MenuPanel extends React.Component {
         };
     }
     state: Object;
+
+    componentDidMount() {
+        if (this.state.isShowing) {
+            this._openMenu();
+        }
+    }
+
+    componentWillReceiveProps(nextProps: Object) {
+        if (nextProps.isShowing !== this.props.isShowing && nextProps.isShowing !== this.state.isShowing) {
+            this.setState({
+                isShowing: nextProps.isShowing,
+            });
+        }
+    }
 
     componentDidUpdate(prevProps: Object, prevState: Object) {
         if (!prevState.isShowing && this.state.isShowing) {
@@ -91,7 +107,6 @@ class MenuPanel extends React.Component {
 
     // when the menu is open, a forward tab should go to the first menu item
     _handleForwardsTriggerTab = (e: Event) => {
-
         if (e.keyCode === KEY_CODES.tab && this.state.isShowing && this.firstFocusableElement) {
             e.preventDefault();
             this._unbindTriggerTab();
@@ -99,7 +114,7 @@ class MenuPanel extends React.Component {
         }
     }
 
-    // don't let the user tab backwards out of the modal, set them back to the last focusable element
+    // tabbing backwards out of the menu closes it.
     _handleBackwardFocusTab = (e: Event) => {
         // shift + tab
         if (e.shiftKey && e.keyCode === KEY_CODES.tab) {
@@ -174,13 +189,18 @@ class MenuPanel extends React.Component {
     _closeMenu = () => {
         this._unBindEvents();
         this.menuTriggerEl.focus();
+        if (typeof this.props.onClose === 'function') {
+            this.props.onClose();
+        }
     }
 
     _openMenu = () => {
         this._setFocusableElementList(this._bindEvents);
         this.tether.enable();
         this.tether.position();
-        // this.menuTriggerEl.focus();
+        if (typeof this.props.onOpen === 'function') {
+            this.props.onOpen();
+        }
     }
 
     _toggleClick = () => {
@@ -207,15 +227,16 @@ class MenuPanel extends React.Component {
 
     }
 
-    // MenuPanel Component
     render() {
         const {
-            alignment,
+            alignment = 'center',
             children,
             className,
             href,
             isShowing, // eslint-disable-line no-unused-vars
             menuContent,
+            onClose, // eslint-disable-line no-unused-vars
+            onOpen, // eslint-disable-line no-unused-vars
             size,
             ...filteredProps
         } = this.props;
@@ -233,44 +254,46 @@ class MenuPanel extends React.Component {
         );
 
         const menuElement = (
-            <div
-                className={componentClass}
-                ref={(menu) => {
-                    this.menu = menu;
-                }}
-            >
-                {menuContent}
+            <div>
+                <CSSTransitionGroup
+                    transitionAppear
+                    transitionEnterTimeout={0} // need this to prevent console warning
+                    transitionLeaveTimeout={0} // need this to prevent console warning
+                    transitionAppearTimeout={menuSpeed}
+                    transitionName={{
+                        appear: styles.appear,
+                        appearActive: styles.appearActive,
+                    }}
+                >
+                    {this.state.isShowing ? (
+                        <div
+                            className={componentClass}
+                            ref={(menu) => {
+                                this.menu = menu;
+                            }}
+                        >
+                            {menuContent}
+                        </div>
+                    ) : null}
+                </CSSTransitionGroup>
             </div>
         );
-
-        let alignmentFlip = 'center';
-        let offset = `${offsetSpacing * -1}px 0`;
-
-        switch (alignment) {
-            case 'right':
-                alignmentFlip = 'left';
-                offset = `0 ${offsetSpacing * -1}px`;
-                break;
-            case 'left':
-                alignmentFlip = 'right';
-                offset = `0 ${offsetSpacing}px`;
-                break;
-        }
-
 
         return (
             <div className={styles.MenuPanelWrapper}>
                 <TetherComponent
-                    attachment={`top ${alignmentFlip}`}
+                    attachment={`top ${alignment}`}
+                    targetAttachment={`bottom ${alignment}`}
                     className={styles.MenuPanelTetherWrapper}
                     constraints={[{
                         to: 'window',
+                        attachment: 'together',
                     }]}
                     enabled={false}
                     ref={(tether) => {
                         this.tether = tether;
                     }}
-                    offset={offset}
+                    offset="-4px 0"
                 >
                     <a
                         aria-haspopup="true"

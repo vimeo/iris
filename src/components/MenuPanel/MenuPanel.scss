@@ -6,6 +6,13 @@ $MenuPanelBorderSizeRem: rem-calc($MenuPanelBorderSize);
 $MenuPanelWidth-sm: 124;
 $MenuPanelWidth-md: 200;
 $MenuPanelWidth-lg: 320;
+$MenuPanel_animation-speed-integer: 200;
+$MenuPanel_animation-speed: $MenuPanel_animation-speed-integer * 1ms;
+
+// this is required by the MenuPanel.jsx
+:export {
+    MenuPanel_AnimationTime: $MenuPanel_animation-speed-integer;
+};
 
 
 .MenuPanelTetherWrapper {
@@ -50,4 +57,21 @@ $MenuPanelWidth-lg: 320;
 
 .right {
     margin-right: (spacingUnit(2) * -1);
+}
+
+
+
+// Animation
+
+.appear {
+    opacity: 0.01;
+
+    transform: translateY(-0.25rem);
+
+    &.appearActive {
+        opacity: 1;
+
+        transition: all $MenuPanel_animation-speed ease-in;
+        transform: translateY(0);
+    }
 }
