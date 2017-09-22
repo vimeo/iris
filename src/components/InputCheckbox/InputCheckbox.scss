@@ -12,6 +12,10 @@ $InputCheck_fill-size: 1rem;
     min-height: 1.125rem;
 }
 
+.isHiddenLabel {
+    display: none;
+}
+
 .InputCheckbox {
     @include sharedInlineInputStyles();
 

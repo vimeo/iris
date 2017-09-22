@@ -1,7 +1,7 @@
 import React from 'react';
 import InputCheckbox from './InputCheckbox';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-
+import { Header3, ParagraphMd } from '../../utility_components/Type/Type';
 
 class InputCheckboxDocs extends React.Component {
     constructor(props) {
@@ -54,6 +54,15 @@ class InputCheckboxDocs extends React.Component {
                         value="5"
                         required
                     />
+                    <Header3>Hidden Labels</Header3>
+                    <ParagraphMd>The visible label can be suppressed with the <code>hideLabel</code> prop. </ParagraphMd>
+                    <InputCheckbox
+                        label="Hidden Label"
+                        hideLabel
+                        name="demoCheckbox6"
+                        id="Checkbox6"
+                        value="6"
+                    />
                 </div>
 
                 <ExampleSource>
@@ -91,6 +100,13 @@ class InputCheckboxDocs extends React.Component {
     id="Checkbox4"
     value="4"
     required
+/>
+<InputCheckbox
+    label="Hidden Label"
+    hideLabel
+    name="demoCheckbox6"
+    id="Checkbox6"
+    value="6"
 />
                         `}
                     </ExampleSource>

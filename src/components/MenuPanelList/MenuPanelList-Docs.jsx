@@ -1,6 +1,5 @@
 import React from 'react';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../../../src/utility_components/Type/Type';
+import { Header3, ParagraphMd } from '../../../src/utility_components/Type/Type';
 import LinkText from '../LinkText/LinkText';
 import NotificationWarning from '../NotificationWarning/NotificationWarning';
 
@@ -12,36 +11,18 @@ class MenuPanelListDocs extends React.Component {
             <NotificationWarning>
                 <ParagraphMd>This component is only for use with the MenuPanel component</ParagraphMd>
             </NotificationWarning>
-            <ParagraphMd>The Menu Panel List Component provides an interface for adding Menu items to the <LinkText href="/pattern/Components/MenuPanel">MenuPanel component</LinkText>. Items in the menu are added by passing an array to the <code>menuItems</code> props.</ParagraphMd>
+            <ParagraphMd>The Menu Panel List Component provides an interface for adding Menu items to the <LinkText href="/pattern/Components/MenuPanel">MenuPanel component</LinkText>.</ParagraphMd>
+            <Header3>MenuItems Prop</Header3>
+            <ParagraphMd>Items in the menu are added by passing an array to the <code>menuItems</code> props.</ParagraphMd>
             <ParagraphMd>
                 The <code>label</code> and <code>href</code> props should be supplied but any other key/value pairs will be passed as props to the anchor tag for the menu item so event handlers and data attributes can be added to the menu item.
             </ParagraphMd>
             <ParagraphMd>The <code>hasDivider</code> prop will add a thin dividing line to the top of the menu ul set.</ParagraphMd>
-                <div data-code />
-
-                <ExampleSource>
-                    {`
-<MenuPanelList
-    menuItems = {[
-        {
-            label: 'Menu Item 1',
-            href: '#',
-        },
-        {
-            label: 'Menu Item 2',
-            href: '#',
-            'data-foo': 'bar',
-        },
-        {
-            label: 'Menu Item 3',
-            href: '#',
-            hasDivider: true,
-        },
-    ]}
-/>
-                    `}
-                    </ExampleSource>
-                </div>
+            <ParagraphMd>The <code>isSelected</code> boolean prop allows for a selected state for menu items.</ParagraphMd>
+            <Header3>Header Prop</Header3>
+            <ParagraphMd>The <code>header</code> prop takes a string to create a section header for menu items.</ParagraphMd>
+            <ParagraphMd>See the <LinkText href="/pattern/Components/MenuPanel">MenuPanel component</LinkText> for code examples.</ParagraphMd>
+            </div>
         );
     }
 }
