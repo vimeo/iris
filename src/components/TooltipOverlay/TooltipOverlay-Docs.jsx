@@ -14,12 +14,9 @@ class TooltipOverlayDocs extends React.Component {
         super(props);
     }
 
-    clickTest = () => {
-        // fires to test onClick events
-        alert('click!'); // eslint-disable-line no-alert
-    }
-
     render() {
+        const longTooltipContent = 'iggy@koopalings.com, larry@koopalings.com, lemmy@koopalings.com, ludwig@koopalings.com, morton@koopalings.com, roy@koopalings.com, wendy@koopalings.com';
+
         return (
             <div className="Pattern__docs">
                 <div data-code>
@@ -40,14 +37,13 @@ class TooltipOverlayDocs extends React.Component {
 
                     <div>
                         <TooltipOverlay
-                            tooltipText="Peach's Hometown"
+                            tooltipText={longTooltipContent}
                             data-foo="bar"
-                            onClick={this.clickTest}
                         >
                             <LinkText
                                 element="span"
                             >
-                                mushroom kingdom
+                                Bowser's Kids
                             </LinkText>
                         </TooltipOverlay>
                     </div>
@@ -66,14 +62,14 @@ class TooltipOverlayDocs extends React.Component {
                     </div>
                     <ExampleSource>
                     {`
-<TooltipOverlay tooltipText="Peach's Hometown"
+<TooltipOverlay
+    tooltipText={longTooltipContent}
     data-foo="bar"
-    onClick={this.clickTest}
 >
     <LinkText
         element="span"
     >
-        mushroom kingdom
+        Bowser's Kids
     </LinkText>
 </TooltipOverlay>
 <TooltipOverlay
