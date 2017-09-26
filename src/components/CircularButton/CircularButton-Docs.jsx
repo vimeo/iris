@@ -1,7 +1,7 @@
 import React from 'react';
 import CircularButton from './CircularButton';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import IrisIconDelete16 from '../../../src/globals/svg/trash.svg';
+import PlusIcon from '../../../src/globals/svg/plus.svg';
 import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
 const CircularButtonDocs = (props) => {
     return (
@@ -11,38 +11,38 @@ const CircularButtonDocs = (props) => {
             </ParagraphMd>
             <div data-code>
                 <CircularButton
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
                 <CircularButton
                     format="secondary"
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
                 <CircularButton
                     format="alternative"
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
                 <CircularButton
                     format="negative"
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
             </div>
 
             <ExampleSource>
                 {`
 <CircularButton
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
          />
 <CircularButton
     format="secondary"
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
          />
 <CircularButton
     format="alternative"
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
      />
 <CircularButton
     format="negative"
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
      />
                     `}
             </ExampleSource>
@@ -55,19 +55,19 @@ const CircularButtonDocs = (props) => {
             <div data-code>
                 <CircularButton
                     format="primaryOutline"
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
                 <CircularButton
                     format="secondaryOutline"
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
                 <CircularButton
                     format="alternativeOutline"
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
                 <CircularButton
                     format="negativeOutline"
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
             </div>
 
@@ -75,19 +75,19 @@ const CircularButtonDocs = (props) => {
                 {`
 <CircularButton
     format="primaryOutline"
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
      />
 <CircularButton
     format="secondaryOutline"
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
      />
 <CircularButton
     format="alternativeOutline"
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
      />
 <CircularButton
     format="negativeOutline"
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
      />
                     `}
             </ExampleSource>
@@ -100,21 +100,21 @@ const CircularButtonDocs = (props) => {
                 <CircularButton
                     format="primaryDashed"
                     size="sm"
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
                 <CircularButton
                     format="secondaryDashed"
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
                 <CircularButton
                     format="alternativeDashed"
                     size="lg"
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
                 <CircularButton
                     format="negativeDashed"
                     size="lg"
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
             </div>
 
@@ -122,19 +122,19 @@ const CircularButtonDocs = (props) => {
                 {`
 <CircularButton
     format="primaryDashed"
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
      />
 <CircularButton
     format="secondaryDashed"
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
      />
 <CircularButton
     format="alternativeDashed"
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
      />
 <CircularButton
     format="negativeDashed"
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
      />
                     `}
             </ExampleSource>
@@ -145,11 +145,11 @@ const CircularButtonDocs = (props) => {
             <div data-code style={{ backgroundColor: '#f6f7f8', padding: '1.25rem' }} >
                 <CircularButton
                     format="whitePrimary"
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
                 <CircularButton
                     format="whiteSecondary"
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
             </div>
 
@@ -157,11 +157,11 @@ const CircularButtonDocs = (props) => {
                 {`
 <CircularButton
     format="whitePrimary"
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
      />
 <CircularButton
     format="whiteSecondary"
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
      />
                     `}
             </ExampleSource>
@@ -172,14 +172,14 @@ const CircularButtonDocs = (props) => {
             <div data-code>
                 <CircularButton
                     size="sm"
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
                 <CircularButton
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
                 <CircularButton
                     size="lg"
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                      />
             </div>
 
@@ -187,14 +187,14 @@ const CircularButtonDocs = (props) => {
                 {`
 <CircularButton
     size="sm"
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
      />
 <CircularButton
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
      />
 <CircularButton
     size="lg"
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
      />
                     `}
             </ExampleSource>
@@ -204,12 +204,12 @@ const CircularButtonDocs = (props) => {
             </ParagraphMd>
             <div data-code>
                 <CircularButton
-                    icon={<IrisIconDelete16 />} />
+                    icon={<PlusIcon />} />
                 <CircularButton
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                     autoMarginsHorizontal={false} />
                 <CircularButton
-                    icon={<IrisIconDelete16 />}
+                    icon={<PlusIcon />}
                     autoMarginsHorizontal={false}
                      />
             </div>
@@ -217,12 +217,12 @@ const CircularButtonDocs = (props) => {
             <ExampleSource>
                 {`
 <CircularButton
-    icon={<IrisIconDelete16 />} />
+    icon={<PlusIcon />} />
 <CircularButton
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
     autoMarginsHorizontal={false} />
 <CircularButton
-    icon={<IrisIconDelete16 />}
+    icon={<PlusIcon />}
     autoMarginsHorizontal={false}
         />
                     `}
