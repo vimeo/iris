@@ -16,6 +16,7 @@ type Props = {
             label: string,
             href: string,
             isSelected: boolean,
+            icon: React$Element<*>,
     }>,
 };
 

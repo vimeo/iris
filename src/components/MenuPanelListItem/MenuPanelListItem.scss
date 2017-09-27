@@ -10,7 +10,7 @@
     display: inline-block;
 
     width: 100%;
-    padding: spacingUnit(1) spacingUnit(6);
+    padding: spacingUnit(2) spacingUnit(6);
 
     color: $AstroGranite;
 
@@ -19,7 +19,7 @@
 
     &:hover {
         color: $AstroGranite;
-        background-color: $Plaster;
+        background-color: $Paste;
     }
 
     // only show focus on the text, not the whole width of the menu
@@ -42,7 +42,7 @@
 
 .SelectedIcon {
     position: absolute;
-    top: rem-calc(6);
+    top: rem-calc(9);
     left: 0.25rem;
 
     width: 1rem;
@@ -50,5 +50,20 @@
 
     * {
         fill: $VimeoBlue;
+    }
+}
+
+.LinkIcon {
+    display: inline-block;
+
+    position: relative;
+    top: rem-calc(4);
+
+    width: rem-calc(18);
+    height: rem-calc(18);
+    margin-right: spacingUnit(2);
+
+    * {
+        fill: $AstroGranite;
     }
 }

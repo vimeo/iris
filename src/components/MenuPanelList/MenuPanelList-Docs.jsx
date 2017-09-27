@@ -19,6 +19,7 @@ class MenuPanelListDocs extends React.Component {
             </ParagraphMd>
             <ParagraphMd>The <code>hasDivider</code> prop will add a thin dividing line to the top of the menu ul set.</ParagraphMd>
             <ParagraphMd>The <code>isSelected</code> boolean prop allows for a selected state for menu items.</ParagraphMd>
+            <ParagraphMd>The <code>icon</code> prop takes an SVG icon element that will be appended to the label to decorate the link.</ParagraphMd>
             <Header3>Header Prop</Header3>
             <ParagraphMd>The <code>header</code> prop takes a string to create a section header for menu items.</ParagraphMd>
             <ParagraphMd>See the <LinkText href="/pattern/Components/MenuPanel">MenuPanel component</LinkText> for code examples.</ParagraphMd>
