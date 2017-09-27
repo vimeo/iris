@@ -59,6 +59,7 @@ class MenuPanelDocs extends React.Component {
                     menuItems = {[
                         {
                             label: 'Item 3',
+                            icon: <SettingsIcon />,
                             href: '#',
                         },
                         {
@@ -185,6 +186,7 @@ const MenuList = (
     menuItems = {[
         {
             label: 'Item 3',
+            icon: <SettingsIcon />,
             href: '#',
         },
         {

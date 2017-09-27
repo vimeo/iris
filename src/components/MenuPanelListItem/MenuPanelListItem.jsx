@@ -12,12 +12,14 @@ type Props = {
     label: string,
     href?: string,
     isSelected?: boolean,
+    icon?: React$Element<*>,
 };
 
 const MenuPanelListItem = ({
         className,
         label,
         href = '#',
+        icon,
         isSelected,
         ...menuItemProps
     }: Props): React$Element<*> => {
@@ -36,6 +38,12 @@ const MenuPanelListItem = ({
         <SelectedIcon className={styles.SelectedIcon} />
     );
 
+    const linkIconElement = icon ? (
+        <span className={styles.LinkIcon}>
+            {icon}
+        </span>
+    ) : null;
+
     return (
         <li className={componentClass}>
             <a
@@ -48,6 +56,7 @@ const MenuPanelListItem = ({
                     className={styles.MenuItemLabel}
                     element="span"
                 >
+                    {linkIconElement}
                     {label}
                 </ParagraphMd>
             </a>
