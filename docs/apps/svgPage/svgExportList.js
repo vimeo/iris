@@ -14,6 +14,8 @@
   
  exports.ArrowRight = require('../../../src/globals/svg/arrow-right.svg');
   
+ exports.ArrowVertical = require('../../../src/globals/svg/arrow-vertical.svg');
+  
  exports.Bell = require('../../../src/globals/svg/bell.svg');
   
  exports.CameraFilled = require('../../../src/globals/svg/camera-filled.svg');
