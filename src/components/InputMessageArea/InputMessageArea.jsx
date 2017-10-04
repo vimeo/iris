@@ -41,15 +41,18 @@ const InputMessageArea = ({
             </InputMessage>
         );
 
+    const hasHelperMsg = helperMsg === undefined;
+    const hasErrorMsg = errorMsg === undefined;
+
     return (
                 <div
                     {...filteredProps}
                     className={componentClass}
                 >
-                    <SlideUpDown speed="300">
-                        {helperMsg ? helperMessageElement : null}
+                    <SlideUpDown isHidden={hasHelperMsg}>
+                        {helperMessageElement}
                     </SlideUpDown>
-                    <SlideUpDown speed="300">
+                    <SlideUpDown isHidden={hasErrorMsg}>
                         {errorMsg ? errorMessageElement : null}
                     </SlideUpDown>
                 </div>
