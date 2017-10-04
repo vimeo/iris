@@ -2,8 +2,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './InputMessage.scss';
-import { findDOMNode } from 'react-dom';
-import anime from 'animejs';
 
 const displayName = 'InputMessage';
 
@@ -22,39 +20,6 @@ class InputMessage extends React.Component {
 
     constructor(props: Props) {
         super(props);
-    }
-
-    componentDidMount() {
-        const el = findDOMNode(this);
-        if (el instanceof HTMLElement) {
-            const elHeight = el.clientHeight;
-            const elContent = el.querySelectorAll('*');
-            el.classList.add(styles.measured);
-
-            anime({
-                targets: [el, elContent],
-                duration: 400,
-                delay: 300,
-                easing: 'easeInQuart',
-                height: elHeight,
-                opacity: 1,
-            });
-        }
-    }
-
-
-    componentWillLeave(callback: any) {
-        const el = findDOMNode(this);
-        anime({
-            targets: [el],
-            duration: 300,
-            easing: 'easeOutQuart',
-            height: 0,
-            marginBottom: 0,
-            overflow: ['hidden', 'show'],
-            opacity: 0,
-            complete: callback,
-        });
     }
 
     render() {

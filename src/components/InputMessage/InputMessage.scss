@@ -4,32 +4,7 @@
 .InputMessage {
     @include ParagraphSm;
 
-    visibility: hidden;
-    overflow: hidden;
-
-    position: absolute;
-
-    &.measured {
-        visibility: visible;
-
-        position: relative;
-
-        height: 0;
-
-        opacity: 0;
+    &.negative p {
+        color: $inputs_error-color;
     }
-
-    &.showing {
-        visibility: visible;
-
-        position: relative;
-
-        height: auto;
-
-        opacity: 1;
-    }
-}
-
-.negative {
-    color: $inputs_error-color;
 }

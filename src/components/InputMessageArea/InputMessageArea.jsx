@@ -3,8 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './InputMessageArea.scss';
 import InputMessage from '../InputMessage/InputMessage';
-import { TransitionGroup } from 'react-transition-group';
-
+import SlideUpDown from '../../animations/SlideUpDown/SlideUpDown';
 
 const displayName = 'InputMessageArea';
 
@@ -47,12 +46,12 @@ const InputMessageArea = ({
                     {...filteredProps}
                     className={componentClass}
                 >
-                    <TransitionGroup>
+                    <SlideUpDown speed="300">
                         {helperMsg ? helperMessageElement : null}
-                    </TransitionGroup>
-                    <TransitionGroup>
+                    </SlideUpDown>
+                    <SlideUpDown speed="300">
                         {errorMsg ? errorMessageElement : null}
-                    </TransitionGroup>
+                    </SlideUpDown>
                 </div>
     );
 };
