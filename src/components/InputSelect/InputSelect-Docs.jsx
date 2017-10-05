@@ -241,15 +241,15 @@ const demoOptions = (
 const selectOptionsArray = [
     {
         value: '',
-        text: 'Select this...',
+        label:'Select this...',
     },
     {
         value: '1',
-        text: 'This option is generated from an array.',
+        label:'This option is generated from an array.',
     },
     {
         value: '2',
-        text: 'This one too!',
+        label:'This one too!',
         disabled: 'disabled',
     },
 ];
