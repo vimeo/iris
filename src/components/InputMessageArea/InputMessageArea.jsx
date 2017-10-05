@@ -53,7 +53,7 @@ const InputMessageArea = ({
                         {helperMessageElement}
                     </SlideUpDown>
                     <SlideUpDown isHidden={hasErrorMsg}>
-                        {errorMsg ? errorMessageElement : null}
+                        {errorMessageElement}
                     </SlideUpDown>
                 </div>
     );
