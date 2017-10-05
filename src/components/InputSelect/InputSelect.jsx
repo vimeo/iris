@@ -16,7 +16,7 @@ type Props = {
     helperMsg?: React$Element<*>,
     id: string,
     isInline?: boolean,
-    label: string,
+    label: string | React$Element<*>,
     options: Array<{label: string, value: string}>,
     showLabel?: boolean,
     size?: 'md' | 'lg',

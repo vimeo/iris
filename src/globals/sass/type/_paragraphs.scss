@@ -5,6 +5,8 @@
 
 // Paragraphs ____________________________________________________________________
 @mixin Paragraphs {
+    position: relative;
+
     max-width: 44rem;
 
     font-family: $FontFamily;

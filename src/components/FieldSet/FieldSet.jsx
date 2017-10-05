@@ -13,7 +13,7 @@ type Props = {
     errorMsg?: React$Element<*>,
     format?: 'negative' | 'positive' | 'neutral',
     helperMsg?: React$Element<*>,
-    label: string,
+    label: string | React$Element<*>,
 };
 
 const FieldSet = ({

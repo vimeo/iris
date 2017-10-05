@@ -15,7 +15,7 @@ type Props = {
     format?: 'negative' | 'positive' | 'neutral',
     helperMsg?: React$Element<*>,
     id: string,
-    label: string,
+    label: string | React$Element<*>,
     hideLabel?: boolean,
 };
 

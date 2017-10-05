@@ -14,9 +14,9 @@ type Props = {
     format?: 'negative' | 'positive' | 'neutral',
     helperMsg?: React$Element<*>,
     id: string,
-    label: string,
+    label: string | React$Element<*>,
     name: string,
-    radios: Array<{label: string, id: string, value: string}>,
+    radios: Array<{label: string | React$Element<*>, id: string, value: string}>,
 };
 
 

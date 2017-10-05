@@ -13,7 +13,7 @@ type Props = {
     format?: 'negative' | 'positive' | 'neutral',
     isInline?: boolean,
     helperMsg?: React$Element<*>,
-    label: string,
+    label: string | React$Element<*>,
     id: string,
     showLabel?: boolean,
     size?: 'md' | 'lg',

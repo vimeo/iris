@@ -12,7 +12,7 @@ type Props = {
     disabled?: boolean,
     format?: 'negative' | 'positive' | 'neutral',
     id: string,
-    label: string,
+    label: string | React$Element<*>,
 };
 
 const InputRadio = ({
