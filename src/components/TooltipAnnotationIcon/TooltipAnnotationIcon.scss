@@ -1,11 +1,14 @@
 /* @description Generates styles for the TooltipAnnotationIcon component */
 @import '../../globals/sass/helpers-all';
+$TooltipsAnnotationIcon-size-md: rem-calc(16);
+$TooltipsAnnotationIcon-size-lg: rem-calc(16);
+$TooltipsAnnotationIcon-spacing: rem-calc(4);
+.Wrapper {
+    display: inline-block;
 
+    position: relative;
+}
 .TooltipAnnotationIcon {
-    position: absolute;
-
-    margin-left: spacingUnit(1);
-
     color: $RegentGray;
     * {
         fill: currentColor;
@@ -16,20 +19,28 @@
     color: $VimeoBlue;
 }
 
-.md {
-    top: rem-calc(1);
+.IconWrapper {
+    position: absolute;
+    &.md {
+        top: rem-calc(1);
+        right: ($TooltipsAnnotationIcon-size-md + $TooltipsAnnotationIcon-spacing) * -1;
 
-    width: rem-calc(16);
-    height: rem-calc(16);
-
-    &.textBlock {
-        top: rem-calc(2);
+        &.textBlock {
+            top: rem-calc(2);
+        }
     }
+
+    &.lg {
+        top: 0;
+        right: ($TooltipsAnnotationIcon-size-lg + $TooltipsAnnotationIcon-spacing) * -1;
+    }
+}
+.md {
+    width: $TooltipsAnnotationIcon-size-md;
+    height: $TooltipsAnnotationIcon-size-md;
 }
 
 .lg {
-    top: 0;
-
-    width: rem-calc(18);
-    height: rem-calc(18);
+    width: $TooltipsAnnotationIcon-size-lg;
+    height: r$TooltipsAnnotationIcon-size-lg;
 }

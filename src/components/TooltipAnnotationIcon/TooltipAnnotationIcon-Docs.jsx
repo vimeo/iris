@@ -14,35 +14,36 @@ class TooltipAnnotationIconDocs extends React.Component {
     render() {
 
         const FieldLabelWithTooltip = (
-            <span>
-            Annotated Input <TooltipAnnotationIcon
+        <TooltipAnnotationIcon
             size="md"
             tooltipText="I am a medium tooltip"
-            />
-            </span>
+            >
+                <span>Annotated Input</span>
+            </TooltipAnnotationIcon>
         );
         const FieldLabelWithTooltipTextBlock = (
-            <span>
-            Annotated Input <TooltipAnnotationIcon
+            <TooltipAnnotationIcon
             size="md"
             labelType="textBlock"
             tooltipText="I am a medium tooltip"
-            />
-            </span>
+            >
+                <span>Annotated Input</span>
+            </TooltipAnnotationIcon>
         );
         const FieldLabelWithTooltipLarge = (
-            <span>
-            Annotated Input <TooltipAnnotationIcon
-            size="lg"
-            tooltipText="Cards and end screens let you link viewers to any destination from the embedded video."
-            />
-            </span>
+            <TooltipAnnotationIcon
+                size="lg"
+                tooltipText="Cards and end screens let you link viewers to any destination from the embedded video."
+            >
+                <span>Annotated Input</span>
+            </TooltipAnnotationIcon>
         );
         return (
             <div className="Pattern__docs">
                 <ParagraphMd>
                 The TooltipAnnotationIcon is a stand-alone icon button for annotating input labels with an "more info" icon which controls a tooltip. It comes in two sizes, use the size that matches the input's size prop.
                 </ParagraphMd>
+                <ParagraphMd>This component will appear to the right of the child component that it wraps.</ParagraphMd>
                 <ParagraphMd>In order to have the tooltip line up with the different input styles there is a <code>labelType</code> prop. Use <code>inline</code> for inline labels (e.g. toggles, checkboxes, radios) and <code>textBlock</code> for labels on inputs where the label is above the field.
                 </ParagraphMd>
                 <ParagraphMd>
@@ -50,19 +51,22 @@ class TooltipAnnotationIconDocs extends React.Component {
                 </ParagraphMd>
                 <div data-code>
                     <div style={{ position: 'relative' }}>
-                        <Header4>Medium (size='md')
+
                         <TooltipAnnotationIcon
                             size="md"
                             tooltipText="I am a medium tooltip"
-                        />
-                        </Header4>
+                        >
+                            <Header4>Medium (size='md')</Header4>
+                        </TooltipAnnotationIcon>
+
                     </div>
                     <div style={{ position: 'relative' }}>
-                        <Header4>Large (size='lg') <TooltipAnnotationIcon
+                        <TooltipAnnotationIcon
                                 size="lg"
                                 tooltipText="I am a large tooltip"
-                            />
-                        </Header4>
+                        >
+                            <Header4>Large (size='lg')</Header4>
+                        </TooltipAnnotationIcon>
 
                     </div>
                 </div>
@@ -72,11 +76,15 @@ class TooltipAnnotationIconDocs extends React.Component {
 <TooltipAnnotationIcon
     size="md"
     tooltipText="I am a medium tooltip"
-/>
+>
+    <Header4>Medium (size='md')</Header4>
+</TooltipAnnotationIcon>
 <TooltipAnnotationIcon
     size="lg"
     tooltipText="I am a large tooltip"
-/>
+>
+    <Header4>Large (size='lg')</Header4>
+</TooltipAnnotationIcon>
                         `}
                 </ExampleSource>
 
