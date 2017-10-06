@@ -54,6 +54,8 @@
   
  exports.Eye = require('../../../src/globals/svg/eye.svg');
   
+ exports.Facebook = require('../../../src/globals/svg/facebook.svg');
+  
  exports.FolderFilled = require('../../../src/globals/svg/folder-filled.svg');
   
  exports.Folder = require('../../../src/globals/svg/folder.svg');
@@ -69,6 +71,8 @@
  exports.HeartFilled = require('../../../src/globals/svg/heart-filled.svg');
   
  exports.Heart = require('../../../src/globals/svg/heart.svg');
+  
+ exports.Instagram = require('../../../src/globals/svg/instagram.svg');
   
  exports.Link = require('../../../src/globals/svg/link.svg');
   
@@ -104,6 +108,10 @@
   
  exports.Trash = require('../../../src/globals/svg/trash.svg');
   
+ exports.Twitter = require('../../../src/globals/svg/twitter.svg');
+  
+ exports.UploadCloudFilled = require('../../../src/globals/svg/upload-cloud-filled.svg');
+  
  exports.UploadCloud = require('../../../src/globals/svg/upload-cloud.svg');
   
  exports.VideoStackFilled = require('../../../src/globals/svg/video-stack-filled.svg');
@@ -111,4 +119,6 @@
  exports.VideoStack = require('../../../src/globals/svg/video-stack.svg');
   
  exports.Video = require('../../../src/globals/svg/video.svg');
+  
+ exports.Youtube = require('../../../src/globals/svg/youtube.svg');
   
