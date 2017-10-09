@@ -66,6 +66,8 @@
   
  exports.Grid = require('../../../src/globals/svg/grid.svg');
   
+ exports.HamburgerMenu = require('../../../src/globals/svg/hamburger-menu.svg');
+  
  exports.HeartBroken = require('../../../src/globals/svg/heart-broken.svg');
   
  exports.HeartFilled = require('../../../src/globals/svg/heart-filled.svg');
