@@ -12,104 +12,110 @@
 
 //Export Global CSS and all components ------------------
 exports.paths = {
-  'iris/GlobalCSS':'iris/src/globals/css/globals.css',
-  'iris/Type':'iris/src/utility_components/Type/Type',
-  'iris/icons':'iris/src/globals/svg/',
-  'iris/legacyIcons':'iris/src/globals/legacy_svg/',
-  'iris/SlideUpDown' : 'iris/src/animations/SlideUpDown/SlideUpDown',
+  'iris/GlobalCSS':'iris/globals/css/globals.css',
+  'iris/Type':'iris/utility_components/Type/Type',
+  'iris/icons':'iris/globals/svg/',
+  'iris/legacyIcons':'iris/globals/legacy_svg/',
+  'iris/SlideUpDown' : 'iris/animations/SlideUpDown/SlideUpDown',
   
-  'iris/Avatar':'iris/src/components/Avatar/Avatar',
+  'iris/Avatar':'iris/components/Avatar/Avatar',
   
-  'iris/Badge':'iris/src/components/Badge/Badge',
+  'iris/Badge':'iris/components/Badge/Badge',
   
-  'iris/Button':'iris/src/components/Button/Button',
+  'iris/Button':'iris/components/Button/Button',
   
-  'iris/ButtonDialogClose':'iris/src/components/ButtonDialogClose/ButtonDialogClose',
+  'iris/ButtonDialogClose':'iris/components/ButtonDialogClose/ButtonDialogClose',
   
-  'iris/ButtonFileUpload':'iris/src/components/ButtonFileUpload/ButtonFileUpload',
+  'iris/ButtonFileUpload':'iris/components/ButtonFileUpload/ButtonFileUpload',
   
-  'iris/ButtonFileUploadIconOnly':'iris/src/components/ButtonFileUploadIconOnly/ButtonFileUploadIconOnly',
+  'iris/ButtonFileUploadIconOnly':'iris/components/ButtonFileUploadIconOnly/ButtonFileUploadIconOnly',
   
-  'iris/ButtonFileUploadWrapper':'iris/src/components/ButtonFileUploadWrapper/ButtonFileUploadWrapper',
+  'iris/ButtonFileUploadWrapper':'iris/components/ButtonFileUploadWrapper/ButtonFileUploadWrapper',
   
-  'iris/ButtonIconOnly':'iris/src/components/ButtonIconOnly/ButtonIconOnly',
+  'iris/ButtonIconOnly':'iris/components/ButtonIconOnly/ButtonIconOnly',
   
-  'iris/ButtonToggleState':'iris/src/components/ButtonToggleState/ButtonToggleState',
+  'iris/ButtonToggleState':'iris/components/ButtonToggleState/ButtonToggleState',
   
-  'iris/CircularButton':'iris/src/components/CircularButton/CircularButton',
+  'iris/CircularButton':'iris/components/CircularButton/CircularButton',
   
-  'iris/CounterIcon':'iris/src/components/CounterIcon/CounterIcon',
+  'iris/CounterIcon':'iris/components/CounterIcon/CounterIcon',
   
-  'iris/FieldSet':'iris/src/components/FieldSet/FieldSet',
+  'iris/FieldSet':'iris/components/FieldSet/FieldSet',
   
-  'iris/Grid':'iris/src/components/Grid/Grid',
+  'iris/Grid':'iris/components/Grid/Grid',
   
-  'iris/GridBlock':'iris/src/components/GridBlock/GridBlock',
+  'iris/GridBlock':'iris/components/GridBlock/GridBlock',
   
-  'iris/GridCol':'iris/src/components/GridCol/GridCol',
+  'iris/GridCol':'iris/components/GridCol/GridCol',
   
-  'iris/InputCheckbox':'iris/src/components/InputCheckbox/InputCheckbox',
+  'iris/InputCheckbox':'iris/components/InputCheckbox/InputCheckbox',
   
-  'iris/InputLabel':'iris/src/components/InputLabel/InputLabel',
+  'iris/InputLabel':'iris/components/InputLabel/InputLabel',
   
-  'iris/InputLabelInline':'iris/src/components/InputLabelInline/InputLabelInline',
+  'iris/InputLabelInline':'iris/components/InputLabelInline/InputLabelInline',
   
-  'iris/InputLabelStateIcon':'iris/src/components/InputLabelStateIcon/InputLabelStateIcon',
+  'iris/InputLabelStateIcon':'iris/components/InputLabelStateIcon/InputLabelStateIcon',
   
-  'iris/InputMessage':'iris/src/components/InputMessage/InputMessage',
+  'iris/InputMessage':'iris/components/InputMessage/InputMessage',
   
-  'iris/InputMessageArea':'iris/src/components/InputMessageArea/InputMessageArea',
+  'iris/InputMessageArea':'iris/components/InputMessageArea/InputMessageArea',
   
-  'iris/InputRadio':'iris/src/components/InputRadio/InputRadio',
+  'iris/InputRadio':'iris/components/InputRadio/InputRadio',
   
-  'iris/InputRadioSet':'iris/src/components/InputRadioSet/InputRadioSet',
+  'iris/InputRadioSet':'iris/components/InputRadioSet/InputRadioSet',
   
-  'iris/InputSelect':'iris/src/components/InputSelect/InputSelect',
+  'iris/InputSelect':'iris/components/InputSelect/InputSelect',
   
-  'iris/InputText':'iris/src/components/InputText/InputText',
+  'iris/InputText':'iris/components/InputText/InputText',
   
-  'iris/InputToggle':'iris/src/components/InputToggle/InputToggle',
+  'iris/InputToggle':'iris/components/InputToggle/InputToggle',
   
-  'iris/InputWrapper':'iris/src/components/InputWrapper/InputWrapper',
+  'iris/InputWrapper':'iris/components/InputWrapper/InputWrapper',
   
-  'iris/InputWrapperInline':'iris/src/components/InputWrapperInline/InputWrapperInline',
+  'iris/InputWrapperInline':'iris/components/InputWrapperInline/InputWrapperInline',
   
-  'iris/LinkText':'iris/src/components/LinkText/LinkText',
+  'iris/LinkText':'iris/components/LinkText/LinkText',
   
-  'iris/List':'iris/src/components/List/List',
+  'iris/List':'iris/components/List/List',
   
-  'iris/ListItem':'iris/src/components/ListItem/ListItem',
+  'iris/ListItem':'iris/components/ListItem/ListItem',
   
-  'iris/LoaderCircular':'iris/src/components/LoaderCircular/LoaderCircular',
+  'iris/LoaderCircular':'iris/components/LoaderCircular/LoaderCircular',
   
-  'iris/MenuPanel':'iris/src/components/MenuPanel/MenuPanel',
+  'iris/MenuPanel':'iris/components/MenuPanel/MenuPanel',
   
-  'iris/MenuPanelList':'iris/src/components/MenuPanelList/MenuPanelList',
+  'iris/MenuPanelList':'iris/components/MenuPanelList/MenuPanelList',
   
-  'iris/MenuPanelListItem':'iris/src/components/MenuPanelListItem/MenuPanelListItem',
+  'iris/MenuPanelListItem':'iris/components/MenuPanelListItem/MenuPanelListItem',
   
-  'iris/Modal':'iris/src/components/Modal/Modal',
+  'iris/Modal':'iris/components/Modal/Modal',
   
-  'iris/Notification':'iris/src/components/Notification/Notification',
+  'iris/Notification':'iris/components/Notification/Notification',
   
-  'iris/NotificationNeutral':'iris/src/components/NotificationNeutral/NotificationNeutral',
+  'iris/NotificationNeutral':'iris/components/NotificationNeutral/NotificationNeutral',
   
-  'iris/NotificationSuccess':'iris/src/components/NotificationSuccess/NotificationSuccess',
+  'iris/NotificationSuccess':'iris/components/NotificationSuccess/NotificationSuccess',
   
-  'iris/NotificationWarning':'iris/src/components/NotificationWarning/NotificationWarning',
+  'iris/NotificationWarning':'iris/components/NotificationWarning/NotificationWarning',
   
-  'iris/SearchField':'iris/src/components/SearchField/SearchField',
+  'iris/SearchField':'iris/components/SearchField/SearchField',
   
-  'iris/Tag':'iris/src/components/Tag/Tag',
+  'iris/TabContentPanel':'iris/components/TabContentPanel/TabContentPanel',
   
-  'iris/TextArea':'iris/src/components/TextArea/TextArea',
+  'iris/TabNavigationHorizontal':'iris/components/TabNavigationHorizontal/TabNavigationHorizontal',
   
-  'iris/Toastification':'iris/src/components/Toastification/Toastification',
+  'iris/TabNavigationHorizontalItem':'iris/components/TabNavigationHorizontalItem/TabNavigationHorizontalItem',
   
-  'iris/Tooltip':'iris/src/components/Tooltip/Tooltip',
+  'iris/Tag':'iris/components/Tag/Tag',
   
-  'iris/TooltipAnnotationIcon':'iris/src/components/TooltipAnnotationIcon/TooltipAnnotationIcon',
+  'iris/TextArea':'iris/components/TextArea/TextArea',
   
-  'iris/TooltipOverlay':'iris/src/components/TooltipOverlay/TooltipOverlay',
+  'iris/Toastification':'iris/components/Toastification/Toastification',
+  
+  'iris/Tooltip':'iris/components/Tooltip/Tooltip',
+  
+  'iris/TooltipAnnotationIcon':'iris/components/TooltipAnnotationIcon/TooltipAnnotationIcon',
+  
+  'iris/TooltipOverlay':'iris/components/TooltipOverlay/TooltipOverlay',
   
 };

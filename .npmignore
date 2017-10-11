@@ -1,3 +1,23 @@
+data
+docs
+build-styleguide
+gulp-tasks
+templates
+src
+.babelrc
+.csscomb.json
+.eslintrc
+.eslintignore
+.flowconfig
+.gitignore
+config.js
+favicon.png
+gulpfile.babel.js
+plopfile.js
+webpack.config.js
+
+
+
 # node / npm
 node_modules
 *.log
@@ -46,13 +66,3 @@ nbproject
 
 .sass-cache
 
-
-########################
-# Build artifacts
-########################
-data/*
-!data/README.md
-build-styleguide
-data
-docs/main.jsx
-dist

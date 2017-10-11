@@ -31,8 +31,5 @@ walker.on('end', function() {
         if (error) {
             console.error('Error while writing ' + destinationPath + ': ' + error.message);
         }
-        else {
-            console.log('Successfully wrote data to ' + destinationPath);
-        }
     });
 });

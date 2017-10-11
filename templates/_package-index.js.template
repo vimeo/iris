@@ -12,12 +12,12 @@
 
 //Export Global CSS and all components ------------------
 exports.paths = {
-  'iris/GlobalCSS':'iris/src/globals/css/globals.css',
-  'iris/Type':'iris/src/utility_components/Type/Type',
-  'iris/icons':'iris/src/globals/svg/',
-  'iris/legacyIcons':'iris/src/globals/legacy_svg/',
-  'iris/SlideUpDown' : 'iris/src/animations/SlideUpDown/SlideUpDown',
+  'iris/GlobalCSS':'iris/globals/css/globals.css',
+  'iris/Type':'iris/utility_components/Type/Type',
+  'iris/icons':'iris/globals/svg/',
+  'iris/legacyIcons':'iris/globals/legacy_svg/',
+  'iris/SlideUpDown' : 'iris/animations/SlideUpDown/SlideUpDown',
   <% _.forEach(patterns[0], function(pattern) { if(pattern['displayName']){ %>
-  'iris/<%- pattern['displayName']%>':'iris/src/components/<%- pattern['displayName']%>/<%- pattern['displayName']%>',
+  'iris/<%- pattern['displayName']%>':'iris/components/<%- pattern['displayName']%>/<%- pattern['displayName']%>',
   <% }}); %>
 };

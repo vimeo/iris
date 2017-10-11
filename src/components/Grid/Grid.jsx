@@ -2,8 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './Grid.scss';
-import GridBlock from '../GridBlock/GridBlock.jsx';
-import GridCol from '../GridCol/GridCol.jsx';
+
 
 const displayName = 'Grid';
 
@@ -45,4 +44,4 @@ const Grid = ({
 
 Grid.displayName = displayName;
 
-export { GridBlock, GridCol, Grid };
+export default Grid;
