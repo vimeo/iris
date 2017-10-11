@@ -1,3 +1,3 @@
-import TooltipAnnotationIcon from './TooltipAnnotationIcon.jsx';
+import TooltipAnnotationIcon from './TooltipAnnotationIcon';
 
 export default TooltipAnnotationIcon;

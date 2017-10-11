@@ -1,3 +1,3 @@
-import NotificationSuccess from './NotificationSuccess.jsx';
+import NotificationSuccess from './NotificationSuccess';
 
 export default NotificationSuccess;

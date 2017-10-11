@@ -1,3 +1,3 @@
-import MenuPanelList from './MenuPanelList.jsx';
+import MenuPanelList from './MenuPanelList';
 
 export default MenuPanelList;

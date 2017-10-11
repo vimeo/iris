@@ -1,3 +1,3 @@
-import InputRadioSet from './InputRadioSet.jsx';
+import InputRadioSet from './InputRadioSet';
 
 export default InputRadioSet;

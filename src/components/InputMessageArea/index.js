@@ -1,3 +1,3 @@
-import InputMessageArea from './InputMessageArea.jsx';
+import InputMessageArea from './InputMessageArea';
 
 export default InputMessageArea;

@@ -1,3 +1,3 @@
-import ButtonToggleState from './ButtonToggleState.jsx';
+import ButtonToggleState from './ButtonToggleState';
 
 export default ButtonToggleState;

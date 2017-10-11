@@ -1,3 +1,3 @@
-import ButtonIconOnly from './ButtonIconOnly.jsx';
+import ButtonIconOnly from './ButtonIconOnly';
 
 export default ButtonIconOnly;

@@ -1,3 +1,3 @@
-import Tooltip from './Tooltip.jsx';
+import Tooltip from './Tooltip';
 
 export default Tooltip;

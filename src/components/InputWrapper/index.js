@@ -1,3 +1,3 @@
-import InputWrapper from './InputWrapper.jsx';
+import InputWrapper from './InputWrapper';
 
 export default InputWrapper;

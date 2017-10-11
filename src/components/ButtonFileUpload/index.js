@@ -1,3 +1,3 @@
-import ButtonFileUpload from './ButtonFileUpload.jsx';
+import ButtonFileUpload from './ButtonFileUpload';
 
 export default ButtonFileUpload;

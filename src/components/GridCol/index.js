@@ -1,3 +1,3 @@
-import GridCol from './GridCol.jsx';
+import GridCol from './GridCol';
 
 export default GridCol;

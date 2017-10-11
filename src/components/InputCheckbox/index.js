@@ -1,3 +1,3 @@
-import InputCheckbox from './InputCheckbox.jsx';
+import InputCheckbox from './InputCheckbox';
 
 export default InputCheckbox;

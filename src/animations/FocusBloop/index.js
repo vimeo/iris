@@ -1,3 +1,3 @@
-import FocusBloop from './FocusBloop.jsx';
+import FocusBloop from './FocusBloop';
 
 export default FocusBloop;

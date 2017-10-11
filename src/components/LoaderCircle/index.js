@@ -1,3 +1,3 @@
-import LoaderCircle from './LoaderCircle.jsx';
+import LoaderCircle from './LoaderCircle';
 
 export default LoaderCircle;

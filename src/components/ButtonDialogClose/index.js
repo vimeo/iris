@@ -1,3 +1,3 @@
-import ButtonDialogClose from './ButtonDialogClose.jsx';
+import ButtonDialogClose from './ButtonDialogClose';
 
 export default ButtonDialogClose;

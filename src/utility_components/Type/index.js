@@ -1,4 +1,4 @@
-import typeGenerator from './Type.jsx';
+import typeGenerator from './Type';
 
 const Header1 = typeGenerator('Header1', 'h1');
 const Header2 = typeGenerator('Header2', 'h2');

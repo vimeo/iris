@@ -1,3 +1,3 @@
-import GridBlock from './GridBlock.jsx';
+import GridBlock from './GridBlock';
 
 export default GridBlock;

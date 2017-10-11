@@ -1,3 +1,3 @@
-import ListItem from './ListItem.jsx';
+import ListItem from './ListItem';
 
 export default ListItem;

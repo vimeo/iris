@@ -1,3 +1,3 @@
-import SlideUpDown from './SlideUpDown.jsx';
+import SlideUpDown from './SlideUpDown';
 
 export default SlideUpDown;

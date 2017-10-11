@@ -1,3 +1,3 @@
-import Toastification from './Toastification.jsx';
+import Toastification from './Toastification';
 
 export default Toastification;

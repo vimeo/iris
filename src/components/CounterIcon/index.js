@@ -1,3 +1,3 @@
-import CounterIcon from './CounterIcon.jsx';
+import CounterIcon from './CounterIcon';
 
 export default CounterIcon;

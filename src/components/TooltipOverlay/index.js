@@ -1,3 +1,3 @@
-import TooltipOverlay from './TooltipOverlay.jsx';
+import TooltipOverlay from './TooltipOverlay';
 
 export default TooltipOverlay;

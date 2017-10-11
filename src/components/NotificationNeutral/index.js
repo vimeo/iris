@@ -1,3 +1,3 @@
-import NotificationNeutral from './NotificationNeutral.jsx';
+import NotificationNeutral from './NotificationNeutral';
 
 export default NotificationNeutral;

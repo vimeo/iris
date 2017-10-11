@@ -1,3 +1,3 @@
-import InputLabelInline from './InputLabelInline.jsx';
+import InputLabelInline from './InputLabelInline';
 
 export default InputLabelInline;

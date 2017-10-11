@@ -1,3 +1,3 @@
-import CircularButton from './CircularButton.jsx';
+import CircularButton from './CircularButton';
 
 export default CircularButton;

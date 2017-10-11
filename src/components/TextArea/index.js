@@ -1,3 +1,3 @@
-import TextArea from './TextArea.jsx';
+import TextArea from './TextArea';
 
 export default TextArea;

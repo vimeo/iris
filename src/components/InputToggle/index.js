@@ -1,3 +1,3 @@
-import InputToggle from './InputToggle.jsx';
+import InputToggle from './InputToggle';
 
 export default InputToggle;

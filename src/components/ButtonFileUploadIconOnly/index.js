@@ -1,3 +1,3 @@
-import ButtonFileUploadIconOnly from './ButtonFileUploadIconOnly.jsx';
+import ButtonFileUploadIconOnly from './ButtonFileUploadIconOnly';
 
 export default ButtonFileUploadIconOnly;

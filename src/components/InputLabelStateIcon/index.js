@@ -1,3 +1,3 @@
-import InputLabelStateIcon from './InputLabelStateIcon.jsx';
+import InputLabelStateIcon from './InputLabelStateIcon';
 
 export default InputLabelStateIcon;

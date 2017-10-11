@@ -1,3 +1,3 @@
-import ButtonFileUploadWrapper from './ButtonFileUploadWrapper.jsx';
+import ButtonFileUploadWrapper from './ButtonFileUploadWrapper';
 
 export default ButtonFileUploadWrapper;

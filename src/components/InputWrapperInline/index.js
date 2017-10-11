@@ -1,3 +1,3 @@
-import InputWrapperInline from './InputWrapperInline.jsx';
+import InputWrapperInline from './InputWrapperInline';
 
 export default InputWrapperInline;

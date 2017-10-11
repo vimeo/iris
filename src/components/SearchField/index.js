@@ -1,3 +1,3 @@
-import SearchField from './SearchField.jsx';
+import SearchField from './SearchField';
 
 export default SearchField;

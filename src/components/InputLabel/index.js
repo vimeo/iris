@@ -1,3 +1,3 @@
-import InputLabel from './InputLabel.jsx';
+import InputLabel from './InputLabel';
 
 export default InputLabel;

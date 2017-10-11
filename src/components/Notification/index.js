@@ -1,3 +1,3 @@
-import Notification from './Notification.jsx';
+import Notification from './Notification';
 
 export default Notification;

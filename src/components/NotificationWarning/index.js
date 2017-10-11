@@ -1,3 +1,3 @@
-import NotificationWarning from './NotificationWarning.jsx';
+import NotificationWarning from './NotificationWarning';
 
 export default NotificationWarning;
