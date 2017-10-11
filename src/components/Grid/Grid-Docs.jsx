@@ -1,7 +1,7 @@
 import React from 'react';
-import { Grid } from './Grid.jsx';
+import { Grid } from './index';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../../utility_components/Type/Type';
+import { ParagraphMd } from '../../utility_components/Type';
 import LinkText from '../LinkText/LinkText';
 
 const GridDocs = (props) => {

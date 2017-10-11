@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './InputLabel.scss';
 import InputLabelStateIcon from '../InputLabelStateIcon/InputLabelStateIcon';
-import { Header6 } from '../../utility_components/Type/Type';
+import { Header6 } from '../../utility_components/Type';
 
 const displayName = 'InputLabel';
 

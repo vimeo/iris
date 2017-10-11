@@ -1,7 +1,7 @@
 import React from 'react';
 import Toastification from './Toastification';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
+import { ParagraphMd, Header3 } from '../../../src/utility_components/Type';
 import NotificationNeutral from '../NotificationNeutral/NotificationNeutral';
 import Button from '../Button/Button';
 

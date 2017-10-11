@@ -1,7 +1,7 @@
 import React from 'react';
 import TooltipAnnotationIcon from './TooltipAnnotationIcon';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd, Header3, Header4 } from '../../../src/utility_components/Type/Type';
+import { ParagraphMd, Header3, Header4 } from '../../../src/utility_components/Type';
 import InputText from '../InputText/InputText';
 import InputToggle from '../InputToggle/InputToggle';
 import InputCheckbox from '../InputCheckbox/InputCheckbox';

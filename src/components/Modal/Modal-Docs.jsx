@@ -2,10 +2,10 @@ import React from 'react';
 import Modal from './Modal';
 import Button from '../Button/Button';
 import InputText from '../InputText/InputText';
-import { ParagraphMd, Header1, Header2, Header3 } from '../../utility_components/Type/Type';
+import { ParagraphMd, Header1, Header2, Header3 } from '../../utility_components/Type';
 import styles from './Modal-Docs.scss';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { List, ListItem } from '../List/List';
+import { List, ListItem } from '../List';
 class ModalDocs extends React.Component {
     constructor(props) {
         super(props);

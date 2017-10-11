@@ -1,7 +1,7 @@
 import React from 'react';
 import CounterIcon from './CounterIcon';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../../../src/utility_components/Type/Type';
+import { ParagraphMd } from '../../../src/utility_components/Type';
 import PlayIcon from '../../globals/svg/play.svg';
 import CollectionIcon from '../../globals/svg/collections.svg';
 class CounterIconDocs extends React.Component {

@@ -2,7 +2,7 @@
   "name": "iris",
   "version": "1.10.3",
   "description": "Iris UI Pattern Framework",
-  "main": "dist/index.js",
+  "main": "dist",
   "scripts": {
     "flow": "flow",
     "test": "echo \"Error: no test specified\" && exit 1",

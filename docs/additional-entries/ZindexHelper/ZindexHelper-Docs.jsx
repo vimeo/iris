@@ -1,6 +1,6 @@
 import React from 'react';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import {ParagraphMd, Header3} from '../../../src/utility_components/Type/Type';
+import {ParagraphMd, Header3} from '../../../src/utility_components/Type';
 
 const ZindexHelperDocs = (props) => {
     return (

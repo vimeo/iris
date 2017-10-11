@@ -4,8 +4,8 @@ import Button from '../Button/Button';
 import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
 import DeleteIcon from '../../globals/svg/trash.svg';
 import LinkText from '../LinkText/LinkText';
-import { List, ListItem } from '../List/List';
-import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
+import { List, ListItem } from '../List';
+import { ParagraphMd, Header3 } from '../../../src/utility_components/Type';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import NotificationWarning from '../NotificationWarning/NotificationWarning';
 

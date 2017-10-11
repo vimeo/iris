@@ -1,6 +1,6 @@
 import React from 'react';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../../../src/utility_components/Type/Type';
+import { ParagraphMd } from '../../../src/utility_components/Type';
 const MediaQueriesDocs = (props) => {
     return (
         <div className="Pattern__docs">

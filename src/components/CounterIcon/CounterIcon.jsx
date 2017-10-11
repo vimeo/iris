@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './CounterIcon.scss';
 
-import { ParagraphLg } from '../../utility_components/Type/Type';
+import { ParagraphLg } from '../../utility_components/Type';
 import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';
 
 const displayName = 'CounterIcon';

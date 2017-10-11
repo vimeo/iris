@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header3, ParagraphMd } from '../../../src/utility_components/Type/Type';
+import { Header3, ParagraphMd } from '../../../src/utility_components/Type';
 import LinkText from '../LinkText/LinkText';
 import NotificationWarning from '../NotificationWarning/NotificationWarning';
 

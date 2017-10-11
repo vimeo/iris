@@ -1,7 +1,7 @@
 import React from 'react';
 import Tag from './Tag';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../../../src/utility_components/Type/Type';
+import { ParagraphMd } from '../../../src/utility_components/Type';
 
 class TagDocs extends React.Component {
     constructor(props) {

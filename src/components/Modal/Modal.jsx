@@ -7,7 +7,7 @@ import KEY_CODES from '../../globals/js/constants/KEY_CODES';
 import { CSSTransitionGroup } from 'react-transition-group';
 import Button from '../Button/Button';
 import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
-import { Header4 } from '../../utility_components/Type/Type';
+import { Header4 } from '../../utility_components/Type';
 const displayName = 'Modal';
 
 // this value should be kept in sync with the timing variable in the Modal.scss

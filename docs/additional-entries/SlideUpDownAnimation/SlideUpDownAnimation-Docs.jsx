@@ -3,7 +3,7 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 import NotificationSuccess from '../../../src/components/NotificationSuccess/NotificationSuccess';
 import Button from '../../../src/components/Button/Button';
 import SlideUpDown from '../../../src/animations/SlideUpDown/SlideUpDown';
-import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
+import { ParagraphMd, Header3 } from '../../../src/utility_components/Type';
 
 
 

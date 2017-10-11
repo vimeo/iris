@@ -4,7 +4,7 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 import SettingsIcon from '../../globals/svg/gear.svg';
 import DownloadIcon from '../../globals/svg/download-arrow.svg';
 import DeleteIcon from '../../globals/svg/trash.svg';
-import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
+import { ParagraphMd, Header3 } from '../../../src/utility_components/Type';
 const ButtonIconOnlyDocs = (props) => {
     return (
         <div className="Pattern__docs">

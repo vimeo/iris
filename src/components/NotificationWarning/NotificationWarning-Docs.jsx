@@ -3,7 +3,7 @@ import NotificationWarning from './NotificationWarning';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import Button from '../Button/Button';
 import SlideUpDown from '../../animations/SlideUpDown/SlideUpDown';
-import { ParagraphMd } from '../../../src/utility_components/Type/Type';
+import { ParagraphMd } from '../../../src/utility_components/Type';
 
 class NotificationWarningDocs extends React.Component {
     // test handler for onDismiss event

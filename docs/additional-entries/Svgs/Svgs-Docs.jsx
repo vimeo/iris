@@ -1,6 +1,6 @@
 import React from 'react';
 import BellIris from '../../../src/globals/svg/bell.svg';
-import { ParagraphMd, Header3, Header4 } from '../../../src/utility_components/Type/Type';
+import { ParagraphMd, Header3, Header4 } from '../../../src/utility_components/Type';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import LinkText from '../../../src/components/LinkText/LinkText';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GridBlock, GridCol, Grid } from '../../../src/components/Grid/Grid.jsx';
+import { GridBlock, GridCol, Grid } from '../../../src/components/Grid';
 import Button from '../../../src/components/Button/Button';
 import InputSelect from '../../../src/components/InputSelect/InputSelect';
 import InputText from '../../../src/components/InputText/InputText';

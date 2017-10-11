@@ -100,12 +100,6 @@ exports.paths = {
   
   'iris/SearchField':'iris/components/SearchField/SearchField',
   
-  'iris/TabContentPanel':'iris/components/TabContentPanel/TabContentPanel',
-  
-  'iris/TabNavigationHorizontal':'iris/components/TabNavigationHorizontal/TabNavigationHorizontal',
-  
-  'iris/TabNavigationHorizontalItem':'iris/components/TabNavigationHorizontalItem/TabNavigationHorizontalItem',
-  
   'iris/Tag':'iris/components/Tag/Tag',
   
   'iris/TextArea':'iris/components/TextArea/TextArea',

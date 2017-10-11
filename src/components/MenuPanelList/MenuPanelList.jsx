@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './MenuPanelList.scss';
 import MenuPanelListItem from '../MenuPanelListItem/MenuPanelListItem';
-import { Header6 } from '../../utility_components/Type/Type';
+import { Header6 } from '../../utility_components/Type';
 
 const displayName = 'MenuPanelList';
 
