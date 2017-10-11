@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './Notification.scss';
 import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
-import { Header5 } from '../../utility_components/Type';
+import { Header5 } from '../Type';
 
 
 /* Note: This component is the base component for themed notifications, do not use it by itself */

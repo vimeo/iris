@@ -2,8 +2,8 @@ import React from 'react';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import NotificationSuccess from '../../../src/components/NotificationSuccess/NotificationSuccess';
 import Button from '../../../src/components/Button/Button';
-import SlideUpDown from '../../../src/animations/SlideUpDown/SlideUpDown';
-import { ParagraphMd, Header3 } from '../../../src/utility_components/Type';
+import SlideUpDown from '../../../src/components/SlideUpDown/SlideUpDown';
+import { ParagraphMd, Header3 } from '../../../src/components/Type';
 
 
 

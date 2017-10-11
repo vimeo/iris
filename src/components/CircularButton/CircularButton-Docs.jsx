@@ -2,7 +2,7 @@ import React from 'react';
 import CircularButton from './CircularButton';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import PlusIcon from '../../../src/globals/svg/plus.svg';
-import { ParagraphMd, Header3 } from '../../../src/utility_components/Type';
+import { ParagraphMd, Header3 } from '../Type';
 const CircularButtonDocs = (props) => {
     return (
         <div className="Pattern__docs">

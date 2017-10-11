@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './InputRadio.scss';
 import InputLabelInline from '../InputLabelInline/InputLabelInline';
-import FocusBloop from '../../animations/FocusBloop/FocusBloop';
+import FocusBloop from '../FocusBloop';
 
 const displayName = 'InputRadio';
 

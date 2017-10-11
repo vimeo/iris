@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuPanel from './MenuPanel';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { Header3, ParagraphMd } from '../../../src/utility_components/Type';
+import { Header3, ParagraphMd } from '../Type';
 import { List, ListItem } from '../List';
 import LinkText from '../LinkText/LinkText';
 import MenuPanelList from '../MenuPanelList/MenuPanelList';

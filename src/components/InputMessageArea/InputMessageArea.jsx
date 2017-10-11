@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './InputMessageArea.scss';
 import InputMessage from '../InputMessage/InputMessage';
-import SlideUpDown from '../../animations/SlideUpDown/SlideUpDown';
+import SlideUpDown from '../SlideUpDown';
 
 const displayName = 'InputMessageArea';
 

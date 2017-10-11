@@ -2,8 +2,8 @@ import React from 'react';
 import NotificationSuccess from './NotificationSuccess';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import Button from '../Button/Button';
-import SlideUpDown from '../../animations/SlideUpDown/SlideUpDown';
-import { ParagraphMd } from '../../../src/utility_components/Type';
+import SlideUpDown from '../SlideUpDown';
+import { ParagraphMd } from '../Type';
 
 class NotificationSuccessDocs extends React.Component {
     // test handler for onDismiss event

@@ -4,7 +4,7 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 import ShareIcon from '../../globals/svg/paper-plane.svg';
 import HeartIcon from '../../globals/svg/heart.svg';
 import DownloadIcon from '../../globals/svg/download-arrow.svg';
-import { ParagraphMd, Header3, Header4 } from '../../../src/utility_components/Type';
+import { ParagraphMd, Header3, Header4 } from '../Type';
 class ButtonDocs extends React.Component {
     clickExample() {
         console.log('click');

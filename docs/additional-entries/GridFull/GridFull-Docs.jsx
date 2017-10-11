@@ -2,7 +2,7 @@ import React from 'react';
 import { GridBlock, GridCol, Grid } from '../../../src/components/Grid';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import InputText from '../../../src/components/InputText/InputText';
-import { ParagraphMd, Header3 } from '../../../src/utility_components/Type';
+import { ParagraphMd, Header3 } from '../../../src/components/Type';
 import LinkText from '../../../src/components/LinkText/LinkText';
 import { List, ListItem }from  '../../../src/components/List';
 

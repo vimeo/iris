@@ -6,7 +6,7 @@ import InputText from '../../../src/components/InputText/InputText';
 import InputRadioSet from '../../../src/components/InputRadioSet/InputRadioSet';
 import InputCheckbox from '../../../src/components/InputCheckbox/InputCheckbox';
 import AddressFormDemo from '../../demoComponents/AddressFormDemo/AddressFormDemo';
-import { ParagraphMd, Header3 } from '../../../src/utility_components/Type';
+import { ParagraphMd, Header3 } from '../../../src/components/Type';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchField from './SearchField';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../../../src/utility_components/Type';
+import { ParagraphMd } from '../Type';
 
 class SearchFieldDocs extends React.Component {
     constructor(props) {

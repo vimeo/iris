@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './InputToggle.scss';
 import InputLabelInline from '../InputLabelInline/InputLabelInline';
 import InputWrapperInline from '../InputWrapperInline/InputWrapperInline';
-import FocusBloop from '../../animations/FocusBloop/FocusBloop';
+import FocusBloop from '../FocusBloop';
 
 const displayName = 'InputToggle';
 

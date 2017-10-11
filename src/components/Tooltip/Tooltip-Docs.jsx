@@ -1,6 +1,6 @@
 import React from 'react';
 import Tooltip from './Tooltip';
-import { ParagraphMd, Header3 } from '../../../src/utility_components/Type';
+import { ParagraphMd, Header3 } from '../Type';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 class TooltipDocs extends React.Component {

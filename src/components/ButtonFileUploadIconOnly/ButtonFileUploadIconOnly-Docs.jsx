@@ -1,7 +1,7 @@
 import React from 'react';
 import ButtonFileUploadIconOnly from './ButtonFileUploadIconOnly';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../../../src/utility_components/Type';
+import { ParagraphMd } from '../Type';
 
 class ButtonFileUploadIconOnlyDocs extends React.Component {
     constructor(props) {

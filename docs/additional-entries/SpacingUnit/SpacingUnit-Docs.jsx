@@ -1,6 +1,6 @@
 import React from 'react';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import {ParagraphMd} from '../../../src/utility_components/Type';
+import {ParagraphMd} from '../../../src/components/Type';
 import NotifcationNeutral from '../../../src/components/NotificationNeutral/NotificationNeutral'
 const SpacingUnit = (props) => {
     return (

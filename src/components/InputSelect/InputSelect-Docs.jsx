@@ -2,7 +2,7 @@ import React from 'react';
 import InputSelect from './InputSelect';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import Button from '../Button/Button';
-import { ParagraphMd, Header3 } from '../../../src/utility_components/Type';
+import { ParagraphMd, Header3 } from '../Type';
 const demoOptions = (
                     <optgroup label="Option Group">
                         <option value="" defaultValue disabled hidden>Select something...</option>

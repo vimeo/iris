@@ -2,7 +2,7 @@ import React from 'react';
 import InputText from './InputText';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import Button from '../Button/Button';
-import { ParagraphMd, Header3 } from '../../../src/utility_components/Type';
+import { ParagraphMd, Header3 } from '../Type';
 const errorState = {
     errorProp: (<ParagraphMd>This is a problem!</ParagraphMd>),
     format: 'negative',

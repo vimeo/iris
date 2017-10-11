@@ -42,6 +42,8 @@ exports.paths = {
   
   'iris/FieldSet':'iris/components/FieldSet/FieldSet',
   
+  'iris/FocusBloop':'iris/components/FocusBloop/FocusBloop',
+  
   'iris/Grid':'iris/components/Grid/Grid',
   
   'iris/GridBlock':'iris/components/GridBlock/GridBlock',
@@ -99,6 +101,8 @@ exports.paths = {
   'iris/NotificationWarning':'iris/components/NotificationWarning/NotificationWarning',
   
   'iris/SearchField':'iris/components/SearchField/SearchField',
+  
+  'iris/SlideUpDown':'iris/components/SlideUpDown/SlideUpDown',
   
   'iris/Tag':'iris/components/Tag/Tag',
   
