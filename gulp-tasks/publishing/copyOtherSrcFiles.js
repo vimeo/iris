@@ -25,14 +25,14 @@ gulp.task('copyGlobalSrcFiles', function () {
 gulp.task('copySCSSFiles', function () {
     return gulp.src(
         [
-            'src/components/**/*.scss',
+            'src/**/*.scss',
         ]
         )
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('copySVGs', function () {
-    return gulp.src('src/components/icons/**/*.svg')
+    return gulp.src('src/icons/**/*.svg')
     .pipe(gulp.dest('dist/icons'));
 });
 

@@ -1,0 +1,33 @@
+/* @description Generates styles for the LoaderCircular component */
+@import '../globals/sass/helpers-all';
+$LoaderCircular_animation_timing: 800ms;
+$LoaderCircular_color-primary: $VimeoBlue;
+$LoaderCircular_size-md: rem-calc(24);
+$LoaderCircular_border_size-primary: rem-calc(2);
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    },
+    50% {
+        transform: rotate(170deg);
+    },
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.LoaderCircular {
+    width: $LoaderCircular_size-md;
+    height: $LoaderCircular_size-md;
+
+    border-bottom-color: transparent !important;
+    border-radius: $LoaderCircular_size-md;
+
+    animation: rotate $LoaderCircular_animation_timing linear infinite;
+}
+
+//-------------------------  formats
+.primary {
+    border: $LoaderCircular_border_size-primary solid $LoaderCircular_color-primary;
+}

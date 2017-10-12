@@ -15,7 +15,7 @@ favicon.png
 gulpfile.babel.js
 plopfile.js
 webpack.config.js
-
+yarn.lock
 
 
 # node / npm

@@ -1,0 +1,5 @@
+/* @description Generates styles for the Tag component */
+@import '../globals/sass/helpers-all';
+.Tag {
+    border-radius: rem-calc(66) !important;
+}

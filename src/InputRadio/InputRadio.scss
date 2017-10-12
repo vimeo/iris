@@ -1,0 +1,48 @@
+/* @description Generates styles for the InputRadio component */
+@import '../globals/sass/helpers-all';
+
+
+.InputRadioWrapper {
+    @include sharedInlineInputWrapperStyles();
+
+    min-height: $inputs_inlineInputs_size;
+    margin-bottom: spacingUnit(2);
+    padding-left: spacingUnit(8);
+}
+
+.InputRadio {
+    @include sharedInlineInputStyles();
+}
+
+.InputRadioOverlay {
+    @include sharedInlineInputElementReplaceStyles();
+
+    border-radius: $inputs_inlineInputs_size/2;
+
+    &::after {
+        @include sharedInlineInputFillStyles();
+        @include sharedInlineInputMediumFillStyles();
+
+        border-radius: $inputs_inlineInputs_fill-size/2;
+        background: $inputs_inlineInputs_element-background-color;
+    }
+}
+
+.InputRadio:checked + .InputRadioOverlay {
+    @include sharedInlineInputElementReplaceStyles();
+
+    border-color: $inputs_inlineInputs_element-background-color;
+    border-radius: $inputs_inlineInputs_size/2;
+
+    &:after {
+        @include sharedInlineInputActivatedFillStyles();
+    }
+}
+
+.FocusBloop {
+    top: rem-calc(-7);
+    left: rem-calc(-7);
+
+    width: rem-calc(34);
+    height: rem-calc(34);
+}

@@ -1,0 +1,45 @@
+/* @description Generates styles for the Avatar component */
+
+@import '../globals/sass/helpers-all';
+
+.Avatar {
+    display: block;
+
+    position: relative;
+
+    border-radius: 100%;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.auto {
+    width: 100%;
+    height: 100%;
+}
+
+.xs {
+    width: rem-calc(16);
+    height: rem-calc(16);
+}
+
+.sm {
+    width: rem-calc(30);
+    height: rem-calc(30);
+}
+
+.md {
+    width: rem-calc(40);
+    height: rem-calc(40);
+}
+
+.lg {
+    width: rem-calc(80);
+    height: rem-calc(80);
+}
+
+.xl {
+    width: rem-calc(150);
+    height: rem-calc(150);
+}

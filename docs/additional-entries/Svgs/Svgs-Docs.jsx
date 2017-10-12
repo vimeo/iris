@@ -1,8 +1,8 @@
 import React from 'react';
-import BellIris from '../../../src/components/icons/bell.svg';
-import { ParagraphMd, Header3, Header4 } from '../../../src/components/Type';
+import BellIris from '../../../src/icons/bell.svg';
+import { ParagraphMd, Header3, Header4 } from '../../../src/Type';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import LinkText from '../../../src/components/LinkText/LinkText';
+import LinkText from '../../../src/LinkText/LinkText';
 
 const SvgsDocs = (props) => {
     return (
@@ -32,7 +32,7 @@ import '{ComponentName}' from 'iris/icons/{fileName}';
             <ParagraphMd><strong>Import it:</strong></ParagraphMd>
             <ExampleSource>
                 {`
-import BellIris from '../../../src/components/icons/bell.svg';
+import BellIris from '../../../src/icons/bell.svg';
                     `}
                 </ExampleSource>
                 <ParagraphMd><strong>Use it as a JSX tag:</strong></ParagraphMd>

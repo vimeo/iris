@@ -3,8 +3,8 @@ const babel = require('gulp-babel');
  
 gulp.task('transpileJS', () =>
     gulp.src([
-        'src/components/**/*.{jsx,js}',
-        '!dist/**/*-Docs.{jsx}'
+        'src/**/*.{jsx,js}',
+        '!src/**/*-Docs.{jsx}'
         ])
         .pipe(babel({
             presets: ['env'],

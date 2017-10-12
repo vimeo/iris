@@ -1,0 +1,69 @@
+/* @description Generates styles for the InputWrapper component */
+@import '../globals/sass/helpers-all';
+
+.InputWrapper {
+    margin-bottom: $inputs_margin-bottom;
+
+    &.isInline {
+        margin-bottom: 0;
+    }
+}
+
+.InputFieldWrapper {
+    // provides positional context for icons
+    position: relative;
+
+    padding: 0;
+}
+
+.Icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    & svg {
+        width: $inputs_icon-size;
+        height: $inputs_icon-size;
+
+        animation-name: iconSlideIn;
+        animation-duration: $inputs_animation-timing;
+        animation-timing-function: ease-out;
+
+        animation-fill-mode: forwards;
+
+        * {
+            fill: currentColor;
+        }
+    }
+}
+
+@keyframes iconSlideIn {
+    from {
+        width: 0;
+
+        opacity: 0;
+    }
+    to {
+        width: $inputs_icon-size;
+
+        opacity: 1;
+    }
+}
+
+.Icon-md {
+    height: $inputs_height-md;
+    padding: rem-calc(11) rem-calc(12);
+}
+
+.Icon-lg {
+    height: $inputs_height-lg;
+    padding: rem-calc(15) rem-calc(13);
+}
+
+.Icon-negative {
+    color: $inputs_error-color;
+}
+
+.Icon-positive {
+    color: $inputs_positive-color;
+}
