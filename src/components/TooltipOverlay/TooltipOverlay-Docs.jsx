@@ -2,7 +2,7 @@ import React from 'react';
 import TooltipOverlay from './TooltipOverlay';
 import Button from '../Button/Button';
 import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
-import DeleteIcon from '../../globals/svg/trash.svg';
+import DeleteIcon from '../icons/trash.svg';
 import LinkText from '../LinkText/LinkText';
 import { List, ListItem } from '../List';
 import { ParagraphMd, Header3 } from '../Type';

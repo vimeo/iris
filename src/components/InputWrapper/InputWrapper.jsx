@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import styles from './InputWrapper.scss';
 import InputLabel from '../InputLabel/InputLabel';
 import InputMessageArea from '../InputMessageArea/InputMessageArea';
-import SuccessIcon from '../../globals/svg/checkmark.svg';
-import AlertIcon from '../../globals/svg/circle-warning.svg';
+import SuccessIcon from '../icons/checkmark.svg';
+import AlertIcon from '../icons/circle-warning.svg';
 
 const displayName = 'InputWrapper';
 

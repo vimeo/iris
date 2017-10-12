@@ -8,119 +8,119 @@
 
 //Export Global CSS and all components ------------------
   
- exports.ArrowLeft = require('../../../src/globals/svg/arrow-left.svg');
+ exports.ArrowLeft = require('../../../src/components/icons/arrow-left.svg');
   
- exports.ArrowReply = require('../../../src/globals/svg/arrow-reply.svg');
+ exports.ArrowReply = require('../../../src/components/icons/arrow-reply.svg');
   
- exports.ArrowRight = require('../../../src/globals/svg/arrow-right.svg');
+ exports.ArrowRight = require('../../../src/components/icons/arrow-right.svg');
   
- exports.ArrowVertical = require('../../../src/globals/svg/arrow-vertical.svg');
+ exports.ArrowVertical = require('../../../src/components/icons/arrow-vertical.svg');
   
- exports.Bell = require('../../../src/globals/svg/bell.svg');
+ exports.Bell = require('../../../src/components/icons/bell.svg');
   
- exports.CameraFilled = require('../../../src/globals/svg/camera-filled.svg');
+ exports.CameraFilled = require('../../../src/components/icons/camera-filled.svg');
   
- exports.Camera = require('../../../src/globals/svg/camera.svg');
+ exports.Camera = require('../../../src/components/icons/camera.svg');
   
- exports.Checkmark = require('../../../src/globals/svg/checkmark.svg');
+ exports.Checkmark = require('../../../src/components/icons/checkmark.svg');
   
- exports.ChevronDownDouble = require('../../../src/globals/svg/chevron-down-double.svg');
+ exports.ChevronDownDouble = require('../../../src/components/icons/chevron-down-double.svg');
   
- exports.ChevronDown = require('../../../src/globals/svg/chevron-down.svg');
+ exports.ChevronDown = require('../../../src/components/icons/chevron-down.svg');
   
- exports.ChevronRight = require('../../../src/globals/svg/chevron-right.svg');
+ exports.ChevronRight = require('../../../src/components/icons/chevron-right.svg');
   
- exports.CircleFilled = require('../../../src/globals/svg/circle-filled.svg');
+ exports.CircleFilled = require('../../../src/components/icons/circle-filled.svg');
   
- exports.CircleInfo = require('../../../src/globals/svg/circle-info.svg');
+ exports.CircleInfo = require('../../../src/components/icons/circle-info.svg');
   
- exports.CirclePlus = require('../../../src/globals/svg/circle-plus.svg');
+ exports.CirclePlus = require('../../../src/components/icons/circle-plus.svg');
   
- exports.CircleRightArrow = require('../../../src/globals/svg/circle-right-arrow.svg');
+ exports.CircleRightArrow = require('../../../src/components/icons/circle-right-arrow.svg');
   
- exports.CircleWarning = require('../../../src/globals/svg/circle-warning.svg');
+ exports.CircleWarning = require('../../../src/components/icons/circle-warning.svg');
   
- exports.Clock = require('../../../src/globals/svg/clock.svg');
+ exports.Clock = require('../../../src/components/icons/clock.svg');
   
- exports.Code = require('../../../src/globals/svg/code.svg');
+ exports.Code = require('../../../src/components/icons/code.svg');
   
- exports.Collections = require('../../../src/globals/svg/collections.svg');
+ exports.Collections = require('../../../src/components/icons/collections.svg');
   
- exports.DismissX = require('../../../src/globals/svg/dismiss-x.svg');
+ exports.DismissX = require('../../../src/components/icons/dismiss-x.svg');
   
- exports.DotsMenu = require('../../../src/globals/svg/dots-menu.svg');
+ exports.DotsMenu = require('../../../src/components/icons/dots-menu.svg');
   
- exports.DownloadArrow = require('../../../src/globals/svg/download-arrow.svg');
+ exports.DownloadArrow = require('../../../src/components/icons/download-arrow.svg');
   
- exports.Eye = require('../../../src/globals/svg/eye.svg');
+ exports.Eye = require('../../../src/components/icons/eye.svg');
   
- exports.Facebook = require('../../../src/globals/svg/facebook.svg');
+ exports.Facebook = require('../../../src/components/icons/facebook.svg');
   
- exports.FolderFilled = require('../../../src/globals/svg/folder-filled.svg');
+ exports.FolderFilled = require('../../../src/components/icons/folder-filled.svg');
   
- exports.Folder = require('../../../src/globals/svg/folder.svg');
+ exports.Folder = require('../../../src/components/icons/folder.svg');
   
- exports.Gear = require('../../../src/globals/svg/gear.svg');
+ exports.Gear = require('../../../src/components/icons/gear.svg');
   
- exports.Globe = require('../../../src/globals/svg/globe.svg');
+ exports.Globe = require('../../../src/components/icons/globe.svg');
   
- exports.Grid = require('../../../src/globals/svg/grid.svg');
+ exports.Grid = require('../../../src/components/icons/grid.svg');
   
- exports.HamburgerMenu = require('../../../src/globals/svg/hamburger-menu.svg');
+ exports.HamburgerMenu = require('../../../src/components/icons/hamburger-menu.svg');
   
- exports.HeartBroken = require('../../../src/globals/svg/heart-broken.svg');
+ exports.HeartBroken = require('../../../src/components/icons/heart-broken.svg');
   
- exports.HeartFilled = require('../../../src/globals/svg/heart-filled.svg');
+ exports.HeartFilled = require('../../../src/components/icons/heart-filled.svg');
   
- exports.Heart = require('../../../src/globals/svg/heart.svg');
+ exports.Heart = require('../../../src/components/icons/heart.svg');
   
- exports.Instagram = require('../../../src/globals/svg/instagram.svg');
+ exports.Instagram = require('../../../src/components/icons/instagram.svg');
   
- exports.Link = require('../../../src/globals/svg/link.svg');
+ exports.Link = require('../../../src/components/icons/link.svg');
   
- exports.List = require('../../../src/globals/svg/list.svg');
+ exports.List = require('../../../src/components/icons/list.svg');
   
- exports.Lock = require('../../../src/globals/svg/lock.svg');
+ exports.Lock = require('../../../src/components/icons/lock.svg');
   
- exports.PaperPlane = require('../../../src/globals/svg/paper-plane.svg');
+ exports.PaperPlane = require('../../../src/components/icons/paper-plane.svg');
   
- exports.Pencil = require('../../../src/globals/svg/pencil.svg');
+ exports.Pencil = require('../../../src/components/icons/pencil.svg');
   
- exports.Pin = require('../../../src/globals/svg/pin.svg');
+ exports.Pin = require('../../../src/components/icons/pin.svg');
   
- exports.Play = require('../../../src/globals/svg/play.svg');
+ exports.Play = require('../../../src/components/icons/play.svg');
   
- exports.Plus = require('../../../src/globals/svg/plus.svg');
+ exports.Plus = require('../../../src/components/icons/plus.svg');
   
- exports.PopIn = require('../../../src/globals/svg/pop-in.svg');
+ exports.PopIn = require('../../../src/components/icons/pop-in.svg');
   
- exports.PopOut = require('../../../src/globals/svg/pop-out.svg');
+ exports.PopOut = require('../../../src/components/icons/pop-out.svg');
   
- exports.Search = require('../../../src/globals/svg/search.svg');
+ exports.Search = require('../../../src/components/icons/search.svg');
   
- exports.SpeechBubbleRounded = require('../../../src/globals/svg/speech-bubble-rounded.svg');
+ exports.SpeechBubbleRounded = require('../../../src/components/icons/speech-bubble-rounded.svg');
   
- exports.SpeechBubbleSquared = require('../../../src/globals/svg/speech-bubble-squared.svg');
+ exports.SpeechBubbleSquared = require('../../../src/components/icons/speech-bubble-squared.svg');
   
- exports.StarFilled = require('../../../src/globals/svg/star-filled.svg');
+ exports.StarFilled = require('../../../src/components/icons/star-filled.svg');
   
- exports.Star = require('../../../src/globals/svg/star.svg');
+ exports.Star = require('../../../src/components/icons/star.svg');
   
- exports.Stats = require('../../../src/globals/svg/stats.svg');
+ exports.Stats = require('../../../src/components/icons/stats.svg');
   
- exports.Trash = require('../../../src/globals/svg/trash.svg');
+ exports.Trash = require('../../../src/components/icons/trash.svg');
   
- exports.Twitter = require('../../../src/globals/svg/twitter.svg');
+ exports.Twitter = require('../../../src/components/icons/twitter.svg');
   
- exports.UploadCloudFilled = require('../../../src/globals/svg/upload-cloud-filled.svg');
+ exports.UploadCloudFilled = require('../../../src/components/icons/upload-cloud-filled.svg');
   
- exports.UploadCloud = require('../../../src/globals/svg/upload-cloud.svg');
+ exports.UploadCloud = require('../../../src/components/icons/upload-cloud.svg');
   
- exports.VideoStackFilled = require('../../../src/globals/svg/video-stack-filled.svg');
+ exports.VideoStackFilled = require('../../../src/components/icons/video-stack-filled.svg');
   
- exports.VideoStack = require('../../../src/globals/svg/video-stack.svg');
+ exports.VideoStack = require('../../../src/components/icons/video-stack.svg');
   
- exports.Video = require('../../../src/globals/svg/video.svg');
+ exports.Video = require('../../../src/components/icons/video.svg');
   
- exports.Youtube = require('../../../src/globals/svg/youtube.svg');
+ exports.Youtube = require('../../../src/components/icons/youtube.svg');
   

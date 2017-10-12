@@ -12,6 +12,6 @@ gulp.task('prepublish' , function(cb) {
             'transpileJS',
             'copyOtherSrcFiles'
         ], 
-        'compilePackageIndexJSX',
+        'compilePackageIndexJS',
 		cb);
 });

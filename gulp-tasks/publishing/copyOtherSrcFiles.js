@@ -25,19 +25,18 @@ gulp.task('copyGlobalSrcFiles', function () {
 gulp.task('copySCSSFiles', function () {
     return gulp.src(
         [
-            'src/components/**/*.scss','src/animations/**/*.scss',
-            'src/utility_components/**/*.scss',
+            'src/components/**/*.scss',
         ]
         )
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('copySVGs', function () {
-    return gulp.src('src/globals/svg/**/*.svg')
+    return gulp.src('src/components/icons/**/*.svg')
     .pipe(gulp.dest('dist/icons'));
 });
 
 gulp.task('copyLegacySVGs', function () {
-    return gulp.src('src/globals/legacy_svg/**/*.svg')
+    return gulp.src('src/globals/legacyIcons/**/*.svg')
     .pipe(gulp.dest('dist/legacyIcons'));
 });

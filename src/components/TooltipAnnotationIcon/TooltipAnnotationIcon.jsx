@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './TooltipAnnotationIcon.scss';
 import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';
-import InfoIcon from '../../globals/svg/circle-info.svg';
+import InfoIcon from '../icons/circle-info.svg';
 
 const displayName = 'TooltipAnnotationIcon';
 

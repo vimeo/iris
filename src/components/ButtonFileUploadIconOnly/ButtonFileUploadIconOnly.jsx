@@ -2,7 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './ButtonFileUploadIconOnly.scss';
-import UploadIcon from '../../globals/svg/upload-cloud.svg';
+import UploadIcon from '../icons/upload-cloud.svg';
 import ButtonFileUploadWrapper from '../ButtonFileUploadWrapper/ButtonFileUploadWrapper';
 
 const displayName = 'ButtonFileUploadIconOnly';

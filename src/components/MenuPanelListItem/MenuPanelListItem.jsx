@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './MenuPanelListItem.scss';
 import { ParagraphMd } from '../Type';
-import SelectedIcon from '../../globals/svg/checkmark.svg';
+import SelectedIcon from '../icons/checkmark.svg';
 
 const displayName = 'MenuPanelListItem';
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import ButtonIconOnly from './ButtonIconOnly';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import SettingsIcon from '../../globals/svg/gear.svg';
-import DownloadIcon from '../../globals/svg/download-arrow.svg';
-import DeleteIcon from '../../globals/svg/trash.svg';
+import SettingsIcon from '../icons/gear.svg';
+import DownloadIcon from '../icons/download-arrow.svg';
+import DeleteIcon from '../icons/trash.svg';
 import { ParagraphMd, Header3 } from '../Type';
 const ButtonIconOnlyDocs = (props) => {
     return (

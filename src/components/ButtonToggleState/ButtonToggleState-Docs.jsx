@@ -3,9 +3,9 @@ import ButtonToggleState from './ButtonToggleState';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import { ParagraphMd } from '../Type';
 
-import PlusIcon from '../../globals/svg/plus.svg';
-import CheckIcon from '../../globals/svg/checkmark.svg';
-import DeleteIcon from '../../globals/svg/dismiss-x.svg';
+import PlusIcon from '../icons/plus.svg';
+import CheckIcon from '../icons/checkmark.svg';
+import DeleteIcon from '../icons/dismiss-x.svg';
 class ButtonToggleStateDocs extends React.Component {
     constructor(props) {
         super(props);

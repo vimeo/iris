@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './NotificationWarning.scss';
 import Notification from '../Notification/Notification';
-import WarningIcon from '../../globals/svg/circle-warning.svg';
+import WarningIcon from '../icons/circle-warning.svg';
 
 const displayName = 'NotificationWarning';
 

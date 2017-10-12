@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './Tag.scss';
 import Button from '../Button/Button';
-import DeleteIcon from '../../globals/svg/dismiss-x.svg';
+import DeleteIcon from '../icons/dismiss-x.svg';
 
 const displayName = 'Tag';
 

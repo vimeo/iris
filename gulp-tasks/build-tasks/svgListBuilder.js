@@ -8,7 +8,7 @@ const svgTest = /^(.*\.((svg)$))?[^.]*$/i;
 
 
 // Walker options
-const walker = walk.walk('src/globals/svg', { followLinks: false });
+const walker = walk.walk('src/components/icons', { followLinks: false });
 
 walker.on('file', function(root, stat, next) {
     // Add this file to the list of files

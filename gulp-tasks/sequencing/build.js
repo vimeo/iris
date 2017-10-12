@@ -9,7 +9,6 @@ gulp.task('build' , function(cb) {
         'compileColorVariables',
         'sassGlobals',
         'copyStaticAssets',
-        'compilePackageIndexJSX',
         'copyFavicon',
         'webpackReact',
 		cb);

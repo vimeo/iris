@@ -4,15 +4,15 @@
     0% {
         opacity: 0;
 
-        transform: scale(.4);
+        transform: scale(0.4);
     }
     30% {
-        opacity: .05;
+        opacity: 0.05;
 
-        transform: scale(.5);
+        transform: scale(0.5);
     }
     100% {
-        opacity: .16;
+        opacity: 0.16;
 
         transform: scale(1);
     }
@@ -21,6 +21,7 @@
 
 @mixin animationBloop () {
     animation-duration: 250ms;
+
     animation-fill-mode: forwards;
 }
 
@@ -31,12 +32,14 @@
 }
 
 input:focus ~ .FocusBloop {
-    border-radius: 100%;
-    background-color: #9bacb8;
-    animation-name: actionCircleBloop;
     @include animationBloop ();
+
+    border-radius: 100%;
+    background-color: #9BACB8;
+
+    animation-name: actionCircleBloop;
 }
 
-input:focus:checked ~ .FocusBloop  {
+input:focus:checked ~ .FocusBloop {
     background-color: $VimeoBlue;
 }

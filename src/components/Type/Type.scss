@@ -13,17 +13,17 @@
 
 .ParagraphAltLg {
     @include ParagraphLg;
-    @include ParagraphAlt
+    @include ParagraphAlt;
 }
 
 .ParagraphAltMd {
     @include ParagraphMd;
-    @include ParagraphAlt
+    @include ParagraphAlt;
 }
 
 .ParagraphAltSm {
     @include ParagraphSm;
-    @include ParagraphAlt
+    @include ParagraphAlt;
 }
 
 .Header1 {

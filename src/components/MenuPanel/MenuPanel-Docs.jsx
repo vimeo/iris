@@ -8,7 +8,7 @@ import MenuPanelList from '../MenuPanelList/MenuPanelList';
 import NotificationWarning from '../NotificationWarning/NotificationWarning';
 import Button from '../Button/Button';
 import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
-import SettingsIcon from '../../globals/svg/gear.svg';
+import SettingsIcon from '../icons/gear.svg';
 import styles from './MenuPanel-Docs.scss';
 class MenuPanelDocs extends React.Component {
     constructor(props) {
