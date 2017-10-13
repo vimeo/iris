@@ -31,22 +31,22 @@ module.exports = (plop) => {
         actions: [
             {
                 type: 'add',
-                path: 'src/components/{{pascalCase name}}/{{pascalCase name}}.jsx',
+                path: 'src/{{pascalCase name}}/{{pascalCase name}}.jsx',
                 templateFile: 'templates/plop-componentTemplates/ComponentJSX.js',
             },
             {
                 type: 'add',
-                path: 'src/components/{{pascalCase name}}/{{pascalCase name}}-Docs.jsx',
+                path: 'src/{{pascalCase name}}/{{pascalCase name}}-Docs.jsx',
                 templateFile: 'templates/plop-componentTemplates/ComponentDocsJSX.js',
             },
             {
                 type: 'add',
-                path: 'src/components/{{pascalCase name}}/{{pascalCase name}}.scss',
+                path: 'src/{{pascalCase name}}/{{pascalCase name}}.scss',
                 templateFile: 'templates/plop-componentTemplates/ComponentSCSS.js',
             },
             {
                 type: 'add',
-                path: 'src/components/{{pascalCase name}}/index.js',
+                path: 'src/{{pascalCase name}}/index.js',
                 templateFile: 'templates/plop-componentTemplates/ComponentIndexJS.js',
             },
         ],
@@ -149,7 +149,7 @@ module.exports = (plop) => {
         actions: [
             {
                 type: 'add',
-                path: 'src/components/{{pascalCase name}}/index.js',
+                path: 'src/{{pascalCase name}}/index.js',
                 templateFile: 'templates/plop-componentTemplates/ComponentIndexJS.js',
             },
         ],
