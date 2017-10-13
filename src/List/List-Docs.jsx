@@ -13,10 +13,10 @@ class ListDocs extends React.Component {
             <div className="Pattern__docs">
                 <div data-code>
                     <Header3>Usage</Header3>
-                    <ParagraphMd>The List component has two exports that are both required: <code>List</code> and <code>ListItem</code>.</ParagraphMd>
+                    <ParagraphMd>ists require two compoents: <code>List</code> and <code>ListItem</code>.</ParagraphMd>
                     <ExampleSource>
                         {`
-import { List, ListItem } from './List';
+import { List, ListItem } from '@vimeo/iris';
 `}
                     </ExampleSource>
                     <ParagraphMd>List type is determined by the <code>format</code> prop. Lists are <code>unordered</code> by default.</ParagraphMd>

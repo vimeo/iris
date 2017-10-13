@@ -22,10 +22,9 @@ export default function GridFullDocs() {
                 <ParagraphMd> Grid sizing starts with the xsSpan prop. Values passed to this prop will determine the column sizing from the smallest width available in the browser upwards. Additional span props such as "mdSpan" can be added to resize the column at corresponding breakpoints (see breakpoints). If no xsSpan sizing prop is passed, the column will default to <code>xsSpan={24}</code>.</ParagraphMd>
 
             <Header3>Importing the Grid</Header3>
-            <ParagraphMd>Import the Grid, GridBlock, and GridColumn components into your working space:</ParagraphMd>
             <ExampleSource>
                 {`
-                    import {GridBlock, GridCol, Grid} from 'iris/Grid';
+                    import {GridBlock, GridCol, Grid} from '@vimeo/iris';
                 `}
             </ExampleSource>
             <ParagraphMd>Set-up your Grid component and place the amount of needed columns into the space.</ParagraphMd>

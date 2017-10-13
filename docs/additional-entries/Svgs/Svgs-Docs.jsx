@@ -17,7 +17,7 @@ const SvgsDocs = (props) => {
             <ExampleSource>
                 {`
 // import it
-import '{ComponentName}' from 'iris/icons/{fileName}';
+import '{ComponentName}' from '@vimeo/iris/icons/{fileName}';
 //...
 // later: use it
 <ComponentName />

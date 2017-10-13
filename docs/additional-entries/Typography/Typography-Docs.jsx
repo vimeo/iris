@@ -21,7 +21,7 @@ const TypographyDocs = (props) => {
             <ExampleSource>
                 {`
 // import just the components you need
-import { ParagraphMd, Header1, Header2} from 'iris/Type;
+import { ParagraphMd, Header1, Header2} from '@vimeo/iris'classnames;
                 `}
             </ExampleSource>
 

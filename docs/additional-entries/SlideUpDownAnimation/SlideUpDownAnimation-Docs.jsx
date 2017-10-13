@@ -31,7 +31,7 @@ class SlideUpDownAnimationDocs extends React.Component {
                         <NotificationSuccess
                                 onDismiss={this.handleClick}
                         >
-                                <p>This component is a Success notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</p>
+                                <ParagraphMd>This component is a Success notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</ParagraphMd>
                         </NotificationSuccess>
                     </SlideUpDown>
                     <Button format="secondaryOutline" size="xs" onClick={this.handleClick}>Toggle Notifcation</Button>
@@ -45,7 +45,7 @@ class SlideUpDownAnimationDocs extends React.Component {
     <NotificationSuccess
             onDismiss={this.handleClick}
     >
-            <p>This component is a Success notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</p>
+            <ParagraphMd>This component is a Success notification. I am dismissable. I have a click handler function for onDismiss as well (look at the console!).</ParagraphMd>
     </NotificationSuccess>
 </SlideUpDown>
                         `}
