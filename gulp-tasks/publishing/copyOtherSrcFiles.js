@@ -37,6 +37,6 @@ gulp.task('copySVGs', function () {
 });
 
 gulp.task('copyLegacySVGs', function () {
-    return gulp.src('src/globals/legacyIcons/**/*.svg')
+    return gulp.src('legacyIconsOptimized/**/*.svg')
     .pipe(gulp.dest('dist/legacyIcons'));
 });
