@@ -42,6 +42,7 @@
         ["NotificationSuccess", "Success Notification"],
         ["NotificationWarning", "Warning Notification"],
         ["SearchField", "Search Field"],
+        ["TabNavigationHorizontal", "Tab Navigation (Horizontal)"],
         ["Tag", "Tag"],
         ["TooltipAnnotationIcon", "Tooltip Annotation Icon"],
         ["TooltipOverlay", "Tooltip Overlay"],

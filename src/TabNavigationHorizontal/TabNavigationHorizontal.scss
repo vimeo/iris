@@ -1,0 +1,32 @@
+/* @description Generates styles for the TabNavigationHorizontal component */
+@import '../globals/sass/helpers-all';
+
+.NavWrapper {
+    display: flex;
+
+    width: 100%;
+    margin: 0 0 spacingUnit(1);
+    padding: 0;
+
+    list-style-type: none;
+}
+
+
+.NavIndicatorBar {
+    position: relative;
+
+    width: 100%;
+    height: rem-calc(2);
+
+    background-color: $Porcelain;
+}
+
+.NavIndicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: rem-calc(2);
+
+    background-color: $VimeoBlue;
+}
