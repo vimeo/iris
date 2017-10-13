@@ -17,7 +17,7 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.jsx?$/, loader: 'babel-loader', exclude: '/node_modules/'},
-            { test: /\.svg$/, loader: 'babel?presets[]=es2015,presets[]=react!svg-react' },
+            { test: /\.svg$/, loader: 'babel?presets[]=env,presets[]=react!svg-react' },
         ],
     },
 
