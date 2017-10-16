@@ -24,6 +24,7 @@ type Props = {
     onOpen: Function,
     size: 'sm' | 'md' | 'lg',
     options?: Object,
+    isFluid?: boolean,
 };
 
 class MenuPanel extends React.Component {
@@ -233,6 +234,7 @@ class MenuPanel extends React.Component {
             children,
             className,
             href,
+            isFluid,
             isShowing, // eslint-disable-line no-unused-vars
             menuContent,
             onClose, // eslint-disable-line no-unused-vars
@@ -250,7 +252,13 @@ class MenuPanel extends React.Component {
 
         const triggerClass = classNames(
             styles.MenuTrigger,
+            (isFluid ? styles.isFluid : null),
             className,
+        );
+
+        const wrapperClass = classNames(
+            styles.MenuPanelWrapper,
+            (isFluid ? styles.isFluid : null),
         );
 
         const menuElement = (
@@ -280,7 +288,7 @@ class MenuPanel extends React.Component {
         );
 
         return (
-            <div className={styles.MenuPanelWrapper}>
+            <div className={wrapperClass}>
                 <TetherComponent
                     attachment={`top ${alignment}`}
                     targetAttachment={`bottom ${alignment}`}
