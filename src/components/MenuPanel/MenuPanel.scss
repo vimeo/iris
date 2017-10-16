@@ -20,10 +20,18 @@ $MenuPanel_animation-speed: $MenuPanel_animation-speed-integer * 1ms;
 
 .MenuPanelWrapper {
     display: inline-block;
+
+    &.isFluid {
+        display: block;
+    }
 }
 
 .MenuTrigger {
     display: inline-block; // this ensures proper menu placement;
+
+    &.isFluid {
+        display: block;
+    }
 }
 
 .MenuPanel {
