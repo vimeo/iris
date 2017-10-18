@@ -2,6 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './InputMessage.scss';
+import { ParagraphSm } from '../../utility_components/Type/Type';
 
 const displayName = 'InputMessage';
 
@@ -11,6 +12,7 @@ const defaultProps = {
 
 type Props = {
     className: string,
+    children: React$Element<*>,
     format: 'helper' | 'negative',
 };
 
@@ -28,6 +30,7 @@ class InputMessage extends React.Component {
         const {
             format,
             className,
+            children,
             ...filteredProps
         } = this.props;
 
@@ -39,10 +42,13 @@ class InputMessage extends React.Component {
         );
 
         return (
-                <div
+                <ParagraphSm
                     {...filteredProps}
+                    element="span"
                     className={componentClass}
-                />
+                >
+                    {children}
+                </ParagraphSm>
         );
     }
 }
