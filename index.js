@@ -34,9 +34,13 @@ exports.paths = {
   
   'iris/ButtonIconOnly':'iris/src/components/ButtonIconOnly/ButtonIconOnly',
   
+  'iris/ButtonInlineInputText':'iris/src/components/ButtonInlineInputText/ButtonInlineInputText',
+  
   'iris/ButtonToggleState':'iris/src/components/ButtonToggleState/ButtonToggleState',
   
   'iris/CircularButton':'iris/src/components/CircularButton/CircularButton',
+  
+  'iris/CopyField':'iris/src/components/CopyField/CopyField',
   
   'iris/CounterIcon':'iris/src/components/CounterIcon/CounterIcon',
   
