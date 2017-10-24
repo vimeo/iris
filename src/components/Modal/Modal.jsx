@@ -71,6 +71,7 @@ class Modal extends React.Component {
     firstFocusableElement: Object;
     lastFocusableElement: Object;
     thisEl: any;
+    scrollDistance: number;
 
     _bindEvents() {
         document.addEventListener(
@@ -138,7 +139,8 @@ class Modal extends React.Component {
     }
 
     _freezeBodyScroll() {
-        const topOffset = `-${window.pageYOffset}px`;
+        this.scrollDistance = window.pageYOffset;
+        const topOffset = `-${this.scrollDistance}px`;
         // Flow does not like using classList or style on document body
 
         // $FlowFixMe
@@ -153,6 +155,11 @@ class Modal extends React.Component {
         document.body.classList.remove(styles.freezeBodyScroll);
         // $FlowFixMe
         document.body.style.top = null;
+
+        // reset scroll place, needs a slight delay to work.
+        setTimeout(() => {
+            window.scrollTo(0, this.scrollDistance);
+        }, 2);
     }
 
     _getOriginalFocusedEl() {
