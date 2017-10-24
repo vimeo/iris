@@ -24,6 +24,7 @@ class SearchFieldDocs extends React.Component {
                         fieldLabel="Search"
                         id="exampleSearchField1"
                         placeholder="Search our videos"
+                        size="md"
                     />
                       <SearchField
                         buttonLabel="submit"
