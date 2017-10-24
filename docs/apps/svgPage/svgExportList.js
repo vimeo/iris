@@ -74,6 +74,10 @@
   
  exports.Heart = require('../../../src/globals/svg/heart.svg');
   
+ exports.HomeFilled = require('../../../src/globals/svg/home-filled.svg');
+  
+ exports.Home = require('../../../src/globals/svg/home.svg');
+  
  exports.Instagram = require('../../../src/globals/svg/instagram.svg');
   
  exports.Link = require('../../../src/globals/svg/link.svg');
