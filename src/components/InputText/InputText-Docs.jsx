@@ -227,6 +227,30 @@ class InputTextDocs extends React.Component {
     />
                         `}
                     </ExampleSource>
+                    <Header3>Adding a Button</Header3>
+                    <ParagraphMd>Buttons can be added to fields by passing a <code>ButtonInlineInputText</code> component to <code>inlineButton</code> prop</ParagraphMd>
+                    <ParagraphMd>The following example shows how our <code>SearchField</code> component is made.</ParagraphMd>
+                    <ExampleSource>
+                    {`
+const ButtonComponent = (
+    <ButtonInlineInputText
+        icon = {<SearchIcon />}
+        format="subtle"
+        size={size}
+    />
+);
+
+return (
+        <InputText
+            {...filteredProps}
+            showLabel={showLabel}
+            inlineButton={ButtonComponent}
+            isInline = {isInline}
+            size={size}
+        />
+);
+                        `}
+                    </ExampleSource>
 
                     <Header3>Inline Fields</Header3>
                     <ParagraphMd>Fields have bottom margin by default. To suppress this margin (for instance in stand alone search field), use <code>isInline=true</code>. This will usually be used in tandem with the hidden field option above.</ParagraphMd>

@@ -11,6 +11,7 @@ type Props = {
     disabled?: boolean,
     errorMsg?: React$Element<*>,
     format?: 'negative' | 'positive' | 'neutral',
+    inlineButton?: React$Element<*>,
     isInline?: boolean,
     helperMsg?: React$Element<*>,
     label: string | React$Element<*>,
@@ -27,6 +28,7 @@ const InputText = ({
                         format = 'neutral',
                         isInline,
                         helperMsg,
+                        inlineButton,
                         label,
                         id,
                         showLabel = true,
@@ -43,6 +45,7 @@ const InputText = ({
             styles.InputText,
             (styles[format]),
             (hasIcon ? styles.hasIcon : null),
+            (inlineButton ? styles.hasInlineButton : null),
             styles[size],
             className
         );
@@ -52,7 +55,6 @@ const InputText = ({
     if (!showLabel) {
         ariaLabel = label;
     }
-
 
     return (
             <InputWrapper
@@ -73,8 +75,10 @@ const InputText = ({
                         aria-invalid={ariaInvalid}
                         disabled={disabled}
                         className={componentClass}
+                        id={id}
                         type={type}
                     />
+                    {inlineButton}
             </InputWrapper>
 
     );
