@@ -1,0 +1,7 @@
+/* @description Generates styles for the VerticalMenuContextualMenuPanel component */
+@import '../../globals/sass/helpers-all';
+.buttonOffset {
+    position: relative;
+    top: rem-calc(3);
+    right: rem-calc(2);
+}

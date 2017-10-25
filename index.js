@@ -122,4 +122,14 @@ exports.paths = {
   
   'iris/TooltipOverlay':'iris/src/components/TooltipOverlay/TooltipOverlay',
   
+  'iris/VerticalMenuContextualMenuPanel':'iris/src/components/VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel',
+  
+  'iris/VerticalMenuItem':'iris/src/components/VerticalMenuItem/VerticalMenuItem',
+  
+  'iris/VerticalMenuItemContent':'iris/src/components/VerticalMenuItemContent/VerticalMenuItemContent',
+  
+  'iris/VerticalMenuNested':'iris/src/components/VerticalMenuNested/VerticalMenuNested',
+  
+  'iris/VerticalMenuNestedSubMenu':'iris/src/components/VerticalMenuNestedSubMenu/VerticalMenuNestedSubMenu',
+  
 };

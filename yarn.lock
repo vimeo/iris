@@ -5816,7 +5816,7 @@ stdout-stream@^1.4.0:
 
 "steadicam@git+ssh://git@github.vimeows.com/Vimeo/steadicam.git":
   version "1.1.2"
-  resolved "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#3327ce0c73114595dd9d853a8ca6da9d450629e4"
+  resolved "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#84e8bef244a35ffe42b8ee15efffc5325aa8b278"
   dependencies:
     browser-sync "^2.18.2"
     classnames "^2.2.5"
