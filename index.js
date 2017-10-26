@@ -54,6 +54,8 @@ exports.paths = {
   
   'iris/InputCheckbox':'iris/src/components/InputCheckbox/InputCheckbox',
   
+  'iris/InputCheckboxSet':'iris/src/components/InputCheckboxSet/InputCheckboxSet',
+  
   'iris/InputLabel':'iris/src/components/InputLabel/InputLabel',
   
   'iris/InputLabelInline':'iris/src/components/InputLabelInline/InputLabelInline',

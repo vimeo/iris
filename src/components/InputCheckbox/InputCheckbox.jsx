@@ -9,6 +9,7 @@ import FocusBloop from '../../animations/FocusBloop/FocusBloop';
 const displayName = 'InputCheckbox';
 
 type Props = {
+    checkedStyle?: 'default' | 'indeterminate',
     className?: string,
     disabled?: boolean,
     errorMsg?: React$Element<*>,
@@ -20,16 +21,17 @@ type Props = {
 };
 
 const InputCheckbox = ({
-                        className,
-                        disabled,
-                        errorMsg,
-                        format = 'neutral',
-                        helperMsg,
-                        hideLabel,
-                        id,
-                        label,
-                        ...filteredProps
-                    }: Props): React$Element<*> => {
+    checkedStyle = 'default',
+    className,
+    disabled,
+    errorMsg,
+    format = 'neutral',
+    helperMsg,
+    hideLabel,
+    id,
+    label,
+    ...filteredProps
+}: Props): React$Element<*> => {
 
     // className builder
     const componentClass = classNames(
@@ -39,6 +41,7 @@ const InputCheckbox = ({
 
     const overlayClass = classNames(
         styles.InputCheckboxOverlay,
+        styles[checkedStyle],
         className
     );
 

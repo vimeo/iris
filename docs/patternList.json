@@ -29,6 +29,7 @@
         ["CounterIcon", "Counter Icons"],
         ["FieldSet", "FieldSet"],
         ["InputCheckbox", "Inputs: Checkbox"],
+        ["InputCheckboxSet", "Inputs: Checkbox Set"],
         ["InputRadio", "Inputs: Radio"],
         ["InputRadioSet", "Inputs: Radio Set"],
         ["InputSelect", "Inputs: Select Menu"],
