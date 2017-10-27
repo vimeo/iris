@@ -18,7 +18,7 @@ type Props = {
     className?: string,
     children: React$Element <*>,
     href?: string,
-    isShowing?: Boolean,
+    isShowing?: boolean,
     menuContent: React$Element <*>,
     onClose?: Function,
     onOpen?: Function,
