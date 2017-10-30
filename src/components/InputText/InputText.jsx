@@ -16,6 +16,7 @@ type Props = {
     helperMsg?: React$Element<*>,
     label: string | React$Element<*>,
     id: string,
+    preMessage?: React$Element<*>,
     showLabel?: boolean,
     size?: 'md' | 'lg',
     type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' |'url',
@@ -31,6 +32,7 @@ const InputText = ({
                         inlineButton,
                         label,
                         id,
+                        preMessage,
                         showLabel = true,
                         size = 'md',
                         type = 'text',
@@ -66,6 +68,7 @@ const InputText = ({
                 label = {label}
                 labelForId = {id}
                 isInline = {isInline}
+                preMessage={preMessage}
                 size={size}
             >
 

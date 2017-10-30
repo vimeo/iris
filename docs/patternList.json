@@ -9,6 +9,7 @@
     "Utilities": [
         ["MediaQueries", "Named Media Queries", true],
         ["SpacingUnit", "Spacing Units", true],
+        ["WithCharacterCount", "Inputs wth Character Count", true],
         ["ZindexHelper", "Z-Index Helper", true]
     ],
 

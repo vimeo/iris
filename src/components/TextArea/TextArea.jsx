@@ -14,6 +14,7 @@ type Props = {
     helperMsg?: React$Element<*>,
     label: string,
     id: string,
+    preMessage?: React$Element<*>,
     showLabel?: boolean,
 };
 
@@ -25,6 +26,7 @@ const TextArea = ({
                         helperMsg,
                         label,
                         id,
+                        preMessage,
                         showLabel = true,
                         ...filteredProps
                     }: Props): React$Element<*> => {
@@ -56,6 +58,7 @@ const TextArea = ({
                     helperMsg = {helperMsg}
                     label = {label}
                     labelForId = {id}
+                    preMessage={preMessage}
                 >
                     <textarea
                         id={id}

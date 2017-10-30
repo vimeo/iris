@@ -1,0 +1,17 @@
+@import "../../../src/globals/sass/helpers-all";
+
+.CharacterCounter {
+    &.overrideStyles {
+        margin-bottom: spacingUnit(1);
+    }
+    &.isWarning {
+        font-weight: 600;
+
+        color: $AstroGranite;
+    }
+    &.isError {
+        font-weight: 600;
+
+        color: $SunsetOrange;
+    }
+}

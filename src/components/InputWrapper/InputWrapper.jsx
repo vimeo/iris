@@ -19,6 +19,7 @@ type Props = {
     isInline?: boolean,
     label?: string | React$Element<*>,
     labelForId?: string,
+    preMessage?: React$Element<*>,
     showLabel: boolean,
     size?: 'md' | 'lg',
 };
@@ -33,6 +34,7 @@ const InputWrapper = ({
                         helperMsg,
                         isInline,
                         label,
+                        preMessage,
                         showLabel = true,
                         size = 'md',
                         ...filteredProps
@@ -88,6 +90,7 @@ const InputWrapper = ({
                     {children}
                     {inputIcon}
                 </div>
+                {preMessage}
                 <InputMessageArea
                     errorMsg={errorMsg}
                     helperMsg={helperMsg}
