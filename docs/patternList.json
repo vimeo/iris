@@ -24,6 +24,7 @@
         ["ButtonFileUpload", "Button: File Upload"],
         ["ButtonFileUploadIconOnly", "Button: File Upload (Icon Only)"],
         ["ButtonInlineInputText", "Buttons: Inline for Inputs"],
+        ["ButtonLoadingState", "Buttons: Loading State"],
         ["ButtonToggleState", "Buttons: ToggleState"],
         ["CircularButton", "Circular Button"],
         ["CopyField", "Copy Field"],

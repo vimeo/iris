@@ -38,6 +38,8 @@ exports.paths = {
   
   'iris/ButtonInlineInputText':'iris/src/components/ButtonInlineInputText/ButtonInlineInputText',
   
+  'iris/ButtonLoadingState':'iris/src/components/ButtonLoadingState/ButtonLoadingState',
+  
   'iris/ButtonToggleState':'iris/src/components/ButtonToggleState/ButtonToggleState',
   
   'iris/CircularButton':'iris/src/components/CircularButton/CircularButton',
