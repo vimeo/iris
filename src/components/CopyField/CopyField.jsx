@@ -1,11 +1,10 @@
 // @flow
 import React from 'react';
 import { findDOMNode } from 'react-dom';
-import Toastification from '../Toastification/Toastification';
 import classNames from 'classnames';
-import Clipboard from 'clipboard';
 import styles from './CopyField.scss';
 import ClipboardIcon from '../../globals/svg/clipboard.svg';
+import withCopyAbility from '../withCopyAbility/withCopyAbility';
 import InputText from '../InputText/InputText';
 import ButtonInlineInputText from '../ButtonInlineInputText/ButtonInlineInputText';
 import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';
@@ -15,7 +14,7 @@ const displayName = 'CopyField';
 type Props = {
     buttonFormat?: 'subtle' | 'neutral' | 'strong',
     className?: string,
-    id?: string,
+    id: string,
     label: string,
     isFluid?: boolean,
     onCopy?: Function,
@@ -30,78 +29,13 @@ class CopyField extends React.Component {
         buttonFormat: 'strong',
     };
 
-    constructor(props: Props) {
-        super(props);
-        this.fieldId = props.id || 'CopyToClipboardField';
-        this.fieldWrapperId = `${this.fieldId}Wrapper`;
-        this.state = {
-            showNotice: false,
-        };
-    }
-
-    state: Object;
-
-    componentDidMount() {
-        const el = findDOMNode(this);
-        if (el instanceof HTMLElement) {
-            this.TriggerButton = el.querySelector('[data-clipboard-trigger]');
-            this._initializeClipBoard();
-        }
-    }
-
-
-    componentDidUpdate() {
-        this._destroyClipBoard();
-        this._initializeClipBoard();
-    }
-
-    componentWillUnmount() {
-        this._destroyClipBoard();
-    }
-
-    ClipBoardInstance: Object;
-    fieldId: string;
-    fieldWrapperId: string;
-    TriggerButton: HTMLElement | null;
     props: Props;
 
-    _destroyClipBoard = () => {
-        this.ClipBoardInstance.destroy();
-    }
-
-    _initializeClipBoard = () => {
-        const button = findDOMNode(this.TriggerButton);
-        const thisComponent = this;
-        this.ClipBoardInstance = new Clipboard(button);
-
-        this.ClipBoardInstance.on('success', function(e) {
-            thisComponent._showNotice();
-        });
-    }
-
-    _showNotice = () => {
-        if (!this.state.showNotice) {
-            this.setState({
-                showNotice: true,
-            });
-        }
-    }
-
-    _resetNotice = () => {
-        this.setState({
-            showNotice: false,
-        });
-    }
-
-    _handleClick = (e: Event) =>{
-        if (typeof this.props.onCopy === 'function') {
-            this.props.onCopy();
-        }
-    }
-
     _handleFieldClick = () =>{
-        if (this.TriggerButton instanceof HTMLElement) {
-            this.TriggerButton.click();
+        const el = findDOMNode(this);
+        const TriggerTarget = el instanceof HTMLElement && el.querySelector('[data-button-trigger]');
+        if (TriggerTarget instanceof HTMLElement) {
+            TriggerTarget.click();
         }
     }
 
@@ -110,8 +44,8 @@ class CopyField extends React.Component {
             buttonFormat,
             className,
             tooltipString,
-            id, // eslint-disable-line no-unused-vars
-            onCopy, // eslint-disable-line no-unused-vars
+            id,
+            onCopy,
             size,
             successMessage,
             stringToCopy,
@@ -124,6 +58,8 @@ class CopyField extends React.Component {
             className
         );
 
+        const CopyButton = withCopyAbility(ButtonInlineInputText);
+
         const ButtonComponent = (
             <TooltipOverlay
                 tooltipText={tooltipString}
@@ -132,22 +68,22 @@ class CopyField extends React.Component {
                     'offset': '48px 0',
                 }}
             >
-                <ButtonInlineInputText
+                <CopyButton
+                    data-button-trigger
                     icon = {<ClipboardIcon />}
                     format={buttonFormat}
                     size={size}
-                    onClick={this._handleClick}
-                    data-clipboard-trigger
-                    data-clipboard-target={`#${this.fieldId}`}
+                    successMessage={successMessage}
+                    stringToCopy={stringToCopy}
+                    onCopy={onCopy}
                 />
             </TooltipOverlay>
         );
 
         return (
-            <div>
                 <InputText
                     {...filteredProps}
-                    id={this.fieldId}
+                    id={id}
                     inlineButton={ButtonComponent}
                     isInline
                     size={size}
@@ -156,13 +92,6 @@ class CopyField extends React.Component {
                     onClick={this._handleFieldClick}
                     readOnly
                 />
-                <Toastification
-                    isShowing={this.state.showNotice}
-                    onComplete={this._resetNotice}
-                >
-                    {successMessage}
-                </Toastification>
-            </div>
         );
 
     }

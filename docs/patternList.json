@@ -26,6 +26,7 @@
         ["ButtonToggleState", "Buttons: ToggleState"],
         ["CircularButton", "Circular Button"],
         ["CopyField", "Copy Field"],
+        ["WithCopyAbility", "Copy Ability Wrapper",  true],
         ["CounterIcon", "Counter Icons"],
         ["FieldSet", "FieldSet"],
         ["InputCheckbox", "Inputs: Checkbox"],

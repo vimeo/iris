@@ -17,6 +17,7 @@ exports.paths = {
   'iris/icons':'iris/src/globals/svg/',
   'iris/legacyIcons':'iris/src/globals/legacy_svg/',
   'iris/SlideUpDown' : 'iris/src/animations/SlideUpDown/SlideUpDown',
+  'iris/WithCopyAbility' : 'iris/src/components/withCopyAbility/withCopyAbility',
   <% _.forEach(patterns[0], function(pattern) { if(pattern['displayName']){ %>
   'iris/<%- pattern['displayName']%>':'iris/src/components/<%- pattern['displayName']%>/<%- pattern['displayName']%>',
   <% }}); %>
