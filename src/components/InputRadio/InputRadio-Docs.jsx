@@ -26,7 +26,16 @@ class InputRadioDocs extends React.Component {
                             value="1"
                             disabled
                         />
-                </div>
+                        <div className="Pattern-DarkBlock">
+                            <InputRadio
+                                label="Sample Radio"
+                                name="SampleRadio"
+                                id="SampleRadioDark"
+                                value="1"
+                                theme="dark"
+                            />
+                        </div>
+                    </div>
                 <ExampleSource>
                     {`
 <InputRadio
@@ -41,7 +50,14 @@ class InputRadioDocs extends React.Component {
     id="DisabledRadio"
     value="1"
     disabled
-/>                     `}
+/> 
+<InputRadio
+    label="Sample Radio"
+    name="SampleRadio"
+    id="SampleRadioDark"
+    value="1"
+    theme="dark"
+/>                    `}
                     </ExampleSource>
                 </div>
         );

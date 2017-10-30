@@ -1,7 +1,11 @@
 $inputs_background-color: $White;
 $inputs_background-color-disabled: $Plaster;
+$inputs_background-color-dark: rgba($White, 0.1);
+$inputs_background-color-dark-inline-elements: rgba($White, 0.2);
 $inputs_border-color: $RegentGray;
+$inputs_border-color-dark: $RegentGray;
 $inputs_border-color-focused: $AstroGranite;
+$inputs_border-color-focused-dark: $White;
 $inputs_border-color-disabled: $Porcelain;
 $inputs_border-size: 0.0625rem;
 $inputs_border-size-focused: 0.125rem;
@@ -14,6 +18,7 @@ $inputs_padding-lg-horizontal: 0.8125rem;
 $inputs_padding-lg-vertical: 0.6875rem;
 $inputs_animation-timing: 300ms;
 $inputs_text-color: $BodyTextColor-Dark;
+$inputs_text-color-dark: $Porcelain;
 $inputs_text-color-disabled: $BodyTextColor-Light;
 $inputs_placeholder-color: $RegentGray;
 $inputs_error-color: $SunsetOrange;
@@ -37,11 +42,9 @@ $input_has-icon-padding-lg: $inputs_icon-size + 1.3125rem;
 
     margin: 0 0 $inputs_margin-bottom 0;
 
-    color: $inputs_text-color;
     border-width: $inputs_border-size;
     border-style: $inputs_border-style;
     border-radius: rem-calc($g-radius);
-    background-color: $inputs_background-color;
     box-shadow: inset 0 0 0 0 #FFFFFF;
 
     transition: all $inputs_animation-timing ease-out;
@@ -50,12 +53,34 @@ $input_has-icon-padding-lg: $inputs_icon-size + 1.3125rem;
         outline: 0;
     }
 
-    &.neutral {
-        border-color: $inputs_border-color;
-        &:focus {
-            @include inputs_focus_border-shadow($inputs_border-color-focused);
+    // Default Theme Styles ===========================
 
-            border-color: $inputs_border-color-focused;
+    &.defaultTheme {
+        color: $inputs_text-color;
+        background-color: $inputs_background-color;
+
+        &.neutral {
+            border-color: $inputs_border-color;
+            &:focus {
+                @include inputs_focus_border-shadow($inputs_border-color-focused);
+
+                border-color: $inputs_border-color-focused;
+            }
+        }
+    }
+
+    // DarkTheme Styles ===========================
+    &.darkTheme {
+        color: $inputs_text-color-dark;
+        background-color: $inputs_background-color-dark;
+
+        &.neutral {
+            border-color: $inputs_border-color-dark;
+            &:focus {
+                @include inputs_focus_border-shadow($inputs_border-color-focused-dark);
+
+                border-color: $inputs_border-color-focused-dark;
+            }
         }
     }
 

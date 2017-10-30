@@ -6,55 +6,44 @@ import { ParagraphSm } from '../../utility_components/Type/Type';
 
 const displayName = 'InputMessage';
 
-const defaultProps = {
-    format: 'helper',
-};
-
 type Props = {
-    className: string,
-    children: React$Element<*>,
+    className?: string,
+    children: string | React$Element<*>,
     format: 'helper' | 'negative',
+    theme?: 'default' | 'dark',
 };
 
-class InputMessage extends React.Component {
+const InputMessage = (props: Props): React$Element<*> => {
 
-    static defaultProps: Object;
+    const {
+        format = 'helper',
+        className,
+        children,
+        theme = 'default',
+        ...filteredProps
+    } = props;
 
-    constructor(props: Props) {
-        super(props);
-    }
+    // className builder
+    const componentClass = classNames(
+        styles.InputMessage,
+        styles[theme + 'Theme'],
+        (format === 'negative' ? styles.negative : null),
+        className
+    );
 
-    render() {
+    return (
+            <ParagraphSm
+                {...filteredProps}
+                element="span"
+                className={componentClass}
+            >
+                {children}
+            </ParagraphSm>
+    );
+};
 
-        // filter out props that are not meant to be passed in as an attribute from props and store the rest as "filteredProps" to be printed into the component as attrubutes in the tag (e.g. HTML attribute pass-through, event handlers)
-        const {
-            format,
-            className,
-            children,
-            ...filteredProps
-        } = this.props;
-
-        // className builder
-        const componentClass = classNames(
-            styles.InputMessage,
-            (format === 'negative' ? styles.negative : null),
-            className
-        );
-
-        return (
-                <ParagraphSm
-                    {...filteredProps}
-                    element="span"
-                    className={componentClass}
-                >
-                    {children}
-                </ParagraphSm>
-        );
-    }
-}
 
 InputMessage.displayName = displayName;
 
-InputMessage.defaultProps = defaultProps;
 
 export default InputMessage;

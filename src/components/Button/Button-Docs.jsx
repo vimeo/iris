@@ -44,11 +44,10 @@ class ButtonDocs extends React.Component {
                     <Button format="successOutline">Success Outline</Button>
                 </div>
 
-                <div style={{ 'backgroundColor': '#f2f4f5', 'padding': '1em', 'width': '100%' }}>
+                <div className="Pattern-DarkBlock">
 
                     <Button format="primaryOutline">Primary Outline</Button>
                     <Button format="secondaryOutline">Secondary Outline</Button>
-                    <Button format="alternativeOutline">Alternative Outline</Button>
                     <Button format="successOutline">Success Outline</Button>
                 </div>
 
@@ -56,7 +55,6 @@ class ButtonDocs extends React.Component {
                     {`
 <Button format="primaryOutline">Primary Outline</Button>
 <Button format="secondaryOutline">Secondary Outline</Button>
-<Button format="alternativeOutline">Alternative Outline</Button>
 <Button format="successOutline">Success Outline</Button>
                     `}
                 </ExampleSource>
@@ -68,7 +66,7 @@ class ButtonDocs extends React.Component {
                     <Button format="secondaryTextOnly" >Secondary Outline</Button>
                 </div>
 
-                <div style={{ 'backgroundColor': '#000', 'padding': '1em', 'width': '100%' }}>
+                <div className="Pattern-DarkBlock">
                     <Button format="primaryTextOnly" icon={<ShareIcon />}>Primary TextOnly</Button>
                     <Button format="lightTextOnly" icon={<ShareIcon />}>Light Outline</Button>
                 </div>

@@ -51,6 +51,15 @@ $InputCheck_fill-size: 1rem;
 
     border-radius: rem-calc($g-radius-sm);
 
+    &.darkTheme {
+        border-color: $inputs_border-color-dark;
+        background-color: $inputs_background-color-dark-inline-elements;
+
+        &:hover {
+            border-color: $White;
+        }
+    }
+
     &.default::after {
         @include InputCheck_checkboxFill();
 
@@ -64,8 +73,12 @@ $InputCheck_fill-size: 1rem;
     }
 }
 
-.InputCheckbox:focus + .InputCheckboxOverlay {
+.InputCheckbox:focus + .InputCheckboxOverlay.defaultTheme {
     border-color: $inputs_border-color-focused;
+}
+
+.InputCheckbox:focus + .InputCheckboxOverlay.darkTheme {
+    border-color: $inputs_border-color-focused-dark;
 }
 
 .InputCheckbox:checked + .InputCheckboxOverlay {

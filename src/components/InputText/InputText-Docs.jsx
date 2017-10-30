@@ -94,6 +94,34 @@ class InputTextDocs extends React.Component {
                     />
 
                 </div>
+                <div className="Pattern-DarkBlock">
+                    <InputText
+                        name="medInput"
+                        id="medInputDark"
+                        label="Input (medium)"
+                        placeholder="I'm Medium!"
+                        theme="dark"
+                    />
+                    <InputText
+                        name="nice"
+                        id="niceDark"
+                        label="Positive Input"
+                        format="positive"
+                        placeholder="Placeholder Text"
+                        defaultValue="Something is right!"
+                        theme="dark"
+                    />
+                    <InputText
+                        name="oops"
+                        id="oopsDark"
+                        label="Errored Input"
+                        format="negative"
+                        errorMsg = {<ParagraphMd>This is a problem!</ParagraphMd>}
+                        placeholder="Placeholder Text"
+                        defaultValue="Something is wrong!"
+                        theme="dark"
+                    />
+                </div>
 
                 <ExampleSource>
                     {`
@@ -140,6 +168,32 @@ class InputTextDocs extends React.Component {
     disabled
     placeholder="Placeholder Text"
     defaultValue="I'm Disabled"
+/>
+<InputText
+    name="medInput"
+    id="medInputDark"
+    label="Input (medium)"
+    placeholder="I'm Medium!"
+    theme="dark"
+/>
+<InputText
+    name="nice"
+    id="niceDark"
+    label="Positive Input"
+    format="positive"
+    placeholder="Placeholder Text"
+    defaultValue="Something is right!"
+    theme="dark"
+/>
+<InputText
+    name="oops"
+    id="oopsDark"
+    label="Errored Input"
+    format="negative"
+    errorMsg = {<ParagraphMd>This is a problem!</ParagraphMd>}
+    placeholder="Placeholder Text"
+    defaultValue="Something is wrong!"
+    theme="dark"
 />
                     `}
                     </ExampleSource>
@@ -191,7 +245,6 @@ class InputTextDocs extends React.Component {
 />
                         `}
                     </ExampleSource>
-
                 <Header3>Input Sizes</Header3>
                 <ParagraphMd>Inputs can also be medium or large and are sized to line up with the buttons of the same size prop.</ParagraphMd>
                 <div data-code>

@@ -17,6 +17,7 @@ type Props = {
     label: string | React$Element<*>,
     name: string,
     radios: Array<{label: string | React$Element<*>, id: string, value: string}>,
+    theme?: 'default' | 'dark',
 };
 
 
@@ -30,6 +31,7 @@ const InputRadioSet = ({
                         id,
                         name,
                         radios,
+                        theme = 'default',
                         ...filteredProps
                     }: Props): React$Element<*> => {
 
@@ -38,11 +40,17 @@ const InputRadioSet = ({
         className
     );
 
-    const radioSet = [];
-
-    radios.map(function(key, i) {
+    const radioSet = radios.map(function(key, i) {
         const thisRadioData = radios[i];
-        radioSet.push(<InputRadio name={name} format={format} {...thisRadioData} key={i} />);
+        return (
+            <InputRadio
+                name={name}
+                format={format}
+                theme={theme}
+                {...thisRadioData}
+                key={i}
+            />
+        );
     });
 
     return (
@@ -53,6 +61,7 @@ const InputRadioSet = ({
                 helperMsg={helperMsg}
                 className={componentClass}
                 label={label}
+                theme={theme}
             >
                 {radioSet}
             </FieldSet>

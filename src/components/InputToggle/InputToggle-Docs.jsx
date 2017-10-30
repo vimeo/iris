@@ -53,6 +53,23 @@ class InputToggleDocs extends React.Component {
                         hideLabel
                     />
                 </div>
+                <div className="Pattern-DarkBlock">
+                    <InputToggle
+                        label="Toggle (Large)"
+                        name="demoToggleLg"
+                        id="ToggleLgDark"
+                        value="1"
+                        theme="dark"
+                        size="lg"
+                    />
+                    <InputToggle
+                        label="Toggle (medium)"
+                        name="demoToggleMd"
+                        id="ToggleMdDark"
+                        value="1"
+                        theme="dark"
+                    />
+                </div>
 
                 <ExampleSource>
                     {`
@@ -94,7 +111,22 @@ class InputToggleDocs extends React.Component {
     value="1"
     hideLabel
 />
-                        `}
+<InputToggle
+label="Toggle (Large)"
+name="demoToggleLg"
+id="ToggleLgDark"
+value="1"
+theme="dark"
+size="lg"
+/>
+<InputToggle
+label="Toggle (medium)"
+name="demoToggleMd"
+id="ToggleMdDark"
+value="1"
+theme="dark"
+/>
+                    `}
                     </ExampleSource>
                 </div>
         );

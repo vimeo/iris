@@ -18,6 +18,7 @@ type Props = {
     id: string,
     label: string | React$Element<*>,
     size?: 'md' | 'lg',
+    theme?: 'default' | 'dark',
 };
 
 const InputToggle = ({
@@ -30,6 +31,7 @@ const InputToggle = ({
                         id,
                         label,
                         size = 'md',
+                        theme = 'default',
                         ...filteredProps
                     }: Props): React$Element<*> => {
 
@@ -37,6 +39,7 @@ const InputToggle = ({
     const componentClass = classNames(
         styles.InputToggle,
         styles[format],
+        styles[theme + 'Theme'],
         styles[size],
         className
     );
@@ -52,6 +55,7 @@ const InputToggle = ({
     const toggleOverlayClass = classNames(
         styles.toggleOverlay,
         styles['toggleOverlay-' + format],
+        styles[theme + 'Theme'],
         styles['toggleOverlay-' + size],
     );
 
@@ -64,6 +68,7 @@ const InputToggle = ({
         <InputWrapperInline
             errorMsg={errorMsg}
             helperMsg={helperMsg}
+            theme={theme}
         >
             <div className={toggleWrapperClass}>
                 <InputLabelInline
@@ -71,6 +76,7 @@ const InputToggle = ({
                     format={format}
                     disabled={disabled}
                     hideLabel={hideLabel}
+                    theme={theme}
                     className={styles.InputToggleLabel}
                 >
                     <input
@@ -81,7 +87,7 @@ const InputToggle = ({
                         disabled={disabled}
                     />
                     <div className={toggleOverlayClass} />
-                    <FocusBloop className={styles['FocusBloop-' + size]} />
+                    <FocusBloop className={styles['FocusBloop-' + size]} theme={theme} />
                     <span className={labelWrapperClass}>{label}</span>
                 </InputLabelInline>
             </div>

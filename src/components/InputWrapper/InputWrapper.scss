@@ -7,6 +7,10 @@
     &.isInline {
         margin-bottom: 0;
     }
+
+    &.darkTheme {
+        color: $inputs_text-color-dark;
+    }
 }
 
 .InputFieldWrapper {
