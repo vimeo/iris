@@ -9,9 +9,10 @@ const displayName = 'InputMessageArea';
 
 type Props = {
     className?: string,
-    errorMsg?: React$Element<*>,
-    helperMsg?: React$Element<*>,
+    errorMsg?: string | React$Element<*>,
+    helperMsg?: string | React$Element<*>,
     format?: 'bottom' | 'sublabel',
+    theme?: 'default' | 'dark',
 };
 
 const InputMessageArea = ({
@@ -19,6 +20,7 @@ const InputMessageArea = ({
                         errorMsg,
                         format = 'bottom',
                         helperMsg,
+                        theme,
                         ...filteredProps
                     }: Props): React$Element<*> => {
 
@@ -30,13 +32,19 @@ const InputMessageArea = ({
         );
 
     const errorMessageElement = (
-            <InputMessage format="negative">
+            <InputMessage
+                format="negative"
+                theme={theme}
+            >
                 {errorMsg}
             </InputMessage>
         );
 
     const helperMessageElement = (
-            <InputMessage format="helper">
+            <InputMessage
+                format="helper"
+                theme={theme}
+            >
                 {helperMsg}
             </InputMessage>
         );

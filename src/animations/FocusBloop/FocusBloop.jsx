@@ -7,17 +7,22 @@ const displayName = 'FocusBloop';
 
 type Props = {
     className?: string,
+    theme?: 'dark' | 'default',
 };
 
-const FocusBloop = (props: Props): React$Element<*> => {
-
+const FocusBloop = ({
+                        className,
+                        theme = 'default',
+                        ...filteredProps
+                    }: Props): React$Element<*> => {
     const componentClass = classNames(
         styles.FocusBloop,
-        props.className
+        styles[theme + 'Theme'],
+        className
     );
 
     return (
-                <div className={componentClass} />
+                <div {...filteredProps} className={componentClass}/>
     );
 };
 

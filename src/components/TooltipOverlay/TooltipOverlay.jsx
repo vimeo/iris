@@ -15,6 +15,7 @@ const TooltipOffsetDistance = 4; // pixel offset for tooltip spacing
 type Props = {
     children: React$Element<*>,
     className?: string,
+    element?: 'a' | 'span',
     attachment?: 'top' | 'right' | 'left' | 'bottom',
     isShowing: boolean,
     href: string,
@@ -31,6 +32,7 @@ type Props = {
 const defaultProps = {
     attachment: 'top',
     href: '#',
+    element: 'a',
 };
 
 class TooltipOverlay extends React.Component {
@@ -181,6 +183,7 @@ class TooltipOverlay extends React.Component {
         const {
             children,
             className,
+            element,
             attachment,
             href,
             tooltipText,
@@ -235,6 +238,8 @@ class TooltipOverlay extends React.Component {
             </div>
         );
 
+        const WrapperElement = element || 'a';
+
 
         return (
             <div className={styles.TriggerWrapper}>
@@ -254,7 +259,7 @@ class TooltipOverlay extends React.Component {
                     offset={tooltipOffset}
                     {...tooltipOptions}
                 >
-                    <a
+                    <WrapperElement
                         {...filteredProps}
                         onClick={this.handleClick}
                         onFocus={this.handleFocus}
@@ -268,7 +273,7 @@ class TooltipOverlay extends React.Component {
                         tabIndex="0"
                     >
                         {children}
-                    </a>
+                    </WrapperElement>
                     {this.state.isShowing && tooltipComponent}
                 </TetherComponent>
             </div>

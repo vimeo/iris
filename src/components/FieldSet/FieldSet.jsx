@@ -14,6 +14,7 @@ type Props = {
     format?: 'negative' | 'positive' | 'neutral',
     helperMsg?: React$Element<*>,
     label: string | React$Element<*>,
+    theme?: 'default' | 'dark',
 };
 
 const FieldSet = ({
@@ -23,6 +24,7 @@ const FieldSet = ({
                         format = 'neutral',
                         helperMsg,
                         label,
+                        theme = 'default',
                         ...filteredProps
                     }: Props): React$Element<*> => {
 
@@ -40,6 +42,7 @@ const FieldSet = ({
                 <InputLabel
                     format={format}
                     element="legend"
+                    theme={theme}
                 >
                     {label}
                 </InputLabel>

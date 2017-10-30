@@ -9,6 +9,7 @@
     "Utilities": [
         ["MediaQueries", "Named Media Queries", true],
         ["SpacingUnit", "Spacing Units", true],
+        ["WithCharacterCount", "Inputs wth Character Count", true],
         ["ZindexHelper", "Z-Index Helper", true]
     ],
 
@@ -23,12 +24,15 @@
         ["ButtonFileUpload", "Button: File Upload"],
         ["ButtonFileUploadIconOnly", "Button: File Upload (Icon Only)"],
         ["ButtonInlineInputText", "Buttons: Inline for Inputs"],
+        ["ButtonLoadingState", "Buttons: Loading State"],
         ["ButtonToggleState", "Buttons: ToggleState"],
         ["CircularButton", "Circular Button"],
         ["CopyField", "Copy Field"],
+        ["WithCopyAbility", "Copy Ability Wrapper",  true],
         ["CounterIcon", "Counter Icons"],
         ["FieldSet", "FieldSet"],
         ["InputCheckbox", "Inputs: Checkbox"],
+        ["InputCheckboxSet", "Inputs: Checkbox Set"],
         ["InputRadio", "Inputs: Radio"],
         ["InputRadioSet", "Inputs: Radio Set"],
         ["InputSelect", "Inputs: Select Menu"],
@@ -38,7 +42,6 @@
         ["List", "Lists"],
         ["LoaderCircular", "Circular Loader"],
         ["MenuPanel", "Menu Panel"],
-        ["MenuPanelList", "Menu Panel List"],
         ["Modal", "Modal Dialog"],
         ["NotificationNeutral", "Neutral Notification"],
         ["NotificationSuccess", "Success Notification"],
@@ -48,13 +51,17 @@
         ["Tag", "Tag"],
         ["TooltipAnnotationIcon", "Tooltip Annotation Icon"],
         ["TooltipOverlay", "Tooltip Overlay"],
-        ["Toastification", "Toastification"]
+        ["Toastification", "Toastification"],
+        ["VerticalMenuContextualMenuPanel", "Vertical Menu  Contextual Menu Panel"],
+        ["VerticalMenuItem", "Vertical Menu Item"],
+        ["VerticalMenuNested", "Vertical Menu Nested"]
     ],
     "Layout": [
         ["Forms", "Forms", true],
         ["GridFull", "Grid", true],
         ["Grid", "Grid Wrapper"],
         ["GridBlock", "Grid Block"],
-        ["GridCol", "Grid Columns"]
+        ["GridCol", "Grid Columns"],
+        ["VerticalMenuDemo", "Vertical Menu", true]
     ]
 }

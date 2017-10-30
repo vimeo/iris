@@ -12,6 +12,7 @@ This component uses JS to animate height to ensure a consistant animation speed 
 type Props = {
     animateOpenOnMount?: boolean,
     children: React$Element<*>,
+    speed: Number;
 };
 
 class SlideUpDownAnimation extends React.Component {
@@ -49,7 +50,7 @@ class SlideUpDownAnimation extends React.Component {
             if (elContentHeight) {
                 anime({
                     targets: [el],
-                    duration: 350,
+                    duration: this.props.speed,
                     easing: 'easeInQuart',
                     maxHeight: elContentHeight,
                     opacity: 1,
@@ -71,9 +72,11 @@ class SlideUpDownAnimation extends React.Component {
                 }
             };
 
+            const closingSpeed = typeof this.props.speed === 'number' && this.props.speed / 2;
+
             anime({
                 targets: [el],
-                duration: 175,
+                duration: closingSpeed,
                 easing: 'easeOutQuart',
                 maxHeight: 0,
                 marginBottom: 0,

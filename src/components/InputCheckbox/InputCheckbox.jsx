@@ -9,6 +9,7 @@ import FocusBloop from '../../animations/FocusBloop/FocusBloop';
 const displayName = 'InputCheckbox';
 
 type Props = {
+    checkedStyle?: 'default' | 'indeterminate',
     className?: string,
     disabled?: boolean,
     errorMsg?: React$Element<*>,
@@ -17,19 +18,22 @@ type Props = {
     id: string,
     label: string | React$Element<*>,
     hideLabel?: boolean,
+    theme?: 'default' | 'dark',
 };
 
 const InputCheckbox = ({
-                        className,
-                        disabled,
-                        errorMsg,
-                        format = 'neutral',
-                        helperMsg,
-                        hideLabel,
-                        id,
-                        label,
-                        ...filteredProps
-                    }: Props): React$Element<*> => {
+    checkedStyle = 'default',
+    className,
+    disabled,
+    errorMsg,
+    format = 'neutral',
+    helperMsg,
+    hideLabel,
+    id,
+    label,
+    theme = 'default',
+    ...filteredProps
+}: Props): React$Element<*> => {
 
     // className builder
     const componentClass = classNames(
@@ -39,6 +43,8 @@ const InputCheckbox = ({
 
     const overlayClass = classNames(
         styles.InputCheckboxOverlay,
+        styles[checkedStyle],
+        styles[theme + 'Theme'],
         className
     );
 
@@ -50,6 +56,7 @@ const InputCheckbox = ({
         <InputWrapperInline
             errorMsg={errorMsg}
             helperMsg={helperMsg}
+            theme={theme}
         >
             <div className={styles.InputCheckboxWrapper}>
                 <InputLabelInline
@@ -59,6 +66,7 @@ const InputCheckbox = ({
                     className={styles.InputCheckboxLabel}
                     fieldLevelErrors
                     hideLabel={hideLabel}
+                    theme={theme}
                 >
                     <input
                         {...filteredProps}
@@ -69,7 +77,7 @@ const InputCheckbox = ({
                         disabled={disabled}
                     />
                     <span className={overlayClass} />
-                    <FocusBloop className={styles.FocusBloop} />
+                    <FocusBloop className={styles.FocusBloop} theme={theme}/>
                     <span className={labelWrapperClass}>{label}</span>
                 </InputLabelInline>
             </div>

@@ -19,6 +19,8 @@ type Props = {
 
 const SearchField = ({
                         buttonFormat = 'subtle',
+                        buttonProps,
+                        buttonLabel,
                         fieldLabel,
                         showLabel = false,
                         isInline = true,
@@ -28,6 +30,8 @@ const SearchField = ({
 
     const ButtonComponent = (
         <ButtonInlineInputText
+            {...buttonProps}
+            title={buttonLabel}
             icon = {<SearchIcon />}
             format="subtle"
             size={size}

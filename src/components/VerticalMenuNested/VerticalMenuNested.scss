@@ -1,0 +1,25 @@
+/* @description Generates styles for the MenuNestedItem component */
+@import '../../globals/sass/helpers-all';
+
+.VerticalMenuNested {
+    width: 100%;
+    max-width: $screen-sm-rem;
+
+    .LinkLabel {
+        margin-bottom: 0;
+    }
+}
+
+.ArrowIcon {
+    transition: transform 300ms ease-in-out;
+
+    &.isOpen {
+        transform: rotate(90deg);
+    }
+}
+
+.SubMenuWrapper {
+    position: relative;
+
+    margin-left: spacingUnit(2);
+}

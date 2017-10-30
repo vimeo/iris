@@ -52,6 +52,27 @@ class InputRadioSetDocs extends React.Component {
                         ]}
                     />
                 </div>
+                <div className="Pattern-DarkBlock">
+                    <InputRadioSet
+                        label="Radio Set 3 (Dark)"
+                        id="RadioSet3"
+                        name="radioSet3"
+                        radios = {[
+                            {
+                                label: 'Radio 1',
+                                id: 'Radio1Set3',
+                                value: '1',
+                            },
+                            {
+                                label: 'Radio 2',
+                                id: 'Radio2Set3',
+                                value: '2',
+                            },
+
+                        ]}
+                        theme="dark"
+                    />
+                </div>
 
                 <ExampleSource>
                     {`
@@ -94,6 +115,25 @@ class InputRadioSetDocs extends React.Component {
         },
 
     ]}
+/>
+<InputRadioSet
+    label="Radio Set 3 (Dark)"
+    id="RadioSet3"
+    name="radioSet3"
+    radios = {[
+        {
+            label: 'Radio 1',
+            id: 'Radio1Set3',
+            value: '1',
+        },
+        {
+            label: 'Radio 2',
+            id: 'Radio2Set3',
+            value: '2',
+        },
+
+    ]}
+    theme="dark"
 />
                         `}
                     </ExampleSource>

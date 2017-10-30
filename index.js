@@ -14,9 +14,11 @@
 exports.paths = {
   'iris/GlobalCSS':'iris/src/globals/css/globals.css',
   'iris/Type':'iris/src/utility_components/Type/Type',
+  'iris/withCharacterCount':'iris/src/utility_components/withCharacterCount/withCharacterCount',
   'iris/icons':'iris/src/globals/svg/',
   'iris/legacyIcons':'iris/src/globals/legacy_svg/',
   'iris/SlideUpDown' : 'iris/src/animations/SlideUpDown/SlideUpDown',
+  'iris/WithCopyAbility' : 'iris/src/components/withCopyAbility/withCopyAbility',
   
   'iris/Avatar':'iris/src/components/Avatar/Avatar',
   
@@ -36,6 +38,8 @@ exports.paths = {
   
   'iris/ButtonInlineInputText':'iris/src/components/ButtonInlineInputText/ButtonInlineInputText',
   
+  'iris/ButtonLoadingState':'iris/src/components/ButtonLoadingState/ButtonLoadingState',
+  
   'iris/ButtonToggleState':'iris/src/components/ButtonToggleState/ButtonToggleState',
   
   'iris/CircularButton':'iris/src/components/CircularButton/CircularButton',
@@ -53,6 +57,8 @@ exports.paths = {
   'iris/GridCol':'iris/src/components/GridCol/GridCol',
   
   'iris/InputCheckbox':'iris/src/components/InputCheckbox/InputCheckbox',
+  
+  'iris/InputCheckboxSet':'iris/src/components/InputCheckboxSet/InputCheckboxSet',
   
   'iris/InputLabel':'iris/src/components/InputLabel/InputLabel',
   
@@ -121,5 +127,15 @@ exports.paths = {
   'iris/TooltipAnnotationIcon':'iris/src/components/TooltipAnnotationIcon/TooltipAnnotationIcon',
   
   'iris/TooltipOverlay':'iris/src/components/TooltipOverlay/TooltipOverlay',
+  
+  'iris/VerticalMenuContextualMenuPanel':'iris/src/components/VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel',
+  
+  'iris/VerticalMenuItem':'iris/src/components/VerticalMenuItem/VerticalMenuItem',
+  
+  'iris/VerticalMenuItemContent':'iris/src/components/VerticalMenuItemContent/VerticalMenuItemContent',
+  
+  'iris/VerticalMenuNested':'iris/src/components/VerticalMenuNested/VerticalMenuNested',
+  
+  'iris/VerticalMenuNestedSubMenu':'iris/src/components/VerticalMenuNestedSubMenu/VerticalMenuNestedSubMenu',
   
 };

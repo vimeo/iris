@@ -23,4 +23,8 @@
     &.isHiddenLabel {
         width: auto;
     }
+
+    &.darkTheme {
+        color: $inputs_text-color-dark;
+    }
 }

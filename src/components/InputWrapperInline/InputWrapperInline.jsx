@@ -11,6 +11,7 @@ type Props = {
     children: React$Element<*>,
     errorMsg?: React$Element<*>,
     helperMsg?: React$Element<*>,
+    theme: 'default' | 'dark',
 };
 
 const InputWrapperInline = ({
@@ -18,6 +19,7 @@ const InputWrapperInline = ({
                         children,
                         errorMsg,
                         helperMsg,
+                        theme,
                         ...filteredProps
                     }: Props): React$Element<*> => {
 
@@ -36,6 +38,7 @@ const InputWrapperInline = ({
             <InputMessageArea
                 errorMsg={errorMsg}
                 helperMsg={helperMsg}
+                theme={theme}
             />
             </div>
     );

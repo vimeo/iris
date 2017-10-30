@@ -1,6 +1,18 @@
 /* @description Generates styles for the InputMessage component */
 @import '../../globals/sass/helpers-all';
 
-.InputMessage.negative {
-    color: $inputs_error-color !important; // overrides usage of iris type tags. Will remove once instances are updated in Vimeo.
+.InputMessage {
+    @include ParagraphSm;
+
+    overflow: hidden;
+
+    &.darkTheme,
+    &.darkTheme p {
+        color: $inputs_text-color-dark !important;
+    }
+
+    &.negative,
+    &.negative p {
+        color: $inputs_error-color !important;
+    }
 }

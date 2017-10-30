@@ -1,12 +1,19 @@
 :global {
-
     .Pattern {
         margin-bottom: spacingUnit(4);
     }
 
     .Pattern__repo-link {
-        margin-bottom: 1rem;
         display: block;
+
+        margin-bottom: 1rem;
     }
-    
+
+    .Pattern-DarkBlock {
+        width: 100%;
+        margin-bottom: spacingUnit(4);
+        padding: 1em;
+
+        background-color: $DarkDark;
+    }
 }

@@ -58,7 +58,7 @@ import { ParagraphMd, Header1, Header2} from 'iris/Type;
             </ExampleSource>
             <Header4>Light Text Format</Header4>
             <ParagraphMd>For text on a dark background add <code>format="light"</code> to the element.</ParagraphMd>
-            <div style={{ 'backgroundColor': '#000', 'padding': '1em', 'width': '100%' }}>
+            <div className="Pattern-DarkBlock">
 
                 <Header1 format="light">Header 1</Header1>
                 <Header2 format="light">Header 2</Header2>

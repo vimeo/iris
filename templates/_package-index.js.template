@@ -14,9 +14,11 @@
 exports.paths = {
   'iris/GlobalCSS':'iris/src/globals/css/globals.css',
   'iris/Type':'iris/src/utility_components/Type/Type',
+  'iris/withCharacterCount':'iris/src/utility_components/withCharacterCount/withCharacterCount',
   'iris/icons':'iris/src/globals/svg/',
   'iris/legacyIcons':'iris/src/globals/legacy_svg/',
   'iris/SlideUpDown' : 'iris/src/animations/SlideUpDown/SlideUpDown',
+  'iris/WithCopyAbility' : 'iris/src/components/withCopyAbility/withCopyAbility',
   <% _.forEach(patterns[0], function(pattern) { if(pattern['displayName']){ %>
   'iris/<%- pattern['displayName']%>':'iris/src/components/<%- pattern['displayName']%>/<%- pattern['displayName']%>',
   <% }}); %>
