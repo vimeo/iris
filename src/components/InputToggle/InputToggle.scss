@@ -121,3 +121,9 @@ $InputToggle_bloopSize-lg: 38;
     width: rem-calc($InputToggle_bloopSize-lg);
     height: rem-calc($InputToggle_bloopSize-lg);
 }
+.InputToggleLabel {
+    min-height: 1.125rem;
+}
+.isHiddenLabel {
+    display: none;
+}

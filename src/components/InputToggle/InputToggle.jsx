@@ -14,6 +14,7 @@ type Props = {
     errorMsg?: React$Element<*>,
     format?: 'negative' | 'positive' | 'neutral',
     helperMsg?: React$Element<*>,
+    hideLabel?: boolean,
     id: string,
     label: string | React$Element<*>,
     size?: 'md' | 'lg',
@@ -25,6 +26,7 @@ const InputToggle = ({
                         errorMsg,
                         format = 'neutral',
                         helperMsg,
+                        hideLabel,
                         id,
                         label,
                         size = 'md',
@@ -53,6 +55,10 @@ const InputToggle = ({
         styles['toggleOverlay-' + size],
     );
 
+    const labelWrapperClass = classNames(
+        (hideLabel ? styles.isHiddenLabel : null)
+    );
+
 
     return (
         <InputWrapperInline
@@ -64,6 +70,8 @@ const InputToggle = ({
                     htmlFor={id}
                     format={format}
                     disabled={disabled}
+                    hideLabel={hideLabel}
+                    className={styles.InputToggleLabel}
                 >
                     <input
                         type="checkbox"
@@ -74,7 +82,7 @@ const InputToggle = ({
                     />
                     <div className={toggleOverlayClass} />
                     <FocusBloop className={styles['FocusBloop-' + size]} />
-                    {label}
+                    <span className={labelWrapperClass}>{label}</span>
                 </InputLabelInline>
             </div>
         </InputWrapperInline>

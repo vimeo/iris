@@ -1,7 +1,7 @@
 import React from 'react';
 import InputToggle from './InputToggle';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../../../src/utility_components/Type/Type';
+import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
 
 class InputToggleDocs extends React.Component {
     constructor(props) {
@@ -44,6 +44,14 @@ class InputToggleDocs extends React.Component {
                         value="4"
                         disabled
                     />
+                    <Header3>Hidden Labels</Header3>
+                    <InputToggle
+                        label="Toggle Hidden Label"
+                        name="demoToggleMdHidden"
+                        id="ToggleMdHidden"
+                        value="1"
+                        hideLabel
+                    />
                 </div>
 
                 <ExampleSource>
@@ -78,6 +86,13 @@ class InputToggleDocs extends React.Component {
     size="lg"
     value="4"
     disabled
+/>
+<InputToggle
+    label="Toggle Hidden Label"
+    name="demoToggleMdHidden"
+    id="ToggleMdHidden"
+    value="1"
+    hideLabel
 />
                         `}
                     </ExampleSource>
