@@ -134,6 +134,8 @@ exports.paths = {
   
   'iris/VerticalMenuItemContent':'iris/src/components/VerticalMenuItemContent/VerticalMenuItemContent',
   
+  'iris/VerticalMenuItemReactRouter':'iris/src/components/VerticalMenuItemReactRouter/VerticalMenuItemReactRouter',
+  
   'iris/VerticalMenuNested':'iris/src/components/VerticalMenuNested/VerticalMenuNested',
   
   'iris/VerticalMenuNestedSubMenu':'iris/src/components/VerticalMenuNestedSubMenu/VerticalMenuNestedSubMenu',

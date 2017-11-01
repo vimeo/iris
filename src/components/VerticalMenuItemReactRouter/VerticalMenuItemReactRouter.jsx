@@ -5,7 +5,7 @@ import styles from '../VerticalMenuItem/VerticalMenuItem.scss';
 import VerticalMenuItemContent from '../VerticalMenuItemContent/VerticalMenuItemContent';
 import { Link } from 'react-router-dom';
 
-const displayName = 'VerticalMenuItem';
+const displayName = 'VerticalMenuItemReactRouter';
 
 type Props = {
     className?: string,
@@ -20,7 +20,7 @@ type Props = {
     truncateLabel?: boolean,
 };
 
-const VerticalMenuItem = ({
+const VerticalMenuItemReactRouter = ({
     className,
     label,
     id,
@@ -65,6 +65,6 @@ const VerticalMenuItem = ({
     );
 };
 
-VerticalMenuItem.displayName = displayName;
+VerticalMenuItemReactRouter.displayName = displayName;
 
-export default VerticalMenuItem;
+export default VerticalMenuItemReactRouter;
