@@ -1,5 +1,4 @@
 import React from 'react';
-import VerticalMenuContextualMenuPanel from './VerticalMenuContextualMenuPanel';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import { ParagraphMd } from '../../../src/utility_components/Type/Type';
 import MenuPanelList from '../MenuPanelList/MenuPanelList';
@@ -9,19 +8,17 @@ import VerticalMenuItem from '../VerticalMenuItem/VerticalMenuItem';
 class VerticalMenuContextualMenuPanelDocs extends React.Component {
     render() {
         const MenuList = (
-            <VerticalMenuContextualMenuPanel
-                tooltipText="See Menu"
-            >
+            <div>
                 <MenuPanelList
                     header="Section 1"
                     menuItems = {[
                         {
                             label: 'Item 1',
-                            href: '#',
+                            to: '#',
                         },
                         {
                             label: 'Selected Item',
-                            href: '#',
+                            to: '#',
                             isSelected: true,
                             'data-foo': 'bar',
                         },
@@ -33,70 +30,72 @@ class VerticalMenuContextualMenuPanelDocs extends React.Component {
                         {
                             label: 'Item 3',
                             icon: <SettingsIcon />,
-                            href: '#',
+                            t0o: '#',
                         },
                         {
                             label: 'Item 4',
-                            href: '#',
+                            to: '#',
                         },
                     ]}
                 />
-            </VerticalMenuContextualMenuPanel>
+            </div>
         );
+
         return (
             <div className="Pattern__docs">
             <ParagraphMd>This component provides a preformatted contextual menu to Vertical Menu items. This component should be passed to the <code>linkActionIcon</code> prop of <code>Vertical Menu Item</code>. The children of <code>VerticalMenuContextualMenuPanel</code> will become the content of the menu panel. This often be a <code>MenuPanelList</code> component.</ParagraphMd>
 
             <div data-code>
                 <VerticalMenuItem
-                    href="#"
+                    to="#"
                     label="Stand Alone Link"
-                    nestedInteraction={MenuList}
+                    nestedInteractionContent={MenuList}
+                    tooltipText="See Menu"
                 />
             </div>
 
                 <ExampleSource>
                     {`
-                    const MenuList = (
-                        <VerticalMenuContextualMenuPanel>
-                            <MenuPanelList
-                                header="Section 1"
-                                menuItems = {[
-                                    {
-                                        label: 'Item 1',
-                                        href: '#',
-                                    },
-                                    {
-                                        label: 'Selected Item',
-                                        href: '#',
-                                        isSelected: true,
-                                        'data-foo': 'bar',
-                                    },
-                                ]}
-                            />
-                            <MenuPanelList
-                                hasDivider
-                                menuItems = {[
-                                    {
-                                        label: 'Item 3',
-                                        icon: <SettingsIcon />,
-                                        href: '#',
-                                    },
-                                    {
-                                        label: 'Item 4',
-                                        href: '#',
-                                    },
-                                ]}
-                            />
-                        </VerticalMenuContextualMenuPanel>
-                    );
+const MenuList = (
+    <div>
+        <MenuPanelList
+            header="Section 1"
+            menuItems = {[
+                {
+                    label: 'Item 1',
+                    to: '#',
+                },
+                {
+                    label: 'Selected Item',
+                    to: '#',
+                    isSelected: true,
+                    'data-foo': 'bar',
+                },
+            ]}
+        />
+        <MenuPanelList
+            hasDivider
+            menuItems = {[
+                {
+                    label: 'Item 3',
+                    icon: <SettingsIcon />,
+                    t0o: '#',
+                },
+                {
+                    label: 'Item 4',
+                    to: '#',
+                },
+            ]}
+        />
+    </div>
+);
 
-                    <VerticalMenuItem
-                        href="#"
-                        label="Stand Alone Link"
-                        linkActionIcon={MenuList}
-                    />
-
+<VerticalMenuItem
+    to="#"
+    label="Stand Alone Link"
+    nestedInteractionContent={MenuList}
+    tooltipText="See Menu"
+/>
                         `}
                     </ExampleSource>
                 </div>

@@ -5,8 +5,8 @@ import { Grid, GridCol, GridBlock } from '../../../src/components/Grid/Grid';
 import VerticalMenuNested from '../../../src/components/VerticalMenuNested/VerticalMenuNested';
 import VerticalMenuContextualMenuPanel from '../../../src/components/VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel';
 import VerticalMenuItem from '../../../src/components/VerticalMenuItem/VerticalMenuItem';
-import VerticalMenuItemReactRouter from '../../../src/components/VerticalMenuItemReactRouter/VerticalMenuItemReactRouter';
 import MenuPanelList from '../../../src/components/MenuPanelList/MenuPanelList';
+import PopOutIcon from '../../../src/globals/svg/pop-out.svg';
 import SettingsIcon from '../../../src/globals/svg/gear.svg';
 import styles from './VerticalMenuDemo-Docs.scss';
 
@@ -21,7 +21,7 @@ class VerticalMenuDemoDocs extends React.Component {
         const subMenuItems = [
             (
             <VerticalMenuItem
-                    href="#"
+                    to="#"
                     onClick={onClickHandler}
                     label="Nested Item 1"
                 />
@@ -29,7 +29,7 @@ class VerticalMenuDemoDocs extends React.Component {
     
             (
             <VerticalMenuItem
-                    href="#"
+                    to="#"
                     onClick={onClickHandler}
                     label="Item With Label Icon"
                     labelIcon={(<SettingsIcon />)}
@@ -37,7 +37,7 @@ class VerticalMenuDemoDocs extends React.Component {
             ),
     
             (
-            <VerticalMenuItemReactRouter
+            <VerticalMenuItem
                     onClick={onClickHandler}
                     to="/"
                     label="Nested Item 3"
@@ -46,19 +46,17 @@ class VerticalMenuDemoDocs extends React.Component {
         ];
 
         const MenuPanelDemoList = (
-            <VerticalMenuContextualMenuPanel
-                tooltipText="See Menu"
-            >
+            <div>
                 <MenuPanelList
                     header="Section 1"
                     menuItems = {[
                         {
                             label: 'Item 1',
-                            href: '#',
+                            to: '#',
                         },
                         {
                             label: 'Selected Item',
-                            href: '#',
+                            to: '#',
                             isSelected: true,
                             'data-foo': 'bar',
                         },
@@ -70,15 +68,15 @@ class VerticalMenuDemoDocs extends React.Component {
                         {
                             label: 'Item 3',
                             icon: <SettingsIcon />,
-                            href: '#',
+                            to: '#',
                         },
                         {
                             label: 'Item 4',
-                            href: '#',
+                            to: '#',
                         },
                     ]}
                 />
-            </VerticalMenuContextualMenuPanel>
+            </div>
         );
 
         return (
@@ -96,20 +94,27 @@ class VerticalMenuDemoDocs extends React.Component {
                                     selectedItemIndex={1}
                                     subMenuItems={subMenuItems}
                                 />
+                                <VerticalMenuNested
+                                    label="Menu Label"
+                                    labelId="testMenu2"
+                                    selectedItemIndex={1}
+                                    to="/"
+                                    subMenuItems={subMenuItems}
+                                />
                                 <VerticalMenuItem
-                                    href="#"
+                                    to="#"
                                     onClick={onClickHandler}
                                     label="Stand Alone Link"
                                 />
                                 <VerticalMenuItem
-                                    href="#"
-                                    label="Stand Alone Link With Menu"
-                                    nestedInteraction={MenuPanelDemoList}
-                                />
-                                <VerticalMenuItemReactRouter
                                     to="#"
-                                    label="React Router With Menu"
-                                    nestedInteraction={MenuPanelDemoList}
+                                    label="Stand Alone Link With Link Icon"
+                                    linkActionIcon={(<PopOutIcon />)}
+                                />
+                                <VerticalMenuItem
+                                    to="#"
+                                    label="Stand Alone Link With Menu"
+                                    nestedInteractionContent={MenuPanelDemoList}
                                 />
                             </GridCol>
                             <GridCol mdSpan={16}>
@@ -120,8 +125,8 @@ class VerticalMenuDemoDocs extends React.Component {
                                 <ExampleSource>
                                 {`
 <GridCol
-mdSpan={8}
-className={styles.MenuCol}
+    mdSpan={8}
+    className={styles.MenuCol}
 >
     <VerticalMenuNested
         label="Menu Label"
@@ -129,20 +134,27 @@ className={styles.MenuCol}
         selectedItemIndex={1}
         subMenuItems={subMenuItems}
     />
+    <VerticalMenuNested
+        label="Menu Label"
+        labelId="testMenu2"
+        selectedItemIndex={1}
+        to="/"
+        subMenuItems={subMenuItems}
+        />
     <VerticalMenuItem
-        href="#"
+        to="#"
         onClick={onClickHandler}
         label="Stand Alone Link"
     />
     <VerticalMenuItem
-        href="#"
-        label="Stand Alone Link With Menu"
-        nestedInteraction={MenuPanelDemoList}
-    />
-    <VerticalMenuItemReactRouter
         to="#"
-        label="React Router With Menu"
-        nestedInteraction={MenuPanelDemoList}
+        label="Stand Alone Link With Link Icon"
+        linkActionIcon={(<PopOutIcon />)}
+        />
+    <VerticalMenuItem
+        to="#"
+        label="Stand Alone Link With Menu"
+        nestedInteractionContent={MenuPanelDemoList}
     />
 </GridCol>
                                     `}

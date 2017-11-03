@@ -10,12 +10,12 @@
     }
 }
 
-.ArrowIcon {
+.ArrowIcon svg {
     transition: transform 300ms ease-in-out;
+}
 
-    &.isOpen {
-        transform: rotate(90deg);
-    }
+.ArrowIcon.isOpen svg {
+    transform: rotate(90deg);
 }
 
 .SubMenuWrapper {

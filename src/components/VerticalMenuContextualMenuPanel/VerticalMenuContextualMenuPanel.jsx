@@ -1,53 +1,60 @@
 // @flow
 import React from 'react';
-import classNames from 'classnames';
 import styles from './VerticalMenuContextualMenuPanel.scss';
-import DotsMenuIcon from '../../globals/svg/dots-menu.svg';
+
 import MenuPanel from '../MenuPanel/MenuPanel';
-import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
 import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';
 const displayName = 'VerticalMenuContextualMenuPanel';
 
 type Props = {
+    buttonElement: React$Element<*>,
     className?: string,
     children: React$Element<*>,
-    tooltipText: string,
+    tooltipText?: string,
+    onClick?: Function,
+    onClose?: Function,
+    onOpen?: Function,
 };
 
 const VerticalMenuContextualMenuPanel = ({
+    buttonElement,
     className,
     children,
+    onClick,
+    onClose,
+    onOpen,
     tooltipText,
     ...filteredProps
 }: Props): React$Element<*> => {
 
-    const componentClass = classNames(
-        styles.buttonOffset,
-        className,
+    const ButtonWithTooltip = (
+        <TooltipOverlay
+            tooltipText={tooltipText}
+            element="span"
+        >
+            {buttonElement}
+        </TooltipOverlay>
     );
 
+    const handleClick = () => {
+        if (typeof onClick === 'function') {
+            onClick();
+        }
+    };
+
     return (
-        <div className={componentClass}>
-            <MenuPanel
-                alignment="left"
-                menuContent={children}
-                size="md"
-                className={componentClass}
-            >
-                <TooltipOverlay
-                    tooltipText={tooltipText}
-                    element="span"
-                >
-                    <ButtonIconOnly
-                        icon={<DotsMenuIcon />}
-                        format="dark"
-                        size="sm"
-                        isButtonElement={false}
-                        className={styles.Button}
-                    />
-                </TooltipOverlay>
-            </MenuPanel>
-        </div>
+        <MenuPanel
+            {...filteredProps}
+            className={styles.buttonOffset}
+            alignment="left"
+            menuContent={children}
+            size="md"
+            onClose={onClose}
+            onClick={handleClick}
+            onOpen={onOpen}
+        >
+            {tooltipText ? ButtonWithTooltip : buttonElement}
+        </MenuPanel>
     );
 };
 

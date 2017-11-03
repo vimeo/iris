@@ -10,7 +10,7 @@ type Props = {
     onClick?: Function,
     onIndexChange: Function,
     selectedItemIndex: number,
-    subMenuItems: Array<React$Element<'VerticalMenuItem' | 'VerticalMenuItemReactRouter'>>,
+    subMenuItems: Array<React$Element<'VerticalMenuItem' | 'VerticalMenuItem'>>,
 };
 
 const VerticalMenuNestedSubMenu = ({
