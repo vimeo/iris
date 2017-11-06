@@ -10,6 +10,7 @@ import Button from '../Button/Button';
 import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
 import SettingsIcon from '../../globals/svg/gear.svg';
 import MenuPanelScrollableWithActionArea from '../MenuPanelScrollableWithActionArea/MenuPanelScrollableWithActionArea';
+import InputText from '../InputText/InputText';
 import styles from './MenuPanel-Docs.scss';
 class MenuPanelDocs extends React.Component {
     constructor(props) {
@@ -88,6 +89,12 @@ class MenuPanelDocs extends React.Component {
             <ParagraphMd>One, two! One, two! And through and through The vorpal blade went snicker-snack!
             He left it dead, and with its head
             He went galumphing back.</ParagraphMd>
+            <InputText
+                name="foo"
+                id="foo"
+                label={'Default Input'}
+                placeholder="Placeholder Text"
+            />
             <ParagraphMd>"And, has thou slain the Jabberwock?
             Come to my arms, my beamish boy! O frabjous day! Callooh! Callay!' He chortled in his joy</ParagraphMd>
             </MenuPanelScrollableWithActionArea>

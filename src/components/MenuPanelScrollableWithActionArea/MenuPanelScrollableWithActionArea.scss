@@ -10,5 +10,5 @@
 .ActionArea {
     @include ActionAreaStyles();
 
-    margin-bottom: spacingUnit(2);
+    padding: spacingUnit(2) spacingUnit(5) spacingUnit(2);
 }

@@ -126,6 +126,12 @@ $Modal_Vertical_Cutoff: 300px;
 
 .ActionArea {
     @include ActionAreaStyles();
+    @include mq(sm) {
+        height: $Modal_actionArea-height-large-screen;
+    }
+
+    height: $Modal_actionArea-height-small-screen;
+    padding: spacingUnit(5) spacingUnit(5) spacingUnit(3);
 }
 
 // Modal Sizes
