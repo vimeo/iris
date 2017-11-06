@@ -9,6 +9,7 @@ import NotificationWarning from '../NotificationWarning/NotificationWarning';
 import Button from '../Button/Button';
 import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
 import SettingsIcon from '../../globals/svg/gear.svg';
+import MenuPanelScrollableWithActionArea from '../MenuPanelScrollableWithActionArea/MenuPanelScrollableWithActionArea';
 import styles from './MenuPanel-Docs.scss';
 class MenuPanelDocs extends React.Component {
     constructor(props) {
@@ -71,6 +72,27 @@ class MenuPanelDocs extends React.Component {
             </div>
         );
 
+        const MenuWithActionArea = (
+            <MenuPanelScrollableWithActionArea
+                primaryButtonProps = {{
+                    children: 'Submit',
+                }}
+                secondaryButtonProps = {{
+                    children: 'Cancel',
+                }}
+            >
+            <ParagraphMd>`Twas brillig, and the slithy toves Did gyre and gimble in the wabe: All mimsy were the borogoves, And the mome raths outgrabe.</ParagraphMd>
+            <ParagraphMd>"Beware the Jabberwock, my son! The jaws that bite, the claws that catch! Beware the Jubjub bird, and shun The frumious Bandersnatch!"</ParagraphMd>
+            <ParagraphMd>He took his vorpal sword in hand: Long time the manxome foe he sought -- So rested he by the Tumtum tree, And stood awhile in thought.</ParagraphMd>
+            <ParagraphMd>And, as in uffish thought he stood,The Jabberwock, with eyes of flame, Came whiffling through the tulgey wood, And burbled as it came!</ParagraphMd>
+            <ParagraphMd>One, two! One, two! And through and through The vorpal blade went snicker-snack!
+            He left it dead, and with its head
+            He went galumphing back.</ParagraphMd>
+            <ParagraphMd>"And, has thou slain the Jabberwock?
+            Come to my arms, my beamish boy! O frabjous day! Callooh! Callay!' He chortled in his joy</ParagraphMd>
+            </MenuPanelScrollableWithActionArea>
+        );
+
         return (
             <div className="Pattern__docs">
             <ParagraphMd>Menu Panels provide a drop-down menu panel that can be attached at different points using the <code>alignment</code> prop.</ParagraphMd>
@@ -92,8 +114,8 @@ class MenuPanelDocs extends React.Component {
                 <div className={styles.Spacer}>
                     <MenuPanel
                         alignment="center"
-                        menuContent={MenuList}
-                        size="sm"
+                        menuContent={MenuWithActionArea}
+                        size="lg"
                     >
                         <ButtonIconOnly
                             icon={<SettingsIcon />}

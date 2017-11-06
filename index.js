@@ -98,6 +98,8 @@ exports.paths = {
   
   'iris/MenuPanelListItem':'iris/src/components/MenuPanelListItem/MenuPanelListItem',
   
+  'iris/MenuPanelScrollableWithActionArea':'iris/src/components/MenuPanelScrollableWithActionArea/MenuPanelScrollableWithActionArea',
+  
   'iris/Modal':'iris/src/components/Modal/Modal',
   
   'iris/Notification':'iris/src/components/Notification/Notification',

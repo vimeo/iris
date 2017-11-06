@@ -70,22 +70,12 @@ $Modal_Vertical_Cutoff: 300px;
                 max-height: calc(76vh - #{$Modal_actionArea-height-large-screen});
             }
         }
-
-        padding-bottom: 0;
         // This background creates a gradiant that looks like a shadow
         // when there is content overflow.
         // This technique comes from http://lea.verou.me/2012/04/background-attachment-local/
+        @include ActionAreaContentWrapper();
 
-        background: /* These hide the shadow when there is NO scroll */
-        linear-gradient($White 30%, rgba(255,255,255,0)),
-        linear-gradient(rgba(255,255,255,0), white 70%) 0 100%,
-
-        /* These are the shadows when there IS scroll */
-        radial-gradient(farthest-side at 50% 0, rgba(0,0,0,0.2), rgba(0,0,0,0)),
-        radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,0.2), rgba(0,0,0,0)) 0 100%;
-        background-repeat: no-repeat;
-        background-attachment: local, local, scroll, scroll;
-        background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+        padding-bottom: 0;
     }
 }
 
@@ -135,20 +125,7 @@ $Modal_Vertical_Cutoff: 300px;
 }
 
 .ActionArea {
-    @include mq(sm) {
-        height: $Modal_actionArea-height-large-screen;
-    }
-
-    overflow: hidden;
-
-    width: 100%;
-    height: $Modal_actionArea-height-small-screen;
-    padding: spacingUnit(5) spacingUnit(5) spacingUnit(3);
-
-    border-radius: 0 0 rem-calc(3) rem-calc(3);
-    background: $White;
-
-    text-align: right;
+    @include ActionAreaStyles();
 }
 
 // Modal Sizes
