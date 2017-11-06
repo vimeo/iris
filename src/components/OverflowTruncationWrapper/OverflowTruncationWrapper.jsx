@@ -1,0 +1,87 @@
+// @flow
+import React from 'react';
+import classNames from 'classnames';
+import styles from './OverflowTruncationWrapper.scss';
+
+const displayName = 'OverflowTruncationWrapper';
+
+type Props = {
+    className?: string,
+    children: React$Element<*>,
+};
+
+class OverflowTruncationWrapper extends React.Component {
+    state: Object;
+
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            isTruncated: false,
+        };
+    }
+
+    componentDidMount() {
+        this._checkIfTruncated();
+        window.addEventListener(
+            'resize',
+            this._checkIfTruncated
+        );
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener(
+            'resize',
+            this._checkIfTruncated
+        );
+    }
+
+    wrapperEl: any;
+    innerEl: any;
+
+    _checkIfTruncated = () => {
+        const isTruncated = this.wrapperEl.clientHeight < this.innerEl.clientHeight;
+
+        console.log(isTruncated);
+
+        this.setState({
+            isTruncated,
+        });
+    }
+
+    render() {
+        const {
+            children,
+            className,
+            ...filteredProps
+        } = this.props;
+        // className builder
+        const componentClass = classNames(
+            styles.OverflowTruncationWrapper,
+            (this.state.isTruncated ? styles.isTruncated : null),
+            className,
+        );
+
+        return (
+                <div
+                    {...filteredProps}
+                    className={componentClass}
+                    ref={(wrapper) => {
+                        this.wrapperEl = wrapper;
+                    }}
+                >
+                    <div
+                        className={styles.InnerWrapper}
+                        ref= {(innerEl) => {
+                            this.innerEl = innerEl;
+                        }}
+                    >
+                        {children}
+                    </div>
+                </div>
+        );
+    }
+}
+
+OverflowTruncationWrapper.displayName = displayName;
+
+export default OverflowTruncationWrapper;

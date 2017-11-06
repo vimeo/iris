@@ -1,0 +1,21 @@
+/* @description Generates styles for the OverflowTruncationWrapper component */
+@import '../../globals/sass/helpers-all';
+.OverflowTruncationWrapper {
+    overflow: scroll;
+
+    position: relative;
+
+    &.isTruncated:after {
+        display: block;
+
+        position: fixed;
+        bottom: 0;
+
+        width: 100%;
+        height: rem-calc(20);
+
+        background: radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,0.2), rgba(0,0,0,0)) 0 100%;
+
+        content: '';
+    }
+}

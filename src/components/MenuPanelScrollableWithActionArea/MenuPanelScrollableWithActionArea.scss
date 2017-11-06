@@ -2,13 +2,9 @@
 @import '../../globals/sass/helpers-all';
 
 .ContentWrapper {
-    @include ActionAreaContentWrapper();
-
     padding: spacingUnit(4) spacingUnit(4) 0;
 }
 
 .ActionArea {
-    @include ActionAreaStyles();
-
     padding: spacingUnit(2) spacingUnit(5) spacingUnit(2);
 }

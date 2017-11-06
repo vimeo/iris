@@ -110,6 +110,8 @@ exports.paths = {
   
   'iris/NotificationWarning':'iris/src/components/NotificationWarning/NotificationWarning',
   
+  'iris/OverflowTruncationWrapper':'iris/src/components/OverflowTruncationWrapper/OverflowTruncationWrapper',
+  
   'iris/SearchField':'iris/src/components/SearchField/SearchField',
   
   'iris/TabContentPanel':'iris/src/components/TabContentPanel/TabContentPanel',

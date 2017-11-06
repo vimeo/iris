@@ -3,6 +3,8 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './MenuPanelScrollableWithActionArea.scss';
 import Button from '../Button/Button';
+import OverflowTruncationWrapper from '../OverflowTruncationWrapper/OverflowTruncationWrapper';
+
 const displayName = 'MenuPanelScrollableWithActionArea';
 
 type Props = {
@@ -33,12 +35,12 @@ const MenuPanelScrollableWithActionArea = ({
                 {...filteredProps}
                 className={componentClass}
             >
-                <div
+                <OverflowTruncationWrapper
                 className={styles.ContentWrapper}
                 style={{ maxHeight }}
                 >
                     {children}
-                </div>
+                </OverflowTruncationWrapper>
                 <div className={styles.ActionArea}>
                     {secondaryButtonProps ? (
                     <Button
