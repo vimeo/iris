@@ -42,7 +42,7 @@ $VerticalMenuItem_IconSize: rem-calc(20);
 
 .LabelIconWrapper {
     position: absolute;
-    top: rem-calc(11);
+    top: rem-calc(10);
     left: rem-calc(8);
 
     svg {
@@ -61,5 +61,11 @@ $VerticalMenuItem_IconSize: rem-calc(20);
 .LabelIconWrapper.isActive {
     svg * {
         fill: $VimeoBlue;
+    }
+}
+
+.LabelIconWrapper.subtle {
+    svg * {
+        fill: $SoutherlySky;
     }
 }

@@ -5,7 +5,6 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
 import SettingsIcon from '../../globals/svg/gear.svg';
 import VerticalMenuItem from '../VerticalMenuItem/VerticalMenuItem';
-import VerticalMenuItemReactRouter from '../VerticalMenuItemReactRouter/VerticalMenuItemReactRouter';
 
 const VerticalMenuNestedDocs = (props) => {
     const onClickHandler = (e) => {
@@ -32,7 +31,7 @@ const VerticalMenuNestedDocs = (props) => {
         ),
 
         (
-        <VerticalMenuItemReactRouter
+        <VerticalMenuItem
                 onClick={onClickHandler}
                 to="/"
                 label="Nested Item 3"
@@ -49,7 +48,9 @@ const VerticalMenuNestedDocs = (props) => {
                 <ListItem><code>onOpen</code> and <code>onClose</code> take callback functions for when the nested menu is opened or closed.</ListItem>
                 <ListItem><code>labelID</code> is required for accesibility support.</ListItem>
                 <ListItem><code>selectedItemIndex</code> is a 0-based index of which item in the list should be highlighted as active.</ListItem>
-                <ListItem><code>subMenuItems</code> should be an array of either <code>VerticalMenuItem</code> or <code>VerticalMenuItemReactRouter</code> components.</ListItem>
+                <ListItem><code>subMenuItems</code> should be an array of either <code>VerticalMenuItem</code> or <code>VerticalMenuItem</code> components.</ListItem>
+                <ListItem>The <code>to</code> prop indicates the path that you want the top level menu item to load (by passing it to the React Router Link tag). If you do not specify anything the top level link will just toggle the submenu.</ListItem>
+                <ListItem><code>nestedButtonLabel</code> should be passed a translated string indicating that the toggle arrow will open and close the menu.</ListItem>
             </List>
 
             <VerticalMenuNested
@@ -57,6 +58,7 @@ const VerticalMenuNestedDocs = (props) => {
                 labelId="testMenu"
                 selectedItemIndex={1}
                 subMenuItems={subMenuItems}
+                nestedButtonLabel="toggle menu"
             />
             <ExampleSource>
                 {`
@@ -65,6 +67,7 @@ const VerticalMenuNestedDocs = (props) => {
     label="Menu Label"
     labelId="testMenu"
     selectedItemIndex={1}
+    nestedButtonLabel="toggle menu"
     subMenuItems={[
         (
             <VerticalMenuItem
@@ -84,7 +87,7 @@ const VerticalMenuNestedDocs = (props) => {
             ),
     
             (
-            <VerticalMenuItemReactRouter
+            <VerticalMenuItem
                     onClick={onClickHandler}
                     to="/"
                     label="Nested Item 3"

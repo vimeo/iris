@@ -1,6 +1,7 @@
 /* @description Generates styles for the VerticalMenuItem component */
 @import '../../globals/sass/helpers-all';
 $VerticalMenuItem_IconSize: rem-calc(20);
+$VerticalMenuItem_TransitionSpeed: 250ms;
 
 .Wrapper {
     position: relative;
@@ -23,9 +24,9 @@ $VerticalMenuItem_IconSize: rem-calc(20);
     position: relative;
 
     width: 100%;
-    padding: 0.5rem ($VerticalMenuItem_IconSize + 1rem) 0.5rem 0.5rem;
+    padding: rem-calc(8) ($VerticalMenuItem_IconSize + 1rem) rem-calc(6) rem-calc(8);
 
-    transition: background-color 250ms ease;
+    transition: background-color $VerticalMenuItem_TransitionSpeed ease;
 
     &:hover {
         color: inherit;
@@ -34,8 +35,20 @@ $VerticalMenuItem_IconSize: rem-calc(20);
     }
 }
 
-.nestedInteractionWrapper {
+.NestedInteractionWrapper {
     position: absolute;
-    top: 0;
+    top: rem-calc(4);
     right: 0;
+
+    opacity: 0;
+
+    transition: opacity $VerticalMenuItem_TransitionSpeed ease;
+
+    &.isShowing {
+        opacity: 1;
+    }
+}
+
+.nestedMenuOffset {
+    margin-top: rem-calc(-2);
 }
