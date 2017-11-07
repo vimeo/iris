@@ -11,6 +11,8 @@ $OverflowTruncation_top-spacing: spacingUnit(4);
     position: absolute;
     top: 0;
 
+    width: 100%;
+
     &.isTruncated {
         &:before {
             display: block;
@@ -46,6 +48,4 @@ $OverflowTruncation_top-spacing: spacingUnit(4);
 
 .OverflowWrapper {
     overflow: scroll;
-
-    padding-top: $OverflowTruncation_top-spacing;
 }

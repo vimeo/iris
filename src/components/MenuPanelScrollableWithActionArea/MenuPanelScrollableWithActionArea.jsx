@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import styles from './MenuPanelScrollableWithActionArea.scss';
 import Button from '../Button/Button';
 import OverflowTruncationWrapper from '../OverflowTruncationWrapper/OverflowTruncationWrapper';
+import { GridBlock, GridCol, Grid } from '../Grid/Grid';
 
 const displayName = 'MenuPanelScrollableWithActionArea';
 
@@ -18,7 +19,7 @@ type Props = {
 const MenuPanelScrollableWithActionArea = ({
                         children,
                         className,
-                        maxHeight = 50,
+                        maxHeight,
                         primaryButtonProps,
                         secondaryButtonProps,
                         ...filteredProps
@@ -38,25 +39,43 @@ const MenuPanelScrollableWithActionArea = ({
                 <OverflowTruncationWrapper
                 maxHeight={maxHeight}
                 >
-                    {children}
+                    <div className={styles.ContentWrapper}>
+                        {children}
+                    </div>
                 </OverflowTruncationWrapper>
                 <div className={styles.ActionArea}>
-                    {secondaryButtonProps ? (
-                    <Button
-                            {...secondaryButtonProps}
-                            autoWidth="sm"
-                            format="secondary"
-                            isInline
-                            size="md"
-                        />
-                    ) : null}
-                    <Button
-                        {...primaryButtonProps}
-                        autoWidth="sm"
-                        format="primary"
-                        isInline
-                        size="md"
-                    />
+                    <Grid
+                        isNested
+                    >
+                        <GridBlock>
+                            <GridCol
+                                mdSpan={12}
+                                formColumn
+                            >
+                            {secondaryButtonProps ? (
+                                <Button
+                                    {...secondaryButtonProps}
+                                    autoWidth="fluid"
+                                    format="secondary"
+                                    isInline
+                                    size="md"
+                                />
+                            ) : null}
+                            </GridCol>
+                            <GridCol
+                                mdSpan={12}
+                                formColumn
+                            >
+                                <Button
+                                    {...primaryButtonProps}
+                                    autoWidth="fluid"
+                                    format="primary"
+                                    isInline
+                                    size="md"
+                                />
+                            </GridCol>
+                        </GridBlock>
+                    </Grid>
                 </div>
             </div>
     );

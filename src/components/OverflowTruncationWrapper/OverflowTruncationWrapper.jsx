@@ -11,8 +11,12 @@ type Props = {
     maxHeight: number,
 };
 
+type State = {
+    isTruncated: boolean,
+    maxHeight: number,
+}
+
 class OverflowTruncationWrapper extends React.Component {
-    state: Object;
 
     constructor(props: Props) {
         super(props);
@@ -21,6 +25,8 @@ class OverflowTruncationWrapper extends React.Component {
             maxHeight: props.maxHeight,
         };
     }
+
+    state: State;
 
     componentDidMount() {
         this._checkIfTruncated();
@@ -42,11 +48,10 @@ class OverflowTruncationWrapper extends React.Component {
     innerEl: any;
 
     _checkIfTruncated = () => {
+
         const innerElHeight = this.innerEl.clientHeight;
 
         const isTruncated = this.wrapperEl.clientHeight < innerElHeight;
-
-        console.log(isTruncated);
 
         this.setState({
             isTruncated,
@@ -58,6 +63,7 @@ class OverflowTruncationWrapper extends React.Component {
         const {
             children,
             className,
+            maxHeight,  // eslint-disable-line no-unused-vars
             ...filteredProps
         } = this.props;
 

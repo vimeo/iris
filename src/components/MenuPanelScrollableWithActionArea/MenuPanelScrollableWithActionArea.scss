@@ -3,15 +3,17 @@
 
 .MenuPanelScrollableWithActionArea {
     position: relative;
+}
 
-    padding: 0 spacingUnit(4);
+.ContentWrapper {
+    padding: spacingUnit(4) spacingUnit(4) 0;
 }
 
 .ActionArea {
     position: relative;
 
-    height: rem-calc(56);
-    padding: spacingUnit(2) spacingUnit(5) spacingUnit(2);
+    height: rem-calc(64);
+    padding: spacingUnit(3) spacingUnit(2);
 
     background-color: $White;
 }

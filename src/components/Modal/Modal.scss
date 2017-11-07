@@ -50,32 +50,9 @@ $Modal_Vertical_Cutoff: 300px;
 
     opacity: 1;
     border-radius: rem-calc(3);
-    // Modals scroll in the window until $Modal_Vertical_Cutoff height
-    // After that they scroll within the modal content box
-    @media (min-height: $Modal_Vertical_Cutoff) {
-        overflow: auto;
-
-        max-height: 76vh;
-    }
-
-
 
     &.fullBleed {
         padding: 0;
-    }
-
-    &.hasActionArea {
-        @include mq(sm) {
-            @media (min-height: $Modal_Vertical_Cutoff) {
-                max-height: calc(76vh - #{$Modal_actionArea-height-large-screen});
-            }
-        }
-        // This background creates a gradiant that looks like a shadow
-        // when there is content overflow.
-        // This technique comes from http://lea.verou.me/2012/04/background-attachment-local/
-        @include ActionAreaContentWrapper();
-
-        padding-bottom: 0;
     }
 }
 
@@ -125,7 +102,7 @@ $Modal_Vertical_Cutoff: 300px;
 }
 
 .ActionArea {
-    @include ActionAreaStyles();
+    // @include ActionAreaStyles();
     @include mq(sm) {
         height: $Modal_actionArea-height-large-screen;
     }

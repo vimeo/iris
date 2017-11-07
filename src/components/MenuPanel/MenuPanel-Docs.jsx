@@ -87,17 +87,11 @@ class MenuPanelDocs extends React.Component {
                 <ParagraphMd>"Beware the Jabberwock, my son! The jaws that bite, the claws that catch! Beware the Jubjub bird, and shun The frumious Bandersnatch!"</ParagraphMd>
                 <ParagraphMd>He took his vorpal sword in hand: Long time the manxome foe he sought -- So rested he by the Tumtum tree, And stood awhile in thought.</ParagraphMd>
                 <ParagraphMd>And, as in uffish thought he stood,The Jabberwock, with eyes of flame, Came whiffling through the tulgey wood, And burbled as it came!</ParagraphMd>
-                <ParagraphMd>One, two! One, two! And through and through The vorpal blade went snicker-snack!
-                He left it dead, and with its head
-                He went galumphing back.</ParagraphMd>
                 <InputText
                     name="foo"
-                    id="foo"
-                    label={'Default Input'}
-                    placeholder="Placeholder Text"
+                    id="MenuPanelExample Input"
+                    label="Jabberwocky Name"
                 />
-                <ParagraphMd>"And, has thou slain the Jabberwock?
-                Come to my arms, my beamish boy! O frabjous day! Callooh! Callay!' He chortled in his joy</ParagraphMd>
             </MenuPanelScrollableWithActionArea>
         );
 
@@ -119,20 +113,6 @@ class MenuPanelDocs extends React.Component {
             </NotificationWarning>
             <div data-code>
                 <Header3>Button Triggers</Header3>
-                <div className={styles.Spacer}>
-                    <MenuPanel
-                        alignment="center"
-                        menuContent={MenuWithActionArea}
-                        size="lg"
-                    >
-                        <ButtonIconOnly
-                            icon={<SettingsIcon />}
-                            format="dark"
-                            size="md"
-                            isButtonElement={false}
-                        />
-                    </MenuPanel>
-                </div>
                 <div className={styles.Spacer}>
                     <MenuPanel
                         alignment="right"
@@ -181,6 +161,59 @@ class MenuPanelDocs extends React.Component {
                         </LinkText>
                     </MenuPanel>
                 </div>
+                <Header3>MenuPanel with "Action Area"</Header3>
+                <ParagraphMd>To add a scrollable area with action buttons to a menu panel use the <code>MenuPanelScrollableWithActionArea</code> as the menu panel content. See the documentation for this component for prop information.</ParagraphMd>
+                <div className={styles.Spacer}>
+                <MenuPanel
+                    alignment="center"
+                    menuContent={MenuWithActionArea}
+                    size="lg"
+                >
+                    <ButtonIconOnly
+                        icon={<SettingsIcon />}
+                        format="dark"
+                        size="md"
+                        isButtonElement={false}
+                    />
+                </MenuPanel>
+                <ExampleSource>
+                {`
+const MenuWithActionArea = (
+    <MenuPanelScrollableWithActionArea
+        maxHeight = {200}
+        primaryButtonProps = {{
+            children: 'Submit',
+        }}
+        secondaryButtonProps = {{
+            children: 'Cancel',
+        }}
+    >
+        <ParagraphMd>Twas brillig, and the slithy toves Did gyre and gimble in the wabe: All mimsy were the borogoves, And the mome raths outgrabe.</ParagraphMd>
+        <ParagraphMd>"Beware the Jabberwock, my son! The jaws that bite, the claws that catch! Beware the Jubjub bird, and shun The frumious Bandersnatch!"</ParagraphMd>
+        <ParagraphMd>He took his vorpal sword in hand: Long time the manxome foe he sought -- So rested he by the Tumtum tree, And stood awhile in thought.</ParagraphMd>
+        <ParagraphMd>And, as in uffish thought he stood,The Jabberwock, with eyes of flame, Came whiffling through the tulgey wood, And burbled as it came!</ParagraphMd>
+        <InputText
+            name="foo"
+            id="MenuPanelExample Input"
+            label="Jabberwocky Name"
+        />
+    </MenuPanelScrollableWithActionArea>
+);
+<MenuPanel
+    alignment="center"
+    menuContent={MenuWithActionArea}
+    size="lg"
+>
+    <ButtonIconOnly
+        icon={<SettingsIcon />}
+        format="dark"
+        size="md"
+        isButtonElement={false}
+    />
+</MenuPanel>
+                `}
+                </ExampleSource>
+            </div>
                 <Header3>Making a button full width</Header3>
                 <div className={styles.Spacer}>
                 <ParagraphMd>If you need the trigger "button" to appear full width you need to both apply the <code>isFluid</code> prop to the menu panel <strong>and</strong> the <code>autoWidth="fluid"</code>prop to the button.</ParagraphMd>
