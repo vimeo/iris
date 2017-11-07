@@ -1,10 +1,17 @@
 /* @description Generates styles for the MenuPanelScrollableWithActionArea component */
 @import '../../globals/sass/helpers-all';
 
-.ContentWrapper {
-    padding: spacingUnit(4) spacingUnit(4) 0;
+.MenuPanelScrollableWithActionArea {
+    position: relative;
+
+    padding: 0 spacingUnit(4);
 }
 
 .ActionArea {
+    position: relative;
+
+    height: rem-calc(56);
     padding: spacingUnit(2) spacingUnit(5) spacingUnit(2);
+
+    background-color: $White;
 }

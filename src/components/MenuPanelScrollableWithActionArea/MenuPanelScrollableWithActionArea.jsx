@@ -12,13 +12,13 @@ type Props = {
     className?: string,
     primaryButtonProps: Object,
     secondaryButtonProps?: Object,
-    maxHeight: string,
+    maxHeight: number,
 };
 
 const MenuPanelScrollableWithActionArea = ({
                         children,
                         className,
-                        maxHeight = '50vh',
+                        maxHeight = 50,
                         primaryButtonProps,
                         secondaryButtonProps,
                         ...filteredProps
@@ -36,8 +36,7 @@ const MenuPanelScrollableWithActionArea = ({
                 className={componentClass}
             >
                 <OverflowTruncationWrapper
-                className={styles.ContentWrapper}
-                style={{ maxHeight }}
+                maxHeight={maxHeight}
                 >
                     {children}
                 </OverflowTruncationWrapper>

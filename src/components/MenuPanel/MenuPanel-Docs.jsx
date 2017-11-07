@@ -75,6 +75,7 @@ class MenuPanelDocs extends React.Component {
 
         const MenuWithActionArea = (
             <MenuPanelScrollableWithActionArea
+                maxHeight = {200}
                 primaryButtonProps = {{
                     children: 'Submit',
                 }}

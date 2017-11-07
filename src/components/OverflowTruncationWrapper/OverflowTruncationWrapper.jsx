@@ -8,6 +8,7 @@ const displayName = 'OverflowTruncationWrapper';
 type Props = {
     className?: string,
     children: React$Element<*>,
+    maxHeight: number,
 };
 
 class OverflowTruncationWrapper extends React.Component {
@@ -17,11 +18,13 @@ class OverflowTruncationWrapper extends React.Component {
         super(props);
         this.state = {
             isTruncated: false,
+            maxHeight: props.maxHeight,
         };
     }
 
     componentDidMount() {
         this._checkIfTruncated();
+
         window.addEventListener(
             'resize',
             this._checkIfTruncated
@@ -39,12 +42,15 @@ class OverflowTruncationWrapper extends React.Component {
     innerEl: any;
 
     _checkIfTruncated = () => {
-        const isTruncated = this.wrapperEl.clientHeight < this.innerEl.clientHeight;
+        const innerElHeight = this.innerEl.clientHeight;
+
+        const isTruncated = this.wrapperEl.clientHeight < innerElHeight;
 
         console.log(isTruncated);
 
         this.setState({
             isTruncated,
+            maxHeight: innerElHeight < this.props.maxHeight ? innerElHeight : this.props.maxHeight,
         });
     }
 
@@ -54,11 +60,15 @@ class OverflowTruncationWrapper extends React.Component {
             className,
             ...filteredProps
         } = this.props;
-        // className builder
+
         const componentClass = classNames(
             styles.OverflowTruncationWrapper,
-            (this.state.isTruncated ? styles.isTruncated : null),
             className,
+        );
+
+        const PositionalWrapperClass = classNames(
+            styles.PositionalWrapper,
+            (this.state.isTruncated ? styles.isTruncated : null),
         );
 
         return (
@@ -68,14 +78,25 @@ class OverflowTruncationWrapper extends React.Component {
                     ref={(wrapper) => {
                         this.wrapperEl = wrapper;
                     }}
+                    style={{
+                        height: `${this.state.maxHeight}px`,
+                    }}
                 >
-                    <div
-                        className={styles.InnerWrapper}
-                        ref= {(innerEl) => {
-                            this.innerEl = innerEl;
-                        }}
-                    >
-                        {children}
+                    <div className={PositionalWrapperClass}>
+                        <div
+                            className={styles.OverflowWrapper}
+                            style={{
+                                maxHeight: `${this.state.maxHeight}px`,
+                            }}
+                        >
+                            <div
+                                ref= {(innerEl) => {
+                                    this.innerEl = innerEl;
+                                }}
+                            >
+                                {children}
+                            </div>
+                        </div>
                     </div>
                 </div>
         );

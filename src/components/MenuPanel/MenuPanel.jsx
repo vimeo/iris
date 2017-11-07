@@ -262,7 +262,6 @@ class MenuPanel extends React.Component {
         );
 
         const menuElement = (
-            <div>
                 <CSSTransitionGroup
                     transitionAppear
                     transitionEnterTimeout={0} // need this to prevent console warning
@@ -284,7 +283,6 @@ class MenuPanel extends React.Component {
                         </div>
                     ) : null}
                 </CSSTransitionGroup>
-            </div>
         );
 
         return (

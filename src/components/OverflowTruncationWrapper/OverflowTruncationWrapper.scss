@@ -1,21 +1,51 @@
 /* @description Generates styles for the OverflowTruncationWrapper component */
 @import '../../globals/sass/helpers-all';
+$OverflowTruncation_top-spacing: spacingUnit(4);
+
 .OverflowTruncationWrapper {
+    position: relative;
+}
+
+
+.PositionalWrapper {
+    position: absolute;
+    top: 0;
+
+    &.isTruncated {
+        &:before {
+            display: block;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: $OverflowTruncation_top-spacing;
+
+            background: linear-gradient(to bottom, rgba(255,255,255,1) 10%,rgba(255,255,255,0) 100%);
+
+            content: '';
+        }
+
+        &:after {
+            display: block;
+
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+            height: rem-calc(20);
+
+            background: radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,0.15), rgba(0,0,0,0)) 0 100%;
+
+            content: '';
+        }
+    }
+}
+
+.OverflowWrapper {
     overflow: scroll;
 
-    position: relative;
-
-    &.isTruncated:after {
-        display: block;
-
-        position: fixed;
-        bottom: 0;
-
-        width: 100%;
-        height: rem-calc(20);
-
-        background: radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,0.2), rgba(0,0,0,0)) 0 100%;
-
-        content: '';
-    }
+    padding-top: $OverflowTruncation_top-spacing;
 }
