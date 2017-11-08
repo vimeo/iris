@@ -4,7 +4,15 @@
 .InputMessage {
     @include ParagraphSm;
 
+    overflow: hidden;
+
+    &.darkTheme,
+    &.darkTheme p {
+        color: $inputs_text-color-dark !important;
+    }
+
+    &.negative,
     &.negative p {
-        color: $inputs_error-color;
+        color: $inputs_error-color !important;
     }
 }

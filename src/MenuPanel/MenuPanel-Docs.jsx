@@ -151,6 +151,42 @@ class MenuPanelDocs extends React.Component {
                         </LinkText>
                     </MenuPanel>
                 </div>
+                <Header3>Making a button full width</Header3>
+                <div className={styles.Spacer}>
+                <ParagraphMd>If you need the trigger "button" to appear full width you need to both apply the <code>isFluid</code> prop to the menu panel <strong>and</strong> the <code>autoWidth="fluid"</code>prop to the button.</ParagraphMd>
+                    <MenuPanel
+                        alignment="center"
+                        menuContent={MenuList}
+                        size="md"
+                        isFluid
+                    >
+                        <Button
+                            isInline
+                            isButtonElement={false}
+                            autoWidth="fluid"
+                        >
+                            Click for Medium Center Menu
+                        </Button>
+                    </MenuPanel>
+                    <ExampleSource>
+                    {`
+<MenuPanel
+    alignment="center"
+    menuContent={MenuList}
+    size="md"
+    isFluid
+>
+    <Button
+        isInline
+        isButtonElement={false}
+        autoWidth="fluid"
+    >
+        Click for Medium Center Menu
+    </Button>
+</MenuPanel>
+                    `}
+                    </ExampleSource>
+                </div>
                 <Header3>Controlling Open/Close with the isShowing Prop</Header3>
                 <ParagraphMd>MenuPanels will often be controlled by their parent using state. The button below toggles the <code>isShowing</code> prop on the menu above.</ParagraphMd>
                 <Button

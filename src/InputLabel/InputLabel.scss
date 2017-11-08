@@ -4,6 +4,12 @@
     display: inline-block;
 
     position: relative;
+
+    &.darkTheme {
+        font-weight: normal;
+
+        color: $inputs_text-color-dark;
+    }
 }
 
 .disabled {

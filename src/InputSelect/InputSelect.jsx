@@ -20,6 +20,7 @@ type Props = {
     options: Array<{label: string, value: string}>,
     showLabel?: boolean,
     size?: 'md' | 'lg',
+    theme?: 'default' | 'dark',
 };
 
 const InputSelect = ({
@@ -35,6 +36,7 @@ const InputSelect = ({
                         options,
                         showLabel = true,
                         size = 'md',
+                        theme = 'default',
                         ...filteredProps
                     }: Props): React$Element<*> => {
 
@@ -46,6 +48,7 @@ const InputSelect = ({
     const componentClass = classNames(
         styles.InputSelect,
         styles[format],
+        styles[theme + 'Theme'],
         styles[size],
         (disabled ? styles.disabled : null),
         (isInline ? styles.isInline : null),
@@ -56,6 +59,7 @@ const InputSelect = ({
     const arrowClass = classNames(
         styles.IconArrow,
         styles['IconArrow-' + format],
+        styles[theme + 'Theme'],
         styles['IconArrow-' + size],
         (disabled ? styles['IconArrow-disabled'] : null)
     );
@@ -91,6 +95,7 @@ const InputSelect = ({
                 labelForId = {id}
                 isInline = {isInline}
                 size={size}
+                theme={theme}
             >
                 <div className={styles.InputSelectWrapper}>
                     <select

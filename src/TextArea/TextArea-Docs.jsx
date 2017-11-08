@@ -26,7 +26,7 @@ class TextAreaDocs extends React.Component {
         }
         else if (this.state.nextState === 'error') {
             this.setState({
-                errorProp: (<p>This is a problem!</p>),
+                errorProp: 'This is a problem!',
                 format: 'negative',
                 nextState: 'positive',
             });
@@ -85,6 +85,34 @@ class TextAreaDocs extends React.Component {
                     />
                 </div>
                 <Button format="secondaryOutline" size="xs" onClick={this.handleClick}>Toggle Field State to "{this.state.nextState}"</Button>
+                <div className="Pattern-DarkBlock">
+                    <TextArea
+                        name="fooTxt"
+                        id="fooTxt"
+                        label="Default TextArea"
+                        placeholder="Placeholder Text"
+                        theme="dark"
+                    />
+                    <TextArea
+                        name="oopsTxt"
+                        id="oopsTxt"
+                        label="Errored TextArea"
+                        errorMsg = "I have a problem"
+                        format = "negative"
+                        placeholder="Placeholder Text"
+                        defaultValue="Something is wrong!"
+                        theme="dark"
+                    />
+                    <TextArea
+                        name="niceTxt"
+                        id="niceTxt"
+                        label="Positive TextArea"
+                        format = "positive"
+                        placeholder="Placeholder Text"
+                        defaultValue="Something is right!"
+                        theme="dark"
+                    />
+                </div>
                 <ExampleSource>
                     {`
 <TextArea
@@ -126,6 +154,32 @@ class TextAreaDocs extends React.Component {
     errorMsg = {this.state.errorProp}
     placeholder="Placeholder Text"
     defaultValue="Something is getting better!"
+/>
+<TextArea
+    name="fooTxt"
+    id="fooTxt"
+    label="Default TextArea"
+    placeholder="Placeholder Text"
+    theme="dark"
+/>
+<TextArea
+    name="oopsTxt"
+    id="oopsTxt"
+    label="Errored TextArea"
+    errorMsg = "I have a problem"
+    format = "negative"
+    placeholder="Placeholder Text"
+    defaultValue="Something is wrong!"
+    theme="dark"
+/>
+<TextArea
+    name="niceTxt"
+    id="niceTxt"
+    label="Positive TextArea"
+    format = "positive"
+    placeholder="Placeholder Text"
+    defaultValue="Something is right!"
+    theme="dark"
 />
                     `}
                     </ExampleSource>

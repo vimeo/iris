@@ -14,7 +14,9 @@ type Props = {
     helperMsg?: React$Element<*>,
     label: string,
     id: string,
+    preMessage?: React$Element<*>,
     showLabel?: boolean,
+    theme?: 'default' | 'dark',
 };
 
 const TextArea = ({
@@ -25,7 +27,9 @@ const TextArea = ({
                         helperMsg,
                         label,
                         id,
+                        preMessage,
                         showLabel = true,
+                        theme = 'default',
                         ...filteredProps
                     }: Props): React$Element<*> => {
 
@@ -37,6 +41,7 @@ const TextArea = ({
     const componentClass = classNames(
         styles.TextArea,
         styles[format],
+        styles[theme + 'Theme'],
         (hasIcon ? styles.hasIcon : null),
         className
     );
@@ -56,6 +61,8 @@ const TextArea = ({
                     helperMsg = {helperMsg}
                     label = {label}
                     labelForId = {id}
+                    preMessage={preMessage}
+                    theme={theme}
                 >
                     <textarea
                         id={id}

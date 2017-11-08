@@ -1,7 +1,7 @@
 import React from 'react';
 import InputToggle from './InputToggle';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../Type';
+import { ParagraphMd, Header3 } from '../Type';
 
 class InputToggleDocs extends React.Component {
     constructor(props) {
@@ -44,6 +44,31 @@ class InputToggleDocs extends React.Component {
                         value="4"
                         disabled
                     />
+                    <Header3>Hidden Labels</Header3>
+                    <InputToggle
+                        label="Toggle Hidden Label"
+                        name="demoToggleMdHidden"
+                        id="ToggleMdHidden"
+                        value="1"
+                        hideLabel
+                    />
+                </div>
+                <div className="Pattern-DarkBlock">
+                    <InputToggle
+                        label="Toggle (Large)"
+                        name="demoToggleLg"
+                        id="ToggleLgDark"
+                        value="1"
+                        theme="dark"
+                        size="lg"
+                    />
+                    <InputToggle
+                        label="Toggle (medium)"
+                        name="demoToggleMd"
+                        id="ToggleMdDark"
+                        value="1"
+                        theme="dark"
+                    />
                 </div>
 
                 <ExampleSource>
@@ -79,7 +104,29 @@ class InputToggleDocs extends React.Component {
     value="4"
     disabled
 />
-                        `}
+<InputToggle
+    label="Toggle Hidden Label"
+    name="demoToggleMdHidden"
+    id="ToggleMdHidden"
+    value="1"
+    hideLabel
+/>
+<InputToggle
+label="Toggle (Large)"
+name="demoToggleLg"
+id="ToggleLgDark"
+value="1"
+theme="dark"
+size="lg"
+/>
+<InputToggle
+label="Toggle (medium)"
+name="demoToggleMd"
+id="ToggleMdDark"
+value="1"
+theme="dark"
+/>
+                    `}
                     </ExampleSource>
                 </div>
         );

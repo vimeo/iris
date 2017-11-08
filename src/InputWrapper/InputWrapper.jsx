@@ -13,14 +13,16 @@ type Props = {
     className?: string,
     children: React$Element<*>,
     disabled?: boolean,
-    errorMsg?: React$Element<*>,
+    errorMsg?: string | React$Element<*>,
     format?: 'negative' | 'positive' | 'neutral',
-    helperMsg?: React$Element<*>,
+    helperMsg?: string | React$Element<*>,
     isInline?: boolean,
     label?: string | React$Element<*>,
     labelForId?: string,
+    preMessage?: React$Element<*>,
     showLabel: boolean,
     size?: 'md' | 'lg',
+    theme?: 'default' | 'dark',
 };
 
 const InputWrapper = ({
@@ -33,8 +35,10 @@ const InputWrapper = ({
                         helperMsg,
                         isInline,
                         label,
+                        preMessage,
                         showLabel = true,
                         size = 'md',
+                        theme = 'default',
                         ...filteredProps
                     }: Props): React$Element<*> => {
 
@@ -55,6 +59,7 @@ const InputWrapper = ({
     const componentClass = classNames(
         styles.InputWrapper,
         (isInline ? styles.isInline : null),
+        styles[theme + 'Theme'],
         className
     );
 
@@ -63,10 +68,17 @@ const InputWrapper = ({
             styles['Icon-' + format],
             (fieldIcon ? styles['Icon-isShowing'] : null),
             styles['Icon-' + size],
+            styles[theme + 'Theme'],
     );
 
     const labelElement = (
-        <InputLabel disabled={disabled} htmlFor={labelForId}>{label}</InputLabel>
+        <InputLabel
+            disabled={disabled}
+            htmlFor={labelForId}
+            theme={theme}
+        >
+            {label}
+        </InputLabel>
     );
 
     const inputIcon = fieldIcon && (
@@ -88,9 +100,11 @@ const InputWrapper = ({
                     {children}
                     {inputIcon}
                 </div>
+                {preMessage}
                 <InputMessageArea
                     errorMsg={errorMsg}
                     helperMsg={helperMsg}
+                    theme={theme}
                 />
             </div>
         </div>

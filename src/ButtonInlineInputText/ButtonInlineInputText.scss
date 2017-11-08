@@ -1,0 +1,109 @@
+/* @description Generates styles for the ButtonInlineInputText component */
+@import '../globals/sass/helpers-all';
+$InputTextWithButton-size-md: rem-calc(40);
+$InputTextWithButton-size-lg: rem-calc(48);
+$InputTextWithButton-size-md-subtle: rem-calc(36);
+$InputTextWithButton-size-lg-subtle: rem-calc(44);
+
+.ButtonInlineInputText {
+    display: inline-flex;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: auto;
+    margin: 0;
+
+    border-width: rem-calc(1) rem-calc(1) rem-calc(1) 0;
+    border-style: solid;
+    border-radius: 0 rem-calc($g-radius) rem-calc($g-radius) 0;
+
+    transition: all #{$iris_transition-base};
+    text-align: center;
+    vertical-align: middle;
+
+    appearance: none;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:active svg {
+        transform: scale(0.92);
+    }
+
+    &.md {
+        width: $InputTextWithButton-size-md;
+        height: $InputTextWithButton-size-md;
+
+        svg {
+            width: $InputTextWithButton-size-md/2;
+            height: $InputTextWithButton-size-md/2;
+        }
+    }
+
+    &.lg {
+        width: $InputTextWithButton-size-lg;
+        height: $InputTextWithButton-size-lg;
+
+        svg {
+            width: $InputTextWithButton-size-lg/2;
+            height: $InputTextWithButton-size-lg/2;
+        }
+    }
+
+    &.strong {
+        border-color: $Button_primary-bg-color;
+        background: $Button_primary-bg-color;
+        svg * {
+            fill: $Button_primary-text-color;
+        }
+
+        &:hover {
+            border-color: $Button_primary-bg-color_hover;
+            background: $Button_primary-bg-color_hover;
+        }
+    }
+
+    &.neutral {
+        border-color: $Button_alternative-bg-color;
+        background: $Button_alternative-bg-color;
+        svg * {
+            fill: $Button_alternative-text-color;
+        }
+
+        &:hover {
+            border-color: $Button_alternative-bg-color_hover;
+            background: $Button_alternative-bg-color_hover;
+        }
+    }
+
+    &.subtle {
+        top: rem-calc(2);
+        right: rem-calc(2);
+
+        border-color: transparent;
+        background: $inputs_background-color;
+
+        svg * {
+            fill: $inputs_border-color;
+        }
+
+        &.lg {
+            width: $InputTextWithButton-size-lg-subtle;
+            height: $InputTextWithButton-size-lg-subtle;
+        }
+
+        &.md {
+            width: $InputTextWithButton-size-md-subtle;
+            height: $InputTextWithButton-size-md-subtle;
+        }
+
+        &:hover {
+            background: $Plaster;
+        }
+    }
+}

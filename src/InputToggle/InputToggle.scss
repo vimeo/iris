@@ -60,6 +60,11 @@ $InputToggle_bloopSize-lg: 38;
         transition: all #{$InputToggle_transition};
         transform: translateY(-50%);
     }
+
+    &.darkTheme {
+        background: $inputs_background-color-dark-inline-elements;
+        box-shadow: inset 0 0 0 rem-calc(1) $inputs_border-color-dark;
+    }
 }
 
 .toggleOverlay-md {
@@ -82,24 +87,30 @@ $InputToggle_bloopSize-lg: 38;
     }
 }
 
-
 .InputToggle:checked + .toggleOverlay::before {
     left: 50%;
 }
 
 .InputToggle:hover + .toggleOverlay {
-    background-color: $AstroGranite;
-
     cursor: pointer;
+}
+
+.InputToggle:hover + .toggleOverlay {
+    background-color: $AstroGranite;
 }
 
 .InputToggle:checked + .toggleOverlay {
     background-color: $VimeoBlue;
 }
 
+.InputToggle:checked + .toggleOverlay.darkTheme {
+    box-shadow: none;
+}
+
 .InputToggle:hover:checked + .toggleOverlay {
     background-color: $VimeoBlue-Darkened;
 }
+
 .InputToggle:disabled + .toggleOverlay {
     background-color: $SoutherlySky !important;
 
@@ -120,4 +131,10 @@ $InputToggle_bloopSize-lg: 38;
 
     width: rem-calc($InputToggle_bloopSize-lg);
     height: rem-calc($InputToggle_bloopSize-lg);
+}
+.InputToggleLabel {
+    min-height: 1.125rem;
+}
+.isHiddenLabel {
+    display: none;
 }

@@ -5,7 +5,7 @@ import InputText from '../InputText/InputText';
 import { ParagraphMd, Header1, Header2, Header3 } from '../Type';
 import styles from './Modal-Docs.scss';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { List, ListItem } from '../List';
+import { List, ListItem } from '../List/List';
 class ModalDocs extends React.Component {
     constructor(props) {
         super(props);

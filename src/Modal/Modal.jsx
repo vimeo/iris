@@ -8,6 +8,7 @@ import { CSSTransitionGroup } from 'react-transition-group';
 import Button from '../Button/Button';
 import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
 import { Header4 } from '../Type';
+
 const displayName = 'Modal';
 
 // this value should be kept in sync with the timing variable in the Modal.scss
@@ -71,6 +72,7 @@ class Modal extends React.Component {
     firstFocusableElement: Object;
     lastFocusableElement: Object;
     thisEl: any;
+    scrollDistance: number;
 
     _bindEvents() {
         document.addEventListener(
@@ -138,7 +140,8 @@ class Modal extends React.Component {
     }
 
     _freezeBodyScroll() {
-        const topOffset = `-${window.pageYOffset}px`;
+        this.scrollDistance = window.pageYOffset;
+        const topOffset = `-${this.scrollDistance}px`;
         // Flow does not like using classList or style on document body
 
         // $FlowFixMe
@@ -153,6 +156,11 @@ class Modal extends React.Component {
         document.body.classList.remove(styles.freezeBodyScroll);
         // $FlowFixMe
         document.body.style.top = null;
+
+        // reset scroll place, needs a slight delay to work.
+        setTimeout(() => {
+            window.scrollTo(0, this.scrollDistance);
+        }, 2);
     }
 
     _getOriginalFocusedEl() {

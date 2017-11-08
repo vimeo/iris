@@ -2,6 +2,20 @@
 @import '../globals/sass/helpers-all';
 $InputCheck_fill-size: 1rem;
 
+@mixin InputCheck_checkboxFill {
+    @include sharedInlineInputFillStyles();
+
+    top: 0.16rem;
+    left: 0.155rem;
+
+    width: $InputCheck_fill-size;
+    height: $InputCheck_fill-size;
+
+    background-repeat: no-repeat;
+    background-position: 2% 2%;
+    background-size: 98%;
+}
+
 .InputCheckboxWrapper {
     @include sharedInlineInputWrapperStyles();
 
@@ -37,24 +51,34 @@ $InputCheck_fill-size: 1rem;
 
     border-radius: rem-calc($g-radius-sm);
 
-    &::after {
-        @include sharedInlineInputFillStyles();
+    &.darkTheme {
+        border-color: $inputs_border-color-dark;
+        background-color: $inputs_background-color-dark-inline-elements;
 
-        top: 0.16rem;
-        left: 0.155rem;
+        &:hover {
+            border-color: $White;
+        }
+    }
 
-        width: $InputCheck_fill-size;
-        height: $InputCheck_fill-size;
+    &.default::after {
+        @include InputCheck_checkboxFill();
 
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%23ffffff' d='M6.667 14.39L1.306 9.22l1.388-1.44 3.973 3.83 8.639-8.33 1.388 1.44z'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: 2% 2%;
-        background-size: 98%;
+    }
+
+    &.indeterminate::after {
+        @include InputCheck_checkboxFill();
+
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23ffffff' d='M4 9h12a1 1 0 0 1 1 1 1 1 0 0 1-1 1H4a1 1 0 0 1-1-1 1 1 0 0 1 1-1z'/%3E%3C/svg%3E");
     }
 }
 
-.InputCheckbox:focus + .InputCheckboxOverlay {
+.InputCheckbox:focus + .InputCheckboxOverlay.defaultTheme {
     border-color: $inputs_border-color-focused;
+}
+
+.InputCheckbox:focus + .InputCheckboxOverlay.darkTheme {
+    border-color: $inputs_border-color-focused-dark;
 }
 
 .InputCheckbox:checked + .InputCheckboxOverlay {

@@ -26,9 +26,15 @@ $InputSelect_arrow-size: rem-calc(24);
 
     width: rem-calc(48);
 
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 30%);
-
     pointer-events: none;
+
+    &.defaultTheme {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 30%);
+    }
+
+    .darkTheme {
+        background: linear-gradient(to right, rgba($RegentGray, 0) 0%, rgba($RegentGray, 1) 30%);
+    }
 
     svg {
         position: absolute;
@@ -38,14 +44,19 @@ $InputSelect_arrow-size: rem-calc(24);
         height: $InputSelect_arrow-size;
     }
 
-    &.IconArrow-neutral svg * {
-        stroke: $inputs_text-color;
+    &.IconArrow-neutral.defaultTheme svg * {
+        fill: $inputs_text-color;
     }
+
+    &.IconArrow-neutral.darkTheme svg * {
+        fill: $inputs_text-color-dark;
+    }
+
     &.IconArrow-negative svg * {
-        stroke: $inputs_error-color;
+        fill: $inputs_error-color;
     }
     &.IconArrow-positive svg * {
-        stroke: $inputs_positive-color;
+        fill: $inputs_positive-color;
     }
     &.IconArrow-disabled {
         background: $inputs_background-color-disabled;

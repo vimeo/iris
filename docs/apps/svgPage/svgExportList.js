@@ -40,6 +40,8 @@
   
  exports.CircleWarning = require('../../../src/icons/circle-warning.svg');
   
+ exports.Clipboard = require('../../../src/icons/clipboard.svg');
+  
  exports.Clock = require('../../../src/icons/clock.svg');
   
  exports.Code = require('../../../src/icons/code.svg');
@@ -73,6 +75,10 @@
  exports.HeartFilled = require('../../../src/icons/heart-filled.svg');
   
  exports.Heart = require('../../../src/icons/heart.svg');
+  
+ exports.HomeFilled = require('../../../src/icons/home-filled.svg');
+  
+ exports.Home = require('../../../src/icons/home.svg');
   
  exports.Instagram = require('../../../src/icons/instagram.svg');
   

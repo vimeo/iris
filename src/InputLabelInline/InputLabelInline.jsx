@@ -14,6 +14,7 @@ type Props = {
     format?: 'negative' | 'positive' | 'neutral',
     fieldLevelErrors?: boolean,
     hideLabel?: boolean,
+    theme?: 'default' | 'dark',
 };
 
 const InputLabelInline = ({
@@ -23,6 +24,7 @@ const InputLabelInline = ({
                             fieldLevelErrors,
                             hideLabel,
                             disabled,
+                            theme = 'default',
                         ...filteredProps
                     }: Props): React$Element<*> => {
 
@@ -31,6 +33,7 @@ const InputLabelInline = ({
         styles.InputLabelInline,
         styles.md,
         styles[format],
+        styles[theme + 'Theme'],
         (disabled ? styles.isDisabled : null),
         (hideLabel ? styles.isHiddenLabel : null),
         className

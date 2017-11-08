@@ -13,6 +13,7 @@ type Props = {
     disabled?: boolean,
     element?: 'label' | 'legend',
     format?: 'negative' | 'positive' | 'neutral',
+    theme?: 'default' | 'dark',
 };
 
 
@@ -25,12 +26,14 @@ const InputLabel = (props: Props): React$Element<*> => {
         disabled,
         element = 'label',
         format = 'neutral',
+        theme = 'default',
         ...filteredProps
     } = props;
 
     // className builder
     const componentClass = classNames(
         styles.InputLabel,
+        styles[theme + 'Theme'],
         (disabled ? styles.disabled : null),
         className
     );

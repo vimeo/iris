@@ -13,6 +13,7 @@ type Props = {
     format?: 'negative' | 'positive' | 'neutral',
     id: string,
     label: string | React$Element<*>,
+    theme?: 'default' | 'dark',
 };
 
 const InputRadio = ({
@@ -21,6 +22,7 @@ const InputRadio = ({
                         format = 'neutral',
                         id,
                         label,
+                        theme = 'default',
                         ...filteredProps
                     }: Props): React$Element<*> => {
 
@@ -32,6 +34,7 @@ const InputRadio = ({
 
     const overlayClass = classNames(
         styles.InputRadioOverlay,
+        styles[theme + 'Theme'],
         className
     );
 
@@ -41,6 +44,7 @@ const InputRadio = ({
                 htmlFor={id}
                 format={format}
                 disabled={disabled}
+                theme={theme}
             >
                 <input
                     {...filteredProps}
@@ -50,7 +54,7 @@ const InputRadio = ({
                     disabled={disabled}
                 />
                 <span className={overlayClass} />
-                <FocusBloop className={styles.FocusBloop} />
+                <FocusBloop className={styles.FocusBloop} theme={theme} />
                 {label}
             </InputLabelInline>
         </div>

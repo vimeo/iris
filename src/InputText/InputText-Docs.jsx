@@ -4,7 +4,7 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 import Button from '../Button/Button';
 import { ParagraphMd, Header3 } from '../Type';
 const errorState = {
-    errorProp: (<ParagraphMd>This is a problem!</ParagraphMd>),
+    errorProp: 'This is a problem!',
     format: 'negative',
     nextState: 'positive',
 };
@@ -73,14 +73,14 @@ class InputTextDocs extends React.Component {
                         id="helpful"
                         label="Helpful Input"
                         placeholder="I have some helper text"
-                        helperMsg = {<ParagraphMd>See? I told you so.</ParagraphMd>}
+                        helperMsg = "See? I told you so."
                     />
                     <InputText
                         name="oops"
                         id="oops"
                         label="Errored Input"
                         format="negative"
-                        errorMsg = {<ParagraphMd>This is a problem!</ParagraphMd>}
+                        errorMsg="This is a problem!"
                         placeholder="Placeholder Text"
                         defaultValue="Something is wrong!"
                     />
@@ -94,15 +94,44 @@ class InputTextDocs extends React.Component {
                     />
 
                 </div>
+                <div className="Pattern-DarkBlock">
+                    <InputText
+                        name="medInput"
+                        id="medInputDark"
+                        label="Input (medium)"
+                        placeholder="I'm Medium!"
+                        theme="dark"
+                    />
+                    <InputText
+                        name="nice"
+                        id="niceDark"
+                        label="Positive Input"
+                        format="positive"
+                        placeholder="Placeholder Text"
+                        defaultValue="Something is right!"
+                        theme="dark"
+                    />
+                    <InputText
+                        name="oops"
+                        id="oopsDark"
+                        label="Errored Input"
+                        format="negative"
+                        errorMsg = {<ParagraphMd>This is a problem!</ParagraphMd>}
+                        placeholder="Placeholder Text"
+                        defaultValue="Something is wrong!"
+                        theme="dark"
+                    />
+                </div>
 
                 <ExampleSource>
                     {`
- <InputText
+<InputText
     name="foo"
     id="foo"
-    label="Default Input"
+    label={'Default Input'}
     placeholder="Placeholder Text"
 />
+
 <InputText
     name="noPlace"
     id="NoPlace"
@@ -121,14 +150,14 @@ class InputTextDocs extends React.Component {
     id="helpful"
     label="Helpful Input"
     placeholder="I have some helper text"
-    helperMsg = {<ParagraphMd>See? I told you so.</ParagraphMd>}
+    helperMsg = "See? I told you so."
 />
 <InputText
     name="oops"
     id="oops"
     label="Errored Input"
     format="negative"
-    errorMsg = {<ParagraphMd>This is a problem!</ParagraphMd>}
+    errorMsg = "This is a problem!"
     placeholder="Placeholder Text"
     defaultValue="Something is wrong!"
 />
@@ -136,8 +165,35 @@ class InputTextDocs extends React.Component {
     name="bar"
     id="bar"
     label="Disabled Input"
-    disabled placeholder="Placeholder Text"
+    disabled
+    placeholder="Placeholder Text"
     defaultValue="I'm Disabled"
+/>
+<InputText
+    name="medInput"
+    id="medInputDark"
+    label="Input (medium)"
+    placeholder="I'm Medium!"
+    theme="dark"
+/>
+<InputText
+    name="nice"
+    id="niceDark"
+    label="Positive Input"
+    format="positive"
+    placeholder="Placeholder Text"
+    defaultValue="Something is right!"
+    theme="dark"
+/>
+<InputText
+    name="oops"
+    id="oopsDark"
+    label="Errored Input"
+    format="negative"
+    errorMsg = {<ParagraphMd>This is a problem!</ParagraphMd>}
+    placeholder="Placeholder Text"
+    defaultValue="Something is wrong!"
+    theme="dark"
 />
                     `}
                     </ExampleSource>
@@ -189,7 +245,6 @@ class InputTextDocs extends React.Component {
 />
                         `}
                     </ExampleSource>
-
                 <Header3>Input Sizes</Header3>
                 <ParagraphMd>Inputs can also be medium or large and are sized to line up with the buttons of the same size prop.</ParagraphMd>
                 <div data-code>
@@ -223,6 +278,30 @@ class InputTextDocs extends React.Component {
         size="lg"
         placeholder="Placeholder Text"
     />
+                        `}
+                    </ExampleSource>
+                    <Header3>Adding a Button</Header3>
+                    <ParagraphMd>Buttons can be added to fields by passing a <code>ButtonInlineInputText</code> component to <code>inlineButton</code> prop</ParagraphMd>
+                    <ParagraphMd>The following example shows how our <code>SearchField</code> component is made.</ParagraphMd>
+                    <ExampleSource>
+                    {`
+const ButtonComponent = (
+    <ButtonInlineInputText
+        icon = {<SearchIcon />}
+        format="subtle"
+        size={size}
+    />
+);
+
+return (
+        <InputText
+            {...filteredProps}
+            showLabel={showLabel}
+            inlineButton={ButtonComponent}
+            isInline = {isInline}
+            size={size}
+        />
+);
                         `}
                     </ExampleSource>
 

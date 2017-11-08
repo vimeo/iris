@@ -64,6 +64,15 @@ class InputCheckboxDocs extends React.Component {
                         value="6"
                     />
                 </div>
+                <div className="Pattern-DarkBlock">
+                    <InputCheckbox
+                        label="Checkbox 1 (Medium)"
+                        name="demoCheckbox1"
+                        id="Checkbox1Dark"
+                        value="1"
+                        theme="dark"
+                    />
+                </div>
 
                 <ExampleSource>
                     {`
@@ -107,6 +116,13 @@ class InputCheckboxDocs extends React.Component {
     name="demoCheckbox6"
     id="Checkbox6"
     value="6"
+/>
+<InputCheckbox
+label="Checkbox 1 (Medium)"
+name="demoCheckbox1"
+id="Checkbox1Dark"
+value="1"
+theme="dark"
 />
                         `}
                     </ExampleSource>

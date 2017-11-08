@@ -1,61 +1,52 @@
 // @flow
 import React from 'react';
-import classNames from 'classnames';
-import styles from './SearchField.scss';
-import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
 import InputText from '../InputText/InputText';
+import ButtonInlineInputText from '../ButtonInlineInputText/ButtonInlineInputText';
 import SearchIcon from '../icons/search.svg';
 
 const displayName = 'SearchField';
 
 type Props = {
+    buttonFormat?: 'subtle' | 'neutral' | 'strong',
     buttonLabel: string,
     buttonProps?: Object,
-    className?: string,
     fieldLabel: string,
     id: string,
     isInline?: boolean,
-    size?: 'sm' | 'md',
+    showLabel?: boolean,
+    size?: 'md' | 'lg',
 };
 
 const SearchField = ({
-                        buttonLabel,
+                        buttonFormat = 'subtle',
                         buttonProps,
-                        className,
-                        id,
+                        buttonLabel,
                         fieldLabel,
+                        showLabel = false,
                         isInline = true,
                         size = 'md',
                         ...filteredProps
                     }: Props): React$Element<*> => {
 
-    // className builder
-    const componentClass = classNames(
-        styles.SearchField,
-        className
+    const ButtonComponent = (
+        <ButtonInlineInputText
+            {...buttonProps}
+            title={buttonLabel}
+            icon = {<SearchIcon />}
+            format="subtle"
+            size={size}
+        />
     );
 
-    const buttonSize = size === 'lg' ? 'md' : 'sm';
-
     return (
-            <div className={styles.Wrapper}>
-                    <InputText
-                        {...filteredProps}
-                        className={componentClass}
-                        showLabel={false}
-                        size={size}
-                        id={id}
-                        label={fieldLabel}
-                        type="search"
-                    />
-                    <ButtonIconOnly
-                        {...buttonProps}
-                        className={styles.SubmitButton}
-                        icon={<SearchIcon title={buttonLabel} />}
-                        format="alternative"
-                        size={buttonSize}
-                    />
-            </div>
+            <InputText
+                {...filteredProps}
+                showLabel={showLabel}
+                label={fieldLabel}
+                inlineButton={ButtonComponent}
+                isInline = {isInline}
+                size={size}
+            />
     );
 };
 

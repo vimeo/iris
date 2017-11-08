@@ -40,6 +40,18 @@ input:focus ~ .FocusBloop {
     animation-name: actionCircleBloop;
 }
 
-input:focus:checked ~ .FocusBloop {
-    background-color: $VimeoBlue;
+input:focus ~ .FocusBloop.defaultTheme {
+    background-color: rgba($VimeoBlue, 0.15);
+}
+
+input:focus:checked ~ .FocusBloop.defaultTheme {
+    background-color: rgba($VimeoBlue, 0.2);
+}
+
+
+input:focus ~ .FocusBloop.darkTheme {
+    background-color: rgba($White, 0.25);
+}
+input:focus:checked ~ .FocusBloop.darkTheme {
+    background-color: rgba($White, 0.3);
 }

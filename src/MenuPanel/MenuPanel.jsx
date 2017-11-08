@@ -18,12 +18,14 @@ type Props = {
     className?: string,
     children: React$Element <*>,
     href?: string,
-    isShowing?: Boolean,
+    isShowing?: boolean,
     menuContent: React$Element <*>,
-    onClose: Function,
-    onOpen: Function,
+    onClose?: Function,
+    onClick?: Function,
+    onOpen?: Function,
     size: 'sm' | 'md' | 'lg',
     options?: Object,
+    isFluid?: boolean,
 };
 
 class MenuPanel extends React.Component {
@@ -77,6 +79,10 @@ class MenuPanel extends React.Component {
         this._toggleClick();
         if (this.props.href === '#') {
             e.preventDefault();
+        }
+
+        if (typeof this.props.onClick === 'function') {
+            this.props.onClick();
         }
     }
 
@@ -233,8 +239,10 @@ class MenuPanel extends React.Component {
             children,
             className,
             href,
+            isFluid,
             isShowing, // eslint-disable-line no-unused-vars
             menuContent,
+            onClick, // eslint-disable-line no-unused-vars
             onClose, // eslint-disable-line no-unused-vars
             onOpen, // eslint-disable-line no-unused-vars
             size,
@@ -250,7 +258,13 @@ class MenuPanel extends React.Component {
 
         const triggerClass = classNames(
             styles.MenuTrigger,
+            (isFluid ? styles.isFluid : null),
             className,
+        );
+
+        const wrapperClass = classNames(
+            styles.MenuPanelWrapper,
+            (isFluid ? styles.isFluid : null),
         );
 
         const menuElement = (
@@ -280,7 +294,7 @@ class MenuPanel extends React.Component {
         );
 
         return (
-            <div className={styles.MenuPanelWrapper}>
+            <div className={wrapperClass}>
                 <TetherComponent
                     attachment={`top ${alignment}`}
                     targetAttachment={`bottom ${alignment}`}
@@ -296,6 +310,7 @@ class MenuPanel extends React.Component {
                     offset="-4px 0"
                 >
                     <a
+                        {...filteredProps}
                         aria-haspopup="true"
                         aria-expanded={this.state.isShowing ? 'true' : 'false'}
                         className={triggerClass}
@@ -306,7 +321,6 @@ class MenuPanel extends React.Component {
                         ref={(menuTriggerEl) => {
                             this.menuTriggerEl = menuTriggerEl;
                         }}
-                        {...filteredProps}
                     >
                         {children}
                     </a>

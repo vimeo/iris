@@ -1,30 +1,9 @@
 /* @description Generates styles for the Button component */
 @import '../globals/sass/helpers-all';
-$Button_primary-text-color: $White;
-$Button_primary-bg-color: $VimeoBlue;
-$Button_primary-bg-color_hover: $VimeoBlue-Darkened;
-$Button_secondary-text-color: $AstroGranite;
-$Button_secondary-text-color_outline: $AstroGranite;
-$Button_secondary-bg-color: $Plaster;
-$Button_secondary-bg-color_hover: $Porcelain;
-$Button_secondary-outline-text-color: $RegentGray;
-$Button_secondary-outline-bg-color_hover: #D0D8DB;
-$Button_alternative-text-color: $White;
-$Button_alternative-bg-color: #3A5161;
-$Button_alternative-bg-color_hover: $AstroGranite;
-$Button_warning-text-color: $White;
-$Button_warning-bg-color: $SunsetOrange;
-$Button_warning-bg-color_hover: $SunsetOrange-Darkened;
-$Button_success-text-color: $White;
-$Button_success-bg-color: $Pistachio;
-$Button_success-bg-color_hover: $Pistachio-Darkened;
 $Button_icon-size-large: rem-calc(18);
 $Button_icon-size-medium: rem-calc(16);
 $Button_icon-size-small: rem-calc(14);
 $Button_icon-size-xSmall: rem-calc(10);
-
-// rgba rather than 'transparent' for smoother color animations
-$Button_transparent_for_animation: rgba(255,255,255,0);
 
 @mixin autoWidthSettings() {
     width: auto;

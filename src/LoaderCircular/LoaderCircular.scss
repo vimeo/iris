@@ -1,8 +1,10 @@
 /* @description Generates styles for the LoaderCircular component */
 @import '../globals/sass/helpers-all';
 $LoaderCircular_animation_timing: 800ms;
-$LoaderCircular_color-primary: $VimeoBlue;
+$LoaderCircular_size-lg: rem-calc(26);
 $LoaderCircular_size-md: rem-calc(24);
+$LoaderCircular_size-sm: rem-calc(16);
+$LoaderCircular_size-xs: rem-calc(12);
 $LoaderCircular_border_size-primary: rem-calc(2);
 
 @keyframes rotate {
@@ -18,16 +20,51 @@ $LoaderCircular_border_size-primary: rem-calc(2);
 }
 
 .LoaderCircular {
-    width: $LoaderCircular_size-md;
-    height: $LoaderCircular_size-md;
-
+    border-width: $LoaderCircular_border_size-primary;
+    border-style: solid;
     border-bottom-color: transparent !important;
-    border-radius: $LoaderCircular_size-md;
 
     animation: rotate $LoaderCircular_animation_timing linear infinite;
 }
 
+// ------------------- sizes
+
+.xs {
+    width: $LoaderCircular_size-xs;
+    height: $LoaderCircular_size-xs;
+
+    border-radius: $LoaderCircular_size-xs;
+}
+.sm {
+    width: $LoaderCircular_size-sm;
+    height: $LoaderCircular_size-sm;
+
+    border-radius: $LoaderCircular_size-sm;
+}
+
+.md {
+    width: $LoaderCircular_size-md;
+    height: $LoaderCircular_size-md;
+
+    border-radius: $LoaderCircular_size-md;
+}
+
+.lg {
+    width: $LoaderCircular_size-lg;
+    height: $LoaderCircular_size-lg;
+
+    border-radius: $LoaderCircular_size-lg;
+}
+
 //-------------------------  formats
-.primary {
-    border: $LoaderCircular_border_size-primary solid $LoaderCircular_color-primary;
+.dark {
+    border-color: $VimeoBlue;
+}
+
+.light {
+    border-color: $White;
+}
+
+.adaptive {
+    border-color: currentColor;
 }

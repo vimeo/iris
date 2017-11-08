@@ -26,7 +26,7 @@ const BadgeDocs = (props) => {
                 <Badge href="#" format="support">support</Badge>
                 <Badge href="#" format="vod">vod</Badge>
             </div>
-            <div style={{ 'backgroundColor': '#000', 'padding': '1em', 'width': '100%' }}>
+            <div className="Pattern-DarkBlock">
                 <Badge href="#">default</Badge>
                 <Badge href="#" format="alum">alum</Badge>
                 <Badge href="#" format="beta">beta</Badge>

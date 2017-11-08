@@ -141,6 +141,36 @@ class InputSelectDocs extends React.Component {
                         Toggle Field State to "{this.state.nextState}"
                     </Button>
                 </div>
+                <div className="Pattern-DarkBlock">
+                    <InputSelect
+                        name="ExampleSelect2"
+                        helperMsg = {<ParagraphMd>I am helpful text!</ParagraphMd>}
+                        id="ExampleSelect2"
+                        label="Default with Helper Text"
+                        theme="dark"
+                    >
+                        {demoOptions}
+                    </InputSelect>
+                    <InputSelect
+                        name="ExampleSelect2"
+                        format="negative"
+                        id="ExampleSelect2"
+                        label="Negative"
+                        errorMsg = {<ParagraphMd>This is a problem!</ParagraphMd>}
+                        theme="dark"
+                    >
+                        {demoOptions}
+                    </InputSelect>
+                    <InputSelect
+                        name="ExampleSelect3"
+                        format="positive"
+                        id="ExampleSelect3"
+                        label="Positive"
+                        theme="dark"
+                    >
+                        {demoOptions}
+                    </InputSelect>
+                </div>
 
                 <ExampleSource>
                     {`
@@ -218,6 +248,34 @@ const demoOptions = (
     errorMsg = {this.state.errorProp}
     label="Error States Example (large)"
     size="lg"
+>
+    {demoOptions}
+</InputSelect>
+<InputSelect
+    name="ExampleSelect2"
+    helperMsg = {<ParagraphMd>I am helpful text!</ParagraphMd>}
+    id="ExampleSelect2"
+    label="Default with Helper Text"
+    theme="dark"
+>
+    {demoOptions}
+</InputSelect>
+<InputSelect
+    name="ExampleSelect2"
+    format="negative"
+    id="ExampleSelect2"
+    label="Negative"
+    errorMsg = {<ParagraphMd>This is a problem!</ParagraphMd>}
+    theme="dark"
+>
+    {demoOptions}
+</InputSelect>
+<InputSelect
+    name="ExampleSelect3"
+    format="positive"
+    id="ExampleSelect3"
+    label="Positive"
+    theme="dark"
 >
     {demoOptions}
 </InputSelect>

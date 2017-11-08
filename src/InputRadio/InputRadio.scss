@@ -26,17 +26,37 @@
         border-radius: $inputs_inlineInputs_fill-size/2;
         background: $inputs_inlineInputs_element-background-color;
     }
+
+    &.darkTheme {
+        background: $inputs_background-color-dark;
+    }
+    &.darkTheme:focus {
+        background: $inputs_background-color-dark;
+        background: $inputs_border-color-focused-dark;
+    }
 }
+
+.InputRadioOverlay:after {
+    background: $inputs_inlineInputs_element-background-color;
+}
+
 
 .InputRadio:checked + .InputRadioOverlay {
     @include sharedInlineInputElementReplaceStyles();
 
-    border-color: $inputs_inlineInputs_element-background-color;
     border-radius: $inputs_inlineInputs_size/2;
 
     &:after {
         @include sharedInlineInputActivatedFillStyles();
     }
+}
+
+.InputRadio:checked + .InputRadioOverlay {
+    border-color: $inputs_inlineInputs_element-background-color;
+}
+
+.InputRadio:checked + .InputRadioOverlay.darkTheme {
+    border-color: $inputs_border-color-dark;
 }
 
 .FocusBloop {
