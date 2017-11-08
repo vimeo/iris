@@ -2,7 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './OverflowTruncationWrapper.scss';
-
+import { throttle } from 'lodash';
 const displayName = 'OverflowTruncationWrapper';
 
 type Props = {
@@ -24,6 +24,7 @@ class OverflowTruncationWrapper extends React.Component {
             isTruncated: false,
             maxHeight: props.maxHeight,
         };
+        this._checkIfTruncated = throttle(this._checkIfTruncated, 200);
     }
 
     state: State;

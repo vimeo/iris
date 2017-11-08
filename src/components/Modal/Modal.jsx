@@ -11,6 +11,7 @@ import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
 import { GridBlock, GridCol, Grid } from '../Grid/Grid';
 import { Header4 } from '../../utility_components/Type/Type';
 import OverflowTruncationWrapper from '../OverflowTruncationWrapper/OverflowTruncationWrapper';
+import { throttle } from 'lodash';
 
 const displayName = 'Modal';
 
@@ -51,6 +52,7 @@ class Modal extends React.Component {
         this.state = {
             overflowAreaHeight: this._getOverflowScrollAreaHeight(),
         };
+        this._setOverflowScrollAreaHeight = throttle(this._setOverflowScrollAreaHeight, 200);
     }
 
     state: State;
