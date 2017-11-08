@@ -21,6 +21,7 @@ type Props = {
     isShowing?: boolean,
     menuContent: React$Element <*>,
     onClose?: Function,
+    onClick?: Function,
     onOpen?: Function,
     size: 'sm' | 'md' | 'lg',
     options?: Object,
@@ -78,6 +79,10 @@ class MenuPanel extends React.Component {
         this._toggleClick();
         if (this.props.href === '#') {
             e.preventDefault();
+        }
+
+        if (typeof this.props.onClick === 'function') {
+            this.props.onClick();
         }
     }
 
@@ -237,6 +242,7 @@ class MenuPanel extends React.Component {
             isFluid,
             isShowing, // eslint-disable-line no-unused-vars
             menuContent,
+            onClick, // eslint-disable-line no-unused-vars
             onClose, // eslint-disable-line no-unused-vars
             onOpen, // eslint-disable-line no-unused-vars
             size,
@@ -302,6 +308,7 @@ class MenuPanel extends React.Component {
                     offset="-4px 0"
                 >
                     <a
+                        {...filteredProps}
                         aria-haspopup="true"
                         aria-expanded={this.state.isShowing ? 'true' : 'false'}
                         className={triggerClass}
@@ -312,7 +319,6 @@ class MenuPanel extends React.Component {
                         ref={(menuTriggerEl) => {
                             this.menuTriggerEl = menuTriggerEl;
                         }}
-                        {...filteredProps}
                     >
                         {children}
                     </a>

@@ -12,6 +12,7 @@ type Props = {
     label: React$Element<*> | string,
     labelIcon?: React$Element<*>,
     labelIconActive?: React$Element<*>,
+    labelIconTheme?: 'default' | 'subtle';
     linkActionIcon?: React$Element<*>,
     nestedInteraction?: React$Element<*>,
     id?: string,
@@ -26,6 +27,7 @@ const VerticalMenuItemContent = ({
     labelIcon,
     linkActionIcon,
     labelIconActive,
+    labelIconTheme,
     id,
     isActive,
     nestedInteraction,
@@ -42,7 +44,8 @@ const VerticalMenuItemContent = ({
 
     const iconWrapperClass = classNames(
         styles.LabelIconWrapper,
-        (isActive ? styles.isActive : null),
+        styles[labelIconTheme],
+        (isActive && labelIconTheme !== 'subtle' ? styles.isActive : null),
     );
 
     const labelWrapperClass = classNames(
