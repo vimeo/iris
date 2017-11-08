@@ -58,7 +58,7 @@ const MenuPanelScrollableWithActionArea = ({
                                     autoWidth="fluid"
                                     format="secondary"
                                     isInline
-                                    size="md"
+                                    size="sm"
                                 />
                             ) : null}
                             </GridCol>
@@ -71,7 +71,7 @@ const MenuPanelScrollableWithActionArea = ({
                                     autoWidth="fluid"
                                     format="primary"
                                     isInline
-                                    size="md"
+                                    size="sm"
                                 />
                             </GridCol>
                         </GridBlock>

@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuPanel from './MenuPanel';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { Header3, ParagraphMd } from '../../../src/utility_components/Type/Type';
+import { Header4, Header3, ParagraphMd } from '../../../src/utility_components/Type/Type';
 import { List, ListItem } from '../List/List';
 import LinkText from '../LinkText/LinkText';
 import MenuPanelList from '../MenuPanelList/MenuPanelList';
@@ -164,6 +164,7 @@ class MenuPanelDocs extends React.Component {
                 <Header3>MenuPanel with "Action Area"</Header3>
                 <ParagraphMd>To add a scrollable area with action buttons to a menu panel use the <code>MenuPanelScrollableWithActionArea</code> as the menu panel content. See the documentation for this component for prop information.</ParagraphMd>
                 <div className={styles.Spacer}>
+                <Header4>Click Icon to Open Menu</Header4>
                 <MenuPanel
                     alignment="center"
                     menuContent={MenuWithActionArea}
