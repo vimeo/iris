@@ -3,7 +3,7 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 import LinkText from '../../../src/LinkText';
 import Button from '../../../src/Button/Button';
 import {ParagraphMd} from '../../../src/Type';
-import {List, ListItem} from '../../../src/List/List';
+import {List, ListItem} from '../../../src/List';
 import withCopyAbility from '../../../src/withCopyAbility/withCopyAbility';
 import ClipboardIcon from '../../../src/icons/clipboard.svg';
 

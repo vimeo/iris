@@ -1,14 +1,11 @@
 import React from 'react';
 import InputCheckboxSet from './InputCheckboxSet';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-
-import { List, ListItem } from '../List/List.jsx';
+import { List, ListItem } from '../List';
 import { ParagraphMd, Header3 } from '../Type';
 
 class InputCheckboxSetDocs extends React.Component {
     render() {
-
-
         const createCheckboxes = (index) => {
 
             return [

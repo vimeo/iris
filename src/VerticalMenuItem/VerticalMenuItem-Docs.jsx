@@ -1,7 +1,7 @@
 import React from 'react';
 import VerticalMenuItem from './VerticalMenuItem';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { List, ListItem } from '../List/List';
+import { List, ListItem } from '../List';
 import { ParagraphMd, Header3 } from '../Type';
 import PopOutIcon from '../icons/pop-out.svg';
 import HomeIcon from '../icons/home.svg';

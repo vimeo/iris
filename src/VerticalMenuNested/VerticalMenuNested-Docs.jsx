@@ -1,6 +1,6 @@
 import React from 'react';
 import VerticalMenuNested from './VerticalMenuNested';
-import { List, ListItem } from '../List/List';
+import { List, ListItem } from '../List';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import { ParagraphMd, Header3 } from '../Type';
 import SettingsIcon from '../icons/gear.svg';
