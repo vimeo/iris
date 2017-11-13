@@ -19,6 +19,7 @@
     "Components": [
         ["Avatar", "Avatars"],
         ["Badge", "Badges"],
+        ["Breadcrumb", "Breadcrumbs"],
         ["Button", "Buttons"],
         ["ButtonIconOnly", "Buttons: Icon Only"],
         ["ButtonFileUpload", "Button: File Upload"],

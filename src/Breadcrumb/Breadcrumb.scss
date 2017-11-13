@@ -1,0 +1,69 @@
+/* @description Generates styles for the Breadcrumb component */
+@import '../globals/sass/helpers-all';
+
+@mixin Breadcrumb_truncatewithEllipsis() {
+    position: relative;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: auto;
+    display: inline-block;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+@mixin Breadcrumb_icon() {
+    position: absolute;
+    top: rem-calc(-3);
+    height: rem-calc(24);
+    width: rem-calc(24);
+}
+
+.Breadcrumb {
+    width: 100%;
+}
+
+.Crumb {
+    position: relative;
+    display: none;
+    padding-right: rem-calc(24);
+
+    @include mq(md) {
+        display: inline-block;
+    }
+}
+
+.CrumbArrowIcon {
+    @include Breadcrumb_icon();
+    right: 0;
+}
+
+.CurrentPageCrumb {
+    @include Breadcrumb_truncatewithEllipsis();
+    padding-left: rem-calc(28);
+
+    @include mq(md) {
+        padding-left: 0;
+    }
+}
+
+.CurrentCrumbArrow{
+    @include Breadcrumb_icon();
+    left: 0;
+
+    @include mq(md) {
+        display: none;
+    }
+}
+
+.CrumbLabel{
+    @include Breadcrumb_truncatewithEllipsis();
+}
+
+.Link{
+    color: $LightLinkColor;
+
+    &:hover{
+        color: $LightLinkColor-Hover;
+    } 
+}
+
