@@ -110,7 +110,7 @@ const VerticalMenuItemDocs = (props) => {
             <ExampleSource>
                 {`
 
-import VerticalMenuItem from 'iris/VerticalMenuItem';
+import {VerticalMenuItem} from '@vimeo/iris';
 
 <VerticalMenuItem
     to="#"

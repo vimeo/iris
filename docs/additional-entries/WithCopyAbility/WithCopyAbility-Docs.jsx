@@ -40,9 +40,7 @@ const WithCopyAbilityDocs = (props) => {
          
             <ExampleSource>
                 {`
-import withCopyAbility from 'iris/WithCopyAbility';
-import LinkText from 'iris/LinkText';
-import Button from 'iris/Button';
+import {withCopyAbility, LinkText, Button} from '@vimeo/iris;
 const CopyButton = withCopyAbility(Button);
 const CopyLink = withCopyAbility(LinkText);
 <CopyLink
