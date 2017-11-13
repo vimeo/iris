@@ -35,6 +35,7 @@ input:focus ~ .FocusBloop {
     @include animationBloop ();
 
     border-radius: 100%;
+
     animation-name: actionCircleBloop;
 }
 
@@ -43,7 +44,7 @@ input:focus ~ .FocusBloop.defaultTheme {
 }
 
 input:focus:checked ~ .FocusBloop.defaultTheme {
-    background-color: rgba($VimeoBlue, 0.25);
+    background-color: rgba($VimeoBlue, 0.2);
 }
 
 
