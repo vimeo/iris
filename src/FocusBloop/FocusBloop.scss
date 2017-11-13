@@ -22,7 +22,7 @@
 @mixin animationBloop () {
     animation-duration: 250ms;
 
-    animation-fill-mode: forwards;
+    //animation-fill-mode: forwards;
 }
 
 .FocusBloop {
@@ -35,8 +35,6 @@ input:focus ~ .FocusBloop {
     @include animationBloop ();
 
     border-radius: 100%;
-    background-color: #9BACB8;
-
     animation-name: actionCircleBloop;
 }
 
@@ -45,12 +43,12 @@ input:focus ~ .FocusBloop.defaultTheme {
 }
 
 input:focus:checked ~ .FocusBloop.defaultTheme {
-    background-color: rgba($VimeoBlue, 0.2);
+    background-color: rgba($VimeoBlue, 0.25);
 }
 
 
 input:focus ~ .FocusBloop.darkTheme {
-    background-color: rgba($White, 0.25);
+    background-color: rgba($White, 0.15);
 }
 input:focus:checked ~ .FocusBloop.darkTheme {
     background-color: rgba($White, 0.3);
