@@ -50,28 +50,9 @@ $Modal_Vertical_Cutoff: 300px;
 
     opacity: 1;
     border-radius: rem-calc(3);
-    // Modals scroll in the window until $Modal_Vertical_Cutoff height
-    // After that they scroll within the modal content box
-    @media (min-height: $Modal_Vertical_Cutoff) {
-        overflow: auto;
-
-        max-height: 76vh;
-    }
-
-
 
     &.fullBleed {
         padding: 0;
-    }
-
-    &.hasActionArea {
-        @include mq(sm) {
-            @media (min-height: $Modal_Vertical_Cutoff) {
-                max-height: calc(76vh - #{$Modal_actionArea-height-large-screen});
-            }
-        }
-
-        padding-bottom: 0;
     }
 }
 
@@ -121,21 +102,13 @@ $Modal_Vertical_Cutoff: 300px;
 }
 
 .ActionArea {
+    // @include ActionAreaStyles();
     @include mq(sm) {
         height: $Modal_actionArea-height-large-screen;
     }
 
-    overflow: hidden;
-
-    width: 100%;
     height: $Modal_actionArea-height-small-screen;
     padding: spacingUnit(5) spacingUnit(5) spacingUnit(3);
-
-    border-top: rem-calc(1) solid $Plaster;
-    border-radius: 0 0 rem-calc(3) rem-calc(3);
-    background: $White;
-
-    text-align: right;
 }
 
 // Modal Sizes

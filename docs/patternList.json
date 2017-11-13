@@ -42,6 +42,7 @@
         ["List", "Lists"],
         ["LoaderCircular", "Circular Loader"],
         ["MenuPanel", "Menu Panel"],
+        ["MenuPanelScrollableWithActionArea", "Menu Panel Action Area"],
         ["Modal", "Modal"],
         ["NotificationNeutral", "Neutral Notification"],
         ["NotificationSuccess", "Success Notification"],

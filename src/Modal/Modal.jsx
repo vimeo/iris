@@ -3,11 +3,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import styles from './Modal.scss';
+import BREAKPOINTS from '../globals/js/constants/BREAKPOINTS';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';
 import { CSSTransitionGroup } from 'react-transition-group';
 import Button from '../Button/Button';
 import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
+import { GridBlock, GridCol, Grid } from '../Grid/';
 import { Header4 } from '../Type';
+import OverflowTruncationWrapper from '../OverflowTruncationWrapper/OverflowTruncationWrapper';
+import { throttle } from 'lodash';
 
 const displayName = 'Modal';
 
@@ -32,15 +36,26 @@ type Props = {
     size?: 'sm' | 'md' | 'lg',
 };
 
+type State = {
+    overflowAreaHeight: number;
+};
+
 class Modal extends React.Component {
     static defaultProps = {
         size: 'md',
         dismissButtonFormat: 'dark',
     };
 
+
     constructor(props: Props) {
         super(props);
+        this.state = {
+            overflowAreaHeight: this._getOverflowScrollAreaHeight(),
+        };
+        this._setOverflowScrollAreaHeight = throttle(this._setOverflowScrollAreaHeight, 200);
     }
+
+    state: State;
 
     componentDidMount() {
         if (this.props.isShowing) {
@@ -48,7 +63,7 @@ class Modal extends React.Component {
         }
     }
 
-    componentDidUpdate(prevProps: any) {
+    componentDidUpdate(prevProps: Props) {
         if (this.props.isShowing && !prevProps.isShowing) {
             this._openModal();
         }
@@ -80,6 +95,8 @@ class Modal extends React.Component {
             this._handleEsc
         );
 
+        window.addEventListener('resize', this._setOverflowScrollAreaHeight);
+
         if (this.lastFocusableElement && this.firstFocusableElement) {
             this.lastFocusableElement.addEventListener(
                 'keydown',
@@ -98,6 +115,9 @@ class Modal extends React.Component {
             'keydown',
             this._handleEsc
         );
+
+        window.removeEventListener('resize', this._setOverflowScrollAreaHeight);
+
         this.lastFocusableElement.removeEventListener(
             'keydown',
             this._handleForwardFocusLooping
@@ -272,7 +292,7 @@ class Modal extends React.Component {
             }
         }
 
-        // finally, we try to focuson the first focusable element if there is one.
+        // finally, we try to focus on the first focusable element if there is one.
         else if (this.firstFocusableElement) {
             this.firstFocusableElement.focus();
         }
@@ -282,6 +302,19 @@ class Modal extends React.Component {
         if (this.lastFocusableElement) {
             this.lastFocusableElement.focus();
         }
+    }
+
+    _setOverflowScrollAreaHeight = () => {
+        this.setState({
+            overflowAreaHeight: this._getOverflowScrollAreaHeight(),
+        });
+    }
+
+    _getOverflowScrollAreaHeight = () => {
+        const modifier = window.innerWidth > BREAKPOINTS.sm ? 80 : 134;
+        const height = window.innerHeight > 300 ? (window.innerHeight * 0.76) - modifier : window.innerHeight;
+
+        return Math.floor(height);
     }
 
     render() {
@@ -324,22 +357,37 @@ class Modal extends React.Component {
 
         const actionAreaElement = (
             <div className={styles.ActionArea}>
-                {secondaryButtonProps ? (
-                    <Button
-                        {...secondaryButtonProps}
-                        autoWidth="sm"
-                        format="secondary"
-                        isInline
-                        size="md"
-                    />
-                ) : null}
-                <Button
-                    {...primaryButtonProps}
-                    autoWidth="sm"
-                    format="primary"
-                    isInline
-                    size="md"
-                />
+                <Grid
+                    isNested
+                >
+                    <GridBlock>
+                        <GridCol
+                            smOffset={8}
+                            smSpan={8}
+                            formColumn
+                        >
+                            {secondaryButtonProps ? (
+                                <Button
+                                    {...secondaryButtonProps}
+                                    autoWidth="fluid"
+                                    format="secondary"
+                                    size="md"
+                                />
+                            ) : null}
+                        </GridCol>
+                        <GridCol
+                            smSpan={8}
+                            formColumn
+                        >
+                            <Button
+                                {...primaryButtonProps}
+                                autoWidth="fluid"
+                                format="primary"
+                                size="md"
+                            />
+                        </GridCol>
+                    </GridBlock>
+                </Grid>
             </div>
         );
 
@@ -367,10 +415,14 @@ class Modal extends React.Component {
                     aria-describedby={modalDescriptionId}
                     className={componentClass}
                 >
-                    <div className={contentClass}>
-                        {modalTitle ? ModalTitleElement : null}
-                        {children}
-                    </div>
+                    <OverflowTruncationWrapper
+                            maxHeight={this.state.overflowAreaHeight}
+                        >
+                        <div className={contentClass}>
+                            {modalTitle ? ModalTitleElement : null}
+                            {children}
+                        </div>
+                    </OverflowTruncationWrapper>
                     {primaryButtonProps ? actionAreaElement : null}
                     {onDismiss && !hideDismissButton ? CloseButton : null}
                 </div>

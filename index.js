@@ -89,6 +89,8 @@ exports.paths = {
   
   'iris/MenuPanelListItem':'iris/src/components/MenuPanelListItem/MenuPanelListItem',
   
+  'iris/MenuPanelScrollableWithActionArea':'iris/src/components/MenuPanelScrollableWithActionArea/MenuPanelScrollableWithActionArea',
+  
   'iris/Modal':'iris/src/components/Modal/Modal',
   
   'iris/Notification':'iris/src/components/Notification/Notification',
@@ -98,6 +100,8 @@ exports.paths = {
   'iris/NotificationSuccess':'iris/src/components/NotificationSuccess/NotificationSuccess',
   
   'iris/NotificationWarning':'iris/src/components/NotificationWarning/NotificationWarning',
+  
+  'iris/OverflowTruncationWrapper':'iris/src/components/OverflowTruncationWrapper/OverflowTruncationWrapper',
   
   'iris/SearchField':'iris/src/components/SearchField/SearchField',
   
