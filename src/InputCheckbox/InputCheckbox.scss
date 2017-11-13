@@ -40,10 +40,12 @@ $InputCheck_fill-size: 1rem;
     &:checked:before,
     &:checked:focus:before {
         border: 0;
-        background: $inputs_inlineInputs_element-background-color;
+        background-color: $inputs_inlineInputs_element-background-color;
         box-shadow: none;
     }
 }
+
+
 
 
 .InputCheckboxOverlay {
@@ -81,6 +83,10 @@ $InputCheck_fill-size: 1rem;
     border-color: $inputs_border-color-focused-dark;
 }
 
+.InputCheckboxLabel:hover .InputCheckbox:focus + .InputCheckboxOverlay.defaultTheme {
+    border-color: $inputs_inlineInputs_border-color-focused-hover;
+}
+
 .InputCheckbox:checked + .InputCheckboxOverlay {
     border: 0;
     background: $inputs_inlineInputs_element-background-color;
@@ -89,6 +95,12 @@ $InputCheck_fill-size: 1rem;
         @include sharedInlineInputActivatedFillStyles();
     }
 }
+.InputCheckboxLabel:hover .InputCheckbox:checked + .InputCheckboxOverlay ,
+.InputCheckboxLabel:hover .InputCheckbox:checked + .InputCheckboxOverlay {
+    background-color: $inputs_inlineInputs_element-background-color-hover;
+}
+
+
 
 .FocusBloop {
     top: rem-calc(-7);

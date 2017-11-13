@@ -95,7 +95,7 @@ const InputWrapper = ({
         >
 
             {showLabel ? labelElement : null}
-            <div>
+            <div className={styles.PositioningWrapper}>
                 <div className={styles.InputFieldWrapper}>
                     {children}
                     {inputIcon}

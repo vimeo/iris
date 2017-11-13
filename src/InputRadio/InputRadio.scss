@@ -59,6 +59,15 @@
     border-color: $inputs_border-color-dark;
 }
 
+.InputRadioWrapper:hover  .InputRadioOverlay.defaultTheme {
+    border-color: $inputs_inlineInputs_border-color-hover;
+}
+
+.InputRadioWrapper:hover .InputRadio:disabled + .InputRadioOverlay.defaultTheme {
+    border-color: $inputs_border-color;
+}
+
+
 .FocusBloop {
     top: rem-calc(-7);
     left: rem-calc(-7);
