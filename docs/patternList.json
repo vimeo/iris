@@ -33,6 +33,7 @@
         ["FieldSet", "FieldSet"],
         ["InputCheckbox", "Inputs: Checkbox"],
         ["InputCheckboxSet", "Inputs: Checkbox Set"],
+        ["InputColorPicker", "Inputs: Color Picker"],
         ["InputRadio", "Inputs: Radio"],
         ["InputRadioSet", "Inputs: Radio Set"],
         ["InputSelect", "Inputs: Select Menu"],

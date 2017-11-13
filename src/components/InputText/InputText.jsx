@@ -16,7 +16,7 @@ type Props = {
     helperMsg?: string | React$Element<*>,
     label: string | React$Element<*>,
     id: string,
-    preMessage?: React$Element<*>,
+    preMessage?: any,
     showLabel?: boolean,
     theme?: 'default' | 'dark',
     size?: 'md' | 'lg',

@@ -26,6 +26,7 @@ type Props = {
     size: 'sm' | 'md' | 'lg',
     options?: Object,
     isFluid?: boolean,
+    isControlled?: boolean;
 };
 
 class MenuPanel extends React.Component {
@@ -50,7 +51,7 @@ class MenuPanel extends React.Component {
     }
 
     componentWillReceiveProps(nextProps: Object) {
-        if (nextProps.isShowing !== this.props.isShowing && nextProps.isShowing !== this.state.isShowing) {
+        if (nextProps.isShowing !== this.props.isShowing) {
             this.setState({
                 isShowing: nextProps.isShowing,
             });
@@ -133,49 +134,55 @@ class MenuPanel extends React.Component {
 
 
     _bindEvents = () => {
-        document.addEventListener(
-            'click',
-            this._handleClickWhileOpen
-        );
-
-        document.addEventListener(
-            'keydown',
-            this._handleEsc
-        );
-
-        if (this.lastFocusableElement && this.firstFocusableElement) {
-            this.lastFocusableElement.addEventListener(
-                'keydown',
-                this._handleForwardFocusTab
+        if (!this.props.isControlled) {
+            document.addEventListener(
+                'click',
+                this._handleClickWhileOpen
             );
 
-            this.firstFocusableElement.addEventListener(
+            document.addEventListener(
                 'keydown',
-                this._handleBackwardFocusTab
+                this._handleEsc
             );
+
+            if (this.lastFocusableElement && this.firstFocusableElement) {
+                this.lastFocusableElement.addEventListener(
+                    'keydown',
+                    this._handleForwardFocusTab
+                );
+
+                this.firstFocusableElement.addEventListener(
+                    'keydown',
+                    this._handleBackwardFocusTab
+                );
+            }
         }
     }
 
     _unBindEvents = () => {
-        document.removeEventListener(
-            'click',
-            this._handleClickWhileOpen
-        );
+        if (!this.props.isControlled) {
+            document.removeEventListener(
+                'click',
+                this._handleClickWhileOpen
+            );
 
-        document.removeEventListener(
-            'keydown',
-            this._handleEsc
-        );
+            document.removeEventListener(
+                'keydown',
+                this._handleEsc
+            );
 
-        this.lastFocusableElement.removeEventListener(
-            'keydown',
-            this._handleForwardFocusTab
-        );
+            if (this.lastFocusableElement && this.firstFocusableElement) {
+                this.lastFocusableElement.removeEventListener(
+                    'keydown',
+                    this._handleForwardFocusTab
+                );
 
-        this.firstFocusableElement.removeEventListener(
-            'keydown',
-            this._handleBackwardFocusTab
-        );
+                this.firstFocusableElement.removeEventListener(
+                    'keydown',
+                    this._handleBackwardFocusTab
+                );
+            }
+        }
     }
 
     _bindTriggerTab = () => {
@@ -193,7 +200,10 @@ class MenuPanel extends React.Component {
     }
 
     _closeMenu = () => {
-        this._unBindEvents();
+        if (!this.props.isControlled) {
+            this._unBindEvents();
+        }
+
         this.menuTriggerEl.focus();
         if (typeof this.props.onClose === 'function') {
             this.props.onClose();
@@ -210,7 +220,9 @@ class MenuPanel extends React.Component {
     }
 
     _toggleClick = () => {
-        this.setState({ isShowing: !this.state.isShowing });
+        if (!this.props.isControlled) {
+            this.setState({ isShowing: !this.state.isShowing });
+        }
     }
 
     _setFocusableElementList(callback: any) {
@@ -239,12 +251,14 @@ class MenuPanel extends React.Component {
             children,
             className,
             href,
+            isControlled, // eslint-disable-line no-unused-vars
             isFluid,
             isShowing, // eslint-disable-line no-unused-vars
             menuContent,
             onClick, // eslint-disable-line no-unused-vars
             onClose, // eslint-disable-line no-unused-vars
             onOpen, // eslint-disable-line no-unused-vars
+            options,
             size,
             ...filteredProps
         } = this.props;
@@ -308,6 +322,7 @@ class MenuPanel extends React.Component {
                         this.tether = tether;
                     }}
                     offset="-4px 0"
+                    {...options}
                 >
                     <a
                         {...filteredProps}

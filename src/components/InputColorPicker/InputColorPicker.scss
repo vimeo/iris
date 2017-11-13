@@ -1,0 +1,45 @@
+@import '../../globals/sass/helpers-all';
+
+.ButtonMenu {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+.Input {
+    padding-left: rem-calc(37);
+}
+
+.ColorPicker {
+    margin-top: spacingUnit(2);
+}
+
+.ColorButtonWrapper {
+    position: absolute;
+    top: rem-calc(8);
+    left: rem-calc(32);
+}
+
+.ColorButton {
+    width: rem-calc(24);
+    height: rem-calc(24);
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    border-radius: rem-calc($g-radius);
+    background: transparent;
+    box-shadow: inset 0 0 0 rem-calc(1) rgba(0, 0, 0, 0.2);
+
+    cursor: pointer;
+
+    appearance: none;
+
+    &:focus {
+        outline: 0;
+    }
+}
