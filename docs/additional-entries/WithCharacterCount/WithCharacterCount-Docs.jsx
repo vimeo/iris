@@ -4,7 +4,7 @@ import InputText from '../../../src/InputText';
 import TextArea from '../../../src/TextArea';
 import {Header4, ParagraphMd} from '../../../src/Type';
 import {List, ListItem} from '../../../src/List';
-import withCharacterCount from '../../../src/WithCharacterCount';
+import withCharacterCount from '../../../src/withCharacterCounter';
 
 const InputTextWithCharacterCount = withCharacterCount(InputText);
 const TextAreaWithCharacterCount = withCharacterCount(TextArea);
