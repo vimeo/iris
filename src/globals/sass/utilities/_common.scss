@@ -215,15 +215,6 @@
     outline: 1px dotted $light_slate;
 }
 
-// LibSASS doesn't like calc() because it's the name of an actual CSS function
-@mixin calculate($prop, $eq) {
-    #{$prop}: -moz-calc(#{$eq});
-    #{$prop}: -ms-calc(#{$eq});
-    #{$prop}: -o-calc(#{$eq});
-    #{$prop}: -webkit-calc(#{$eq});
-    //#{$prop}: calc(#{$eq});
-    #{$prop}: #{ "calc(" + $eq +  ")" };
-}
 
 // Can simplify all mixins with the vendor mixin but
 // this one doesnt work since we need to escape sass' parsing

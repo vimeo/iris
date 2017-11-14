@@ -1,11 +1,11 @@
 import React from 'react';
-import { GridBlock, GridCol, Grid } from '../../../src/components/Grid/Grid.jsx';
-import Button from '../../../src/components/Button/Button';
-import InputSelect from '../../../src/components/InputSelect/InputSelect';
-import InputText from '../../../src/components/InputText/InputText';
-import InputRadioSet from '../../../src/components/InputRadioSet/InputRadioSet';
-import InputCheckbox from '../../../src/components/InputCheckbox/InputCheckbox';
-import FieldSet from '../../../src/components/FieldSet/FieldSet';
+import { GridBlock, GridCol, Grid } from '../../../src/Grid';
+import Button from '../../../src/Button/Button';
+import InputSelect from '../../../src/InputSelect/InputSelect';
+import InputText from '../../../src/InputText/InputText';
+import InputRadioSet from '../../../src/InputRadioSet/InputRadioSet';
+import InputCheckbox from '../../../src/InputCheckbox/InputCheckbox';
+import FieldSet from '../../../src/FieldSet/FieldSet';
 
 const displayName = 'AddressFormDemo';
 

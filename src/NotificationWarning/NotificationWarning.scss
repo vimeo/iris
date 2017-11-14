@@ -1,0 +1,10 @@
+@import '../globals/sass/helpers-all';
+
+.NotificationWarning {
+    background-color: $PalePink;
+}
+
+.iconColor *,
+.dismissIconColor * {
+    fill: $SunsetOrange;
+}

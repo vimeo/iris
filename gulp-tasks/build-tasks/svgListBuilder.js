@@ -8,7 +8,7 @@ const svgTest = /^(.*\.((svg)$))?[^.]*$/i;
 
 
 // Walker options
-const walker = walk.walk('src/globals/svg', { followLinks: false });
+const walker = walk.walk('src/icons', { followLinks: false });
 
 walker.on('file', function(root, stat, next) {
     // Add this file to the list of files
@@ -30,9 +30,6 @@ walker.on('end', function() {
     fs.writeFile(destinationPath, JSON.stringify(files), function(error) {
         if (error) {
             console.error('Error while writing ' + destinationPath + ': ' + error.message);
-        }
-        else {
-            console.log('Successfully wrote data to ' + destinationPath);
         }
     });
 });

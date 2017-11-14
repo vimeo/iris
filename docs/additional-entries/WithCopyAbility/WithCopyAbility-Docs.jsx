@@ -1,16 +1,17 @@
 import React from 'react';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import LinkText from '../../../src/components/LinkText/LinkText';
-import Button from '../../../src/components/Button/Button';
-import {ParagraphMd} from '../../../src/utility_components/Type/Type';
-import {List, ListItem} from '../../../src/components/List/List';
-import withCopyAbility from '../../../src/components/withCopyAbility/withCopyAbility';
-import ClipboardIcon from '../../../src/globals/svg/clipboard.svg';
+import LinkText from '../../../src/LinkText';
+import Button from '../../../src/Button/Button';
+import {ParagraphMd} from '../../../src/Type';
+import {List, ListItem} from '../../../src/List';
+import withCopyAbility from '../../../src/withCopyAbility/withCopyAbility';
+import ClipboardIcon from '../../../src/icons/clipboard.svg';
 
 const WithCopyAbilityDocs = (props) => {
 
     const CopyButton = withCopyAbility(Button);
     const CopyLink = withCopyAbility(LinkText);
+
     return (
         <div className="Pattern__docs">
             <ParagraphMd>The <code>withCopyAbility</code> function provides a Higher-Order Component wrapper to add copy to clipboard ability to a button or link.</ParagraphMd>
@@ -39,9 +40,7 @@ const WithCopyAbilityDocs = (props) => {
          
             <ExampleSource>
                 {`
-import withCopyAbility from 'iris/WithCopyAbility';
-import LinkText from 'iris/LinkText';
-import Button from 'iris/Button';
+import {withCopyAbility, LinkText, Button} from '@vimeo/iris;
 const CopyButton = withCopyAbility(Button);
 const CopyLink = withCopyAbility(LinkText);
 <CopyLink

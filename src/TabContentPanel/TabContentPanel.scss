@@ -1,0 +1,37 @@
+/* @description Generates styles for the TabContentPanel component */
+
+@import '../globals/sass/helpers-all';
+$TabContentPanel_animation-speed-integer: 500;
+$TabContentPanel_animation-speed: $TabContentPanel_animation-speed-integer * 1ms;
+
+:export {
+    Panel_AnimationTime: $TabContentPanel_animation-speed-integer;
+};
+
+.TabContentPanel {
+    padding: spacingUnit(2) 0;
+}
+
+.enter {
+    opacity: 0.01;
+
+    &.enterActive {
+        opacity: 1;
+
+        transition: opacity $TabContentPanel_animation-speed ease-in;
+    }
+}
+
+.leave {
+    opacity: 1;
+
+    &.leaveActive {
+        opacity: 0.01;
+
+        transition: opacity $TabContentPanel_animation-speed ease-in-out;
+    }
+}
+
+.height {
+    transition: height 150ms ease-in-out;
+}

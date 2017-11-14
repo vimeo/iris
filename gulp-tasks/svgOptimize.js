@@ -4,12 +4,12 @@ const config = require('../config');
 
 // Run SVGs through SVGo to optimize.
 gulp.task('svgOptimize', function () {
-    return gulp.src( config.paths.globalsSrc + 'src_files/svg/**/*.svg')
+    return gulp.src('svg_src_files/svg/**/*.svg')
     .pipe(svgo(
             {
                 plugins: [{
-                removeTitle: true
+                removeTitle: true,
                 }]
     }))
-    .pipe(gulp.dest( config.paths.globalsSrc+'svg/'));
+    .pipe(gulp.dest( 'src/icons/'));
 });

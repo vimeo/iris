@@ -1,0 +1,10 @@
+@import '../globals/sass/helpers-all';
+
+.NotificationSuccess {
+    background-color: $RumSwizzle;
+}
+
+.iconColor *,
+.dismissIconColor * {
+    fill: $Pistachio;
+}

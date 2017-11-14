@@ -1,8 +1,0 @@
-//============================================================================
-// Temporary work-arounds for LibSASS.
-// More Info: https://github.com/hcatlin/libsass/issues/151
-//============================================================================
-
-@function grayscale($value) {
-  @return #{ "grayscale(" + $value + ")" };
-}

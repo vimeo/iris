@@ -1,0 +1,24 @@
+/* @description Generates styles for the TextArea component */
+@import '../globals/sass/helpers-all';
+.TextArea {
+    @include sharedInputBaseStyles();
+    @include sharedTextInputs();
+    @include sharedInputMediumStyles();
+
+    height: auto;
+
+    &::placeholder {
+        color: $inputs_placeholder-color;
+    }
+}
+
+.TextAreaWrapper {
+    margin-bottom: $inputs_margin-bottom;
+}
+
+
+// Icons
+
+.hasIcon {
+    padding-left: $input_has-icon-padding-md;
+}

@@ -1,10 +1,10 @@
 import React from 'react';
-import { GridBlock, GridCol, Grid } from '../../../src/components/Grid/Grid.jsx';
+import { GridBlock, GridCol, Grid } from '../../../src/Grid';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import InputText from '../../../src/components/InputText/InputText';
-import { ParagraphMd, Header3 } from '../../../src/utility_components/Type/Type';
-import LinkText from '../../../src/components/LinkText/LinkText';
-import { List, ListItem }from  '../../../src/components/List/List';
+import InputText from '../../../src/InputText/InputText';
+import { ParagraphMd, Header3 } from '../../../src/Type';
+import LinkText from '../../../src/LinkText/LinkText';
+import { List, ListItem }from  '../../../src/List';
 
 export default function GridFullDocs() {
 
@@ -22,10 +22,9 @@ export default function GridFullDocs() {
                 <ParagraphMd> Grid sizing starts with the xsSpan prop. Values passed to this prop will determine the column sizing from the smallest width available in the browser upwards. Additional span props such as "mdSpan" can be added to resize the column at corresponding breakpoints (see breakpoints). If no xsSpan sizing prop is passed, the column will default to <code>xsSpan={24}</code>.</ParagraphMd>
 
             <Header3>Importing the Grid</Header3>
-            <ParagraphMd>Import the Grid, GridBlock, and GridColumn components into your working space:</ParagraphMd>
             <ExampleSource>
                 {`
-                    import {GridBlock, GridCol, Grid} from 'iris/Grid';
+                    import {GridBlock, GridCol, Grid} from '@vimeo/iris';
                 `}
             </ExampleSource>
             <ParagraphMd>Set-up your Grid component and place the amount of needed columns into the space.</ParagraphMd>

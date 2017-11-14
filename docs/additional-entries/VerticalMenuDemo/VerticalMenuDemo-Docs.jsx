@@ -1,13 +1,13 @@
 import React from 'react';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { Header3, Header4, ParagraphMd } from '../../../src/utility_components/Type/Type';
-import { Grid, GridCol, GridBlock } from '../../../src/components/Grid/Grid';
-import VerticalMenuNested from '../../../src/components/VerticalMenuNested/VerticalMenuNested';
-import VerticalMenuContextualMenuPanel from '../../../src/components/VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel';
-import VerticalMenuItem from '../../../src/components/VerticalMenuItem/VerticalMenuItem';
-import MenuPanelList from '../../../src/components/MenuPanelList/MenuPanelList';
-import PopOutIcon from '../../../src/globals/svg/pop-out.svg';
-import SettingsIcon from '../../../src/globals/svg/gear.svg';
+import { Header3, Header4, ParagraphMd } from '../../../src/Type';
+import { Grid, GridCol, GridBlock } from '../../../src/Grid';
+import VerticalMenuNested from '../../../src/VerticalMenuNested/VerticalMenuNested';
+import VerticalMenuContextualMenuPanel from '../../../src/VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel';
+import VerticalMenuItem from '../../../src/VerticalMenuItem/VerticalMenuItem';
+import MenuPanelList from '../../../src/MenuPanelList/MenuPanelList';
+import PopOutIcon from '../../../src/icons/pop-out.svg';
+import SettingsIcon from '../../../src/icons/gear.svg';
 import styles from './VerticalMenuDemo-Docs.scss';
 
 class VerticalMenuDemoDocs extends React.Component {

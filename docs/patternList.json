@@ -28,7 +28,6 @@
         ["ButtonToggleState", "Buttons: ToggleState"],
         ["CircularButton", "Circular Button"],
         ["CopyField", "Copy Field"],
-        ["WithCopyAbility", "Copy Ability Wrapper",  true],
         ["CounterIcon", "Counter Icons"],
         ["FieldSet", "FieldSet"],
         ["InputCheckbox", "Inputs: Checkbox"],
@@ -43,7 +42,8 @@
         ["List", "Lists"],
         ["LoaderCircular", "Circular Loader"],
         ["MenuPanel", "Menu Panel"],
-        ["Modal", "Modal Dialog"],
+        ["MenuPanelScrollableWithActionArea", "Menu Panel Action Area"],
+        ["Modal", "Modal"],
         ["NotificationNeutral", "Neutral Notification"],
         ["NotificationSuccess", "Success Notification"],
         ["NotificationWarning", "Warning Notification"],
@@ -53,8 +53,9 @@
         ["TooltipAnnotationIcon", "Tooltip Annotation Icon"],
         ["TooltipOverlay", "Tooltip Overlay"],
         ["Toastification", "Toastification"],
-        ["VerticalMenuContextualMenuPanel", "Vertical Menu  Contextual Menu Panel"],
+        ["WithCopyAbility", "Copy Ability Wrapper",  true],
         ["VerticalMenuItem", "Vertical Menu Item"],
+        ["VerticalMenuContextualMenuPanel", "Vertical Menu  Contextual Menu Panel"],
         ["VerticalMenuNested", "Vertical Menu Nested"]
     ],
     "Layout": [

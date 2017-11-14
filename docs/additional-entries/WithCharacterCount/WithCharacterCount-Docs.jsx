@@ -1,10 +1,10 @@
 import React from 'react';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import InputText from '../../../src/components/InputText/InputText';
-import TextArea from '../../../src/components/TextArea/TextArea';
-import {Header4, ParagraphMd} from '../../../src/utility_components/Type/Type';
-import {List, ListItem} from '../../../src/components/List/List';
-import withCharacterCount from '../../../src/utility_components/withCharacterCount/withCharacterCount';
+import InputText from '../../../src/InputText';
+import TextArea from '../../../src/TextArea';
+import {Header4, ParagraphMd} from '../../../src/Type';
+import {List, ListItem} from '../../../src/List';
+import withCharacterCount from '../../../src/withCharacterCount';
 
 const InputTextWithCharacterCount = withCharacterCount(InputText);
 const TextAreaWithCharacterCount = withCharacterCount(TextArea);
@@ -40,8 +40,8 @@ const WithCharacterCountDocs = (props) => {
 
             <ExampleSource>
                 {`
-import InputText from '../../../src/components/InputText/InputText';
-import TextArea from '../../../src/components/TextArea/TextArea';
+import InputText from '../../../src/InputText/InputText';
+import TextArea from '../../../src/TextArea/TextArea';
 import withCharacterCount from '../../../src/utility_components/withCharacterCount/withCharacterCount';
 // then
 const InputTextWithCharacterCount = withCharacterCount(InputText);

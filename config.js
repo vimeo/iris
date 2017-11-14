@@ -12,7 +12,7 @@ module.exports = {
         project: './',
         animationsSrc: './src/animations/',
         componentData: COMPONENT_DATA,
-        componentSrc: './src/components/',
+        componentSrc: './src/',
         globalsSrc: './src/globals/',
         localDocsSrc: LOCAL_PATH + '/docs/',
         localData: LOCAL_DATA,

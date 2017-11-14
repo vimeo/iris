@@ -9,7 +9,6 @@ gulp.task('build-Prod' , function(cb) {
         'compileColorVariables',
         'sassGlobals',
         'copyStaticAssets',
-        'compilePackageIndexJSX',
         'copyFavicon',
         'webpackReact',
         'compileHtaccess-Prod',

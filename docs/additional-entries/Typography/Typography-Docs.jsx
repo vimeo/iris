@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import NotificationWarning from '../../../src/components/NotificationWarning/NotificationWarning';
-import { ParagraphLg, ParagraphSm, ParagraphMd, ParagraphAltLg, ParagraphAltMd, ParagraphAltSm, Header1, Header2, Header3, Header4, Header5, Header6 } from '../../../src/utility_components/Type/Type';
+import NotificationWarning from '../../../src/NotificationWarning/NotificationWarning';
+import { ParagraphLg, ParagraphSm, ParagraphMd, ParagraphAltLg, ParagraphAltMd, ParagraphAltSm, Header1, Header2, Header3, Header4, Header5, Header6 } from '../../../src/Type';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 import styles from './Typography.scss';
@@ -21,7 +21,7 @@ const TypographyDocs = (props) => {
             <ExampleSource>
                 {`
 // import just the components you need
-import { ParagraphMd, Header1, Header2} from 'iris/Type;
+import { ParagraphMd, Header1, Header2} from '@vimeo/iris'classnames;
                 `}
             </ExampleSource>
 

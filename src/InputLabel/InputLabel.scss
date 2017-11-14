@@ -1,0 +1,17 @@
+/* @description Generates styles for the InputLabel component */
+@import '../globals/sass/helpers-all';
+.InputLabel {
+    display: inline-block;
+
+    position: relative;
+
+    &.darkTheme {
+        font-weight: normal;
+
+        color: $inputs_text-color-dark;
+    }
+}
+
+.disabled {
+    color: $inputs_text-color-disabled;
+}

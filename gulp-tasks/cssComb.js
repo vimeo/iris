@@ -7,26 +7,15 @@ gulp.task('cssCombComponents', function() {
   return gulp.src([
       config.paths.componentSrc + '**/*.scss',
       '!' + config.paths.componentSrc + 'Grid*/*.scss',
-      '!' + config.paths.componentSrc + 'Modal/Modal.scss'
+      '!' + config.paths.componentSrc + 'Modal/Modal.scss',
+      '!' + config.paths.globalsSrc + 'sass/**/*.scss',
       ])
     .pipe(csscomb())
     .pipe(gulp.dest(config.paths.componentSrc));
 });
 
-gulp.task('cssCombGlobal', function() {
-  return gulp.src([
-      config.paths.globalsSrc + '**/*.scss',
-      '!' + config.paths.globalsSrc + 'sass/fills/_libsass.scss',
-      '!' + config.paths.globalsSrc + 'sass/utilities/*.scss',
-      '!' + config.paths.globalsSrc + 'sass/settings/_colors.scss',
-      ])
-    .pipe(csscomb())
-    .pipe(gulp.dest(config.paths.globalsSrc));
-});
-
 gulp.task('cssComb' , function(cb) {
 	runSequence(
-       'cssCombGlobal',
        'cssCombComponents',
 		cb);
 });
