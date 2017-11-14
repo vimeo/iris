@@ -1,3 +1,3 @@
-import WithCharacterCount from './WithCharacterCount';
+import withCharacterCounter from './withCharacterCount';
 
-export default WithCharacterCount;
+export default withCharacterCounter;
