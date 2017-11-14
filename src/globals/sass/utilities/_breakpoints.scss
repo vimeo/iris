@@ -11,6 +11,12 @@
         }
     }
 
+    @else if ($breakpoint-screen-size == md-down ) {
+        @media screen and (max-width: #{$screen-md-down-em}) {
+            @content;
+        }
+    }
+
     @else if ($breakpoint-screen-size == md ) {
         @media screen and (min-width: #{$screen-md-em}) {
             @content;

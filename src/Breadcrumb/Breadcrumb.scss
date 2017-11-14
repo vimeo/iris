@@ -41,6 +41,9 @@
     @include Breadcrumb_truncatewithEllipsis();
     padding-left: rem-calc(28);
 
+    @include mq(md-down){
+        max-width: 100% !important; //cancels-out inline calculated style
+    }
     @include mq(md) {
         padding-left: 0;
     }

@@ -12,6 +12,7 @@ $screen-sm-rem: rem-calc($screen-sm);
 $screen-md: 768; // see above
 $screen-md-em: em-calc($screen-md);
 $screen-md-rem: rem-calc($screen-md);
+$screen-md-down-em: em-calc($screen-md - 1);
 $screen-lg: 1080; // see above
 $screen-lg-em: em-calc($screen-lg);
 $screen-lg-rem: rem-calc($screen-lg);
