@@ -2,20 +2,24 @@
 @import '../globals/sass/helpers-all';
 
 @mixin Breadcrumb_truncatewithEllipsis() {
-    position: relative;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    width: auto;
     display: inline-block;
     overflow: hidden;
+
+    position: relative;
+
+    width: auto;
     max-width: 100%;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 @mixin Breadcrumb_icon() {
     position: absolute;
     top: rem-calc(-2);
-    height: rem-calc(24);
+
     width: rem-calc(24);
+    height: rem-calc(24);
 }
 
 .Breadcrumb {
@@ -23,39 +27,46 @@
 }
 
 .Crumb {
-    position: relative;
-    display: none;
-    padding-right: rem-calc(24);
-
     @include mq(md) {
         display: inline-block;
     }
+
+    display: none;
+
+    position: relative;
+
+    padding-right: rem-calc(24);
 }
 
 .CrumbArrowIcon {
     @include Breadcrumb_icon();
+
     right: 0;
 }
 
 .CurrentPageCrumb {
     @include Breadcrumb_truncatewithEllipsis();
+    @include mq(md-down) {
+        max-width: 100% !important; //cancels-out inline calculated style
+    }
 
     &.hasCrumbs {
-        padding-left: rem-calc(28);
-
         @include mq(md) {
             padding-left: 0;
         }
-    }
 
-    @include mq(md-down){
-        max-width: 100% !important; //cancels-out inline calculated style
+        padding-left: rem-calc(28);
     }
 }
 
-.CurrentCrumbArrowLink{
+.CurrentCrumbArrowLink {
     @include Breadcrumb_icon();
+    @include mq(md) {
+        display: none;
+    }
+
     left: 0;
+
     color: $LightLinkColor;
 
     &:hover {
@@ -65,21 +76,16 @@
     .ArrowIcon * {
         fill: currentColor;
     }
-
-    @include mq(md) {
-        display: none;
-    }
 }
 
-.CrumbLabel{
+.CrumbLabel {
     @include Breadcrumb_truncatewithEllipsis();
 }
 
-.Link{
+.Link {
     color: $LightLinkColor;
 
-    &:hover{
+    &:hover {
         color: $LightLinkColor-Hover;
-    } 
+    }
 }
-
