@@ -13,7 +13,7 @@
 
 @mixin Breadcrumb_icon() {
     position: absolute;
-    top: rem-calc(-3);
+    top: rem-calc(-2);
     height: rem-calc(24);
     width: rem-calc(24);
 }
@@ -39,19 +39,32 @@
 
 .CurrentPageCrumb {
     @include Breadcrumb_truncatewithEllipsis();
-    padding-left: rem-calc(28);
+
+    &.hasCrumbs {
+        padding-left: rem-calc(28);
+
+        @include mq(md) {
+            padding-left: 0;
+        }
+    }
 
     @include mq(md-down){
         max-width: 100% !important; //cancels-out inline calculated style
     }
-    @include mq(md) {
-        padding-left: 0;
-    }
 }
 
-.CurrentCrumbArrow{
+.CurrentCrumbArrowLink{
     @include Breadcrumb_icon();
     left: 0;
+    color: $LightLinkColor;
+
+    &:hover {
+        color: $LightLinkColor-Hover;
+    }
+
+    .ArrowIcon * {
+        fill: currentColor;
+    }
 
     @include mq(md) {
         display: none;

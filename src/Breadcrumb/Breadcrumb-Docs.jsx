@@ -1,7 +1,7 @@
 import React from 'react';
 import Breadcrumb from './Breadcrumb';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd, ParagraphAltMd } from '../Type';
+import { ParagraphMd } from '../Type';
 
 class BreadcrumbDocs extends React.Component {
     render() {
@@ -9,20 +9,22 @@ class BreadcrumbDocs extends React.Component {
             <div className="Pattern__docs">
                 <ParagraphMd>Breadcrumbs help orient the user within an page flow.</ParagraphMd>
                 <ParagraphMd>"Crumb" links are passed as an array of object to <code>crumbs</code> and the current page label should be passed to <code>currentPageLabel</code> as a string.</ParagraphMd>
+                <ParagraphMd>Below our medium breakpoint only the current page label will show, but there will be a linked arrow that will get link properties from the last breadcrump in the <code>crumbs</code> array.</ParagraphMd>
 
                 <div data-code>
                     <Breadcrumb
                         crumbs = {[
                             {
                                 label: 'Breadcrumb Item 1 is Pretty Long So Cut it Off',
-                                to: '#',
-                                onClick: ()=>{
-                                    console.log('click');
-                                },
+                                href: '#',
                             },
                             {
                                 label: 'Breadcrumb Item 2',
-                                to: '#',
+                                href: '#',
+                                onClick: (e) => {
+                                    e.preventDefault();
+                                    console.log('click');
+                                },
                             },
                         ]}
                         currentPageLabel="Current Page Label is Pretty Long So Cut it Off"
@@ -35,12 +37,15 @@ class BreadcrumbDocs extends React.Component {
     crumbs = {[
         {
             label: 'Breadcrumb Item 1 is Pretty Long So Cut it Off',
-            to: '#',
-            onClick: ()=>{console.log('click')}
+            href: '#',
         },
         {
             label: 'Breadcrumb Item 2',
-            to: '#',
+            href: '#',
+            onClick: (e) => {
+                e.preventDefault();
+                console.log('click');
+            },
         },
     ]}
     currentPageLabel="Current Page Label is Pretty Long So Cut it Off"

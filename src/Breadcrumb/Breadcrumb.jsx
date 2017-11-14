@@ -14,7 +14,7 @@ type Props = {
     className?: string,
     crumbs?: Array<{
             label: string,
-            href?: string,
+            href: string,
             onClick?: (e: Event) => {}
             }>,
     currentPageLabel: string,
@@ -39,6 +39,7 @@ const Breadcrumb = ({
 
     const CurrentCrumbClass = classNames(
         styles.CurrentPageCrumb,
+        (crumbs ? styles.hasCrumbs : null),
     );
 
     const crumbWidth = crumbs ? `${100 / (crumbs.length + 1)}%` : '100%';
@@ -60,6 +61,7 @@ const Breadcrumb = ({
                                 href={key.href}
                                 onClick={key.onClick}
                                 format="silent"
+                                title={key.label}
                             >
                                 {key.label}
                             </LinkText>
@@ -69,22 +71,35 @@ const Breadcrumb = ({
         );
     });
 
-    return (
-            <div
-                {...filteredProps}
-                className={componentClass}
-            >
-                {crumbs && CrumbList}
+    const smallScreenBackCrumb = crumbs && crumbs[crumbs.length - 1];
 
-                <ParagraphMd
-                    element="span"
-                    className={CurrentCrumbClass}
-                    style={{ 'maxWidth': crumbWidth }}
-                >
-                    <ArrowLeft className={styles.CurrentCrumbArrow} />
-                    {currentPageLabel}
-                </ParagraphMd>
-            </div>
+    const SmallScreenBackArrowComponent = (
+        <a
+            className={styles.CurrentCrumbArrowLink}
+            href={smallScreenBackCrumb && smallScreenBackCrumb.href}
+            title={smallScreenBackCrumb && smallScreenBackCrumb.label}
+            onClick={smallScreenBackCrumb && smallScreenBackCrumb.onClick}
+        >
+            <ArrowLeft className={styles.ArrowIcon} />
+        </a>
+    );
+
+    return (
+        <div
+            {...filteredProps}
+            className={componentClass}
+        >
+            {crumbs && CrumbList}
+
+            <ParagraphMd
+                element="span"
+                className={CurrentCrumbClass}
+                style={{ 'maxWidth': crumbWidth }}
+            >
+                {crumbs && SmallScreenBackArrowComponent}
+                {currentPageLabel}
+            </ParagraphMd>
+        </div>
     );
 };
 
