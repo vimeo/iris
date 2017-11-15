@@ -5329,7 +5329,7 @@ react-color@^2.13.8:
     reactcss "^1.2.0"
     tinycolor2 "^1.4.1"
 
-react-css-transition-replace@^3.0.0:
+react-css-transition-replace@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/react-css-transition-replace/-/react-css-transition-replace-3.0.2.tgz#8c2f8ea556c935f590ec285ed2d3ec247b19271e"
   dependencies:
