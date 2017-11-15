@@ -7,11 +7,11 @@ gulp.task('prepublish' , function(cb) {
         'esLint',
         'svgOptimize',
 		'svgListBuild',
-		'svgExportBuild',
+        'svgExportBuild',
+        'compilePackageIndexJS',
         [ 
             'transpileJS',
             'copyOtherSrcFiles'
         ], 
-        'compilePackageIndexJS',
 		cb);
 });

@@ -3,6 +3,7 @@ const babel = require('gulp-babel');
  
 gulp.task('transpileJS', () =>
     gulp.src([
+        'dist/index.js',
         'src/**/*.{jsx,js}',
         '!src/**/*-Docs.{jsx}'
         ])
