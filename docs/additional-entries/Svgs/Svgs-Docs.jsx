@@ -17,7 +17,7 @@ const SvgsDocs = (props) => {
             <ExampleSource>
                 {`
 // import it
-import '{ComponentName}' from '@vimeo/iris/icons/{fileName}';
+import '{ComponentName}' from '@vimeo/iris/dist/icons/{fileName}';
 //...
 // later: use it
 <ComponentName />
@@ -32,7 +32,7 @@ import '{ComponentName}' from '@vimeo/iris/icons/{fileName}';
             <ParagraphMd><strong>Import it:</strong></ParagraphMd>
             <ExampleSource>
                 {`
-import BellIris from '../../../src/icons/bell.svg';
+                import '{ComponentName}' from '@vimeo/iris/dist/icons/bell.svg';
                     `}
                 </ExampleSource>
                 <ParagraphMd><strong>Use it as a JSX tag:</strong></ParagraphMd>
