@@ -1,6 +1,4 @@
-import Grid from './Grid';
-import GridBlock from '../GridBlock/GridBlock';
-import GridCol from '../GridCol/GridCol';
-
-export { Grid, GridCol, GridBlock };
+export Grid from './Grid';
+export GridBlock from '../GridBlock/GridBlock';
+export GridCol from '../GridCol/GridCol';
 
