@@ -1,5 +1,7 @@
 import React from 'react';
 import Breadcrumb from './Breadcrumb';
+import BreadcrumbLink from '../BreadcrumbLink';
+import BreadcrumbLinkReactRouter from '../BreadcrumbLinkReactRouter';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import { ParagraphMd } from '../Type';
 
@@ -14,18 +16,23 @@ class BreadcrumbDocs extends React.Component {
                 <div data-code>
                     <Breadcrumb
                         crumbs = {[
-                            {
-                                label: 'Breadcrumb Item 1 is Pretty Long So Cut it Off',
-                                href: '#',
-                            },
-                            {
-                                label: 'Breadcrumb Item 2',
-                                href: '#',
-                                onClick: (e) => {
-                                    e.preventDefault();
-                                    console.log('click');
-                                },
-                            },
+                            (<BreadcrumbLink
+                                href="#"
+                            >
+                                Breadcrumb Item 1 is Pretty Long So Cut it Off
+                            </BreadcrumbLink>
+                            ),
+                            (
+                            <BreadcrumbLinkReactRouter
+                                        to="#"
+                                        onClick = {(e) => {
+                                            e.preventDefault();
+                                            console.log('click');
+                                        }}
+                                    >
+                                        Breadcrumb Item 2
+                                </BreadcrumbLinkReactRouter>
+                            ),
                         ]}
                         currentPageLabel="Current Page Label is Pretty Long So Cut it Off"
                     />
@@ -35,18 +42,23 @@ class BreadcrumbDocs extends React.Component {
                     {`
 <Breadcrumb
     crumbs = {[
-        {
-            label: 'Breadcrumb Item 1 is Pretty Long So Cut it Off',
-            href: '#',
-        },
-        {
-            label: 'Breadcrumb Item 2',
-            href: '#',
-            onClick: (e) => {
-                e.preventDefault();
-                console.log('click');
-            },
-        },
+        (<BreadcrumbLink
+            href="#"
+        >
+            Breadcrumb Item 1 is Pretty Long So Cut it Off
+        </BreadcrumbLink>
+        ),
+        (
+        <BreadcrumbLinkReactRouter
+                    to="#"
+                    onClick = {(e) => {
+                        e.preventDefault();
+                        console.log('click');
+                    }}
+                >
+                    Breadcrumb Item 2
+            </BreadcrumbLinkReactRouter>
+        ),
     ]}
     currentPageLabel="Current Page Label is Pretty Long So Cut it Off"
 />

@@ -1,6 +1,9 @@
 /* @description Generates styles for the Breadcrumb component */
 @import '../globals/sass/helpers-all';
 
+$ArrowIconWidth: rem-calc(24);
+$ArrowIconSmallPadding: spacingUnit(2);
+
 @mixin Breadcrumb_truncatewithEllipsis() {
     display: inline-block;
     overflow: hidden;
@@ -18,8 +21,8 @@
     position: absolute;
     top: rem-calc(-2);
 
-    width: rem-calc(24);
-    height: rem-calc(24);
+    width: $ArrowIconWidth;
+    height: $ArrowIconWidth;
 }
 
 .Breadcrumb {
@@ -29,52 +32,35 @@
 .Crumb {
     @include mq(md) {
         display: inline-block;
+        padding-right: spacingUnit(6);
     }
 
     display: none;
 
     position: relative;
+    padding-right: $ArrowIconSmallPadding;
 
-    padding-right: rem-calc(24);
+    &.showOnSmall{
+        display: inline-block;
+    }
+    
 }
 
 .CrumbArrowIcon {
     @include Breadcrumb_icon();
-
+    display: none;
     right: 0;
+
+    @include mq(md) {
+        display: inline-block;
+    }
 }
 
 .CurrentPageCrumb {
     @include Breadcrumb_truncatewithEllipsis();
     @include mq(md-down) {
-        max-width: 100% !important; //cancels-out inline calculated style
-    }
-
-    &.hasCrumbs {
-        @include mq(md) {
-            padding-left: 0;
-        }
-
-        padding-left: rem-calc(28);
-    }
-}
-
-.CurrentCrumbArrowLink {
-    @include Breadcrumb_icon();
-    @include mq(md) {
-        display: none;
-    }
-
-    left: 0;
-
-    color: $LightLinkColor;
-
-    &:hover {
-        color: $LightLinkColor-Hover;
-    }
-
-    .ArrowIcon * {
-        fill: currentColor;
+        //cancels-out inline calculated style with 100% minus the width of the arrow icon and its padding.
+        max-width: calc(100% - #{ $ArrowIconWidth + $ArrowIconSmallPadding }) !important; 
     }
 }
 
@@ -82,10 +68,50 @@
     @include Breadcrumb_truncatewithEllipsis();
 }
 
+// ----- 
+//These styles affect the subcomponents of breadcrumb but are here because they are shared.
+// -----
 .Link {
+    display: none;
     color: $LightLinkColor;
+
+    @include mq(md) {
+        display: inline-block;
+    }
 
     &:hover {
         color: $LightLinkColor-Hover;
+    }
+
+    .ArrowIcon{
+        display: none;
+    }
+}
+
+ .showOnSmall .Link {
+    display: inline-block;
+    
+    &:hover:before {
+        // removes default underline treatement
+        display: none;
+    }
+
+    .ArrowIcon {
+        display: inline-block;
+
+        * {
+        fill: currentColor;
+        }
+
+        @include mq(md) {
+            display: none;
+        }
+    }
+
+    .LinkLabel{
+        display: none;
+        @include mq(md) {
+            display: inline;
+        }
     }
 }
