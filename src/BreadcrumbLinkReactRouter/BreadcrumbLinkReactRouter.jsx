@@ -26,10 +26,9 @@ const BreadcrumbLinkReactRouter = ({
         <Link
             to={to}
             onClick={onClick}
-            className={styles.Link}
         >
             <LinkText
-
+                className={styles.Link}
                 element="span"
                 format="silent"
                 title={children}

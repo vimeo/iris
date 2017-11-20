@@ -88,16 +88,13 @@ $ArrowIconSmallPadding: spacingUnit(2);
     }
 }
 
- .showOnSmall .Link {
-    display: inline-block;
-    
-    &:hover:before {
-        // removes default underline treatement
-        display: none;
-    }
+.showOnSmall .Link {
+    display: inline-block;  
 
     .ArrowIcon {
         display: inline-block;
+        position: relative;
+        top: rem-calc(5);
 
         * {
         fill: currentColor;
