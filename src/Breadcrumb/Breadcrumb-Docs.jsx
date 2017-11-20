@@ -10,7 +10,7 @@ class BreadcrumbDocs extends React.Component {
         return (
             <div className="Pattern__docs">
                 <ParagraphMd>Breadcrumbs help orient the user within an page flow.</ParagraphMd>
-                <ParagraphMd>"Crumb" links are passed as an array of object to <code>crumbs</code> and the current page label should be passed to <code>currentPageLabel</code> as a string.</ParagraphMd>
+                <ParagraphMd>"Crumb" links are passed to <code>crumbs</code> as an array of either <code>BreadcrumbLink</code> or <code>BreadcrumbLinkReactRouter</code> components that should be imported as needed. These components take all the props a regular anchor link or React Router Link can take.</ParagraphMd>
                 <ParagraphMd>Below our medium breakpoint only the current page label will show, but there will be a linked arrow that will get link properties from the last breadcrump in the <code>crumbs</code> array.</ParagraphMd>
 
                 <div data-code>
@@ -40,6 +40,7 @@ class BreadcrumbDocs extends React.Component {
 
                 <ExampleSource>
                     {`
+import {Breadcrumb, BreadcrumbLink, BreadcrumbLinkReactRouter} from '@vimeo/iris';
 <Breadcrumb
     crumbs = {[
         (<BreadcrumbLink
