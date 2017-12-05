@@ -6,6 +6,9 @@ import { ParagraphMd, Header1, Header2, Header3 } from '../Type';
 import styles from './Modal-Docs.scss';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import { List, ListItem } from '../List';
+import MenuPanel from '../MenuPanel';
+import MenuPanelList from '../MenuPanelList';
+import SettingsIcon from '../icons/gear.svg';
 class ModalDocs extends React.Component {
     constructor(props) {
         super(props);
@@ -58,6 +61,40 @@ class ModalDocs extends React.Component {
     }
 
     render() {
+        const MenuList = (
+            <div>
+                <MenuPanelList
+                    header="Section 1"
+                    menuItems = {[
+                        {
+                            label: 'Item 1',
+                            href: '#',
+                        },
+                        {
+                            label: 'Selected Item',
+                            href: '#',
+                            isSelected: true,
+                            'data-foo': 'bar',
+                        },
+                    ]}
+                />
+                <MenuPanelList
+                    hasDivider
+                    menuItems = {[
+                        {
+                            label: 'Item 3',
+                            icon: <SettingsIcon />,
+                            href: '#',
+                        },
+                        {
+                            label: 'Item 4',
+                            href: '#',
+                        },
+                    ]}
+                />
+            </div>
+        );
+
         return (
             <div className="Pattern__docs">
                 <div data-code />
@@ -99,6 +136,20 @@ class ModalDocs extends React.Component {
                         <ParagraphMd>Twas brillig, and the slithy toves Did gyre and gimble in the wabe: All mimsy were the borogoves, And the mome raths outgrabe.</ParagraphMd>
                         <ParagraphMd>"Beware the Jabberwock, my son! The jaws that bite, the claws that catch! Beware the Jubjub bird, and shun The frumious Bandersnatch!"</ParagraphMd>
                         <ParagraphMd>He took his vorpal sword in hand: Long time the manxome foe he sought -- So rested he by the Tumtum tree, And stood awhile in thought.</ParagraphMd>
+                        <MenuPanel
+                            alignment="center"
+                            menuContent={MenuList}
+                            size="md"
+                            isFluid
+                        >
+                            <Button
+                                isInline
+                                isButtonElement={false}
+                                autoWidth="fluid"
+                            >
+                                Click for Medium Center Menu
+                            </Button>
+                        </MenuPanel>
                         <ParagraphMd>And, as in uffish thought he stood,The Jabberwock, with eyes of flame, Came whiffling through the tulgey wood, And burbled as it came!</ParagraphMd>
                     </Modal>
 
