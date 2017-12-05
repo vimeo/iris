@@ -15,7 +15,7 @@ $MenuPanel_animation-speed: $MenuPanel_animation-speed-integer * 1ms;
 
 
 .MenuPanelTetherWrapper {
-    z-index: get-z-index('Menu');
+    z-index: get-z-index('MenuPanel');
 }
 
 .MenuPanelWrapper {
