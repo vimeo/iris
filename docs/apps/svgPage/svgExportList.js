@@ -32,6 +32,8 @@
   
  exports.CircleFilled = require('../../../src/icons/circle-filled.svg');
   
+ exports.CircleInfoSmall = require('../../../src/icons/circle-info-small.svg');
+  
  exports.CircleInfo = require('../../../src/icons/circle-info.svg');
   
  exports.CirclePlus = require('../../../src/icons/circle-plus.svg');
@@ -53,6 +55,8 @@
  exports.DotsMenu = require('../../../src/icons/dots-menu.svg');
   
  exports.DownloadArrow = require('../../../src/icons/download-arrow.svg');
+  
+ exports.EyeOff = require('../../../src/icons/eye-off.svg');
   
  exports.Eye = require('../../../src/icons/eye.svg');
   
@@ -85,6 +89,8 @@
  exports.Link = require('../../../src/icons/link.svg');
   
  exports.List = require('../../../src/icons/list.svg');
+  
+ exports.LockChecked = require('../../../src/icons/lock-checked.svg');
   
  exports.Lock = require('../../../src/icons/lock.svg');
   
@@ -129,4 +135,10 @@
  exports.Video = require('../../../src/icons/video.svg');
   
  exports.Youtube = require('../../../src/icons/youtube.svg');
+  
+ exports.CcAmex = require('../../../src/icons/third-party/cc-amex.svg');
+  
+ exports.CcDiscover = require('../../../src/icons/third-party/cc-discover.svg');
+  
+ exports.CcVisa = require('../../../src/icons/third-party/cc-visa.svg');
   
