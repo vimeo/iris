@@ -19,8 +19,8 @@
             position: relative;
 
             min-width: rem-calc(240);
-            padding: 0;
             margin-bottom: 0;
+            padding: 0;
         }
 
         .rdtOpen .rdtPicker {
@@ -81,9 +81,9 @@
             color: $Plaster;
         }
 
-        .rdtDay:hover{
-            background: $Foam;
+        .rdtDay:hover {
             color: $VimeoBlue;
+            background: $Foam;
         }
 
         .rdtActive.rdtDay {
@@ -109,7 +109,7 @@
         .rdtOld {
             color: $Porcelain;
         }
-        
+
         .rdtOld.rdtDisabled,
         .rdtOld.rdtDisabled:hover {
             color: $Plaster;
@@ -119,52 +119,60 @@
         }
 
         .dow {
-            font-weight: normal; // overrides browser th styling.
             width: 14.2857%;
+
+            font-weight: normal; // overrides browser th styling.
 
             border-bottom: none;
         }
 
         .rdtSwitch {
             @include Header5;
+
             width: rem-calc(100);
         }
 
         .rdtNext,
         .rdtPrev {
-            text-indent: -9999px;
             vertical-align: middle;
+            text-indent: -9999px;
         }
 
         .rdtPrev span,
         .rdtNext span {
             display: block;
-            user-select: none;
+
             position: absolute;
             top: rem-calc(8);
+
+            user-select: none;
         }
 
         .rdtPrev span {
             left: rem-calc(16);
 
             &:before {
-                content: '';
                 position: absolute;
                 top: 0;
                 left: 0;
-                border-right: rem-calc(8) solid currentColor;
+
                 border-top: rem-calc(8) solid transparent;
+                border-right: rem-calc(8) solid currentColor;
                 border-bottom: rem-calc(8) solid transparent;
+
+                content: '';
             }
 
             &:after {
-                content: '';
                 position: absolute;
-                left: rem-calc(2);
                 top: rem-calc(2);
-                border-right: rem-calc(6) solid $White;
+                left: rem-calc(2);
+
                 border-top: rem-calc(6) solid transparent;
+                border-right: rem-calc(6) solid $White;
                 border-bottom: rem-calc(6) solid transparent;
+
+                content: '';
             }
         }
 
@@ -172,23 +180,27 @@
             right: rem-calc(26);
 
             &:before {
-                content: '';
                 position: absolute;
                 top: 0;
                 left: 0;
-                border-left: rem-calc(8) solid currentColor;
+
                 border-top: rem-calc(8) solid transparent;
                 border-bottom: rem-calc(8) solid transparent;
+                border-left: rem-calc(8) solid currentColor;
+
+                content: '';
             }
 
             &:after {
-                content: '';
                 position: absolute;
-                left: 0;
                 top: rem-calc(2);
-                border-left: rem-calc(6) solid $White;
+                left: 0;
+
                 border-top: rem-calc(6) solid transparent;
                 border-bottom: rem-calc(6) solid transparent;
+                border-left: rem-calc(6) solid $White;
+
+                content: '';
             }
         }
 
@@ -264,12 +276,12 @@
 
             cursor: pointer;
             -webkit-user-select: none;   /* Chrome/Safari/Opera */
-            -moz-user-select: none;      /* Firefox */
+               -moz-user-select: none;      /* Firefox */
                 -ms-user-select: none;       /* Internet Explorer/Edge */
                     user-select: none;
 
             -webkit-touch-callout: none; /* iOS Safari */
-            -khtml-user-select: none;    /* Konqueror */
+             -khtml-user-select: none;    /* Konqueror */
         }
         .rdtCounter .rdtBtn:hover {
             background: $Porcelain;
@@ -299,8 +311,9 @@
 .DateTrigger {
     // this IS the hidden element that needs a little size for the tethering to work.
     display: inline-block;
+
     width: 1px;
     height: $inputs_height-md;
+
     outline: none;
 }
-
