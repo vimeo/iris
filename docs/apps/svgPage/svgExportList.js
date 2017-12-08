@@ -136,9 +136,3 @@
   
  exports.Youtube = require('../../../src/icons/youtube.svg');
   
- exports.CcAmex = require('../../../src/icons/third-party/cc-amex.svg');
-  
- exports.CcDiscover = require('../../../src/icons/third-party/cc-discover.svg');
-  
- exports.CcVisa = require('../../../src/icons/third-party/cc-visa.svg');
-  
