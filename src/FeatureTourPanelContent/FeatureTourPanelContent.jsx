@@ -18,6 +18,7 @@ type Props = {
 
 const FeatureTourPanelContent = ({
     bodyText,
+    dismissButtonLabel,
     headerText,
     onDismissClick,
     primaryButtonProps,

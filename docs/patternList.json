@@ -29,6 +29,7 @@
         ["CircularButton", "Circular Button"],
         ["CopyField", "Copy Field"],
         ["CounterIcon", "Counter Icons"],
+        ["FeatureTourPanel", "Feature Tour Panel"],
         ["FieldSet", "FieldSet"],
         ["InputCheckbox", "Inputs: Checkbox"],
         ["InputCheckboxSet", "Inputs: Checkbox Set"],

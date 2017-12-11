@@ -23,6 +23,7 @@ type Props = {
     onClose?: Function,
     onClick?: Function,
     onOpen?: Function,
+    panelClassName?: string,
     size: 'sm' | 'md' | 'lg',
     options?: Object,
     isFluid?: boolean,
@@ -259,6 +260,7 @@ class MenuPanel extends React.Component {
             onClose, // eslint-disable-line no-unused-vars
             onOpen, // eslint-disable-line no-unused-vars
             options,
+            panelClassName,
             size,
             ...filteredProps
         } = this.props;
@@ -267,6 +269,7 @@ class MenuPanel extends React.Component {
         const componentClass = classNames(
             styles.MenuPanel,
             styles[size],
+            panelClassName,
             (this.state.isShowing ? styles.isShowing : null),
         );
 
