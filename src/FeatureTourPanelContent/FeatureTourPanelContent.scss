@@ -1,0 +1,11 @@
+/* @description Generates styles for the FeatureTourPanelContent component */
+@import '../globals/sass/helpers-all';
+
+.FeatureTourPanelContent {
+    background: $VimeoBlue-Darkened;
+}
+.DismissButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
