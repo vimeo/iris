@@ -2,9 +2,10 @@
 @import '../globals/sass/helpers-all';
 
 .FeatureTourPanelContent {
-    background:  linear-gradient(-45deg, $VimeoBlue 0%, #093AC9 100%);
     padding: spacingUnit(8) spacingUnit(8) spacingUnit(6);
+
     border-radius: rem-calc(5);
+    background: linear-gradient(-45deg, $VimeoBlue 0%, #093AC9 100%);
 }
 .DismissButton {
     position: absolute;
@@ -12,7 +13,8 @@
     right: spacingUnit(4);
 
     svg {
-        opacity: .7;
+        opacity: 0.7;
+
         transition: opacity 150ms ease;
 
         &:hover {
@@ -20,8 +22,7 @@
         }
 
         * {
-            fill: $White;  
+            fill: $White;
         }
-    }   
-
+    }
 }
