@@ -59,6 +59,7 @@ class FeatureTourPanel extends React.Component {
 
     _handleOpen= () => {
         this.setState({
+            isShowing: true,
             beaconIsActive: false,
         });
 

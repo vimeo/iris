@@ -3,13 +3,13 @@
 
 .FeatureTourPanelContent {
     background:  linear-gradient(-45deg, $VimeoBlue 0%, #093AC9 100%);
-    padding: spacingUnit(4);
+    padding: spacingUnit(8) spacingUnit(8) spacingUnit(6);
     border-radius: rem-calc(5);
 }
 .DismissButton {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: spacingUnit(4);
+    right: spacingUnit(4);
 
     svg {
         opacity: .7;

@@ -7,6 +7,7 @@ class FeatureTourPanelDocs extends React.Component {
     render() {
         return (
             <div className="Pattern__docs">
+            <ParagraphMd>The Feature Tour Panel is used to highlight interactions for the user.</ParagraphMd>
                 <div data-code>
                     <FeatureTourPanel
                         headerText="Header Text"

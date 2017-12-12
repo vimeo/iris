@@ -7,8 +7,6 @@ $FeatureTourPanel_beacon-size: rem-calc(16);
 }
 
 :global {
-
-
     .FeatureTourPanel_beaconIsActive {
         animation: 2000ms infinite FeatureTourPanel_BeaconBloop;
         background: $VimeoBlue-Darkened;
