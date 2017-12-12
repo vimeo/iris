@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import classNames from 'classnames';
 import FeatureTourPanelContent from '../FeatureTourPanelContent';
 import MenuPanel from '../MenuPanel';
 import styles from './FeatureTourPanel.scss';
@@ -9,16 +10,25 @@ const displayName = 'FeatureTourPanel';
 
 type Props = {
     attachment?: 'top' | 'left' | 'right' | 'bottom',
+    beaconIsActive?: boolean,
+    beaconText?: string,
+    bodyText: string,
     className?: string,
     dismissButtonLabel: string,
     headerText?: string,
-    bodyText: string,
-    onDismissClick?: () => void,
+    onClose: () => void,
+    onDismissClick?: (e: Event) => void,
+    onOpen?: () => void,
     primaryButtonProps?: Object,
     secondaryButtonProps?: Object,
     size: 'sm' | 'md' | 'lg' | 'xl',
     isShowing?: boolean,
 };
+
+type State = {
+    isShowing?: boolean,
+    beaconIsActive?: boolean,
+}
 
 class FeatureTourPanel extends React.Component {
     static defaultProps = {
@@ -30,19 +40,30 @@ class FeatureTourPanel extends React.Component {
         super(props);
         this.state = {
             isShowing: props.isShowing,
+            beaconIsActive: props.beaconIsActive,
         };
     }
 
-    state: Object;
+    state: State;
     props: Props;
 
-    _handleDismissClick = () => {
+    _handleDismissClick = (e: Event) => {
         this.setState({
             isShowing: false,
         });
 
         if (typeof this.props.onDismissClick === 'function') {
-            this.props.onDismissClick();
+            this.props.onDismissClick(e);
+        }
+    }
+
+    _handleOpen= () => {
+        this.setState({
+            beaconIsActive: false,
+        });
+
+        if (typeof this.props.onOpen === 'function') {
+            this.props.onOpen();
         }
     }
 
@@ -51,9 +72,13 @@ class FeatureTourPanel extends React.Component {
             attachment,
             dismissButtonLabel,
             headerText,
+            beaconText,
+            beaconIsActive, // eslint-disable-line no-unused-vars
             bodyText,
             primaryButtonProps,
             secondaryButtonProps,
+            onOpen, // eslint-disable-line no-unused-vars
+            onClose,
             onDismissClick, // eslint-disable-line no-unused-vars
             isShowing, // eslint-disable-line no-unused-vars
             size,
@@ -97,11 +122,18 @@ class FeatureTourPanel extends React.Component {
                 break;
         }
 
+        const beaconClass = classNames(
+            styles.Beacon,
+            (this.state.beaconIsActive ? 'FeatureTourPanel_beaconIsActive' : null)
+        );
+
         return (
             <MenuPanel
                 {...filteredProps}
                 isShowing={this.state.isShowing}
                 menuContent={MenuPanelContent}
+                onClose={onClose}
+                onOpen={this._handleOpen}
                 panelClassName={styles.FeatureTourPanel}
                 size={size}
                 options={{
@@ -110,7 +142,7 @@ class FeatureTourPanel extends React.Component {
                     targetAttachment: panelTargetAttachment,
                 }}
             >
-                <span>Dot goes here</span>
+                <span className={beaconClass}>{beaconText}</span>
             </MenuPanel>
         );
 
