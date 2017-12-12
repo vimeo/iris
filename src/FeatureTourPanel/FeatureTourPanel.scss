@@ -10,26 +10,22 @@ $FeatureTourPanel_beacon-size: rem-calc(16);
 
 
     .FeatureTourPanel_beaconIsActive {
-        animation: 750ms infinite FeatureTourPanel_BeaconBloop;
+        animation: 2000ms infinite FeatureTourPanel_BeaconBloop;
         background: $VimeoBlue-Darkened;
     }
 
 }
 
 @keyframes :global(FeatureTourPanel_BeaconBloop) {
-    0%{box-shadow: 0px,0px,0px,rgba($VimeoBlue,0);
-        transform: scale(1);
-        background: red;
-    }
-    10%{box-shadow: 12px,10px,4px,$VimeoBlue;
-        transform: scale(.2);
-        background: blue;
-    }
-    100%{
-        box-shadow: 0px,40px,0px,rgba($VimeoBlue,0);
-        transform: scale(1);
-        background: green;
-    }
+    0% {
+        box-shadow: 0 0 8px 6px rgba($VimeoBlue, 0), 0 0 0px 0px rgba(0,0,0,.0), 0 0 0px 0px rgba($VimeoBlue, 0);
+      }
+      10% {
+        box-shadow: 0 0 8px 6px rgba($VimeoBlue, .5), 0 0 12px 10px rgba(0,0,0,.0), 0 0 12px 14px rgba($VimeoBlue, .5);
+      }
+      25% {
+        box-shadow: 0 0 8px 6px rgba($VimeoBlue, 0), 0 0 0px 40px rgba(0,0,0,.0), 0 0 0px 40px rgba($VimeoBlue, 0);
+      }
 }
 
 
