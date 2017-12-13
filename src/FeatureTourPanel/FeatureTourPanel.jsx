@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
-import classNames from 'classnames';
 import FeatureTourPanelContent from '../FeatureTourPanelContent';
+import FeatureTourDot from '../FeatureTourDot';
 import MenuPanel from '../MenuPanel';
 import styles from './FeatureTourPanel.scss';
 
@@ -10,7 +10,7 @@ const displayName = 'FeatureTourPanel';
 
 type Props = {
     attachment?: 'top' | 'left' | 'right' | 'bottom',
-    beaconIsActive?: boolean,
+    beaconMode?: 'inactive' |'active',
     beaconText?: string,
     bodyText: string,
     className?: string,
@@ -21,35 +21,46 @@ type Props = {
     onOpen?: () => void,
     primaryButtonProps?: Object,
     secondaryButtonProps?: Object,
-    size: 'sm' | 'md' | 'lg' | 'xl',
     isShowing?: boolean,
 };
 
 type State = {
     isShowing?: boolean,
-    beaconIsActive?: boolean,
+    beaconMode?: 'inactive' | 'open' |'active';
 }
 
 class FeatureTourPanel extends React.Component {
     static defaultProps = {
         attachment: 'right',
-        size: 'lg',
+        beaconMode: 'inactive',
     };
 
     constructor(props: Props) {
         super(props);
         this.state = {
             isShowing: props.isShowing,
-            beaconIsActive: props.beaconIsActive,
+            beaconMode: props.isShowing ? 'open' : props.beaconMode,
         };
     }
 
     state: State;
+
+
+    componentWillUpdate(nextProps: Props) {
+        if (nextProps !== this.props) {
+            this.setState({
+                isShowing: nextProps.isShowing,
+                beaconMode: nextProps.isShowing ? 'open' : nextProps.beaconMode,
+            });
+        }
+    }
+
     props: Props;
 
     _handleDismissClick = (e: Event) => {
         this.setState({
             isShowing: false,
+            beaconMode: 'inactive',
         });
 
         if (typeof this.props.onDismissClick === 'function') {
@@ -60,7 +71,7 @@ class FeatureTourPanel extends React.Component {
     _handleOpen= () => {
         this.setState({
             isShowing: true,
-            beaconIsActive: false,
+            beaconMode: 'open',
         });
 
         if (typeof this.props.onOpen === 'function') {
@@ -74,7 +85,7 @@ class FeatureTourPanel extends React.Component {
             dismissButtonLabel,
             headerText,
             beaconText,
-            beaconIsActive, // eslint-disable-line no-unused-vars
+            beaconMode, // eslint-disable-line no-unused-vars
             bodyText,
             primaryButtonProps,
             secondaryButtonProps,
@@ -82,7 +93,6 @@ class FeatureTourPanel extends React.Component {
             onClose,
             onDismissClick, // eslint-disable-line no-unused-vars
             isShowing, // eslint-disable-line no-unused-vars
-            size,
             ...filteredProps
         } = this.props;
 
@@ -108,7 +118,7 @@ class FeatureTourPanel extends React.Component {
                 break;
             case 'right':
                 panelAttachment = 'top left';
-                panelOffset = `0 ${panelOffsetDistance * -1}px`;
+                panelOffset = `${panelOffsetDistance}px ${panelOffsetDistance * -1}px`;
                 panelTargetAttachment = 'top right';
                 break;
             case 'bottom':
@@ -118,15 +128,11 @@ class FeatureTourPanel extends React.Component {
                 break;
             case 'left':
                 panelAttachment = 'top right';
-                panelOffset = `0 ${panelOffsetDistance}px`;
+                panelOffset = `${panelOffsetDistance}px ${panelOffsetDistance}px`;
                 panelTargetAttachment = 'top left';
                 break;
         }
 
-        const beaconClass = classNames(
-            styles.Beacon,
-            (this.state.beaconIsActive ? 'FeatureTourPanel_beaconIsActive' : null)
-        );
 
         return (
             <MenuPanel
@@ -136,14 +142,17 @@ class FeatureTourPanel extends React.Component {
                 onClose={onClose}
                 onOpen={this._handleOpen}
                 panelClassName={styles.FeatureTourPanel}
-                size={size}
+                size="lg"
                 options={{
                     offset: panelOffset,
                     attachment: panelAttachment,
                     targetAttachment: panelTargetAttachment,
                 }}
             >
-                <span className={beaconClass}>{beaconText}</span>
+                <FeatureTourDot
+                    beaconText={beaconText}
+                    mode={this.state.beaconMode}
+                />
             </MenuPanel>
         );
 

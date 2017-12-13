@@ -1,45 +1,5 @@
 @import '../globals/sass/helpers-all';
-$FeatureTourPanel_beacon-size: rem-calc(16);
 
 .FeatureTourPanel {
     border-radius: rem-calc(5);
-}
-
-:global {
-    .FeatureTourPanel_beaconIsActive {
-        background: $VimeoBlue-Darkened;
-
-        animation: 2000ms infinite FeatureTourPanel_BeaconBloop;
-    }
-}
-
-@keyframes :global(FeatureTourPanel_BeaconBloop) {
-    0% {
-        box-shadow: 0 0 8px 6px rgba($VimeoBlue, 0), 0 0 0 0 rgba(0,0,0,0.0), 0 0 0 0 rgba($VimeoBlue, 0);
-    }
-    10% {
-        box-shadow: 0 0 8px 6px rgba($VimeoBlue, 0.5), 0 0 12px 10px rgba(0,0,0,0.0), 0 0 12px 14px rgba($VimeoBlue, 0.5);
-    }
-    25% {
-        box-shadow: 0 0 8px 6px rgba($VimeoBlue, 0), 0 0 0 40px rgba(0,0,0,0.0), 0 0 0 40px rgba($VimeoBlue, 0);
-    }
-}
-
-
-
-.Beacon {
-    display: inline-block;
-
-    width: $FeatureTourPanel_beacon-size;
-    height: $FeatureTourPanel_beacon-size;
-
-    border-radius: $FeatureTourPanel_beacon-size/2;
-    background: $VimeoBlue;
-
-    text-indent: -9999px;
-
-
-    &:hover {
-        background: $VimeoBlue-Darkened;
-    }
 }

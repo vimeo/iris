@@ -1,0 +1,84 @@
+/* @description Generates styles for the FeatureTourDot component */
+@import '../globals/sass/helpers-all';
+$FeatureTourDot_beacon-size: rem-calc(16);
+.FeatureTourDot {
+    display: inline-block;
+    
+        width: $FeatureTourDot_beacon-size;
+        height: $FeatureTourDot_beacon-size;
+    
+        border-radius: $FeatureTourDot_beacon-size/2;
+        border: rem-calc(2) solid $VimeoBlue;
+    
+        text-indent: -9999px;
+    
+        &.active,
+        &.inactive {
+            background: $VimeoBlue;
+        }
+
+        &.open {
+            background: $White;
+        }
+
+        &:hover {
+            background: $VimeoBlue-Darkened;
+            border-color: $VimeoBlue-Darkened;
+        }
+}
+
+:global {
+    .FeatureTourDot_beaconIsActive {
+        background: $VimeoBlue-Darkened;
+
+        animation: 2500ms infinite FeatureTourDot_BeaconBloop;
+    }
+}
+
+@mixin start_finish() {
+    box-shadow:
+    0 0 4px 4px rgba($VimeoBlue, .3),
+    0 0 8px 6px rgba($VimeoBlue, 0),
+    0 0 0 0 rgba(0,0,0,0.0),
+    0 0 0 0 rgba($VimeoBlue, 0);
+}
+
+@keyframes :global(FeatureTourDot_BeaconBloop) {
+    0% {
+        @include start_finish();
+    }
+    10% {
+        box-shadow:
+        0 0 4px 4px rgba($VimeoBlue, .3),
+        0 0 8px 6px rgba($VimeoBlue, 0.2),
+        0 0 12px 10px rgba(0,0,0,0.0),
+        0 0 12px 14px rgba($VimeoBlue, 0.2);
+    }
+    25% {
+        box-shadow:
+        0 0 4px 4px rgba($VimeoBlue, .3),
+        0 0 8px 6px rgba($VimeoBlue, 0),
+        0 0 0 60px rgba(0,0,0,0.0),
+        0 0 0 60px rgba($VimeoBlue, 0);
+    }
+
+    30% {
+        @include start_finish();
+    }
+
+    31% {
+        box-shadow:
+        0 0 6px 8px rgba($VimeoBlue, .35),
+        0 0 8px 6px rgba($VimeoBlue, 0),
+        0 0 0 60px rgba(0,0,0,0.0),
+        0 0 0 60px rgba($VimeoBlue, 0);
+    }
+
+    80% {
+        @include start_finish();
+    }
+
+    100% {
+        @include start_finish();
+    }
+}

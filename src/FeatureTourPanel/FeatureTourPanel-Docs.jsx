@@ -1,7 +1,8 @@
 import React from 'react';
 import FeatureTourPanel from './FeatureTourPanel';
+import FeatureTourDot from '../FeatureTourDot';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../Type';
+import { ParagraphMd, Header3, Header5 } from '../Type';
 
 class FeatureTourPanelDocs extends React.Component {
     render() {
@@ -11,7 +12,7 @@ class FeatureTourPanelDocs extends React.Component {
                 <div data-code>
                     <FeatureTourPanel
                         headerText="Header Text"
-                        beaconIsActive
+                        beaconMode="active"
                         beaconText="click to learn more"
                         bodyText="This is the body text. Vimeo was born in 2004, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends."
                         dismissButtonLabel="Close"
@@ -29,6 +30,23 @@ class FeatureTourPanelDocs extends React.Component {
                         <FeatureTourPanel />
                         `}
                     </ExampleSource>
+
+                    <Header3>Beacon Modes</Header3>
+                    <Header5>Active</Header5>
+                    <FeatureTourDot
+                        beaconText="this is active"
+                        mode="active"
+                    />
+                    <Header5>Inactive</Header5>
+                    <FeatureTourDot
+                        beaconText="this is inactive"
+                        mode="inactive"
+                    />
+                    <Header5>Open</Header5>
+                    <FeatureTourDot
+                        beaconText="this is open"
+                        mode="open"
+                    />
                 </div>
         );
     }
