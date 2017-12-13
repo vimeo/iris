@@ -31,6 +31,9 @@ const InputMessageArea = ({
             className
         );
 
+    const hasHelperMsg = helperMsg !== undefined;
+    const hasErrorMsg = errorMsg !== undefined;
+
     const errorMessageElement = (
             <InputMessage
                 format="negative"
@@ -49,18 +52,20 @@ const InputMessageArea = ({
             </InputMessage>
         );
 
-    const hasHelperMsg = helperMsg === undefined;
-    const hasErrorMsg = errorMsg === undefined;
 
     return (
                 <div
                     {...filteredProps}
                     className={componentClass}
                 >
-                    <SlideUpDown isHidden={hasHelperMsg}>
+                    <SlideUpDown
+                        isHidden={!hasHelperMsg}
+                    >
                         {helperMessageElement}
                     </SlideUpDown>
-                    <SlideUpDown isHidden={hasErrorMsg}>
+                    <SlideUpDown
+                        isHidden={!hasErrorMsg}
+                    >
                         {errorMessageElement}
                     </SlideUpDown>
                 </div>

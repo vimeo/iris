@@ -19,7 +19,7 @@ type Props = {
     preMessage?: any,
     showLabel?: boolean,
     theme?: 'default' | 'dark',
-    size?: 'md' | 'lg',
+    size?: 'md' | 'lg' | 'xl',
     type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' |'url',
 };
 
