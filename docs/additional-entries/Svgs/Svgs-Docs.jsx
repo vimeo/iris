@@ -1,6 +1,6 @@
 import React from 'react';
 import BellIris from '../../../src/icons/bell.svg';
-import { ParagraphMd, Header3, Header4 } from '../../../src/Type';
+import { ParagraphMd, Header3, Header4, ParagraphAltMd } from '../../../src/Type';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import LinkText from '../../../src/LinkText/LinkText';
 
@@ -32,13 +32,21 @@ import '{ComponentName}' from '@vimeo/iris/dist/icons/{fileName}';
             <ParagraphMd><strong>Import it:</strong></ParagraphMd>
             <ExampleSource>
                 {`
-                import '{ComponentName}' from '@vimeo/iris/dist/icons/bell.svg';
-                    `}
+import '{ComponentName}' from '@vimeo/iris/dist/icons/bell.svg';
+                `}
                 </ExampleSource>
                 <ParagraphMd><strong>Use it as a JSX tag:</strong></ParagraphMd>
                 <ExampleSource>
                     {`
 <BellIris title="See your alerts" className="someSVGClass" id="someSVGid" style={{'width': '75%'}} />
+                    `}
+                    </ExampleSource>
+                    <Header3>Third-Party Icons</Header3>
+                    <ParagraphMd>Non-Iris icons that need to be reused on our web site (for example: credit card logos) are stored in <code>icons/third-party</code>.</ParagraphMd>
+                    <ParagraphMd>See <LinkText href="https://github.vimeows.com/Vimeo/iris/tree/master/src/icons" target="_blank">this list</LinkText> for all available third party icons.</ParagraphMd>
+                    <ExampleSource>
+                    {`
+import 'VisaLogo' from '@vimeo/iris/dist/icons/third-party/cc-visa.svg';
                         `}
                     </ExampleSource>
             </div>

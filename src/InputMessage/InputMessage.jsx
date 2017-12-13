@@ -31,11 +31,14 @@ const InputMessage = (props: Props): React$Element<*> => {
         className
     );
 
+    const ariaRole = format === 'negative' ? 'alert' : 'note';
+
     return (
             <ParagraphSm
                 {...filteredProps}
                 element="span"
                 className={componentClass}
+                role={ariaRole}
             >
                 {children}
             </ParagraphSm>

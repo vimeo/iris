@@ -2,16 +2,14 @@
 $z-indexed-elements: FocusBloop,
     InlineInputs,
     InlineInputsReplacementElements,
-    InputToggleOverlay,
-    MenuPointerArrowBottom,
-    Menu,
-    MenuPointerArrowTop;
+    InputToggleOverlay;
 
 
 // for elements that need special, usually extreme, z-indexing, this map will provide override values.
 $z-index-overrides: (
     tooltipOverlay: 600,
-    toastification: 9996,
+    toastification: 9995,
+    MenuPanel: 9996,
     modalWrapper: 9997,
     modalOverlay: 9998,
     modalContent: 9999

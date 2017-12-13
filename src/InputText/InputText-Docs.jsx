@@ -218,6 +218,16 @@ class InputTextDocs extends React.Component {
                         placeholder="Placeholder Text"
                         defaultValue="Something is getting better!"
                     />
+                    <InputText
+                        name="betterNowXL"
+                        id="betterNowXL"
+                        label="Animate Input (XL)"
+                        size="xl"
+                        format={this.state.format}
+                        errorMsg = {this.state.errorProp}
+                        placeholder="Placeholder Text"
+                        defaultValue="Something is getting better!"
+                    />
                     <Button format="secondaryOutline" size="xs" onClick={this.handleClick}>Toggle Field State to "{this.state.nextState}"</Button>
 
 
@@ -261,23 +271,37 @@ class InputTextDocs extends React.Component {
                         size="lg"
                         placeholder="I'm Large!"
                     />
+                    <InputText
+                        name="xlargeInput"
+                        id="xlargeInput"
+                        label="Input (XL)"
+                        size="xl"
+                        placeholder="I'm Extra Large!"
+                    />
                 </div>
 
                 <ExampleSource>
                     {`
-    <InputText
-        name="medInput"
-        id="medInput"
-        label="Default Input (medium)"
-        placeholder="I'm Medium!"
-    />
-    <InputText
-        name="foo"
-        id="foo"
-        label="Default Input (Large)"
-        size="lg"
-        placeholder="Placeholder Text"
-    />
+<InputText
+    name="medInput"
+    id="medInput"
+    label="Default Input (medium)"
+    placeholder="I'm Medium!"
+/>
+<InputText
+    name="foo"
+    id="foo"
+    label="Default Input (Large)"
+    size="lg"
+    placeholder="Placeholder Text"
+/>
+<InputText
+    name="xlargeInput"
+    id="xlargeInput"
+    label="Input (X-Large)"
+    size="xl"
+    placeholder="I'm Extra Large!"
+/>
                         `}
                     </ExampleSource>
                     <Header3>Adding a Button</Header3>

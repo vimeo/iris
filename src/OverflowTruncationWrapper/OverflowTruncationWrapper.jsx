@@ -38,6 +38,10 @@ class OverflowTruncationWrapper extends React.Component {
         );
     }
 
+    componentDidUpdate() {
+        this._checkIfTruncated();
+    }
+
     componentWillUnmount() {
         window.removeEventListener(
             'resize',

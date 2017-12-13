@@ -45,7 +45,7 @@ const ButtonLoadingState = ({
         }
 
         if (typeof onClick === 'function') {
-            onClick();
+            onClick(e);
         }
 
         return true;

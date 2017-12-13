@@ -1,6 +1,6 @@
 {
   "name": "@vimeo/iris",
-  "version": "2.0.14",
+  "version": "2.0.18",
   "description": "Iris UI Pattern Framework",
   "main": "dist/index.js",
   "scripts": {
@@ -74,10 +74,12 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "json-loader": "^0.5.4",
     "lodash": "^4.17.4",
+    "moment": "^2.19.3",
     "postcss-loader": "^1.1.1",
     "react": "^15.4.1",
     "react-color": "^2.13.8",
     "react-css-transition-replace": "^3.0.2",
+    "react-datetime": "^2.11.1",
     "react-dom": "^15.3.2",
     "react-tether": "^0.5.7",
     "react-transition-group": "^1.1.1",

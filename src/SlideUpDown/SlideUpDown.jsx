@@ -32,6 +32,7 @@ class SlideUpDown extends React.Component {
             <SlideUpDownAnimation
                 animateOpenOnMount={this.props.animateOpenOnMount}
                 speed={this.props.speed}
+                aria-hidden={this.props.isHidden}
             >
                 {this.props.children}
             </SlideUpDownAnimation>

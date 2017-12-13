@@ -8,7 +8,10 @@ const svgTest = /^(.*\.((svg)$))?[^.]*$/i;
 
 
 // Walker options
-const walker = walk.walk('src/icons', { followLinks: false });
+const walker = walk.walk('src/icons', {
+    followLinks: false,
+    filters: ["third-party"], // exclude third party icons
+});
 
 walker.on('file', function(root, stat, next) {
     // Add this file to the list of files
