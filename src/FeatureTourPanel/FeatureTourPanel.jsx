@@ -10,9 +10,9 @@ const displayName = 'FeatureTourPanel';
 
 type Props = {
     attachment?: 'top' | 'left' | 'right' | 'bottom',
-    beaconMode?: 'inactive' |'active',
+    beaconDelayIndex?: number,
     beaconText?: string,
-    bodyText: string,
+    children: React$Element<*>,
     className?: string,
     dismissButtonLabel: string,
     headerText?: string,
@@ -20,7 +20,7 @@ type Props = {
     onDismissClick?: (e: Event) => void,
     onOpen?: () => void,
     primaryButtonProps?: Object,
-    secondaryButtonProps?: Object,
+    dismissButtonProps?: Object,
     isShowing?: boolean,
 };
 
@@ -32,14 +32,23 @@ type State = {
 class FeatureTourPanel extends React.Component {
     static defaultProps = {
         attachment: 'right',
-        beaconMode: 'inactive',
     };
 
     constructor(props: Props) {
         super(props);
+        let beaconInitialState = 'active';
+
+        if (typeof props.beaconDelayIndex === 'number' && props.beaconDelayIndex > 0) {
+            beaconInitialState = 'inactive';
+            this._setDelay(props.beaconDelayIndex);
+        }
+        else if (props.isShowing) {
+            beaconInitialState = 'open';
+        }
+
         this.state = {
             isShowing: props.isShowing,
-            beaconMode: props.isShowing ? 'open' : props.beaconMode,
+            beaconMode: beaconInitialState,
         };
     }
 
@@ -50,12 +59,28 @@ class FeatureTourPanel extends React.Component {
         if (nextProps !== this.props) {
             this.setState({
                 isShowing: nextProps.isShowing,
-                beaconMode: nextProps.isShowing ? 'open' : nextProps.beaconMode,
+                beaconMode: nextProps.isShowing ? 'open' : this.state.beaconMode,
             });
         }
     }
 
+    componentWillUnmount() {
+        clearTimeout(this.beaconTimer);
+    }
+
     props: Props;
+    beaconTimer: any;
+
+    _handleClose = () => {
+        this.setState({
+            isShowing: false,
+            beaconMode: 'inactive',
+        });
+
+        if (typeof this.props.onClose === 'function') {
+            this.props.onClose();
+        }
+    }
 
     _handleDismissClick = (e: Event) => {
         this.setState({
@@ -68,7 +93,7 @@ class FeatureTourPanel extends React.Component {
         }
     }
 
-    _handleOpen= () => {
+    _handleOpen = () => {
         this.setState({
             isShowing: true,
             beaconMode: 'open',
@@ -79,18 +104,28 @@ class FeatureTourPanel extends React.Component {
         }
     }
 
+    _setDelay = (beaconDelayIndex: number) => {
+        this.beaconTimer = setTimeout(()=> {
+            if (this.state.beaconMode === 'inactive') {
+                this.setState({
+                    beaconMode: 'active',
+                });
+            }
+        }, beaconDelayIndex * 300);
+    }
+
     render() {
         const {
             attachment,
             dismissButtonLabel,
             headerText,
+            beaconDelayIndex, // eslint-disable-line no-unused-vars
             beaconText,
-            beaconMode, // eslint-disable-line no-unused-vars
-            bodyText,
+            children,
             primaryButtonProps,
-            secondaryButtonProps,
+            dismissButtonProps,
             onOpen, // eslint-disable-line no-unused-vars
-            onClose,
+            onClose, // eslint-disable-line no-unused-vars
             onDismissClick, // eslint-disable-line no-unused-vars
             isShowing, // eslint-disable-line no-unused-vars
             ...filteredProps
@@ -101,9 +136,9 @@ class FeatureTourPanel extends React.Component {
                 dismissButtonLabel={dismissButtonLabel}
                 onDismissClick={this._handleDismissClick}
                 headerText={headerText}
-                bodyText={bodyText}
+                children={children}
                 primaryButtonProps={primaryButtonProps}
-                secondaryButtonProps={secondaryButtonProps}
+                dismissButtonProps={dismissButtonProps}
             />
         );
 
@@ -139,7 +174,7 @@ class FeatureTourPanel extends React.Component {
                 {...filteredProps}
                 isShowing={this.state.isShowing}
                 menuContent={MenuPanelContent}
-                onClose={onClose}
+                onClose={this._handleClose}
                 onOpen={this._handleOpen}
                 panelClassName={styles.FeatureTourPanel}
                 size="lg"

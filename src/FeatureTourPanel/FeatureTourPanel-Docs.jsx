@@ -14,15 +14,26 @@ class FeatureTourPanelDocs extends React.Component {
                         headerText="Header Text"
                         beaconMode="active"
                         beaconText="click to learn more"
-                        bodyText="This is the body text. Vimeo was born in 2004, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends."
                         dismissButtonLabel="Close"
                         primaryButtonProps={{
                             children: 'Okay',
                         }}
-                        secondaryButtonProps={{
-                            children: 'Skip',
+                    >
+                        This is the body text. Vimeo was born in 2004, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
+                    </FeatureTourPanel>
+                    <Header5>Delayed Beacon</Header5>
+                    <FeatureTourPanel
+                        headerText="Header Text"
+                        beaconDelayIndex={1}
+                        beaconMode="active"
+                        beaconText="click to learn more"
+                        dismissButtonLabel="Close"
+                        primaryButtonProps={{
+                            children: 'Okay',
                         }}
-                    />
+                    >
+                        This is the body text. Vimeo was born in 2004, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
+                    </FeatureTourPanel>
                 </div>
 
                 <ExampleSource>

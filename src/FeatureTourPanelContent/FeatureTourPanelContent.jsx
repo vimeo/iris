@@ -8,21 +8,21 @@ import ButtonDialogClose from '../ButtonDialogClose';
 const displayName = 'FeatureTourPanelContent';
 
 type Props = {
-    bodyText: string,
+    children: React$Element<*>,
     dismissButtonLabel: string,
     headerText?: string,
     onDismissClick: ()=> void,
     primaryButtonProps?: Object,
-    secondaryButtonProps?: Object,
+    dismissButtonProps?: Object,
 };
 
 const FeatureTourPanelContent = ({
-    bodyText,
+    children,
     dismissButtonLabel,
     headerText,
     onDismissClick,
     primaryButtonProps,
-    secondaryButtonProps,
+    dismissButtonProps,
     ...filteredProps
 }: Props): React$Element<*> => {
 
@@ -35,29 +35,25 @@ const FeatureTourPanelContent = ({
         />
     );
 
-    const SecondaryButton = primaryButtonProps && (
-        <Button
-            {...secondaryButtonProps}
-            format="lightTextOnly"
-            size="md"
-            autoWidth="xs"
-        />
-    );
-
     return (
             <div
                 {...filteredProps}
                 className={styles.FeatureTourPanelContent}
             >
                 <ButtonDialogClose
+                    {...dismissButtonProps}
                     onClick={onDismissClick}
                     buttonTitle={dismissButtonLabel}
                     className={styles.DismissButton}
                 />
                 {headerText && <Header5 format="light">{headerText}</Header5>}
-                <ParagraphMd format="light">{bodyText}</ParagraphMd>
+                    <ParagraphMd
+                        element="div"
+                        format="light"
+                    >
+                        {children}
+                    </ParagraphMd>
                 {PrimaryButton}
-                {SecondaryButton}
             </div>
     );
 };
