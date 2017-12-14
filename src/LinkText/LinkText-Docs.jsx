@@ -1,6 +1,7 @@
 import React from 'react';
 import LinkText from './LinkText';
 import { ParagraphMd, Header2, Header3 } from '../Type';
+import Button from '../Button';
 
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
@@ -67,7 +68,7 @@ class LinkTextDocs extends React.Component {
 
                 <Header3>LinkText as a Span in React-Router</Header3>
                 <ParagraphMd>
-                   When using React-Router the link formatting can be provided within the anchor tag created by React-Router <code>&lt;Link&gt;</code> tags by passing <code>element="span"</code> to the component.
+                    When using React-Router the link formatting can be provided within the anchor tag created by React-Router <code>&lt;Link&gt;</code> tags by passing <code>element="span"</code> to the component.
                 </ParagraphMd>
 
                 <div>
@@ -88,6 +89,21 @@ class LinkTextDocs extends React.Component {
                 <ParagraphMd>
                     My liege, and madam, to expostulate What majesty should be, what duty is, What day is day, night night, and <LinkText href="https://en.wikipedia.org/wiki/Hamlet" target="_blank">time is time</LinkText>, Were nothing but to waste night, day, and time; Therefore, since <LinkText href="https://en.wikipedia.org/wiki/William_Shakespeare" target="_blank">brevity is the soul of wit</LinkText>, And tediousness the limbs and outward flourishes, I will be brief. Your noble son is mad
                 </ParagraphMd>
+
+                <Header3>Button Pairing Layouts</Header3>
+                <ParagraphMd>For links that are paired with buttons use the layout option to ensure the text lines up with the button's label.</ParagraphMd>
+                <div>
+                    <Button size="sm">Small</Button>
+                    <LinkText href="#" layout="buttonSm">Small Link</LinkText>
+                </div>
+                <div>
+                    <Button size="md">Medium</Button>
+                    <LinkText href="#" layout="buttonMd">Medium Link</LinkText>
+                </div>
+                <div>
+                    <Button size="lg">Large</Button>
+                    <LinkText href="#" layout="buttonLg">Large Link</LinkText>
+                </div>
             </div>
         );
     }
