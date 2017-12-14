@@ -3,10 +3,10 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './VerticalMenuNested.scss';
 import SlideUpDown from '../SlideUpDown/SlideUpDown';
+import VerticalMenuItemContent from '../VerticalMenuItemContent';
+import VerticalMenuItem from '../VerticalMenuItem';
 import VerticalMenuNestedSubMenu from '../VerticalMenuNestedSubMenu/VerticalMenuNestedSubMenu';
-import VerticalMenuItem from '../VerticalMenuItem/VerticalMenuItem';
 
-const displayName = 'VerticalMenuNested';
 
 type Props = {
     className?: string,
@@ -20,9 +20,9 @@ type Props = {
     onClick?: Function,
     onOpen?: Function,
     onClose?: Function,
-    selectedItemIndex?: number;
-    subMenuItems: Array<React$Element<'VerticalMenuItem' | 'VerticalMenuItem'>>,
-    to: string,
+    render: Function,
+    subMenuItems: Array<React$Element<'VerticalMenuItem'>>,
+    href: string,
 };
 
 class VerticalMenuNested extends React.Component {
@@ -30,16 +30,14 @@ class VerticalMenuNested extends React.Component {
         super(props);
         this.state = {
             subMenuOpen: props.isOpen || false,
-            selectedItemIndex: props.selectedItemIndex || 0,
         };
     }
 
     state: Object;
 
     componentDidUpdate = (prevProps: Object, prevState: Object) => {
-
-        // Open and Close SubMenu based on isOpen prop
-        if (!prevState.isOpen && this.state.isOpen) {
+            // Open and Close SubMenu based on isOpen prop
+        if (!prevState.isOpen && (this.state.isOpen || this.props.isOpen)) {
             if (typeof this.props.onOpen === 'function') {
                 this.props.onOpen();
             }
@@ -47,15 +45,13 @@ class VerticalMenuNested extends React.Component {
         else if (prevState.isOpen && !this.state.isOpen && typeof this.props.onClose === 'function') {
             this.props.onClose();
         }
-
     }
 
     props: Props;
-    activeIndicator: HTMLElement;
 
     _handleLinkClick = (e: Event) => {
-        // links are only followed if the "to" value has been defined otherwise they just toggle the menu
-        if (!this.props.to || this.props.to === '#') {
+            // links are only followed if the "to" value has been defined otherwise they just toggle the menu
+        if (!this.props.href || this.props.href === '#') {
             e.preventDefault();
             this._toggleMenu();
         }
@@ -77,81 +73,87 @@ class VerticalMenuNested extends React.Component {
         });
     }
 
-    _onIndexChange = (index: number) => {
-        this.setState({
-            selectedItemIndex: index,
-        });
-    }
-
     render() {
         const {
-            className,
-            label,
-            labelIcon,
-            labelId,
-            labelIconTheme = 'default',
-            isOpen, // eslint-disable-line no-unused-vars
-            nestedButtonLabel = 'toggle sub-menu',
-            subMenuItems,
-            onClick, // eslint-disable-line no-unused-vars
-            onClose, // eslint-disable-line no-unused-vars
-            onOpen, // eslint-disable-line no-unused-vars
-            selectedItemIndex, // eslint-disable-line no-unused-vars
-            to,
-            ...filteredProps
-        } = this.props;
+                className,
+                label,
+                labelIcon,
+                labelId,
+                labelIconTheme = 'default',
+                isOpen, // eslint-disable-line no-unused-vars
+                nestedButtonLabel = 'toggle sub-menu',
+                render,
+                subMenuItems,
+                onClick, // eslint-disable-line no-unused-vars
+                onClose, // eslint-disable-line no-unused-vars
+                onOpen, // eslint-disable-line 
+                ...filteredProps
+            } = this.props;
 
-        // className builder
+            // className builder
         const componentClass = classNames(
-            styles.VerticalMenuNested,
-            className
-        );
+                styles.VerticalMenuNested,
+                className
+            );
 
         const iconClass = classNames(
-            styles.ArrowIcon,
-            (this.state.subMenuOpen ? styles.isOpen : null),
-        );
+                styles.ArrowIcon,
+                (this.state.subMenuOpen ? styles.isOpen : null),
+            );
+
+        const AnchorTag = (props) => {
+            return (
+                <a {...props} />
+            );
+        };
+
+        const WrappedComponent = render || AnchorTag;
 
         return (
-                <div
-                    {...filteredProps}
-                    className={componentClass}
-                >
-                    <VerticalMenuItem
-                        hasSubMenu
-                        id={labelId}
-                        label={label}
-                        labelIcon={labelIcon}
-                        labelIconTheme={labelIconTheme}
-                        to={to}
-                        aria-haspopup = "true"
-                        aria-expanded = {this.state.subMenuOpen ? 'true' : 'false'}
-                        onClick={this._handleLinkClick}
-                        onNestedItemClick={this._handleToggleClick}
-                        nestedButtonClass={iconClass}
-                        nestedButtonLabel={nestedButtonLabel}
-                    />
-                    <SlideUpDown
-                        animateOpenOnMount={false}
-                        isHidden={!this.state.subMenuOpen}
-                        speed={300}
+                    <div
+                        className={componentClass}
                     >
-                        <div
-                            className={styles.SubMenuWrapper}
+                        <VerticalMenuItem
+                            hasSubMenu
+                            id={labelId}
+
+                            onNestedItemClick={this._handleToggleClick}
+                            nestedButtonClass={iconClass}
+                            nestedButtonLabel={nestedButtonLabel}
                         >
-                            <VerticalMenuNestedSubMenu
-                                labeledById={labelId}
-                                subMenuItems={subMenuItems}
-                                onIndexChange={this._onIndexChange}
-                                selectedItemIndex={this.state.selectedItemIndex}
+                            <WrappedComponent
+                                {...filteredProps}
+                                aria-haspopup = "true"
+                                aria-expanded = {this.state.subMenuOpen ? 'true' : 'false'}
+                                onClick={this._handleLinkClick}
+                                children = {(
+                                    <VerticalMenuItemContent
+                                        label={label}
+                                        labelIcon={labelIcon}
+                                        labelIconTheme={labelIconTheme}
+                                    />
+                                )}
                             />
-                        </div>
-                    </SlideUpDown>
-                </div>
+                        </VerticalMenuItem>
+                        <SlideUpDown
+                            animateOpenOnMount={false}
+                            isHidden={!this.state.subMenuOpen}
+                            speed={300}
+                        >
+                            <div
+                                className={styles.SubMenuWrapper}
+                            >
+                                <VerticalMenuNestedSubMenu
+                                    labeledById={labelId}
+                                    subMenuItems={subMenuItems}
+                                />
+                            </div>
+                        </SlideUpDown>
+                    </div>
         );
     }
+
 }
 
-VerticalMenuNested.displayName = displayName;
 
 export default VerticalMenuNested;

@@ -4,20 +4,16 @@ import classNames from 'classnames';
 import styles from './VerticalMenuItem.scss';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';
 import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
-import VerticalMenuItemContent from '../VerticalMenuItemContent/VerticalMenuItemContent';
 import VerticalMenuContextualMenuPanel from '../VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel';
 import DotsMenuIcon from '../icons/dots-menu.svg';
 import RightArrow from '../icons/chevron-right.svg';
-import { Link } from 'react-router-dom';
-
-const displayName = 'VerticalMenuItem';
-
 
 type Props = {
     className?: string,
+    children: React$Element<*>,
+    href?: string,
     to?: string,
     hasSubMenu?: boolean,
-    isActive?: boolean,
     linkActionIcon?: React$Element<*>,
     labelIcon?: React$Element<*>,
     labelIconActive?: React$Element<*>,
@@ -56,15 +52,16 @@ class VerticalMenuItem extends React.Component {
 
     _bindListeners = () => {
         // if a user is using a touch device or keyboard nav, we unhide the menu options.
-        document.addEventListener(
-            'touchstart',
-            this._setToNoHover
-        );
 
         document.addEventListener(
-            'keydown',
-            this._checkForTab
-        );
+                'touchstart',
+                this._setToNoHover
+            );
+
+        document.addEventListener(
+                'keydown',
+                this._checkForTab
+            );
     }
 
     _checkForTab = (e: Event) => {
@@ -79,19 +76,19 @@ class VerticalMenuItem extends React.Component {
         });
 
         document.removeEventListener(
-            'touchstart',
-            this._setToNoHover
-        );
+                'touchstart',
+                this._setToNoHover
+            );
 
         document.removeEventListener(
-            'keydown',
-            this._checkForTab
-        );
+                'keydown',
+                this._checkForTab
+            );
     }
 
     _handleMouseOut = () => {
         this.setState({
-            showNestedInteraction: this.state.subMenuOpen,
+            showNestedInteraction: this.state.nestedMenuOpen,
         });
     }
 
@@ -118,118 +115,94 @@ class VerticalMenuItem extends React.Component {
 
     render() {
         const {
-            className,
-            label,
-            hasSubMenu,
-            isActive,
-            labelIcon,
-            labelIconActive,
-            labelIconTheme = 'default',
-            linkActionIcon,
-            menuPanelTooltip,
-            nestedButtonClass,
-            nestedButtonLabel,
-            nestedInteractionContent,
-            onClick,
-            onNestedItemClick,
-            to = '#',
-            truncateLabel,
-            ...filteredProps
-        } = this.props;
+                children,
+                className,
+                hasSubMenu,
+                menuPanelTooltip,
+                nestedButtonClass,
+                nestedButtonLabel,
+                nestedInteractionContent,
+                onNestedItemClick,
+                ...filteredProps
+            } = this.props;
 
-        // className builder
+            // className builder
         const componentClass = classNames(
-            styles.Wrapper,
-            styles.textOverrides,
-            (isActive ? styles.isActive : null),
-            className
-        );
+                styles.Wrapper,
+                styles.textOverrides,
+                className
+            );
 
         const nestedMenuClass = classNames(
-            styles.NestedInteractionWrapper,
-            styles.nestedMenuOffset,
-            (this.state.showNestedInteraction ? styles.isShowing : null),
-        );
+                styles.NestedInteractionWrapper,
+                styles.nestedMenuOffset,
+                (this.state.showNestedInteraction ? styles.isShowing : null),
+            );
 
         const subMenuToggleClass = classNames(
-            styles.NestedInteractionWrapper,
-            styles.isShowing,
-        );
+                styles.NestedInteractionWrapper,
+                styles.isShowing,
+            );
 
         const NestedMenuButton = (
-            <ButtonIconOnly
-                icon={<DotsMenuIcon />}
-                format="dark"
-                size="sm"
-                isButtonElement={false}
-                className={nestedButtonClass}
-                title={nestedButtonLabel}
-            />
-        );
-
-        const NestedInteractionComponent = nestedInteractionContent && !hasSubMenu ? (
-            <div
-                className={nestedMenuClass}
-                onMouseOver={this._handleMouseOver}
-                onMouseOut={this._handleMouseOut}
-            >
-                <VerticalMenuContextualMenuPanel
-                    tooltipText={menuPanelTooltip}
-                    onClose={this._handlePanelClose}
-                    onOpen={this._handlePanelOpen}
-                    buttonElement={NestedMenuButton}
-                    onClick={onNestedItemClick}
-                >
-                {nestedInteractionContent}
-            </VerticalMenuContextualMenuPanel>
-            </div>
-        ) : null;
-
-        const SubMenuToggleComponent = hasSubMenu ? (
-            <div
-                className={subMenuToggleClass}
-            >
                 <ButtonIconOnly
-                    title={nestedButtonLabel}
-                    icon={<RightArrow />}
+                    icon={<DotsMenuIcon />}
                     format="dark"
                     size="sm"
                     isButtonElement={false}
                     className={nestedButtonClass}
-                    onClick={onNestedItemClick}
+                    title={nestedButtonLabel}
                 />
-            </div>
-        ) : null;
+            );
+
+        const NestedInteractionComponent = nestedInteractionContent && !hasSubMenu ? (
+                <div
+                    className={nestedMenuClass}
+
+                >
+                    <VerticalMenuContextualMenuPanel
+                        tooltipText={menuPanelTooltip}
+                        onClose={this._handlePanelClose}
+                        onOpen={this._handlePanelOpen}
+                        buttonElement={NestedMenuButton}
+                        onClick={onNestedItemClick}
+                    >
+                    {nestedInteractionContent}
+                </VerticalMenuContextualMenuPanel>
+                </div>
+            ) : null;
+
+        const SubMenuToggleComponent = hasSubMenu ? (
+                <div
+                    className={subMenuToggleClass}
+                >
+                    <ButtonIconOnly
+                        title={nestedButtonLabel}
+                        icon={<RightArrow />}
+                        format="dark"
+                        size="sm"
+                        isButtonElement={false}
+                        className={nestedButtonClass}
+                        onClick={onNestedItemClick}
+                    />
+                </div>
+            ) : null;
 
         return (
-            <div className={componentClass}>
-                <Link
+                <div
                     {...filteredProps}
-                    className={styles.Link}
-                    to={to}
-                    onClick={onClick}
+                    className={componentClass}
                     onMouseOver={this._handleMouseOver}
                     onMouseOut={this._handleMouseOut}
                 >
-                    <VerticalMenuItemContent
-                        label={label}
-                        labelIcon={labelIcon}
-                        linkActionIcon={linkActionIcon}
-                        labelIconActive={labelIconActive}
-                        labelIconTheme={labelIconTheme}
-                        isActive={isActive}
-                        truncateLabel={truncateLabel}
-                        onClose={this._handlePanelClose}
-                    />
-                </Link>
-                {NestedInteractionComponent}
-                {SubMenuToggleComponent}
-            </div>
+                    <div className={styles.LinkStyleWrapper}>
+                        {children}
+                    </div>
+                    {NestedInteractionComponent}
+                    {SubMenuToggleComponent}
+                </div>
         );
-
     }
 }
-
-VerticalMenuItem.displayName = displayName;
 
 export default VerticalMenuItem;

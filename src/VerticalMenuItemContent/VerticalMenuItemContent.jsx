@@ -39,6 +39,7 @@ const VerticalMenuItemContent = ({
     const componentClass = classNames(
         styles.VerticalMenuItemContent,
         styles.textOverrides,
+        (isActive ? styles.isActive : null),
         className
     );
 

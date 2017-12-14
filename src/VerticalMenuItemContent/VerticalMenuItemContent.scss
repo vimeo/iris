@@ -3,12 +3,19 @@
 $VerticalMenuItem_IconSize: rem-calc(20);
 
 .VerticalMenuItemContent {
+    display: inline-block;
+
     width: 100%;
+    padding: rem-calc(12) ($VerticalMenuItem_IconSize + 1rem) rem-calc(10) rem-calc(12);
 
 
     &.textOverrides {
         max-width: $screen-sm-rem;
         margin-bottom: 0;
+    }
+
+    &.isActive {
+        background-color: rgba($AstroGranite, 0.08);
     }
 }
 
@@ -27,7 +34,6 @@ $VerticalMenuItem_IconSize: rem-calc(20);
     display: inline-block;
 
     width: 100%;
-    padding: rem-calc(4) 0;
 
     &.hasIcon {
         padding-left: $VerticalMenuItem_IconSize + rem-calc(8);
@@ -42,7 +48,7 @@ $VerticalMenuItem_IconSize: rem-calc(20);
 
 .LabelIconWrapper {
     position: absolute;
-    top: rem-calc(10);
+    top: rem-calc(9);
     left: rem-calc(8);
 
     svg {

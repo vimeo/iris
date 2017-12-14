@@ -1,5 +1,6 @@
 import React from 'react';
 import VerticalMenuItem from './VerticalMenuItem';
+import VerticalMenuItemContent from '../VerticalMenuItemContent';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import { List, ListItem } from '../List';
 import { ParagraphMd, Header3 } from '../Type';
@@ -53,113 +54,166 @@ const VerticalMenuItemDocs = (props) => {
     return (
         <div className="Pattern__docs">
 
-            <ParagraphMd>VerticalMenuItem provides stand-alone links</ParagraphMd>
+            <ParagraphMd>VerticalMenuItem provides stand-alone links in vertical menus as well as providing the styled links in the VerticalMenuNested component.</ParagraphMd>
+            <ParagraphMd>The child of this component must be something that generates a link wrapped around a <code>VerticalMenuItemContent</code> component.</ParagraphMd>
             <Header3>Prop Notes</Header3>
             <List>
-                <ListItem><code>truncateLabel</code> will prevent the label from going to multiple lines using an elipsis truncation.</ListItem>
-                <ListItem><code>labelIcon</code> adds an icon to the label text.</ListItem>
-                <ListItem><code>linkActionIcon</code> adds an icon to the far right of the navigation item, this is usually use to indicate the link's behavior (e.g. "will pop-out a window").</ListItem>
                 <ListItem><code>nestedInteractionContent</code> adds a submenu panel with the conentend passed to this prop with an optional tooltip with text from the <code>menuPanelTooltip</code> prop.</ListItem>
-                <ListItem>All other passed props will go to the anchor tag or Router Link component.</ListItem>
-                <ListItem>The <code>to</code> prop indicates the path that you want the top level menu item to load (by passing it to the React Router Link tag). If you do not specify anything the top level link will just toggle the submenu.</ListItem>
                 <ListItem><code>nestedButtonLabel</code> should be passed a translated string indicating that the toggle arrow will open and close the menu.</ListItem>
+
             </List>
 
             <div style={{ 'maxWidth': '25rem' }}>
-                <VerticalMenuItem
+                <VerticalMenuItem>
+                    <a
+                        href="#"
+                        onClick={onClickHandler}
+                    >
+                        <VerticalMenuItemContent
+                            label="Stand Alone Link With Link Icon"
+                            linkActionIcon={(<PopOutIcon />)}
+                        />
+                    </a>
+                </VerticalMenuItem>
+                <VerticalMenuItem>
+                <a
                     to="#"
                     onClick={onClickHandler}
-                    label="Stand Alone Link With Link Icon"
-                    linkActionIcon={(<PopOutIcon />)}
-                />
+                >
+                    <VerticalMenuItemContent
+                        label="Stand Alone Link With Label Icon"
+                        labelIcon={(<HomeIcon />)}
+                        labelIconActive={(<HomeFilledIcon />)}
+                    />
+                </a>
+            </VerticalMenuItem>
                 <VerticalMenuItem
-                    to="#"
-                    onClick={onClickHandler}
-                    label="Stand Alone Link With Label Icon"
-                    labelIcon={(<HomeIcon />)}
-                    labelIconActive={(<HomeFilledIcon />)}
-                />
+                >
+                    <a
+                        to="#"
+                        onClick={onClickHandler}
+                    >
+                        <VerticalMenuItemContent
+                            isActive
+                            label="Active Stand Alone Link With Label Icon"
+                            labelIcon={(<HomeIcon />)}
+                            labelIconActive={(<HomeFilledIcon />)}
+                        />
+                    </a>
+                </VerticalMenuItem>
+                <VerticalMenuItem>
+                    <a
+                        to="#"
+                        onClick={onClickHandler}
+                    >
+                        <VerticalMenuItemContent
+                            label="Stand Alone Link, subtle icon"
+                            labelIcon={(<LockIcon />)}
+                            labelIconTheme="subtle"
+                        />
+                    </a>
+                </VerticalMenuItem>
                 <VerticalMenuItem
-                    to="#"
-                    onClick={onClickHandler}
-                    label="Stand Alone Link With Label Icon"
-                    labelIcon={(<HomeIcon />)}
-                    labelIconActive={(<HomeFilledIcon />)}
-                    isActive
-                />
-                <VerticalMenuItem
-                    to="#"
-                    onClick={onClickHandler}
-                    label="Stand Alone Link, subtle icon"
-                    labelIcon={(<LockIcon />)}
-                    labelIconTheme="subtle"
-                />
-                <VerticalMenuItem
-                    to="#"
-                    onClick={onClickHandler}
-                    label="Truncated Long Label Name 12345678910"
-                    truncateLabel
-                />
-                <VerticalMenuItem
-                    to="#"
-                    label="Menu With Nested Menu"
-                    nestedInteractionContent={MenuPanelDemoList}
-                    menuPanelTooltip="Show Menu"
-                />
+                nestedInteractionContent={MenuPanelDemoList}
+                menuPanelTooltip="Show Menu"
+                >
+                    <a
+                        to="#"
+                        onClick={onClickHandler}
+                    >
+                        <VerticalMenuItemContent
+                            label="Menu With Nested Menu on Hover"
+                        />
+                    </a>
+                </VerticalMenuItem>
+                <VerticalMenuItem>
+                    <a
+                        to="#"
+                        onClick={onClickHandler}
+                    >
+                        <VerticalMenuItemContent
+                            label="Truncated Long Label Name 12345678910"
+                            truncateLabel
+                        />
+                    </a>
+                </VerticalMenuItem>
             </div>
             <ExampleSource>
                 {`
+import { VerticalMenuItem, VerticalMenuItemContent } from '@vimeo/iris';
 
-import {VerticalMenuItem} from '@vimeo/iris';
-
-<VerticalMenuItem
-    to="#"
+<VerticalMenuItem>
+<a
+    href="#"
     onClick={onClickHandler}
-    label="Stand Alone Link With Link Icon"
-    linkActionIcon={(<PopOutIcon />)}
-/>
-<VerticalMenuItem
-    to="#"
-    onClick={onClickHandler}
+>
+    <VerticalMenuItemContent
+        label="Stand Alone Link With Link Icon"
+        linkActionIcon={(<PopOutIcon />)}
+    />
+</a>
+</VerticalMenuItem>
+<VerticalMenuItem>
+<a
+to="#"
+onClick={onClickHandler}
+>
+<VerticalMenuItemContent
     label="Stand Alone Link With Label Icon"
     labelIcon={(<HomeIcon />)}
     labelIconActive={(<HomeFilledIcon />)}
 />
-<VerticalMenuItem
+</a>
+</VerticalMenuItem>
+<VerticalMenuItem>
+<a
     to="#"
     onClick={onClickHandler}
-    label="Stand Alone Link With Label Icon"
-    labelIcon={(<HomeIcon />)}
-    labelIconActive={(<HomeFilledIcon />)}
-    isActive
-/>
-<VerticalMenuItem
+>
+    <VerticalMenuItemContent
+        isActive
+        label="Active Stand Alone Link With Label Icon"
+        labelIcon={(<HomeIcon />)}
+        labelIconActive={(<HomeFilledIcon />)}
+    />
+</a>
+</VerticalMenuItem>
+<VerticalMenuItem>
+<a
     to="#"
     onClick={onClickHandler}
-    label="Stand Alone ReactRouter Link"
-    labelIcon={(<HomeIcon />)}
-    labelIconActive={(<HomeFilledIcon />)}
-/>
-<VerticalMenuItem
+>
+    <VerticalMenuItemContent
+        label="Stand Alone Link, subtle icon"
+        labelIcon={(<LockIcon />)}
+        labelIconTheme="subtle"
+    />
+</a>
+</VerticalMenuItem>
+<VerticalMenuItem>
+<a
     to="#"
     onClick={onClickHandler}
-    label="Stand Alone ReactRouter Link"
-    labelIcon={(<HomeIcon />)}
-    labelIconActive={(<HomeFilledIcon />)}
-    isActive
-/>
+>
+    <VerticalMenuItemContent
+        label="Truncated Long Label Name 12345678910"
+        truncateLabel
+    />
+</a>
+</VerticalMenuItem>
 <VerticalMenuItem
+nestedInteractionContent={MenuPanelDemoList}
+menuPanelTooltip="Show Menu"
+>
+<a
     to="#"
     onClick={onClickHandler}
-    label="Truncated Long Label Name 12345678910"
-    truncateLabel
-/>
-<VerticalMenuItem
-    to="#"
-    label="Menu With Nested Menu"
-    nestedInteractionContent={MenuPanelDemoList}
-    menuPanelTooltip="Show Menu"
-/>
+>
+    <VerticalMenuItemContent
+        label="Menu With Nested Menu on Hover"
+    />
+</a>
+</VerticalMenuItem>
                     `}
             </ExampleSource>
             <Header3>Example nestedInteractionContent</Header3>
