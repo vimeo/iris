@@ -11,18 +11,4 @@
     position: absolute;
     top: spacingUnit(4);
     right: spacingUnit(4);
-
-    svg {
-        opacity: 0.7;
-
-        transition: opacity 150ms ease;
-
-        &:hover {
-            opacity: 1;
-        }
-
-        * {
-            fill: $White;
-        }
-    }
 }

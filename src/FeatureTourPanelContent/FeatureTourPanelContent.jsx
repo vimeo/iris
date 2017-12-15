@@ -3,7 +3,8 @@ import React from 'react';
 import styles from './FeatureTourPanelContent.scss';
 import { Header5, ParagraphMd } from '../Type/index';
 import Button from '../Button';
-import ButtonDialogClose from '../ButtonDialogClose';
+import ButtonIconOnly from '../ButtonIconOnly';
+import DismissIcon from '../icons/dismiss-x.svg';
 
 const displayName = 'FeatureTourPanelContent';
 
@@ -40,10 +41,12 @@ const FeatureTourPanelContent = ({
                 {...filteredProps}
                 className={styles.FeatureTourPanelContent}
             >
-                <ButtonDialogClose
+                <ButtonIconOnly
                     {...dismissButtonProps}
+                    icon={<DismissIcon title={dismissButtonLabel} />}
+                    format="lightTransparent"
+                    size="sm"
                     onClick={onDismissClick}
-                    buttonTitle={dismissButtonLabel}
                     className={styles.DismissButton}
                 />
                 {headerText && <Header5 format="light">{headerText}</Header5>}

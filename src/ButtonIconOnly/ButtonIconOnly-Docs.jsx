@@ -83,6 +83,27 @@ const ButtonIconOnlyDocs = (props) => {
                         format="alternative"
                          size="md"
                     />
+                    <ButtonIconOnly
+                    icon={<SettingsIcon title="Settings" />}
+                    format="lightTransparent"
+                    size="sm"
+                    />
+
+                    <ButtonIconOnly
+                        icon={<DownloadIcon title="Download" />}
+                        format="lightTransparent"
+                        size="sm"
+                    />
+                    <ButtonIconOnly
+                        icon={<SettingsIcon title="Settings" />}
+                        format="lightTransparent"
+                        size="md"
+                    />
+                    <ButtonIconOnly
+                        icon={<DownloadIcon title="Download" />}
+                        format="lightTransparent"
+                        size="md"
+                    />
             </div>
             <div data-code style={{ 'backgroundImage': 'url(https://placekitten.com/1000/800)', 'backgroundSize': 'cover', 'backgroundPosition': 'center', 'padding': '1rem', 'width': '100%' }}>
                 <ButtonIconOnly
@@ -128,6 +149,13 @@ const ButtonIconOnlyDocs = (props) => {
     icon={<SettingsIcon title="Settings" />}
     format="alternative"
     size="sm"
+/>
+
+// LightTransparent
+<ButtonIconOnly
+icon={<DownloadIcon title="Download" />}
+format="lightTransparent"
+size="md"
 />
 // Light
  <ButtonIconOnly
