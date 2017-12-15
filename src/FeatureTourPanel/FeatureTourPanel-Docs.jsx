@@ -6,6 +6,7 @@ import { ParagraphMd, Header3, Header5 } from '../Type';
 import LinkText from '../LinkText';
 import NotificationNeutral from '../NotificationNeutral';
 import { List, ListItem } from '../List';
+import styles from './FeatureTourPanel-Docs.scss';
 
 class FeatureTourPanelDocs extends React.Component {
     render() {
@@ -13,30 +14,32 @@ class FeatureTourPanelDocs extends React.Component {
             <div className="Pattern__docs">
             <ParagraphMd>The Feature Tour Panel is used to highlight interactions for the user.</ParagraphMd>
                 <div data-code>
-                <Header5>beaconDelayIndex=1</Header5>
-                    <FeatureTourPanel
-                        headerText="Header Text"
-                        beaconDelayIndex={1}
-                        beaconText="click to learn more"
-                        dismissButtonLabel="Close"
-                        primaryButtonProps={{
-                            children: 'Okay',
-                        }}
-                    >
-                        This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
-                    </FeatureTourPanel>
-                    <Header5>beaconDelayIndex=2</Header5>
-                    <FeatureTourPanel
-                        headerText="Header Text"
-                        beaconDelayIndex={2}
-                        beaconText="click to learn more"
-                        dismissButtonLabel="Close"
-                        primaryButtonProps={{
-                            children: 'Okay',
-                        }}
-                    >
-                        This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
-                    </FeatureTourPanel>
+                    <div className={styles.dotDemoWrapper}>
+                        <FeatureTourPanel
+                            headerText="Header Text"
+                            beaconDelayIndex={1}
+                            beaconText="click to learn more"
+                            dismissButtonLabel="Close"
+                            primaryButtonProps={{
+                                children: 'Okay',
+                            }}
+                            wrapperClass={styles.dotOne}
+                        >
+                            This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
+                        </FeatureTourPanel>
+                        <FeatureTourPanel
+                            headerText="Header Text"
+                            beaconDelayIndex={2}
+                            beaconText="click to learn more"
+                            dismissButtonLabel="Close"
+                            primaryButtonProps={{
+                                children: 'Okay',
+                            }}
+                            wrapperClass={styles.dotTwo}
+                        >
+                            This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
+                        </FeatureTourPanel>
+                    </div>
                     <ParagraphMd>The body text should be passed as the child of the component. No formatting is necessary for this text as it is wrapped in a div styled with the "ParagraphMd" style with the "light" format.</ParagraphMd>
                     <NotificationNeutral>
                         <ParagraphMd>If there is a link in the text use <code>LinkText</code> with <code>format="light"</code></ParagraphMd>
@@ -56,28 +59,44 @@ class FeatureTourPanelDocs extends React.Component {
 
                 <ExampleSource>
                     {`
+<style>
+.dotOne {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+}
+
+.dotTwo {
+    position: absolute;
+    z-index: 999;
+    top: 4rem;
+    left: 4rem;
+}
+</style>
+
 <FeatureTourPanel
-    headerText="Header Text"
-    beaconDelayIndex={1}
-    beaconMode="active"
-    beaconText="click to learn more"
-    dismissButtonLabel="Close"
-    primaryButtonProps={{
-        children: 'Okay',
-    }}
+headerText="Header Text"
+beaconDelayIndex={1}
+beaconText="click to learn more"
+dismissButtonLabel="Close"
+primaryButtonProps={{
+    children: 'Okay',
+}}
+wrapperClass={styles.dotOne}
 >
     This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
 </FeatureTourPanel>
 
 <FeatureTourPanel
-    headerText="Header Text"
-    beaconDelayIndex={2}
-    beaconMode="active"
-    beaconText="click to learn more"
-    dismissButtonLabel="Close"
-    primaryButtonProps={{
-        children: 'Okay',
-    }}
+headerText="Header Text"
+beaconDelayIndex={2}
+beaconText="click to learn more"
+dismissButtonLabel="Close"
+primaryButtonProps={{
+    children: 'Okay',
+}}
+wrapperClass={styles.dotTwo}
 >
     This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
 </FeatureTourPanel>

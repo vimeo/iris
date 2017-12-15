@@ -1,0 +1,18 @@
+.dotDemoWrapper{
+    position: relative;
+    min-height: 6rem;
+}
+
+.dotOne {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+}
+
+.dotTwo {
+    position: absolute;
+    z-index: 999;
+    top: 4rem;
+    left: 4rem;
+}

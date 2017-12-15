@@ -1,7 +1,6 @@
 import React from 'react';
 import LinkText from './LinkText';
 import { ParagraphMd, Header2, Header3 } from '../Type';
-import Button from '../Button';
 
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
