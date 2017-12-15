@@ -3,6 +3,7 @@ import FeatureTourPanel from './FeatureTourPanel';
 import FeatureTourDot from '../FeatureTourDot';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import { ParagraphMd, Header3, Header5 } from '../Type';
+import LinkText from '../LinkText';
 
 class FeatureTourPanelDocs extends React.Component {
     render() {
@@ -10,18 +11,6 @@ class FeatureTourPanelDocs extends React.Component {
             <div className="Pattern__docs">
             <ParagraphMd>The Feature Tour Panel is used to highlight interactions for the user.</ParagraphMd>
                 <div data-code>
-                    <FeatureTourPanel
-                        headerText="Header Text"
-                        beaconMode="active"
-                        beaconText="click to learn more"
-                        dismissButtonLabel="Close"
-                        primaryButtonProps={{
-                            children: 'Okay',
-                        }}
-                    >
-                        This is the body text. Vimeo was born in 2004, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
-                    </FeatureTourPanel>
-                    <Header5>Delayed Beacon</Header5>
                     <FeatureTourPanel
                         headerText="Header Text"
                         beaconDelayIndex={1}
@@ -32,7 +21,20 @@ class FeatureTourPanelDocs extends React.Component {
                             children: 'Okay',
                         }}
                     >
-                        This is the body text. Vimeo was born in 2004, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
+                        This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
+                    </FeatureTourPanel>
+                    <Header5>Delayed Beacon</Header5>
+                    <FeatureTourPanel
+                        headerText="Header Text"
+                        beaconDelayIndex={2}
+                        beaconMode="active"
+                        beaconText="click to learn more"
+                        dismissButtonLabel="Close"
+                        primaryButtonProps={{
+                            children: 'Okay',
+                        }}
+                    >
+                        This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
                     </FeatureTourPanel>
                 </div>
 

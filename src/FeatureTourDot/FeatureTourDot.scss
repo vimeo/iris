@@ -1,9 +1,10 @@
 /* @description Generates styles for the FeatureTourDot component */
 @import '../globals/sass/helpers-all';
 $FeatureTourDot_beacon-size: rem-calc(16);
+
 @mixin start_finish() {
-    box-shadow: 0 0 4px 4px rgba($VimeoBlue, 0.3),
-    0 0 8px 6px rgba($VimeoBlue, 0),
+    box-shadow: 0 0 rem-calc(4) rem-calc(4) rgba($VimeoBlue, 0.3),
+    0 0 rem-calc(8) rem-calc(6) rgba($VimeoBlue, 0),
     0 0 0 0 rgba(0,0,0,0.0),
     0 0 0 0 rgba($VimeoBlue, 0);
 }
@@ -25,7 +26,7 @@ $FeatureTourDot_beacon-size: rem-calc(16);
     }
 
     &.inactive {
-        @include start_finish(); 
+        @include start_finish();
     }
 
     &.open {
@@ -50,17 +51,19 @@ $FeatureTourDot_beacon-size: rem-calc(16);
     0% {
         @include start_finish();
     }
+
     10% {
-        box-shadow: 0 0 4px 4px rgba($VimeoBlue, 0.3),
-        0 0 8px 6px rgba($VimeoBlue, 0.2),
-        0 0 12px 10px rgba(0,0,0,0.0),
-        0 0 12px 14px rgba($VimeoBlue, 0.2);
+        box-shadow: 0 0 rem-calc(4) rem-calc(4) rgba($VimeoBlue, 0.3),
+        0 0 rem-calc(8) rem-calc(6) rgba($VimeoBlue, 0.2),
+        0 0 rem-calc(12) rem-calc(10) rgba(0,0,0,0.0),
+        0 0 rem-calc(12) rem-calc(14) rgba($VimeoBlue, 0.2);
     }
+
     25% {
-        box-shadow: 0 0 4px 4px rgba($VimeoBlue, 0.3),
-        0 0 8px 6px rgba($VimeoBlue, 0),
-        0 0 0 60px rgba(0,0,0,0.0),
-        0 0 0 60px rgba($VimeoBlue, 0);
+        box-shadow: 0 0 rem-calc(4) rem-calc(4) rgba($VimeoBlue, 0.3),
+        0 0 rem-calc(8) rem-calc(6) rgba($VimeoBlue, 0),
+        0 0 0 rem-calc(60) rgba(0,0,0,0.0),
+        0 0 0 rem-calc(60) rgba($VimeoBlue, 0);
     }
 
     30% {
@@ -68,10 +71,10 @@ $FeatureTourDot_beacon-size: rem-calc(16);
     }
 
     31% {
-        box-shadow: 0 0 6px 8px rgba($VimeoBlue, 0.35),
-        0 0 8px 6px rgba($VimeoBlue, 0),
-        0 0 0 60px rgba(0,0,0,0.0),
-        0 0 0 60px rgba($VimeoBlue, 0);
+        box-shadow: 0 0 rem-calc(6) rem-calc(8) rgba($VimeoBlue, 0.35),
+        0 0 rem-calc(8) rem-calc(6) rgba($VimeoBlue, 0),
+        0 0 0 rem-calc(60) rgba(0,0,0,0.0),
+        0 0 0 rem-calc(60) rgba($VimeoBlue, 0);
     }
 
     80% {
