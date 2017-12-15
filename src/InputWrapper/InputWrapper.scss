@@ -60,12 +60,17 @@
 
 .Icon-md {
     height: $inputs_height-md;
-    padding: rem-calc(11) rem-calc(12);
+    padding: $input_icon-padding-md;
 }
 
 .Icon-lg {
     height: $inputs_height-lg;
-    padding: rem-calc(15) rem-calc(13);
+    padding: $input_icon-padding-lg;
+}
+
+.Icon-xl {
+    height: $inputs_height-xl;
+    padding: $input_icon-padding-xl;
 }
 
 .Icon-negative {

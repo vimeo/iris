@@ -1,0 +1,114 @@
+/* @description Generates styles for the Breadcrumb component */
+@import '../globals/sass/helpers-all';
+
+$ArrowIconWidth: rem-calc(24);
+$ArrowIconSmallPadding: spacingUnit(2);
+
+@mixin Breadcrumb_truncatewithEllipsis() {
+    display: inline-block;
+    overflow: hidden;
+
+    position: relative;
+
+    width: auto;
+    max-width: 100%;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin Breadcrumb_icon() {
+    position: absolute;
+    top: rem-calc(-2);
+
+    width: $ArrowIconWidth;
+    height: $ArrowIconWidth;
+}
+
+.Breadcrumb {
+    width: 100%;
+}
+
+.Crumb {
+    @include mq(md) {
+        display: inline-block;
+        padding-right: spacingUnit(6);
+    }
+
+    display: none;
+
+    position: relative;
+    padding-right: $ArrowIconSmallPadding;
+
+    &.showOnSmall{
+        display: inline-block;
+    }
+    
+}
+
+.CrumbArrowIcon {
+    @include Breadcrumb_icon();
+    display: none;
+    right: 0;
+
+    @include mq(md) {
+        display: inline-block;
+    }
+}
+
+.CurrentPageCrumb {
+    @include Breadcrumb_truncatewithEllipsis();
+    @include mq(md-down) {
+        //cancels-out inline calculated style with 100% minus the width of the arrow icon and its padding.
+        max-width: calc(100% - #{ $ArrowIconWidth + $ArrowIconSmallPadding }) !important; 
+    }
+}
+
+.CrumbLabel {
+    @include Breadcrumb_truncatewithEllipsis();
+}
+
+// ----- 
+//These styles affect the subcomponents of breadcrumb but are here because they are shared.
+// -----
+.Link {
+    display: none;
+    color: $LightLinkColor;
+
+    @include mq(md) {
+        display: inline-block;
+    }
+
+    &:hover {
+        color: $LightLinkColor-Hover;
+    }
+
+    .ArrowIcon{
+        display: none;
+    }
+}
+
+.showOnSmall .Link {
+    display: inline-block;  
+
+    .ArrowIcon {
+        display: inline-block;
+        position: relative;
+        top: rem-calc(5);
+
+        * {
+        fill: currentColor;
+        }
+
+        @include mq(md) {
+            display: none;
+        }
+    }
+
+    .LinkLabel{
+        display: none;
+        @include mq(md) {
+            display: inline;
+        }
+    }
+}

@@ -14,11 +14,11 @@ class VerticalMenuContextualMenuPanelDocs extends React.Component {
                     menuItems = {[
                         {
                             label: 'Item 1',
-                            to: '#',
+                            href: '#',
                         },
                         {
                             label: 'Selected Item',
-                            to: '#',
+                            href: '#',
                             isSelected: true,
                             'data-foo': 'bar',
                         },
@@ -30,11 +30,11 @@ class VerticalMenuContextualMenuPanelDocs extends React.Component {
                         {
                             label: 'Item 3',
                             icon: <SettingsIcon />,
-                            t0o: '#',
+                            href: '#',
                         },
                         {
                             label: 'Item 4',
-                            to: '#',
+                            href: '#',
                         },
                     ]}
                 />
@@ -47,10 +47,9 @@ class VerticalMenuContextualMenuPanelDocs extends React.Component {
 
             <div data-code>
                 <VerticalMenuItem
-                    to="#"
+                    href="#"
                     label="Stand Alone Link"
                     nestedInteractionContent={MenuList}
-                    tooltipText="See Menu"
                 />
             </div>
 
@@ -63,11 +62,11 @@ const MenuList = (
             menuItems = {[
                 {
                     label: 'Item 1',
-                    to: '#',
+                    href: '#',
                 },
                 {
                     label: 'Selected Item',
-                    to: '#',
+                    href: '#',
                     isSelected: true,
                     'data-foo': 'bar',
                 },
@@ -79,11 +78,11 @@ const MenuList = (
                 {
                     label: 'Item 3',
                     icon: <SettingsIcon />,
-                    t0o: '#',
+                    href: '#',
                 },
                 {
                     label: 'Item 4',
-                    to: '#',
+                    href: '#',
                 },
             ]}
         />
@@ -91,10 +90,9 @@ const MenuList = (
 );
 
 <VerticalMenuItem
-    to="#"
+    href="#"
     label="Stand Alone Link"
     nestedInteractionContent={MenuList}
-    tooltipText="See Menu"
 />
                         `}
                     </ExampleSource>

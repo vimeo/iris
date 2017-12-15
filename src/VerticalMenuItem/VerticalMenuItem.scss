@@ -1,6 +1,5 @@
 /* @description Generates styles for the VerticalMenuItem component */
 @import '../globals/sass/helpers-all';
-$VerticalMenuItem_IconSize: rem-calc(20);
 $VerticalMenuItem_TransitionSpeed: 250ms;
 
 .Wrapper {
@@ -12,19 +11,15 @@ $VerticalMenuItem_TransitionSpeed: 250ms;
         max-width: $screen-sm-rem;
         margin-bottom: 0;
     }
-
-    &.isActive {
-        background-color: rgba($AstroGranite, 0.08);
-    }
 }
 
-.Link {
+.LinkStyleWrapper a {
+    // using element selector here to style whatever link type thing is passed to this component. 
     display: inline-block;
 
     position: relative;
 
     width: 100%;
-    padding: rem-calc(8) ($VerticalMenuItem_IconSize + 1rem) rem-calc(6) rem-calc(8);
 
     transition: background-color $VerticalMenuItem_TransitionSpeed ease;
 

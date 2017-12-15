@@ -9,6 +9,7 @@ gulp.task('cssCombComponents', function() {
       '!' + config.paths.componentSrc + 'Grid*/*.scss',
       '!' + config.paths.componentSrc + 'Modal/Modal.scss',
       '!' + config.paths.globalsSrc + 'sass/**/*.scss',
+      '!' + config.paths.componentSrc + 'Breadcrumb/Breadcrumb.scss',
       ])
     .pipe(csscomb())
     .pipe(gulp.dest(config.paths.componentSrc));
