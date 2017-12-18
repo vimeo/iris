@@ -4,8 +4,9 @@ import classNames from 'classnames';
 import styles from './MenuPanelScrollableWithActionArea.scss';
 import Button from '../Button';
 import OverflowTruncationWrapper from '../OverflowTruncationWrapper';
-import { GridBlock, GridCol, Grid } from '../Grid/';
-
+import Grid from '../Grid/';
+import GridCol from '../GridCol';
+import GridBlock from '../GridBlock';
 const displayName = 'MenuPanelScrollableWithActionArea';
 
 type Props = {
