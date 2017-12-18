@@ -1,4 +1,2 @@
-export Grid from './Grid';
-export GridBlock from '../GridBlock/GridBlock';
-export GridCol from '../GridCol/GridCol';
+export default Grid from './Grid';
 

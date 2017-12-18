@@ -1,2 +1,1 @@
-export List from './List';
-export ListItem from '../ListItem/ListItem';
+export default List from './List';
