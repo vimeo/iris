@@ -1,1 +1,4 @@
-export default List from './List';
+import List from './List';
+
+export default List;
+
