@@ -1,7 +1,9 @@
 import React from 'react';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import { Header3, Header4, ParagraphMd } from '../../../src/Type';
-import { Grid, GridCol, GridBlock } from '../../../src/Grid';
+import Grid from '../../../src/Grid';
+import GridBlock from '../../../src/GridBlock';
+import GridCol from '../../../src/GridCol';
 import VerticalMenuNested from '../../../src/VerticalMenuNested/VerticalMenuNested';
 import VerticalMenuContextualMenuPanel from '../../../src/VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel';
 import VerticalMenuItem from '../../../src/VerticalMenuItem/VerticalMenuItem';

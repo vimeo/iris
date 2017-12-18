@@ -1,10 +1,13 @@
 import React from 'react';
-import { GridBlock, GridCol, Grid } from '../../../src/Grid';
+import Grid from '../../../src/Grid';
+import GridCol from '../../../src/GridCol';
+import GridBlock from '../../../src/GridBlock';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import InputText from '../../../src/InputText/InputText';
 import { ParagraphMd, Header3 } from '../../../src/Type';
 import LinkText from '../../../src/LinkText/LinkText';
-import { List, ListItem }from  '../../../src/List';
+import ListItem from  '../../../src/ListItem';
+import List from  '../../../src/List';
 
 export default function GridFullDocs() {
 

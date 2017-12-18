@@ -1,5 +1,6 @@
 import React from 'react';
-import { List, ListItem } from '../List';
+import List from '../List';
+import ListItem from '../ListItem';
 import { ParagraphMd } from '../Type';
 
 class MenuPanelScrollableWithActionAreaDocs extends React.Component {

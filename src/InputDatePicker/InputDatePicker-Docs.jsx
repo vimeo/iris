@@ -2,7 +2,8 @@ import React from 'react';
 import InputDatePicker from './InputDatePicker';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import { Header3, ParagraphMd } from '../Type';
-import { List, ListItem } from '../List';
+import List from '../List';
+import ListItem from '../ListItem';
 
 const InputDatePickerDocs = (props) => {
 

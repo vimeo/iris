@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { List, ListItem } from '../List';
+import List from '../List';
+import ListItem from '../ListItem';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import { ParagraphMd, Header3 } from '../Type';
 import VerticalMenuItem from '../VerticalMenuItem';

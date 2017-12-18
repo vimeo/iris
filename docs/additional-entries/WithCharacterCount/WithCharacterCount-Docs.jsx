@@ -3,7 +3,8 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 import InputText from '../../../src/InputText';
 import TextArea from '../../../src/TextArea';
 import {Header4, ParagraphMd} from '../../../src/Type';
-import {List, ListItem} from '../../../src/List';
+import List from '../../../src/List';
+import ListItem from '../../../src/ListItem';
 import withCharacterCount from '../../../src/withCharacterCount';
 
 const InputTextWithCharacterCount = withCharacterCount(InputText);
