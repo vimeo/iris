@@ -12,7 +12,7 @@
     width: 100vw;
 
     &.js-Navigation-Open{
-      border-left: 1px solid #000;
+      border-left: 1px solid $Porcelain;
       left: $NavigationWidth;
       width: calc(100% - #{$NavigationWidth} );
     }

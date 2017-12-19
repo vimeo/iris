@@ -9,7 +9,6 @@
     height:$RibbonHeight;
   }
   .sg-Navigation{
-    background-color: $Plaster;
     position: fixed;
     top: 0;
     left: 0;
@@ -25,6 +24,7 @@
 
   .sg-Navigation__wrap a{
       color: $AstroGranite;
+
   }
 
   .sg-Navigation__list{
@@ -40,6 +40,26 @@
   .sg-Navigation__patternList {
     @include ParagraphLg;
     padding-left: 1rem;
+
+    li {
+      
+      border-bottom: 1px solid $Plaster;
+
+      a {
+        display: inline-block;
+        padding: .5rem .25rem;
+        width: 100%;
+
+        &:hover {
+          background: rgba(0,0,0,.05);
+        }
+      }
+      
+
+      &:last-of-type {
+        border-bottom: 0;
+      }
+    }
   }
 
 }
