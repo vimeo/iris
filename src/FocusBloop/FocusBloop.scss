@@ -49,8 +49,5 @@ input:focus:checked ~ .FocusBloop.defaultTheme {
 
 
 input:focus ~ .FocusBloop.darkTheme {
-    background-color: rgba($White, 0.15);
-}
-input:focus:checked ~ .FocusBloop.darkTheme {
-    background-color: rgba($White, 0.3);
+    background-color: rgba($White, 0.2);
 }
