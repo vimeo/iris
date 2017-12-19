@@ -55,7 +55,7 @@ $InputCheck_fill-size: 1rem;
 
     &.darkTheme {
         border-color: $inputs_border-color-dark;
-        background-color: $inputs_background-color-dark-inline-elements;
+        background-color: rgba(0,0,0,0);
 
         &:hover {
             border-color: $White;

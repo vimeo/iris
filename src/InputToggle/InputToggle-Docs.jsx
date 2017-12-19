@@ -112,19 +112,19 @@ class InputToggleDocs extends React.Component {
     hideLabel
 />
 <InputToggle
-label="Toggle (Large)"
-name="demoToggleLg"
-id="ToggleLgDark"
-value="1"
-theme="dark"
-size="lg"
+    label="Toggle (Large)"
+    name="demoToggleLg"
+    id="ToggleLgDark"
+    value="1"
+    theme="dark"
+    size="lg"
 />
 <InputToggle
-label="Toggle (medium)"
-name="demoToggleMd"
-id="ToggleMdDark"
-value="1"
-theme="dark"
+    label="Toggle (medium)"
+    name="demoToggleMd"
+    id="ToggleMdDark"
+    value="1"
+    theme="dark"
 />
                     `}
                     </ExampleSource>

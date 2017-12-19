@@ -63,7 +63,6 @@ $InputToggle_bloopSize-lg: 38;
 
     &.darkTheme {
         background: $inputs_background-color-dark-inline-elements;
-        box-shadow: inset 0 0 0 rem-calc(1) $inputs_border-color-dark;
     }
 }
 
@@ -97,6 +96,10 @@ $InputToggle_bloopSize-lg: 38;
 
 .InputToggle:hover + .toggleOverlay {
     background-color: $AstroGranite;
+}
+
+.InputToggle.darkTheme:hover + .toggleOverlay {
+    background-color: $SoutherlySky;
 }
 
 .InputToggle:checked + .toggleOverlay {
