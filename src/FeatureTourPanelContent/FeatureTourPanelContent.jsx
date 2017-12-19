@@ -2,39 +2,30 @@
 import React from 'react';
 import styles from './FeatureTourPanelContent.scss';
 import { Header5, ParagraphMd } from '../Type/index';
-import Button from '../Button';
 import ButtonIconOnly from '../ButtonIconOnly';
 import DismissIcon from '../icons/dismiss-x.svg';
 
 const displayName = 'FeatureTourPanelContent';
 
 type Props = {
+    actionArea?: React$Element<*>,
     children: React$Element<*>,
-    dismissButtonLabel: string,
+    dismissButtonA11yLabel: string,
     headerText?: string,
     onDismissClick: ()=> void,
-    primaryButtonProps?: Object,
     dismissButtonProps?: Object,
 };
 
 const FeatureTourPanelContent = ({
+    actionArea,
     children,
-    dismissButtonLabel,
+    dismissButtonA11yLabel,
     headerText,
     onDismissClick,
-    primaryButtonProps,
     dismissButtonProps,
     ...filteredProps
 }: Props): React$Element<*> => {
 
-    const PrimaryButton = primaryButtonProps && (
-        <Button
-            {...primaryButtonProps}
-            format="lightTransparent"
-            size="md"
-            autoWidth="xs"
-        />
-    );
 
     return (
             <div
@@ -43,7 +34,7 @@ const FeatureTourPanelContent = ({
             >
                 <ButtonIconOnly
                     {...dismissButtonProps}
-                    icon={<DismissIcon title={dismissButtonLabel} />}
+                    icon={<DismissIcon title={dismissButtonA11yLabel} />}
                     format="lightTransparent"
                     size="sm"
                     onClick={onDismissClick}
@@ -56,7 +47,7 @@ const FeatureTourPanelContent = ({
                     >
                         {children}
                     </ParagraphMd>
-                {PrimaryButton}
+                    {actionArea}
             </div>
     );
 };

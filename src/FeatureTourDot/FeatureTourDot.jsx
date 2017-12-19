@@ -6,13 +6,13 @@ import styles from './FeatureTourDot.scss';
 const displayName = 'FeatureTourDot';
 
 type Props = {
-    beaconText: string,
+    beaconA11yText: string,
     className?: string,
     mode?: 'inactive' | 'open' |'active';
 };
 
 const FeatureTourDot = ({
-    beaconText,
+    beaconA11yText,
     className,
     mode = 'inactive',
     ...filteredProps
@@ -27,7 +27,7 @@ const FeatureTourDot = ({
     );
 
     return (
-        <span className={componentClass}>{beaconText}</span>
+        <span className={componentClass}>{beaconA11yText}</span>
     );
 };
 

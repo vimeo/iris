@@ -9,17 +9,17 @@ const displayName = 'FeatureTourPanel';
 
 
 type Props = {
+    actionArea?: React$Element<*>,
     attachment?: 'top' | 'left' | 'right' | 'bottom',
     beaconDelayIndex?: number,
-    beaconText: string,
+    beaconA11yText: string,
     children: React$Element<*>,
     className?: string,
-    dismissButtonLabel: string,
+    dismissButtonA11yLabel: string,
     headerText?: string,
     onClose: () => void,
     onDismissClick?: (e: Event) => void,
     onOpen?: () => void,
-    primaryButtonProps?: Object,
     dismissButtonProps?: Object,
     isShowing?: boolean,
     wrapperClass?: string,
@@ -117,13 +117,13 @@ class FeatureTourPanel extends React.Component {
 
     render() {
         const {
+            actionArea,
             attachment,
-            dismissButtonLabel,
+            dismissButtonA11yLabel,
             headerText,
             beaconDelayIndex, // eslint-disable-line no-unused-vars
-            beaconText,
+            beaconA11yText,
             children,
-            primaryButtonProps,
             dismissButtonProps,
             onOpen, // eslint-disable-line no-unused-vars
             onClose, // eslint-disable-line no-unused-vars
@@ -135,11 +135,11 @@ class FeatureTourPanel extends React.Component {
 
         const MenuPanelContent = (
             <FeatureTourPanelContent
-                dismissButtonLabel={dismissButtonLabel}
+                actionArea={actionArea}
+                dismissButtonA11yLabel={dismissButtonA11yLabel}
                 onDismissClick={this._handleDismissClick}
                 headerText={headerText}
                 children={children}
-                primaryButtonProps={primaryButtonProps}
                 dismissButtonProps={dismissButtonProps}
             />
         );
@@ -188,7 +188,7 @@ class FeatureTourPanel extends React.Component {
                     }}
                 >
                     <FeatureTourDot
-                        beaconText={beaconText}
+                        beaconA11yText={beaconA11yText}
                         mode={this.state.beaconMode}
                     />
                 </MenuPanel>
