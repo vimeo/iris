@@ -79,6 +79,14 @@ $InputSelect_arrow-size: rem-calc(24);
             top: rem-calc(10);
         }
     }
+
+    &.IconArrow-xl {
+        height: $inputs_height-xl - ($inputs_border-size * 4);
+
+        svg {
+            top: rem-calc(18);
+        }
+    }
 }
 
 @supports ( -webkit-appearance: none ) or ( appearance: none ) {
@@ -101,6 +109,10 @@ $InputSelect_arrow-size: rem-calc(24);
 
 .lg {
     @include sharedInputLargeStyles();
+}
+
+.xl {
+    @include sharedInputXLStyles();
 }
 
 
@@ -137,6 +149,9 @@ $InputSelect_arrow-size: rem-calc(24);
         padding-left: $input_has-icon-padding-md;
     }
     &.lg {
+        padding-left: $input_has-icon-padding-lg;
+    }
+    &.xl {
         padding-left: $input_has-icon-padding-lg;
     }
 }
