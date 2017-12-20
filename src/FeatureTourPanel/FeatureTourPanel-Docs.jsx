@@ -5,7 +5,8 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 import { ParagraphMd, Header3, Header5 } from '../Type';
 import LinkText from '../LinkText';
 import NotificationNeutral from '../NotificationNeutral';
-import { List, ListItem } from '../List';
+import List from '../List';
+import ListItem from '../ListItem';
 import FeatureTourPanelButton from '../FeatureTourPanelButton';
 import styles from './FeatureTourPanel-Docs.scss';
 
@@ -30,8 +31,8 @@ class FeatureTourPanelDocs extends React.Component {
                             actionArea={<FeatureTourPanelButton>Okay</FeatureTourPanelButton>}
                             headerText="Header Text"
                             beaconDelayIndex={2}
-                            beaconText="click to learn more"
-                            dismissButtonLabel="Close"
+                            beaconA11yText="click to learn more"
+                            dismissButtonA11yLabel="Close"
                             wrapperClass={styles.dotTwo}
                         >
                             This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
