@@ -84,9 +84,6 @@ class FeatureTourPanelDocs extends React.Component {
     beaconDelayIndex={1}
     beaconA11yText="click to learn more"
     dismissButtonA11yLabel="Close"
-    primaryButtonProps={{
-        children: 'Okay',
-    }}
     wrapperClass={styles.dotOne}
 >
         This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
