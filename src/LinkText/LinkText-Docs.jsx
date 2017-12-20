@@ -67,7 +67,7 @@ class LinkTextDocs extends React.Component {
 
                 <Header3>LinkText as a Span in React-Router</Header3>
                 <ParagraphMd>
-                   When using React-Router the link formatting can be provided within the anchor tag created by React-Router <code>&lt;Link&gt;</code> tags by passing <code>element="span"</code> to the component.
+                    When using React-Router the link formatting can be provided within the anchor tag created by React-Router <code>&lt;Link&gt;</code> tags by passing <code>element="span"</code> to the component.
                 </ParagraphMd>
 
                 <div>

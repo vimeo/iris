@@ -1,0 +1,73 @@
+/* @description Generates styles for the FeatureTourDot component */
+@import '../globals/sass/helpers-all';
+$FeatureTourDot_beacon-size: rem-calc(16);
+$FeatureTourDot_dot-color: #105AD6;
+$FeatureTourDot_dot-color-darkened: #4E7CF6;
+
+@mixin start_finish() {
+    box-shadow: 0 0 rem-calc(4) rem-calc(4) rgba($FeatureTourDot_dot-color, 0.0),
+    0 0 rem-calc(8) rem-calc(6) rgba($FeatureTourDot_dot-color, 0),
+    0 0 0 0 rgba(0,0,0,0.0),
+    0 0 0 0 rgba($FeatureTourDot_dot-color, 0);
+}
+
+.FeatureTourDot {
+    display: inline-block;
+
+    width: $FeatureTourDot_beacon-size;
+    height: $FeatureTourDot_beacon-size;
+
+    border: rem-calc(2) solid $FeatureTourDot_dot-color;
+    border-radius: $FeatureTourDot_beacon-size/2;
+
+    text-indent: -9999px;
+
+    &.active,
+    &.inactive {
+        background: $FeatureTourDot_dot-color;
+    }
+
+    &.open {
+        background: $White;
+    }
+
+    &:hover {
+        border-color: $FeatureTourDot_dot-color-darkened;
+        background: $FeatureTourDot_dot-color-darkened;
+    }
+}
+
+:global {
+    .FeatureTourDot_beaconIsActive {
+        background: $FeatureTourDot_dot-color-darkened;
+
+        animation: 2500ms infinite FeatureTourDot_BeaconBloop;
+    }
+}
+
+@keyframes :global(FeatureTourDot_BeaconBloop) {
+    0% {
+        @include start_finish();
+    }
+
+    10% {
+        box-shadow: 0 0 rem-calc(4) rem-calc(4) rgba($FeatureTourDot_dot-color-darkened, 0.3),
+        0 0 rem-calc(8) rem-calc(6) rgba($FeatureTourDot_dot-color-darkened, 0.2),
+        0 0 rem-calc(12) rem-calc(10) rgba(0,0,0,0.0),
+        0 0 rem-calc(12) rem-calc(14) rgba($FeatureTourDot_dot-color-darkened, 0.2);
+    }
+
+    25% {
+        box-shadow: 0 0 rem-calc(8) rem-calc(8) rgba($FeatureTourDot_dot-color, 0.0),
+        0 0 rem-calc(8) rem-calc(6) rgba($FeatureTourDot_dot-color, 0),
+        0 0 0 rem-calc(60) rgba(0,0,0,0.0),
+        0 0 0 rem-calc(60) rgba($FeatureTourDot_dot-color, 0);
+    }
+
+    30% {
+        @include start_finish();
+    }
+    100% {
+        @include start_finish();
+    }
+}
