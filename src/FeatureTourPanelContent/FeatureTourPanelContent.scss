@@ -2,13 +2,13 @@
 @import '../globals/sass/helpers-all';
 
 .FeatureTourPanelContent {
-    padding: spacingUnit(8) spacingUnit(8) spacingUnit(6);
+    padding: spacingUnit(6) spacingUnit(6) spacingUnit(4);
 
     border-radius: rem-calc(5);
     background: linear-gradient(-45deg, $VimeoBlue 0%, #093AC9 100%);
 }
 .DismissButton {
     position: absolute;
-    top: spacingUnit(4);
+    top: rem-calc(14);
     right: spacingUnit(4);
 }
