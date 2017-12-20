@@ -29,7 +29,7 @@
     top: 0;
     left: 0;
 
-    & svg {
+    svg {
         width: $inputs_icon-size;
         height: $inputs_icon-size;
 
@@ -58,6 +58,20 @@
     }
 }
 
+@keyframes iconSlideInXL {
+    from {
+        width: 0;
+
+        opacity: 0;
+    }
+    to {
+        width: $inputs_icon-size-xl;
+
+        opacity: 1;
+    }
+}
+
+
 .Icon-md {
     height: $inputs_height-md;
     padding: $input_icon-padding-md;
@@ -71,6 +85,13 @@
 .Icon-xl {
     height: $inputs_height-xl;
     padding: $input_icon-padding-xl;
+
+    svg {
+        width: $inputs_icon-size-xl;
+        height: $inputs_icon-size-xl;
+
+        animation-name: iconSlideXL;
+    }
 }
 
 .Icon-negative {

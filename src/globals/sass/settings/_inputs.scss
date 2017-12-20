@@ -25,12 +25,12 @@ $inputs_padding-lg-horizontal: 0.8125rem;
 $inputs_padding-lg-vertical: 0.6875rem;
 $input_icon-padding-md: .6875rem .75rem;
 $input_icon-padding-lg: .9375rem .8125rem;
-$input_icon-padding-xl: 1.3125rem .8125rem;
+$input_icon-padding-xl: 1.125rem .8125rem;
 $inputs_animation-timing: 300ms;
 $inputs_text-color: $BodyTextColor-Dark;
 $inputs_text-color-dark: $Porcelain;
 $inputs_text-color-disabled: $BodyTextColor-Light;
-$inputs_placeholder-color: $RegentGray;
+$inputs_placeholder-color: $SoutherlySky;
 $inputs_error-color: $SunsetOrange;
 $inputs_positive-color: $Pistachio;
 $inputs_inlineInputs_size: 1.25rem;
@@ -39,11 +39,95 @@ $inputs_inlineInputs_element-background-color-hover: $VimeoBlue-Darkened;
 $inputs_inlineInputs_fill-color: $White;
 $inputs_inlineInputs_fill-size: 0.625rem;
 $inputs_icon-size: 1.125rem;
+$inputs_icon-size-xl: 1.5rem;
 $input_has-icon-padding-md: $inputs_icon-size + 1.125rem;
 $input_has-icon-padding-lg: $inputs_icon-size + 1.3125rem;
 
 @mixin inputs_focus_border-shadow($color) {
     box-shadow: inset 0 0 0 rem-calc(1) $color;
+}
+
+@mixin inputThemes() {
+       // Default Theme Styles ===========================
+
+    &.defaultTheme {
+        color: $inputs_text-color;
+        background-color: $inputs_background-color;
+
+        &.neutral {
+            border-color: $inputs_border-color;
+            &:focus,
+            &.isFocused {
+                @include inputs_focus_border-shadow($inputs_border-color-focused);
+
+                border-color: $inputs_border-color-focused;
+            }
+
+            &:hover {
+                border-color: $inputs_border-color-hover;
+            }
+        }
+    }
+
+    // DarkTheme Styles ===========================
+    &.darkTheme {
+        color: $inputs_text-color-dark;
+        background-color: $inputs_background-color-dark;
+
+        &.neutral {
+            border-color: $inputs_border-color-dark;
+            &:focus,
+            &.isFocused {
+                @include inputs_focus_border-shadow($inputs_border-color-focused-dark);
+
+                border-color: $inputs_border-color-focused-dark;
+            }
+
+            &:hover {
+                border-color: $inputs_border-color-hover-dark;
+            }
+        }
+    }
+
+    &.positive {
+        border-color: $inputs_positive-color;
+        &:focus,
+        &.isFocused {
+            @include inputs_focus_border-shadow($inputs_positive-color);
+        }
+        &:hover {
+            border-color: $inputs_border-color-hover-postive;
+            &:focus,
+            &.isFocused {
+                border-color: $inputs_positive-color;
+            }
+        }
+    }
+
+    &.negative {
+        border-color: $inputs_error-color;
+        &:focus,
+        &.isFocused {
+            @include inputs_focus_border-shadow($inputs_error-color);
+        }
+        &:hover {
+            border-color: $inputs_border-color-hover-error;
+
+            &:focus,
+            &.isFocused {
+                border-color: $inputs_error-color;
+            }
+        }
+    }
+
+    &:disabled,
+    &:disabled:hover,
+    &.isDisabled,
+    &.isDisabled:hover {
+        color: $inputs_text-color-disabled;
+        border-color: $inputs_border-color-disabled !important; // important ensures that diabled trumps other states, even when their multi-class specificity would trump it.
+        background-color: $inputs_background-color-disabled;
+    }
 }
 
 // shared input styles
@@ -64,80 +148,11 @@ $input_has-icon-padding-lg: $inputs_icon-size + 1.3125rem;
         outline: 0;
     }
 
-
-    // Default Theme Styles ===========================
-
-    &.defaultTheme {
-        color: $inputs_text-color;
-        background-color: $inputs_background-color;
-
-        &.neutral {
-            border-color: $inputs_border-color;
-            &:focus {
-                @include inputs_focus_border-shadow($inputs_border-color-focused);
-
-                border-color: $inputs_border-color-focused;
-            }
-
-            &:hover {
-                border-color: $inputs_border-color-hover;
-            }
-        }
-    }
-
-    // DarkTheme Styles ===========================
-    &.darkTheme {
-        color: $inputs_text-color-dark;
-        background-color: $inputs_background-color-dark;
-
-        &.neutral {
-            border-color: $inputs_border-color-dark;
-            &:focus {
-                @include inputs_focus_border-shadow($inputs_border-color-focused-dark);
-
-                border-color: $inputs_border-color-focused-dark;
-            }
-
-            &:hover {
-                border-color: $inputs_border-color-hover-dark;
-            }
-        }
-    }
-
-    &.positive {
-        border-color: $inputs_positive-color;
-        &:focus {
-            @include inputs_focus_border-shadow($inputs_positive-color);
-        }
-        &:hover {
-            border-color: $inputs_border-color-hover-postive;
-            &:focus {
-                border-color: $inputs_positive-color;
-            }
-        }
-    }
-
-    &.negative {
-        border-color: $inputs_error-color;
-        &:focus {
-            @include inputs_focus_border-shadow($inputs_error-color);
-        }
-        &:hover {
-            border-color: $inputs_border-color-hover-error;
-
-            &:focus {
-                border-color: $inputs_error-color;
-            }
-        }
-    }
-
-    &:disabled,
-    &:disabled:hover {
-        color: $inputs_text-color-disabled;
-        border-color: $inputs_border-color-disabled !important; // important ensures that diabled trumps other states, even when their multi-class specificity would trump it.
-        background-color: $inputs_background-color-disabled;
-    }
+    @include inputThemes();
+ 
 }
+
+
 
 @mixin sharedTextInputs() {
     width: 100%;
