@@ -16,15 +16,14 @@ type Props = {
 };
 
 class SlideUpDownAnimation extends React.Component {
-    constructor(props: Props) {
-        super(props);
-    }
 
     componentDidMount() {
         this._slideDown();
     }
 
-    componentWillEnter(callback: any) {
+    props: Props;
+
+    componentDidEnter(callback: any) {
         this._slideDown(callback);
     }
 
@@ -32,7 +31,7 @@ class SlideUpDownAnimation extends React.Component {
         this._slideUp(callback);
     }
 
-    _slideDown(callback: any) {
+    _slideDown = (callback: any) => {
         const el = findDOMNode(this);
 
         if (el instanceof HTMLDivElement) {

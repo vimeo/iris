@@ -5,12 +5,10 @@ import SlideUpDownAnimation from '../SlideUpDownAnimation';
 
 const displayName = 'SlideUpDown';
 const defaultProps = {
-    animateOpenOnMount: true,
     speed: 300,
 };
 
 type Props = {
-    animateOpenOnMount?: boolean,
     children: React$Element<*>,
     isHidden?: boolean,
     speed: Number;
@@ -30,7 +28,6 @@ class SlideUpDown extends React.Component {
 
         const AnimatedComponent = (
             <SlideUpDownAnimation
-                animateOpenOnMount={this.props.animateOpenOnMount}
                 speed={this.props.speed}
                 aria-hidden={this.props.isHidden}
             >
