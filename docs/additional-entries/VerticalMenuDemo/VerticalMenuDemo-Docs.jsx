@@ -146,6 +146,7 @@ class VerticalMenuDemoDocs extends React.Component {
                                 ]}
                             />
                             <VerticalMenuNested
+                            isOpen={!this.state.menuOpen}
                             label="Menu Label"
                             labelId="testMenu"
                             nestedButtonLabel="toggle menu"
@@ -243,6 +244,7 @@ class VerticalMenuDemoDocs extends React.Component {
     className={styles.MenuCol}
 >
 <VerticalMenuNested
+    isOpen={this.state.menuOpen}
     label="Menu Label"
     labelId="testMenu"
     nestedButtonLabel="toggle menu"
@@ -276,6 +278,7 @@ class VerticalMenuDemoDocs extends React.Component {
     ]}
 />
 <VerticalMenuNested
+isOpen={!this.state.menuOpen}
 label="Menu Label"
 labelId="testMenu"
 nestedButtonLabel="toggle menu"
