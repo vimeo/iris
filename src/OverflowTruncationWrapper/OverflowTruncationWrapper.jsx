@@ -53,15 +53,16 @@ class OverflowTruncationWrapper extends React.Component {
     innerEl: any;
 
     _checkIfTruncated = () => {
+        if (this.innerEl instanceof HTMLElement) {
+            const innerElHeight = this.innerEl.clientHeight;
 
-        const innerElHeight = this.innerEl.clientHeight;
+            const isTruncated = this.wrapperEl.clientHeight < innerElHeight;
 
-        const isTruncated = this.wrapperEl.clientHeight < innerElHeight;
-
-        this.setState({
-            isTruncated,
-            maxHeight: innerElHeight < this.props.maxHeight ? innerElHeight : this.props.maxHeight,
-        });
+            this.setState({
+                isTruncated,
+                maxHeight: innerElHeight < this.props.maxHeight ? innerElHeight : this.props.maxHeight,
+            });
+        }
     }
 
     render() {
