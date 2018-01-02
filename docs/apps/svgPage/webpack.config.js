@@ -1,5 +1,5 @@
 /* eslint-env node */
-// var webpack = require('webpack');
+var webpack = require('webpack');
 var path = require('path');
 var STYLEGUIDE_DIR = 'node_modules/steadicam';
 
@@ -43,4 +43,13 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx', '.json'],
     },
+
+    plugins: [
+        new webpack.LoaderOptionsPlugin({
+            minimize: true,
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+        }),
+
+    ],
 };
