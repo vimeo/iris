@@ -96,6 +96,10 @@ module.exports = {
             minimize: true,
         }),
         new webpack.optimize.UglifyJsPlugin({
+            parallel: true,
+            compress: {
+                dead_code: true,
+            },
         }),
 
     ],
