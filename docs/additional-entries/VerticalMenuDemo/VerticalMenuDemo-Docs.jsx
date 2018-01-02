@@ -1,6 +1,7 @@
 import React from 'react';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import { Header3, Header4, ParagraphMd } from '../../../src/Type';
+import Button from '../../../src/Button';
 import Grid from '../../../src/Grid';
 import GridBlock from '../../../src/GridBlock';
 import GridCol from '../../../src/GridCol';
@@ -16,6 +17,19 @@ import SettingsIcon from '../../../src/icons/gear.svg';
 import styles from './VerticalMenuDemo-Docs.scss';
 
 class VerticalMenuDemoDocs extends React.Component {
+    constructor(props) {
+        super();
+        this.state = {
+            menuOpen: false
+        }
+    }
+
+    _toggleMenu = () => {
+        this.setState({
+            menuOpen: !this.state.menuOpen
+        })
+    }
+
     render() {
 
         const onClickHandler = (e) => {
@@ -98,6 +112,7 @@ class VerticalMenuDemoDocs extends React.Component {
                                 className={styles.MenuCol}
                             >
                                 <VerticalMenuNested
+                                isOpen={this.state.menuOpen}
                                 label="Menu Label"
                                 labelId="testMenu"
                                 nestedButtonLabel="toggle menu"
@@ -131,6 +146,7 @@ class VerticalMenuDemoDocs extends React.Component {
                                 ]}
                             />
                             <VerticalMenuNested
+                            isOpen={!this.state.menuOpen}
                             label="Menu Label"
                             labelId="testMenu"
                             nestedButtonLabel="toggle menu"
@@ -218,6 +234,8 @@ class VerticalMenuDemoDocs extends React.Component {
                                 <Header3>Building Vertical Menus</Header3>
                                 <ParagraphMd>Vertical Menus are assembled from the VerticalMenuItem component for single links and the VerticalMenuNested component for Menu Items with a nested sub-menu. See the documentation of these components for information about their use.</ParagraphMd>
                                 <ParagraphMd>These components will up their given space and should be sized using the grid</ParagraphMd>
+                                <ParagraphMd>The menus can also be opened programatically with the <code>isOpen</code> prop.</ParagraphMd>
+                                <Button onClick={this._toggleMenu}>Toggle isOpen Prop</Button>
                                 <Header4>Both components should be used in a binding grid.</Header4>
                                 <ExampleSource>
                                 {`
@@ -226,6 +244,7 @@ class VerticalMenuDemoDocs extends React.Component {
     className={styles.MenuCol}
 >
 <VerticalMenuNested
+    isOpen={this.state.menuOpen}
     label="Menu Label"
     labelId="testMenu"
     nestedButtonLabel="toggle menu"
@@ -259,6 +278,7 @@ class VerticalMenuDemoDocs extends React.Component {
     ]}
 />
 <VerticalMenuNested
+isOpen={!this.state.menuOpen}
 label="Menu Label"
 labelId="testMenu"
 nestedButtonLabel="toggle menu"

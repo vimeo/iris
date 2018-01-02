@@ -25,6 +25,10 @@ type Props = {
     href: string,
 };
 
+type State = {
+    subMenuOpen: boolean,
+}
+
 class VerticalMenuNested extends React.Component {
     constructor(props: Props) {
         super(props);
@@ -33,17 +37,34 @@ class VerticalMenuNested extends React.Component {
         };
     }
 
-    state: Object;
+    state: State;
 
-    componentDidUpdate = (prevProps: Object, prevState: Object) => {
-            // Open and Close SubMenu based on isOpen prop
-        if (!prevState.isOpen && (this.state.isOpen || this.props.isOpen)) {
-            if (typeof this.props.onOpen === 'function') {
-                this.props.onOpen();
+    componentWillUpdate = (nextProps: Props, nextState: State) => {
+
+        // Open and Close SubMenu based on isOpen prop
+
+        if (nextProps.isOpen !== this.props.isOpen) {
+            if (nextProps.isOpen) {
+                this.setState({
+                    subMenuOpen: true,
+                });
+            }
+            else {
+                this.setState({
+                    subMenuOpen: false,
+                });
             }
         }
-        else if (prevState.isOpen && !this.state.isOpen && typeof this.props.onClose === 'function') {
-            this.props.onClose();
+    }
+
+    componentDidUpdate(prevProps: Props, prevState: State) {
+        if (prevState.subMenuOpen !== this.state.subMenuOpen) {
+            if (this.state.subMenuOpen && typeof this.props.onOpen === 'function') {
+                this.props.onOpen();
+            }
+            else if (!this.state.subMenuOpen && typeof this.props.onClose === 'function') {
+                this.props.onClose();
+            }
         }
     }
 
@@ -136,7 +157,6 @@ class VerticalMenuNested extends React.Component {
                             />
                         </VerticalMenuItem>
                         <SlideUpDown
-                            animateOpenOnMount={false}
                             isHidden={!this.state.subMenuOpen}
                             speed={300}
                         >
