@@ -98,7 +98,7 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin({
             parallel: true,
             compress: {
-                dead_code: true,
+                dead_code: true, // eslint-disable-line camelcase
             },
         }),
 
