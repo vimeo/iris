@@ -3,12 +3,11 @@ const babel = require('gulp-babel');
  
 gulp.task('transpileJS', () =>
     gulp.src([
-        'dist/index.js',
         'src/**/*.{jsx,js}',
         '!src/**/*-Docs.{jsx}'
         ])
         .pipe(babel({
-            presets: ['env'],
+            presets: [['env', {modules: false}]],
             plugins: ["transform-class-properties"],
         }))
         .pipe(gulp.dest('dist'))

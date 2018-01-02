@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as Icons from './svgExportList.js';
-const svgData = require('json!../../../data/svgList.json');
+const svgData = require('json-loader!../../../data/svgList.json');
 
 const SvgList = () => {
     return (

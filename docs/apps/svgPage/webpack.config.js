@@ -15,13 +15,32 @@ module.exports = {
     },
 
     module: {
-        loaders: [
-            { test: /\.jsx?$/, loader: 'babel-loader', exclude: '/node_modules/'},
-            { test: /\.svg$/, loader: 'babel?presets[]=env,presets[]=react!svg-react' },
+        rules: [
+            {
+                test: [/\.jsx?$/],
+                exclude: '/node_modules/',
+                use: [
+                    {
+                        loader: 'babel-loader',
+                    },
+                ],
+            },
+            {
+                test: /\.svg$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['react'],
+                        },
+                    },
+                    'svg-react-loader',
+                ],
+            },
         ],
     },
 
     resolve: {
-        extensions: ['', '.js', '.jsx', '.json'],
+        extensions: ['.js', '.jsx', '.json'],
     },
 };

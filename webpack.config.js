@@ -16,23 +16,63 @@ module.exports = {
     },
 
     module: {
-        loaders: [
-            { test: /\.jsx?$/, loader: 'babel-loader', exclude: '/node_modules/', include: [
-                path.resolve(__dirname, 'docs'),
-                path.resolve(__dirname, 'data'),
-                path.resolve(__dirname, 'src'),
-                path.resolve(__dirname, 'index.jsx'),
-                path.resolve(__dirname, STYLEGUIDE_DIR),
-            ] },
+        rules: [
             {
-                test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('style-loader', [
-                    'css?modules&importLoaders=2&localIdentName=[name]_[local]--[hash:base64:5]',
-                    'postcss-loader',
-                    'sass',
-                ]),
+                test: [/\.jsx?$/],
+                exclude: '/node_modules/',
+                include: [
+                    path.resolve(__dirname, 'docs'),
+                    path.resolve(__dirname, 'data'),
+                    path.resolve(__dirname, 'src'),
+                    path.resolve(__dirname, 'index.jsx'),
+                    path.resolve(__dirname, STYLEGUIDE_DIR),
+                ],
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            cacheDirectory: true,
+                        },
+                    },
+                ],
             },
-            { test: /\.svg$/, loader: 'babel?presets[]=env,presets[]=react!svg-react' },
+
+            {
+                test: /\.s(c|a)ss$/,
+                use: ExtractTextPlugin.extract({
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: true,
+                                importLoaders: 2,
+                                localIdentName: '[name]_[local]--[hash:base64:5]',
+                            },
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: [require('autoprefixer')],
+                            },
+                        },
+                        {
+                            loader: 'sass-loader',
+                        },
+                    ],
+                }),
+            },
+            {
+                test: /\.svg$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['react'],
+                        },
+                    },
+                    'svg-react-loader',
+                ],
+            },
         ],
     },
 
@@ -40,16 +80,14 @@ module.exports = {
         fs: 'empty',
     },
 
-    postcss: [
-        require('autoprefixer'),
-    ],
-
     resolve: {
-        root: [
-            path.resolve('./src'),
+        extensions: [
+            '.js',
+            '.json',
+            '.jsx',
+            '.svg',
         ],
-        extensions: ['', '.js', '.jsx', '.json', '.svg'],
-        modulesDirectories: ['node_modules', 'components'],
+        modules: ['node_modules', 'components'],
     },
 
     plugins: [

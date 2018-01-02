@@ -44,7 +44,7 @@
     "eslint-plugin-flowtype": "^2.30.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.9.0",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^3.0.0",
     "flow-bin": "^0.47.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",
@@ -65,13 +65,13 @@
     "react-router-dom": "^4.0.0",
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2",
-    "sass-loader": "^3.1.2",
-    "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#2.0.0",
+    "sass-loader": "^6.0.6",
+    "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#2.0.2",
     "style-loader": "^0.13.1",
     "uppercamelcase": "^1.1.0",
     "walk": "^2.3.9",
     "yargs": "^7.0.2",
-    "webpack": "^1.15.0"
+    "webpack": "3.*"
   },
   "dependencies": {
     "animejs": "^2.0.2",
