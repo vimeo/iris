@@ -4,7 +4,7 @@ const babel = require('gulp-babel');
 gulp.task('transpileJS', () =>
     gulp.src([
         'src/**/*.{jsx,js}',
-        '!src/**/*-Docs.{jsx}'
+        '!src/**/*-Docs.jsx'
         ])
         .pipe(babel({
             presets: [['env', {modules: false}]],
