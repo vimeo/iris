@@ -95,12 +95,5 @@ module.exports = {
         new webpack.LoaderOptionsPlugin({
             minimize: true,
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            parallel: true,
-            compress: {
-                dead_code: true, // eslint-disable-line camelcase
-            },
-        }),
-
     ],
 };
