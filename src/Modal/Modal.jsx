@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import styles from './Modal.scss';
-import BREAKPOINTS from '../globals/js/constants/BREAKPOINTS';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';
 import { CSSTransitionGroup } from 'react-transition-group';
 import Button from '../Button/Button';
@@ -12,7 +11,6 @@ import Grid from '../Grid';
 import GridBlock from '../GridBlock';
 import GridCol from '../GridCol';
 import { Header4 } from '../Type';
-import OverflowTruncationWrapper from '../OverflowTruncationWrapper/OverflowTruncationWrapper';
 import { throttle } from 'lodash';
 
 const displayName = 'Modal';
@@ -39,7 +37,7 @@ type Props = {
 };
 
 type State = {
-    overflowAreaHeight: number;
+    isTruncated: boolean,
 };
 
 class Modal extends React.Component {
@@ -52,9 +50,9 @@ class Modal extends React.Component {
     constructor(props: Props) {
         super(props);
         this.state = {
-            overflowAreaHeight: this._getOverflowScrollAreaHeight(),
+            isTruncated: false,
         };
-        this._setOverflowScrollAreaHeight = throttle(this._setOverflowScrollAreaHeight, 200);
+        this._setOverflowScroll = throttle(this._setOverflowScroll, 200);
     }
 
     state: State;
@@ -86,10 +84,12 @@ class Modal extends React.Component {
     props: Props;
     focusableElementList: Object;
     previouslyFocusedElement: Object;
-    firstFocusableElement: Object;
-    lastFocusableElement: Object;
+    firstFocusableElement: HTMLElement;
+    lastFocusableElement: HTMLElement;
     thisEl: any;
     scrollDistance: number;
+    ContentOuterDiv: HTMLDivElement;
+    ContentInnerDiv: HTMLDivElement;
 
     _bindEvents() {
         document.addEventListener(
@@ -97,7 +97,7 @@ class Modal extends React.Component {
             this._handleEsc
         );
 
-        window.addEventListener('resize', this._setOverflowScrollAreaHeight);
+        window.addEventListener('resize', this._setOverflowScroll);
 
         if (this.lastFocusableElement && this.firstFocusableElement) {
             this.lastFocusableElement.addEventListener(
@@ -118,7 +118,7 @@ class Modal extends React.Component {
             this._handleEsc
         );
 
-        window.removeEventListener('resize', this._setOverflowScrollAreaHeight);
+        window.removeEventListener('resize', this._setOverflowScroll);
 
         this.lastFocusableElement.removeEventListener(
             'keydown',
@@ -200,6 +200,9 @@ class Modal extends React.Component {
     }
     _openModal() {
         this._freezeBodyScroll();
+
+        // initial check to see if content is overflowing
+        this._setOverflowScroll();
 
         const elementListCallback = () => {
             this._bindEvents();
@@ -306,17 +309,16 @@ class Modal extends React.Component {
         }
     }
 
-    _setOverflowScrollAreaHeight = () => {
-        this.setState({
-            overflowAreaHeight: this._getOverflowScrollAreaHeight(),
-        });
-    }
+    _setOverflowScroll = () => {
 
-    _getOverflowScrollAreaHeight = () => {
-        const modifier = window.innerWidth > BREAKPOINTS.sm ? 80 : 134;
-        const height = window.innerHeight > 300 ? (window.innerHeight * 0.76) - modifier : window.innerHeight;
-
-        return Math.floor(height);
+        // checks if content is triggering overflow scroll
+        if (
+            this.ContentOuterDiv instanceof HTMLDivElement && this.ContentInnerDiv instanceof HTMLDivElement
+        ) {
+            this.setState({
+                isTruncated: this.ContentOuterDiv.offsetHeight < this.ContentInnerDiv.offsetHeight,
+            });
+        }
     }
 
     render() {
@@ -349,6 +351,7 @@ class Modal extends React.Component {
         const contentClass = classNames(
             styles.ModalContent,
             (primaryButtonProps ? styles.hasActionArea : null),
+            (this.state.isTruncated ? styles.isTruncated : null),
             (fullBleed ? styles.fullBleed : null),
         );
 
@@ -417,14 +420,25 @@ class Modal extends React.Component {
                     aria-describedby={modalDescriptionId}
                     className={componentClass}
                 >
-                    <OverflowTruncationWrapper
+                    { /* <OverflowTruncationWrapper
                             maxHeight={this.state.overflowAreaHeight}
+                    > */}
+                        <div
+                            className={contentClass}
+                            ref={(div)=>{
+                                this.ContentOuterDiv = div;
+                            }}
                         >
-                        <div className={contentClass}>
-                            {modalTitle ? ModalTitleElement : null}
-                            {children}
+                            <div
+                                ref={(div)=>{
+                                    this.ContentInnerDiv = div;
+                                }}
+                            >
+                                {modalTitle ? ModalTitleElement : null}
+                                {children}
+                            </div>
                         </div>
-                    </OverflowTruncationWrapper>
+                     { /* </OverflowTruncationWrapper> */}
                     {primaryButtonProps ? actionAreaElement : null}
                     {onDismiss && !hideDismissButton ? CloseButton : null}
                 </div>

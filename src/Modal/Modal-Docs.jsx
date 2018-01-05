@@ -136,6 +136,11 @@ class ModalDocs extends React.Component {
                         <ParagraphMd>Modals are about presenting a choice to the user and also disprupting them from what they were doing to get their attention.</ParagraphMd>
                         <ParagraphMd>Twas brillig, and the slithy toves Did gyre and gimble in the wabe: All mimsy were the borogoves, And the mome raths outgrabe.</ParagraphMd>
                         <ParagraphMd>"Beware the Jabberwock, my son! The jaws that bite, the claws that catch! Beware the Jubjub bird, and shun The frumious Bandersnatch!"</ParagraphMd>
+                        <InputText
+                            name="modalFormEmailLogin"
+                            id="modalFormUsername2"
+                            label="Email Address"
+                        />
                         <ParagraphMd>He took his vorpal sword in hand: Long time the manxome foe he sought -- So rested he by the Tumtum tree, And stood awhile in thought.</ParagraphMd>
                         <MenuPanel
                             alignment="center"
