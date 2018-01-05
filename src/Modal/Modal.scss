@@ -5,6 +5,7 @@ $Modal_animation-speed: $Modal_animation-speed-integer * 1ms;
 $Modal_actionArea-height-small-screen: rem-calc(134);
 $Modal_actionArea-height-large-screen: rem-calc(80);
 $Modal_Vertical_Cutoff: 300px;
+$Modal_maxHeight: 86vh;
 
 :export {
     Modal_AnimationTime: $Modal_animation-speed-integer;
@@ -15,7 +16,7 @@ $Modal_Vertical_Cutoff: 300px;
     z-index: get-z-index('modalContent');
 
     width: 76%;
-    min-height: $Modal_Vertical_Cutoff;
+    min-height: $Modal_maxHeight;
     margin: 0 auto;
 
     border-radius: rem-calc(3);
@@ -24,14 +25,13 @@ $Modal_Vertical_Cutoff: 300px;
     // Modals scroll in the window until $Modal_Vertical_Cutoff height
     @media (min-height: $Modal_Vertical_Cutoff) {
         min-height: rem-calc(180);
-        max-height: 76vh;
+        max-height: $Modal_maxHeight;
     }
 }
 
 
 .ModalWrapper {
     display: flex;
-    overflow: scroll;
     flex-direction: column;
 
     position: fixed;
@@ -46,6 +46,8 @@ $Modal_Vertical_Cutoff: 300px;
 }
 
 .ModalContent {
+    max-height: $Modal_maxHeight;
+    overflow: scroll;
     padding: spacingUnit(5) spacingUnit(5);
 
     opacity: 1;
@@ -53,6 +55,14 @@ $Modal_Vertical_Cutoff: 300px;
 
     &.fullBleed {
         padding: 0;
+    }
+
+    &.hasActionArea {
+        @include mq(sm) {
+            max-height: calc(#{$Modal_maxHeight} - #{$Modal_actionArea-height-large-screen});
+        }
+    
+        max-height: calc(#{$Modal_maxHeight} - #{$Modal_actionArea-height-small-screen});
     }
 }
 
@@ -102,13 +112,15 @@ $Modal_Vertical_Cutoff: 300px;
 }
 
 .ActionArea {
-    // @include ActionAreaStyles();
     @include mq(sm) {
         height: $Modal_actionArea-height-large-screen;
     }
 
     height: $Modal_actionArea-height-small-screen;
     padding: spacingUnit(5) spacingUnit(5) spacingUnit(3);
+    box-shadow: 0 rem-calc(4) rem-calc(10) rem-calc(6) rgba(0,0,0,.1);
+    z-index: get-z-index('ModalActionArea');
+    position: relative;
 }
 
 // Modal Sizes
@@ -129,10 +141,7 @@ $Modal_Vertical_Cutoff: 300px;
     }
 }
 
-
-
-
-// Animation
+// --------------  Animation
 
 .enter {
     opacity: 0.01;

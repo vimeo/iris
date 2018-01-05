@@ -2,7 +2,9 @@
 $z-indexed-elements: FocusBloop,
     InlineInputs,
     InlineInputsReplacementElements,
-    InputToggleOverlay;
+    InputToggleOverlay,
+    ModalActionArea,
+    ;
 
 
 // for elements that need special, usually extreme, z-indexing, this map will provide override values.
