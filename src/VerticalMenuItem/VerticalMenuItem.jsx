@@ -19,6 +19,7 @@ type Props = {
     labelIconActive?: React$Element<*>,
     labelIconTheme?: 'default' | 'subtle';
     nestedInteractionContent?: React$Element<*>,
+    nestedInteractionMenuSize?: 'sm' | 'md' | 'lg',
     label: React$Element<*> | string,
     menuPanelTooltip?: string,
     onClick?: Function,
@@ -30,6 +31,9 @@ type Props = {
 };
 
 class VerticalMenuItem extends React.Component {
+    static defaultProps = {
+        nestedInteractionMenuSize: 'md',
+    };;
 
     constructor(props: Props) {
         super(props);
@@ -122,6 +126,7 @@ class VerticalMenuItem extends React.Component {
                 nestedButtonClass,
                 nestedButtonLabel,
                 nestedInteractionContent,
+                nestedInteractionMenuSize,
                 onNestedItemClick,
                 ...filteredProps
             } = this.props;
@@ -166,6 +171,7 @@ class VerticalMenuItem extends React.Component {
                         onOpen={this._handlePanelOpen}
                         buttonElement={NestedMenuButton}
                         onClick={onNestedItemClick}
+                        size={nestedInteractionMenuSize}
                     >
                     {nestedInteractionContent}
                 </VerticalMenuContextualMenuPanel>

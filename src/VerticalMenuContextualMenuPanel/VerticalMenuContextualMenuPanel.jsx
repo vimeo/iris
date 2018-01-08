@@ -14,6 +14,7 @@ type Props = {
     onClick?: Function,
     onClose?: Function,
     onOpen?: Function,
+    size?: 'sm' | 'md' | 'lg',
 };
 
 const VerticalMenuContextualMenuPanel = ({
@@ -23,6 +24,7 @@ const VerticalMenuContextualMenuPanel = ({
     onClick,
     onClose,
     onOpen,
+    size = 'md',
     tooltipText,
     ...filteredProps
 }: Props): React$Element<*> => {
@@ -48,7 +50,7 @@ const VerticalMenuContextualMenuPanel = ({
             className={styles.buttonOffset}
             alignment="left"
             menuContent={children}
-            size="md"
+            size={size}
             onClose={onClose}
             onClick={handleClick}
             onOpen={onOpen}

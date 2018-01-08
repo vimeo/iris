@@ -60,6 +60,7 @@ const VerticalMenuItemDocs = (props) => {
             <Header3>Prop Notes</Header3>
             <List>
                 <ListItem><code>nestedInteractionContent</code> adds a submenu panel with the conentend passed to this prop with an optional tooltip with text from the <code>menuPanelTooltip</code> prop.</ListItem>
+                <ListItem><code>nestedInteractionMenuSize</code> will determine the sieze of the nested menu. These options are the same as the MenuPanel component and default to <code>md</code></ListItem>
                 <ListItem><code>nestedButtonLabel</code> should be passed a translated string indicating that the toggle arrow will open and close the menu.</ListItem>
 
             </List>
@@ -116,6 +117,7 @@ const VerticalMenuItemDocs = (props) => {
                 </VerticalMenuItem>
                 <VerticalMenuItem
                 nestedInteractionContent={MenuPanelDemoList}
+                nestedInteractionMenuSize="sm"
                 menuPanelTooltip="Show Menu"
                 >
                     <a
@@ -203,8 +205,9 @@ onClick={onClickHandler}
 </a>
 </VerticalMenuItem>
 <VerticalMenuItem
-nestedInteractionContent={MenuPanelDemoList}
-menuPanelTooltip="Show Menu"
+    nestedInteractionContent={MenuPanelDemoList}
+    nestedInteractionMenuSize="sm"
+    menuPanelTooltip="Show Menu"
 >
 <a
     to="#"
