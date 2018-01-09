@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Switch, Route, browserHistory } from 'react-router-dom';
+import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import MainLayout from 'steadicam/components/layouts/MainLayout/MainLayout';
 import StyleListing from 'steadicam/components/styleListings/StyleListing/StyleListing';
 import SingleStyleListing from 'steadicam/components/styleListings/SingleStyleListing/SingleStyleListing';
@@ -13,7 +13,7 @@ import styles from './styleguide-assets/sass/styleguide.scss';
 let App = function App() {
     return (
         <div>
-            <BrowserRouter history={browserHistory}<% if(rootPath) {%> basename="<%- rootPath %>" <% } %>>
+            <BrowserRouter <% if(rootPath) {%> basename="<%- rootPath %>" <% } %>>
                 <Switch>
                     <Route
                         path="/pattern/:category/:componentName" component={SingleStyleListing}
