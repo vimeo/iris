@@ -76,6 +76,12 @@ class ProgressBarDocs extends React.Component {
                         size="xl"
                         style={{ marginBottom: '1em' }}
                     />
+                    <ProgressBar
+                        currentValue={25}
+                        format="disabled"
+                        size="lg"
+                        style={{ marginBottom: '1em' }}
+                    />
                 </div>
 
                 <ExampleSource>
@@ -145,6 +151,12 @@ class ProgressBarDocs extends React.Component {
     format="warning"
     size="xl"
     style={{ marginBottom: '1em' }}
+/>
+<ProgressBar
+currentValue={25}
+format="disabled"
+size="lg"
+style={{ marginBottom: '1em' }}
 />
                         `}
                     </ExampleSource>

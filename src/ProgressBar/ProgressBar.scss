@@ -43,10 +43,14 @@ $ProgressBar_stripe-size: rem-calc(10);
 
     width: 100%;
 
-    background: rgba($AstroGranite, 0.15);
+    background-color: rgba($AstroGranite, 0.15);
+
+    &.disabled {
+        background-color: $Porcelain;
+    }
 
     &.warning {
-        background: $PalePink;
+        background-color: $PalePink;
     }
 }
 
@@ -76,11 +80,15 @@ $ProgressBar_stripe-size: rem-calc(10);
         animation: ProgressBar-stripe-animation 1.5s linear infinite;
     }
 
+    &.disabled {
+        background-color: $SoutherlySky;
+    }
+
     &.neutral {
         background-color: $VimeoBlue;
     }
 
     &.warning {
-        background: $SunsetOrange;
+        background-color: $SunsetOrange;
     }
 }
