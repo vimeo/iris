@@ -8,8 +8,8 @@ const SvgsDocs = (props) => {
     return (
         <div className="Pattern__docs">
             <ParagraphMd>SVGs are loaded in using <a href="https://github.com/jhamlet/svg-react-loader" target="_blank">svg-react-loader</a></ParagraphMd>
-            <Header3>All Iris Icons</Header3>
-            <ParagraphMd><LinkText href="svgPage.html" target="_blank">See all SVG Icons Here</LinkText></ParagraphMd>
+            <Header3>All Iris Icons and Illustrations</Header3>
+            <ParagraphMd><LinkText href="svgPage.html" target="_blank">See all SVG Icons and Illustrations Here</LinkText></ParagraphMd>
 
             <Header3>Using an Iris Icon</Header3>
             <ParagraphMd>Icons are loaded with the <a href="https://github.com/jhamlet/svg-react-loader" target="_blank">SVG React Loader</a>.To include an icon you need to know its "Component Name" and File Name.</ParagraphMd>
@@ -47,6 +47,13 @@ import '{ComponentName}' from '@vimeo/iris/dist/icons/bell.svg';
                     <ExampleSource>
                     {`
 import 'VisaLogo' from '@vimeo/iris/dist/icons/third-party/cc-visa.svg';
+                        `}
+                    </ExampleSource>
+                    <Header3>Using an Iris Illustrations</Header3>
+                    <ParagraphMd>Illustrations are loded the same way as icons but with a slightly altered path.</ParagraphMd>
+                    <ExampleSource>
+                    {`
+import 'AlbumsEmptystate' from '@vimeo/iris/dist/illustrations/albums-emptystate.svg';
                         `}
                     </ExampleSource>
             </div>

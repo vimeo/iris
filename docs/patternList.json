@@ -2,7 +2,7 @@
     "Brand": [
         ["Colors", "Color Palette", true],
         ["ColorRibbon", "Color Ribbon", true],
-        ["Svgs", "SVG Icons", true],
+        ["Svgs", "SVG Icons and Illustrations", true],
         ["Typography", "Typography", true],
         ["LinkText", "Links"]
     ],

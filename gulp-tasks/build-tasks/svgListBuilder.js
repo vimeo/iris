@@ -6,33 +6,37 @@ const files = [];
 const svgTest = /^(.*\.((svg)$))?[^.]*$/i;
 
 
+module.exports = (sourceFolder, filters, destinationPath ) => {
 
-// Walker options
-const walker = walk.walk('src/icons', {
-    followLinks: false,
-    filters: ["third-party"], // exclude third party icons
-});
-
-walker.on('file', function(root, stat, next) {
-    // Add this file to the list of files
-    if (svgTest.test(stat.name)) {
-        const fileName = stat.name.split('.svg')[0];
-        const svgPascalName = upperCamelCase(fileName);
-        const entry = {
-            'name': svgPascalName,
-            'filename': fileName,
-            'filepath': root + '/' + stat.name,
-        };
-        files.push(entry);
-    }
-    next();
-});
-
-walker.on('end', function() {
-    const destinationPath = 'data/svgList.json';
-    fs.writeFile(destinationPath, JSON.stringify(files), function(error) {
-        if (error) {
-            console.error('Error while writing ' + destinationPath + ': ' + error.message);
-        }
+    // Walker options
+    const walker = walk.walk(sourceFolder, {
+        followLinks: false,
+        filters, // exclude third party icons
     });
-});
+
+    walker.on('file', function(root, stat, next) {
+        // Add this file to the list of files
+        if (svgTest.test(stat.name)) {
+            const fileName = stat.name.split('.svg')[0];
+            const svgPascalName = upperCamelCase(fileName);
+            const entry = {
+                'name': svgPascalName,
+                'filename': fileName,
+                'filepath': root + '/' + stat.name,
+            };
+            files.push(entry);
+        }
+        next();
+    });
+
+    walker.on('end', function() {
+        fs.writeFile(destinationPath, JSON.stringify(files), function(error) {
+            if (error) {
+                console.error('Error while writing ' + destinationPath + ': ' + error.message);
+            }
+        });
+    });
+
+
+}
+

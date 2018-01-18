@@ -6,6 +6,7 @@ gulp.task('copyOtherSrcFiles' , function(cb) {
         ['copyGlobalSrcFiles',
         'copySCSSFiles',
         'copySVGs',
+        'copyIllustrations',
         'copyLegacySVGs',
         ],
 		cb);
@@ -34,6 +35,11 @@ gulp.task('copySCSSFiles', function () {
 gulp.task('copySVGs', function () {
     return gulp.src('src/icons/**/*.svg')
     .pipe(gulp.dest('dist/icons'));
+});
+
+gulp.task('copyIllustrations', function () {
+    return gulp.src('src/illustrations/**/*.svg')
+    .pipe(gulp.dest('dist/illustrations'));
 });
 
 gulp.task('copyLegacySVGs', function () {
