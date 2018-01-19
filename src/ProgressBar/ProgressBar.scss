@@ -49,7 +49,7 @@ $ProgressBar_stripe-size: rem-calc(10);
         background-color: $Porcelain;
     }
 
-    &.warning {
+    &.alert {
         background-color: $PalePink;
     }
 }
@@ -89,6 +89,10 @@ $ProgressBar_stripe-size: rem-calc(10);
     }
 
     &.warning {
+        background-color: $WarningYellow;
+    }
+
+    &.alert {
         background-color: $SunsetOrange;
     }
 }

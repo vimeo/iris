@@ -8,7 +8,7 @@ const displayName = 'ProgressBar';
 type Props = {
     className?: string,
     currentValue: number,
-    format?: 'neutral' | 'warning' | 'empty' | 'disabled',
+    format?: 'neutral' | 'alert' | 'warning' | 'empty' | 'disabled',
     animated?: boolean,
     size?: 'md' | 'lg' | 'xl',
 
