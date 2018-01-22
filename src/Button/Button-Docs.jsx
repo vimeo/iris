@@ -224,7 +224,7 @@ class ButtonDocs extends React.Component {
                     </ExampleSource>
 
                     <Header3>Disabled Buttons</Header3>
-                    <ParagraphMd>All Buttons receive the same visual treatment for disabled buttons. Buttons are made disabled by the presences of the HTML disabled attribute.</ParagraphMd>
+                    <ParagraphMd>Buttons are made disabled by the presences of the HTML disabled attribute.</ParagraphMd>
                     <div data-code>
                         <Button disabled>Primary Disabled</Button>
                         <Button format="secondary" disabled>Secondary Disabled</Button>

@@ -117,12 +117,12 @@ class InputTextFloatingLabel extends React.Component {
             styles.Input,
             styles[theme + 'Theme'],
             (this.state.isActive ? styles.isActive : null),
-            className,
         );
 
         return (
             <InputWrapper
                 showLabel= {false}
+                className={className}
                 disabled= {disabled}
                 errorMsg = {errorMsg}
                 format = {format}

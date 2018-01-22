@@ -373,11 +373,26 @@ $Button_icon-size-xSmall: rem-calc(10);
 }
 
 
-// All Disable Buttons are the same and override any other applied styles
+// All Disable Buttons other than Primary are the same and override any other applied styles
+
 .Button:disabled {
+    cursor: not-allowed;
+    &:active {
+        outline: 0;
+
+        transform: scale(1);
+    }
+}
+
+.Button:not(.primary):disabled {
     color: #D0D8DB;
     border-color: $Porcelain;
     background-color: $Porcelain;
+}
 
-    cursor: not-allowed;
+.Button.primary:disabled,
+.Button.primary:disabled:hover {
+    color: rgba($White, 0.7);
+    border-color: transparent;
+    background-color: rgba($VimeoBlue, 0.4);
 }
