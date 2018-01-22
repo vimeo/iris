@@ -8,7 +8,7 @@ $InputFloatingLabel-transition: 100ms ease;
     @include sharedTextInputs();
     @include inputThemes();
 
-    min-height: rem-calc(60);
+    min-height: rem-calc(52);
     padding: 0 $inputs_padding-lg-horizontal;
 
     font-size: rem-calc(16);
@@ -31,7 +31,7 @@ $InputFloatingLabel-transition: 100ms ease;
     color: $RegentGray;
 
     transition: all $InputFloatingLabel-transition;
-    transform: translateY(rem-calc(20));
+    transform: translateY(rem-calc(16));
     white-space: nowrap;
     letter-spacing: rem-calc(0.4);
     text-overflow: ellipsis;
@@ -39,7 +39,7 @@ $InputFloatingLabel-transition: 100ms ease;
     &.isActive {
         overflow: visible;
 
-        padding: rem-calc(8) rem-calc(8) 0;
+        padding: rem-calc(6) rem-calc(8) 0;
 
         font-size: rem-calc(13);
         font-weight: $FontWeightMedium;
@@ -88,7 +88,7 @@ $InputFloatingLabel-transition: 100ms ease;
 
     &.isActive {
         height: rem-calc(28);
-        padding: rem-calc(8);
+        padding: rem-calc(4) rem-calc(8) rem-calc(8);
 
         opacity: 1;
 
