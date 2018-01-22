@@ -15,12 +15,31 @@ type Props = {
     speed: Number;
 };
 
+type State = {
+    maxHeight: number,
+}
 class SlideUpDownAnimation extends React.Component {
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            maxHeight: 0,
+        };
+    }
 
     componentDidMount() {
         this._slideDown();
     }
 
+    componentDidUpdate(prevProps: Props) {
+        // need to reset height if child content changes
+        if (this.props.children !== prevProps.children) {
+            const newHeight = this._getContentHeight();
+            this.setState({
+                maxHeight: newHeight,
+            });
+        }
+    }
+    state: State;
     props: Props;
 
     componentDidEnter(callback: any) {
@@ -31,11 +50,23 @@ class SlideUpDownAnimation extends React.Component {
         this._slideUp(callback);
     }
 
-    _slideDown = (callback: any) => {
+    _getContentHeight = () => {
         const el = findDOMNode(this);
 
         if (el instanceof HTMLDivElement) {
             const elContentHeight = el.scrollHeight;
+            return elContentHeight;
+        }
+
+        // fallback for flow to be happy
+        return 1000;
+    }
+
+    _slideDown = (callback: any) => {
+        const el = findDOMNode(this);
+        const elContentHeight = this._getContentHeight();
+
+        if (el instanceof HTMLDivElement) {
             const animationComplete = () => {
                 if (el.style) {
                     el.style.overflow = 'visible';
@@ -44,6 +75,10 @@ class SlideUpDownAnimation extends React.Component {
                 if (typeof callback === 'function') {
                     callback();
                 }
+
+                this.setState({
+                    maxHeight: elContentHeight,
+                });
             };
 
             if (elContentHeight) {
@@ -93,7 +128,10 @@ class SlideUpDownAnimation extends React.Component {
             );
 
         return (
-                <div className={componentClass}>
+                <div
+                    className={componentClass}
+                    style={{ maxHeight: this.state.maxHeight }}
+                >
                     {this.props.children}
                 </div>
         );

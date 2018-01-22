@@ -20,8 +20,36 @@ class VerticalMenuDemoDocs extends React.Component {
     constructor(props) {
         super();
         this.state = {
-            menuOpen: false
+            menuOpen: false,
+            dynamicMenuItems: [],
         }
+    }
+
+    componentWillMount() {
+        this._makeMenuItem();
+    }
+
+    _makeMenuItem = () => {
+        const i = this.state.dynamicMenuItems.length+1;
+        const newItem = (
+            <VerticalMenuItem
+            >
+                    <a
+                        to="#"
+                    >
+                        <VerticalMenuItemContent
+                            label={`Dynamic Item ${i}`}
+                        />
+                    </a>
+                </VerticalMenuItem>
+        );
+
+        const newItemState = [...this.state.dynamicMenuItems];
+        newItemState.push(newItem);
+
+        this.setState({
+            dynamicMenuItems: newItemState,
+        });
     }
 
     _toggleMenu = () => {
@@ -146,6 +174,13 @@ class VerticalMenuDemoDocs extends React.Component {
                                 ]}
                             />
                             <VerticalMenuNested
+                                isOpen={this.state.menuOpen}
+                                label="Dynamic Menu"
+                                labelId="testDynamicMenu"
+                                nestedButtonLabel="toggle menu"
+                                subMenuItems={this.state.dynamicMenuItems}
+                            />
+                            <VerticalMenuNested
                             isOpen={!this.state.menuOpen}
                             label="Menu Label"
                             labelId="testMenu"
@@ -236,7 +271,9 @@ class VerticalMenuDemoDocs extends React.Component {
                                 <ParagraphMd>These components will up their given space and should be sized using the grid</ParagraphMd>
                                 <ParagraphMd>The menus can also be opened programatically with the <code>isOpen</code> prop.</ParagraphMd>
                                 <Button onClick={this._toggleMenu}>Toggle isOpen Prop</Button>
+                                <Button onClick={this._makeMenuItem}>Add Dynamic Menu Items</Button>
                                 <Header4>Both components should be used in a binding grid.</Header4>
+                                
                                 <ExampleSource>
                                 {`
 <GridCol
