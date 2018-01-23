@@ -35,7 +35,7 @@ $TooltipsAnnotationIcon-spacing: rem-calc(4);
         right: ($TooltipsAnnotationIcon-size-lg + $TooltipsAnnotationIcon-spacing) * -1;
     }
 
-    &.no-position {
+    &.noPosition {
         position: relative;
         top: 0;
         left: 0;

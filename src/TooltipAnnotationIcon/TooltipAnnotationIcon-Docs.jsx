@@ -50,6 +50,13 @@ class TooltipAnnotationIconDocs extends React.Component {
                 All of the props passed available to the TooltipOverlay component can be passed to this component.
                 </ParagraphMd>
                 <div data-code>
+                    <div>
+                        <TooltipAnnotationIcon
+                            size="md"
+                            tooltipText="I am a medium tooltip"
+                            labelType="noPosition"
+                        />
+                    </div>
                     <div style={{ position: 'relative' }}>
 
                         <TooltipAnnotationIcon
@@ -67,12 +74,16 @@ class TooltipAnnotationIconDocs extends React.Component {
                         >
                             <Header4>Large (size='lg')</Header4>
                         </TooltipAnnotationIcon>
-
                     </div>
                 </div>
 
                 <ExampleSource>
                     {`
+<TooltipAnnotationIcon
+    size="md"
+    tooltipText="I am a medium tooltip"
+    labelType="noPosition"
+/>
 <TooltipAnnotationIcon
     size="md"
     tooltipText="I am a medium tooltip"

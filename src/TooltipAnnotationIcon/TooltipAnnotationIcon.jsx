@@ -10,7 +10,7 @@ const displayName = 'TooltipAnnotationIcon';
 type Props = {
     className?: string,
     children: React$Element<*>,
-    labelType?: 'textBlock' | 'inline' | 'no-positioning',
+    labelType?: 'textBlock' | 'inline' | 'noPosition',
     tooltipText: string,
     size?: 'md'| 'lg',
 };
@@ -35,6 +35,7 @@ const TooltipAnnotationIcon = ({
     const iconWrapperClass = classNames(
         styles.IconWrapper,
         styles[size],
+        styles[labelType],
         className
     );
 
