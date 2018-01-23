@@ -10,7 +10,7 @@ const displayName = 'TooltipAnnotationIcon';
 type Props = {
     className?: string,
     children: React$Element<*>,
-    labelType?: 'textBlock' | 'inline',
+    labelType?: 'textBlock' | 'inline' | 'no-positioning',
     tooltipText: string,
     size?: 'md'| 'lg',
 };

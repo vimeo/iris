@@ -34,6 +34,12 @@ $TooltipsAnnotationIcon-spacing: rem-calc(4);
         top: 0;
         right: ($TooltipsAnnotationIcon-size-lg + $TooltipsAnnotationIcon-spacing) * -1;
     }
+
+    &.no-position {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
 }
 .md {
     width: $TooltipsAnnotationIcon-size-md;

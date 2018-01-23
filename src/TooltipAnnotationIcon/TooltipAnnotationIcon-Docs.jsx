@@ -44,7 +44,7 @@ class TooltipAnnotationIconDocs extends React.Component {
                 The TooltipAnnotationIcon is a stand-alone icon button for annotating input labels with an "more info" icon which controls a tooltip. It comes in two sizes, use the size that matches the input's size prop.
                 </ParagraphMd>
                 <ParagraphMd>This component will appear to the right of the child component that it wraps.</ParagraphMd>
-                <ParagraphMd>In order to have the tooltip line up with the different input styles there is a <code>labelType</code> prop. Use <code>inline</code> for inline labels (e.g. toggles, checkboxes, radios) and <code>textBlock</code> for labels on inputs where the label is above the field.
+                <ParagraphMd>In order to have the tooltip line up with the different input styles there is a <code>labelType</code> prop. Use <code>inline</code> for inline labels (e.g. toggles, checkboxes, radios) and <code>textBlock</code> for labels on inputs where the label is above the field.<code>no-postiton</code> leaves the positioning up to implementation time.
                 </ParagraphMd>
                 <ParagraphMd>
                 All of the props passed available to the TooltipOverlay component can be passed to this component.
