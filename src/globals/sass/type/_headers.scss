@@ -15,6 +15,10 @@
     color: $HeaderTextColor;
 }
 
+@mixin HeaderAlt {
+    color: $BodyTextColor-Light;
+}
+
 @mixin Header1 {
     @include Headers;
 
@@ -85,4 +89,18 @@
     line-height: calculateLineHeightTarget($Header6, 20);
 
     letter-spacing: $LetterSpacingMd;
+}
+
+@mixin HeaderSm {
+    @include Headers;
+
+    margin-bottom: spacingUnit(2);
+    line-height: calculateLineHeightTarget($BodySm, 18);
+
+    letter-spacing: $LetterSpacingMd;
+
+    font-size: rem-calc($BodySm);
+    font-weight: $FontWeightMedium;
+
+    text-transform: uppercase;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import NotificationWarning from '../../../src/NotificationWarning/NotificationWarning';
-import { ParagraphLg, ParagraphSm, ParagraphMd, ParagraphAltLg, ParagraphAltMd, ParagraphAltSm, Header1, Header2, Header3, Header4, Header5, Header6 } from '../../../src/Type';
+import { ParagraphLg, ParagraphSm, ParagraphMd, ParagraphAltLg, ParagraphAltMd, ParagraphAltSm, Header1, Header2, Header3, Header4, Header5, Header6, HeaderAltSm } from '../../../src/Type';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 import styles from './Typography.scss';
@@ -33,6 +33,7 @@ import { ParagraphMd, Header1, Header2} from '@vimeo/iris'classnames;
             <Header4>Header 4</Header4>
             <Header5>Header 5</Header5>
             <Header6>Header 6</Header6>
+            <HeaderAltSm>Header Small (Alternative)</HeaderAltSm>
             <ParagraphLg>ParagraphLg</ParagraphLg>
             <ParagraphMd>ParagraphMd</ParagraphMd>
             <ParagraphSm>ParagraphSm</ParagraphSm>
@@ -48,6 +49,7 @@ import { ParagraphMd, Header1, Header2} from '@vimeo/iris'classnames;
 <Header4>Header 4</Header4>
 <Header5>Header 5</Header5>
 <Header6>Header 6</Header6>
+<HeaderAltSm>Header Small (Alternative)</HeaderAltSm>
 <ParagraphLg>ParagraphLg</ParagraphLg>
 <ParagraphMd>ParagraphMd</ParagraphMd>
 <ParagraphSm>ParagraphSm</ParagraphSm>

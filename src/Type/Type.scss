@@ -49,6 +49,10 @@
 .Header6 {
     @include Header6;
 }
+.HeaderAltSm {
+    @include HeaderSm;
+    @include HeaderAlt;
+}
 
 .light {
     @include lightText;

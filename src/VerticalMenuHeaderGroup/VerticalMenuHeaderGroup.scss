@@ -1,0 +1,38 @@
+/* @description Generates styles for the VerticalMenuHeaderGroup component */
+@import '../globals/sass/helpers-all';
+$VerticalMenuHeaderGroup_ButtonSize: 1rem;
+
+.VerticalMenuHeaderGroup {
+    padding: rem-calc(8) 0;
+}
+
+.HeaderWrapper {
+    position: relative;
+
+    &.hasActionButton {
+        padding-right: $VerticalMenuHeaderGroup_ButtonSize + 0.5rem;
+    }
+}
+
+.ActionButtonWrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.ActionButton {
+    svg {
+        width: $VerticalMenuHeaderGroup_ButtonSize;
+        height: auto;
+
+        * {
+            fill: $BodyTextColor-Light;
+        }
+    }
+
+    &:hover {
+        svg * {
+            fill: $AstroGranite;
+        }
+    }
+}

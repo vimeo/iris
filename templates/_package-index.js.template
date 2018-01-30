@@ -16,6 +16,7 @@ export { default as Header3 } from './Type/Header3';
 export { default as Header4 } from './Type/Header4';
 export { default as Header5 } from './Type/Header5';
 export { default as Header6 } from './Type/Header6';
+export { default as HeaderAltSm } from './Type/HeaderAltSm';
 export { default as ParagraphLg } from './Type/ParagraphLg';
 export { default as ParagraphMd } from './Type/ParagraphMd';
 export { default as ParagraphSm } from './Type/ParagraphSm';

@@ -60,6 +60,7 @@
         ["TooltipOverlay", "Tooltip Overlay"],
         ["Toastification", "Toastification"],
         ["WithCopyAbility", "Copy Ability Wrapper",  true],
+        ["VerticalMenuHeaderGroup", "Vertical Menu Header"],
         ["VerticalMenuItem", "Vertical Menu Item"],
         ["VerticalMenuContextualMenuPanel", "Vertical Menu  Contextual Menu Panel"],
         ["VerticalMenuNested", "Vertical Menu Nested"]
