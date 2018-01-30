@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import classNames from 'classnames';
 import FeatureTourPanelContent from '../FeatureTourPanelContent';
 import FeatureTourDot from '../FeatureTourDot';
 import MenuPanel from '../MenuPanel';
@@ -27,7 +28,7 @@ type Props = {
 
 type State = {
     isShowing?: boolean,
-    beaconMode?: 'inactive' | 'open' |'active';
+    beaconMode?: 'inactive' | 'open' |'active' | 'hidden';
 }
 
 class FeatureTourPanel extends React.Component {
@@ -56,12 +57,16 @@ class FeatureTourPanel extends React.Component {
     state: State;
 
 
-    componentWillUpdate(nextProps: Props) {
+    componentWillUpdate(nextProps: Props, nextState: State) {
         if (nextProps !== this.props) {
             this.setState({
                 isShowing: nextProps.isShowing,
                 beaconMode: nextProps.isShowing ? 'open' : this.state.beaconMode,
             });
+        }
+
+        if (this.state.beaconMode === 'active' && nextState.beaconMode !== 'active') {
+            clearTimeout(this.beaconTimer);
         }
     }
 
@@ -133,6 +138,12 @@ class FeatureTourPanel extends React.Component {
             ...filteredProps
         } = this.props;
 
+        const combinedWrapperClass = classNames(
+        styles.Wrapper,
+        styles[this.state.beaconMode],
+        wrapperClass,
+       );
+
         const MenuPanelContent = (
             <FeatureTourPanelContent
                 actionArea={actionArea}
@@ -150,29 +161,29 @@ class FeatureTourPanel extends React.Component {
         switch (attachment) {
             case 'top':
                 panelAttachment = 'bottom center';
-                panelOffset = `${panelOffsetDistance}px 0`;
+                panelOffset = `${panelOffsetDistance * 3}px 0`;
                 panelTargetAttachment = 'bottom center';
                 break;
             case 'right':
                 panelAttachment = 'top left';
-                panelOffset = `${panelOffsetDistance}px ${panelOffsetDistance * -1}px`;
+                panelOffset = '0 0';
                 panelTargetAttachment = 'top right';
                 break;
             case 'bottom':
                 panelAttachment = 'top center';
-                panelOffset = `${panelOffsetDistance * -1}px 0`;
+                panelOffset = `${panelOffsetDistance * -3}px 0`;
                 panelTargetAttachment = 'top center';
                 break;
             case 'left':
                 panelAttachment = 'top right';
-                panelOffset = `${panelOffsetDistance}px ${panelOffsetDistance}px`;
+                panelOffset = '0 0';
                 panelTargetAttachment = 'top left';
                 break;
         }
 
 
         return (
-            <div className={wrapperClass}>
+            <div className={combinedWrapperClass}>
                 <MenuPanel
                     {...filteredProps}
                     isShowing={this.state.isShowing}

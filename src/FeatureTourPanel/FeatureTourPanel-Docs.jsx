@@ -19,7 +19,8 @@ class FeatureTourPanelDocs extends React.Component {
                     <div className={styles.dotDemoWrapper}>
                         <FeatureTourPanel
                             actionArea={<FeatureTourPanelButton>Okay</FeatureTourPanelButton>}
-                            headerText="Header Text"
+                            attachment="right"
+                            headerText="Right Attachment"
                             beaconDelayIndex={1}
                             beaconA11yText="click to learn more"
                             dismissButtonA11yLabel="Close"
@@ -29,7 +30,8 @@ class FeatureTourPanelDocs extends React.Component {
                         </FeatureTourPanel>
                         <FeatureTourPanel
                             actionArea={<FeatureTourPanelButton>Okay</FeatureTourPanelButton>}
-                            headerText="Header Text"
+                            attachment="bottom"
+                            headerText="Bottom Attachment"
                             beaconDelayIndex={2}
                             beaconA11yText="click to learn more"
                             dismissButtonA11yLabel="Close"
@@ -37,6 +39,28 @@ class FeatureTourPanelDocs extends React.Component {
                         >
                             This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
                         </FeatureTourPanel>
+                        <FeatureTourPanel
+                        actionArea={<FeatureTourPanelButton>Okay</FeatureTourPanelButton>}
+                        attachment="left"
+                        headerText="Left Attachment"
+                        beaconDelayIndex={3}
+                        beaconA11yText="click to learn more"
+                        dismissButtonA11yLabel="Close"
+                        wrapperClass={styles.dotThree}
+                    >
+                        This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
+                    </FeatureTourPanel>
+                    <FeatureTourPanel
+                        actionArea={<FeatureTourPanelButton>Okay</FeatureTourPanelButton>}
+                        attachment="top"
+                        headerText="Top Attachment"
+                        beaconDelayIndex={4}
+                        beaconA11yText="click to learn more"
+                        dismissButtonA11yLabel="Close"
+                        wrapperClass={styles.dotFour}
+                    >
+                        This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
+                    </FeatureTourPanel>
                     </div>
                     <ParagraphMd>The body text should be passed as the child of the component. No formatting is necessary for this text as it is wrapped in a div styled with the "ParagraphMd" style with the "light" format.</ParagraphMd>
                     <NotificationNeutral>
@@ -66,39 +90,76 @@ class FeatureTourPanelDocs extends React.Component {
 <style>
 .dotOne {
     position: absolute;
-    z-index: 999;
+    z-index: 101;
     top: 0;
     left: 0;
 }
 
 .dotTwo {
     position: absolute;
-    z-index: 999;
-    top: 4rem;
+    z-index: 102;
+    top: 4em;
     left: 4rem;
+}
+
+.dotThree {
+    position: absolute;
+    z-index: 103;
+    top: 8rem;
+    left: 8rem;
+}
+
+.dotFour {
+    position: absolute;
+    z-index: 104;
+    top: 12rem;
+    left: 12rem;
 }
 </style>
 
 <FeatureTourPanel
     actionArea={<FeatureTourPanelButton>Okay</FeatureTourPanelButton>}
-    headerText="Header Text"
+    attachment="right"
+    headerText="Right Attachment"
     beaconDelayIndex={1}
     beaconA11yText="click to learn more"
     dismissButtonA11yLabel="Close"
     wrapperClass={styles.dotOne}
 >
-        This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
+    This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
 </FeatureTourPanel>
-
 <FeatureTourPanel
     actionArea={<FeatureTourPanelButton>Okay</FeatureTourPanelButton>}
-    headerText="Header Text"
+    attachment="bottom"
+    headerText="Bottom Attachment"
     beaconDelayIndex={2}
     beaconA11yText="click to learn more"
     dismissButtonA11yLabel="Close"
     wrapperClass={styles.dotTwo}
 >
-        This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
+    This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
+</FeatureTourPanel>
+<FeatureTourPanel
+actionArea={<FeatureTourPanelButton>Okay</FeatureTourPanelButton>}
+attachment="left"
+headerText="Left Attachment"
+beaconDelayIndex={3}
+beaconA11yText="click to learn more"
+dismissButtonA11yLabel="Close"
+wrapperClass={styles.dotThree}
+>
+This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
+</FeatureTourPanel>
+<FeatureTourPanel
+actionArea={<FeatureTourPanelButton>Okay</FeatureTourPanelButton>}
+attachment="top"
+headerText="Top Attachment"
+beaconDelayIndex={4}
+beaconA11yText="click to learn more"
+dismissButtonA11yLabel="Close"
+wrapperClass={styles.dotFour}
+>
+This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
 </FeatureTourPanel>
                         `}
                     </ExampleSource>
@@ -108,16 +169,26 @@ class FeatureTourPanelDocs extends React.Component {
                     <FeatureTourDot
                         beaconText="this is active"
                         mode="active"
+                        beaconA11yText="click to learn more"
                     />
                     <Header5>Inactive</Header5>
                     <FeatureTourDot
                         beaconText="this is inactive"
                         mode="inactive"
+                        beaconA11yText="click to learn more"
                     />
                     <Header5>Open</Header5>
                     <FeatureTourDot
                         beaconText="this is open"
                         mode="open"
+                        beaconA11yText="click to learn more"
+                    />
+                    <Header5>Hidden</Header5>
+                    <ParagraphMd>(Nothing is visible) Use this mode to remove the dot.</ParagraphMd>
+                    <FeatureTourDot
+                        beaconText="this is open"
+                        mode="hidden"
+                        beaconA11yText="click to learn more"
                     />
                 </div>
         );

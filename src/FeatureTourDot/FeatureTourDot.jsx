@@ -21,13 +21,27 @@ const FeatureTourDot = ({
     // className builder
     const componentClass = classNames(
         styles.FeatureTourDot,
-        styles[mode],
+        styles[mode]
+    );
+
+    const haloClass = classNames(
+        styles.halo,
         (mode === 'active' ? 'FeatureTourDot_beaconIsActive' : null),
         className
     );
 
+    const wrapperClass = classNames(
+        styles.Wrapper,
+        styles[mode],
+        className
+    );
+
     return (
-        <span className={componentClass}>{beaconA11yText}</span>
+        <span className={wrapperClass}>
+            <span className={haloClass}>
+                <span className={componentClass}>{beaconA11yText}</span>
+            </span>
+        </span>
     );
 };
 

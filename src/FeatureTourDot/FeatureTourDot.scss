@@ -1,14 +1,31 @@
 /* @description Generates styles for the FeatureTourDot component */
 @import '../globals/sass/helpers-all';
-$FeatureTourDot_beacon-size: rem-calc(16);
-$FeatureTourDot_dot-color: #105AD6;
-$FeatureTourDot_dot-color-darkened: #4E7CF6;
+$FeatureTourDot_beacon-size: rem-calc(14);
+$FeatureTourDot_halo-size: $FeatureTourDot_beacon-size + rem-calc(16);
+$FeatureTourDot_wrapper-size: $FeatureTourDot_halo-size + rem-calc(16);
+$FeatureTourDot_halo_color: rgba(0,173,239,0.25);
 
 @mixin start_finish() {
-    box-shadow: 0 0 rem-calc(4) rem-calc(4) rgba($FeatureTourDot_dot-color, 0.0),
-    0 0 rem-calc(8) rem-calc(6) rgba($FeatureTourDot_dot-color, 0),
+    box-shadow: 0 0 rem-calc(4) rem-calc(4) rgba($VimeoBlue, 0.0),
+    0 0 rem-calc(8) rem-calc(6) rgba($VimeoBlue, 0),
     0 0 0 0 rgba(0,0,0,0.0),
-    0 0 0 0 rgba($FeatureTourDot_dot-color, 0);
+    0 0 0 0 rgba($VimeoBlue, 0);
+}
+
+.Wrapper {
+    display: inline-block;
+    overflow: visible;
+
+    width: $FeatureTourDot_wrapper-size;
+    height: $FeatureTourDot_wrapper-size;
+    padding: ($FeatureTourDot_wrapper-size - $FeatureTourDot_beacon-size) / 2;
+
+    &.active {
+        padding: ($FeatureTourDot_wrapper-size - $FeatureTourDot_halo-size) / 2;
+    }
+    &:hover {
+        transform: scale(1.14);
+    }
 }
 
 .FeatureTourDot {
@@ -17,29 +34,40 @@ $FeatureTourDot_dot-color-darkened: #4E7CF6;
     width: $FeatureTourDot_beacon-size;
     height: $FeatureTourDot_beacon-size;
 
-    border: rem-calc(2) solid $FeatureTourDot_dot-color;
     border-radius: $FeatureTourDot_beacon-size/2;
 
+    transition: all #{$iris_transition-base};
     text-indent: -9999px;
 
     &.active,
     &.inactive {
-        background: $FeatureTourDot_dot-color;
+        background-image: linear-gradient(0deg, #093AC9 0%, $VimeoBlue 100%);
     }
 
     &.open {
         background: $White;
-    }
-
-    &:hover {
-        border-color: $FeatureTourDot_dot-color-darkened;
-        background: $FeatureTourDot_dot-color-darkened;
+        box-shadow: 0 0 0 rem-calc(2) #093AC9, 0 rem-calc(1) rem-calc(4) rem-calc(2) rgba(60,90,153,0.66);
     }
 }
 
 :global {
     .FeatureTourDot_beaconIsActive {
-        background: $FeatureTourDot_dot-color-darkened;
+        display: inline-block;
+
+        width: $FeatureTourDot_halo-size;
+        height: $FeatureTourDot_halo-size;
+        padding: ($FeatureTourDot_halo-size - $FeatureTourDot_beacon-size) / 2;
+
+        border-radius: $FeatureTourDot_halo-size / 2;
+        background-image: radial-gradient(
+        circle,
+        $White,
+        $White rem-calc(9),
+        $FeatureTourDot_halo_color rem-calc(10),
+        $FeatureTourDot_halo_color rem-calc(15),
+        rgba(255,255,255, 0) rem-calc(16),
+        rgba(255,255,255, 0)
+        );
 
         animation: 2500ms infinite FeatureTourDot_BeaconBloop;
     }
@@ -51,17 +79,15 @@ $FeatureTourDot_dot-color-darkened: #4E7CF6;
     }
 
     10% {
-        box-shadow: 0 0 rem-calc(4) rem-calc(4) rgba($FeatureTourDot_dot-color-darkened, 0.3),
-        0 0 rem-calc(8) rem-calc(6) rgba($FeatureTourDot_dot-color-darkened, 0.2),
+        box-shadow: 0 0 rem-calc(8) rem-calc(6) rgba($VimeoBlue-Darkened, 0.4),
         0 0 rem-calc(12) rem-calc(10) rgba(0,0,0,0.0),
-        0 0 rem-calc(12) rem-calc(14) rgba($FeatureTourDot_dot-color-darkened, 0.2);
+        0 0 rem-calc(12) rem-calc(14) rgba($VimeoBlue-Darkened, 0.4);
     }
 
     25% {
-        box-shadow: 0 0 rem-calc(8) rem-calc(8) rgba($FeatureTourDot_dot-color, 0.0),
-        0 0 rem-calc(8) rem-calc(6) rgba($FeatureTourDot_dot-color, 0),
-        0 0 0 rem-calc(60) rgba(0,0,0,0.0),
-        0 0 0 rem-calc(60) rgba($FeatureTourDot_dot-color, 0);
+        box-shadow: 0 0 0 rem-calc(8) rem-calc(6) rgba($VimeoBlue, 0),
+        0 0 0 rem-calc(80) rgba(0,0,0,0.0),
+        0 0 0 rem-calc(80) rgba($VimeoBlue, 0);
     }
 
     30% {
