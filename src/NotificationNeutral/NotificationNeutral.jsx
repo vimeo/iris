@@ -36,7 +36,7 @@ const NotificationNeutral = ({
                 headerText={headerText}
                 icon={hasIcon ? <InfoIcon className={styles.iconColor} /> : null}
                 onDismiss={onDismiss}
-                dismissIconClassName = {styles.dismissIconColor}
+                dismissButtonClassName={styles.dismissButton}
                 className={componentClass}
             >
                     {children}

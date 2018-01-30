@@ -80,29 +80,8 @@ $Modal_maxHeight: 86vh;
 
 .ModalCloseButton {
     position: absolute;
-    top: rem-calc(22);
-    right: rem-calc(22);
-
-    &.dark {
-        background: rgba(255,255,255,0.9);
-        svg * {
-            fill: $RegentGray;
-        }
-
-        &:hover svg * {
-            fill: $AstroGranite;
-        }
-    }
-
-    &.light {
-        svg * {
-            fill: $White;
-        }
-
-        &:hover svg {
-            opacity: 0.8;
-        }
-    }
+    top: 1rem;
+    right: 1rem;
 }
 
 .Title {

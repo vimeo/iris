@@ -50,13 +50,8 @@ $Notification_dismiss-icon-size: rem-calc(20);
 }
 
 // dismiss button
-.dismissButton {
-    top: rem-calc(10);
-    right: $Notification_padding-horizontal;
-
-    opacity: 0.75;
-
-    &:hover {
-        opacity: 1;
-    }
+.dismissButtonWrapper {
+    position: absolute;
+    top: rem-calc(4);
+    right: rem-calc(4);
 }

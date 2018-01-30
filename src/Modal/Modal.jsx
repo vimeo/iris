@@ -355,11 +355,6 @@ class Modal extends React.Component {
             (fullBleed ? styles.fullBleed : null),
         );
 
-        const dismissClass = classNames(
-            styles.ModalCloseButton,
-            styles[dismissButtonFormat],
-        );
-
         const actionAreaElement = (
             <div className={styles.ActionArea}>
                 <Grid
@@ -402,11 +397,14 @@ class Modal extends React.Component {
             </Header4>
         );
 
+        const closeButtonFormat = dismissButtonFormat === 'light' ? 'lightTransparent' : 'dark';
+
         const CloseButton = (
             <ButtonDialogClose
                 buttonTitle={modalCloseLabel}
-                className={dismissClass}
+                className={styles.ModalCloseButton}
                 onClick={onDismiss ? () => this._handleModalClose(onDismiss) : null}
+                format={closeButtonFormat}
                 data-js-modalCloseButton
             />
         );

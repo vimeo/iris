@@ -1,35 +1,40 @@
 // @flow
 import React from 'react';
-import classNames from 'classnames';
-import styles from './ButtonDialogClose.scss';
 import DeleteIcon from '../icons/dismiss-x.svg';
+import ButtonIconOnly from '../ButtonIconOnly';
 
 const displayName = 'ButtonDialogClose';
 
 type Props = {
     buttonTitle?: string,
     className?: string,
+    autoSpacingHorizontal?: boolean,
+    className?: string,
+    format?: 'dark'| 'alternative' | 'light' | 'warning' | 'lightWarning' | 'lightTransparent',
+    isButtonElement?: boolean,
+    size?: 'sm' | 'md',
 };
 
 const ButtonDialogClose = ({
                         buttonTitle = 'Close',
+                        autoSpacingHorizontal = true,
                         className,
+                        format = 'dark',
+                        isButtonElement = true,
+                        size = 'sm',
                         ...filteredProps
                     }: Props): React$Element<*> => {
 
-    // className builder
-    const componentClass = classNames(
-        styles.ButtonDialogClose,
-        className
-    );
-
     return (
-            <button
+            <ButtonIconOnly
                 {...filteredProps}
-                className = {componentClass}
-            >
-                <DeleteIcon title={buttonTitle} />
-            </button>
+                className={className}
+                autoSpacingHorizontal={autoSpacingHorizontal}
+                format={format}
+                icon={<DeleteIcon title={buttonTitle} />}
+                isButtonElement={isButtonElement}
+                size={size}
+            />
     );
 };
 

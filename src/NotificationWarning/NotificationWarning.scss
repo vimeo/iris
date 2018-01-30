@@ -4,7 +4,16 @@
     background-color: $PalePink;
 }
 
-.iconColor *,
-.dismissIconColor * {
+.iconColor * {
     fill: $SunsetOrange;
+}
+
+.dismissButton {
+    svg * {
+        fill: $SunsetOrange !important; // overrides button icon color for special case
+    }
+
+    &:hover {
+        background: rgba($SunsetOrange, 0.1) !important; // overrides button icon color for special case
+    }
 }

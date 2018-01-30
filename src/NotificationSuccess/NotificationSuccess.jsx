@@ -36,7 +36,7 @@ const NotificationSuccess = ({
                 headerText={headerText}
                 icon={hasIcon ? <SuccessIcon className={styles.iconColor} /> : null}
                 onDismiss={onDismiss}
-                dismissIconClassName = {styles.dismissIconColor}
+                dismissButtonClassName={styles.dismissButton}
                 className={componentClass}
             >
                     {children}

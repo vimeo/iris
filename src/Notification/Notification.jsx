@@ -13,7 +13,7 @@ const displayName = 'Notification';
 type Props = {
     children: string,
     className?: string,
-    dismissIconClassName?: string,
+    dismissButtonClassName?: string,
     headerText?: string,
     icon?: any,
     onDismiss?: any,
@@ -22,7 +22,7 @@ type Props = {
 const Notification = ({
             className,
             children,
-            dismissIconClassName,
+            dismissButtonClassName,
             headerText,
             icon,
             onDismiss,
@@ -45,17 +45,15 @@ const Notification = ({
         </span>
     );
 
-    const dismissElementClass = classNames(
-        styles.dismissButton,
-        (dismissIconClassName ? dismissIconClassName : null)
-        );
-
     const dismissElement = (
-            <ButtonDialogClose
-                className={dismissElementClass}
-                onClick={onDismiss}
-                buttonTitle="Dismiss this notification"
-            />
+            <div className={styles.dismissButtonWrapper}>
+                <ButtonDialogClose
+                    className={dismissButtonClassName}
+                    onClick={onDismiss}
+                    buttonTitle="Dismiss this notification"
+                    format="lightTransparent"
+                />
+            </div>
     );
 
     const headerTextElement = (

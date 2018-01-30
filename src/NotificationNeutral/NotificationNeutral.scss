@@ -5,7 +5,16 @@
     background-color: $Foam;
 }
 
-.iconColor *,
-.dismissIconColor * {
+.iconColor * {
     fill: $VimeoBlue;
+}
+
+.dismissButton {
+    svg * {
+        fill: $VimeoBlue !important;// overrides button icon color for special case
+    }
+
+    &:hover {
+        background: rgba($VimeoBlue, 0.1) !important; // overrides button icon color for special case
+    }
 }
