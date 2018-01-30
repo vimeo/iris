@@ -8,5 +8,7 @@
 
 //Export Global CSS and all components ------------------
   
+ exports.AlbumsAddFeature = require('../../../src/illustrations/albums-add-feature.svg');
+  
  exports.AlbumsEmptystate = require('../../../src/illustrations/albums-emptystate.svg');
   
