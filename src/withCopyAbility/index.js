@@ -1,3 +1,3 @@
-import WithCopyAbility from './WithCopyAbility';
+import withCopyAbility from './withCopyAbility';
 
-export default WithCopyAbility;
+export default withCopyAbility;
