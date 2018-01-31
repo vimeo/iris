@@ -92,6 +92,8 @@
   
  exports.LockChecked = require('../../../src/icons/lock-checked.svg');
   
+ exports.LockFilled = require('../../../src/icons/lock-filled.svg');
+  
  exports.Lock = require('../../../src/icons/lock.svg');
   
  exports.PaperPlane = require('../../../src/icons/paper-plane.svg');
