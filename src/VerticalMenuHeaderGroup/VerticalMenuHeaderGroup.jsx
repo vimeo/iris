@@ -44,7 +44,7 @@ const VerticalMenuHeaderGroup = ({
     const ActionButton = hasActionButton ? (
         <span className={styles.ActionButtonWrapper}>
             <TooltipOverlay
-                tooltipText="actionButtonTooltipText"
+                tooltipText={actionButtonTooltipText}
             >
                 <span
                     className={styles.ActionButton}
