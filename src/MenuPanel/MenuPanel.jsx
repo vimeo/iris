@@ -28,6 +28,7 @@ type Props = {
     options?: Object,
     isFluid?: boolean,
     isControlled?: boolean;
+    shouldRefocusTriggerOnClose?: boolean;
 };
 
 class MenuPanel extends React.Component {
@@ -35,6 +36,7 @@ class MenuPanel extends React.Component {
         alignment: 'center',
         href: '#',
         size: 'md',
+        shouldRefocusTriggerOnClose: true,
     };
 
     constructor(props: Props) {
@@ -205,7 +207,10 @@ class MenuPanel extends React.Component {
             this._unBindEvents();
         }
 
-        this.menuTriggerEl.focus();
+        if (this.props.shouldRefocusTriggerOnClose) {
+            this.menuTriggerEl.focus();
+        }
+
         if (typeof this.props.onClose === 'function') {
             this.props.onClose();
         }
@@ -261,6 +266,7 @@ class MenuPanel extends React.Component {
             onOpen, // eslint-disable-line no-unused-vars
             options,
             panelClassName,
+            shouldRefocusTriggerOnClose, // eslint-disable-line no-unused-vars
             size,
             ...filteredProps
         } = this.props;

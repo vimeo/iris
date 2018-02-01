@@ -3,6 +3,7 @@ import FeatureTourPanel from './FeatureTourPanel';
 import FeatureTourDot from '../FeatureTourDot';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import { ParagraphMd, Header3, Header5 } from '../Type';
+
 import LinkText from '../LinkText';
 import NotificationNeutral from '../NotificationNeutral';
 import List from '../List';
@@ -57,7 +58,21 @@ class FeatureTourPanelDocs extends React.Component {
                         beaconDelayIndex={4}
                         beaconA11yText="click to learn more"
                         dismissButtonA11yLabel="Close"
+                        shouldRefocusTriggerOnClose={false}
                         wrapperClass={styles.dotFour}
+                    >
+                        This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
+                    </FeatureTourPanel>
+
+                    <FeatureTourPanel
+                        actionArea={<FeatureTourPanelButton>Okay</FeatureTourPanelButton>}
+                        attachment="right"
+                        shouldHideOnClose
+                        headerText="Right Attachment"
+                        beaconDelayIndex={5}
+                        beaconA11yText="click to learn more"
+                        dismissButtonA11yLabel="Close"
+                        wrapperClass={styles.dotFive}
                     >
                         This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
                     </FeatureTourPanel>
@@ -80,6 +95,9 @@ class FeatureTourPanelDocs extends React.Component {
                         <ListItem><code>beaconA11yText</code> is a required text string that should describe what clicking the beacon does (e.g. "Learn more about folders". This is used to describe the action to screen readers.</ListItem>
                         <ListItem><code>dismissButtonA11yLabel</code> is a required text string that should describe what clicking the dismiss button does (e.g. "Close"). This is used to describe the action to screen readers.</ListItem>
                         <ListItem><code>headerText</code> is a string that will be the header of the feature tour panel that opens.</ListItem>
+                        <ListItem><code>shouldHideOnClose</code> hides the dot when the menu closes.</ListItem>
+                        <ListItem><code>shouldRefocusTriggerOnClose</code> prevents the dot from refocusing when the menu closes. Use this if multiple dots can be open at the same time. Note this gets forced to false if <code>shouldHideOnClose</code></ListItem>
+                        <ListItem><code>isOpen</code> opens the Feature Panel</ListItem>
                         <ListItem><code>dismissButtonProps</code> take an object of properties to be passed through to the formatted dismiss button.</ListItem>
                         <ListItem><code>wrapperClass</code> shoudl be used to pass a class to the component for positioning the beacon.</ListItem>
                     </List>
@@ -115,6 +133,13 @@ class FeatureTourPanelDocs extends React.Component {
     top: 12rem;
     left: 12rem;
 }
+
+.dotFive {
+    position: absolute;
+    z-index: 105;
+    top: 16rem;
+    left: 16rem;
+}
 </style>
 
 <FeatureTourPanel
@@ -140,26 +165,40 @@ class FeatureTourPanelDocs extends React.Component {
     This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
 </FeatureTourPanel>
 <FeatureTourPanel
-actionArea={<FeatureTourPanelButton>Okay</FeatureTourPanelButton>}
-attachment="left"
-headerText="Left Attachment"
-beaconDelayIndex={3}
-beaconA11yText="click to learn more"
-dismissButtonA11yLabel="Close"
-wrapperClass={styles.dotThree}
+    actionArea={<FeatureTourPanelButton>Okay</FeatureTourPanelButton>}
+    attachment="left"
+    headerText="Left Attachment"
+    beaconDelayIndex={3}
+    beaconA11yText="click to learn more"
+    dismissButtonA11yLabel="Close"
+    wrapperClass={styles.dotThree}
 >
-This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
+    This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
 </FeatureTourPanel>
 <FeatureTourPanel
-actionArea={<FeatureTourPanelButton>Okay</FeatureTourPanelButton>}
-attachment="top"
-headerText="Top Attachment"
-beaconDelayIndex={4}
-beaconA11yText="click to learn more"
-dismissButtonA11yLabel="Close"
-wrapperClass={styles.dotFour}
+    actionArea={<FeatureTourPanelButton>Okay</FeatureTourPanelButton>}
+    attachment="top"
+    headerText="Top Attachment"
+    beaconDelayIndex={4}
+    beaconA11yText="click to learn more"
+    dismissButtonA11yLabel="Close"
+    shouldRefocusTriggerOnClose={false}
+    wrapperClass={styles.dotFour}
 >
-This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
+    This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
+</FeatureTourPanel>
+
+<FeatureTourPanel
+    actionArea={<FeatureTourPanelButton>Okay</FeatureTourPanelButton>}
+    attachment="right"
+    shouldHideOnClose
+    headerText="Right Attachment"
+    beaconDelayIndex={5}
+    beaconA11yText="click to learn more"
+    dismissButtonA11yLabel="Close"
+    wrapperClass={styles.dotFive}
+>
+    This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
 </FeatureTourPanel>
                         `}
                     </ExampleSource>
@@ -181,13 +220,6 @@ This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.or
                     <FeatureTourDot
                         beaconText="this is open"
                         mode="open"
-                        beaconA11yText="click to learn more"
-                    />
-                    <Header5>Hidden</Header5>
-                    <ParagraphMd>(Nothing is visible) Use this mode to remove the dot.</ParagraphMd>
-                    <FeatureTourDot
-                        beaconText="this is open"
-                        mode="hidden"
                         beaconA11yText="click to learn more"
                     />
                 </div>

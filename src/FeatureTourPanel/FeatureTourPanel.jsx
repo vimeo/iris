@@ -17,40 +17,34 @@ type Props = {
     children: React$Element<*>,
     className?: string,
     dismissButtonA11yLabel: string,
+    dismissButtonProps?: Object,
     headerText?: string,
+    shouldHideOnClose?: boolean,
+    isOpen?: boolean,
     onClose: () => void,
     onDismissClick?: (e: Event) => void,
     onOpen?: () => void,
-    dismissButtonProps?: Object,
-    isShowing?: boolean,
+    shouldRefocusTriggerOnClose?: boolean,
     wrapperClass?: string,
 };
 
 type State = {
-    isShowing?: boolean,
+    isOpen?: boolean,
     beaconMode?: 'inactive' | 'open' |'active' | 'hidden';
 }
 
 class FeatureTourPanel extends React.Component {
     static defaultProps = {
         attachment: 'right',
+        shouldRefocusTriggerOnClose: true,
     };
 
     constructor(props: Props) {
         super(props);
-        let beaconInitialState = 'active';
-
-        if (typeof props.beaconDelayIndex === 'number' && props.beaconDelayIndex > 0) {
-            beaconInitialState = 'inactive';
-            this._setDelay(props.beaconDelayIndex);
-        }
-        else if (props.isShowing) {
-            beaconInitialState = 'open';
-        }
 
         this.state = {
-            isShowing: props.isShowing,
-            beaconMode: beaconInitialState,
+            isOpen: props.isOpen,
+            beaconMode: this._chooseBeaconState(props),
         };
     }
 
@@ -60,8 +54,8 @@ class FeatureTourPanel extends React.Component {
     componentWillUpdate(nextProps: Props, nextState: State) {
         if (nextProps !== this.props) {
             this.setState({
-                isShowing: nextProps.isShowing,
-                beaconMode: nextProps.isShowing ? 'open' : this.state.beaconMode,
+                isOpen: nextProps.isOpen,
+                beaconMode: this._chooseBeaconState(nextProps),
             });
         }
 
@@ -77,10 +71,24 @@ class FeatureTourPanel extends React.Component {
     props: Props;
     beaconTimer: any;
 
+    _chooseBeaconState = (choiceProps: Props) => {
+        let beaconState = 'active';
+
+        if (typeof choiceProps.beaconDelayIndex === 'number' && choiceProps.beaconDelayIndex > 0) {
+            beaconState = 'inactive';
+            this._setDelay(choiceProps.beaconDelayIndex);
+        }
+        else if (choiceProps.isOpen) {
+            beaconState = 'open';
+        }
+
+        return beaconState;
+    }
+
     _handleClose = () => {
         this.setState({
-            isShowing: false,
-            beaconMode: 'inactive',
+            isOpen: false,
+            beaconMode: this.props.shouldHideOnClose ? 'hidden' : 'inactive',
         });
 
         if (typeof this.props.onClose === 'function') {
@@ -90,7 +98,7 @@ class FeatureTourPanel extends React.Component {
 
     _handleDismissClick = (e: Event) => {
         this.setState({
-            isShowing: false,
+            isOpen: false,
             beaconMode: 'inactive',
         });
 
@@ -101,7 +109,7 @@ class FeatureTourPanel extends React.Component {
 
     _handleOpen = () => {
         this.setState({
-            isShowing: true,
+            isOpen: true,
             beaconMode: 'open',
         });
 
@@ -124,25 +132,27 @@ class FeatureTourPanel extends React.Component {
         const {
             actionArea,
             attachment,
-            dismissButtonA11yLabel,
-            headerText,
             beaconDelayIndex, // eslint-disable-line no-unused-vars
             beaconA11yText,
             children,
+            dismissButtonA11yLabel,
             dismissButtonProps,
+            headerText,
+            isOpen, // eslint-disable-line no-unused-vars
             onOpen, // eslint-disable-line no-unused-vars
             onClose, // eslint-disable-line no-unused-vars
             onDismissClick, // eslint-disable-line no-unused-vars
-            isShowing, // eslint-disable-line no-unused-vars
+            shouldHideOnClose,
+            shouldRefocusTriggerOnClose,
             wrapperClass,
             ...filteredProps
         } = this.props;
 
         const combinedWrapperClass = classNames(
-        styles.Wrapper,
-        styles[this.state.beaconMode],
-        wrapperClass,
-       );
+            styles.Wrapper,
+            styles[this.state.beaconMode],
+            wrapperClass,
+        );
 
         const MenuPanelContent = (
             <FeatureTourPanelContent
@@ -186,11 +196,12 @@ class FeatureTourPanel extends React.Component {
             <div className={combinedWrapperClass}>
                 <MenuPanel
                     {...filteredProps}
-                    isShowing={this.state.isShowing}
+                    isShowing = {this.state.isOpen}
                     menuContent={MenuPanelContent}
                     onClose={this._handleClose}
                     onOpen={this._handleOpen}
                     panelClassName={styles.FeatureTourPanel}
+                    shouldRefocusTriggerOnClose={shouldHideOnClose ? false : shouldRefocusTriggerOnClose}
                     size="lg"
                     options={{
                         offset: panelOffset,
