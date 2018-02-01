@@ -400,13 +400,14 @@ class Modal extends React.Component {
         const closeButtonFormat = dismissButtonFormat === 'light' ? 'lightTransparent' : 'dark';
 
         const CloseButton = (
-            <ButtonDialogClose
-                buttonTitle={modalCloseLabel}
-                className={styles.ModalCloseButton}
-                onClick={onDismiss ? () => this._handleModalClose(onDismiss) : null}
-                format={closeButtonFormat}
-                data-js-modalCloseButton
-            />
+            <div className={styles.ModalCloseButton}>
+                <ButtonDialogClose
+                    buttonTitle={modalCloseLabel}
+                    onClick={onDismiss ? () => this._handleModalClose(onDismiss) : null}
+                    format={closeButtonFormat}
+                    data-js-modalCloseButton
+                />
+            </div>
         );
 
         const ModalComponent = (
