@@ -10,6 +10,7 @@ gulp.task('cssCombComponents', function() {
       '!' + config.paths.componentSrc + 'Modal/Modal.scss',
       '!' + config.paths.globalsSrc + 'sass/**/*.scss',
       '!' + config.paths.componentSrc + 'Breadcrumb/Breadcrumb.scss',
+      '!' + config.paths.componentSrc + 'VerticalMenuItemContent/VerticalMenuItemContent.scss',
       ])
     .pipe(csscomb())
     .pipe(gulp.dest(config.paths.componentSrc));
@@ -17,6 +18,6 @@ gulp.task('cssCombComponents', function() {
 
 gulp.task('cssComb' , function(cb) {
 	runSequence(
-       'cssCombComponents',
+      'cssCombComponents',
 		cb);
 });

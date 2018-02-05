@@ -2,19 +2,35 @@
 @import '../globals/sass/helpers-all';
 
 .VerticalMenuNested {
+    position: relative;
+
     width: 100%;
     max-width: $screen-sm-rem;
-
     .LinkLabel {
         margin-bottom: 0;
     }
 }
 
-.ArrowIcon svg {
-    transition: transform 300ms ease-in-out;
+.SubMenuToggle,
+.ActionButtonWrapper {
+    position: absolute;
+    z-index: get-z-index('VerticalMenuButtons');
+    top: rem-calc(4);
 }
 
-.ArrowIcon.isOpen svg {
+.SubMenuToggle {
+    left: rem-calc(4);
+
+    svg {
+        transition: transform 300ms ease-in-out;
+    }
+}
+
+.ActionButtonWrapper {
+    right: rem-calc(4);
+}
+
+.SubMenuToggle.isOpen svg {
     transform: rotate(90deg);
 }
 

@@ -13,20 +13,22 @@ $VerticalMenuItem_TransitionSpeed: 250ms;
     }
 }
 
-.LinkStyleWrapper a {
-    // using element selector here to style whatever link type thing is passed to this component. 
-    display: inline-block;
+.LinkStyleWrapper {
+    a {
+        // using element selector here to style whatever link type thing is passed to this component. 
+        display: inline-block;
 
-    position: relative;
+        position: relative;
 
-    width: 100%;
+        width: 100%;
 
-    transition: background-color $VerticalMenuItem_TransitionSpeed ease;
+        transition: background-color $VerticalMenuItem_TransitionSpeed ease;
 
-    &:hover {
-        color: inherit;
-        border-radius: rem-calc(2);
-        background-color: rgba($AstroGranite, 0.14);
+        &:hover {
+            color: inherit;
+            border-radius: rem-calc(2);
+            background-color: rgba($AstroGranite, 0.14);
+        }
     }
 }
 

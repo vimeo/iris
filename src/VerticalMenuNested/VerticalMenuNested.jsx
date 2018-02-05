@@ -3,26 +3,31 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './VerticalMenuNested.scss';
 import SlideUpDown from '../SlideUpDown/SlideUpDown';
+import VerticalMenuActionButton from '../VerticalMenuActionButton';
 import VerticalMenuItemContent from '../VerticalMenuItemContent';
 import VerticalMenuItem from '../VerticalMenuItem';
 import VerticalMenuNestedSubMenu from '../VerticalMenuNestedSubMenu/VerticalMenuNestedSubMenu';
+import RightArrow from '../icons/chevron-right.svg';
 
 
 type Props = {
+    actionButton?: React$Element<*>,
     className?: string,
+    isActive?: boolean,
     isOpen?: Boolean,
     label: string,
     labelIcon?: React$Element<*>,
     labelIconTheme?: 'default' | 'subtle',
     labelId: string,
     isOpen: boolean,
-    nestedButtonLabel?: string,
+    subMenuToggleButtonLabel?: string,
     onClick?: Function,
     onOpen?: Function,
     onClose?: Function,
     render: Function,
     subMenuItems: Array<React$Element<'VerticalMenuItem'>>,
-    href: string,
+    href?: string,
+    to?: string,
 };
 
 type State = {
@@ -71,14 +76,26 @@ class VerticalMenuNested extends React.Component {
     props: Props;
 
     _handleLinkClick = (e: Event) => {
-            // links are only followed if the "to" value has been defined otherwise they just toggle the menu
-        if (!this.props.href || this.props.href === '#') {
+        // links are only followed if the "to"  or 'href values have been defined and are not "#" otherwise they just toggle the menu
+
+        let suppressLinkFollow = false;
+
+        if (!this.props.href && !this.props.to) {
+            suppressLinkFollow = true;
+        }
+        else if (this.props.href === '#' || this.props.to === '#') {
+            suppressLinkFollow = true;
+        }
+
+        if (suppressLinkFollow) {
             e.preventDefault();
             this._toggleMenu();
         }
 
+        // either way we fire the onClick function passed to the prop
+
         if (typeof this.props.onClick === 'function') {
-            this.props.onClick();
+            this.props.onClick(e);
         }
 
     };
@@ -96,13 +113,15 @@ class VerticalMenuNested extends React.Component {
 
     render() {
         const {
+                actionButton,
                 className,
                 label,
                 labelIcon,
                 labelId,
                 labelIconTheme = 'default',
+                isActive,
                 isOpen, // eslint-disable-line no-unused-vars
-                nestedButtonLabel = 'toggle sub-menu',
+                subMenuToggleButtonLabel = 'toggle sub-menu',
                 render,
                 subMenuItems,
                 onClick, // eslint-disable-line no-unused-vars
@@ -111,16 +130,16 @@ class VerticalMenuNested extends React.Component {
                 ...filteredProps
             } = this.props;
 
-            // className builder
+        // className builder
         const componentClass = classNames(
                 styles.VerticalMenuNested,
                 className
-            );
+        );
 
-        const iconClass = classNames(
-                styles.ArrowIcon,
-                (this.state.subMenuOpen ? styles.isOpen : null),
-            );
+        const subMenuToggleClass = classNames(
+            styles.SubMenuToggle,
+            (this.state.subMenuOpen ? styles.isOpen : null),
+        );
 
         const AnchorTag = (props) => {
             return (
@@ -134,13 +153,21 @@ class VerticalMenuNested extends React.Component {
                     <div
                         className={componentClass}
                     >
+                        <div
+                            className={subMenuToggleClass}
+                        >
+                            <VerticalMenuActionButton
+                                icon={<RightArrow title={subMenuToggleButtonLabel}/>}
+                                onClick={this._handleToggleClick}
+                            />
+                        </div>
+                        {actionButton && (
+                            <div className={styles.ActionButtonWrapper}>
+                                {actionButton}
+                            </div>
+                        )}
                         <VerticalMenuItem
-                            hasSubMenu
                             id={labelId}
-
-                            onNestedItemClick={this._handleToggleClick}
-                            nestedButtonClass={iconClass}
-                            nestedButtonLabel={nestedButtonLabel}
                         >
                             <WrappedComponent
                                 {...filteredProps}
@@ -149,6 +176,8 @@ class VerticalMenuNested extends React.Component {
                                 onClick={this._handleLinkClick}
                                 children = {(
                                     <VerticalMenuItemContent
+                                        hasSubMenu
+                                        isActive={isActive}
                                         label={label}
                                         labelIcon={labelIcon}
                                         labelIconTheme={labelIconTheme}

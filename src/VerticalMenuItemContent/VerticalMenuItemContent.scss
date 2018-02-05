@@ -1,14 +1,19 @@
 /* @description Generates styles for the VerticalMenuItem component */
 @import '../globals/sass/helpers-all';
 $VerticalMenuItem_IconSize: rem-calc(20);
+$VerticalMenuItem_IconMargin: rem-calc(8);
 
 .VerticalMenuItemContent {
-    display: inline-block;
+    display: flex;
+    align-items: flex-start;
 
     width: 100%;
     padding: rem-calc(12) ($VerticalMenuItem_IconSize + 1rem) rem-calc(10) rem-calc(12);
 
-
+    &.hasSubMenu {
+        padding-left: rem-calc(40);
+    }
+    
     &.textOverrides {
         max-width: $screen-sm-rem;
         margin-bottom: 0;
@@ -31,12 +36,10 @@ $VerticalMenuItem_IconSize: rem-calc(20);
 }
 
 .LabelWrapper {
-    display: inline-block;
-
     width: 100%;
 
     &.hasIcon {
-        padding-left: $VerticalMenuItem_IconSize + rem-calc(8);
+        width: calc(100% - #{$VerticalMenuItem_IconSize + $VerticalMenuItem_IconMargin})
     }
     &.isTruncated {
         overflow: hidden;
@@ -47,9 +50,9 @@ $VerticalMenuItem_IconSize: rem-calc(20);
 }
 
 .LabelIconWrapper {
-    position: absolute;
-    top: rem-calc(9);
-    left: rem-calc(8);
+    margin-bottom: rem-calc(-6);
+    margin-right: $VerticalMenuItem_IconMargin;
+    transform: translateY(rem-calc(-3));
 
     svg {
         width: $VerticalMenuItem_IconSize;

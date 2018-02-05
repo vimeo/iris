@@ -8,6 +8,7 @@ const displayName = 'VerticalMenuItemContent';
 
 type Props = {
     className?: string,
+    hasSubMenu?: boolean,
     isActive?: boolean,
     label: React$Element<*> | string,
     labelIcon?: React$Element<*>,
@@ -28,6 +29,7 @@ const VerticalMenuItemContent = ({
     linkActionIcon,
     labelIconActive,
     labelIconTheme,
+    hasSubMenu,
     id,
     isActive,
     nestedInteraction,
@@ -40,6 +42,7 @@ const VerticalMenuItemContent = ({
         styles.VerticalMenuItemContent,
         styles.textOverrides,
         (isActive ? styles.isActive : null),
+        (hasSubMenu ? styles.hasSubMenu : null),
         className
     );
 

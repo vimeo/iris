@@ -20,19 +20,19 @@ type Props = {
 };
 
 const Button = ({
-                        autoMargins = true,
-                        autoWidth = 'sm',
-                        className,
-                        children,
-                        format = 'primary',
-                        icon,
-                        iconLocation = 'beforeLabel',
-                        isButtonElement = true,
-                        isInline = false,
-                        showLabel = true,
-                        size = 'md',
-                        ...filteredProps
-                    }: Props): React$Element<*> => {
+    autoMargins = true,
+    autoWidth = 'sm',
+    className,
+    children,
+    format = 'primary',
+    icon,
+    iconLocation = 'beforeLabel',
+    isButtonElement = true,
+    isInline = false,
+    showLabel = true,
+    size = 'md',
+    ...filteredProps
+}: Props): React$Element<*> => {
 
     // className builder
     const componentClass = classNames(

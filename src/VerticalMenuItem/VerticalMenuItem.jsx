@@ -6,14 +6,13 @@ import KEY_CODES from '../globals/js/constants/KEY_CODES';
 import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
 import VerticalMenuContextualMenuPanel from '../VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel';
 import DotsMenuIcon from '../icons/dots-menu.svg';
-import RightArrow from '../icons/chevron-right.svg';
+
 
 type Props = {
     className?: string,
     children: React$Element<*>,
     href?: string,
     to?: string,
-    hasSubMenu?: boolean,
     linkActionIcon?: React$Element<*>,
     labelIcon?: React$Element<*>,
     labelIconActive?: React$Element<*>,
@@ -119,35 +118,34 @@ class VerticalMenuItem extends React.Component {
 
     render() {
         const {
-                children,
-                className,
-                hasSubMenu,
-                menuPanelTooltip,
-                nestedButtonClass,
-                nestedButtonLabel,
-                nestedInteractionContent,
-                nestedInteractionMenuSize,
-                onNestedItemClick,
-                ...filteredProps
-            } = this.props;
+            children,
+            className,
+            menuPanelTooltip,
+            nestedButtonClass,
+            nestedButtonLabel,
+            nestedInteractionContent,
+            nestedInteractionMenuSize,
+            onNestedItemClick,
+            ...filteredProps
+        } = this.props;
 
             // className builder
         const componentClass = classNames(
-                styles.Wrapper,
-                styles.textOverrides,
-                className
-            );
+            styles.Wrapper,
+            styles.textOverrides,
+
+            className
+        );
+
+        const linkWrapperClass = classNames(
+            styles.LinkStyleWrapper,
+        );
 
         const nestedMenuClass = classNames(
-                styles.NestedInteractionWrapper,
-                styles.nestedMenuOffset,
-                (this.state.showNestedInteraction ? styles.isShowing : null),
-            );
-
-        const subMenuToggleClass = classNames(
-                styles.NestedInteractionWrapper,
-                styles.isShowing,
-            );
+            styles.NestedInteractionWrapper,
+            styles.nestedMenuOffset,
+            (this.state.showNestedInteraction ? styles.isShowing : null),
+        );
 
         const NestedMenuButton = (
                 <ButtonIconOnly
@@ -160,7 +158,7 @@ class VerticalMenuItem extends React.Component {
                 />
             );
 
-        const NestedInteractionComponent = nestedInteractionContent && !hasSubMenu ? (
+        const NestedInteractionComponent = nestedInteractionContent ? (
                 <div
                     className={nestedMenuClass}
 
@@ -178,22 +176,6 @@ class VerticalMenuItem extends React.Component {
                 </div>
             ) : null;
 
-        const SubMenuToggleComponent = hasSubMenu ? (
-                <div
-                    className={subMenuToggleClass}
-                >
-                    <ButtonIconOnly
-                        title={nestedButtonLabel}
-                        icon={<RightArrow />}
-                        format="dark"
-                        size="sm"
-                        isButtonElement={false}
-                        className={nestedButtonClass}
-                        onClick={onNestedItemClick}
-                    />
-                </div>
-            ) : null;
-
         return (
                 <div
                     {...filteredProps}
@@ -201,11 +183,10 @@ class VerticalMenuItem extends React.Component {
                     onMouseOver={this._handleMouseOver}
                     onMouseOut={this._handleMouseOut}
                 >
-                    <div className={styles.LinkStyleWrapper}>
+                    <div className={linkWrapperClass}>
                         {children}
                     </div>
                     {NestedInteractionComponent}
-                    {SubMenuToggleComponent}
                 </div>
         );
     }
