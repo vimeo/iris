@@ -2,6 +2,7 @@ import React from 'react';
 import InputSelect from './InputSelect';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import Button from '../Button/Button';
+import VisaLogo from '../icons/third-party/cc-visa.svg';
 import { ParagraphMd, Header3 } from '../Type';
 const demoOptions = (
                     <optgroup label="Option Group">
@@ -288,6 +289,52 @@ const demoOptions = (
     {demoOptions}
 </InputSelect>
                         `}
+                </ExampleSource>
+                <Header3>Adding an Inline Icon</Header3>
+                <ParagraphMd>An inline icon can be added to a select by passing an icon to the <code>icon</code> prop. <strong>Note:</strong> This icon occupies the same area as the state-based icons (e.g. errors) so use of this field precludes the use of the error states.</ParagraphMd>
+                <InputSelect
+                    name="WithIconLg"
+                    icon={<VisaLogo />}
+                    id="ExampleSelectWithIconLg"
+                    format="neutral"
+                    label="Lg Select with Icon"
+                    size="lg"
+                >
+                    {demoOptions}
+                </InputSelect>
+                <InputSelect
+                    name="WithIconXL"
+                    icon={<VisaLogo />}
+                    id="ExampleSelectWithIconXL"
+                    format="neutral"
+                    label="XL Select with Icon"
+                    size="xl"
+                >
+                    {demoOptions}
+                </InputSelect>
+                <ExampleSource>
+                {`
+<InputSelect
+    name="WithIconLg"
+    icon={<VisaLogo />}
+    id="ExampleSelectWithIconLg"
+    format="neutral"
+    label="Lg Select with Icon"
+    size="lg"
+>
+    {demoOptions}
+</InputSelect>
+<InputSelect
+    name="WithIconXL"
+    icon={<VisaLogo />}
+    id="ExampleSelectWithIconXL"
+    format="neutral"
+    label="XL Select with Icon"
+    size="xl"
+>
+    {demoOptions}
+</InputSelect>
+                    `}
                 </ExampleSource>
                 <Header3>Generating select options from an array (optional)</Header3>
                 <ParagraphMd>You can pass an optional array of options to a select to have it print out option tags. <code>"text"</code> and <code>"value"</code> should be included for every option.</ParagraphMd>

@@ -144,7 +144,7 @@ $InputSelect_arrow-size: rem-calc(24);
 
 // Icons
 
-.hasIcon {
+.hasStateIcon {
     &.md {
         padding-left: $input_has-icon-padding-md;
     }
@@ -153,5 +153,22 @@ $InputSelect_arrow-size: rem-calc(24);
     }
     &.xl {
         padding-left: $input_has-icon-padding-lg;
+    }
+}
+
+.hasInlineIcon {
+    padding-left: rem-calc(40);
+}
+
+
+.IconWrapper {
+    position: absolute;
+    top: 50%;
+    left: rem-calc(12);
+
+    transform: translateY(-50%);
+
+    svg {
+        width: rem-calc(20);
     }
 }

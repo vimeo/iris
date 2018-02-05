@@ -14,6 +14,7 @@ type Props = {
     errorMsg?: React$Element<*>,
     format?: 'negative' | 'positive' | 'neutral',
     helperMsg?: React$Element<*>,
+    icon?: React$Element<*>,
     id: string,
     isInline?: boolean,
     label: string | React$Element<*>,
@@ -30,6 +31,7 @@ const InputSelect = ({
                         errorMsg,
                         format = 'neutral',
                         helperMsg,
+                        icon,
                         id,
                         isInline,
                         label,
@@ -42,7 +44,7 @@ const InputSelect = ({
 
     const isNegative = format === 'negative';
     const ariaInvalid = isNegative;
-    const hasIcon = isNegative || format === 'positive';
+    const hasStateIcon = isNegative || format === 'positive';
 
     // className builder
     const componentClass = classNames(
@@ -52,7 +54,8 @@ const InputSelect = ({
         styles[size],
         (disabled ? styles.disabled : null),
         (isInline ? styles.isInline : null),
-        (hasIcon ? styles.hasIcon : null),
+        (hasStateIcon ? styles.hasStateIcon : null),
+        (icon ? styles.hasInlineIcon : null),
         className
     );
 
@@ -98,6 +101,11 @@ const InputSelect = ({
                 theme={theme}
             >
                 <div className={styles.InputSelectWrapper}>
+                    {icon && (
+                        <div className={styles.IconWrapper}>
+                            {icon}
+                        </div>
+                    )}
                     <select
                         {...filteredProps}
                         className={componentClass}

@@ -171,7 +171,7 @@ $input_has-icon-padding-lg: $inputs_icon-size + 1.3125rem;
 
 @mixin sharedInputLargeStyles() {
     height: $inputs_height-lg;
-    padding: $inputs_padding-lg-vertical $inputs_padding-lg-horizontal;
+    padding:  ($inputs_padding-lg-vertical + rem-calc(2)) $inputs_padding-lg-horizontal $inputs_padding-lg-vertical;
 
     font-size: rem-calc(16);
     line-height: calculateLineHeightTarget(16, 20);
@@ -179,7 +179,7 @@ $input_has-icon-padding-lg: $inputs_icon-size + 1.3125rem;
 
 @mixin sharedInputXLStyles() {
     height: $inputs_height-xl;
-    padding: $inputs_padding-lg-vertical $inputs_padding-lg-horizontal;
+    padding: ($inputs_padding-lg-vertical + rem-calc(2)) $inputs_padding-lg-horizontal $inputs_padding-lg-vertical ;
 
     font-size: rem-calc(16);
     line-height: calculateLineHeightTarget(16, 20);
