@@ -149,12 +149,11 @@ class VerticalMenuItem extends React.Component {
 
         const NestedMenuButton = (
                 <ButtonIconOnly
-                    icon={<DotsMenuIcon />}
+                    icon={<DotsMenuIcon title={nestedButtonLabel}/>}
                     format="dark"
                     size="sm"
                     isButtonElement={false}
                     className={nestedButtonClass}
-                    title={nestedButtonLabel}
                 />
             );
 

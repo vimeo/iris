@@ -20,7 +20,7 @@ type Props = {
     labelIconTheme?: 'default' | 'subtle',
     labelId: string,
     isOpen: boolean,
-    subMenuToggleButtonLabel?: string,
+    nestedButtonLabel?: string,
     onClick?: Function,
     onOpen?: Function,
     onClose?: Function,
@@ -121,7 +121,7 @@ class VerticalMenuNested extends React.Component {
                 labelIconTheme = 'default',
                 isActive,
                 isOpen, // eslint-disable-line no-unused-vars
-                subMenuToggleButtonLabel = 'toggle sub-menu',
+                nestedButtonLabel = 'toggle sub-menu',
                 render,
                 subMenuItems,
                 onClick, // eslint-disable-line no-unused-vars
@@ -157,7 +157,7 @@ class VerticalMenuNested extends React.Component {
                             className={subMenuToggleClass}
                         >
                             <VerticalMenuActionButton
-                                icon={<RightArrow title={subMenuToggleButtonLabel}/>}
+                                icon={<RightArrow title={nestedButtonLabel} />}
                                 onClick={this._handleToggleClick}
                             />
                         </div>
