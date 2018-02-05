@@ -36,23 +36,38 @@ type State = {
 class FeatureTourPanel extends React.Component {
     static defaultProps = {
         attachment: 'right',
+        beaconDelayIndex: 0,
         shouldRefocusTriggerOnClose: true,
     };
 
     constructor(props: Props) {
         super(props);
 
+        let initialBeaconMode = 'active';
+
+        if (props.isOpen) {
+            initialBeaconMode = 'open';
+        }
+        else if (props.beaconDelayIndex && props.beaconDelayIndex > 0) {
+            initialBeaconMode = 'inactive';
+        }
+
         this.state = {
             isOpen: props.isOpen,
-            beaconMode: this._chooseBeaconState(props),
+            beaconMode: initialBeaconMode,
         };
     }
 
     state: State;
 
+    componentDidMount() {
+        if (this.props.beaconDelayIndex) {
+            this._setDelay(this.props.beaconDelayIndex);
+        }
+    }
 
     componentWillUpdate(nextProps: Props, nextState: State) {
-        if (nextProps !== this.props) {
+        if (nextProps.isOpen !== this.props.isOpen) {
             this.setState({
                 isOpen: nextProps.isOpen,
                 beaconMode: this._chooseBeaconState(nextProps),
@@ -72,17 +87,16 @@ class FeatureTourPanel extends React.Component {
     beaconTimer: any;
 
     _chooseBeaconState = (choiceProps: Props) => {
-        let beaconState = 'active';
 
-        if (typeof choiceProps.beaconDelayIndex === 'number' && choiceProps.beaconDelayIndex > 0) {
-            beaconState = 'inactive';
+        if (choiceProps.beaconDelayIndex && !choiceProps.isOpen) {
             this._setDelay(choiceProps.beaconDelayIndex);
+            return 'inactive';
         }
         else if (choiceProps.isOpen) {
-            beaconState = 'open';
+            return 'open';
         }
 
-        return beaconState;
+        return this.state.beaconMode;
     }
 
     _handleClose = () => {
