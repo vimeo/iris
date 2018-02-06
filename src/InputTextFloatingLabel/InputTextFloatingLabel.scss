@@ -1,7 +1,10 @@
 /* @description Generates styles for the InputTextFloatingLabel component */
 @import '../globals/sass/helpers-all';
 $InputFloatingLabel-transition: 100ms ease;
-
+$InputFloatingLabel-widthOffset: 3rem -$inputs_padding-lg-horizontal;
+@mixin hasActionButton() {
+    width: calc(100% - #{$InputFloatingLabel-widthOffset});
+}
 
 .InputWrapper {
     @include sharedInputBaseStyles();
@@ -95,5 +98,49 @@ $InputFloatingLabel-transition: 100ms ease;
         transition: height $InputFloatingLabel-transition,
         padding $InputFloatingLabel-transition,
         opacity 200ms ease 150ms;
+
+        &.hasActionButton {
+            @include hasActionButton();
+
+            padding-right: rem-calc(28); // adjust for possible password manager icon
+        }
+    }
+}
+
+
+
+.ToggleButton {
+    position: absolute;
+    top: 0.125rem;
+    right: 0.125rem;
+
+    width: 3rem;
+    height: 3rem;
+    padding-top: rem-calc(4);
+
+    border: 0;
+    background: transparent;
+
+    appearance: none;
+
+    svg {
+        width: 1.5rem;
+        height: 1.5rem;
+
+        * {
+            fill: $RegentGray;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        svg * {
+            fill: $AstroGranite;
+        }
+    }
+
+    &:active {
+        transform: scale(0.9);
     }
 }

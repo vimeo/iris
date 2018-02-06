@@ -40,6 +40,12 @@ class InputTextFloatingLabelDocs extends React.Component {
                         placeholder="Placeholder Text"
                         disabled
                     />
+                    <InputTextFloatingLabel
+                        name="floatingLabelPassword"
+                        id="floatingLabelPassword"
+                        label="Password"
+                        type="password"
+                    />
                 </div>
 
                 <ExampleSource>
@@ -73,6 +79,12 @@ class InputTextFloatingLabelDocs extends React.Component {
     label="Floating Label Input (disabled)"
     placeholder="Placeholder Text"
     disabled
+/>
+<InputTextFloatingLabel
+    name="floatingLabelPassword"
+    id="floatingLabelPassword"
+    label="Password"
+    type="password"
 />
                         `}
                     </ExampleSource>
