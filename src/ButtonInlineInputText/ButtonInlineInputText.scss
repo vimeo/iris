@@ -2,8 +2,10 @@
 @import '../globals/sass/helpers-all';
 $InputTextWithButton-size-md: rem-calc(40);
 $InputTextWithButton-size-lg: rem-calc(48);
+$InputTextWithButton-size-xl: rem-calc(48);
 $InputTextWithButton-size-md-subtle: rem-calc(36);
 $InputTextWithButton-size-lg-subtle: rem-calc(44);
+
 
 .ButtonInlineInputText {
     display: inline-flex;
@@ -52,6 +54,16 @@ $InputTextWithButton-size-lg-subtle: rem-calc(44);
         svg {
             width: $InputTextWithButton-size-lg/2;
             height: $InputTextWithButton-size-lg/2;
+        }
+    }
+
+    &.xl {
+        width: $InputTextWithButton-size-xl;
+        height: $InputTextWithButton-size-xl;
+
+        svg {
+            width: $InputTextWithButton-size-xl/2;
+            height: $InputTextWithButton-size-xl/2;
         }
     }
 

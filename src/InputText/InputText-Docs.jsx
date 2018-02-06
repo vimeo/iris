@@ -73,7 +73,7 @@ class InputTextDocs extends React.Component {
                         id="helpful"
                         label="Helpful Input"
                         placeholder="I have some helper text"
-                        helperMsg = "See? I told you so."
+                        helperMsg = "See? I told you so. This is helper text to explain how to use this field."
                     />
                     <InputText
                         name="oops"

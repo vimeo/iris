@@ -7,7 +7,7 @@ $inputs_border-color-dark: $RegentGray;
 $inputs_border-color-hover: $AstroGranite;
 $inputs_border-color-hover-postive: $Pistachio-Darkened;
 $inputs_border-color-hover-error: $SunsetOrange-Darkened;
-$inputs_border-color-focused: $AstroGranite;
+$inputs_border-color-focused: $VimeoBlue-Darkened;
 $inputs_border-color-hover-dark: $White;
 $inputs_border-color-focused-dark: $White;
 $inputs_border-color-disabled: $Porcelain;
@@ -44,7 +44,7 @@ $input_has-icon-padding-md: $inputs_icon-size + 1.125rem;
 $input_has-icon-padding-lg: $inputs_icon-size + 1.3125rem;
 
 @mixin inputs_focus_border-shadow($color) {
-    box-shadow: inset 0 0 0 rem-calc(1) $color;
+    box-shadow: 0 0 0 rem-calc(1) $color;
 }
 
 @mixin inputThemes() {
@@ -61,6 +61,10 @@ $input_has-icon-padding-lg: $inputs_icon-size + 1.3125rem;
                 @include inputs_focus_border-shadow($inputs_border-color-focused);
 
                 border-color: $inputs_border-color-focused;
+
+                &:hover{
+                    border-color: $inputs_border-color-focused;
+                }
             }
 
             &:hover {

@@ -46,7 +46,7 @@
     margin-bottom: spacingUnit(4);
 
     font-size: rem-calc($BodySm);
-    line-height: calculateLineHeightTarget($BodySm, 18);
+    line-height: calculateLineHeightTarget($BodySm, 16);
 
     letter-spacing: $LetterSpacingMd;
 }

@@ -3,6 +3,8 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './InputTextFloatingLabel.scss';
 import InputWrapper from '../InputWrapper';
+import EyeIcon from '../icons/eye.svg';
+import EyeOffIcon from '../icons/eye-off.svg';
 
 const displayName = 'InputTextFloatingLabel';
 
@@ -18,6 +20,8 @@ type Props = {
     id: string,
     onBlur?: (e: Event) => void,
     onFocus?: (e: Event) => void,
+    passwordHideText?: string,
+    passwordShowText?: string,
     preMessage?: any,
     theme?: 'default' | 'dark',
     type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' |'url',
@@ -26,6 +30,8 @@ type Props = {
 type State = {
     isActive?: boolean,
     isFocused?: boolean,
+    passwordHidden?: boolean,
+    type?: string,
 }
 
 class InputTextFloatingLabel extends React.Component {
@@ -37,9 +43,10 @@ class InputTextFloatingLabel extends React.Component {
 
     constructor(props: Props) {
         super(props);
-
         this.state = {
             isActive: props.defaultValue ? true : false,
+            passwordHidden: true,
+            type: props.type,
         };
     }
 
@@ -53,19 +60,37 @@ class InputTextFloatingLabel extends React.Component {
         }
     }
 
+    componentWillUpdate(nextProps: Props, nextState: State) {
+        if (nextState.passwordHidden !== this.state.passwordHidden) {
+            this.setState({
+                isActive: true,
+            });
+        }
+    }
+
     props: Props;
     inputField: HTMLInputElement;
 
     _handleFieldBlur = (e: Event) => {
-        const hasValue = e.target instanceof HTMLInputElement && e.target.value.length > 0;
-        this.setState({
-            isActive: hasValue,
-            isFocused: false,
-        });
 
-        if (typeof this.props.onBlur === 'function') {
-            this.props.onBlur(e);
+        // only make field inactive if the blur didn't come from clicking the toggle button.
+        const clickedActionButton = e.relatedTarget instanceof HTMLElement && e.relatedTarget.hasAttribute('data-js-passwordtoggle');
+
+        if (clickedActionButton) {
+            this.inputField.focus();
         }
+        else {
+            const hasValue = e.target instanceof HTMLInputElement && e.target.value.length > 0;
+            this.setState({
+                isActive: hasValue,
+                isFocused: false,
+            });
+
+            if (typeof this.props.onBlur === 'function') {
+                this.props.onBlur(e);
+            }
+        }
+
     }
 
     _handleFieldFocus = (e: Event) => {
@@ -83,6 +108,26 @@ class InputTextFloatingLabel extends React.Component {
         this.inputField.focus();
     }
 
+    _handlePasswordToggle = () => {
+
+        let newType;
+
+        if (this.props.type === 'password' && this.state.type === 'password') {
+            newType = 'text';
+        }
+        else if (this.props.type === 'password' && this.state.type === 'text') {
+            newType = 'password';
+        }
+        else {
+            newType = this.props.type;
+        }
+
+        this.setState({
+            passwordHidden: !this.state.passwordHidden,
+            type: newType,
+        });
+    }
+
     render() {
         const {
             className,
@@ -93,11 +138,15 @@ class InputTextFloatingLabel extends React.Component {
             label,
             id,
             isInline,
+            passwordHideText,
+            passwordShowText,
             preMessage,
             theme = 'default',
             type,
             ...filteredProps
         } = this.props;
+
+        const isPasswordField = type === 'password';
 
         const wrapperClass = classNames(
             styles.InputWrapper,
@@ -110,14 +159,19 @@ class InputTextFloatingLabel extends React.Component {
 
         const labelClass = classNames(
             styles.InputLabel,
+            (isPasswordField ? styles.hasActionButton : null),
             (this.state.isActive ? styles.isActive : null),
         );
 
         const inputClass = classNames(
             styles.Input,
             styles[theme + 'Theme'],
+            (isPasswordField ? styles.hasActionButton : null),
             (this.state.isActive ? styles.isActive : null),
         );
+
+        const PrivacyEye = this.state.passwordHidden ? EyeIcon : EyeOffIcon;
+        const PrivacyEyeText = this.state.passwordHidden ? passwordShowText : passwordHideText;
 
         return (
             <InputWrapper
@@ -149,13 +203,26 @@ class InputTextFloatingLabel extends React.Component {
                         className={inputClass}
                         disabled={disabled}
                         id={id}
-                        type={type}
+                        type={this.state.type}
                         ref={(input)=>{
                             this.inputField = input;
                         }}
                         onBlur={this._handleFieldBlur}
                         onFocus={this._handleFieldFocus}
                     />
+                    {isPasswordField && this.state.isActive && (
+                        <div
+                            className={styles.ActionButtonWrapper}
+                        >
+                            <button
+                                className={styles.ToggleButton}
+                                onClick={this._handlePasswordToggle}
+                                data-js-passwordtoggle
+                            >
+                                <PrivacyEye title={PrivacyEyeText} />
+                            </button>
+                        </div>
+                    )}
                 </div>
             </InputWrapper>
         );
