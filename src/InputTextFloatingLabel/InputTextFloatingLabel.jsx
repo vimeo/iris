@@ -20,6 +20,7 @@ type Props = {
     id: string,
     onBlur?: (e: Event) => void,
     onFocus?: (e: Event) => void,
+    onPasswordToggleClick?: (e: Event) => void,
     passwordHideText?: string,
     passwordShowText?: string,
     preMessage?: any,
@@ -108,8 +109,8 @@ class InputTextFloatingLabel extends React.Component {
         this.inputField.focus();
     }
 
-    _handlePasswordToggle = () => {
-
+    _handlePasswordToggle = (e: Event) => {
+        e.preventDefault();
         let newType;
 
         if (this.props.type === 'password' && this.state.type === 'password') {
@@ -126,6 +127,10 @@ class InputTextFloatingLabel extends React.Component {
             passwordHidden: !this.state.passwordHidden,
             type: newType,
         });
+
+        if (typeof this.props.onPasswordToggleClick === 'function') {
+            this.props.onPasswordToggleClick(e);
+        }
     }
 
     render() {
