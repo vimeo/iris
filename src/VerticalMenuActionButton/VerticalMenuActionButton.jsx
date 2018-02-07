@@ -36,7 +36,10 @@ const VerticalMenuActionButton = ({
         </TooltipOverlay>
     );
 
-    return tooltipText ? (<TooltipWrappedActionButton />) : (<ActionButton />);
+    const VerticalMenuActionButtonElement = tooltipText ? TooltipWrappedActionButton : ActionButton;
+
+    return <VerticalMenuActionButtonElement />;
+
 };
 
 VerticalMenuActionButton.displayName = displayName;
