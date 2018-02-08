@@ -5,6 +5,7 @@ import styles from './InputTextFloatingLabel.scss';
 import InputWrapper from '../InputWrapper';
 import EyeIcon from '../icons/eye.svg';
 import EyeOffIcon from '../icons/eye-off.svg';
+import KEY_CODES from '../globals/js/constants/KEY_CODES';
 
 const displayName = 'InputTextFloatingLabel';
 
@@ -20,6 +21,7 @@ type Props = {
     id: string,
     onBlur?: (e: Event) => void,
     onFocus?: (e: Event) => void,
+    onKeyDown?: (e: Event) => void,
     onPasswordToggleClick?: (e: Event) => void,
     passwordHideText?: string,
     passwordShowText?: string,
@@ -102,6 +104,16 @@ class InputTextFloatingLabel extends React.Component {
 
         if (typeof this.props.onFocus === 'function') {
             this.props.onFocus(e);
+        }
+    }
+
+    _handleFieldKeyDown = (e: Event) => {
+        // we swallow enter press on the password field to it doesn't toggle the button in the field.flow
+        if (e.keyCode === KEY_CODES.enter && this.props.type === 'password') {
+            e.preventDefault();
+        }
+        if (typeof this.props.onKeyDown === 'function') {
+            this.props.onKeyDown(e);
         }
     }
 
@@ -214,12 +226,14 @@ class InputTextFloatingLabel extends React.Component {
                         }}
                         onBlur={this._handleFieldBlur}
                         onFocus={this._handleFieldFocus}
+                        onKeyDown={this._handleFieldKeyDown}
                     />
                     {isPasswordField && this.state.isActive && (
                         <div
                             className={styles.ActionButtonWrapper}
                         >
                             <button
+                                aria-role="switch"
                                 className={styles.ToggleButton}
                                 onClick={this._handlePasswordToggle}
                                 data-js-passwordtoggle

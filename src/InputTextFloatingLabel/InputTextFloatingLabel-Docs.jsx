@@ -40,6 +40,9 @@ class InputTextFloatingLabelDocs extends React.Component {
                         placeholder="Placeholder Text"
                         disabled
                     />
+                    <Header3>Password Field</Header3>
+                    <ParagraphMd>If the floating label field has the <code>type="password"</code> prop the field will get a password visibility toggle.</ParagraphMd>
+                    <ParagraphMd><strong>Note:</strong> in order to have the form submit on enter for this field you need to pass an <code>onKeyDown</code> handler to it.</ParagraphMd>
                     <InputTextFloatingLabel
                         name="floatingLabelPassword"
                         id="floatingLabelPassword"
