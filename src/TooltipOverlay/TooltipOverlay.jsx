@@ -24,6 +24,7 @@ type Props = {
     onFocus: () => void,
     onMouseEnter: () => void,
     onMouseLeave: () => void,
+    size?: 'sm' | 'lg',
     tooltipOptions?: Object,
     tooltipText: string,
     triggerOnClick: boolean,
@@ -186,6 +187,7 @@ class TooltipOverlay extends React.Component {
             element,
             attachment,
             href,
+            size,
             tooltipText,
             tooltipOptions,
             triggerOnClick, // eslint-disable-line no-unused-vars
@@ -232,7 +234,9 @@ class TooltipOverlay extends React.Component {
                     this.overlay = overlay;
                 }}
             >
-                <Tooltip>
+                <Tooltip
+                    size={size}
+                >
                     {tooltipText}
                 </Tooltip>
             </div>

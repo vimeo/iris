@@ -10,30 +10,32 @@ type Props = {
     className?: string,
     multiline?: boolean,
     children: string,
+    size?: 'sm' | 'lg',
 };
 
 const Tooltip = ({
     className,
     multiline,
     children,
+    size,
     ...filteredProps
 }: Props): React$Element<*> => {
 
-    const checkTextLength = () => {
-        let size;
+    const checkTextLengthForTooltipSize = () => {
+        let sizeFromLength;
         if (children.length >= 45) {
-            size = 'lg';
+            sizeFromLength = 'lg';
         }
         else {
-            size = 'sm';
+            sizeFromLength = 'sm';
         }
 
-        return size;
+        return sizeFromLength;
     };
 
     const componentClass = classNames(
         styles.Tooltip,
-        styles[checkTextLength()],
+        styles[size || checkTextLengthForTooltipSize()],
         className
     );
 

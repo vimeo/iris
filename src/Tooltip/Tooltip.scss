@@ -17,6 +17,8 @@ $tooltip-vertial-padding: 10;
         margin: 0;
 
         color: $tooltip-text-color; //override default paragraph color
+
+        white-space: pre-line;
     }
 }
 
