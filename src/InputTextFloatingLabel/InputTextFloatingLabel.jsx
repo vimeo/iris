@@ -21,7 +21,6 @@ type Props = {
     id: string,
     onBlur?: (e: Event) => void,
     onFocus?: (e: Event) => void,
-    onKeyDown?: (e: Event) => void,
     onPasswordToggleClick?: (e: Event) => void,
     passwordHideText?: string,
     passwordShowText?: string,
@@ -104,16 +103,6 @@ class InputTextFloatingLabel extends React.Component {
 
         if (typeof this.props.onFocus === 'function') {
             this.props.onFocus(e);
-        }
-    }
-
-    _handleFieldKeyDown = (e: Event) => {
-        // we swallow enter press on the password field to it doesn't toggle the button in the field.flow
-        if (e.keyCode === KEY_CODES.enter && this.props.type === 'password') {
-            e.preventDefault();
-        }
-        if (typeof this.props.onKeyDown === 'function') {
-            this.props.onKeyDown(e);
         }
     }
 
@@ -226,7 +215,6 @@ class InputTextFloatingLabel extends React.Component {
                         }}
                         onBlur={this._handleFieldBlur}
                         onFocus={this._handleFieldFocus}
-                        onKeyDown={this._handleFieldKeyDown}
                     />
                     {isPasswordField && this.state.isActive && (
                         <div
@@ -237,6 +225,7 @@ class InputTextFloatingLabel extends React.Component {
                                 className={styles.ToggleButton}
                                 onClick={this._handlePasswordToggle}
                                 data-js-passwordtoggle
+                                type="button"
                             >
                                 <PrivacyEye title={PrivacyEyeText} />
                             </button>
