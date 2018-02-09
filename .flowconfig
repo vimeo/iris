@@ -1,6 +1,7 @@
 [ignore]
 .*/templates/.*
-
+.*/node_modules/styled-components/src/.*
+.*/node_modules/polished/lib/.*
 [include]
 
 [libs]
