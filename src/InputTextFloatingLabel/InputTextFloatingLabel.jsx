@@ -5,7 +5,6 @@ import styles from './InputTextFloatingLabel.scss';
 import InputWrapper from '../InputWrapper';
 import EyeIcon from '../icons/eye.svg';
 import EyeOffIcon from '../icons/eye-off.svg';
-import KEY_CODES from '../globals/js/constants/KEY_CODES';
 
 const displayName = 'InputTextFloatingLabel';
 
