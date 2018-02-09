@@ -11,12 +11,9 @@ import DotsMenuIcon from '../icons/dots-menu.svg';
 type Props = {
     className?: string,
     children: React$Element<*>,
+    hasRightSideContent?: boolean,
     href?: string,
     to?: string,
-    linkActionIcon?: React$Element<*>,
-    labelIcon?: React$Element<*>,
-    labelIconActive?: React$Element<*>,
-    labelIconTheme?: 'default' | 'subtle';
     nestedInteractionContent?: React$Element<*>,
     nestedInteractionMenuSize?: 'sm' | 'md' | 'lg',
     label: React$Element<*> | string,
@@ -120,6 +117,7 @@ class VerticalMenuItem extends React.Component {
         const {
             children,
             className,
+            hasRightSideContent,
             menuPanelTooltip,
             nestedButtonClass,
             nestedButtonLabel,
@@ -133,12 +131,12 @@ class VerticalMenuItem extends React.Component {
         const componentClass = classNames(
             styles.Wrapper,
             styles.textOverrides,
-
             className
         );
 
         const linkWrapperClass = classNames(
             styles.LinkStyleWrapper,
+            (nestedInteractionContent || hasRightSideContent ? styles.hasRightSideContent : null),
         );
 
         const nestedMenuClass = classNames(

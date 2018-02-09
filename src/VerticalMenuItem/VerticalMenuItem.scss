@@ -30,6 +30,10 @@ $VerticalMenuItem_TransitionSpeed: 250ms;
             background-color: rgba($AstroGranite, 0.14);
         }
     }
+
+    &.hasRightSideContent a {
+        padding-right: rem-calc(36);
+    }
 }
 
 .NestedInteractionWrapper {

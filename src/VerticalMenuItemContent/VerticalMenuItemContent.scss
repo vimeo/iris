@@ -8,10 +8,14 @@ $VerticalMenuItem_IconMargin: rem-calc(8);
     align-items: flex-start;
 
     width: 100%;
-    padding: rem-calc(12) ($VerticalMenuItem_IconSize + 1rem) rem-calc(10) rem-calc(12);
+    padding: rem-calc(12) rem-calc(10);
 
     &.hasSubMenu {
         padding-left: rem-calc(40);
+    }
+
+    &.hasRightSideContent {
+        padding-right: $VerticalMenuItem_IconSize + 1rem;
     }
     
     &.textOverrides {

@@ -15,7 +15,6 @@ type Props = {
     labelIconActive?: React$Element<*>,
     labelIconTheme?: 'default' | 'subtle';
     linkActionIcon?: React$Element<*>,
-    nestedInteraction?: React$Element<*>,
     id?: string,
     label: React$Element<*> | string,
     onClick?: Function,
@@ -32,7 +31,6 @@ const VerticalMenuItemContent = ({
     hasSubMenu,
     id,
     isActive,
-    nestedInteraction,
     truncateLabel,
     ...filteredProps
 }: Props): React$Element<*> => {
@@ -43,6 +41,7 @@ const VerticalMenuItemContent = ({
         styles.textOverrides,
         (isActive ? styles.isActive : null),
         (hasSubMenu ? styles.hasSubMenu : null),
+        (linkActionIcon ? styles.hasRightSideContent : null),
         className
     );
 
