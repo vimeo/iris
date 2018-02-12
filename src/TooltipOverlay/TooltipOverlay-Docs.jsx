@@ -198,6 +198,37 @@ onClick={this.clickTest}
 </TooltipOverlay>
                         `}
                 </ExampleSource>
+                <Header3>Forcing Size</Header3>
+                <TooltipOverlay
+                        tooltipText="This is some short text, under 45 chars."
+                        attachment="top"
+                        size="lg"
+                        triggerOnClick
+                >
+                    <Button
+                        isButtonElement={false}
+                        autoMargins={false}
+                    >
+                        Forced Large Button
+                    </Button>
+                </TooltipOverlay>
+                <ExampleSource>
+                    {`
+<TooltipOverlay
+        tooltipText="This is some short text, under 45 chars."
+        attachment="top"
+        size="lg"
+        triggerOnClick
+>
+    <Button
+        isButtonElement={false}
+        autoMargins={false}
+    >
+        Forced Large Button
+    </Button>
+</TooltipOverlay>
+                        `}
+            </ExampleSource>
             </div>
         );
     }

@@ -21,7 +21,11 @@ const Tooltip = ({
     ...filteredProps
 }: Props): React$Element<*> => {
 
-    const checkTextLengthForTooltipSize = () => {
+    const getTooltipSize = () => {
+        if (size) {
+            return size;
+        }
+
         let sizeFromLength;
         if (children.length >= 45) {
             sizeFromLength = 'lg';
@@ -35,7 +39,7 @@ const Tooltip = ({
 
     const componentClass = classNames(
         styles.Tooltip,
-        styles[size || checkTextLengthForTooltipSize()],
+        styles[getTooltipSize()],
         className
     );
 
