@@ -7,6 +7,7 @@ import { ParagraphMd } from '../Type';
 const displayName = 'VerticalMenuItemContent';
 
 type Props = {
+    actionButton: React$Element<*>,
     className?: string,
     hasSubMenu?: boolean,
     isActive?: boolean,
@@ -22,6 +23,7 @@ type Props = {
 };
 
 const VerticalMenuItemContent = ({
+    actionButton,
     className,
     label,
     labelIcon,
@@ -41,7 +43,7 @@ const VerticalMenuItemContent = ({
         styles.textOverrides,
         (isActive ? styles.isActive : null),
         (hasSubMenu ? styles.hasSubMenu : null),
-        (linkActionIcon ? styles.hasRightSideContent : null),
+        (linkActionIcon || actionButton ? styles.hasRightSideContent : null),
         className
     );
 
@@ -75,6 +77,11 @@ const VerticalMenuItemContent = ({
             {linkActionIcon && (
                 <span className={styles.linkActionWrapper}>
                     {linkActionIcon}
+                </span>
+            )}
+            {actionButton && (
+                <span className={styles.ActionButtonWrapper}>
+                    {actionButton}
                 </span>
             )}
 

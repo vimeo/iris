@@ -11,6 +11,8 @@ import LockIcon from '../icons/lock.svg';
 import SettingsIcon from '../icons/gear.svg';
 import HomeFilledIcon from '../icons/home-filled.svg';
 import MenuPanelList from '../MenuPanelList/MenuPanelList';
+import VerticalMenuActionButton from '../VerticalMenuActionButton';
+import CirclePlusIcon from '../icons/circle-plus';
 
 const VerticalMenuItemDocs = (props) => {
     const onClickHandler = (e) => {
@@ -140,6 +142,22 @@ const VerticalMenuItemDocs = (props) => {
                         />
                     </a>
                 </VerticalMenuItem>
+                <VerticalMenuItem>
+                    <a
+                        to="#"
+                        onClick={onClickHandler}
+                    >
+                        <VerticalMenuItemContent
+                            label="With Action Button"
+                            actionButton={(
+                                <VerticalMenuActionButton
+                                icon = {<CirclePlusIcon title="Add New Item" />}
+                                tooltipText="click to add new item"
+                            />
+                            )}
+                        />
+                    </a>
+                </VerticalMenuItem>
             </div>
             <ExampleSource>
                 {`
@@ -217,6 +235,22 @@ onClick={onClickHandler}
         label="Menu With Nested Menu on Hover"
     />
 </a>
+</VerticalMenuItem>
+<VerticalMenuItem>
+    <a
+        to="#"
+        onClick={onClickHandler}
+    >
+        <VerticalMenuItemContent
+            label="With Action Button"
+            actionButton={(
+                <VerticalMenuActionButton
+                icon = {<CirclePlusIcon title="Add New Item" />}
+                tooltipText="click to add new item"
+            />
+            )}
+        />
+    </a>
 </VerticalMenuItem>
                     `}
             </ExampleSource>

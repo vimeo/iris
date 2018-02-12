@@ -39,6 +39,13 @@ $VerticalMenuItem_IconMargin: rem-calc(8);
     }
 }
 
+.ActionButtonWrapper {
+    position: absolute;
+    z-index: get-z-index('VerticalMenuButtons');
+    top: rem-calc(4);
+    right: rem-calc(4);
+}
+
 .LabelWrapper {
     width: 100%;
 
