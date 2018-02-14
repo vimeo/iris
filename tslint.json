@@ -1,0 +1,28 @@
+{
+    "extends": [
+        "tslint:latest",
+        "tslint-eslint-rules",
+        "tslint-config-airbnb",
+        "tslint-config-prettier",
+        "tslint-react"
+    ],
+    "rules": {
+        "array-type": false,
+        "prefer-array-literal": false,
+        "import-name": false,
+        "interface-name": false,
+        "interface-over-type-literal": false,
+        "jsx-boolean-value": false,
+        "jsx-no-lambda": false,
+        "jsx-no-multiline-js": false,
+        "jsx-curly-spacing": false,
+        "max-classes-per-file": false,
+        "no-submodule-imports": false,
+        "no-object-literal-type-assertion": false,
+        "no-unused-expression": [true, "allow-tagged-template"],
+        "object-literal-sort-keys": false,
+        "variable-name": [true, "allow-pascal-case"],
+        "no-implicit-dependencies": false
+    }
+  }
+  

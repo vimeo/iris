@@ -4,7 +4,7 @@ const runSequence = require('run-sequence');
 gulp.task('build' , function(cb) {
 	runSequence(
         ['compileComponentListJSX','compileEntryPoints-Dev'],
-        'reactDocGenBuild',
+        ['reactDocGenBuild', 'tsDocs'],
         'reactDocGenParse',
         'compileColorVariables',
         'sassGlobals',

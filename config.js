@@ -10,7 +10,6 @@ const COMPONENT_DATA = LOCAL_DATA + 'componentAPI.json';
 module.exports = {
     paths: {
         project: './',
-        animationsSrc: './src/animations/',
         componentData: COMPONENT_DATA,
         componentSrc: './src/',
         globalsSrc: './src/globals/',
