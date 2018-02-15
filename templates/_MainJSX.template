@@ -7,29 +7,33 @@ import SingleStyleListing from 'steadicam/components/styleListings/SingleStyleLi
 import PageLayout from 'steadicam/components/layouts/PageLayout/PageLayout';
 import ProjectDependencies from './ProjectDependencies';
 import styles from './styleguide-assets/sass/styleguide.scss';
+import {ThemeProvider} from 'styled-components';
+import VimeoTheme from '../src/globals/js/themes/vimeo-theme';
 
 // THIS FILE IS GENERATED FROM templates/_MainJSXPath.template //
 
 let App = function App() {
     return (
-        <div>
-            <BrowserRouter <% if(rootPath) {%> basename="<%- rootPath %>" <% } %>>
-                <Switch>
-                    <Route
-                        path="/pattern/:category/:componentName" component={SingleStyleListing}
-                    />
-                    <Route
-                        path="/page/:page"
-                        component={PageLayout}
-                    />
-                    <Route
-                        path="/"
-                        component={StyleListing}
-                    />
-                </Switch>
-            </BrowserRouter>
-            <ProjectDependencies />
-        </div>
+        <ThemeProvider theme={VimeoTheme}>
+            <div>
+                <BrowserRouter <% if(rootPath) {%> basename="<%- rootPath %>" <% } %>>
+                    <Switch>
+                        <Route
+                            path="/pattern/:category/:componentName" component={SingleStyleListing}
+                        />
+                        <Route
+                            path="/page/:page"
+                            component={PageLayout}
+                        />
+                        <Route
+                            path="/"
+                            component={StyleListing}
+                        />
+                    </Switch>
+                </BrowserRouter>
+                <ProjectDependencies />
+            </div>
+        </ThemeProvider>
 )
 };
 
