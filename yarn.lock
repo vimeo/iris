@@ -7233,9 +7233,9 @@ stdout-stream@^1.4.0:
   dependencies:
     readable-stream "^2.0.1"
 
-"steadicam@git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#3.0.6":
-  version "3.0.6"
-  resolved "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#41b4cf65770fcc4579af818e47c2dbed195a5e10"
+"steadicam@git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#3.0.7":
+  version "3.0.7"
+  resolved "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#2ff9f002559338a401c5ad061fc608e416f1bd4f"
   dependencies:
     browser-sync "^2.18.2"
     classnames "^2.2.5"
