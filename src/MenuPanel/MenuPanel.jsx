@@ -70,6 +70,10 @@ class MenuPanel extends React.Component {
         }
     }
 
+    componentWillUnmount() {
+        this._unBindEvents();
+    }
+
     props: Props;
     firstFocusableElement: HTMLElement;
     lastFocusableElement: HTMLElement;
