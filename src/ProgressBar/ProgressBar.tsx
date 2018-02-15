@@ -1,27 +1,36 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {StyledComponentClass} from 'styled-components';
 import {
     getBarHeight,
     getBarRadius,
 } from './ProgressBarHelpers';
 import ProgressBarIndicator from '../ProgressBarIndicator';
+import {Omit} from '../globals/js/type-helpers';
 
-export interface ProgressBarProps {
+export interface ProgressBarProps extends Omit<React.HTMLProps<HTMLDivElement>, 'size'>  {
     className?: string,
     /**
      * Current value should be between 0-100, inclusive.
      */
     currentValue: number,
+    /**
+     * Determines coloring of the bar.
+     */
     format: 'neutral' | 'alert' | 'warning' | 'empty' | 'disabled',
     /**
      * Determines if the progress bar should be animated.
      */
     animated?: boolean,
+    /**
+     * Determines height of the bar
+     */
     size: 'md' | 'lg' | 'xl',
 };
 
 // ==================== ProgressBarContainer
-const getContainerBackgroundColor = (format: string, theme: any) => {
+const getContainerBackgroundColor = (props) => {
+    let theme = props.theme;
+    let format = props.format;
     let backgroundColor = theme.colors.componentSpecificColors.progressBar.defaultTrackBackgroundColor;
 
     if (format === 'disabled') {
@@ -33,37 +42,28 @@ const getContainerBackgroundColor = (format: string, theme: any) => {
 
     return backgroundColor;
 };
-interface ProgressBarContainerProps {
+export interface ProgressBarContainerProps extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
+    animated?: boolean,
+    currentValue: number,
     format: 'neutral' | 'alert' | 'warning' | 'empty' | 'disabled',
     size: 'md' | 'lg' | 'xl',
 }
 
-const ProgressBarContainer = styled<ProgressBarContainerProps, 'div'>('div')`
-    height: ${props => getBarHeight(props.size)};
-    border-radius: ${props => getBarRadius(props.size)};
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    background-color: ${props => getContainerBackgroundColor(props.format, props.theme)};
-`;
-
 // ==================== ProgressBar
 
-const ProgressBar: React.SFC<ProgressBarProps | HTMLDivElement> = ({
+const ProgressBar: StyledComponentClass<ProgressBarContainerProps, 'div'> = styled(({
     className,
     currentValue,
     format = 'neutral',
     animated,
     size = 'md',
     ...filteredProps
-}: ProgressBarProps) => {
+}: ProgressBarContainerProps) => {
 
     return (
-            <ProgressBarContainer
+            <div
                 {...filteredProps}
                 className={className}
-                format={format}
-                size={size}
             >
                 <ProgressBarIndicator
                     animated={animated}
@@ -71,9 +71,16 @@ const ProgressBar: React.SFC<ProgressBarProps | HTMLDivElement> = ({
                     format={format}
                     size={size}
                 />
-            </ProgressBarContainer>
+            </div>
     );
-};
+})`
+height: ${props => getBarHeight(props.size)};
+border-radius: ${props => getBarRadius(props.size)};
+overflow: hidden;
+position: relative;
+width: 100%;
+background-color: ${props => getContainerBackgroundColor(props)};
+`;
 
 ProgressBar.displayName = 'ProgressBar';
 

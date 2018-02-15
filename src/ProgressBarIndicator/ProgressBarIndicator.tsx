@@ -9,6 +9,7 @@ import {
     getBarHeight,
     getBarRadius,
 } from '../ProgressBar/ProgressBarHelpers';
+
 export interface ProgressBarIndicatorProps {
     currentValue: number,
     format: 'neutral' | 'alert' | 'warning' | 'empty' | 'disabled',
@@ -47,7 +48,7 @@ const stripeKeyframes = keyframes`
         }
     `;
 interface BarProps {
-    animated?:boolean,
+    animated?: boolean,
     format: 'neutral' | 'alert' | 'warning' | 'empty' | 'disabled',
     size: 'md' | 'lg' | 'xl',
 }
@@ -78,7 +79,7 @@ const ProgressBarStyled = styled<BarProps, 'div'>('div')`
     `;
 
 
-const ProgressBarIndicator: React.SFC<ProgressBarIndicatorProps> = (props: ProgressBarIndicatorProps) => {
+const ProgressBarIndicator: React.SFC<ProgressBarIndicatorProps> = props => {
 
     let progressValue;
 
