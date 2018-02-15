@@ -56,3 +56,4 @@ build-styleguide
 data
 docs/main.jsx
 dist
+tsdocsHTML

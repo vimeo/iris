@@ -73,6 +73,20 @@ module.exports = {
                     'svg-react-loader',
                 ],
             },
+            {
+                test: [/\.tsx?$/],
+                use: [
+                    {
+                        loader: 'ts-loader',
+                    },
+                ],
+            },
+            {
+                test: /\.(html)$/,
+                use: {
+                    loader: 'html-loader',
+                },
+            },
         ],
     },
 
@@ -86,6 +100,9 @@ module.exports = {
             '.json',
             '.jsx',
             '.svg',
+            '.ts',
+            '.tsx',
+            '.html',
         ],
         modules: ['node_modules', 'components'],
     },

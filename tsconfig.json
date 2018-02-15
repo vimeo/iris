@@ -1,0 +1,32 @@
+
+{
+    "compilerOptions": {
+        "declaration": true,
+        "declarationDir": "dist",
+        "downlevelIteration": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "jsx": "react",
+        "esModuleInterop": true,
+        "lib": [
+            "es6",
+            "esnext",
+            "dom"
+        ],
+        "forceConsistentCasingInFileNames": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "outDir": "dist",
+        "rootDir": "src",
+        "strict": false,
+        "suppressImplicitAnyIndexErrors": true,
+        "target": "es5"
+    },
+
+    "exclude" : [
+        "tsdocsHTML/**/*"
+    ]
+}

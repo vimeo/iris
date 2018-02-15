@@ -9,3 +9,4 @@ gulpfile.babel.js
 gulp-tasks/**/*
 docs/**/*
 src/components/Icons/*
+tsdocsHTML/*

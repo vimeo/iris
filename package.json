@@ -1,6 +1,6 @@
 {
   "name": "@vimeo/iris",
-  "version": "2.5.5",
+  "version": "2.5.2",
   "description": "Iris UI Pattern Framework",
   "main": "dist/index.js",
   "scripts": {
@@ -24,16 +24,18 @@
   "author": "Jory Cunningham (jory@vimeo.com)",
   "license": "ISC",
   "devDependencies": {
+    "@types/lodash": "^4.14.102",
+    "@types/react": "16.0.34",
     "autoprefixer": "^6.5.3",
-    "babel-core": "^6.18.2",
     "babel-cli": "^6.24.1",
+    "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^7.1.2",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.18.0",
     "browser-sync": "^2.18.8",
     "connect-history-api-fallback": "^1.4.0",
@@ -57,21 +59,27 @@
     "gulp-shell": "^0.5.2",
     "gulp-svgo": "^1.0.3",
     "gulp-template": "^4.0.0",
+    "gulp-typedoc": "^2.2.0",
+    "html-loader": "^0.5.5",
     "json-loader": "^0.5.7",
     "node-sass": "^4.5.3",
     "plop": "^1.7.1",
+    "polished": "^1.9.2",
     "postcss-loader": "^2.0.9",
     "pre-commit": "^1.2.2",
     "react-router-dom": "^4.0.0",
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2",
     "sass-loader": "^6.0.6",
-    "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#2.0.2",
+    "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#3.0.7",
     "style-loader": "^0.19.1",
+    "styled-components": "^3.1.6",
+    "ts-loader": "^3.5.0",
+    "typescript": "^2.7.1",
     "uppercamelcase": "^1.1.0",
     "walk": "^2.3.9",
-    "yargs": "^7.0.2",
-    "webpack": "3.*"
+    "webpack": "3.*",
+    "yargs": "^7.0.2"
   },
   "dependencies": {
     "animejs": "^2.0.2",
@@ -87,7 +95,13 @@
     "svg-react-loader": "^0.4.5"
   },
   "peerDependencies": {
+    "polished": "^1.9.2",
     "react": "^15.4.1",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "styled-components": "^3.1.6"
+  },
+  "resolutions": {
+    "@types/lodash": "^4.14.102",
+    "@types/react": "16.0.34"
   }
 }

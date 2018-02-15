@@ -9,6 +9,7 @@ gulp.task('prepublish' , function(cb) {
 		'svgListBuild',
         'svgExportBuild',
         'compilePackageIndexJS',
+        'transpileTS',
         [ 
             'transpileJS',
             'copyOtherSrcFiles'
