@@ -18,8 +18,11 @@ export interface ProgressBarIndicatorProps {
 }
 // ==================== ProgressBarIndicator
 
-const getBarBackgroundColor = (format: string, theme: any) => {
+const getBarBackgroundColor = (props) => {
+    let theme = props.theme;
+    let format = props.format;
     let backgroundColor;
+
     switch (format) {
         case 'disabled':
             backgroundColor = theme.colors.componentSpecificColors.progressBar.disabledBarColor;
@@ -60,7 +63,7 @@ const ProgressBarStyled = styled<BarProps, 'div'>('div')`
         top: 0;
         left: 0;
 
-        background-color: ${props => getBarBackgroundColor(props.format, props.theme)};
+        background-color: ${getBarBackgroundColor};
 
         ${props => props.animated ? `
                 background-image: linear-gradient(

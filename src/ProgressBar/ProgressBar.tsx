@@ -79,7 +79,7 @@ border-radius: ${props => getBarRadius(props.size)};
 overflow: hidden;
 position: relative;
 width: 100%;
-background-color: ${props => getContainerBackgroundColor(props)};
+background-color: ${getContainerBackgroundColor};
 `;
 
 ProgressBar.displayName = 'ProgressBar';
