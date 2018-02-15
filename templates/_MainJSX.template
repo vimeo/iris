@@ -10,7 +10,7 @@ import styles from './styleguide-assets/sass/styleguide.scss';
 import {ThemeProvider} from 'styled-components';
 import VimeoTheme from '../src/globals/js/themes/vimeo-theme';
 
-// THIS FILE IS GENERATED FROM templates/_MainJSXPath.template //
+// DO NOT EDIT: THIS FILE IS GENERATED FROM templates/_MainJSX.template //
 
 let App = function App() {
     return (
