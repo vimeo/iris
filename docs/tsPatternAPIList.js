@@ -7,4 +7,5 @@ const tsPatternAPIList = {
     }
 }
 
+
 export default tsPatternAPIList;
