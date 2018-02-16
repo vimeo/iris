@@ -8,6 +8,13 @@ import ProgressBarIndicator from '../ProgressBarIndicator';
 import {Omit} from '../globals/js/type-helpers';
 
 export interface ProgressBarProps extends Omit<React.HTMLProps<HTMLDivElement>, 'size'>  {
+    /**
+     * Determines if the progress bar should be animated.
+     */
+    animated?: boolean,
+    /**
+     * Class is added to the outer div of the ProgressBar
+     */
     className?: string,
     /**
      * Current value should be between 0-100, inclusive.
@@ -18,30 +25,24 @@ export interface ProgressBarProps extends Omit<React.HTMLProps<HTMLDivElement>, 
      */
     format: 'neutral' | 'alert' | 'warning' | 'empty' | 'disabled',
     /**
-     * Determines if the progress bar should be animated.
-     */
-    animated?: boolean,
-    /**
      * Determines height of the bar
      */
     size: 'md' | 'lg' | 'xl',
 };
 
 // ==================== ProgressBarContainer
+
 const getContainerBackgroundColor = (props) => {
-    let theme = props.theme;
-    let format = props.format;
-    let backgroundColor = theme.colors.componentSpecificColors.progressBar.defaultTrackBackgroundColor;
-
-    if (format === 'disabled') {
-        backgroundColor = theme.colors.componentSpecificColors.progressBar.disabledTrackBackgroundColor
-    }
-    else if (format === 'alert') {
-        backgroundColor = theme.colors.uiColors.alertColorLight;
+    const themeColors = props.theme.colors;
+    const format = props.format;
+    const containerBackgroundColorMap = {
+        'alert' : themeColors.uiColors.alertColorLight,
+        'disabled': themeColors.componentSpecificColors.progressBar.disabledTrackBackgroundColor,
     }
 
-    return backgroundColor;
+    return containerBackgroundColorMap[format] || themeColors.componentSpecificColors.progressBar.defaultTrackBackgroundColor;
 };
+
 export interface ProgressBarContainerProps extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
     animated?: boolean,
     currentValue: number,

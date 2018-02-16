@@ -19,25 +19,15 @@ export interface ProgressBarIndicatorProps {
 // ==================== ProgressBarIndicator
 
 const getBarBackgroundColor = (props) => {
-    let theme = props.theme;
-    let format = props.format;
-    let backgroundColor;
-
-    switch (format) {
-        case 'disabled':
-            backgroundColor = theme.colors.componentSpecificColors.progressBar.disabledBarColor;
-            break;
-        case 'warning':
-            backgroundColor = theme.colors.uiColors.warningColor;
-            break;
-        case 'alert':
-            backgroundColor = theme.colors.uiColors.alertColor;
-            break;
-        default:
-            backgroundColor = theme.colors.uiColors.primaryColor;
+    const themeColors = props.theme.colors;
+    const format = props.format;
+    const barBackgroundColorMap = {
+        'alert' : themeColors.uiColors.alertColor,
+        'disabled': themeColors.componentSpecificColors.progressBar.disabledBarColor,
+        'warning': themeColors.uiColors.warningColor,
     }
 
-    return backgroundColor;
+    return barBackgroundColorMap[format] || themeColors.uiColors.primaryColor;
 };
 
 const stripeSizeRems = rem(ProgressBarStyleSettings.stripeSize);
