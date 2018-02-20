@@ -33,14 +33,13 @@ export interface ProgressBarProps extends Omit<React.HTMLProps<HTMLDivElement>, 
 // ==================== ProgressBarContainer
 
 const getContainerBackgroundColor = (props) => {
-    const themeColors = props.theme.colors;
-    const format = props.format;
+    const progressBarColors = props.theme.colors.componentSpecificColors.progressBar;
     const containerBackgroundColorMap = {
-        'alert' : themeColors.uiColors.alertColorLight,
-        'disabled': themeColors.componentSpecificColors.progressBar.disabledTrackBackgroundColor,
+        'alert' : props.theme.colors.uiColors.alertColorLight,
+        'disabled': progressBarColors.disabledTrackBackgroundColor,
     }
 
-    return containerBackgroundColorMap[format] || themeColors.componentSpecificColors.progressBar.defaultTrackBackgroundColor;
+    return containerBackgroundColorMap[props.format] || progressBarColors.defaultTrackBackgroundColor;
 };
 
 export interface ProgressBarContainerProps extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
