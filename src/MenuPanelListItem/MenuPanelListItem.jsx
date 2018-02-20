@@ -11,6 +11,7 @@ type Props = {
     className?: string,
     label: string,
     href?: string,
+    linkElement?: any,
     isSelected?: boolean,
     icon?: React$Element<*>,
 };
@@ -19,6 +20,7 @@ const MenuPanelListItem = ({
         className,
         label,
         href = '#',
+        linkElement,
         icon,
         isSelected,
         ...menuItemProps
@@ -44,9 +46,17 @@ const MenuPanelListItem = ({
         </span>
     ) : null;
 
+    const AnchorTag = (props) => {
+        return (
+                <a {...props} />
+        );
+    };
+
+    const Element = linkElement || AnchorTag;
+
     return (
         <li className={componentClass}>
-            <a
+            <Element
                 href={href}
                 className={menuItemLinkClass}
                 {...menuItemProps}
@@ -59,7 +69,7 @@ const MenuPanelListItem = ({
                     {linkIconElement}
                     {label}
                 </ParagraphMd>
-            </a>
+            </Element>
         </li>
     );
 };

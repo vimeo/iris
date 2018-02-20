@@ -12,6 +12,7 @@ import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
 import SettingsIcon from '../icons/gear.svg';
 import MenuPanelScrollableWithActionArea from '../MenuPanelScrollableWithActionArea/MenuPanelScrollableWithActionArea';
 import InputText from '../InputText/InputText';
+import { Link } from 'react-router-dom';
 import styles from './MenuPanel-Docs.scss';
 class MenuPanelDocs extends React.Component {
     constructor(props) {
@@ -43,19 +44,20 @@ class MenuPanelDocs extends React.Component {
         const MenuList = (
             <div>
                 <MenuPanelList
-                    header="Section 1"
-                    menuItems = {[
-                        {
-                            label: 'Item 1',
-                            href: '#',
-                        },
-                        {
-                            label: 'Selected Item',
-                            href: '#',
-                            isSelected: true,
-                            'data-foo': 'bar',
-                        },
-                    ]}
+                header="Section 1"
+                menuItems = {[
+                    {
+                        label: 'React router link',
+                        linkElement: Link,
+                        to: '#foobar',
+                    },
+                    {
+                        label: 'Selected Item',
+                        href: '#',
+                        isSelected: true,
+                        'data-foo': 'bar',
+                    },
+                ]}
                 />
                 <MenuPanelList
                     hasDivider
@@ -271,8 +273,9 @@ const MenuList = (
     header="Section 1"
     menuItems = {[
         {
-            label: 'Item 1',
-            href: '#',
+            label: 'React router link',
+            linkElement: Link,
+            to: '#foobar'
         },
         {
             label: 'Selected Item',
