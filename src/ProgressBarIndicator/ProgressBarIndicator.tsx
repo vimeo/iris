@@ -26,6 +26,7 @@ const getBarBackgroundColor = (props) => {
         'alert' : uiColors.alertColor,
         'disabled': progressBarColors.disabledBarColor,
         'warning': uiColors.warningColor,
+        'empty': 'transparent',
     }
 
     return barBackgroundColorMap[props.format] || uiColors.primaryColor;
