@@ -29,7 +29,7 @@ const getBarBackgroundColor = (props) => {
         'empty': 'transparent',
     }
 
-    return barBackgroundColorMap[props.format] || uiColors.primaryColor;
+    return barBackgroundColorMap[props.formatProp] || uiColors.primaryColor;
 };
 
 const stripeSizeRems = rem(ProgressBarStyleSettings.stripeSize);
@@ -44,7 +44,7 @@ const stripeKeyframes = keyframes`
     `;
 interface BarProps {
     animated?: boolean,
-    format: 'neutral' | 'alert' | 'warning' | 'empty' | 'disabled',
+    formatProp: 'neutral' | 'alert' | 'warning' | 'empty' | 'disabled',
     size: 'md' | 'lg' | 'xl',
 }
 
@@ -91,9 +91,17 @@ const ProgressBarIndicator: React.SFC<ProgressBarIndicatorProps> = props => {
     // empty mode gets full width when animated
     const progressWidth = props.format === 'empty' && props.animated ? 100 : progressValue;
 
+    // "format" does not get automatically filtered from the element by StyledComponents so we are renaming it formatProp
+    
+    const {
+        format,
+        ...filteredProps,
+    } = props;
+
     return (
         <ProgressBarStyled
-            {...props}
+            {...filteredProps}
+            formatProp={format}
             role="progressbar"
             aria-valuenow={`${progressValue}`}
             aria-valuemin="0"
