@@ -1,5 +1,6 @@
 import React from 'react';
-import styled, {StyledComponentClass} from 'styled-components';
+
+import styled from 'styled-components';
 import {
     getBarHeight,
     getBarRadius,
@@ -43,37 +44,11 @@ const getContainerBackgroundColor = (props) => {
 };
 
 export interface ProgressBarContainerProps extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
-    animated?: boolean,
-    currentValue: number,
-    format: 'neutral' | 'alert' | 'warning' | 'empty' | 'disabled',
+    formatProp: 'neutral' | 'alert' | 'warning' | 'empty' | 'disabled',
     size: 'md' | 'lg' | 'xl',
 }
 
-// ==================== ProgressBar
-
-const ProgressBar: StyledComponentClass<ProgressBarContainerProps, 'div'> = styled(({
-    className,
-    currentValue,
-    format = 'neutral',
-    animated,
-    size = 'md',
-    ...filteredProps
-}: ProgressBarContainerProps) => {
-
-    return (
-            <div
-                {...filteredProps}
-                className={className}
-            >
-                <ProgressBarIndicator
-                    animated={animated}
-                    currentValue={currentValue}
-                    format={format}
-                    size={size}
-                />
-            </div>
-    );
-})`
+const ProgressBarContainer = styled<ProgressBarContainerProps, 'div'>('div')`
 height: ${props => getBarHeight(props.size)};
 border-radius: ${props => getBarRadius(props.size)};
 overflow: hidden;
@@ -82,6 +57,31 @@ width: 100%;
 background-color: ${getContainerBackgroundColor};
 `;
 
-ProgressBar.displayName = 'ProgressBar';
+// ==================== ProgressBar
+
+const ProgressBar: React.SFC<ProgressBarProps> = ({
+    currentValue,
+    format = 'neutral',
+    animated,
+    size = 'md',
+    ref: _, // filter out ref from styled component
+    ...filteredProps
+}) => {
+    
+    return (
+            <ProgressBarContainer
+                formatProp={format}
+                size={size}
+                {...filteredProps}
+            >
+                <ProgressBarIndicator
+                    animated={animated}
+                    currentValue={currentValue}
+                    format={format}
+                    size={size}
+                />
+            </ProgressBarContainer>
+    );
+};
 
 export default ProgressBar;
