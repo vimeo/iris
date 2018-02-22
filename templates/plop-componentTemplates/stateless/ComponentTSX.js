@@ -1,35 +1,39 @@
-// @flow
 import React from 'react';
-import classNames from 'classnames';
-import styles from './{{pascalCase name}}.scss';
+import styled from 'styled-components';
 
-const displayName = '{{pascalCase name}}';
-
-type Props = {
+export interface {{pascalCase name}}Props extends React.HTMLProps<HTMLDivElement>  {
+    /* 
+    * Class is added to the outer div of the {{pascalCase name}}
+     */
     className?: string,
 };
 
-const  {{pascalCase name}} = ({
-                        className,
-                        ...filteredProps
-                    }: Props): React$Element<*> => {
+// ==================== {{pascalCase name}} Styled Thing
 
-    // className builder
-    const componentClass = classNames(
-        styles.{{pascalCase name}},
-        className
-    );
+export interface {{pascalCase name}}StyledProps extends React.HTMLProps<HTMLDivElement> {
 
+}
+
+const {{pascalCase name}}Styled= styled<{{pascalCase name}}StyledProps, 'div'>('div')`
+    attribute: value;
+`;
+
+// ==================== {{pascalCase name}}
+
+const {{pascalCase name}}: React.SFC<{{pascalCase name}}Props> = ({
+    sampleProp = 'default',
+    ref: _, // filter out ref from styled component
+    ...filteredProps
+}) => {
+    
     return (
-            <div
-                {...filteredProps}
-                className={componentClass}
-            >
-                    {props.children}
+            <div>
+                <{{pascalCase name}}Styled
+                    {...filteredProps}
+                    sampleProp={sampleProp}
+                />
             </div>
     );
 };
-
-{{pascalCase name}}.displayName = displayName;
 
 export default {{pascalCase name}};

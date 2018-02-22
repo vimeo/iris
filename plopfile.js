@@ -15,7 +15,7 @@ module.exports = (plop) => {
             {
                 type: 'input',
                 name: 'name',
-                message: 'What is your Component name (PascalCasePlease)?',
+                message: 'What is the Component\'s name? (PascalCasePlease, no spaces)',
                 validate(value) {
                     if ((/.+/).test(value)) {
                         return true;
