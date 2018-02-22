@@ -15,10 +15,10 @@
 .ActionButtonWrapper {
     position: absolute;
     z-index: get-z-index('VerticalMenuButtons');
-    top: rem-calc(4);
 }
 
 .SubMenuToggle {
+    top: rem-calc(11);
     left: rem-calc(4);
 
     svg {
@@ -27,6 +27,7 @@
 }
 
 .ActionButtonWrapper {
+    top: rem-calc(4);
     right: rem-calc(4);
 }
 

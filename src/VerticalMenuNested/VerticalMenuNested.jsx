@@ -3,11 +3,10 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './VerticalMenuNested.scss';
 import SlideUpDown from '../SlideUpDown/SlideUpDown';
-import VerticalMenuActionButton from '../VerticalMenuActionButton';
+import VerticalMenuToggleButton from '../VerticalMenuToggleButton';
 import VerticalMenuItemContent from '../VerticalMenuItemContent';
 import VerticalMenuItem from '../VerticalMenuItem';
 import VerticalMenuNestedSubMenu from '../VerticalMenuNestedSubMenu/VerticalMenuNestedSubMenu';
-import RightArrow from '../icons/chevron-right.svg';
 
 
 type Props = {
@@ -156,8 +155,8 @@ class VerticalMenuNested extends React.Component {
                         <div
                             className={subMenuToggleClass}
                         >
-                            <VerticalMenuActionButton
-                                icon={<RightArrow title={nestedButtonLabel} />}
+                            <VerticalMenuToggleButton
+                                label={nestedButtonLabel}
                                 onClick={this._handleToggleClick}
                             />
                         </div>
