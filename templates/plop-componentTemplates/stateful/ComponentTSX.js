@@ -24,7 +24,7 @@ const {{pascalCase name}}Styled= styled<{{pascalCase name}}StyledProps, 'div'>('
 
 // ==================== {{pascalCase name}}
 
-class {{pascalCase name}}extends React.Component<any, any> {
+class {{pascalCase name}} extends React.Component<any, any> {
     static defaultProps = {
         sampleProp: 'defaultValue',
     };
