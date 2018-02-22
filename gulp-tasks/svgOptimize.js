@@ -1,15 +1,21 @@
 const gulp = require('gulp');
-const svgo = require('gulp-svgo');
+const svgmin = require('gulp-svgmin');
 const config = require('../config');
 
-// Run SVGs through SVGo to optimize.
 gulp.task('svgOptimize', function () {
     return gulp.src('svg_src_files/svg/**/*.svg')
-    .pipe(svgo(
-            {
-                plugins: [{
-                removeTitle: true,
-                }]
-    }))
-    .pipe(gulp.dest( 'src/icons/'));
+        .pipe(svgmin({
+            plugins: [
+                {
+                    removeDimensions: true
+                },
+                {
+                    removeTitle: true
+                },
+                {
+                    removeViewBox: false
+                },
+            ]
+        }))
+        .pipe(gulp.dest( 'src/icons/'));
 });
