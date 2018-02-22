@@ -2,7 +2,6 @@
 
 module.exports = (plop) => {
 
-
     // We declare a new generator
     plop.setGenerator('Component', {
 
@@ -25,7 +24,7 @@ module.exports = (plop) => {
             },
             {
                 type: 'list',
-                name: 'componentType',
+                name: 'type',
                 message: 'What type of component will this be?',
                 choices: [
                     { name: 'Stateless Functional Component (preferred)', value: 'stateless' },
@@ -37,24 +36,30 @@ module.exports = (plop) => {
 
     // List of actions to take.
     // Here we "add" new files from our templates.
-        actions: [
-            {
-                type: 'add',
-                path: 'src/{{pascalCase name}}/{{pascalCase name}}.tsx',
-                templateFile: 'templates/plop-componentTemplates/{componentType}/ComponentTSX.js',
-            },
-            {
-                type: 'add',
-                path: 'src/{{pascalCase name}}/{{pascalCase name}}-Docs.jsx',
-                templateFile: 'templates/plop-componentTemplates/ComponentDocsTSX.js',
-            },
-            {
-                type: 'add',
-                path: 'src/{{pascalCase name}}/index.ts',
-                templateFile: 'templates/plop-componentTemplates/ComponentIndexTS.js',
-            },
-        ],
+        actions(data) {
+            const actions = [
+                {
+                    type: 'add',
+                    path: 'src/{{pascalCase name}}/{{pascalCase name}}-Docs.jsx',
+                    templateFile: 'templates/plop-componentTemplates/ComponentDocsJSX.js',
+                },
+                {
+                    type: 'add',
+                    path: 'src/{{pascalCase name}}/index.ts',
+                    templateFile: 'templates/plop-componentTemplates/ComponentIndexTS.js',
+                },
+            ];
 
+            if (data.type) {
+                actions.push({
+                    type: 'add',
+                    path: 'src/{{pascalCase name}}/{{pascalCase name}}.tsx',
+                    templateFile: `templates/plop-componentTemplates/${data.type}/ComponentTSX.js`,
+                });
+
+            }
+            return actions;
+        },
     });
 
     plop.setGenerator('Additional Pattern Entry', {
