@@ -97,10 +97,10 @@
     margin-bottom: spacingUnit(2);
     line-height: calculateLineHeightTarget($BodySm, 18);
 
-    letter-spacing: $LetterSpacingMd;
+    letter-spacing: .033rem;
 
     font-size: rem-calc($BodySm);
-    font-weight: $FontWeightMedium;
+    font-weight: $FontWeightMediumLight;
 
     text-transform: uppercase;
 }
