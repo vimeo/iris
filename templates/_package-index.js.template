@@ -33,3 +33,6 @@ export { default as <%- pattern['displayName']%> } from './<%- pattern['displayN
 
 /* Components that are typescript, not flow */
 export { default as ProgressBar } from './ProgressBar';
+
+/* Export the Vimeo Theme */
+export { default as VimeoTheme } from './globals/js/themes/vimeo-theme.js';
