@@ -110,6 +110,8 @@
   
  exports.PopOut = require('../../../src/icons/pop-out.svg');
   
+ exports.Replay = require('../../../src/icons/replay.svg');
+  
  exports.Search = require('../../../src/icons/search.svg');
   
  exports.SpeechBubbleRounded = require('../../../src/icons/speech-bubble-rounded.svg');
