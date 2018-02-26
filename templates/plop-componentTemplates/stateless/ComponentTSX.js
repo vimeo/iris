@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import VimeoTheme from '../globals/js/themes/vimeo-theme';
 
 export interface {{pascalCase name}}Props extends React.HTMLProps<HTMLDivElement>  {
     /* 

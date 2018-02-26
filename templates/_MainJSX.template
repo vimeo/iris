@@ -7,14 +7,11 @@ import SingleStyleListing from 'steadicam/components/styleListings/SingleStyleLi
 import PageLayout from 'steadicam/components/layouts/PageLayout/PageLayout';
 import ProjectDependencies from './ProjectDependencies';
 import styles from './styleguide-assets/sass/styleguide.scss';
-import {ThemeProvider} from 'styled-components';
-import VimeoTheme from '../src/globals/js/themes/vimeo-theme';
 
 // DO NOT EDIT: THIS FILE IS GENERATED FROM templates/_MainJSX.template //
 
 let App = function App() {
     return (
-        <ThemeProvider theme={VimeoTheme}>
             <div>
                 <BrowserRouter <% if(rootPath) {%> basename="<%- rootPath %>" <% } %>>
                     <Switch>
@@ -33,7 +30,6 @@ let App = function App() {
                 </BrowserRouter>
                 <ProjectDependencies />
             </div>
-        </ThemeProvider>
 )
 };
 

@@ -1,15 +1,7 @@
 import COLORS from '../constants/COLORS';
-import {rgba} from 'polished';
 
 const VimeoTheme = {
     colors: {
-        componentSpecificColors: {
-            progressBar: {
-                defaultTrackBackgroundColor: rgba(COLORS.AstroGranite, 0.15),
-                disabledBarColor: COLORS.SoutherlySky,
-                disabledTrackBackgroundColor: COLORS.Porcelain,
-            },
-        },
         typeColors: {
             bodyTextColorDark: COLORS.AstroGranite,
             bodyTextColorLight: COLORS.RegentGray,

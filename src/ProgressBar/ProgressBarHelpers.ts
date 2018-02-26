@@ -1,6 +1,12 @@
-import { rem } from 'polished';
+import { rem, rgba } from 'polished';
+import COLORS from '../globals/js/constants/COLORS';
 
 const ProgressBarStyleSettings = {
+    colors: {
+        defaultTrackBackgroundColor: rgba(COLORS.AstroGranite, 0.15),
+        disabledBarColor: COLORS.SoutherlySky,
+        disabledTrackBackgroundColor: COLORS.Porcelain,
+    },
     height: {
         md: 4,
         lg: 8,

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { keyframes} from 'styled-components';
+import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import {
     rem,
     rgba,
@@ -19,8 +20,8 @@ export interface ProgressBarIndicatorProps {
 // ==================== ProgressBarIndicator
 
 const getBarBackgroundColor = (props) => {
-    const progressBarColors = props.theme.colors.componentSpecificColors.progressBar;
-    const uiColors = props.theme.colors.uiColors;
+    const progressBarColors = ProgressBarStyleSettings.colors;
+    const uiColors = VimeoStyleSettings.colors.uiColors;
     
     const barBackgroundColorMap = {
         'alert' : uiColors.alertColor,

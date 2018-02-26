@@ -1,11 +1,12 @@
 import React from 'react';
-
+import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings'
 import styled from 'styled-components';
 import {
     getBarHeight,
     getBarRadius,
+    ProgressBarStyleSettings,
 } from './ProgressBarHelpers';
-import ProgressBarIndicator from '../ProgressBarIndicator';
+import ProgressBarIndicator from './ProgressBarIndicator';
 import {Omit} from '../globals/js/type-helpers';
 
 export interface ProgressBarProps extends Omit<React.HTMLProps<HTMLDivElement>, 'size'>  {
@@ -34,9 +35,9 @@ export interface ProgressBarProps extends Omit<React.HTMLProps<HTMLDivElement>, 
 // ==================== ProgressBarContainer
 
 const getContainerBackgroundColor = (props) => {
-    const progressBarColors = props.theme.colors.componentSpecificColors.progressBar;
+    const progressBarColors = ProgressBarStyleSettings.colors;
     const containerBackgroundColorMap = {
-        'alert' : props.theme.colors.uiColors.alertColorLight,
+        'alert' : VimeoStyleSettings.colors.uiColors.alertColorLight,
         'disabled': progressBarColors.disabledTrackBackgroundColor,
     }
 
@@ -49,12 +50,12 @@ export interface ProgressBarContainerProps extends Omit<React.HTMLProps<HTMLDivE
 }
 
 const ProgressBarContainer = styled<ProgressBarContainerProps, 'div'>('div')`
-height: ${props => getBarHeight(props.size)};
-border-radius: ${props => getBarRadius(props.size)};
-overflow: hidden;
-position: relative;
-width: 100%;
-background-color: ${getContainerBackgroundColor};
+    height: ${props => getBarHeight(props.size)};
+    border-radius: ${props => getBarRadius(props.size)};
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-color: ${getContainerBackgroundColor};
 `;
 
 // ==================== ProgressBar
@@ -67,20 +68,20 @@ const ProgressBar: React.SFC<ProgressBarProps> = ({
     ref: _, // filter out ref from styled component
     ...filteredProps
 }) => {
-    
+
     return (
-            <ProgressBarContainer
-                formatProp={format}
+        <ProgressBarContainer
+            formatProp={format}
+            size={size}
+            {...filteredProps}
+        >
+            <ProgressBarIndicator
+                animated={animated}
+                currentValue={currentValue}
+                format={format}
                 size={size}
-                {...filteredProps}
-            >
-                <ProgressBarIndicator
-                    animated={animated}
-                    currentValue={currentValue}
-                    format={format}
-                    size={size}
-                />
-            </ProgressBarContainer>
+            />
+        </ProgressBarContainer>
     );
 };
 
