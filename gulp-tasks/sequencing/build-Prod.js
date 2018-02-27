@@ -6,7 +6,6 @@ gulp.task('build-Prod' , function(cb) {
         ['compileComponentListJSX','compileEntryPoints-Prod'],
         ['reactDocGenBuild', 'tsDocs'],
         'reactDocGenParse',
-        'compileColorVariables',
         'sassGlobals',
         'copyStaticAssets',
         'copyFavicon',
