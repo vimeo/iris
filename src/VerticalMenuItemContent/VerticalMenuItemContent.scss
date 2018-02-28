@@ -22,10 +22,6 @@ $VerticalMenuItem_IconMargin: rem-calc(8);
         max-width: $screen-sm-rem;
         margin-bottom: 0;
     }
-
-    &.isActive {
-        background-color: rgba($AstroGranite, 0.08);
-    }
 }
 
 .linkActionWrapper {

@@ -13,6 +13,7 @@ type Props = {
     children: React$Element<*>,
     hasRightSideContent?: boolean,
     href?: string,
+    isActive?: boolean,
     to?: string,
     nestedInteractionContent?: React$Element<*>,
     nestedInteractionMenuSize?: 'sm' | 'md' | 'lg',
@@ -34,8 +35,8 @@ class VerticalMenuItem extends React.Component {
     constructor(props: Props) {
         super(props);
         this.state = {
-            showNestedInteraction: props.showNestedByDefault || false,
             nestedMenuOpen: false,
+            showNestedInteraction: props.showNestedByDefault || false,
             subMenuOpen: false,
         };
     }
@@ -86,15 +87,26 @@ class VerticalMenuItem extends React.Component {
             );
     }
 
-    _handleMouseOut = () => {
+    _handleWrapperMouseOut = () => {
         this.setState({
             showNestedInteraction: this.state.nestedMenuOpen,
         });
     }
 
-    _handleMouseOver = () => {
+    _handleWrapperMouseOver = () => {
         this.setState({
             showNestedInteraction: true,
+        });
+    }
+    _handleLinkMouseOut = () => {
+        this.setState({
+            linkIsHovered: false,
+        });
+    }
+
+    _handleLinkMouseOver = () => {
+        this.setState({
+            linkIsHovered: true,
         });
     }
 
@@ -118,6 +130,7 @@ class VerticalMenuItem extends React.Component {
             children,
             className,
             hasRightSideContent,
+            isActive,
             menuPanelTooltip,
             nestedButtonClass,
             nestedButtonLabel,
@@ -136,22 +149,30 @@ class VerticalMenuItem extends React.Component {
 
         const linkWrapperClass = classNames(
             styles.LinkStyleWrapper,
-            (nestedInteractionContent || hasRightSideContent ? styles.hasRightSideContent : null),
+            (hasRightSideContent ? styles.hasRightSideContent : null),
+            (isActive ? styles.isActive : null),
         );
 
         const nestedMenuClass = classNames(
             styles.NestedInteractionWrapper,
             styles.nestedMenuOffset,
+            (isActive ? styles.isActive : null),
+            (this.state.linkIsHovered ? styles.isHovered : null),
             (this.state.showNestedInteraction ? styles.isShowing : null),
+        );
+
+        const nestedMenuCombinedClass = classNames(
+            styles.NestedInteractionButton,
+            nestedButtonClass,
         );
 
         const NestedMenuButton = (
                 <ButtonIconOnly
-                    icon={<DotsMenuIcon title={nestedButtonLabel}/>}
+                    icon={<DotsMenuIcon title={nestedButtonLabel} className={styles.DotIcon} />}
                     format="dark"
                     size="sm"
                     isButtonElement={false}
-                    className={nestedButtonClass}
+                    className={nestedMenuCombinedClass}
                 />
             );
 
@@ -177,10 +198,14 @@ class VerticalMenuItem extends React.Component {
                 <div
                     {...filteredProps}
                     className={componentClass}
-                    onMouseOver={this._handleMouseOver}
-                    onMouseOut={this._handleMouseOut}
+                    onMouseOver={this._handleWrapperMouseOver}
+                    onMouseOut={this._handleWrapperMouseOut}
                 >
-                    <div className={linkWrapperClass}>
+                    <div
+                        className={linkWrapperClass}
+                        onMouseOver={this._handleLinkMouseOver}
+                        onMouseOut={this._handleLinkMouseOut}
+                    >
                         {children}
                     </div>
                     {NestedInteractionComponent}

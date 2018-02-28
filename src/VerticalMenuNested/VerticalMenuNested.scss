@@ -6,6 +6,8 @@
 
     width: 100%;
     max-width: $screen-sm-rem;
+
+    background-color: $Paste;
     .LinkLabel {
         margin-bottom: 0;
     }
@@ -18,7 +20,7 @@
 }
 
 .SubMenuToggle {
-    top: rem-calc(11);
+    top: rem-calc(10);
     left: rem-calc(4);
 
     svg {
