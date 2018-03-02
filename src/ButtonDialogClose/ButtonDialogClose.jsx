@@ -34,6 +34,7 @@ const ButtonDialogClose = ({
                 icon={<DeleteIcon title={buttonTitle} />}
                 isButtonElement={isButtonElement}
                 size={size}
+                type="button"
             />
     );
 };
