@@ -96,6 +96,10 @@
   
  exports.Lock = require('../../../src/icons/lock.svg');
   
+ exports.MicOff = require('../../../src/icons/mic-off.svg');
+  
+ exports.Mic = require('../../../src/icons/mic.svg');
+  
  exports.PaperPlane = require('../../../src/icons/paper-plane.svg');
   
  exports.Pencil = require('../../../src/icons/pencil.svg');
