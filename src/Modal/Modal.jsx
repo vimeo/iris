@@ -11,7 +11,7 @@ import Grid from '../Grid';
 import GridBlock from '../GridBlock';
 import GridCol from '../GridCol';
 import { Header4 } from '../Type';
-import { throttle } from 'lodash';
+import throttle from 'lodash/throttle';
 
 const displayName = 'Modal';
 
