@@ -107,6 +107,9 @@ class InputTextFloatingLabel extends React.Component {
 
     _handleWrapperClick = () => {
         this.inputField.focus();
+        this.setState({
+            isActive: true,
+        });
     }
 
     _handlePasswordToggle = (e: Event) => {

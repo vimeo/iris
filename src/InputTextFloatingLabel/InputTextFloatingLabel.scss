@@ -11,6 +11,8 @@ $InputFloatingLabel-widthOffset: 3rem -$inputs_padding-lg-horizontal;
     @include sharedTextInputs();
     @include inputThemes();
 
+    cursor:pointer; //IMPORTANT required by IE!
+
     min-height: rem-calc(52);
     padding: 0 $inputs_padding-lg-horizontal;
 
@@ -57,7 +59,7 @@ $InputFloatingLabel-widthOffset: 3rem -$inputs_padding-lg-horizontal;
     overflow: hidden;
 
     width: 100%;
-    height: 0;
+    height: rem-calc(1); // THIS IS IMPORTANT! SAFARI WILL NOT ALLOW FOCUS by JS if its not Visible.
     margin: 0;
     padding: 0;
 
