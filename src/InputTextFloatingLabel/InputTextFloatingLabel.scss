@@ -69,6 +69,7 @@ $InputFloatingLabel-widthOffset: 3rem -$inputs_padding-lg-horizontal;
     border: 0;
     outline: 0;
     background: transparent;
+    box-shadow: none; // Remove red glow from FF.
 
     transition: height $InputFloatingLabel-transition,
     padding $InputFloatingLabel-transition,
