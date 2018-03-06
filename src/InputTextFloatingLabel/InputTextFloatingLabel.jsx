@@ -26,6 +26,7 @@ type Props = {
     preMessage?: any,
     theme?: 'default' | 'dark',
     type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' |'url',
+    value?: string,
 };
 
 type State = {
@@ -45,7 +46,7 @@ class InputTextFloatingLabel extends React.Component {
     constructor(props: Props) {
         super(props);
         this.state = {
-            isActive: props.defaultValue ? true : false,
+            isActive: props.defaultValue || props.value ? true : false,
             passwordHidden: true,
             type: props.type,
         };
@@ -54,9 +55,9 @@ class InputTextFloatingLabel extends React.Component {
     state: State;
 
     componentWillReceiveProps(nextProps: Props) {
-        if (nextProps.defaultValue !== this.props.defaultValue) {
+        if (nextProps.defaultValue !== this.props.defaultValue || nextProps.value !== this.props.value) {
             this.setState({
-                isActive: nextProps.defaultValue ? true : false,
+                isActive: nextProps.defaultValue || nextProps.value ? true : false,
             });
         }
     }
