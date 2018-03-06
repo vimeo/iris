@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './ButtonLoadingState.scss';
 import Button from '../Button/Button';
+// $FlowFixMe Loader is in TS now.
 import LoaderCircular from '../LoaderCircular/LoaderCircular';
 
 const displayName = 'ButtonLoadingState';
