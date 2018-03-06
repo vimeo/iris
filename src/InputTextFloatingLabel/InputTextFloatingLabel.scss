@@ -11,8 +11,8 @@ $InputFloatingLabel-widthOffset: 3rem -$inputs_padding-lg-horizontal;
     @include sharedTextInputs();
     @include inputThemes();
 
-    cursor: pointer; //IMPORTANT required by IE!
-    
+    cursor:pointer; //IMPORTANT required by IE!
+
     min-height: rem-calc(52);
     padding: 0 $inputs_padding-lg-horizontal;
 
