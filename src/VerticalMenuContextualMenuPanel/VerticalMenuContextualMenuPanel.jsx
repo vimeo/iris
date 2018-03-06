@@ -47,7 +47,7 @@ const VerticalMenuContextualMenuPanel = ({
     return (
         <MenuPanel
             {...filteredProps}
-            className={styles.buttonOffset}
+            className={styles.VerticalMenuContextualMenuPanel}
             alignment="left"
             menuContent={children}
             size={size}

@@ -65,6 +65,7 @@ $VerticalMenuItem_HoverColor: darken($Porcelain, 3%);
     opacity: 0;
 
     transition: all $VerticalMenuItem_TransitionSpeed ease;
+    pointer-events: none;
 
     &.isActive {
         @include VerticalMenuItemTruncation($VerticalMenuItem_ActiveColor);
