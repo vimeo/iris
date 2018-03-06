@@ -11,13 +11,12 @@ $InputFloatingLabel-widthOffset: 3rem -$inputs_padding-lg-horizontal;
     @include sharedTextInputs();
     @include inputThemes();
 
-    cursor:pointer; //IMPORTANT required by IE!
-
     min-height: rem-calc(52);
     padding: 0 $inputs_padding-lg-horizontal;
 
     font-size: rem-calc(16);
 
+    cursor: pointer; //IMPORTANT required by IE!
     transition: all $InputFloatingLabel-transition;
 
     &.hasIcon {
