@@ -2,6 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './Tooltip.scss';
+// $FlowFixMe
 import { ParagraphMd } from '../Type';
 
 const displayName = 'Tooltip';

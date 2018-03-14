@@ -10,6 +10,7 @@ import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
 import Grid from '../Grid';
 import GridBlock from '../GridBlock';
 import GridCol from '../GridCol';
+// $FlowFixMe
 import { Header4 } from '../Type';
 import throttle from 'lodash/throttle';
 

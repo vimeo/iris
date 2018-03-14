@@ -3,6 +3,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './withCharacterCounter.scss';
+// $FlowFixMe
 import { ParagraphAltSm } from '../Type';
 
 type Props = {

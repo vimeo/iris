@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './MenuPanelList.scss';
 import MenuPanelListItem from '../MenuPanelListItem/MenuPanelListItem';
 import { Header6 } from '../Type';
-
+// $FlowFixMe
 const displayName = 'MenuPanelList';
 
 type Props = {

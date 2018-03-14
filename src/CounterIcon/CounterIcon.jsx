@@ -2,7 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './CounterIcon.scss';
-
+// $FlowFixMe
 import { ParagraphLg } from '../Type';
 import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';
 

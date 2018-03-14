@@ -2,6 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './MenuPanelListItem.scss';
+// $FlowFixMe
 import { ParagraphMd } from '../Type';
 import SelectedIcon from '../icons/checkmark.svg';
 

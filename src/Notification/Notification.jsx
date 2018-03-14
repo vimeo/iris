@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './Notification.scss';
 import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
+// $FlowFixMe
 import { Header5 } from '../Type';
 
 
