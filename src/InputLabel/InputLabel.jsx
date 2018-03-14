@@ -3,8 +3,9 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './InputLabel.scss';
 import InputLabelStateIcon from '../InputLabelStateIcon/InputLabelStateIcon';
-import { Header6 } from '../Type';
 // $FlowFixMe
+import { Header6 } from '../Type';
+
 const displayName = 'InputLabel';
 
 type Props = {

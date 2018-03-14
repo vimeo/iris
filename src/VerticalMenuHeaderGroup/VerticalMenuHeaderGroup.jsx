@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import styles from './VerticalMenuHeaderGroup.scss';
 
 import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';
+// $FlowFixMe
 import HeaderAltSm from '../Type/HeaderAltSm';
 
 const displayName = 'VerticalMenuHeaderGroup';
