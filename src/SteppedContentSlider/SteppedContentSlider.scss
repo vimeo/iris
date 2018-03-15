@@ -1,0 +1,73 @@
+/* @description Generates styles for the SteppedContentSlider component */
+@import '../globals/sass/helpers-all';
+$SteppedContentSlider-truncation-width-raw: 100;
+$SteppedContentSlider-truncation-width: rem-calc($SteppedContentSlider-truncation-width-raw)
+
+// send trunction width to JSX
+:export {
+    TruncationWidth: $SteppedContentSlider-truncation-width-raw;
+};
+
+.SteppedContentSlider {
+    overflow: hidden;
+
+    position: relative;
+
+    width: 100%;
+    margin-bottom: rem-calc(16);
+
+    &.scrollFallback {
+        overflow-x: scroll;
+    }
+}
+
+.SlideContent {
+    float: left;
+}
+
+
+.HeaderArea {
+    display: none;
+
+    position: relative;
+
+    padding-bottom: rem-calc(4);
+
+    &.show {
+        display: block;
+    }
+}
+
+.ControlsContainer {
+    position: absolute;
+    right: 0;
+    bottom: rem-calc(4);
+
+    text-align: right;
+}
+
+
+.PreviousButtonIcon {
+    transform: rotate(180deg);
+}
+
+.TruncationOverlay {
+    display: none;
+
+    position: absolute;
+    top: 0;
+
+    width: $SteppedContentSlider-truncation-width;
+
+    &.show {
+        display: block;
+    }
+}
+
+.NextTruncation {
+    right: 0;
+}
+
+.PreviousTruncation {
+    left: 0;
+}

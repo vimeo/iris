@@ -54,6 +54,7 @@
         ["NotificationWarning", "Warning Notification"],
         ["ProgressBar", "Progress Bar"],
         ["SearchField", "Search Field"],
+        ["SteppedContentSlider", "Stepped Content Slider"],
         ["TabNavigationHorizontal", "Tab Navigation (Horizontal)"],
         ["Tag", "Tag"],
         ["TooltipAnnotationIcon", "Tooltip Annotation Icon"],
