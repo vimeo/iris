@@ -1,9 +1,9 @@
-// @flow
 import React from 'react';
-import classNames from 'classnames';
-import styles from './MenuPanelListItem.scss';
+import styled from 'styled-components';
+import { rem } from 'polished';
 import { ParagraphMd } from '../Type';
 import SelectedIcon from '../icons/checkmark.svg';
+import COLORS from '../globals/js/constants/COLORS';
 
 const displayName = 'MenuPanelListItem';
 
@@ -16,6 +16,7 @@ type Props = {
     icon?: React$Element<*>,
 };
 
+
 const MenuPanelListItem = ({
         className,
         label,
@@ -26,24 +27,40 @@ const MenuPanelListItem = ({
         ...menuItemProps
     }: Props): React$Element<*> => {
 
-    const componentClass = classNames(
-            styles.MenuPanelListItem,
-    );
 
-    const menuItemLinkClass = classNames(
-        styles.MenuItemLink,
-        (isSelected ? styles.hasIcon : null),
-        className,
-    );
+    const SelectedIconElementStyled = styled(SelectedIcon)`
+        position: absolute;
+        top: ${rem(9)};
+        left: 0.25rem;
 
-    const selectedIconElement = (
-        <SelectedIcon className={styles.SelectedIcon} />
-    );
+        width: 1rem;
+        height: auto;
+
+        * {
+            fill: ${COLORS.VimeoBlue};
+        }
+}
+    `;
+
+    const LinkIconWrapperStyled = styled('span')`
+        display: inline-block;
+
+        position: relative;
+        top: ${rem(4)};
+
+        width: ${rem(18)};
+        height: ${rem(18)};
+        margin-right: ${rem(8)};
+
+        * {
+            fill: ${COLORS.AstroGranite};
+        }
+    `;
 
     const linkIconElement = icon ? (
-        <span className={styles.LinkIcon}>
+        <LinkIconWrapperStyled>
             {icon}
-        </span>
+        </LinkIconWrapperStyled>
     ) : null;
 
     const AnchorTag = (props) => {
@@ -54,23 +71,56 @@ const MenuPanelListItem = ({
 
     const Element = linkElement || AnchorTag;
 
+    const ListItemStyled = styled('li')`
+        width: 100%:
+    `;
+
+    const LinkElementStyled = styled(Element)`
+        display: flex;
+
+        width: 100%;
+        padding: ${rem(8)} ${rem(6)};
+
+        color: ${COLORS.AstroGranite};
+
+        cursor: pointer;
+        text-decoration: none;
+
+        &:hover {
+            color: ${COLORS.AstroGranite};
+            background-color: ${COLORS.Paste};
+        }
+
+        // only show focus on the text, not the whole width of the menu
+        &:focus {
+            outline: none;
+
+            .MenuItemLabel {
+                box-shadow: 0 0 0 ${rem(1)} ${COLORS.VimeoBlue};
+            }
+        }
+
+    `;
+
+    const LabelStyled = styled(ParagraphMd)`
+        margin-bottom: 0;
+    `;
+
     return (
-        <li className={componentClass}>
-            <Element
+        <ListItemStyled>
+            <LinkElementStyled
                 href={href}
-                className={menuItemLinkClass}
                 {...menuItemProps}
             >
-                {isSelected && selectedIconElement}
-                <ParagraphMd
-                    className={styles.MenuItemLabel}
+                {isSelected && <SelectedIconElementStyled />}
+                <LabelStyled
                     element="span"
                 >
                     {linkIconElement}
                     {label}
-                </ParagraphMd>
-            </Element>
-        </li>
+                </LabelStyled>
+            </LinkElementStyled>
+        </ListItemStyled>
     );
 };
 
