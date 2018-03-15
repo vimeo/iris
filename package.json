@@ -71,7 +71,7 @@
     "run-sequence": "^1.2.2",
     "sass-loader": "^6.0.6",
     "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#3.0.7",
-    "style-loader": "^0.19.1",
+    "style-loader": "^0.13.1",
     "styled-components": "^3.1.6",
     "ts-loader": "^3.5.0",
     "typescript": "^2.7.1",
