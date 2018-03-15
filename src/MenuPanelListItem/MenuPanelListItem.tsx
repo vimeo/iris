@@ -16,6 +16,22 @@ export interface MenuPanelListItemProps {
     icon?: React.Component<any>,
 };
 
+const ListItemStyled = styled('li')`
+    width: 100%;
+
+    & a:focus {
+        outline: none;
+    }
+`;
+
+const LabelStyled = styled(ParagraphMd)`
+    margin-bottom: 0;
+
+    a:focus & {
+            box-shadow: 0 0 0 ${rem(1)} ${COLORS.VimeoBlue};
+    }
+`;
+
 
 const MenuPanelListItem = ({
         label,
@@ -62,17 +78,13 @@ const MenuPanelListItem = ({
 
     const AnchorTag = (props) => {
         return (
-                <a {...props} />
+            <a {...props} />
         );
     };
 
     const Element = linkElement || AnchorTag;
 
-    const ListItemStyled = styled('li')`
-        width: 100%;
-    `;
-
-    const LinkElementStyled = styled(Element)`
+    const LinkStyled = styled('span')`
         display: inline-block;
         position: relative;
 
@@ -89,36 +101,26 @@ const MenuPanelListItem = ({
             background-color: ${COLORS.Paste};
         }
 
-        // only show focus on the text, not the whole width of the menu
-        &:focus {
-            outline: none;
-        }
-
     `;
 
-    const LabelStyled = styled(ParagraphMd)`
-        margin-bottom: 0;
-
-        a:focus & {
-                box-shadow: 0 0 0 ${rem(1)} ${COLORS.VimeoBlue};
-        }
-    `;
 
     return (
         <ListItemStyled>
-            <LinkElementStyled
+            <Element
                 href={href}
                 {...menuItemProps}
             >
-                {isSelected && <SelectedIconElementStyled />}
-                <LabelStyled
-                    element="span"
-                    className="MenuLinkItem_Label"
-                >
-                    {linkIconElement}
-                    {label}
-                </LabelStyled>
-            </LinkElementStyled>
+                <LinkStyled>
+                    {isSelected && <SelectedIconElementStyled />}
+                    <LabelStyled
+                        element="span"
+                        className="MenuLinkItem_Label"
+                    >
+                        {linkIconElement}
+                        {label}
+                    </LabelStyled>
+                </LinkStyled>
+            </Element>
         </ListItemStyled>
     );
 };
