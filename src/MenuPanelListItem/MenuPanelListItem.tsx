@@ -26,9 +26,9 @@ const ListItemStyled = styled('li')`
 
 const LabelStyled = styled(ParagraphMd)`
     margin-bottom: 0;
-
+    padding: ${rem(2)};
     a:focus & {
-            box-shadow: 0 0 0 ${rem(1)} ${COLORS.VimeoBlue};
+            box-shadow: 0 0 0 ${rem(2)} ${COLORS.VimeoBlue};
     }
 `;
 
@@ -59,7 +59,7 @@ const MenuPanelListItem = ({
         display: inline-block;
 
         position: relative;
-        top: ${0};
+        top: ${rem(4)};
 
         width: ${rem(18)};
         height: ${rem(18)};
