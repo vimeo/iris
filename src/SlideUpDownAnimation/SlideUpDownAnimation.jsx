@@ -10,21 +10,27 @@ This component uses JS to animate height to ensure a consistant animation speed 
 */
 
 type Props = {
-    animateOpenOnMount?: boolean,
+    animateOpenOnMount: boolean,
     children: React$Element<*>,
     speed: Number;
 };
 
 type State = {
     maxHeight: number,
+    shouldAnimate: boolean,
 }
+
 class SlideUpDownAnimation extends React.Component {
+
     constructor(props: Props) {
         super(props);
         this.state = {
             maxHeight: 0,
+            shouldAnimate: props.animateOpenOnMount,
         };
     }
+
+    state: State;
 
     componentDidMount() {
         this._slideDown();
@@ -41,6 +47,7 @@ class SlideUpDownAnimation extends React.Component {
     }
     state: State;
     props: Props;
+
 
     componentDidEnter(callback: any) {
         this._slideDown(callback);
@@ -81,7 +88,9 @@ class SlideUpDownAnimation extends React.Component {
                 });
             };
 
-            if (elContentHeight) {
+            // animate if this.state.shouldAnimate (because this.props.animateOpenOnMount was true)if not then just set the component to its final open state and flip this.state.shouldAnimate to true. This powers suppressing the inital animation.
+
+            if (elContentHeight && this.state.shouldAnimate) {
                 anime({
                     targets: [el],
                     duration: this.props.speed,
@@ -89,6 +98,14 @@ class SlideUpDownAnimation extends React.Component {
                     maxHeight: elContentHeight,
                     opacity: 1,
                     complete: animationComplete,
+                });
+            }
+            else if (elContentHeight && !this.state.shouldAnimate) {
+                el.style.maxHeight = `${elContentHeight}px`;
+                el.style.opacity = '1';
+                el.style.overflow = 'visible';
+                this.setState({
+                    shouldAnimate: true,
                 });
             }
         }
