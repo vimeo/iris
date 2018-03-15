@@ -8,28 +8,28 @@ import PageLayout from 'steadicam/components/layouts/PageLayout/PageLayout';
 import ProjectDependencies from './ProjectDependencies';
 import styles from './styleguide-assets/sass/styleguide.scss';
 
-// THIS FILE IS GENERATED FROM templates/_MainJSXPath.template //
+// DO NOT EDIT: THIS FILE IS GENERATED FROM templates/_MainJSX.template //
 
 let App = function App() {
     return (
-        <div>
-            <BrowserRouter <% if(rootPath) {%> basename="<%- rootPath %>" <% } %>>
-                <Switch>
-                    <Route
-                        path="/pattern/:category/:componentName" component={SingleStyleListing}
-                    />
-                    <Route
-                        path="/page/:page"
-                        component={PageLayout}
-                    />
-                    <Route
-                        path="/"
-                        component={StyleListing}
-                    />
-                </Switch>
-            </BrowserRouter>
-            <ProjectDependencies />
-        </div>
+            <div>
+                <BrowserRouter <% if(rootPath) {%> basename="<%- rootPath %>" <% } %>>
+                    <Switch>
+                        <Route
+                            path="/pattern/:category/:componentName" component={SingleStyleListing}
+                        />
+                        <Route
+                            path="/page/:page"
+                            component={PageLayout}
+                        />
+                        <Route
+                            path="/"
+                            component={StyleListing}
+                        />
+                    </Switch>
+                </BrowserRouter>
+                <ProjectDependencies />
+            </div>
 )
 };
 

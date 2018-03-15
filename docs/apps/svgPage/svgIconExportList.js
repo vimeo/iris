@@ -96,6 +96,10 @@
   
  exports.Lock = require('../../../src/icons/lock.svg');
   
+ exports.MicOff = require('../../../src/icons/mic-off.svg');
+  
+ exports.Mic = require('../../../src/icons/mic.svg');
+  
  exports.PaperPlane = require('../../../src/icons/paper-plane.svg');
   
  exports.Pencil = require('../../../src/icons/pencil.svg');
@@ -109,6 +113,8 @@
  exports.PopIn = require('../../../src/icons/pop-in.svg');
   
  exports.PopOut = require('../../../src/icons/pop-out.svg');
+  
+ exports.Replay = require('../../../src/icons/replay.svg');
   
  exports.Search = require('../../../src/icons/search.svg');
   

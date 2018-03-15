@@ -1,0 +1,33 @@
+/* @description Generates styles for the VerticalMenuToggleButton component */
+@import '../globals/sass/helpers-all';
+$VerticalMenuToggleButton_size: rem-calc(20);
+$VerticalMenuToggleButton_Icon_size: rem-calc(18);
+
+.VerticalMenuToggleButton {
+    position: relative;
+
+    width: $VerticalMenuToggleButton_size;
+    height: $VerticalMenuToggleButton_size;
+
+    color: $AstroGranite;
+    border: 0;
+    border-radius: $VerticalMenuToggleButton_size/2;
+    background: transparent;
+
+    align-items: center;
+
+    &:hover {
+        background-color: rgba(162, 175, 184, 0.16);
+    }
+}
+
+.Icon {
+    position: absolute;
+    top: rem-calc(1);
+    left: rem-calc(2);
+
+    width: $VerticalMenuToggleButton_Icon_size;
+    height: $VerticalMenuToggleButton_Icon_size;
+
+    fill: currentColor;
+}

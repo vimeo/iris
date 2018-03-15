@@ -27,6 +27,6 @@
     },
 
     "exclude" : [
-        "tsdocsHTML/**/*"
+        "dist",
     ]
 }

@@ -2,6 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './InputMessage.scss';
+// $FlowFixMe
 import { ParagraphSm } from '../Type';
 
 const displayName = 'InputMessage';

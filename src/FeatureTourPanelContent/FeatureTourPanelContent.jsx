@@ -1,7 +1,8 @@
 // @flow
 import React from 'react';
 import styles from './FeatureTourPanelContent.scss';
-import { Header5, ParagraphMd } from '../Type/index';
+// $FlowFixMe
+import { Header5, ParagraphMd } from '../Type';
 import ButtonIconOnly from '../ButtonIconOnly';
 import DismissIcon from '../icons/dismiss-x.svg';
 

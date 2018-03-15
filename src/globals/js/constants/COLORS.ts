@@ -1,3 +1,8 @@
+/* ! IMPORTANT: if you edit this file
+* make sure the change is reflected in the SASS version of this file
+* src/globals/sass /settings/_colors.scss;
+*/
+
 const COLORS = {
     VimeoBlue: '#00adef',
     VimeoBlueDarkened: '#0088cc',

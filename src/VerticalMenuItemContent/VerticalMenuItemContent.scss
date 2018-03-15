@@ -11,7 +11,7 @@ $VerticalMenuItem_IconMargin: rem-calc(8);
     padding: rem-calc(12) rem-calc(10);
 
     &.hasSubMenu {
-        padding-left: rem-calc(40);
+        padding-left: rem-calc(28);
     }
 
     &.hasRightSideContent {
@@ -21,10 +21,6 @@ $VerticalMenuItem_IconMargin: rem-calc(8);
     &.textOverrides {
         max-width: $screen-sm-rem;
         margin-bottom: 0;
-    }
-
-    &.isActive {
-        background-color: rgba($AstroGranite, 0.08);
     }
 }
 

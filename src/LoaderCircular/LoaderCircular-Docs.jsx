@@ -7,10 +7,11 @@ const LoaderCircularDocs = (props) => {
         <div>
             <div data-code>
                 <Header4>Dark</Header4>
-                <LoaderCircular format="dark" />
+                <LoaderCircular size="sm" format="dark" />
+                <LoaderCircular size="lg" format="dark" />
                 <div className="Pattern-DarkBlock">
                     <Header4 format="light">Light</Header4>
-                    <LoaderCircular format="light"/>
+                    <LoaderCircular size="md" format="light"/>
                 </div>
                 <div style={{ color: '#d93636' }}>
                     <Header4>Adaptive</Header4>
@@ -21,8 +22,9 @@ const LoaderCircularDocs = (props) => {
 
             <ExampleSource>
                 {`
-<LoaderCircular format="dark" />
-<LoaderCircular format="light"/>
+<LoaderCircular size="sm" format="dark" />
+<LoaderCircular size="lg" format="dark" />
+<LoaderCircular size="md" format="light"/>
 <div style={{ color: '#d93636' }}>
     <LoaderCircular format="adaptive"/>
 </div>

@@ -47,6 +47,7 @@ class InputTextFloatingLabelDocs extends React.Component {
                         id="floatingLabelPassword"
                         label="Password"
                         type="password"
+                        required
                     />
                 </div>
 
@@ -87,6 +88,7 @@ class InputTextFloatingLabelDocs extends React.Component {
     id="floatingLabelPassword"
     label="Password"
     type="password"
+    required
 />
                         `}
                     </ExampleSource>

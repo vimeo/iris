@@ -2,6 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './VerticalMenuItemContent.scss';
+// $FlowFixMe
 import { ParagraphMd } from '../Type';
 
 const displayName = 'VerticalMenuItemContent';
@@ -10,13 +11,13 @@ type Props = {
     actionButton: React$Element<*>,
     className?: string,
     hasSubMenu?: boolean,
-    isActive?: boolean,
     label: React$Element<*> | string,
     labelIcon?: React$Element<*>,
     labelIconActive?: React$Element<*>,
     labelIconTheme?: 'default' | 'subtle';
     linkActionIcon?: React$Element<*>,
     id?: string,
+    isActive?: boolean,
     label: React$Element<*> | string,
     onClick?: Function,
     truncateLabel?: boolean,
@@ -41,7 +42,6 @@ const VerticalMenuItemContent = ({
     const componentClass = classNames(
         styles.VerticalMenuItemContent,
         styles.textOverrides,
-        (isActive ? styles.isActive : null),
         (hasSubMenu ? styles.hasSubMenu : null),
         (linkActionIcon || actionButton ? styles.hasRightSideContent : null),
         className

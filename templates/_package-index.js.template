@@ -25,7 +25,16 @@ export { default as ParagraphAltMd } from './Type/ParagraphAltMd';
 export { default as ParagraphAltSm } from './Type/ParagraphAltSm';
 export { default as withCopyAbility } from './withCopyAbility';
 export { default as withCharacterCount } from './withCharacterCount';
+
+
 <% _.forEach(patterns[0], function(pattern) { if(pattern['displayName']){ %>
 export { default as <%- pattern['displayName']%> } from './<%- pattern['displayName']%>';
 <% }}); %>
 
+/* Components that are typescript, not flow */
+export { default as MenuPanelListItem} from './MenuPanelListItem';
+export { default as ProgressBar } from './ProgressBar';
+export { default as LoaderCircular } from './LoaderCircular';
+
+/* Export the Vimeo Theme */
+export { default as VimeoTheme } from './globals/js/style-settings/VimeoStyleSettings';

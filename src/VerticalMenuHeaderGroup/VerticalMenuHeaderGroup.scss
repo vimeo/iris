@@ -1,6 +1,6 @@
 /* @description Generates styles for the VerticalMenuHeaderGroup component */
 @import '../globals/sass/helpers-all';
-$VerticalMenuHeaderGroup_ButtonSize: 1rem;
+$VerticalMenuHeaderGroup_ButtonSize: rem-calc(16);
 
 .VerticalMenuHeaderGroup {
     padding: rem-calc(8) 0;
@@ -9,15 +9,17 @@ $VerticalMenuHeaderGroup_ButtonSize: 1rem;
 .HeaderWrapper {
     position: relative;
 
+    padding-left: rem-calc(10);
+
     &.hasActionButton {
-        padding-right: $VerticalMenuHeaderGroup_ButtonSize + 0.5rem;
+        padding-right: $VerticalMenuHeaderGroup_ButtonSize + rem-calc(20);
     }
 }
 
 .ActionButtonWrapper {
     position: absolute;
     top: 0;
-    right: 0;
+    right: rem-calc(12);
 }
 
 .ActionButton {

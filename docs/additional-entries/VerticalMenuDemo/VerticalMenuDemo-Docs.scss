@@ -1,12 +1,13 @@
 @import "../../../src/globals/sass/_helpers-all";
 
 .MenuCol {
+    background-color: $Paste;
     @include mq(md) {
         border-right: rem-calc(1) solid $RegentGray;
         border-bottom: 0;
     }
 
-    padding-bottom: spacingUnit(2);
+    padding: spacingUnit(4) spacingUnit(2);
 
     border-bottom: rem-calc(1) solid $RegentGray;
 }

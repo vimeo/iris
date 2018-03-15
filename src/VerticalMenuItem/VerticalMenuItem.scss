@@ -1,11 +1,20 @@
 /* @description Generates styles for the VerticalMenuItem component */
 @import '../globals/sass/helpers-all';
-$VerticalMenuItem_TransitionSpeed: 250ms;
+$VerticalMenuItem_TransitionSpeed: 100ms;
+$VerticalMenuItem_InactiveColor: $Paste;
+$VerticalMenuItem_ActiveColor: $Porcelain;
+$VerticalMenuItem_HoverColor: darken($Porcelain, 3%);
+
+@mixin VerticalMenuItemTruncation($baseColor) {
+    background: linear-gradient(to left, rgba($baseColor, 1) 50%, rgba(255,255,255,0) 100%);
+}
 
 .Wrapper {
     position: relative;
 
     width: 100%;
+
+    background-color: $VerticalMenuItem_InactiveColor;
 
     &.textOverrides {
         max-width: $screen-sm-rem;
@@ -27,29 +36,54 @@ $VerticalMenuItem_TransitionSpeed: 250ms;
         &:hover {
             color: inherit;
             border-radius: rem-calc(2);
-            background-color: rgba($AstroGranite, 0.14);
+            background-color: $VerticalMenuItem_HoverColor;
         }
     }
 
     &.hasRightSideContent a {
         padding-right: rem-calc(36);
     }
+
+    &.isActive a {
+        background-color: $VerticalMenuItem_ActiveColor;
+
+        &:hover {
+            background-color: $VerticalMenuItem_HoverColor;
+        }
+    }
 }
 
 .NestedInteractionWrapper {
+    @include VerticalMenuItemTruncation($VerticalMenuItem_InactiveColor);
+
     position: absolute;
     top: rem-calc(4);
     right: 0;
 
+    padding-left: rem-calc(32);
+
     opacity: 0;
 
-    transition: opacity $VerticalMenuItem_TransitionSpeed ease;
+    transition: all $VerticalMenuItem_TransitionSpeed ease;
+    pointer-events: none;
+
+    &.isActive {
+        @include VerticalMenuItemTruncation($VerticalMenuItem_ActiveColor);
+    }
 
     &.isShowing {
         opacity: 1;
+
+        &.isHovered {
+            @include VerticalMenuItemTruncation($VerticalMenuItem_HoverColor);
+        }
     }
 }
 
 .nestedMenuOffset {
     margin-top: rem-calc(-2);
+}
+
+.DotIcon {
+    transform: rotate(90deg);
 }

@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './Breadcrumb.scss';
 import ChevronRight from '../icons/chevron-right.svg';
+// $FlowFixMe
 import { ParagraphMd } from '../Type';
 
 

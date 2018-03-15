@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './MenuPanelList.scss';
 import MenuPanelListItem from '../MenuPanelListItem/MenuPanelListItem';
+// $FlowFixMe
 import { Header6 } from '../Type';
 
 const displayName = 'MenuPanelList';

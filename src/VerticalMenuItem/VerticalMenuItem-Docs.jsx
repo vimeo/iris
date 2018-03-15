@@ -61,6 +61,7 @@ const VerticalMenuItemDocs = (props) => {
             <ParagraphMd>The child of this component must be something that generates a link wrapped around a <code>VerticalMenuItemContent</code> component.</ParagraphMd>
             <Header3>Prop Notes</Header3>
             <List>
+                <ListItem><code>isActive</code> is used as a boolean to indicate that an item is selected. <strong>Note:</strong> this prop must be added to the nested <code>VerticalMenuItemContent</code> component as well.</ListItem>
                 <ListItem><code>nestedInteractionContent</code> adds a submenu panel with the conentend passed to this prop with an optional tooltip with text from the <code>menuPanelTooltip</code> prop.</ListItem>
                 <ListItem><code>nestedInteractionMenuSize</code> will determine the sieze of the nested menu. These options are the same as the MenuPanel component and default to <code>md</code></ListItem>
                 <ListItem><code>nestedButtonLabel</code> should be passed a translated string indicating that the toggle arrow will open and close the menu.</ListItem>
@@ -92,6 +93,7 @@ const VerticalMenuItemDocs = (props) => {
                 </a>
             </VerticalMenuItem>
                 <VerticalMenuItem
+                    isActive
                 >
                     <a
                         to="#"
@@ -186,7 +188,9 @@ onClick={onClickHandler}
 />
 </a>
 </VerticalMenuItem>
-<VerticalMenuItem>
+<VerticalMenuItem
+    isActive
+>
 <a
     to="#"
     onClick={onClickHandler}

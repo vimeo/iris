@@ -2,8 +2,10 @@
 :global {
     .sg_tsPropListGroup{
         border: 1px solid $Porcelain;
+        margin-bottom: 2rem;
     }
-   .sg_tsPropListHeader {
+    
+    .sg_tsPropListHeader {
         @include Header3;
     }
 

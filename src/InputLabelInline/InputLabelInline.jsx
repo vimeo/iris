@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './InputLabelInline.scss';
 import InputLabelStateIcon from '../InputLabelStateIcon/InputLabelStateIcon';
+// $FlowFixMe
 import { ParagraphMd } from '../Type';
 
 const displayName = 'InputLabelInline';

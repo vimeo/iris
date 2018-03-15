@@ -2,9 +2,8 @@
 
 module.exports = (plop) => {
 
-
-  // We declare a new generator
-    plop.setGenerator('Iris Component', {
+    // We declare a new generator
+    plop.setGenerator('Component', {
 
     // Succintly describes what generator does.
         description: 'Create a Component folder structure',
@@ -15,7 +14,7 @@ module.exports = (plop) => {
             {
                 type: 'input',
                 name: 'name',
-                message: 'What is your Component name (PascalCasePlease)?',
+                message: 'What is the Component\'s name? (PascalCasePlease, no spaces)',
                 validate(value) {
                     if ((/.+/).test(value)) {
                         return true;
@@ -23,34 +22,44 @@ module.exports = (plop) => {
                     return 'name is required';
                 },
             },
+            {
+                type: 'list',
+                name: 'type',
+                message: 'What type of component will this be?',
+                choices: [
+                    { name: 'Stateless Functional Component (preferred)', value: 'stateless' },
+                    { name: 'Stateful Class Component (are you sure?)', value: 'stateful' },
+                ],
+            },
 
         ],
 
     // List of actions to take.
     // Here we "add" new files from our templates.
-        actions: [
-            {
-                type: 'add',
-                path: 'src/{{pascalCase name}}/{{pascalCase name}}.jsx',
-                templateFile: 'templates/plop-componentTemplates/ComponentJSX.js',
-            },
-            {
-                type: 'add',
-                path: 'src/{{pascalCase name}}/{{pascalCase name}}-Docs.jsx',
-                templateFile: 'templates/plop-componentTemplates/ComponentDocsJSX.js',
-            },
-            {
-                type: 'add',
-                path: 'src/{{pascalCase name}}/{{pascalCase name}}.scss',
-                templateFile: 'templates/plop-componentTemplates/ComponentSCSS.js',
-            },
-            {
-                type: 'add',
-                path: 'src/{{pascalCase name}}/index.js',
-                templateFile: 'templates/plop-componentTemplates/ComponentIndexJS.js',
-            },
-        ],
+        actions(data) {
+            const actions = [
+                {
+                    type: 'add',
+                    path: 'src/{{pascalCase name}}/{{pascalCase name}}-Docs.jsx',
+                    templateFile: 'templates/plop-componentTemplates/ComponentDocsJSX.js',
+                },
+                {
+                    type: 'add',
+                    path: 'src/{{pascalCase name}}/index.ts',
+                    templateFile: 'templates/plop-componentTemplates/ComponentIndexTS.js',
+                },
+            ];
 
+            if (data.type) {
+                actions.push({
+                    type: 'add',
+                    path: 'src/{{pascalCase name}}/{{pascalCase name}}.tsx',
+                    templateFile: `templates/plop-componentTemplates/${data.type}/ComponentTSX.js`,
+                });
+
+            }
+            return actions;
+        },
     });
 
     plop.setGenerator('Additional Pattern Entry', {
@@ -87,7 +96,7 @@ module.exports = (plop) => {
 
     });
 
-  // We declare a new generator called "module"
+    // We declare a new generator called "module"
     plop.setGenerator('Stand-Alone Page', {
 
     // Succintly describes what generator does.
@@ -117,40 +126,6 @@ module.exports = (plop) => {
                 type: 'add',
                 path: 'docs/pages/{{pascalCase name}}/{{pascalCase name}}.jsx',
                 templateFile: 'templates/plop-componentTemplates/StandAlonePageJSX.js',
-            },
-        ],
-
-    });
-
-    plop.setGenerator('Just an Index File', {
-
-                            // Succintly describes what generator does.
-        description: 'Create an Index.js file in a component',
-
-                            // Get inputs from the user.
-
-        prompts: [
-            {
-                type: 'input',
-                name: 'name',
-                message: 'What is the name of the Pattern (PascalCasePlease)?',
-                validate(value) {
-                    if ((/.+/).test(value)) {
-                        return true;
-                    }
-                    return 'name is required';
-                },
-            },
-
-        ],
-
-                            // List of actions to take.
-                            // Here we "add" new files from our templates.
-        actions: [
-            {
-                type: 'add',
-                path: 'src/{{pascalCase name}}/index.js',
-                templateFile: 'templates/plop-componentTemplates/ComponentIndexJS.js',
             },
         ],
 

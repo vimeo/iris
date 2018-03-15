@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './Toastification.scss';
 import { CSSTransitionGroup } from 'react-transition-group';
+// $FlowFixMe
 import { ParagraphMd } from '../Type';
 import InfoIcon from '../icons/circle-info.svg';
 

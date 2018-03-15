@@ -89,6 +89,7 @@ class VerticalMenuDemoDocs extends React.Component {
     
             (
             <VerticalMenuItem
+                isActive
             >
                     <a
                         to="#"
@@ -174,7 +175,9 @@ class VerticalMenuDemoDocs extends React.Component {
                                         ),
                                     
                                         (
-                                        <VerticalMenuItem>
+                                        <VerticalMenuItem
+                                            isActive
+                                        >
                                             <a
                                                 to="#"
                                                 onClick={onClickHandler}
@@ -221,7 +224,9 @@ class VerticalMenuDemoDocs extends React.Component {
                                         ),
                                     
                                         (
-                                        <VerticalMenuItem>
+                                        <VerticalMenuItem
+                                            isActive
+                                        >
                                             <a
                                                 to="#"
                                                 onClick={onClickHandler}
@@ -254,30 +259,47 @@ class VerticalMenuDemoDocs extends React.Component {
                             </a>
                         </VerticalMenuItem>
                         <VerticalMenuItem>
-                        <a
-                            to="#"
-                            onClick={onClickHandler}
-                        >
-                            <VerticalMenuItemContent
-                                label="Stand Alone Link With Label Icon"
-                                labelIcon={(<HomeIcon />)}
-                                labelIconActive={(<HomeFilledIcon />)}
-                            />
-                        </a>
-                            </VerticalMenuItem>
-                            <VerticalMenuItem
-                            nestedInteractionContent={MenuPanelDemoList}
-                            menuPanelTooltip="Show Menu"
+                            <a
+                                to="#"
+                                onClick={onClickHandler}
                             >
-                                <a
-                                    to="#"
-                                    onClick={onClickHandler}
+                                <VerticalMenuItemContent
+                                    label="Stand Alone Link With Label Icon"
+                                    labelIcon={(<HomeIcon />)}
+                                    labelIconActive={(<HomeFilledIcon />)}
+                                />
+                            </a>
+                                </VerticalMenuItem>
+                                <VerticalMenuItem
+                                    nestedInteractionContent={MenuPanelDemoList}
+                                    menuPanelTooltip="Show Menu"
                                 >
-                                    <VerticalMenuItemContent
-                                        label="Menu With Nested Menu on Hover"
-                                    />
-                                </a>
-                            </VerticalMenuItem>
+                                    <a
+                                        to="#"
+                                        onClick={onClickHandler}
+                                    >
+                                        <VerticalMenuItemContent
+                                            label="Menu With Nested Menu on Hover"
+                                            truncateLabel
+                                        />
+                                    </a>
+                                </VerticalMenuItem>
+                                <VerticalMenuItem
+                                    isActive
+                                    nestedInteractionContent={MenuPanelDemoList}
+                                    menuPanelTooltip="Show Menu"
+                                >
+                                    <a
+                                        to="#"
+                                        onClick={onClickHandler}
+                                    >
+                                        <VerticalMenuItemContent
+                                            isActive
+                                            label="Active Menu With Nested Menu on Hover"
+                                            truncateLabel
+                                        />
+                                    </a>
+                                </VerticalMenuItem>
                             </GridCol>
                             <GridCol mdSpan={16}>
                                 <Header3>Building Vertical Menus</Header3>
@@ -294,146 +316,167 @@ class VerticalMenuDemoDocs extends React.Component {
     mdSpan={8}
     className={styles.MenuCol}
 >
-<VerticalMenuHeaderGroup
-    actionButtonIcon={<CirclePlusIcon />}
-    actionButtonTooltipText="Tooltip Text"
-    actionButtonOnClick={this._handleClick}
-    label="Section Label 1"
-    labelId="Section1"
->
-    <VerticalMenuNested
-        isOpen={this.state.menuOpen}
-        label="Menu Label"
-        labelId="testMenu"
-        nestedButtonLabel="toggle menu"
-        subMenuItems={[
-            (
-            <VerticalMenuItem>
-                <a
-                    to="#"
-                    onClick={onClickHandler}
-                >
-                    <VerticalMenuItemContent
-                        label="Nested Item 1"
-                    />
-                </a>
-            </VerticalMenuItem>
-            ),
-        
-            (
-            <VerticalMenuItem>
-                <a
-                    to="#"
-                    onClick={onClickHandler}
-                >
-                    <VerticalMenuItemContent
-                        isActive
-                        label="Nested Item 2"
-                    />
-                </a>
-            </VerticalMenuItem>
-            ),
-        ]}
-    />
-</VerticalMenuHeaderGroup>
-<VerticalMenuHeaderGroup
-    label="Section Label 2"
-    labelId="Section2"
->
-    <VerticalMenuNested
-        actionButton = {(
-            <VerticalMenuActionButton
-                icon = {<CirclePlusIcon title="Add New Item" />}
-                tooltipText="click to add new item"
-            />
-        )}
-        isOpen={!this.state.menuOpen}
-        label="Menu Label"
-        labelId="testMenu"
-        labelIcon={<FolderIcon />}
-        nestedButtonLabel="toggle menu"
-        subMenuItems={[
-            (
-            <VerticalMenuItem>
-                <a
-                    to="#"
-                    onClick={onClickHandler}
-                >
-                    <VerticalMenuItemContent
-                        label="Nested Item 1"
-                    />
-                </a>
-            </VerticalMenuItem>
-            ),
-
-            (
-            <VerticalMenuItem>
-                <a
-                    to="#"
-                    onClick={onClickHandler}
-                >
-                    <VerticalMenuItemContent
-                        isActive
-                        label="Nested Item 2"
-                    />
-                </a>
-            </VerticalMenuItem>
-            ),
-            (  <VerticalMenuItem
-                nestedInteractionContent={MenuPanelDemoList}
-                menuPanelTooltip="Show Menu"
+    <VerticalMenuHeaderGroup
+        actionButtonIcon={<CirclePlusIcon />}
+        actionButtonTooltipText="Tooltip Text"
+        actionButtonOnClick={this._handleClick}
+        label="Section Label 1"
+        labelId="Section1"
+    >
+        <VerticalMenuNested
+            isOpen={this.state.menuOpen}
+            label="Menu Label"
+            labelId="testMenu"
+            nestedButtonLabel="toggle menu"
+            subMenuItems={[
+                (
+                <VerticalMenuItem>
+                    <a
+                        to="#"
+                        onClick={onClickHandler}
+                    >
+                        <VerticalMenuItemContent
+                            label="Nested Item 1"
+                        />
+                    </a>
+                </VerticalMenuItem>
+                ),
+            
+                (
+                <VerticalMenuItem
+                    isActive
                 >
                     <a
                         to="#"
                         onClick={onClickHandler}
                     >
                         <VerticalMenuItemContent
-                            label="Menu With Nested Menu on Hover"
+                            isActive
+                            label="Nested Item 2"
                         />
                     </a>
                 </VerticalMenuItem>
-            ),
-        ]}
-    />
-</VerticalMenuHeaderGroup>
-
-<VerticalMenuItem>
-    <a
-    href="#"
-    onClick={onClickHandler}
+                ),
+            ]}
+        />
+    </VerticalMenuHeaderGroup>
+    <VerticalMenuHeaderGroup
+        label="Section Label 2"
+        labelId="Section2"
     >
-    <VerticalMenuItemContent
-        label="Stand Alone Link With Link Icon"
-            labelIcon={(<HomeIcon />)}
-        linkActionIcon={(<PopOutIcon />)}
-    />
-    </a>
-</VerticalMenuItem>
-<VerticalMenuItem>
-<a
-    to="#"
-    onClick={onClickHandler}
->
-    <VerticalMenuItemContent
-        label="Stand Alone Link With Label Icon"
-        labelIcon={(<HomeIcon />)}
-        labelIconActive={(<HomeFilledIcon />)}
-    />
-</a>
-</VerticalMenuItem>
-<VerticalMenuItem
-nestedInteractionContent={MenuPanelDemoList}
-menuPanelTooltip="Show Menu"
->
+        <VerticalMenuNested
+            actionButton = {(
+                <VerticalMenuActionButton
+                    icon = {<CirclePlusIcon title="Add New Item" />}
+                    tooltipText="click to add new item"
+                />
+            )}
+            isOpen={!this.state.menuOpen}
+            label="Menu Label"
+            labelId="testMenu"
+            labelIcon={<FolderIcon />}
+            nestedButtonLabel="toggle menu"
+            subMenuItems={[
+                (
+                <VerticalMenuItem>
+                    <a
+                        to="#"
+                        onClick={onClickHandler}
+                    >
+                        <VerticalMenuItemContent
+                            label="Nested Item 1"
+                        />
+                    </a>
+                </VerticalMenuItem>
+                ),
+
+                (
+                <VerticalMenuItem
+                    isActive
+                >
+                    <a
+                        to="#"
+                        onClick={onClickHandler}
+                    >
+                        <VerticalMenuItemContent
+                            isActive
+                            label="Nested Item 2"
+                        />
+                    </a>
+                </VerticalMenuItem>
+                ),
+                (  <VerticalMenuItem
+                    nestedInteractionContent={MenuPanelDemoList}
+                    menuPanelTooltip="Show Menu"
+                    >
+                        <a
+                            to="#"
+                            onClick={onClickHandler}
+                        >
+                            <VerticalMenuItemContent
+                                label="Menu With Nested Menu on Hover"
+                            />
+                        </a>
+                    </VerticalMenuItem>
+                ),
+            ]}
+        />
+    </VerticalMenuHeaderGroup>
+
+    <VerticalMenuItem>
+        <a
+        href="#"
+        onClick={onClickHandler}
+        >
+        <VerticalMenuItemContent
+            label="Stand Alone Link With Link Icon"
+                labelIcon={(<HomeIcon />)}
+            linkActionIcon={(<PopOutIcon />)}
+        />
+        </a>
+    </VerticalMenuItem>
+    <VerticalMenuItem>
     <a
         to="#"
         onClick={onClickHandler}
     >
         <VerticalMenuItemContent
-            label="Menu With Nested Menu on Hover"
+            label="Stand Alone Link With Label Icon"
+            labelIcon={(<HomeIcon />)}
+            labelIconActive={(<HomeFilledIcon />)}
         />
     </a>
-</VerticalMenuItem>
+    </VerticalMenuItem>
+    <VerticalMenuItem
+        nestedInteractionContent={MenuPanelDemoList}
+        menuPanelTooltip="Show Menu"
+    >
+        <a
+            to="#"
+            onClick={onClickHandler}
+        >
+            <VerticalMenuItemContent
+                label="Menu With Nested Menu on Hover"
+                truncateLabel
+            />
+        </a>
+    </VerticalMenuItem>
+    <VerticalMenuItem
+        isActive
+        nestedInteractionContent={MenuPanelDemoList}
+        menuPanelTooltip="Show Menu"
+    >
+        <a
+            to="#"
+            onClick={onClickHandler}
+        >
+            <VerticalMenuItemContent
+                isActive
+                label="Active Menu With Nested Menu on Hover"
+                truncateLabel
+            />
+        </a>
+    </VerticalMenuItem>
 </GridCol>
                                     `}
                                 </ExampleSource>

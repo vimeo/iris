@@ -1,6 +1,7 @@
 import React from 'react';
 import Badge from './Badge';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+// $FlowFixMe
 import { ParagraphMd, Header3 } from '../Type';
 const BadgeDocs = (props) => {
     return (

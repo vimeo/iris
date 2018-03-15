@@ -2,31 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { ParagraphMd } from '../Type';
+// @ts-ignore
 import SelectedIcon from '../icons/checkmark.svg';
 import COLORS from '../globals/js/constants/COLORS';
 
-const displayName = 'MenuPanelListItem';
 
-type Props = {
+export interface MenuPanelListItemProps {
     className?: string,
     label: string,
     href?: string,
     linkElement?: any,
     isSelected?: boolean,
-    icon?: React$Element<*>,
+    icon?: React.Component<any>,
 };
 
 
 const MenuPanelListItem = ({
-        className,
         label,
         href = '#',
         linkElement,
         icon,
         isSelected,
         ...menuItemProps
-    }: Props): React$Element<*> => {
-
+    }: MenuPanelListItemProps) => {
 
     const SelectedIconElementStyled = styled(SelectedIcon)`
         position: absolute;
@@ -34,19 +32,18 @@ const MenuPanelListItem = ({
         left: 0.25rem;
 
         width: 1rem;
-        height: auto;
+        height: 1rem;
 
         * {
             fill: ${COLORS.VimeoBlue};
         }
-}
     `;
 
     const LinkIconWrapperStyled = styled('span')`
         display: inline-block;
 
         position: relative;
-        top: ${rem(4)};
+        top: ${0};
 
         width: ${rem(18)};
         height: ${rem(18)};
@@ -72,14 +69,15 @@ const MenuPanelListItem = ({
     const Element = linkElement || AnchorTag;
 
     const ListItemStyled = styled('li')`
-        width: 100%:
+        width: 100%;
     `;
 
     const LinkElementStyled = styled(Element)`
-        display: flex;
+        display: inline-block;
+        position: relative;
 
         width: 100%;
-        padding: ${rem(8)} ${rem(6)};
+        padding: ${rem(8)} ${rem(24)};
 
         color: ${COLORS.AstroGranite};
 
@@ -94,16 +92,16 @@ const MenuPanelListItem = ({
         // only show focus on the text, not the whole width of the menu
         &:focus {
             outline: none;
-
-            .MenuItemLabel {
-                box-shadow: 0 0 0 ${rem(1)} ${COLORS.VimeoBlue};
-            }
         }
 
     `;
 
     const LabelStyled = styled(ParagraphMd)`
         margin-bottom: 0;
+
+        a:focus & {
+                box-shadow: 0 0 0 ${rem(1)} ${COLORS.VimeoBlue};
+        }
     `;
 
     return (
@@ -115,6 +113,7 @@ const MenuPanelListItem = ({
                 {isSelected && <SelectedIconElementStyled />}
                 <LabelStyled
                     element="span"
+                    className="MenuLinkItem_Label"
                 >
                     {linkIconElement}
                     {label}
@@ -123,7 +122,5 @@ const MenuPanelListItem = ({
         </ListItemStyled>
     );
 };
-
-MenuPanelListItem.displayName = displayName;
 
 export default MenuPanelListItem;

@@ -2,7 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './OverflowTruncationWrapper.scss';
-import { throttle } from 'lodash';
+import throttle from 'lodash/throttle';
 const displayName = 'OverflowTruncationWrapper';
 
 type Props = {
