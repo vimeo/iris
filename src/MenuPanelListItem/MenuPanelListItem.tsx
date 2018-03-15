@@ -26,7 +26,9 @@ const ListItemStyled = styled('li')`
 
 const LabelStyled = styled(ParagraphMd)`
     margin-bottom: 0;
-    padding: ${rem(2)};
+    padding: ${rem(4)};
+    display: inline-block;
+    border-radius: ${rem(2)};
     a:focus & {
             box-shadow: 0 0 0 ${rem(2)} ${COLORS.VimeoBlue};
     }
@@ -44,7 +46,7 @@ const MenuPanelListItem = ({
 
     const SelectedIconElementStyled = styled(SelectedIcon)`
         position: absolute;
-        top: ${rem(9)};
+        top: ${rem(11)};
         left: 0.25rem;
 
         width: 1rem;
@@ -89,7 +91,7 @@ const MenuPanelListItem = ({
         position: relative;
 
         width: 100%;
-        padding: ${rem(8)} ${rem(24)};
+        padding: ${rem(6)} ${rem(20)};
 
         color: ${COLORS.AstroGranite};
 
