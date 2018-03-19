@@ -8,6 +8,7 @@ import ButtonIconOnly from '../ButtonIconOnly';
 // @ts-ignore
 import DotsMenuIcon from '../icons/dots-menu.svg';
 import MenuPanel from '../MenuPanel';
+import TooltipOverlay from '../TooltipOverlay';
 
 export interface VideoCardFooterAttributionProps {
     /**
@@ -110,12 +111,17 @@ const VideoCardFooterAttribution: React.SFC<VideoCardFooterAttributionProps> = (
                 menuContent={actionMenuContent}
                 {...actionMenuProps}
             >
-                <ButtonIconOnly
-                    format="midDark"
-                    icon={<DotsMenuIcon title={actionMenuDescription} />}
-                    isButtonElement={false}
-                    size="sm"
-                />
+                <TooltipOverlay
+                    element="span"
+                    tooltipText={actionMenuDescription}
+                >
+                    <ButtonIconOnly
+                        format="midDark"
+                        icon={<DotsMenuIcon />}
+                        isButtonElement={false}
+                        size="sm"
+                    />
+                </TooltipOverlay>
             </MenuPanel>
         </Wrapper>
     );

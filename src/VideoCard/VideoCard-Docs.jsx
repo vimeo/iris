@@ -141,7 +141,7 @@ const actionButtonsJustTwo = [
 
 const exampleAttribution = (
     <VideoCardFooterAttribution
-        actionMenuDescription="See additional actions"
+        actionMenuDescription="More"
         actionMenuContent={<ParagraphMd>User Menu Here</ParagraphMd>}
         userAvatarSrc="https://i.vimeocdn.com/portrait/23898613_75x75.webp" userAvatarSrcSet="https://i.vimeocdn.com/portrait/23898613_150x150.webp 2x"
         userName="Killian Vilim"
