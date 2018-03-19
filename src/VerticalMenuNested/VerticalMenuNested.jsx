@@ -167,6 +167,7 @@ class VerticalMenuNested extends React.Component {
                         )}
                         <VerticalMenuItem
                             id={labelId}
+                            isActive={isActive}
                             hasRightSideContent={actionButton ? true : false}
                         >
                             <WrappedComponent
