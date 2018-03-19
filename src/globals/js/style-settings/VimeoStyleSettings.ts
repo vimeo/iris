@@ -17,6 +17,7 @@ const VimeoTheme = {
             alertColor: COLORS.SunsetOrange,
             alertColorHover: COLORS.SunsetOrangeDarkened,
             alertColorLight: COLORS.PalePink,
+            liveColor: COLORS.SunsetOrange,
             primaryColor: COLORS.VimeoBlue,
             primaryColorHover: COLORS.VimeoBlueDarkened,
             primaryColorLight: COLORS.Foam,

@@ -64,7 +64,8 @@
         ["VerticalMenuHeaderGroup", "Vertical Menu Header"],
         ["VerticalMenuItem", "Vertical Menu Item"],
         ["VerticalMenuContextualMenuPanel", "Vertical Menu  Contextual Menu Panel"],
-        ["VerticalMenuNested", "Vertical Menu Nested"]
+        ["VerticalMenuNested", "Vertical Menu Nested"],
+        ["VideoCard", "Video Card"]
     ],
     "Layout": [
         ["Forms", "Forms", true],

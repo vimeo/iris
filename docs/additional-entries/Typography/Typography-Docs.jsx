@@ -104,7 +104,8 @@ import { ParagraphMd, Header1, Header2} from '@vimeo/iris'classnames;
                 <ParagraphMd>There are instances when design may require a modification to Iris type styles, such as a need to remove default treatments of margins or padding. This can be acheived by passing a class to the type component and styling it in your module.</ParagraphMd>
                 <ParagraphMd>Before pushing changes that adjust Iris type styles be sure to cc the <a href="https://github.vimeows.com/orgs/Vimeo/teams/iris">Iris</a> <code>@Vimeo/iris</code> team in your PR for review.</ParagraphMd>
             </NotificationWarning>
-
+            <Header3>Suppressing Margins</Header3>
+            <ParagraphMd>The <code>noMargin</code> boolean prop can be used to suppress the default margin-bottom on type elements if required by design.</ParagraphMd>
             <Header3>Using Element or Class Selectors With Mixins</Header3>
             <ParagraphMd>
                 Type Components should be used whenever possible, but type styles can be accessed through SCSS mixins if necessary. A common use-case for this may be the need to style with element selectors because you are receiving unadorned HTML through a string-manager or user-generated content.

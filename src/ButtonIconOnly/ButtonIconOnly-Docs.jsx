@@ -26,12 +26,12 @@ const ButtonIconOnlyDocs = (props) => {
 
                 <ButtonIconOnly
                     icon={<SettingsIcon />}
-                    format="dark"
+                    format="midDark"
                     size="md"
                 />
                 <ButtonIconOnly
                     icon={<DownloadIcon title="Download" />}
-                    format="dark"
+                    format="midDark"
                     size="md"
                 />
             </div>
@@ -137,6 +137,13 @@ const ButtonIconOnlyDocs = (props) => {
     format="dark"
     size="sm"
  />
+
+ // MidDark
+ <ButtonIconOnly
+    icon={<DownloadIcon title="Download" />}
+    format="midDark"
+    size="md"
+/>
 
  //Warning
  <ButtonIconOnly

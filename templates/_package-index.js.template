@@ -34,6 +34,14 @@ export { default as <%- pattern['displayName']%> } from './<%- pattern['displayN
 /* Components that are typescript, not flow */
 export { default as ProgressBar } from './ProgressBar';
 export { default as LoaderCircular } from './LoaderCircular';
+export {
+    default as VideoCard,
+    VideoCardFooterActionsGrid,
+    VideoCardFooterAttribution,
+    VideoCardLiveBadge,
+    VideoCardPropertyBadge,
+    VideoCardTimestamp
+} from './VideoCard';
 
 /* Export the Vimeo Theme */
 export { default as VimeoTheme } from './globals/js/style-settings/VimeoStyleSettings';

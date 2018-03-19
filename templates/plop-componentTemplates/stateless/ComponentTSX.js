@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import VimeoTheme from '../globals/js/themes/vimeo-theme';
 
 export interface {{pascalCase name}}Props extends React.HTMLProps<HTMLDivElement>  {
     /* 
@@ -15,7 +14,7 @@ export interface {{pascalCase name}}StyledProps extends React.HTMLProps<HTMLDivE
 
 }
 
-const {{pascalCase name}}Styled= styled<{{pascalCase name}}StyledProps, 'div'>('div')`
+const {{pascalCase name}}Styled = styled<{{pascalCase name}}StyledProps, 'div'>('div')`
     attribute: value;
 `;
 
