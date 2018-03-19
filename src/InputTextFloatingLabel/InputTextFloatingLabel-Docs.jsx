@@ -42,13 +42,17 @@ class InputTextFloatingLabelDocs extends React.Component {
                     />
                     <Header3>Password Field</Header3>
                     <ParagraphMd>If the floating label field has the <code>type="password"</code> prop the field will get a password visibility toggle.</ParagraphMd>
-                    <InputTextFloatingLabel
-                        name="floatingLabelPassword"
-                        id="floatingLabelPassword"
-                        label="Password"
-                        type="password"
-                        required
-                    />
+                    <div style={{ width: '50%' }}>
+                        <InputTextFloatingLabel
+                            name="floatingLabelPassword"
+                            id="floatingLabelPassword"
+                            label="Password"
+                            type="password"
+                            passwordShowText="Show Password"
+                            passwordHideText="Hide Password"
+                            required
+                        />
+                    </div>
                 </div>
 
                 <ExampleSource>
