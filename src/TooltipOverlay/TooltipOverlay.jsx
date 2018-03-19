@@ -122,7 +122,7 @@ class TooltipOverlay extends React.Component {
 // Event Handlers
     handleClick = (e: Event) => {
         if (typeof this.props.onClick === 'function') {
-            this.props.onClick();
+            this.props.onClick(e);
         }
 
         if (this.props.triggerOnClick) {
@@ -133,13 +133,13 @@ class TooltipOverlay extends React.Component {
         }
     }
 
-    handleMouseEnter = () => {
+    handleMouseEnter = (e: Event) => {
         this.setState({
             isHovered: true,
         });
 
         if (typeof this.props.onMouseEnter === 'function') {
-            this.props.onMouseEnter();
+            this.props.onMouseEnter(e);
         }
 
         if (!this.props.triggerOnClick) {
@@ -147,13 +147,13 @@ class TooltipOverlay extends React.Component {
         }
     }
 
-    handleMouseLeave = () => {
+    handleMouseLeave = (e: Event) => {
         this.setState({
             isHovered: false,
         });
 
         if (typeof this.props.onMouseLeave === 'function') {
-            this.props.onMouseLeave();
+            this.props.onMouseLeave(e);
         }
 
         if (!this.props.triggerOnClick) {
@@ -163,9 +163,9 @@ class TooltipOverlay extends React.Component {
         }
     }
 
-    handleFocus = () => {
+    handleFocus = (e: Event) => {
         if (typeof this.props.onFocus === 'function') {
-            this.props.onFocus();
+            this.props.onFocus(e);
         }
 
         if (!this.props.triggerOnClick && !this.state.isHovered) {
@@ -173,9 +173,9 @@ class TooltipOverlay extends React.Component {
         }
     }
 
-    handleBlur = () => {
+    handleBlur = (e: Event) => {
         if (typeof this.props.onBlur === 'function') {
-            this.props.onBlur();
+            this.props.onBlur(e);
         }
         this.hideTooltip();
     }
