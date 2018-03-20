@@ -58,7 +58,7 @@ const VideoCardFooterActionsGrid: React.SFC<VideoCardFooterActionsGridProps> = (
 
         gridCells.push(
             <VideoCardFooterActionsCell
-                onClick={isEmpty ? suppressClickPropagation : null}
+                onClick={isEmpty ? null : suppressClickPropagation}
                 key={`VideoCardFooterActionsCell-${i}`}
             >
                 {!isEmpty && actionItems[i - countDifference]}
