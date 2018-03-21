@@ -8,6 +8,7 @@ import VideoCardPropertiesArea from './VideoCardPropertiesArea';
 import VideoCardSocialBadgeArea from './VideoCardSocialBadgeArea';
 import VideoCardThumbnailGroup from './VideoCardThumbnailGroup';
 import {VideoCardThumbnailData} from './VideoCard';
+import COLORS from '../globals/js/constants/COLORS';
 
 export interface VideoCardThumbnailAreaProps {
     checkboxA11yLabel?: string,
@@ -30,14 +31,16 @@ export interface VideoCardThumbnailWrapperProps extends React.HTMLProps<HTMLDivE
 // ==================== VideoCardThumbnailArea Styled
 
 const WrapperStyled = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
-    position: relative;  
+    position: relative;
 `;
 
 const ThumbnailStyled = styled<React.SFC<HTMLImageElement>, 'img'>('img')`
     border-radius: ${rem(VideoCardStyleSettings.borderRadius)} ${rem(VideoCardStyleSettings.borderRadius)} 0 0;  
     width: 100%;
     height: auto;
-    
+    position: absolute;
+    top: 0;
+    left: 0;
 `;
 
 const ThumbnailContainerStyled = styled<VideoCardThumbnailWrapperProps, 'div'>('div')`
@@ -46,6 +49,12 @@ const ThumbnailContainerStyled = styled<VideoCardThumbnailWrapperProps, 'div'>('
     transition: filter ${VideoCardStyleSettings.hoverTransition};
 `;
 
+const ThumbnailPreloadWrapperStyled= styled<React.SFC<HTMLDivElement>, 'div'>('div')`
+    background-color: ${COLORS.Plaster};
+    width: 100%;
+    padding-bottom: 56.15%;
+    position: relative;
+`
 const hoverOverlayKeyframes = keyframes`
         from {
             opacity: 0;
@@ -102,11 +111,13 @@ const VideoCardThumbnailArea: React.SFC<VideoCardThumbnailAreaProps> = ({
                         thumbnailData={thumbnailData}
                     />
                 ) : (
-                    <ThumbnailStyled
-                        alt={thumbnailData[0].thumbnailAltText}
-                        src={thumbnailData[0].thumbnailSrc}
-                        srcSet={thumbnailData[0].thumbnailSrcSet}
-                    />
+                    <ThumbnailPreloadWrapperStyled>
+                        <ThumbnailStyled
+                            alt={thumbnailData[0].thumbnailAltText}
+                            src={thumbnailData[0].thumbnailSrc}
+                            srcSet={thumbnailData[0].thumbnailSrcSet}
+                        />
+                    </ThumbnailPreloadWrapperStyled>
                 )}
             </ThumbnailContainerStyled>
             {isHovered && (

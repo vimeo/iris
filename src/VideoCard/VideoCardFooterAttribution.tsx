@@ -4,25 +4,12 @@ import { rem } from 'polished';
 import { ParagraphSm } from '../Type';
 import {VideoCardStyleSettings} from './VideoCardHelpers';
 import Avatar from '../Avatar';
-import ButtonIconOnly from '../ButtonIconOnly';
-// @ts-ignore
-import DotsMenuIcon from '../icons/dots-menu.svg';
-import MenuPanel from '../MenuPanel';
-import TooltipOverlay from '../TooltipOverlay';
 
 export interface VideoCardFooterAttributionProps {
     /**
-    * A string to describe the action menu button does, e.g. "see user actions"
+    * Should take a ButtonIconOnly wrapped in a Menu and/or tooltip
     */
-    actionMenuDescription: string,
-    /**
-    * The contents of the MenuPanel that opens when the button is clicked
-    */
-    actionMenuContent: React.Component<any>,
-    /**
-    * An object of props that get spread to the nested MenuPanel
-    */
-    actionMenuProps: any,
+    attributionActionArea?: React.Component<any>,
     /**
     * URI for user avatar
     */
@@ -73,9 +60,7 @@ const UserNameTruncation = styled<React.HTMLProps<HTMLSpanElement>, 'span' >('sp
 // ==================== VideoCardFooterAttribution
 
 const VideoCardFooterAttribution: React.SFC<VideoCardFooterAttributionProps> = ({
-    actionMenuDescription,
-    actionMenuContent,
-    actionMenuProps,
+    attributionActionArea,
     userAvatarSrc,
     userAvatarSrcSet,
     userName,
@@ -106,23 +91,7 @@ const VideoCardFooterAttribution: React.SFC<VideoCardFooterAttributionProps> = (
                         <UserNameTruncation>{userName}</UserNameTruncation>
                     </UserNameStyled>
             </AttributionStyled>
-            <MenuPanel
-                alignment="right"
-                menuContent={actionMenuContent}
-                {...actionMenuProps}
-            >
-                <TooltipOverlay
-                    element="span"
-                    tooltipText={actionMenuDescription}
-                >
-                    <ButtonIconOnly
-                        format="midDark"
-                        icon={<DotsMenuIcon />}
-                        isButtonElement={false}
-                        size="sm"
-                    />
-                </TooltipOverlay>
-            </MenuPanel>
+            {attributionActionArea}
         </Wrapper>
     );
 };

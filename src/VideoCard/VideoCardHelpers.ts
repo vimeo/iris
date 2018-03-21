@@ -3,7 +3,7 @@ const VideoCardStyleSettings = {
     borderRadius: 3,
     footerHeight: 48,
     padding: 12,
-    hoverTransition: '100ms ease',
+    hoverTransition: '50ms ease',
 }
 
 export {VideoCardStyleSettings};

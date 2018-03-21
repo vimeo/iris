@@ -137,6 +137,7 @@ const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
     padding-bottom: 100%; // forces square aspect ratio
     margin-bottom: ${rem(20)};
     transition: box-shadow ${VideoCardStyleSettings.hoverTransition};
+    
     &:hover{
         cursor: pointer;
     }

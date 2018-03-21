@@ -26,6 +26,7 @@ import TooltipOverlay from '../TooltipOverlay';
 import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
 import SendIcon from '../icons/paper-plane.svg';
 import GearIcon from '../icons/gear.svg';
+import DotsMenuIcon from '../icons/dots-menu.svg';
 
 const getApiHtml = (htmlData) => {
     return {
@@ -139,10 +140,28 @@ const actionButtonsJustTwo = [
     ),
 ];
 
+const attributionAction = (
+    <MenuPanel
+    alignment="right"
+    menuContent={<ParagraphMd>User Menu Here</ParagraphMd>}
+    >
+        <TooltipOverlay
+            element="span"
+            tooltipText="More"
+        >
+            <ButtonIconOnly
+                format="midDark"
+                icon={<DotsMenuIcon />}
+                isButtonElement={false}
+                size="sm"
+            />
+        </TooltipOverlay>
+    </MenuPanel>
+);
+
 const exampleAttribution = (
     <VideoCardFooterAttribution
-        actionMenuDescription="More"
-        actionMenuContent={<ParagraphMd>User Menu Here</ParagraphMd>}
+        attributionActionArea={attributionAction}
         userAvatarSrc="https://i.vimeocdn.com/portrait/23898613_75x75.webp" userAvatarSrcSet="https://i.vimeocdn.com/portrait/23898613_150x150.webp 2x"
         userName="Killian Vilim"
     />
@@ -150,6 +169,7 @@ const exampleAttribution = (
 
 const exampleAttributionLongName = (
     <VideoCardFooterAttribution
+        attributionActionArea={attributionAction}
         actionMenuDescription="See additional actions"
         actionMenuContent={<ParagraphMd>User Menu Here</ParagraphMd>}
         userAvatarSrc="https://i.vimeocdn.com/portrait/23898613_75x75.webp" userAvatarSrcSet="https://i.vimeocdn.com/portrait/23898613_150x150.webp 2x"
@@ -507,10 +527,28 @@ const actionButtonsJustTwo = [
     ),
 ];
 
+const attributionAction = (
+    <MenuPanel
+    alignment="right"
+    menuContent={<ParagraphMd>User Menu Here</ParagraphMd>}
+    >
+        <TooltipOverlay
+            element="span"
+            tooltipText="More"
+        >
+            <ButtonIconOnly
+                format="midDark"
+                icon={<DotsMenuIcon />}
+                isButtonElement={false}
+                size="sm"
+            />
+        </TooltipOverlay>
+    </MenuPanel>
+);
+
 const exampleAttribution = (
     <VideoCardFooterAttribution
-        actionMenuDescription="See additional actions"
-        actionMenuContent={<ParagraphMd>User Menu Here</ParagraphMd>}
+        attributionActionArea={attributionAction}
         userAvatarSrc="https://i.vimeocdn.com/portrait/23898613_75x75.webp" userAvatarSrcSet="https://i.vimeocdn.com/portrait/23898613_150x150.webp 2x"
         userName="Killian Vilim"
     />
@@ -518,6 +556,7 @@ const exampleAttribution = (
 
 const exampleAttributionLongName = (
     <VideoCardFooterAttribution
+        attributionActionArea={attributionAction}
         actionMenuDescription="See additional actions"
         actionMenuContent={<ParagraphMd>User Menu Here</ParagraphMd>}
         userAvatarSrc="https://i.vimeocdn.com/portrait/23898613_75x75.webp" userAvatarSrcSet="https://i.vimeocdn.com/portrait/23898613_150x150.webp 2x"
