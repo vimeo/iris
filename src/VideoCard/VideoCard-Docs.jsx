@@ -328,6 +328,22 @@ class VideoCardDocs extends React.Component {
                                     titleSubheader={<span>2 videos &#183; 5d</span>}
                                 />
                             </GridCol>
+                            <GridCol mdSpan={12} lgSpan={8}>
+                                <VideoCard
+                                    footer={(
+                                        <VideoCardFooterActionsGrid
+                                            actionItems={actionButtonsJustTwo}
+                                        />
+                                    )}
+                                    isGroup
+                                    isProcessing
+                                    isSelectable
+                                    onClick={testClick}
+                                    thumbnailData={albumThumbnailsIncomplete}
+                                    title="Sample Album"
+                                    titleSubheader={<span>2 videos &#183; 5d</span>}
+                                />
+                            </GridCol>
                         </GridBlock>
                     </Grid>
                 </div>
@@ -418,6 +434,20 @@ import {
         />
     )}
     isGroup
+    isSelectable
+    onClick={testClick}
+    thumbnailData={albumThumbnailsIncomplete}
+    title="Sample Album"
+    titleSubheader={<span>2 videos &#183; 5d</span>}
+/>
+<VideoCard
+    footer={(
+        <VideoCardFooterActionsGrid
+            actionItems={actionButtonsJustTwo}
+        />
+    )}
+    isGroup
+    isProcessing
     isSelectable
     onClick={testClick}
     thumbnailData={albumThumbnailsIncomplete}

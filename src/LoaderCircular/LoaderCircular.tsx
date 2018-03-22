@@ -17,10 +17,11 @@ export interface LoaderCircularProps extends Omit<React.HTMLProps<HTMLDivElement
     /**
      * Determines Size
      */
-    size?: 'xs' | 'sm' | 'md' | 'lg',
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 };
 
 const LoaderCircularSizes = {
+    xl: rem(40),
     lg: rem(26),
     md: rem(24),
     sm: rem(16),
