@@ -102,15 +102,30 @@ class TooltipOverlay extends React.Component {
     }
 
     showTooltip = () => {
+        // iOS won't bubble clicks to the body unless it has cursor pointer
+        // we listen for a body click to close the tooltip
+        if (document.body) {
+            document.body.style.cursor = 'pointer';
+        }
         this.setState({
             isShowing: true,
         });
+
+        this.listenForClose();
     }
 
     hideTooltip = () => {
+        // unset iOS hack
+        if (document.body) {
+            document.body.style.cursor = '';
+        }
+
+
         this.setState({
             isShowing: false,
         });
+
+        this.stopListeningForClose();
     }
 
     toggleTooltip = () => {
@@ -178,6 +193,18 @@ class TooltipOverlay extends React.Component {
             this.props.onBlur(e);
         }
         this.hideTooltip();
+    }
+
+
+    listenForClose = () => {
+        if (document.body) {
+            document.body.addEventListener('click', this.hideTooltip);
+        }
+    }
+    stopListeningForClose = () => {
+        if (document.body) {
+            document.body.removeEventListener('click', this.hideTooltip);
+        }
     }
 
     render() {
