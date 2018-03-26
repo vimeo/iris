@@ -9,4 +9,5 @@ const BREAKPOINTS = {
     xxl: 1440,
     xxxl: 1680,
 };
+
 export default BREAKPOINTS;

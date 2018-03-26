@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import styles from './Modal.scss';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';
 import { CSSTransitionGroup } from 'react-transition-group';
+// $FlowFixMe
 import Button from '../Button/Button';
 import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
 import Grid from '../Grid';
