@@ -65,10 +65,19 @@ export interface ButtonProps
     size?: 'xs' | 'sm' | 'md' | 'lg';
 }
 
-const ButtonVariableElement = (props: ButtonProps) => {
-    const ButtonElementType = props.isButtonElement ? 'button' : 'span';
+const ButtonVariableElement = ({
+    //@ts-ignore
+    autoMargins, // filter out prop
+    //@ts-ignore
+    autoWidth, // filter out prop
+    isButtonElement, // filter out prop
+    //@ts-ignore
+    isInline, // filter out prop
+    ...rest
+}: ButtonProps) => {
+    const ButtonElementType = isButtonElement ? 'button' : 'span';
 
-    return <ButtonElementType {...props} />;
+    return <ButtonElementType {...rest} />;
 };
 
 const ButtonElement = styled<ButtonProps, any>(ButtonVariableElement)`
