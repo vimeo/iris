@@ -26,6 +26,12 @@ class ButtonFileUploadDocs extends React.Component {
                         format="primaryOutline"
                         showIcon={false}
                     />
+                      <ButtonFileUpload
+                        label="Upload"
+                        id="uploadButtonFileUploadDisabled"
+                        format="primaryOutline"
+                        disabled
+                    />
                 </div>
 
                 <ExampleSource>
@@ -40,6 +46,12 @@ class ButtonFileUploadDocs extends React.Component {
     id="uploadButtonFileUpload2"
     format="primaryOutline"
     showIcon={false}
+/>
+<ButtonFileUpload
+    label="Upload"
+    id="uploadButtonFileUploadDisabled"
+    format="primaryOutline"
+    disabled
 />
                         `}
                     </ExampleSource>

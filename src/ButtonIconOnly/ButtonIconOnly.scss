@@ -137,12 +137,14 @@ $ButtonIconOnly_icon-size: rem-calc(16);
     }
 }
 
-.ButtonIconOnly:disabled {
+.ButtonIconOnly:disabled,
+.isDisabled {
     color: $Porcelain;
 
-    cursor: not-allowed;
-
     &:hover {
+        color: $Porcelain;
         background: inherit;
+
+        cursor: not-allowed;
     }
 }

@@ -1,5 +1,5 @@
-/* @description Generates styles for the ButtonFileUpload component */
-@import '../globals/sass/helpers-all';
+/* @description Generates styles for the Button component */
+@import "../globals/sass/helpers-all";
 $Button_icon-size-large: rem-calc(18);
 $Button_icon-size-medium: rem-calc(16);
 $Button_icon-size-small: rem-calc(14);
@@ -174,8 +174,6 @@ $Button_icon-size-xSmall: rem-calc(10);
     border-color: $Button_primary-bg-color;
 }
 
-
-
 .alternative,
 .alternativeOutline:hover {
     color: $Button_alternative-text-color;
@@ -192,8 +190,6 @@ $Button_icon-size-xSmall: rem-calc(10);
 .alternativeOutline:active {
     background-color: darken($Button_alternative-bg-color_hover, 6%);
 }
-
-
 
 .secondary {
     color: $Button_secondary-text-color;
@@ -225,8 +221,7 @@ $Button_icon-size-xSmall: rem-calc(10);
     background-color: $Button_secondary-bg-color_hover;
 }
 
-.secondary:active
-.secondaryOutline:active {
+.secondary:active .secondaryOutline:active {
     background-color: darken($Button_secondary-bg-color_hover, 6%);
 }
 
@@ -236,8 +231,6 @@ $Button_icon-size-xSmall: rem-calc(10);
     color: $Button_secondary-text-color;
     border-color: $Button_secondary-text-color;
 }
-
-
 
 .warning,
 .warningOutline:hover {
@@ -256,15 +249,12 @@ $Button_icon-size-xSmall: rem-calc(10);
     background-color: darken($Button_warning-bg-color_hover, 10%);
 }
 
-
 .warningOutline {
     @include outlineButton;
 
     color: $Button_warning-bg-color;
     border-color: $Button_warning-bg-color;
 }
-
-
 
 .success,
 .successOutline:hover {
@@ -283,7 +273,6 @@ $Button_icon-size-xSmall: rem-calc(10);
     background-color: darken($Button_success-bg-color_hover, 10%);
 }
 
-
 .successOutline {
     @include outlineButton;
 
@@ -294,14 +283,14 @@ $Button_icon-size-xSmall: rem-calc(10);
 .lightTransparent {
     color: $White;
     border-color: $Button_transparent_for_animation;
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255, 255, 255, 0.3);
 
     &:hover {
-        background-color: rgba(255,255,255,0.5);
+        background-color: rgba(255, 255, 255, 0.5);
     }
 
     &:active {
-        background-color: rgba(255,255,255,0.7);
+        background-color: rgba(255, 255, 255, 0.7);
     }
 }
 
@@ -311,7 +300,7 @@ $Button_icon-size-xSmall: rem-calc(10);
     background-color: $Button_transparent_for_animation;
 
     &:hover {
-        background-color: rgba(255,255,255,0.5);
+        background-color: rgba(255, 255, 255, 0.5);
     }
 }
 
@@ -334,7 +323,6 @@ $Button_icon-size-xSmall: rem-calc(10);
 .Icon_afterLabel {
     margin-left: rem-calc(4);
 }
-
 
 .xs {
     .Icon svg {
@@ -372,10 +360,11 @@ $Button_icon-size-xSmall: rem-calc(10);
     }
 }
 
-
 // All Disable Buttons other than Primary are the same and override any other applied styles
 
-.Button:disabled {
+.Button:disabled,
+.isDisabled,
+.isDisabled:hover {
     cursor: not-allowed;
     &:active {
         outline: 0;
@@ -384,14 +373,18 @@ $Button_icon-size-xSmall: rem-calc(10);
     }
 }
 
-.Button:not(.primary):disabled {
+.Button:not(.primary):disabled,
+.isDisabled,
+.isDisabled:hover {
     color: #D0D8DB;
     border-color: $Porcelain;
     background-color: $Porcelain;
 }
 
 .Button.primary:disabled,
-.Button.primary:disabled:hover {
+.Button.primary:disabled:hover,
+.primary.isDisabled,
+.primary.isDisabled:hover {
     color: rgba($White, 0.7);
     border-color: transparent;
     background-color: rgba($VimeoBlue, 0.4);

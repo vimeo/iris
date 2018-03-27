@@ -36,6 +36,7 @@ const ButtonFileUploadIconOnly = ({
         styles[size],
         (autoSpacingHorizontal ? styles.autoSpacingHorizontal : null),
         styles[format],
+        (filteredProps.disabled ? styles.isDisabled : null),
         className
     );
 

@@ -24,6 +24,12 @@ class ButtonFileUploadIconOnlyDocs extends React.Component {
                         id="uploadButtonFileUploadIcon2"
                         format="light"
                     />
+                     <ButtonFileUploadIconOnly
+                        label="Upload"
+                        id="uploadButtonFileUploadIconDisabled"
+                        format="light"
+                        disabled
+                    />
                 </div>
 
                 <ExampleSource>
@@ -37,6 +43,12 @@ class ButtonFileUploadIconOnlyDocs extends React.Component {
     label="Upload"
     id="uploadButtonFileUploadIcon2"
     format="light"
+/>
+<ButtonFileUploadIconOnly
+    label="Upload"
+    id="uploadButtonFileUploadIconDisabled"
+    format="light"
+    disabled
 />
                         `}
                     </ExampleSource>
