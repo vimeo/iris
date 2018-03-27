@@ -1,11 +1,26 @@
 import COLORS from '../constants/COLORS';
 
 const VimeoStyleSettings = {
+    type: {
+        fontFamily: {
+            regular: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+            light: '"Helvetica Neue Light", Helvetica, Arial, sans-serif',
+        },
+        weights: {
+            light: '300',
+            mediumLight: '400',
+            medium: '500',
+            bold: '600',
+        },
+    },
+
     colors: {
         typeColors: {
-            bodyTextColorDark: COLORS.AstroGranite,
-            bodyTextColorLight: COLORS.RegentGray,
-            headerTextColor: COLORS.AstroGranite,
+            textColorDark: COLORS.AstroGranite,
+            textColorMediumDark: COLORS.RegentGray,
+            textColorMedium: COLORS.RegentGray,
+            textColorMediumLight: COLORS.SoutherlySky,
+            textColorLight: COLORS.Plaster,
             linkColorLight: COLORS.VimeoBlue,
             linkColorLightHover: COLORS.VimeoBlueDarkened,
             linkColorDark: COLORS.AstroGranite,
@@ -26,9 +41,6 @@ const VimeoStyleSettings = {
             successColorLight: COLORS.RumSwizzle,
             warningColor: COLORS.WarningYellow,
         },
-    },
-    type: {
-        fontFacePrimary: 'Helvetica Neue,Helvetica,Arial,sans-serif',
     },
 };
 

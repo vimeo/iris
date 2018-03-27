@@ -88,7 +88,7 @@ const ButtonElement = styled<ButtonProps, any>(ButtonVariableElement)`
     width: 100%;
     margin: 0;
 
-    font-family: ${VimeoStyleSettings.type.fontFacePrimary};
+    font-family: ${VimeoStyleSettings.type.fontFamily.regular};
     font-weight: 700;
 
     border-width: ${rem(1)};

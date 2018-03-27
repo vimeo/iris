@@ -26,10 +26,9 @@ type Props = {
 
 type State = {
     isShowing: boolean,
-}
+};
 
 class Toastification extends React.Component<void, Props, State> {
-
     constructor(props: Props, state: State) {
         super(props);
     }
@@ -73,7 +72,7 @@ class Toastification extends React.Component<void, Props, State> {
         this.setState({
             isShowing: false,
         });
-    }
+    };
 
     _handleActionClick = (e: Event) => {
         e.preventDefault();
@@ -85,28 +84,30 @@ class Toastification extends React.Component<void, Props, State> {
         }
 
         this._hideToastification();
-    }
+    };
 
     _handleToastMouseLeave = () => {
         if (this.state.isShowing) {
             this._delayedHide(750);
         }
-    }
+    };
 
-    _handleToastMouseEnter = () =>{
+    _handleToastMouseEnter = () => {
         this._pauseDelayedHide();
-    }
+    };
 
     _pauseDelayedHide = () => {
         // if the user hovered over the toast we freeze it.
         clearTimeout(this.delayedHideTimeOut);
-    }
+    };
 
     _startDelayedHide = () => {
         // this is the initial timing of the hide;
-        const messageDuration = this.props.actionLabel ? slowDelayTime : fastDelayTime;
+        const messageDuration = this.props.actionLabel
+            ? slowDelayTime
+            : fastDelayTime;
         this._delayedHide(messageDuration);
-    }
+    };
 
     _delayedHide = (duration: number) => {
         const onComplete = this.props.onComplete;
@@ -121,12 +122,10 @@ class Toastification extends React.Component<void, Props, State> {
                     onComplete();
                 }, animationTime);
             }
-
         }, duration);
-    }
+    };
 
     render() {
-
         // the es-lint ignores in the destructuring below allow us to easily filter out these props that should not pass to the DOM. These props where already used above.
 
         const {
@@ -145,7 +144,7 @@ class Toastification extends React.Component<void, Props, State> {
         // className builder
         const componentClass = classNames(
             styles.Toastification,
-            (hasIcon ? styles.hasIcon : null),
+            hasIcon ? styles.hasIcon : null,
             className
         );
 
@@ -176,10 +175,7 @@ class Toastification extends React.Component<void, Props, State> {
                     onMouseEnter={this._handleToastMouseEnter}
                     onMouseLeave={this._handleToastMouseLeave}
                 >
-                    <ParagraphMd
-                        className={styles.Content}
-                        format="light"
-                    >
+                    <ParagraphMd className={styles.Content} format="white">
                         {MaybeIcon}
                         {children}
                         {MaybeAction}
@@ -188,25 +184,24 @@ class Toastification extends React.Component<void, Props, State> {
             </div>
         );
 
-
         return (
-                <CSSTransitionGroup
-                    transitionAppear
-                    transitionLeave
-                    transitionEnterTimeout={animationTime}
-                    transitionLeaveTimeout={animationTime}
-                    transitionAppearTimeout={animationTime}
-                    transitionName={{
-                        enter: styles.enter,
-                        enterActive: styles.enterActive,
-                        leave: styles.leave,
-                        leaveActive: styles.leaveActive,
-                        appear: styles.appear,
-                        appearActive: styles.appearActive,
-                    }}
-                >
-                    {this.state.isShowing ? ToastificationComponent : null}
-                </CSSTransitionGroup>
+            <CSSTransitionGroup
+                transitionAppear
+                transitionLeave
+                transitionEnterTimeout={animationTime}
+                transitionLeaveTimeout={animationTime}
+                transitionAppearTimeout={animationTime}
+                transitionName={{
+                    enter: styles.enter,
+                    enterActive: styles.enterActive,
+                    leave: styles.leave,
+                    leaveActive: styles.leaveActive,
+                    appear: styles.appear,
+                    appearActive: styles.appearActive,
+                }}
+            >
+                {this.state.isShowing ? ToastificationComponent : null}
+            </CSSTransitionGroup>
         );
     }
 }

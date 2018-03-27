@@ -22,7 +22,7 @@ const VideoCardPropertyBadgeStyled = styled<React.HTMLProps<HTMLDivElement>, 'di
     text-transform: uppercase;
 `;
 
-const VideoCardPropertyBadgeTextStyled = styled<React.HTMLProps<HTMLDivElement>, ParagraphSm >(ParagraphSm )`
+const VideoCardPropertyBadgeTextStyled = styled<React.HTMLProps<HTMLDivElement>, any >(ParagraphSm )`
     align-items: center;
     display: inline-flex;
     font-weight: 600;

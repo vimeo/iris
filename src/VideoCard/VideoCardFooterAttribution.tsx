@@ -38,7 +38,7 @@ const AvatarStyled = styled<React.HTMLProps<HTMLDivElement>, Avatar>(Avatar)`
     margin-right: ${rem(4)};
 `;
 
-const UserNameStyled = styled<React.HTMLProps<HTMLSpanElement>, ParagraphSm>(ParagraphSm)`
+const UserNameStyled = styled<React.HTMLProps<HTMLSpanElement>, any>(ParagraphSm)`
     align-items: center;
     display: inline-flex;
     font-weight: 600;

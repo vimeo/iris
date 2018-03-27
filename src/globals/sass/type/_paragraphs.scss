@@ -17,6 +17,17 @@
     }
 }
 
+@mixin ParagraphSm {
+    @include Paragraphs;
+
+    margin-bottom: spacingUnit(4);
+
+    font-size: rem-calc($BodySm);
+    line-height: calculateLineHeightTarget($BodySm, 16);
+
+    letter-spacing: $LetterSpacingMd;
+}
+
 @mixin ParagraphMd {
     @include Paragraphs;
 
@@ -40,16 +51,7 @@
     letter-spacing: $LetterSpacingMd;
 }
 
-@mixin ParagraphSm {
-    @include Paragraphs;
 
-    margin-bottom: spacingUnit(4);
-
-    font-size: rem-calc($BodySm);
-    line-height: calculateLineHeightTarget($BodySm, 16);
-
-    letter-spacing: $LetterSpacingMd;
-}
 
 @mixin ParagraphAlt {
     color: $BodyTextColor-Light;

@@ -13,7 +13,7 @@ type Props = {
     children: React$Element<*>,
     dismissButtonA11yLabel: string,
     headerText?: string,
-    onDismissClick: ()=> void,
+    onDismissClick: () => void,
     dismissButtonProps?: Object,
 };
 
@@ -26,30 +26,22 @@ const FeatureTourPanelContent = ({
     dismissButtonProps,
     ...filteredProps
 }: Props): React$Element<*> => {
-
-
     return (
-            <div
-                {...filteredProps}
-                className={styles.FeatureTourPanelContent}
-            >
-                <ButtonIconOnly
-                    {...dismissButtonProps}
-                    icon={<DismissIcon title={dismissButtonA11yLabel} />}
-                    format="lightTransparent"
-                    size="sm"
-                    onClick={onDismissClick}
-                    className={styles.DismissButton}
-                />
-                {headerText && <Header5 format="light">{headerText}</Header5>}
-                    <ParagraphMd
-                        element="div"
-                        format="light"
-                    >
-                        {children}
-                    </ParagraphMd>
-                    {actionArea}
-            </div>
+        <div {...filteredProps} className={styles.FeatureTourPanelContent}>
+            <ButtonIconOnly
+                {...dismissButtonProps}
+                icon={<DismissIcon title={dismissButtonA11yLabel} />}
+                format="lightTransparent"
+                size="sm"
+                onClick={onDismissClick}
+                className={styles.DismissButton}
+            />
+            {headerText && <Header5 format="white">{headerText}</Header5>}
+            <ParagraphMd element="div" format="white">
+                {children}
+            </ParagraphMd>
+            {actionArea}
+        </div>
     );
 };
 

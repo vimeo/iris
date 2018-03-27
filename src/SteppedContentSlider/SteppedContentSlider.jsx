@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import styles from './SteppedContentSlider.scss';
 import pixelsToRem from '../globals/js/utilities/pixelsToRem';
 import throttle from 'lodash/throttle';
+// $FlowFixMe
 import Header4 from '../Type/Header4';
 import ButtonIconOnly from '../ButtonIconOnly';
 import ChevronRight from '../icons/chevron-right.svg';

@@ -1,23 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import {ParagraphSm} from '../Type';
- // @ts-ignore
+import { ParagraphSm } from '../Type';
+// @ts-ignore
 import CircleIcon from '../icons/circle-filled.svg';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 
-export interface VideoCardLiveBadge extends React.HTMLProps<HTMLInputElement>  {
+export interface VideoCardLiveBadge extends React.HTMLProps<HTMLInputElement> {
     /**
-    * We need the translated string for "Live"
-    */
-    liveLabelString: string,
-};
-
+     * We need the translated string for "Live"
+     */
+    liveLabelString: string;
+}
 
 // ==================== VideoCardLiveBadge Styled
 
-const VideoCardLiveBadgeStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
+const VideoCardLiveBadgeStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
+    'div'
+)`
     align-items: center;
     background: ${VimeoStyleSettings.colors.uiColors.liveColor};
     border-radius: ${rem(2)};
@@ -29,7 +30,10 @@ const VideoCardLiveBadgeStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
     text-transform: uppercase;
 `;
 
-const VideoCardLiveBadgeTextStyled = styled<React.HTMLProps<HTMLDivElement>, ParagraphSm >(ParagraphSm )`
+const VideoCardLiveBadgeTextStyled = styled<
+    React.HTMLProps<HTMLDivElement>,
+    any
+>(ParagraphSm)`
     align-items: center;
     display: inline-flex;
     letter-spacing: ${rem(1.25)};
@@ -52,7 +56,7 @@ const LiveIconStyled = styled<React.HTMLProps<HTMLSpanElement>, 'span'>('span')`
             fill: currentcolor;
         }
     }
-`
+`;
 
 // ==================== VideoCardLiveBadge
 
@@ -60,10 +64,9 @@ const VideoCardLiveBadge: React.SFC<VideoCardLiveBadge> = ({
     ref: _,
     liveLabelString,
 }) => {
-    
     return (
         <VideoCardLiveBadgeStyled>
-            <VideoCardLiveBadgeTextStyled format="light">
+            <VideoCardLiveBadgeTextStyled format="white">
                 <LiveIconStyled>
                     <CircleIcon />
                 </LiveIconStyled>
