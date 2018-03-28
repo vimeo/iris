@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 import Swipeable from 'react-swipeable';
 import classNames from 'classnames';
 import styles from './SteppedContentSlider.scss';
-import pixelsToRem from '../globals/js/utilities/pixelsToRem';
+// $FlowFixMe
+import { rem } from 'polished';
 import throttle from 'lodash/throttle';
 // $FlowFixMe
 import Header4 from '../Type/Header4';
@@ -153,7 +154,7 @@ class SteppedContentSlider extends React.Component {
                     data-slide
                     className={styles.SlideContent}
                     key={`slideContent${i}`}
-                    style={{ marginRight: pixelsToRem(this.props.slideMargin) }}
+                    style={{ marginRight: rem(this.props.slideMargin) }}
                 >
                     {child}
                 </div>
@@ -387,8 +388,8 @@ class SteppedContentSlider extends React.Component {
                                 this.viewTrack = div;
                             }}
                             style={{
-                                width: pixelsToRem(this.state.trackWidth),
-                                transform: `translateX(${pixelsToRem(this.state.trackOffset)})`,
+                                width: rem(this.state.trackWidth),
+                                transform: `translateX(${rem(this.state.trackOffset)})`,
                                 transition: this.state.animate && `transform ${speed}ms ease`,
                             }}
                         >
@@ -398,14 +399,14 @@ class SteppedContentSlider extends React.Component {
                             className={previousTruncationClass}
                             style={{
                                 background: buildTruncationBackground('previous'),
-                                height: pixelsToRem(this.state.slideContainerHeight),
+                                height: rem(this.state.slideContainerHeight),
                             }}
                         />
                         <div
                             className={nextTruncationClass}
                             style={{
                                 background: buildTruncationBackground('next'),
-                                height: pixelsToRem(this.state.slideContainerHeight),
+                                height: rem(this.state.slideContainerHeight),
                             }}
                         />
                     </div>
