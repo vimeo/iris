@@ -10,13 +10,10 @@ import InfoIcon from '../icons/circle-info.svg';
 const displayName = 'Toastification';
 
 // this value should be kept in sync with the timing variable in the Toastification.scss
-// const animationTime = parseInt(styles.Toastification_AnimationTime, 10);
-// const fastDelayTime = 3000;
-// const slowDelayTime = 6000;
 
-const animationTime = 50000;
-const fastDelayTime = 50000;
-const slowDelayTime = 50000;
+const animationTime = 200;
+const fastDelayTime = 3000;
+const slowDelayTime = 6000;
 
 type Props = {
     actionLabel?: string,
@@ -116,17 +113,17 @@ class Toastification extends React.Component<void, Props, State> {
     _delayedHide = (duration: number) => {
         const onComplete = this.props.onComplete;
 
-        // // after a certain amount of time (duration) the Toastification hides itself.
-        // this.delayedHideTimeOut = setTimeout(() => {
-        //     this._hideToastification();
+        // after a certain amount of time (duration) the Toastification hides itself.
+        this.delayedHideTimeOut = setTimeout(() => {
+            this._hideToastification();
 
-        //     // fire onComplete callback (if present) when the toastification removal animation is done.
-        //     if (onComplete) {
-        //         setTimeout(function() {
-        //             onComplete();
-        //         }, animationTime);
-        //     }
-        // }, duration);
+            // fire onComplete callback (if present) when the toastification removal animation is done.
+            if (onComplete) {
+                setTimeout(function() {
+                    onComplete();
+                }, animationTime);
+            }
+        }, duration);
     };
 
     render() {
@@ -173,6 +170,7 @@ class Toastification extends React.Component<void, Props, State> {
 
         const ToastificationComponent = (
             <CSSTransition
+                appear
                 classNames={{
                     appear: styles.appear,
                     appearActive: styles.appearActive,
@@ -181,7 +179,7 @@ class Toastification extends React.Component<void, Props, State> {
                     exit: styles.leave,
                     exitActive: styles.leaveActive,
                 }}
-                timeout={animationTime}
+                timeout={{ enter: animationTime, exit: animationTime }}
             >
                 <div className={styles.Wrapper}>
                     <div
@@ -201,8 +199,8 @@ class Toastification extends React.Component<void, Props, State> {
         );
 
         return (
-            <TransitionGroup>
-                {this.state.isShowing ? ToastificationComponent : ''}
+            <TransitionGroup appear>
+                {this.state.isShowing ? ToastificationComponent : null}
             </TransitionGroup>
         );
     }

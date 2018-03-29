@@ -2,10 +2,6 @@
 @import "../globals/sass/helpers-all";
 $Toastification_AnimationTime: 200;
 
-// export animation time to Toastification JSX for use there
-:export {
-  toastification_animationtime: $Toastification_AnimationTime;
-}
 $Toastification_Spacing: rem-calc(28);
 
 .Wrapper {
