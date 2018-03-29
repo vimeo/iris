@@ -296,7 +296,6 @@ class MenuPanel extends React.Component {
 
         const menuElement = (
             <TransitionGroup appear>
-                
                     {this.state.isShowing ? (
                         <CSSTransition
                             timeout={menuSpeed}
