@@ -11,7 +11,7 @@ This component uses JS to animate height to ensure a consistant animation speed 
 */
 
 type Props = {
-    animateOpenOnMount: boolean,
+    animateOpenOnMount?: boolean,
     children: React$Element<*>,
     speed: Number,
     isHidden: boolean,
@@ -32,7 +32,7 @@ class SlideUpDown extends React.Component {
         super(props);
         this.state = {
             maxHeight: 0,
-            shouldAnimate: props.animateOpenOnMount,
+            shouldAnimate: props.animateOpenOnMount || false,
         };
     }
 

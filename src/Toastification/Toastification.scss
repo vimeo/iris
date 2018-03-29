@@ -1,103 +1,102 @@
 /* @description Generates styles for the Toastification component */
 @import "../globals/sass/helpers-all";
 $Toastification_AnimationTime: 200;
-
 $Toastification_Spacing: rem-calc(28);
 
 .Wrapper {
-  position: fixed;
-  z-index: get-z-index("toastification");
-  bottom: 0;
-  left: 0;
+    position: fixed;
+    z-index: get-z-index("toastification");
+    bottom: 0;
+    left: 0;
 
-  width: 100%;
+    width: 100%;
 }
 
 .Toastification {
-  position: absolute;
-  bottom: $Toastification_Spacing;
-  left: 50%;
+    position: absolute;
+    bottom: $Toastification_Spacing;
+    left: 50%;
 
-  min-width: rem-calc(140);
-  padding: rem-calc(11) spacingUnit(5); // Vertical Padding + line height makes it 40px high
+    min-width: rem-calc(140);
+    padding: rem-calc(11) spacingUnit(5); // Vertical Padding + line height makes it 40px high
 
-  border-radius: rem-calc(3);
-  background: rgba(0, 0, 0, 0.9);
-  box-shadow: $subtleIrisBoxShadow;
+    border-radius: rem-calc(3);
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: $subtleIrisBoxShadow;
 
-  transform: translateX(-50%);
-  text-align: center;
+    transform: translateX(-50%);
+    text-align: center;
 
-  &.hasIcon {
-    padding-left: rem-calc(42);
+    &.hasIcon {
+        padding-left: rem-calc(42);
 
-    text-align: left;
-  }
+        text-align: left;
+    }
 }
 
 .Content {
-  &:last-of-type {
-    margin-bottom: 0; // remove global last paragraph margin
-  }
+    &:last-of-type {
+        margin-bottom: 0; // remove global last paragraph margin
+    }
 }
 
 .Icon {
-  position: absolute;
-  top: rem-calc(10);
-  left: rem-calc(16);
+    position: absolute;
+    top: rem-calc(10);
+    left: rem-calc(16);
 
-  width: rem-calc(18);
-  height: auto;
-  * {
-    fill: $White;
-  }
+    width: rem-calc(18);
+    height: auto;
+    * {
+        fill: $White;
+    }
 }
 
 //TODO Replace with link component when ready
 .ActionLink {
-  color: $White;
-
-  text-decoration: underline;
-  &:hover {
     color: $White;
 
-    text-decoration: none;
-  }
+    text-decoration: underline;
+    &:hover {
+        color: $White;
+
+        text-decoration: none;
+    }
 }
 
 //Animation
 
 @mixin ToastificationFadedIn() {
-  opacity: 1;
+    opacity: 1;
 
-  transform: translateY(0) translateX(-50%);
+    transform: translateY(0) translateX(-50%);
 }
 
 @mixin ToastificationFadedOut() {
-  opacity: 0;
+    opacity: 0;
 
-  transform: translateY($Toastification_Spacing) translateX(-50%);
+    transform: translateY($Toastification_Spacing) translateX(-50%);
 }
 
 @mixin ToastificationTransition() {
-  transition: all ($Toastification_AnimationTime * 1ms) ease-out;
+    transition: all ($Toastification_AnimationTime * 1ms) ease-out;
 }
 
 .enter .Toastification,
 .appear .Toastification {
-  @include ToastificationFadedOut();
+    @include ToastificationFadedOut();
 }
 .enter.enterActive .Toastification,
 .appear.apppearActive .Toastification {
-  @include ToastificationFadedIn();
-  @include ToastificationTransition();
+    @include ToastificationFadedIn();
+    @include ToastificationTransition();
 }
 
 .leave .Toastification {
-  @include ToastificationFadedIn();
+    @include ToastificationFadedIn();
 }
 
 .leave.leaveActive .Toastification {
-  @include ToastificationFadedOut();
-  @include ToastificationTransition();
+    @include ToastificationFadedOut();
+    @include ToastificationTransition();
 }
