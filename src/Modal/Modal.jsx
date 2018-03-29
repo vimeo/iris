@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import styles from './Modal.scss';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';
-import { CSSTransitionGroup } from 'react-transition-group';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 // $FlowFixMe
 import Button from '../Button/Button';
 import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
@@ -18,7 +18,7 @@ import throttle from 'lodash/throttle';
 const displayName = 'Modal';
 
 // this value should be kept in sync with the timing variable in the Modal.scss
-const modalSpeed = parseInt(styles.Modal_AnimationTime, 10);
+const modalSpeed = 250;
 
 type Props = {
     children: React$Element<*>,
@@ -413,63 +413,56 @@ class Modal extends React.Component {
         );
 
         const ModalComponent = (
-            <div className={styles.ModalWrapper}>
-                <div
-                    {...filteredProps}
-                    role="dialog"
-                    aria-labelledby={modalLabelId}
-                    aria-describedby={modalDescriptionId}
-                    className={componentClass}
-                >
-                    { /* <OverflowTruncationWrapper
-                            maxHeight={this.state.overflowAreaHeight}
-                    > */}
-                        <div
-                            className={contentClass}
-                            ref={(div)=>{
-                                this.ContentOuterDiv = div;
-                            }}
-                        >
+            <CSSTransition
+                timeout={modalSpeed}
+                classNames={{
+                    enter: styles.enter,
+                    enterActive: styles.enterActive,
+                    leave: styles.leave,
+                    leaveActive: styles.leaveActive,
+                    appear: styles.appear,
+                    appearActive: styles.appearActive,
+                }}
+            >
+                <div className={styles.ModalWrapper}>
+                    <div
+                        {...filteredProps}
+                        role="dialog"
+                        aria-labelledby={modalLabelId}
+                        aria-describedby={modalDescriptionId}
+                        className={componentClass}
+                    >
                             <div
+                                className={contentClass}
                                 ref={(div)=>{
-                                    this.ContentInnerDiv = div;
+                                    this.ContentOuterDiv = div;
                                 }}
                             >
-                                {modalTitle ? ModalTitleElement : null}
-                                {children}
+                                <div
+                                    ref={(div)=>{
+                                        this.ContentInnerDiv = div;
+                                    }}
+                                >
+                                    {modalTitle ? ModalTitleElement : null}
+                                    {children}
+                                </div>
                             </div>
-                        </div>
-                     { /* </OverflowTruncationWrapper> */}
-                    {primaryButtonProps ? actionAreaElement : null}
-                    {onDismiss && !hideDismissButton ? CloseButton : null}
+                        {primaryButtonProps ? actionAreaElement : null}
+                        {onDismiss && !hideDismissButton ? CloseButton : null}
+                    </div>
+                    <div
+                        className={styles.Overlay}
+                        onClick={onDismiss ? ()=> this._handleModalClose(onDismiss) : null}
+                        tabIndex="-1"
+                    />
                 </div>
-                <div
-                    className={styles.Overlay}
-                    onClick={onDismiss ? ()=> this._handleModalClose(onDismiss) : null}
-                    tabIndex="-1"
-                />
-            </div>
+            </CSSTransition>
         );
 
         return (
-
-                <CSSTransitionGroup
-                    transitionAppear
-                    transitionLeave
-                    transitionEnterTimeout={modalSpeed}
-                    transitionLeaveTimeout={modalSpeed}
-                    transitionAppearTimeout={modalSpeed}
-                    transitionName={{
-                        enter: styles.enter,
-                        enterActive: styles.enterActive,
-                        leave: styles.leave,
-                        leaveActive: styles.leaveActive,
-                        appear: styles.appear,
-                        appearActive: styles.appearActive,
-                    }}
-                >
+                <TransitionGroup appear>
                     {isShowing ? ModalComponent : null}
-                </CSSTransitionGroup>
+                </TransitionGroup>
         );
     }
 }
