@@ -1,5 +1,6 @@
 {
     "Brand": [
+        ["ModalWrapper", "ModalWrapper"],
         ["Colors", "Color Palette", true],
         ["ColorRibbon", "Color Ribbon", true],
         ["Svgs", "SVG Icons and Illustrations", true],
@@ -13,9 +14,7 @@
         ["ZindexHelper", "Z-Index Helper", true]
     ],
 
-    "Animation": [
-        ["SlideUpDownAnimation", "Slide Up/ Slide Down", true]
-    ],
+    "Animation": [["SlideUpDownAnimation", "Slide Up/ Slide Down", true]],
     "Components": [
         ["Avatar", "Avatars"],
         ["Badge", "Badges"],
@@ -60,10 +59,13 @@
         ["TooltipAnnotationIcon", "Tooltip Annotation Icon"],
         ["TooltipOverlay", "Tooltip Overlay"],
         ["Toastification", "Toastification"],
-        ["WithCopyAbility", "Copy Ability Wrapper",  true],
+        ["WithCopyAbility", "Copy Ability Wrapper", true],
         ["VerticalMenuHeaderGroup", "Vertical Menu Header"],
         ["VerticalMenuItem", "Vertical Menu Item"],
-        ["VerticalMenuContextualMenuPanel", "Vertical Menu  Contextual Menu Panel"],
+        [
+            "VerticalMenuContextualMenuPanel",
+            "Vertical Menu  Contextual Menu Panel"
+        ],
         ["VerticalMenuNested", "Vertical Menu Nested"],
         ["VideoCard", "Video Card"]
     ],

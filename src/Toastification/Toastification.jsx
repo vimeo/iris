@@ -2,7 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './Toastification.scss';
-import { CSSTransitionGroup } from 'react-transition-group';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 // $FlowFixMe
 import { ParagraphMd } from '../Type';
 import InfoIcon from '../icons/circle-info.svg';
@@ -10,9 +10,13 @@ import InfoIcon from '../icons/circle-info.svg';
 const displayName = 'Toastification';
 
 // this value should be kept in sync with the timing variable in the Toastification.scss
-const animationTime = parseInt(styles.Toastification_AnimationTime, 10);
-const fastDelayTime = 3000;
-const slowDelayTime = 6000;
+// const animationTime = parseInt(styles.Toastification_AnimationTime, 10);
+// const fastDelayTime = 3000;
+// const slowDelayTime = 6000;
+
+const animationTime = 50000;
+const fastDelayTime = 50000;
+const slowDelayTime = 50000;
 
 type Props = {
     actionLabel?: string,
@@ -112,17 +116,17 @@ class Toastification extends React.Component<void, Props, State> {
     _delayedHide = (duration: number) => {
         const onComplete = this.props.onComplete;
 
-        // after a certain amount of time (duration) the Toastification hides itself.
-        this.delayedHideTimeOut = setTimeout(() => {
-            this._hideToastification();
+        // // after a certain amount of time (duration) the Toastification hides itself.
+        // this.delayedHideTimeOut = setTimeout(() => {
+        //     this._hideToastification();
 
-            // fire onComplete callback (if present) when the toastification removal animation is done.
-            if (onComplete) {
-                setTimeout(function() {
-                    onComplete();
-                }, animationTime);
-            }
-        }, duration);
+        //     // fire onComplete callback (if present) when the toastification removal animation is done.
+        //     if (onComplete) {
+        //         setTimeout(function() {
+        //             onComplete();
+        //         }, animationTime);
+        //     }
+        // }, duration);
     };
 
     render() {
@@ -168,40 +172,38 @@ class Toastification extends React.Component<void, Props, State> {
         ) : null;
 
         const ToastificationComponent = (
-            <div className={styles.Wrapper}>
-                <div
-                    {...filteredProps}
-                    className={componentClass}
-                    onMouseEnter={this._handleToastMouseEnter}
-                    onMouseLeave={this._handleToastMouseLeave}
-                >
-                    <ParagraphMd className={styles.Content} format="white">
-                        {MaybeIcon}
-                        {children}
-                        {MaybeAction}
-                    </ParagraphMd>
+            <CSSTransition
+                classNames={{
+                    appear: styles.appear,
+                    appearActive: styles.appearActive,
+                    enter: styles.enter,
+                    enterActive: styles.enterActive,
+                    exit: styles.leave,
+                    exitActive: styles.leaveActive,
+                }}
+                timeout={animationTime}
+            >
+                <div className={styles.Wrapper}>
+                    <div
+                        {...filteredProps}
+                        className={componentClass}
+                        onMouseEnter={this._handleToastMouseEnter}
+                        onMouseLeave={this._handleToastMouseLeave}
+                    >
+                        <ParagraphMd className={styles.Content} format="white">
+                            {MaybeIcon}
+                            {children}
+                            {MaybeAction}
+                        </ParagraphMd>
+                    </div>
                 </div>
-            </div>
+            </CSSTransition>
         );
 
         return (
-            <CSSTransitionGroup
-                transitionAppear
-                transitionLeave
-                transitionEnterTimeout={animationTime}
-                transitionLeaveTimeout={animationTime}
-                transitionAppearTimeout={animationTime}
-                transitionName={{
-                    enter: styles.enter,
-                    enterActive: styles.enterActive,
-                    leave: styles.leave,
-                    leaveActive: styles.leaveActive,
-                    appear: styles.appear,
-                    appearActive: styles.appearActive,
-                }}
-            >
-                {this.state.isShowing ? ToastificationComponent : null}
-            </CSSTransitionGroup>
+            <TransitionGroup>
+                {this.state.isShowing ? ToastificationComponent : ''}
+            </TransitionGroup>
         );
     }
 }
