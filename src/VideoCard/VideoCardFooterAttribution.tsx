@@ -2,28 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { ParagraphSm } from '../Type';
-import {VideoCardStyleSettings} from './VideoCardHelpers';
+import { VideoCardStyleSettings } from './VideoCardHelpers';
 import Avatar from '../Avatar';
 
 export interface VideoCardFooterAttributionProps {
     /**
-    * Should take a ButtonIconOnly wrapped in a Menu and/or tooltip
-    */
-    attributionActionArea?: React.Component<any>,
+     * Should take a ButtonIconOnly wrapped in a Menu and/or tooltip
+     */
+    attributionActionArea?: React.Component<any>;
     /**
-    * URI for user avatar
-    */
-    userAvatarSrc: string,
+     * URI for user avatar
+     */
+    userAvatarSrc: string;
     /**
-    * URI for user avatar srcSet
-    */
-    userAvatarSrcSet?: string,
+     * URI for user avatar srcSet
+     */
+    userAvatarSrcSet?: string;
     /**
-    * The author's name
-    */
-    userName: string,
-    
-};
+     * The author's name
+     */
+    userName: string;
+}
 
 // ==================== VideoCardFooterAttribution Styled
 
@@ -38,7 +37,9 @@ const AvatarStyled = styled<React.HTMLProps<HTMLDivElement>, Avatar>(Avatar)`
     margin-right: ${rem(4)};
 `;
 
-const UserNameStyled = styled<React.HTMLProps<HTMLSpanElement>, any>(ParagraphSm)`
+const UserNameStyled = styled<React.HTMLProps<HTMLSpanElement>, any>(
+    ParagraphSm
+)`
     align-items: center;
     display: inline-flex;
     font-weight: 600;
@@ -48,48 +49,46 @@ const UserNameStyled = styled<React.HTMLProps<HTMLSpanElement>, any>(ParagraphSm
 const AttributionStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
     display: inline-flex;
     width: calc(100% - ${rem(VideoCardStyleSettings.actionButtonSize)});
+    align-items: center;
 `;
 
-const UserNameTruncation = styled<React.HTMLProps<HTMLSpanElement>, 'span' >('span')`
+const UserNameTruncation = styled<React.HTMLProps<HTMLSpanElement>, 'span'>(
+    'span'
+)`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     display: inline-block;
     width: 100%;
-`
+`;
 // ==================== VideoCardFooterAttribution
 
-const VideoCardFooterAttribution: React.SFC<VideoCardFooterAttributionProps> = ({
+const VideoCardFooterAttribution: React.SFC<
+    VideoCardFooterAttributionProps
+> = ({
     attributionActionArea,
     userAvatarSrc,
     userAvatarSrcSet,
     userName,
     ...filteredProps
 }) => {
-
-    const suppressClickPropagation = (e) => {
+    const suppressClickPropagation = e => {
         // clicks in the footer area should not trigger the onClick for the entireCard.
         e.stopPropagation();
-    }
-    
+    };
+
     return (
-        <Wrapper
-            onClick={suppressClickPropagation}
-            {...filteredProps}
-        >
+        <Wrapper onClick={suppressClickPropagation} {...filteredProps}>
             <AttributionStyled>
                 <AvatarStyled
                     alt={userName}
                     src={userAvatarSrc}
                     srcSet={userAvatarSrcSet}
-                    size="sm"
+                    size="xs"
                 />
-                    <UserNameStyled
-                        element="span"
-                        noMargin
-                    >
-                        <UserNameTruncation>{userName}</UserNameTruncation>
-                    </UserNameStyled>
+                <UserNameStyled element="span" noMargin>
+                    <UserNameTruncation>{userName}</UserNameTruncation>
+                </UserNameStyled>
             </AttributionStyled>
             {attributionActionArea}
         </Wrapper>
