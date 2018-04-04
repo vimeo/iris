@@ -1,0 +1,63 @@
+/* @description Generates styles for the Type component */
+@import "../globals/sass/helpers-all";
+
+.ParagraphLg {
+  @include ParagraphLg;
+}
+.ParagraphMd {
+  @include ParagraphMd;
+}
+.ParagraphSm {
+  @include ParagraphSm;
+}
+
+.ParagraphAltLg {
+  @include ParagraphLg;
+  @include ParagraphAlt;
+}
+
+.ParagraphAltMd {
+  @include ParagraphMd;
+  @include ParagraphAlt;
+}
+
+.ParagraphAltSm {
+  @include ParagraphSm;
+  @include ParagraphAlt;
+}
+
+.Header1 {
+  @include Header1;
+}
+
+.Header2 {
+  @include Header2;
+}
+
+.Header3 {
+  @include Header3;
+}
+
+.Header4 {
+  @include Header4;
+}
+
+.Header5 {
+  @include Header5;
+}
+
+.Header6 {
+  @include Header6;
+}
+.HeaderAltSm {
+  @include HeaderSm;
+  @include HeaderAlt;
+}
+
+.light {
+  @include lightText;
+}
+
+.noMargin {
+  margin-bottom: 0;
+}
