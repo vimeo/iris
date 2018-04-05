@@ -37,8 +37,10 @@ export { default as ProgressBar } from './ProgressBar';
 export { default as LoaderCircular } from './LoaderCircular';
 export {
     default as VideoCard,
+    VideoContextInfoArea,
     VideoCardFooterActionsGrid,
     VideoCardFooterAttribution,
+    VideoCardLikeIcon,
     VideoCardLiveBadge,
     VideoCardPropertyBadge,
     VideoCardTimestamp
@@ -46,3 +48,8 @@ export {
 
 /* Export the Vimeo Style Settings */
 export { default as VimeoStyleSettings } from './globals/js/style-settings/VimeoStyleSettings';
+
+
+/* Export the Constants */
+
+export {BREAKPOINTS, COLORS, KEY_CODES} from './globals/js/constants';
