@@ -423,6 +423,8 @@ class Modal extends React.Component {
                     appear: styles.appear,
                     appearActive: styles.appearActive,
                 }}
+                mountOnEnter
+                unmountOnExit
             >
                 <div className={styles.ModalWrapper}>
                     <div

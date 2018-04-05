@@ -1,7 +1,7 @@
 /* @description Generates styles for the Modal component */
 @import "../globals/sass/helpers-all";
 $Modal_animation-speed-integer: 250;
-$Modal_animation-speed: 250;
+$Modal_animation-speed: #{$Modal_animation-speed-integer}ms;
 $Modal_actionArea-height-small-screen: rem-calc(134);
 $Modal_actionArea-height-large-screen: rem-calc(80);
 $Modal_Vertical_Cutoff: 300px;
