@@ -48,3 +48,8 @@ export {
 
 /* Export the Vimeo Style Settings */
 export { default as VimeoStyleSettings } from './globals/js/style-settings/VimeoStyleSettings';
+
+
+/* Export the Constants */
+
+export {BREAKPOINTS, COLORS, KEY_CODES} from from './globals/js/constants';
