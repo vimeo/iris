@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 // $FlowFixMe
 import { rem } from 'polished';
 import { Transition } from 'react-transition-group';
