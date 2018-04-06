@@ -182,11 +182,7 @@ class VerticalMenuNested extends React.Component {
                         }
                     />
                 </VerticalMenuItem>
-                <SlideUpDown
-                    isHidden={!this.state.subMenuOpen}
-                    speed={300}
-                    animateOpenOnMount
-                >
+                <SlideUpDown isHidden={!this.state.subMenuOpen}>
                     <div className={styles.SubMenuWrapper}>
                         <VerticalMenuNestedSubMenu
                             labeledById={labelId}
