@@ -70,7 +70,7 @@
         "steadicam":
             "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#3.0.7",
         "style-loader": "^0.13.1",
-        "styled-components": "^3.1.6",
+        "styled-components": "3.2.5",
         "ts-loader": "^3.5.0",
         "typescript": "^2.7.1",
         "uppercamelcase": "^1.1.0",
@@ -97,7 +97,7 @@
         "polished": "^1.9.2",
         "react": "^15.4.1",
         "react-dom": "^15.3.2",
-        "styled-components": "^3.1.6"
+        "styled-components": "^3.2.5"
     },
     "resolutions": {
         "@types/lodash": "^4.14.102",
