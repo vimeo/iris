@@ -35,6 +35,7 @@ export { default as <%- pattern['displayName']%> } from './<%- pattern['displayN
 export { default as Button} from './Button';
 export { default as ProgressBar } from './ProgressBar';
 export { default as LoaderCircular } from './LoaderCircular';
+export {default as ModalFeatureUpdate, ModalFeatureUpdateTemplate} from './ModalFeatureUpdate';
 export {
     default as VideoCard,
     VideoContextInfoArea,

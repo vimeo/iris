@@ -47,6 +47,7 @@
         ["MenuPanelList", "Menu Panel List"],
         ["MenuPanelScrollableWithActionArea", "Menu Panel Action Area"],
         ["Modal", "Modal"],
+        ["ModalFeatureUpdate", "Modal (Feature Update)"],
         ["NotificationNeutral", "Neutral Notification"],
         ["NotificationSuccess", "Success Notification"],
         ["NotificationWarning", "Warning Notification"],
