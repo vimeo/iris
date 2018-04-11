@@ -83,6 +83,7 @@ class SlideUpDown extends React.Component {
             },
             entered: {
                 maxHeight: rem(this.state.maxHeight),
+                overflowY: 'visible',
             },
             exiting: {
                 maxHeight: 0,
