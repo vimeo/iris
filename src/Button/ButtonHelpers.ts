@@ -200,7 +200,7 @@ const ButtonStyleSettings = {
                 backgroundColor: ButtonColors.SecondaryBackgroundActive,
             },
             default: {
-                color: ButtonColors.SecondaryOutlineText,
+                color: ButtonColors.SecondaryText,
                 borderColor: ButtonColors.Transparent,
                 backgroundColor: ButtonColors.Transparent,
             },

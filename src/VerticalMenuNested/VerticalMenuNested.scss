@@ -1,44 +1,44 @@
 /* @description Generates styles for the MenuNestedItem component */
-@import '../globals/sass/helpers-all';
+@import "../globals/sass/helpers-all";
 
 .VerticalMenuNested {
-    position: relative;
+  position: relative;
 
-    width: 100%;
-    max-width: $screen-sm-rem;
+  width: 100%;
+  max-width: $screen-sm-rem;
 
-    background-color: $Paste;
-    .LinkLabel {
-        margin-bottom: 0;
-    }
+  background-color: $Paste;
+  .LinkLabel {
+    margin-bottom: 0;
+  }
 }
 
 .SubMenuToggle,
 .ActionButtonWrapper {
-    position: absolute;
-    z-index: get-z-index('VerticalMenuButtons');
+  position: absolute;
+  z-index: get-z-index("VerticalMenuButtons");
 }
 
 .SubMenuToggle {
-    top: rem-calc(10);
-    left: rem-calc(4);
+  top: rem-calc(10);
+  left: rem-calc(4);
 
-    svg {
-        transition: transform 300ms ease-in-out;
-    }
+  svg {
+    transition: transform 300ms ease-in-out;
+  }
 }
 
 .ActionButtonWrapper {
-    top: rem-calc(4);
-    right: rem-calc(4);
+  top: rem-calc(7);
+  right: rem-calc(4);
 }
 
 .SubMenuToggle.isOpen svg {
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .SubMenuWrapper {
-    position: relative;
+  position: relative;
 
-    margin-left: spacingUnit(2);
+  margin-left: spacingUnit(2);
 }
