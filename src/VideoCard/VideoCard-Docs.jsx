@@ -26,6 +26,7 @@ import SendIcon from '../icons/paper-plane.svg';
 import GearIcon from '../icons/gear.svg';
 import DotsMenuIcon from '../icons/dots-menu.svg';
 import LinkText from '../LinkText';
+import Badge from '../Badge';
 
 const getApiHtml = htmlData => {
     return {
@@ -138,15 +139,15 @@ const contextCardWithIcon = (
     <VideoContextInfoArea
         contextSubHeader="Liked by"
         contextSubHeaderIcon={<VideoCardLikeIcon />}
-        contextAttributionHeader="Wes Anderson"
+        contextAttributionHeader="Wes Anderson With A Longer Name"
     />
 );
 
 const exampleAttribution = (
     <VideoCardFooterAttribution
-        attributionActionArea={attributionAction}
         userAvatarSrc="https://i.vimeocdn.com/portrait/23898613_75x75.jpg"
         userAvatarSrcSet="https://i.vimeocdn.com/portrait/23898613_150x150.jpg 2x"
+        userBadge={<Badge format="pro">pro</Badge>}
         userName="Killian Vilim"
     />
 );
@@ -158,6 +159,7 @@ const exampleAttributionLongName = (
         actionMenuContent={<ParagraphMd>User Menu Here</ParagraphMd>}
         userAvatarSrc="https://i.vimeocdn.com/portrait/23898613_75x75.jpg"
         userAvatarSrcSet="https://i.vimeocdn.com/portrait/23898613_150x150.jpg 2x"
+        userBadge={<Badge format="plus">plus</Badge>}
         userName="John Jacob Jingleheimer Schmidt"
     />
 );
@@ -682,14 +684,15 @@ const contextCardWithIcon = (
     <VideoContextInfoArea
         contextSubHeader="Liked by"
         contextSubHeaderIcon={<VideoCardLikeIcon />}
-        contextAttributionHeader="Wes Anderson"
+        contextAttributionHeader="Wes Anderson With A Longer Name"
     />
 );
 
 const exampleAttribution = (
     <VideoCardFooterAttribution
-        attributionActionArea={attributionAction}
-        userAvatarSrc="https://i.vimeocdn.com/portrait/23898613_75x75.jpg" userAvatarSrcSet="https://i.vimeocdn.com/portrait/23898613_150x150.jpg 2x"
+        userAvatarSrc="https://i.vimeocdn.com/portrait/23898613_75x75.jpg"
+        userAvatarSrcSet="https://i.vimeocdn.com/portrait/23898613_150x150.jpg 2x"
+        userBadge={<Badge format="pro">pro</Badge>}
         userName="Killian Vilim"
     />
 );
@@ -699,7 +702,9 @@ const exampleAttributionLongName = (
         attributionActionArea={attributionAction}
         actionMenuDescription="See additional actions"
         actionMenuContent={<ParagraphMd>User Menu Here</ParagraphMd>}
-        userAvatarSrc="https://i.vimeocdn.com/portrait/23898613_75x75.jpg" userAvatarSrcSet="https://i.vimeocdn.com/portrait/23898613_150x150.jpg 2x"
+        userAvatarSrc="https://i.vimeocdn.com/portrait/23898613_75x75.jpg"
+        userAvatarSrcSet="https://i.vimeocdn.com/portrait/23898613_150x150.jpg 2x"
+        userBadge={<Badge format="plus">plus</Badge>}
         userName="John Jacob Jingleheimer Schmidt"
     />
 );

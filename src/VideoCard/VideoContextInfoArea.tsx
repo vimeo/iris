@@ -49,6 +49,14 @@ const IconStyled = styled('div')`
     }
 `;
 
+const TruncationWrapStyled = styled('span')`
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    width: 100%;
+`;
+
 // ==================== VideoCardContextArea
 
 const VideoCardContextInfoArea = ({
@@ -72,7 +80,9 @@ const VideoCardContextInfoArea = ({
             )}
             <ParagraphAltXs noMargin>{contextSubHeader}</ParagraphAltXs>
             <Header6 element="p" noMargin>
-                {contextAttributionHeader}
+                <TruncationWrapStyled>
+                    {contextAttributionHeader}
+                </TruncationWrapStyled>
             </Header6>
         </WrapperStyled>
     );

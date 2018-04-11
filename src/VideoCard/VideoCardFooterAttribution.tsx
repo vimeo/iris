@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { ParagraphSm } from '../Type';
+import { TypeProps } from '../Type/TypeHelpers';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 import Avatar from '../Avatar';
 
@@ -9,7 +10,7 @@ export interface VideoCardFooterAttributionProps {
     /**
      * Should take a ButtonIconOnly wrapped in a Menu and/or tooltip
      */
-    attributionActionArea?: React.Component<any>;
+    attributionActionArea?: React.ReactNode;
     /**
      * URI for user avatar
      */
@@ -19,6 +20,10 @@ export interface VideoCardFooterAttributionProps {
      */
     userAvatarSrcSet?: string;
     /**
+     * pass in an small Iris Badge Component
+     */
+    userBadge?: React.ReactNode;
+    /**
      * The author's name
      */
     userName: string;
@@ -26,40 +31,61 @@ export interface VideoCardFooterAttributionProps {
 
 // ==================== VideoCardFooterAttribution Styled
 
-const Wrapper = styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
+const Wrapper = styled('div')`
     width: 100%;
     display: flex;
     justify-content: flex-end;
 `;
 
-const AvatarStyled = styled<React.HTMLProps<HTMLDivElement>, Avatar>(Avatar)`
+const AvatarStyled = styled(Avatar)`
     display: inline-flex;
     margin-right: ${rem(4)};
 `;
 
-const UserNameStyled = styled<React.HTMLProps<HTMLSpanElement>, any>(
-    ParagraphSm
-)`
+const ParagraphSmFiltered = ({
+    //@ts-ignore filtering out styling prop
+    hasActionArea,
+    ...filteredProps
+}) => <ParagraphSm {...filteredProps} />;
+
+interface UserNameStyledProps extends TypeProps {
+    hasActionArea: boolean;
+}
+
+const UserNameStyled = styled<UserNameStyledProps, any>(ParagraphSmFiltered)`
     align-items: center;
     display: inline-flex;
     font-weight: 600;
-    width: calc(100% - ${rem(VideoCardStyleSettings.actionButtonSize)});
+    width: ${props =>
+        props.hasActionArea
+            ? `calc(100% - ${rem(VideoCardStyleSettings.actionButtonSize)})`
+            : '100%'};
 `;
 
-const AttributionStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
+interface AttributionStyledProps {
+    hasActionArea: boolean;
+}
+
+const AttributionStyled = styled<AttributionStyledProps, any>('div')`
     display: inline-flex;
-    width: calc(100% - ${rem(VideoCardStyleSettings.actionButtonSize)});
+    width: ${props =>
+        props.hasActionArea
+            ? `calc(100% - ${rem(VideoCardStyleSettings.actionButtonSize)})`
+            : '100%'};
     align-items: center;
 `;
 
-const UserNameTruncation = styled<React.HTMLProps<HTMLSpanElement>, 'span'>(
-    'span'
-)`
+const UserNameTruncation = styled('span')`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     display: inline-block;
-    width: 100%;
+`;
+
+const BadgeAreaStyled = styled('span')`
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 `;
 // ==================== VideoCardFooterAttribution
 
@@ -69,6 +95,7 @@ const VideoCardFooterAttribution: React.SFC<
     attributionActionArea,
     userAvatarSrc,
     userAvatarSrcSet,
+    userBadge,
     userName,
     ...filteredProps
 }) => {
@@ -79,15 +106,23 @@ const VideoCardFooterAttribution: React.SFC<
 
     return (
         <Wrapper onClick={suppressClickPropagation} {...filteredProps}>
-            <AttributionStyled>
+            <AttributionStyled hasActionArea={attributionActionArea}>
                 <AvatarStyled
                     alt={userName}
                     src={userAvatarSrc}
                     srcSet={userAvatarSrcSet}
                     size="xs"
                 />
-                <UserNameStyled element="span" noMargin>
+                <UserNameStyled
+                    element="span"
+                    noMargin
+                    //@ts-ignore
+                    hasActionArea={attributionActionArea}
+                >
                     <UserNameTruncation>{userName}</UserNameTruncation>
+                    {userBadge && (
+                        <BadgeAreaStyled>{userBadge}</BadgeAreaStyled>
+                    )}
                 </UserNameStyled>
             </AttributionStyled>
             {attributionActionArea}
