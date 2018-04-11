@@ -6,12 +6,12 @@ import classNames from 'classnames';
 import styles from './MenuPanel.scss';
 import TetherComponent from 'react-tether';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';
-import { CSSTransitionGroup } from 'react-transition-group';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const displayName = 'MenuPanel';
 
 // this is defined in the MenuPanel.scss file
-const menuSpeed = parseInt(styles.MenuPanel_AnimationTime, 10);
+const menuSpeed = 200;
 
 type Props = {
     alignment?: 'left' | 'right' | 'center',
@@ -295,27 +295,26 @@ class MenuPanel extends React.Component {
         );
 
         const menuElement = (
-                <CSSTransitionGroup
-                    transitionAppear
-                    transitionEnterTimeout={0} // need this to prevent console warning
-                    transitionLeaveTimeout={0} // need this to prevent console warning
-                    transitionAppearTimeout={menuSpeed}
-                    transitionName={{
-                        appear: styles.appear,
-                        appearActive: styles.appearActive,
-                    }}
-                >
+            <TransitionGroup appear>
                     {this.state.isShowing ? (
-                        <div
-                            className={componentClass}
-                            ref={(menu) => {
-                                this.menu = menu;
+                        <CSSTransition
+                            timeout={menuSpeed}
+                            classNames={{
+                                appear: styles.appear,
+                                appearActive: styles.appearActive,
                             }}
                         >
-                            {menuContent}
-                        </div>
+                            <div
+                                className={componentClass}
+                                ref={(menu) => {
+                                    this.menu = menu;
+                                }}
+                            >
+                                {menuContent}
+                            </div>
+                        </CSSTransition>
                     ) : null}
-                </CSSTransitionGroup>
+                </TransitionGroup>
         );
 
         return (

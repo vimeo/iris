@@ -2,7 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './Toastification.scss';
-import { CSSTransitionGroup } from 'react-transition-group';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 // $FlowFixMe
 import { ParagraphMd } from '../Type';
 import InfoIcon from '../icons/circle-info.svg';
@@ -10,7 +10,8 @@ import InfoIcon from '../icons/circle-info.svg';
 const displayName = 'Toastification';
 
 // this value should be kept in sync with the timing variable in the Toastification.scss
-const animationTime = parseInt(styles.Toastification_AnimationTime, 10);
+
+const animationTime = 200;
 const fastDelayTime = 3000;
 const slowDelayTime = 6000;
 
@@ -26,10 +27,9 @@ type Props = {
 
 type State = {
     isShowing: boolean,
-}
+};
 
 class Toastification extends React.Component<void, Props, State> {
-
     constructor(props: Props, state: State) {
         super(props);
     }
@@ -73,7 +73,7 @@ class Toastification extends React.Component<void, Props, State> {
         this.setState({
             isShowing: false,
         });
-    }
+    };
 
     _handleActionClick = (e: Event) => {
         e.preventDefault();
@@ -85,28 +85,30 @@ class Toastification extends React.Component<void, Props, State> {
         }
 
         this._hideToastification();
-    }
+    };
 
     _handleToastMouseLeave = () => {
         if (this.state.isShowing) {
             this._delayedHide(750);
         }
-    }
+    };
 
-    _handleToastMouseEnter = () =>{
+    _handleToastMouseEnter = () => {
         this._pauseDelayedHide();
-    }
+    };
 
     _pauseDelayedHide = () => {
         // if the user hovered over the toast we freeze it.
         clearTimeout(this.delayedHideTimeOut);
-    }
+    };
 
     _startDelayedHide = () => {
         // this is the initial timing of the hide;
-        const messageDuration = this.props.actionLabel ? slowDelayTime : fastDelayTime;
+        const messageDuration = this.props.actionLabel
+            ? slowDelayTime
+            : fastDelayTime;
         this._delayedHide(messageDuration);
-    }
+    };
 
     _delayedHide = (duration: number) => {
         const onComplete = this.props.onComplete;
@@ -121,12 +123,10 @@ class Toastification extends React.Component<void, Props, State> {
                     onComplete();
                 }, animationTime);
             }
-
         }, duration);
-    }
+    };
 
     render() {
-
         // the es-lint ignores in the destructuring below allow us to easily filter out these props that should not pass to the DOM. These props where already used above.
 
         const {
@@ -145,7 +145,7 @@ class Toastification extends React.Component<void, Props, State> {
         // className builder
         const componentClass = classNames(
             styles.Toastification,
-            (hasIcon ? styles.hasIcon : null),
+            hasIcon ? styles.hasIcon : null,
             className
         );
 
@@ -169,44 +169,39 @@ class Toastification extends React.Component<void, Props, State> {
         ) : null;
 
         const ToastificationComponent = (
-            <div className={styles.Wrapper}>
-                <div
-                    {...filteredProps}
-                    className={componentClass}
-                    onMouseEnter={this._handleToastMouseEnter}
-                    onMouseLeave={this._handleToastMouseLeave}
-                >
-                    <ParagraphMd
-                        className={styles.Content}
-                        format="light"
+            <CSSTransition
+                appear
+                classNames={{
+                    appear: styles.appear,
+                    appearActive: styles.appearActive,
+                    enter: styles.enter,
+                    enterActive: styles.enterActive,
+                    exit: styles.leave,
+                    exitActive: styles.leaveActive,
+                }}
+                timeout={{ enter: animationTime, exit: animationTime }}
+            >
+                <div className={styles.Wrapper}>
+                    <div
+                        {...filteredProps}
+                        className={componentClass}
+                        onMouseEnter={this._handleToastMouseEnter}
+                        onMouseLeave={this._handleToastMouseLeave}
                     >
-                        {MaybeIcon}
-                        {children}
-                        {MaybeAction}
-                    </ParagraphMd>
+                        <ParagraphMd className={styles.Content} format="white">
+                            {MaybeIcon}
+                            {children}
+                            {MaybeAction}
+                        </ParagraphMd>
+                    </div>
                 </div>
-            </div>
+            </CSSTransition>
         );
 
-
         return (
-                <CSSTransitionGroup
-                    transitionAppear
-                    transitionLeave
-                    transitionEnterTimeout={animationTime}
-                    transitionLeaveTimeout={animationTime}
-                    transitionAppearTimeout={animationTime}
-                    transitionName={{
-                        enter: styles.enter,
-                        enterActive: styles.enterActive,
-                        leave: styles.leave,
-                        leaveActive: styles.leaveActive,
-                        appear: styles.appear,
-                        appearActive: styles.appearActive,
-                    }}
-                >
-                    {this.state.isShowing ? ToastificationComponent : null}
-                </CSSTransitionGroup>
+            <TransitionGroup appear>
+                {this.state.isShowing ? ToastificationComponent : null}
+            </TransitionGroup>
         );
     }
 }

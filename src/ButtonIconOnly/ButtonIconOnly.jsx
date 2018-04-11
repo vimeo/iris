@@ -9,7 +9,7 @@ const displayName = 'ButtonIconOnly';
 type Props = {
     autoSpacingHorizontal?: boolean,
     className?: string,
-    format?: 'dark'| 'alternative' | 'light' | 'warning' | 'lightWarning'| 'lightTransparent',
+    format?: 'dark'| 'midDark' | 'alternative' | 'light' | 'warning' | 'lightWarning'| 'lightTransparent',
     icon: React$Element<*>,
     isButtonElement?: boolean,
     size?: 'sm' | 'md',

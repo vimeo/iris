@@ -2,7 +2,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './MenuPanelList.scss';
-import MenuPanelListItem from '../MenuPanelListItem/MenuPanelListItem';
+// $FlowFixMe
+import MenuPanelListItem from '../MenuPanelListItem';
 // $FlowFixMe
 import { Header6 } from '../Type';
 
@@ -13,26 +14,25 @@ type Props = {
     hasDivider?: boolean,
     header?: string,
     menuItems: Array<{
-            className: string,
-            label: string,
-            href: string,
-            isSelected: boolean,
-            icon: React$Element<*>,
+        className: string,
+        label: string,
+        href: string,
+        isSelected: boolean,
+        icon: React$Element<*>,
     }>,
 };
 
 const MenuPanelList = ({
-                        className,
-                        hasDivider,
-                        header,
-                        menuItems,
-                        ...filteredProps
-                    }: Props): React$Element<*> => {
-
+    className,
+    hasDivider,
+    header,
+    menuItems,
+    ...filteredProps
+}: Props): React$Element<*> => {
     // className builder
     const componentClass = classNames(
         styles.MenuPanelListWrapper,
-        (hasDivider ? styles.hasDivider : null),
+        hasDivider ? styles.hasDivider : null,
         className
     );
 
@@ -42,26 +42,17 @@ const MenuPanelList = ({
         menuItems.map(function(key, i) {
             const thisMenuItem = menuItems[i];
 
-            menuList.push(
-                <MenuPanelListItem {...thisMenuItem} key={i} />
-            );
+            menuList.push(<MenuPanelListItem {...thisMenuItem} key={i} />);
         });
     }
 
     const menuHeader = <Header6 className={styles.Header}>{header}</Header6>;
 
     return (
-            <div
-                {...filteredProps}
-                className={componentClass}
-            >
-                {header && menuHeader}
-                <ul
-                    className={styles.MenuPanelList}
-                >
-                        {menuList}
-                </ul>
-            </div>
+        <div {...filteredProps} className={componentClass}>
+            {header && menuHeader}
+            <ul className={styles.MenuPanelList}>{menuList}</ul>
+        </div>
     );
 };
 

@@ -64,19 +64,19 @@ class ButtonDocs extends React.Component {
                 <ParagraphMd>In cases where we need a button element but want it to appear like text, we use the Text-only buttons</ParagraphMd>
                 <div data-code style={{ 'padding': '1em', 'width': '100%' }}>
                     <Button format="primaryTextOnly" icon={<ShareIcon />}>Primary TextOnly</Button>
-                    <Button format="secondaryTextOnly" >Secondary Outline</Button>
+                    <Button format="secondaryTextOnly" >Secondary TextOnly</Button>
                 </div>
 
                 <div className="Pattern-DarkBlock">
                     <Button format="primaryTextOnly" icon={<ShareIcon />}>Primary TextOnly</Button>
-                    <Button format="lightTextOnly" icon={<ShareIcon />}>Light Outline</Button>
+                    <Button format="lightTextOnly" icon={<ShareIcon />}>Light TextOnly</Button>
                 </div>
 
                 <ExampleSource>
                     {`
 <Button format="primaryTextOnly" icon={<ShareIcon />}>Primary TextOnly</Button>
-<Button format="secondaryTextOnly">Secondary Outline</Button>
-<Button format="lightTextOnly" icon={<ShareIcon />}>Light Outline</Button>
+<Button format="secondaryTextOnly">Secondary TextOnly</Button>
+<Button format="lightTextOnly" icon={<ShareIcon />}>Light TextOnly</Button>
                     `}
                 </ExampleSource>
 

@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+// $FlowFixMe
 import Button from '../Button';
 
 const displayName = 'FeatureTourPanelButton';

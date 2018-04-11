@@ -12,3 +12,7 @@
   
  exports.AlbumsEmptystate = require('../../../src/illustrations/albums-emptystate.svg');
   
+ exports.StaffPicksBadgeJustSp = require('../../../src/illustrations/staff-picks-badge-just-sp.svg');
+  
+ exports.VodThumbnailBadge = require('../../../src/illustrations/vod_thumbnail_badge.svg');
+  

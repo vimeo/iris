@@ -8,14 +8,10 @@
     ],
     "Utilities": [
         ["MediaQueries", "Named Media Queries", true],
-        ["SpacingUnit", "Spacing Units", true],
-        ["WithCharacterCount", "Inputs wth Character Count", true],
-        ["ZindexHelper", "Z-Index Helper", true]
+        ["WithCharacterCount", "Inputs wth Character Count", true]
     ],
 
-    "Animation": [
-        ["SlideUpDownAnimation", "Slide Up/ Slide Down", true]
-    ],
+    "Animation": [["SlideUpDownAnimation", "Slide Up/ Slide Down", true]],
     "Components": [
         ["Avatar", "Avatars"],
         ["Badge", "Badges"],
@@ -49,21 +45,27 @@
         ["MenuPanelList", "Menu Panel List"],
         ["MenuPanelScrollableWithActionArea", "Menu Panel Action Area"],
         ["Modal", "Modal"],
+        ["ModalFeatureUpdate", "Modal (Feature Update)"],
         ["NotificationNeutral", "Neutral Notification"],
         ["NotificationSuccess", "Success Notification"],
         ["NotificationWarning", "Warning Notification"],
         ["ProgressBar", "Progress Bar"],
         ["SearchField", "Search Field"],
+        ["SteppedContentSlider", "Stepped Content Slider"],
         ["TabNavigationHorizontal", "Tab Navigation (Horizontal)"],
         ["Tag", "Tag"],
         ["TooltipAnnotationIcon", "Tooltip Annotation Icon"],
         ["TooltipOverlay", "Tooltip Overlay"],
         ["Toastification", "Toastification"],
-        ["WithCopyAbility", "Copy Ability Wrapper",  true],
+        ["WithCopyAbility", "Copy Ability Wrapper", true],
         ["VerticalMenuHeaderGroup", "Vertical Menu Header"],
         ["VerticalMenuItem", "Vertical Menu Item"],
-        ["VerticalMenuContextualMenuPanel", "Vertical Menu  Contextual Menu Panel"],
-        ["VerticalMenuNested", "Vertical Menu Nested"]
+        [
+            "VerticalMenuContextualMenuPanel",
+            "Vertical Menu  Contextual Menu Panel"
+        ],
+        ["VerticalMenuNested", "Vertical Menu Nested"],
+        ["VideoCard", "Video Card"]
     ],
     "Layout": [
         ["Forms", "Forms", true],

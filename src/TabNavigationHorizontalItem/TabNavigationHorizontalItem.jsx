@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import styles from './TabNavigationHorizontalItem.scss';
+// $FlowFixMe
 import Button from '../Button/Button';
 
 const displayName = 'TabNavigationHorizontalItem';

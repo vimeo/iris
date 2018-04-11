@@ -1,49 +1,116 @@
 // @flow
 import React from 'react';
-import { TransitionGroup } from 'react-transition-group';
-import SlideUpDownAnimation from '../SlideUpDownAnimation';
+import styled from 'styled-components';
+// $FlowFixMe
+import { rem } from 'polished';
+import { Transition } from 'react-transition-group';
+import { findDOMNode } from 'react-dom';
+/*
+This component uses JS to animate height to ensure a consistant animation speed and feel across a variety of unkown element heights.
+*/
 
-const displayName = 'SlideUpDown';
-const defaultProps = {
-    speed: 300,
-};
+const ANIMATION_SPEED = 200;
 
 type Props = {
+    animateOpenOnMount?: boolean,
     children: React$Element<*>,
-    isHidden?: boolean,
-    speed: Number;
+    isHidden: boolean,
 };
 
+type State = {
+    maxHeight: number,
+};
+
+const WrapperStyled = styled('div')`
+    overflow: hidden;
+    transition: all ${ANIMATION_SPEED}ms ease-in-out;
+`;
+
 class SlideUpDown extends React.Component {
-    static defaultProps: Object;
+    static defaultProps = {
+        animateOpenOnMount: false,
+    };
 
     constructor(props: Props) {
         super(props);
+        this.state = {
+            maxHeight: 0,
+        };
+    }
+
+    state: State;
+
+    componentDidMount() {
+        if (!this.props.isHidden) {
+            const newHeight = this._getContentHeight();
+            this.setState({
+                maxHeight: newHeight,
+            });
+        }
+    }
+
+    componentDidUpdate(prevProps: Props) {
+        // need to reset height if child content changes
+        if (
+            this.props.children !== prevProps.children &&
+            !this.props.isHidden
+        ) {
+            const newHeight = this._getContentHeight();
+            this.setState({
+                maxHeight: newHeight,
+            });
+        }
     }
 
     props: Props;
-    AnimatedComponent: any;
+
+    _getContentHeight = () => {
+        const el = findDOMNode(this);
+
+        if (el instanceof HTMLDivElement) {
+            const elContentHeight = el.scrollHeight;
+            return elContentHeight;
+        }
+
+        // fallback for flow to be happy
+        return 1000;
+    };
 
     render() {
-
-        const AnimatedComponent = (
-            <SlideUpDownAnimation
-                speed={this.props.speed}
-                aria-hidden={this.props.isHidden}
-            >
-                {this.props.children}
-            </SlideUpDownAnimation>
-        );
+        const transitionStyles = {
+            entering: {
+                maxHeight: 0,
+            },
+            entered: {
+                maxHeight: rem(this.state.maxHeight),
+            },
+            exiting: {
+                maxHeight: 0,
+            },
+        };
 
         return (
-            <TransitionGroup>
-                {this.props.isHidden ? null : AnimatedComponent}
-            </TransitionGroup>
+            <Transition
+                appear={this.props.animateOpenOnMount}
+                in={!this.props.isHidden}
+                timeout={ANIMATION_SPEED}
+                mountOnEnter
+                unmountOnExit
+            >
+                {state => (
+                    <WrapperStyled
+                        isHidden={this.props.isHidden}
+                        data-animation-wrapper
+                        style={{
+                            ...transitionStyles[state],
+                        }}
+                    >
+                        {this.props.children}
+                    </WrapperStyled>
+                )}
+            </Transition>
         );
     }
 }
-
-SlideUpDown.displayName = displayName;
-SlideUpDown.defaultProps = defaultProps;
 
 export default SlideUpDown;

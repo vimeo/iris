@@ -15,7 +15,7 @@ $ButtonIconOnly_icon-size: rem-calc(16);
     padding: 0;
 
     border: 0;
-    border-radius: rem-calc($g-radius);
+    border-radius: rem-calc(3);
     background: transparent;
 
     transition: all #{$iris_transition-base};
@@ -53,6 +53,15 @@ $ButtonIconOnly_icon-size: rem-calc(16);
     color: $AstroGranite;
 
     &:hover {
+        background-color: rgba(162, 175, 184, 0.16);
+    }
+}
+
+.midDark {
+    color: $RegentGray;
+
+    &:hover {
+        color: $AstroGranite;
         background-color: rgba(162, 175, 184, 0.16);
     }
 }
@@ -125,5 +134,17 @@ $ButtonIconOnly_icon-size: rem-calc(16);
 
     svg * {
         fill: currentColor;
+    }
+}
+
+.ButtonIconOnly:disabled,
+.isDisabled {
+    color: $Porcelain;
+
+    &:hover {
+        color: $Porcelain;
+        background: inherit;
+
+        cursor: not-allowed;
     }
 }

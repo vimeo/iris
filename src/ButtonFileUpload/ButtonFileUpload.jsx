@@ -10,6 +10,7 @@ type Props = {
     autoMargins?: boolean,
     autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid',
     className?: string,
+    disabled?: boolean,
     format?: 'primary' | 'primaryOutline' | 'primaryTextOnly' | 'secondary' | 'secondaryOutline' | 'secondaryTextOnly' | 'alternative' | 'alternativeOutline' | 'success' | 'successOutline' | 'warning' | 'lightTransparent' | 'lightTextOnly',
     id: string,
     isInline?: boolean,
@@ -42,6 +43,7 @@ const ButtonFileUpload = ({
         (autoWidth !== 'fluid' ? styles['autoWidth_' + autoWidth] : null),
         (autoMargins ? styles.autoMarginsHorizontal : null),
         (isInline || !autoMargins ? null : styles.autoMarginsVertical),
+        (filteredProps.disabled ? styles.isDisabled : null),
         className
     );
 

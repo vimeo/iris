@@ -32,9 +32,26 @@ export { default as <%- pattern['displayName']%> } from './<%- pattern['displayN
 <% }}); %>
 
 /* Components that are typescript, not flow */
-export { default as MenuPanelListItem} from './MenuPanelListItem';
-export { default as ProgressBar } from './ProgressBar';
+export { default as Button} from './Button';
 export { default as LoaderCircular } from './LoaderCircular';
+export { default as MenuPanelListItem} from './MenuPanelListItem';
+export {default as ModalFeatureUpdate, ModalFeatureUpdateTemplate} from './ModalFeatureUpdate';
+export { default as ProgressBar } from './ProgressBar';
+export {
+    default as VideoCard,
+    VideoContextInfoArea,
+    VideoCardFooterActionsGrid,
+    VideoCardFooterAttribution,
+    VideoCardLikeIcon,
+    VideoCardLiveBadge,
+    VideoCardPropertyBadge,
+    VideoCardTimestamp
+} from './VideoCard';
 
-/* Export the Vimeo Theme */
+/* Export the Vimeo Style Settings */
+export { default as VimeoStyleSettings } from './globals/js/style-settings/VimeoStyleSettings';
+
+
+/* Export the Constants */
+export {BREAKPOINTS, COLORS, KEY_CODES} from './globals/js/constants';
 export { default as VimeoTheme } from './globals/js/style-settings/VimeoStyleSettings';

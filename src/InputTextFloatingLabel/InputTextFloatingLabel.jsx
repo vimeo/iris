@@ -5,6 +5,7 @@ import styles from './InputTextFloatingLabel.scss';
 import InputWrapper from '../InputWrapper';
 import EyeIcon from '../icons/eye.svg';
 import EyeOffIcon from '../icons/eye-off.svg';
+import TooltipOverlay from '../TooltipOverlay';
 
 const displayName = 'InputTextFloatingLabel';
 
@@ -223,15 +224,20 @@ class InputTextFloatingLabel extends React.Component {
                         <div
                             className={styles.ActionButtonWrapper}
                         >
-                            <button
-                                aria-role="switch"
-                                className={styles.ToggleButton}
-                                onClick={this._handlePasswordToggle}
-                                data-js-passwordtoggle
-                                type="button"
+                            <TooltipOverlay
+                                element="span"
+                                tooltipText={PrivacyEyeText}
                             >
-                                <PrivacyEye title={PrivacyEyeText} />
-                            </button>
+                                <button
+                                    role="switch"
+                                    className={styles.ToggleButton}
+                                    onClick={this._handlePasswordToggle}
+                                    data-js-passwordtoggle
+                                    type="button"
+                                >
+                                    <PrivacyEye />
+                                </button>
+                            </TooltipOverlay>
                         </div>
                     )}
                 </div>

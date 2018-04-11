@@ -16,7 +16,6 @@ $InputFloatingLabel-widthOffset: 3rem -$inputs_padding-lg-horizontal;
 
     font-size: rem-calc(16);
 
-    cursor: pointer; //IMPORTANT required by IE!
     transition: all $InputFloatingLabel-transition;
 
     &.hasIcon {
@@ -110,12 +109,16 @@ $InputFloatingLabel-widthOffset: 3rem -$inputs_padding-lg-horizontal;
 }
 
 
-
-.ToggleButton {
+.ActionButtonWrapper {
     position: absolute;
     top: 0.125rem;
     right: 0.125rem;
 
+    width: 3rem;
+    height: 3rem;
+}
+
+.ToggleButton {
     width: 3rem;
     height: 3rem;
     padding-top: rem-calc(4);

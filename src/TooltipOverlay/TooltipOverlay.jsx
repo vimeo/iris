@@ -19,11 +19,11 @@ type Props = {
     attachment?: 'top' | 'right' | 'left' | 'bottom',
     isShowing: boolean,
     href: string,
-    onBlur: () => void,
-    onClick: () => void,
-    onFocus: () => void,
-    onMouseEnter: () => void,
-    onMouseLeave: () => void,
+    onBlur: (e: Event) => void,
+    onClick: (e: Event) => void,
+    onFocus: (e: Event) => void,
+    onMouseEnter: (e: Event) => void,
+    onMouseLeave: (e: Event) => void,
     size?: 'sm' | 'lg',
     tooltipOptions?: Object,
     tooltipText: string,
@@ -102,15 +102,30 @@ class TooltipOverlay extends React.Component {
     }
 
     showTooltip = () => {
+        // iOS won't bubble clicks to the body unless it has cursor pointer
+        // we listen for a body click to close the tooltip
+        if (document.body) {
+            document.body.style.cursor = 'pointer';
+        }
         this.setState({
             isShowing: true,
         });
+
+        this.listenForClose();
     }
 
     hideTooltip = () => {
+        // unset iOS hack
+        if (document.body) {
+            document.body.style.cursor = '';
+        }
+
+
         this.setState({
             isShowing: false,
         });
+
+        this.stopListeningForClose();
     }
 
     toggleTooltip = () => {
@@ -122,7 +137,7 @@ class TooltipOverlay extends React.Component {
 // Event Handlers
     handleClick = (e: Event) => {
         if (typeof this.props.onClick === 'function') {
-            this.props.onClick();
+            this.props.onClick(e);
         }
 
         if (this.props.triggerOnClick) {
@@ -133,13 +148,13 @@ class TooltipOverlay extends React.Component {
         }
     }
 
-    handleMouseEnter = () => {
+    handleMouseEnter = (e: Event) => {
         this.setState({
             isHovered: true,
         });
 
         if (typeof this.props.onMouseEnter === 'function') {
-            this.props.onMouseEnter();
+            this.props.onMouseEnter(e);
         }
 
         if (!this.props.triggerOnClick) {
@@ -147,13 +162,13 @@ class TooltipOverlay extends React.Component {
         }
     }
 
-    handleMouseLeave = () => {
+    handleMouseLeave = (e: Event) => {
         this.setState({
             isHovered: false,
         });
 
         if (typeof this.props.onMouseLeave === 'function') {
-            this.props.onMouseLeave();
+            this.props.onMouseLeave(e);
         }
 
         if (!this.props.triggerOnClick) {
@@ -163,9 +178,9 @@ class TooltipOverlay extends React.Component {
         }
     }
 
-    handleFocus = () => {
+    handleFocus = (e: Event) => {
         if (typeof this.props.onFocus === 'function') {
-            this.props.onFocus();
+            this.props.onFocus(e);
         }
 
         if (!this.props.triggerOnClick && !this.state.isHovered) {
@@ -173,11 +188,23 @@ class TooltipOverlay extends React.Component {
         }
     }
 
-    handleBlur = () => {
+    handleBlur = (e: Event) => {
         if (typeof this.props.onBlur === 'function') {
-            this.props.onBlur();
+            this.props.onBlur(e);
         }
         this.hideTooltip();
+    }
+
+
+    listenForClose = () => {
+        if (document.body) {
+            document.body.addEventListener('click', this.hideTooltip);
+        }
+    }
+    stopListeningForClose = () => {
+        if (document.body) {
+            document.body.removeEventListener('click', this.hideTooltip);
+        }
     }
 
     render() {

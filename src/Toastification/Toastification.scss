@@ -1,16 +1,11 @@
 /* @description Generates styles for the Toastification component */
-@import '../globals/sass/helpers-all';
+@import "../globals/sass/helpers-all";
 $Toastification_AnimationTime: 200;
-
-// export animation time to Toastification JSX for use there
-:export {
-    Toastification_AnimationTime: $Toastification_AnimationTime;
-};
 $Toastification_Spacing: rem-calc(28);
 
 .Wrapper {
     position: fixed;
-    z-index: get-z-index('toastification');
+    z-index: get-z-index("toastification");
     bottom: 0;
     left: 0;
 
@@ -26,7 +21,7 @@ $Toastification_Spacing: rem-calc(28);
     padding: rem-calc(11) spacingUnit(5); // Vertical Padding + line height makes it 40px high
 
     border-radius: rem-calc(3);
-    background: rgba(0,0,0,0.9);
+    background: rgba(0, 0, 0, 0.9);
     box-shadow: $subtleIrisBoxShadow;
 
     transform: translateX(-50%);
@@ -96,7 +91,6 @@ $Toastification_Spacing: rem-calc(28);
     @include ToastificationFadedIn();
     @include ToastificationTransition();
 }
-
 
 .leave .Toastification {
     @include ToastificationFadedIn();

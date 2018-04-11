@@ -2,6 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './Tag.scss';
+// $FlowFixMe
 import Button from '../Button/Button';
 import DeleteIcon from '../icons/dismiss-x.svg';
 

@@ -1,5 +1,5 @@
 /* @description Generates styles for the Type component */
-@import '../globals/sass/helpers-all';
+@import "../globals/sass/helpers-all";
 
 .ParagraphLg {
     @include ParagraphLg;
@@ -56,4 +56,8 @@
 
 .light {
     @include lightText;
+}
+
+.noMargin {
+    margin-bottom: 0;
 }

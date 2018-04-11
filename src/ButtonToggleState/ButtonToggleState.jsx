@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import ReactDOM from 'react-dom';
+// $FlowFixMe
 import Button from '../Button/Button';
 
 const displayName = 'ButtonToggleState';

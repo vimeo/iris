@@ -2,6 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './MenuPanelScrollableWithActionArea.scss';
+// $FlowFixMe
 import Button from '../Button';
 import OverflowTruncationWrapper from '../OverflowTruncationWrapper';
 import Grid from '../Grid/';
