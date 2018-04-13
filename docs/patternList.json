@@ -23,6 +23,7 @@
         ["ButtonInlineInputText", "Buttons: Inline for Inputs"],
         ["ButtonLoadingState", "Buttons: Loading State"],
         ["ButtonToggleState", "Buttons: ToggleState"],
+        ["CategoryCard", "Category Cards"],
         ["CircularButton", "Circular Button"],
         ["CopyField", "Copy Field"],
         ["CounterIcon", "Counter Icons"],
