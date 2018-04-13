@@ -22,7 +22,7 @@ type State = {
 };
 
 const WrapperStyled = styled('div')`
-    overflow: hidden;
+    overflow-y: hidden;
     transition: all ${ANIMATION_SPEED}ms ease-in-out;
 `;
 

@@ -1,5 +1,5 @@
 /* @description Generates styles for the MenuNestedItem component */
-@import '../globals/sass/helpers-all';
+@import "../globals/sass/helpers-all";
 
 .VerticalMenuNested {
     position: relative;
@@ -16,7 +16,7 @@
 .SubMenuToggle,
 .ActionButtonWrapper {
     position: absolute;
-    z-index: get-z-index('VerticalMenuButtons');
+    z-index: get-z-index("VerticalMenuButtons");
 }
 
 .SubMenuToggle {
@@ -29,7 +29,7 @@
 }
 
 .ActionButtonWrapper {
-    top: rem-calc(4);
+    top: rem-calc(7);
     right: rem-calc(4);
 }
 
