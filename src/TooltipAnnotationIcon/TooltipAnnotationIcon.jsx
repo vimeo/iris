@@ -2,6 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './TooltipAnnotationIcon.scss';
+// $FlowFixMe
 import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';
 import InfoIcon from '../icons/circle-info.svg';
 
@@ -12,18 +13,17 @@ type Props = {
     children: React$Element<*>,
     labelType?: 'textBlock' | 'inline' | 'noPosition',
     tooltipText: string,
-    size?: 'md'| 'lg',
+    size?: 'md' | 'lg',
 };
 
 const TooltipAnnotationIcon = ({
-                        className,
-                        children,
-                        labelType = 'inline',
-                        size = 'md',
-                        tooltipText,
-                        ...filteredProps
-                    }: Props): React$Element<*> => {
-
+    className,
+    children,
+    labelType = 'inline',
+    size = 'md',
+    tooltipText,
+    ...filteredProps
+}: Props): React$Element<*> => {
     // className builder
     const componentClass = classNames(
         styles.TooltipAnnotationIcon,
@@ -40,7 +40,7 @@ const TooltipAnnotationIcon = ({
     );
 
     // prevent icon clicks from triggering inline inputs
-    const catchEvent = (e) => {
+    const catchEvent = e => {
         e.preventDefault();
         e.stopPropagation();
     };
@@ -53,10 +53,7 @@ const TooltipAnnotationIcon = ({
                     {...filteredProps}
                     className={styles.Tooltip}
                     tooltipText={tooltipText}
-                    onClick = {catchEvent}
-                    tooltipOptions = {{
-                        offset: '20px 0',
-                    }}
+                    onClick={catchEvent}
                 >
                     <InfoIcon className={componentClass} />
                 </TooltipOverlay>

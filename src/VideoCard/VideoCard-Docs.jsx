@@ -43,7 +43,7 @@ const testCheckboxClick = e => {
 };
 
 const actionButtonsFull = [
-    <TooltipOverlay element="span" tooltipText="Send to a friend 1">
+    <TooltipOverlay tooltipText="Send to a friend 1">
         <ButtonIconOnly
             format="midDark"
             icon={<SendIcon title="Send to a friend 1" />}
@@ -51,7 +51,7 @@ const actionButtonsFull = [
             size="sm"
         />
     </TooltipOverlay>,
-    <TooltipOverlay element="span" tooltipText="Settings 2">
+    <TooltipOverlay tooltipText="Settings 2">
         <ButtonIconOnly
             format="midDark"
             icon={<GearIcon title="Settings 2" />}
@@ -59,7 +59,7 @@ const actionButtonsFull = [
             size="sm"
         />
     </TooltipOverlay>,
-    <TooltipOverlay element="span" tooltipText="Send to a friend 3">
+    <TooltipOverlay tooltipText="Send to a friend 3">
         <ButtonIconOnly
             format="midDark"
             icon={<SendIcon title="Send to a friend 3" />}
@@ -67,7 +67,7 @@ const actionButtonsFull = [
             size="sm"
         />
     </TooltipOverlay>,
-    <TooltipOverlay element="span" tooltipText="Settings 4">
+    <TooltipOverlay tooltipText="Settings 4">
         <ButtonIconOnly
             format="midDark"
             icon={<GearIcon title="Settings 4" />}
@@ -75,7 +75,7 @@ const actionButtonsFull = [
             size="sm"
         />
     </TooltipOverlay>,
-    <TooltipOverlay element="span" tooltipText="Send to a friend 5">
+    <TooltipOverlay tooltipText="Send to a friend 5">
         <ButtonIconOnly
             format="midDark"
             icon={<SendIcon title="Send to a friend 5" />}
@@ -86,7 +86,7 @@ const actionButtonsFull = [
 ];
 
 const actionButtonsJustTwo = [
-    <TooltipOverlay element="span" tooltipText="Send to a friend 1">
+    <TooltipOverlay tooltipText="Send to a friend 1">
         <ButtonIconOnly
             format="midDark"
             icon={<SendIcon title="Send to a friend" />}
@@ -94,7 +94,7 @@ const actionButtonsJustTwo = [
             size="sm"
         />
     </TooltipOverlay>,
-    <TooltipOverlay element="span" tooltipText="Settings 2">
+    <TooltipOverlay tooltipText="Settings 2">
         <ButtonIconOnly
             format="midDark"
             icon={<GearIcon title="Settings" />}
@@ -109,7 +109,7 @@ const attributionAction = (
         alignment="right"
         menuContent={<ParagraphMd>User Menu Here</ParagraphMd>}
     >
-        <TooltipOverlay element="span" tooltipText="More">
+        <TooltipOverlay tooltipText="More">
             <ButtonIconOnly
                 format="midDark"
                 icon={<DotsMenuIcon />}
@@ -551,7 +551,6 @@ import {
 const actionButtonsFull = [
     (
     <TooltipOverlay
-        element="span"
         tooltipText="Send to a friend"
     >
         <ButtonIconOnly
@@ -564,7 +563,6 @@ const actionButtonsFull = [
     ),
     (
     <TooltipOverlay
-        element="span"
         tooltipText="Settings"
     >
         <ButtonIconOnly
@@ -577,7 +575,6 @@ const actionButtonsFull = [
     ),
     (
     <TooltipOverlay
-            element="span"
             tooltipText="Send to a friend"
         >
             <ButtonIconOnly
@@ -590,7 +587,6 @@ const actionButtonsFull = [
         ),
         (
     <TooltipOverlay
-            element="span"
             tooltipText="Settings"
         >
             <ButtonIconOnly
@@ -603,7 +599,6 @@ const actionButtonsFull = [
         ),
         (
     <TooltipOverlay
-                element="span"
                 tooltipText="Send to a friend"
             >
                 <ButtonIconOnly
@@ -620,7 +615,6 @@ const actionButtonsFull = [
 const actionButtonsJustTwo = [
     (
     <TooltipOverlay
-        element="span"
         tooltipText="Send to a friend"
     >
         <ButtonIconOnly
@@ -633,7 +627,7 @@ const actionButtonsJustTwo = [
     ),
     (
     <TooltipOverlay
-        element="span"
+
         tooltipText="Settings"
     >
         <ButtonIconOnly
@@ -652,7 +646,6 @@ const attributionAction = (
     menuContent={<ParagraphMd>User Menu Here</ParagraphMd>}
     >
         <TooltipOverlay
-            element="span"
             tooltipText="More"
         >
             <ButtonIconOnly

@@ -18,6 +18,7 @@ type Props = {
     className?: string,
     dismissButtonA11yLabel: string,
     dismissButtonProps?: Object,
+    dotZIndex?: number,
     headerText?: string,
     shouldHideOnClose?: boolean,
     isOpen?: boolean,
@@ -151,6 +152,7 @@ class FeatureTourPanel extends React.Component {
             children,
             dismissButtonA11yLabel,
             dismissButtonProps,
+            dotZIndex = 1,
             headerText,
             isOpen, // eslint-disable-line no-unused-vars
             onOpen, // eslint-disable-line no-unused-vars
@@ -180,28 +182,24 @@ class FeatureTourPanel extends React.Component {
         );
 
         const panelOffsetDistance = 16;
-        let panelAttachment, panelTargetAttachment, panelOffset;
+        let panelAttachment, panelOffset;
 
         switch (attachment) {
             case 'top':
-                panelAttachment = 'bottom center';
-                panelOffset = `${panelOffsetDistance * 3}px 0`;
-                panelTargetAttachment = 'bottom center';
+                panelAttachment = 'top';
+                panelOffset = `${panelOffsetDistance * 3}px, 0`;
                 break;
             case 'right':
-                panelAttachment = 'top left';
-                panelOffset = '0 0';
-                panelTargetAttachment = 'top right';
+                panelAttachment = 'right-start';
+                panelOffset = '0, 0';
                 break;
             case 'bottom':
-                panelAttachment = 'top center';
-                panelOffset = `${panelOffsetDistance * -3}px 0`;
-                panelTargetAttachment = 'top center';
+                panelAttachment = 'bottom';
+                panelOffset = `${panelOffsetDistance * -3}px, 0`;
                 break;
             case 'left':
-                panelAttachment = 'top right';
-                panelOffset = '0 0';
-                panelTargetAttachment = 'top left';
+                panelAttachment = 'left-start';
+                panelOffset = '0, 0';
                 break;
         }
 
@@ -217,13 +215,19 @@ class FeatureTourPanel extends React.Component {
                     panelClassName={styles.FeatureTourPanel}
                     shouldRefocusTriggerOnClose={shouldHideOnClose ? false : shouldRefocusTriggerOnClose}
                     size="lg"
-                    options={{
-                        offset: panelOffset,
-                        attachment: panelAttachment,
-                        targetAttachment: panelTargetAttachment,
+                    panelOptions={{
+                        modifiers: {
+                            offset: {
+                                offset: panelOffset
+                            },
+                        },
+                        placement: panelAttachment,
                     }}
                 >
                     <FeatureTourDot
+                        styles={{
+                            zIndex: dotZIndex,
+                        }}
                         beaconA11yText={beaconA11yText}
                         mode={this.state.beaconMode}
                     />

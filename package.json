@@ -13,7 +13,10 @@
     "publishConfig": {
         "registry": "https://artifactory.vimeows.com/artifactory/api/npm/npm/"
     },
-    "pre-commit": ["flow", "precommit"],
+    "pre-commit": [
+        "flow",
+        "precommit"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.vimeows.com/Vimeo/Iris"
@@ -67,8 +70,7 @@
         "require-dir": "^0.3.1",
         "run-sequence": "^1.2.2",
         "sass-loader": "^6.0.6",
-        "steadicam":
-            "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#3.0.7",
+        "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#3.0.7",
         "style-loader": "^0.13.1",
         "styled-components": "3.2.5",
         "ts-loader": "^3.5.0",
@@ -88,8 +90,8 @@
         "react-color": "^2.13.8",
         "react-css-transition-replace": "^3.0.2",
         "react-datetime": "^2.11.1",
+        "react-popper": "0.9.5",
         "react-swipeable": "^4.2.0",
-        "react-tether": "^0.6.0",
         "react-transition-group": "^2.3.0",
         "svg-react-loader": "^0.4.5"
     },

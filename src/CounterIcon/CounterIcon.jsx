@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import styles from './CounterIcon.scss';
 // $FlowFixMe
 import { ParagraphLg } from '../Type';
+// $FlowFixMe
 import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';
 
 const displayName = 'CounterIcon';
@@ -19,33 +20,25 @@ type Props = {
 };
 
 const CounterIcon = ({
-                        autoMargins = true,
-                        className,
-                        children,
-                        href,
-                        icon,
-                        counterTitle,
-                        onClick,
-                        ...filteredProps
-                    }: Props): React$Element<*> => {
-
+    autoMargins = true,
+    className,
+    children,
+    href,
+    icon,
+    counterTitle,
+    onClick,
+    ...filteredProps
+}: Props): React$Element<*> => {
     // className builder
-    const componentClass = classNames(
-        styles.CounterIcon,
-        className
-    );
+    const componentClass = classNames(styles.CounterIcon, className);
 
-    const CountNumberClass = classNames(
-        styles.CountNumber,
-    );
+    const CountNumberClass = classNames(styles.CountNumber);
 
-    const IconClass = classNames(
-        styles.Icon,
-    );
+    const IconClass = classNames(styles.Icon);
 
     const WrapperClass = classNames(
         styles.Wrapper,
-        (autoMargins ? styles.autoMargins : null),
+        autoMargins ? styles.autoMargins : null
     );
 
     return (
@@ -55,16 +48,9 @@ const CounterIcon = ({
                 onClick={onClick}
                 tooltipText={counterTitle}
             >
-                <span
-                    {...filteredProps}
-                    className={componentClass}
-                >
-                    <span className={IconClass}>
-                        {icon}
-                    </span>
-                    <ParagraphLg
-                        className={CountNumberClass}
-                        element="span">
+                <span {...filteredProps} className={componentClass}>
+                    <span className={IconClass}>{icon}</span>
+                    <ParagraphLg className={CountNumberClass} element="span">
                         {children}
                     </ParagraphLg>
                 </span>

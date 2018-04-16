@@ -12,20 +12,19 @@ class TooltipAnnotationIconDocs extends React.Component {
     }
 
     render() {
-
         const FieldLabelWithTooltip = (
-        <TooltipAnnotationIcon
-            size="md"
-            tooltipText="I am a medium tooltip"
+            <TooltipAnnotationIcon
+                size="md"
+                tooltipText="I am a medium tooltip with a long tooltip messsage."
             >
                 <span>Annotated Input</span>
             </TooltipAnnotationIcon>
         );
         const FieldLabelWithTooltipTextBlock = (
             <TooltipAnnotationIcon
-            size="md"
-            labelType="textBlock"
-            tooltipText="I am a medium tooltip"
+                size="md"
+                labelType="textBlock"
+                tooltipText="I am a medium tooltip"
             >
                 <span>Annotated Input</span>
             </TooltipAnnotationIcon>
@@ -41,13 +40,28 @@ class TooltipAnnotationIconDocs extends React.Component {
         return (
             <div className="Pattern__docs">
                 <ParagraphMd>
-                The TooltipAnnotationIcon is a stand-alone icon button for annotating input labels with an "more info" icon which controls a tooltip. It comes in two sizes, use the size that matches the input's size prop.
-                </ParagraphMd>
-                <ParagraphMd>This component will appear to the right of the child component that it wraps.</ParagraphMd>
-                <ParagraphMd>In order to have the tooltip line up with the different input styles there is a <code>labelType</code> prop. Use <code>inline</code> for inline labels (e.g. toggles, checkboxes, radios) and <code>textBlock</code> for labels on inputs where the label is above the field.<code>no-postiton</code> leaves the positioning up to implementation time.
+                    The TooltipAnnotationIcon is a stand-alone icon button for
+                    annotating input labels with an "more info" icon which
+                    controls a tooltip. It comes in two sizes, use the size that
+                    matches the input's size prop.
                 </ParagraphMd>
                 <ParagraphMd>
-                All of the props passed available to the TooltipOverlay component can be passed to this component.
+                    This component will appear to the right of the child
+                    component that it wraps.
+                </ParagraphMd>
+                <ParagraphMd>
+                    In order to have the tooltip line up with the different
+                    input styles there is a <code>labelType</code> prop. Use{' '}
+                    <code>inline</code> for inline labels (e.g. toggles,
+                    checkboxes, radios) and <code>textBlock</code> for labels on
+                    inputs where the label is above the field.<code>
+                        no-postiton
+                    </code>{' '}
+                    leaves the positioning up to implementation time.
+                </ParagraphMd>
+                <ParagraphMd>
+                    All of the props passed available to the TooltipOverlay
+                    component can be passed to this component.
                 </ParagraphMd>
                 <div data-code>
                     <div>
@@ -58,19 +72,17 @@ class TooltipAnnotationIconDocs extends React.Component {
                         />
                     </div>
                     <div style={{ position: 'relative' }}>
-
                         <TooltipAnnotationIcon
                             size="md"
                             tooltipText="I am a medium tooltip"
                         >
                             <Header4>Medium (size='md')</Header4>
                         </TooltipAnnotationIcon>
-
                     </div>
                     <div style={{ position: 'relative' }}>
                         <TooltipAnnotationIcon
-                                size="lg"
-                                tooltipText="I am a large tooltip"
+                            size="lg"
+                            tooltipText="I am a large tooltip"
                         >
                             <Header4>Large (size='lg')</Header4>
                         </TooltipAnnotationIcon>
@@ -102,30 +114,30 @@ class TooltipAnnotationIconDocs extends React.Component {
                 <Header3>Use Cases</Header3>
                 <div data-code>
                     <InputText
-                    name="fooAnnotated"
-                    id="fooAnnotated"
-                    label={FieldLabelWithTooltipTextBlock}
-                    placeholder="Placeholder Text"
+                        name="fooAnnotated"
+                        id="fooAnnotated"
+                        label={FieldLabelWithTooltipTextBlock}
+                        placeholder="Placeholder Text"
                     />
                     <InputCheckbox
-                    label={FieldLabelWithTooltip}
-                    name="demoCheckboAnnotated"
-                    id="CheckboxAnnotated"
-                    value="2"
+                        label={FieldLabelWithTooltip}
+                        name="demoCheckboAnnotated"
+                        id="CheckboxAnnotated"
+                        value="2"
                     />
                     <InputToggle
-                    label={FieldLabelWithTooltip}
-                    name="demoToggleAnnotated"
-                    id="ToggleAnnotated"
-                    size="md"
-                    value="42"
+                        label={FieldLabelWithTooltip}
+                        name="demoToggleAnnotated"
+                        id="ToggleAnnotated"
+                        size="md"
+                        value="42"
                     />
                     <InputToggle
-                    label={FieldLabelWithTooltipLarge}
-                    name="demoToggleAnnotatedLg"
-                    id="ToggleAnnotatedLg"
-                    size="lg"
-                    value="42"
+                        label={FieldLabelWithTooltipLarge}
+                        name="demoToggleAnnotatedLg"
+                        id="ToggleAnnotatedLg"
+                        size="lg"
+                        value="42"
                     />
                 </div>
 

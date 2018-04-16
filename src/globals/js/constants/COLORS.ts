@@ -22,5 +22,6 @@ const COLORS = {
     White: '#fff',
     WarningYellow: '#ffb21e',
     DarkDark: '#2E2E2E',
+    Black: '#000',
 };
 export default COLORS;

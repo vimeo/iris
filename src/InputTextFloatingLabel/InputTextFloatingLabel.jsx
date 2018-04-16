@@ -225,7 +225,6 @@ class InputTextFloatingLabel extends React.Component {
                             className={styles.ActionButtonWrapper}
                         >
                             <TooltipOverlay
-                                element="span"
                                 tooltipText={PrivacyEyeText}
                             >
                                 <button

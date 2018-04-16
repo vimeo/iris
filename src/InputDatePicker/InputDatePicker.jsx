@@ -2,6 +2,7 @@
 import React from 'react';
 import DateTime from 'react-datetime';
 import InputText from '../InputText/InputText';
+// $FlowFixMe flow hates TS!
 import MenuPanel from '../MenuPanel/MenuPanel';
 import styles from './InputDatePicker.scss';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';

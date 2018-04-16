@@ -142,7 +142,6 @@ const VideoCardInfoArea: React.SFC<VideoCardInfoAreaProps> = ({
             {isPrivate && (
                 <PrivacyIconStyled>
                     <TooltipOverlay
-                        element="span"
                         tooltipText={privacyDescription}
                         onClick={stopClickPropagation}
                     >

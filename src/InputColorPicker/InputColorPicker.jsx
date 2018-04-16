@@ -2,6 +2,7 @@
 import React from 'react';
 import { ChromePicker } from 'react-color';
 import InputText from '../InputText/InputText';
+// $FlowFixMe flow hates TS!
 import MenuPanel from '../MenuPanel/MenuPanel';
 import styles from './InputColorPicker.scss';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';
@@ -13,6 +14,7 @@ type Props = {
     onBlur?: Function,
     onChangeColor?: (hex: string) => void,
     label: string,
+    menuPanelZIndexOverride: number,
     id: string,
 };
 
@@ -26,7 +28,10 @@ class InputColorPicker extends React.Component {
         super(props);
 
         // make sure the color passed to props.defaultColor is valid, otherwise fallback to component default.
-        const initialColor = props.defaultColor && this._isHexValid(props.defaultColor) ? props.defaultColor : defaultColorValue;
+        const initialColor =
+            props.defaultColor && this._isHexValid(props.defaultColor)
+                ? props.defaultColor
+                : defaultColorValue;
 
         this.state = {
             currentColor: initialColor,
@@ -47,7 +52,7 @@ class InputColorPicker extends React.Component {
                 this._setFocus();
             }, 250);
         }
-    }
+    };
 
     props: Props;
     InputWrapper: HTMLElement;
@@ -55,12 +60,12 @@ class InputColorPicker extends React.Component {
     _bindCloseMenuListeners = () => {
         document.addEventListener('mousedown', this._handleDocumentClick);
         document.addEventListener('keydown', this._handleDocumentKeyDown);
-    }
+    };
 
     _unbindCloseMenuListeners = () => {
         document.removeEventListener('mousedown', this._handleDocumentClick);
         document.removeEventListener('keydown', this._handleDocumentKeyDown);
-    }
+    };
 
     _setFocus = () => {
         const thisInput = this.InputWrapper.querySelector('[data-input-field]');
@@ -73,7 +78,7 @@ class InputColorPicker extends React.Component {
             focusShouldOpenMenu: true,
             shouldFocusNextUpdate: false,
         });
-    }
+    };
 
     _openMenu = () => {
         this.setState({
@@ -83,7 +88,7 @@ class InputColorPicker extends React.Component {
         });
 
         this._bindCloseMenuListeners();
-    }
+    };
 
     _closeMenu = () => {
         this.setState({
@@ -91,7 +96,7 @@ class InputColorPicker extends React.Component {
         });
 
         this._unbindCloseMenuListeners();
-    }
+    };
 
     _handleBlur = (e: Event) => {
         if (e.target && e.target.value) {
@@ -102,7 +107,6 @@ class InputColorPicker extends React.Component {
                     currentColor: value,
                     showColorPicker: this.state.menuHovered,
                 });
-
             }
             else {
                 this.setState({
@@ -110,7 +114,6 @@ class InputColorPicker extends React.Component {
                     currentColor: this.props.defaultColor,
                 });
             }
-
         }
 
         if (typeof this.props.onBlur === 'function') {
@@ -118,56 +121,53 @@ class InputColorPicker extends React.Component {
         }
     };
 
-
-    _handleButtonClick= (e: Event) => {
+    _handleButtonClick = (e: Event) => {
         this._openMenu();
         e.preventDefault();
-    }
+    };
 
     _handleColorChange = (color: string) => {
         if (this.props.onChangeColor instanceof Function) {
             this.props.onChangeColor(color);
         }
-    }
+    };
 
     _handleColorPickerUpdate = (color: {
         hex: string,
         rgb: Object,
         hsl: Object,
     }) => {
-
         this.setState({
             currentColor: color.hex,
             fieldValue: color.hex,
         });
 
         this._handleColorChange(color.hex);
-    }
+    };
 
     _handleDocumentClick = () => {
         if (!this.state.menuHovered) {
             this._closeMenu();
         }
-    }
+    };
 
     _handleDocumentKeyDown = (e: Event) => {
         if (e.keyCode === KEY_CODES.esc || e.keyCode === KEY_CODES.tab) {
             this._closeMenu();
         }
-    }
+    };
 
     _handleFocus = () => {
         if (!this.state.showColorPicker && this.state.focusShouldOpenMenu) {
             this._openMenu();
         }
-    }
+    };
 
     _handleInputChange = (e: Event) => {
         if (e.target && e.target.value) {
             const value = e.target.value;
 
             if (typeof value === 'string') {
-
                 if (this._isHexValid(value)) {
                     this._handleColorChange(value);
                     this.setState({
@@ -182,23 +182,23 @@ class InputColorPicker extends React.Component {
                 }
             }
         }
-    }
+    };
 
     _handleHoverOnMenu = () => {
         this.setState({
             menuHovered: true,
         });
-    }
+    };
 
     _handleHoverOutMenu = () => {
         this.setState({
             menuHovered: false,
         });
-    }
+    };
 
     _isHexValid = (color: string) => {
         return /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(color);
-    }
+    };
 
     render() {
         const {
@@ -207,11 +207,13 @@ class InputColorPicker extends React.Component {
             defaultColor, // eslint-disable-line no-unused-vars
             onChangeColor, // eslint-disable-line no-unused-vars
             label,
+            menuPanelZIndexOverride,
             ...filteredProps
         } = this.props;
 
         const ColorPickerPanelContent = (
-            <div className={styles.ColorPicker}
+            <div
+                className={styles.ColorPicker}
                 onMouseEnter={this._handleHoverOnMenu}
                 onMouseLeave={this._handleHoverOutMenu}
             >
@@ -231,9 +233,10 @@ class InputColorPicker extends React.Component {
                     size="md"
                     isShowing={this.state.showColorPicker}
                     isControlled
+                    zIndexOverride={menuPanelZIndexOverride}
                 >
                     <button
-                        style={{ 'backgroundColor': this.state.currentColor }}
+                        style={{ backgroundColor: this.state.currentColor }}
                         className={styles.ColorButton}
                         type="button"
                         onClick={this._handleButtonClick}
@@ -244,9 +247,8 @@ class InputColorPicker extends React.Component {
 
         return (
             <div
-                ref={(div)=>{
-                    this.InputWrapper = div
-    ;
+                ref={div => {
+                    this.InputWrapper = div;
                 }}
             >
                 <InputText

@@ -148,7 +148,6 @@ const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
     box-shadow: ${getBoxShadow};
     min-height: ${rem(248)};
     width: 100%;
-    overflow: hidden;
     padding-bottom: ${props =>
         props.hasContextArea
             ? `calc(100% + ${rem(VideoCardStyleSettings.contextAreaHeight)})`

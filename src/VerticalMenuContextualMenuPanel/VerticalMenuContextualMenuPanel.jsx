@@ -1,8 +1,9 @@
 // @flow
 import React from 'react';
 import styles from './VerticalMenuContextualMenuPanel.scss';
-
+// $FlowFixMe flow hates TS!
 import MenuPanel from '../MenuPanel/MenuPanel';
+// $FlowFixMe
 import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';
 const displayName = 'VerticalMenuContextualMenuPanel';
 
@@ -28,12 +29,8 @@ const VerticalMenuContextualMenuPanel = ({
     tooltipText,
     ...filteredProps
 }: Props): React$Element<*> => {
-
     const ButtonWithTooltip = (
-        <TooltipOverlay
-            tooltipText={tooltipText}
-            element="span"
-        >
+        <TooltipOverlay tooltipText={tooltipText}>
             {buttonElement}
         </TooltipOverlay>
     );

@@ -2,7 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './VerticalMenuHeaderGroup.scss';
-
+// $FlowFixMe
 import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';
 // $FlowFixMe
 import HeaderAltSm from '../Type/HeaderAltSm';
@@ -31,22 +31,19 @@ const VerticalMenuHeaderGroup = ({
     labelId,
     ...filteredProps
 }: Props): React$Element<*> => {
-
-    const hasActionButton = actionButtonIcon && actionButtonTooltipText &&
-    actionButtonOnClick;
+    const hasActionButton =
+        actionButtonIcon && actionButtonTooltipText && actionButtonOnClick;
 
     // className builder
     const headerWrapperClass = classNames(
         styles.HeaderWrapper,
-        (hasActionButton ? styles.hasActionButton : null),
+        hasActionButton ? styles.hasActionButton : null,
         className
     );
 
     const ActionButton = hasActionButton ? (
         <span className={styles.ActionButtonWrapper}>
-            <TooltipOverlay
-                tooltipText={actionButtonTooltipText}
-            >
+            <TooltipOverlay tooltipText={actionButtonTooltipText}>
                 <span
                     className={styles.ActionButton}
                     onClick={actionButtonOnClick}
@@ -58,23 +55,15 @@ const VerticalMenuHeaderGroup = ({
     ) : null;
 
     return (
-            <div
-                {...filteredProps}
-                className={styles.VerticalMenuHeaderGroup}
-            >
-                <div className={headerWrapperClass}>
-                    <HeaderAltSm
-                        element={headerElement}
-                        id={labelId}
-                    >
-                        {label}
-                    </HeaderAltSm>
-                    {ActionButton}
-                </div>
-                <div aria-labelledby={labelId}>
-                    {children}
-                </div>
+        <div {...filteredProps} className={styles.VerticalMenuHeaderGroup}>
+            <div className={headerWrapperClass}>
+                <HeaderAltSm element={headerElement} id={labelId}>
+                    {label}
+                </HeaderAltSm>
+                {ActionButton}
             </div>
+            <div aria-labelledby={labelId}>{children}</div>
+        </div>
     );
 };
 

@@ -7,7 +7,6 @@ import ClipboardIcon from '../icons/clipboard.svg';
 import withCopyAbility from '../withCopyAbility/withCopyAbility';
 import InputText from '../InputText/InputText';
 import ButtonInlineInputText from '../ButtonInlineInputText/ButtonInlineInputText';
-import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';
 
 const displayName = 'CopyField';
 
@@ -22,6 +21,7 @@ type Props = {
     successMessage: string,
     stringToCopy: string,
     tooltipString: string,
+    tooltipPosition: 'top' | 'right' | 'bottom' | 'left',
 };
 
 class CopyField extends React.Component {
@@ -31,69 +31,62 @@ class CopyField extends React.Component {
 
     props: Props;
 
-    _handleFieldClick = () =>{
+    _handleFieldClick = () => {
         const el = findDOMNode(this);
-        const TriggerTarget = el instanceof HTMLElement && el.querySelector('[data-button-trigger]');
+        const TriggerTarget =
+            el instanceof HTMLElement &&
+            el.querySelector('[data-button-trigger]');
         if (TriggerTarget instanceof HTMLElement) {
             TriggerTarget.click();
         }
-    }
+    };
 
     render() {
         const {
             buttonFormat,
             className,
-            tooltipString,
             id,
             onCopy,
             size,
             successMessage,
             stringToCopy,
+            tooltipPosition = 'left',
+            tooltipString,
             ...filteredProps
         } = this.props;
 
         // className builder
-        const componentClass = classNames(
-            styles.CopyField,
-            className
-        );
+        const componentClass = classNames(styles.CopyField, className);
 
         const CopyButton = withCopyAbility(ButtonInlineInputText);
 
         const ButtonComponent = (
-            <TooltipOverlay
+            <CopyButton
+                data-button-trigger
+                icon={<ClipboardIcon />}
+                format={buttonFormat}
+                size={size}
+                successMessage={successMessage}
+                stringToCopy={stringToCopy}
                 tooltipText={tooltipString}
-                attachment = "left"
-                tooltipOptions = {{
-                    'offset': '48px 0',
-                }}
-            >
-                <CopyButton
-                    data-button-trigger
-                    icon = {<ClipboardIcon />}
-                    format={buttonFormat}
-                    size={size}
-                    successMessage={successMessage}
-                    stringToCopy={stringToCopy}
-                    onCopy={onCopy}
-                />
-            </TooltipOverlay>
+                tooltipPosition={tooltipPosition}
+                onCopy={onCopy}
+            />
         );
 
         return (
-                <InputText
-                    {...filteredProps}
-                    id={id}
-                    inlineButton={ButtonComponent}
-                    isInline
-                    size={size}
-                    className={componentClass}
-                    value={stringToCopy}
-                    onClick={this._handleFieldClick}
-                    readOnly
-                />
+            <InputText
+                {...filteredProps}
+                id={id}
+                inlineButton={ButtonComponent}
+                isInline
+                size={size}
+                className={componentClass}
+                value={stringToCopy}
+                onClick={this._handleFieldClick}
+                readOnly
+            />
         );
-
     }
 }
 

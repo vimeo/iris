@@ -2,6 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './ButtonInlineInputText.scss';
+import TooltipOverlay from '../TooltipOverlay';
 
 const displayName = 'ButtonInlineInputText';
 
@@ -10,6 +11,8 @@ type Props = {
     icon: React$Element<*>,
     format?: 'subtle' | 'neutral' | 'strong',
     size: 'md' | 'lg',
+    tooltipText: string,
+    tooltipPosition: 'top' | 'right' | 'bottom' | 'left',
 };
 
 const ButtonInlineInputText = ({
@@ -17,24 +20,34 @@ const ButtonInlineInputText = ({
     icon,
     format = 'neutral',
     size = 'md',
+    tooltipText,
+    tooltipPosition = 'top',
     ...filteredProps
 }: Props): React$Element<*> => {
-
     // className builder
     const componentClass = classNames(
         styles.ButtonInlineInputText,
         styles[size],
         styles[format],
-        className,
+        className
+    );
+
+    const ButtonComponent = (
+        <button {...filteredProps} className={componentClass}>
+            {icon}
+        </button>
+    );
+
+    const TooltipWrappedButton = (
+        <TooltipOverlay tooltipText={tooltipText} attachment={tooltipPosition}>
+            {ButtonComponent}
+        </TooltipOverlay>
     );
 
     return (
-        <button
-        {...filteredProps}
-        className={componentClass}
-        >
-            {icon}
-        </button>
+        <div className={styles.Wrapper}>
+            {tooltipText ? TooltipWrappedButton : ButtonComponent}
+        </div>
     );
 };
 

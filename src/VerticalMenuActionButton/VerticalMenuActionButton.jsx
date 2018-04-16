@@ -15,7 +15,6 @@ const VerticalMenuActionButton = ({
     tooltipText,
     ...filteredProps
 }: Props): React$Element<*> => {
-
     const ActionButton = () => (
         <ButtonIconOnly
             {...filteredProps}
@@ -28,18 +27,16 @@ const VerticalMenuActionButton = ({
     );
 
     const TooltipWrappedActionButton = () => (
-        <TooltipOverlay
-            tooltipText={tooltipText}
-            element="span"
-        >
+        <TooltipOverlay tooltipText={tooltipText}>
             <ActionButton />
         </TooltipOverlay>
     );
 
-    const VerticalMenuActionButtonElement = tooltipText ? TooltipWrappedActionButton : ActionButton;
+    const VerticalMenuActionButtonElement = tooltipText
+        ? TooltipWrappedActionButton
+        : ActionButton;
 
     return <VerticalMenuActionButtonElement />;
-
 };
 
 VerticalMenuActionButton.displayName = displayName;
