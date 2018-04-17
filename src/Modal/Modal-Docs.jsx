@@ -118,7 +118,7 @@ class ModalDocs extends React.Component {
                         modalLabelId="exampleModal2Label"
                         modalDescriptionId="exampleModal2Desc"
                         modalCloseLabel="Close this dialog."
-                        modalTitle="Modal With Title Bar"
+                        modalTitle="Modal With Title Bar (Long for Truncation)"
                         onDismiss={this.closeModal2}
                         primaryButtonProps = {{
                             children: 'Submit',

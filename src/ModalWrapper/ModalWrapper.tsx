@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Transition } from 'react-transition-group';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';
 import Z_INDEX from '../globals/js/constants/Z_INDEXES';
@@ -11,7 +11,10 @@ export interface ModalWrapperProps extends React.HTMLProps<HTMLDivElement> {
     backgroundOpacity?: 'lighter' | 'darker';
     noDismiss?: boolean;
     onCloseEvent?: (e?: Event) => void;
+    modalPosition?: 'center';
     modalSpeed?: number;
+    mountOnEnter?: boolean,
+    unmountOnExit?: boolean,
     zIndexStartingPoint?: number;
 }
 // ==================== ModalWrapper Styled Thing
@@ -67,15 +70,26 @@ const overlayTransitionStyles = {
 };
 
 interface ContentWrapperProps extends React.HTMLProps<HTMLDivElement> {
+    modalPosition? : 'center';
     zIndexStartingPoint: number;
+}
+
+const getModalPositionCSS = (props) => {
+    if (props.modalPosition === 'center') {
+        return css`
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        `;
+    }
 }
 
 const ContentWrapperStyled = styled<ContentWrapperProps, 'div'>('div')`
     cursor: default;
     z-index: ${props => props.zIndexStartingPoint + 1};
     position: absolute;
-    width: 100%;
-    height: 100%;
+
+    ${props => getModalPositionCSS(props)}
 `;
 
 // ==================== ModalWrapper
@@ -93,6 +107,8 @@ class ModalWrapper extends React.Component<any, any> {
         if (this.props.isOpen !== prevProps.isOpen) {
             if (this.props.isOpen) {
                 this._openModal();
+            } else if (this.props.isOpen && prevProps.isOpen) {
+                this._resetModal();
             } else {
                 this._closeModal();
             }
@@ -193,6 +209,20 @@ class ModalWrapper extends React.Component<any, any> {
         }
     };
 
+    _resetModal() {
+        this._unbindEvents();
+        const elementListCallback = () => {
+            this._bindEvents();
+        };
+
+        if (!this.thisEl) {
+            const el = ReactDOM.findDOMNode(this);
+            this.thisEl = el;
+        }
+
+        this._setFocusableElementList(elementListCallback.bind(this), false);
+    }
+
     _resetOriginalFocus() {
         // put the focus back to the element that was focused when the modal opened.
         if (this.previouslyFocusedElement) {
@@ -281,11 +311,14 @@ class ModalWrapper extends React.Component<any, any> {
             backgroundOpacity = 'darker',
             children,
             isOpen,
+            modalPosition,
             modalSpeed = 250,
+            mountOnEnter,
             //@ts-ignore
             noDismiss,
             //@ts-ignore
             onCloseEvent,
+            unmountOnExit,
             zIndexStartingPoint = Z_INDEX.modalWrapper,
         } = this.props;
 
@@ -293,8 +326,8 @@ class ModalWrapper extends React.Component<any, any> {
             <Transition
                 in={isOpen}
                 timeout={modalSpeed}
-                mountOnEnter
-                unMountOnExit
+                mountOnEnter={mountOnEnter}
+                unmountOnExit={unmountOnExit}
             >
                 {state => (
                     <ModalWrapperStyled
@@ -316,6 +349,7 @@ class ModalWrapper extends React.Component<any, any> {
                         <ContentWrapperStyled
                             onClick={this._contentClick}
                             zIndexStartingPoint={zIndexStartingPoint}
+                            modalPosition={modalPosition}
                         >
                             {children}
                         </ContentWrapperStyled>

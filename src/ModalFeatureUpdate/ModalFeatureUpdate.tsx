@@ -128,6 +128,8 @@ class ModalFeatureUpdate extends React.Component<any, any> {
                 noDismiss={noDismiss}
                 onCloseEvent={onCloseEvent}
                 modalSpeed={MODAL_SPEED}
+                mountOnEnter={true}
+                unmountOnExit={true}
                 zIndexStartingPoint={zIndexStartingPoint}
             >
                 <Transition in={isOpen} timeout={MODAL_SPEED}>
