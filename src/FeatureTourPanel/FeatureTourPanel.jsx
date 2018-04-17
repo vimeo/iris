@@ -218,7 +218,7 @@ class FeatureTourPanel extends React.Component {
                     panelOptions={{
                         modifiers: {
                             offset: {
-                                offset: panelOffset
+                                offset: panelOffset,
                             },
                         },
                         placement: panelAttachment,
