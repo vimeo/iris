@@ -16,7 +16,7 @@ const VideoCardSocialBadgeWrapperStyled = styled<React.HTMLProps<HTMLDivElement>
 
     svg {
         width: ${rem(24)};
-        height: auto;
+        height: ${rem(24)};
     }
 `;
 
