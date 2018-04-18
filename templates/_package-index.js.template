@@ -35,7 +35,6 @@ export { default as <%- pattern['displayName']%> } from './<%- pattern['displayN
 export { default as Button} from './Button';
 export { default as CategoryCard} from './CategoryCard';
 export { default as LoaderCircular } from './LoaderCircular';
-export { default as MenuPanel } from './MenuPanel';
 export { default as Modal } from './Modal';
 export { default as MenuPanelListItem} from './MenuPanelListItem';
 export {default as ModalFeatureUpdate, ModalFeatureUpdateTemplate} from './ModalFeatureUpdate';

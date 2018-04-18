@@ -2,7 +2,6 @@
 import React from 'react';
 import { ChromePicker } from 'react-color';
 import InputText from '../InputText/InputText';
-// $FlowFixMe flow hates TS!
 import MenuPanel from '../MenuPanel/MenuPanel';
 import styles from './InputColorPicker.scss';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';

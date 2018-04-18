@@ -3,5 +3,6 @@ $z-indexed-elements: FocusBloop, InlineInputs, InlineInputsReplacementElements, 
 
 // for elements that need special, usually extreme, z-indexing, this map will provide override values.
 $z-index-overrides: (
-  toastification: 9995
+  toastification: 9995,
+  MenuPanel: 9996
 );

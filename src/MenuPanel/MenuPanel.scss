@@ -1,0 +1,72 @@
+/* @description Generates styles for the MenuPanel component */
+@import "../globals/sass/helpers-all";
+$MenuPanelBorderSize: 1;
+$MenuPanelBorderSizeRem: rem-calc($MenuPanelBorderSize);
+$MenuPanelWidth-sm: 124;
+$MenuPanelWidth-md: 200;
+$MenuPanelWidth-lg: 320;
+$MenuPanel_animation-speed: 200ms;
+
+.MenuPanelTetherWrapper {
+    z-index: get-z-index("MenuPanel");
+}
+
+.MenuPanelWrapper {
+    display: inline-block;
+
+    &.isFluid {
+        display: block;
+    }
+}
+
+.MenuTrigger {
+    display: inline-block; // this ensures proper menu placement;
+
+    &.isFluid {
+        display: block;
+    }
+}
+
+.MenuPanel {
+    display: none;
+
+    border-radius: rem-calc(2);
+    background: $White;
+    box-shadow: 0 0 rem-calc(1) 0 rgba(0, 0, 0, 0.15),
+    0 rem-calc(4) rem-calc(8) 0 rgba(0, 0, 0, 0.15);
+    &.isShowing {
+        display: block;
+    }
+}
+
+.sm {
+    width: rem-calc($MenuPanelWidth-sm);
+}
+
+.md {
+    width: rem-calc($MenuPanelWidth-md);
+}
+
+.lg {
+    width: rem-calc($MenuPanelWidth-lg);
+}
+
+.left {
+    margin-left: (spacingUnit(2) * -1);
+}
+
+.right {
+    margin-right: (spacingUnit(2) * -1);
+}
+
+// Animation
+
+.appear {
+    opacity: 0.01;
+
+    &.appearActive {
+        opacity: 1;
+
+        transition: all $MenuPanel_animation-speed ease-in;
+    }
+}

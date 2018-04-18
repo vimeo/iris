@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import styles from './VerticalMenuContextualMenuPanel.scss';
-// $FlowFixMe flow hates TS!
 import MenuPanel from '../MenuPanel/MenuPanel';
 // $FlowFixMe
 import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';

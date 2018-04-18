@@ -182,24 +182,28 @@ class FeatureTourPanel extends React.Component {
         );
 
         const panelOffsetDistance = 16;
-        let panelAttachment, panelOffset;
+        let panelAttachment, panelTargetAttachment, panelOffset;
 
         switch (attachment) {
             case 'top':
-                panelAttachment = 'top';
-                panelOffset = `${panelOffsetDistance * 3}px, 0`;
+                panelAttachment = 'bottom center';
+                panelOffset = `${panelOffsetDistance * 3}px 0`;
+                panelTargetAttachment = 'bottom center';
                 break;
             case 'right':
-                panelAttachment = 'right-start';
-                panelOffset = '0, 0';
+                panelAttachment = 'top left';
+                panelOffset = '0 0';
+                panelTargetAttachment = 'top right';
                 break;
             case 'bottom':
-                panelAttachment = 'bottom';
-                panelOffset = `${panelOffsetDistance * -3}px, 0`;
+                panelAttachment = 'top center';
+                panelOffset = `${panelOffsetDistance * -3}px 0`;
+                panelTargetAttachment = 'top center';
                 break;
             case 'left':
-                panelAttachment = 'left-start';
-                panelOffset = '0, 0';
+                panelAttachment = 'top right';
+                panelOffset = '0 0';
+                panelTargetAttachment = 'top left';
                 break;
         }
 
@@ -215,13 +219,10 @@ class FeatureTourPanel extends React.Component {
                     panelClassName={styles.FeatureTourPanel}
                     shouldRefocusTriggerOnClose={shouldHideOnClose ? false : shouldRefocusTriggerOnClose}
                     size="lg"
-                    panelOptions={{
-                        modifiers: {
-                            offset: {
-                                offset: panelOffset,
-                            },
-                        },
-                        placement: panelAttachment,
+                    options={{
+                        offset: panelOffset,
+                        attachment: panelAttachment,
+                        targetAttachment: panelTargetAttachment,
                     }}
                 >
                     <FeatureTourDot
