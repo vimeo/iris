@@ -17,25 +17,22 @@ export interface ModalWrapperProps extends React.HTMLProps<HTMLDivElement> {
 // ==================== ModalWrapper Styled Thing
 
 const ModalWrapperStyled = styled<ModalWrapperProps, 'div'>('div')`
-    flex-direction: column;
     position: fixed;
     z-index: ${props => props.zIndexStartingPoint};
     top: 0;
     left: 0;
-    justify-content: center;
     width: 0;
-    height: 0;
-    display: flex;
+    display: block;
 `;
 
 const wrapperTransitionStyles = {
     entered: {
         width: '100%',
-        height: '100vh',
+        height: '100%',
     },
     exiting: {
         width: '100%',
-        height: '100vh',
+        height: '100%',
     },
 };
 
