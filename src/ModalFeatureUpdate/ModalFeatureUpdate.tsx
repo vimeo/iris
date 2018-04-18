@@ -63,8 +63,7 @@ const ModalFeatureUpdateStyled = styled<ModalFeatureUpdateStyledProps, 'div'>(
     max-height: calc(
         100% - ${rem(ModalFeatureUpdateStyleSettings.modalMargin * 2)}
     );
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: auto;
     transition: all ${MODAL_SPEED}ms linear;
     opacity: 0;
     transform: translateY(0%);
