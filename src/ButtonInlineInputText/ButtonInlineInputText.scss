@@ -6,10 +6,10 @@ $InputTextWithButton-size-xl: rem-calc(48);
 $InputTextWithButton-size-md-subtle: rem-calc(36);
 $InputTextWithButton-size-lg-subtle: rem-calc(44);
 
-.Wrapper {
+.Wrapper.Wrapper {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: rem-calc(2);
+    right: rem-calc(2);
 }
 
 .ButtonInlineInputText {
