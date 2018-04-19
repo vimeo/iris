@@ -27,7 +27,6 @@ const ButtonInlineInputText = ({
     // className builder
     const componentClass = classNames(
         styles.ButtonInlineInputText,
-        styles.positioning,
         styles[size],
         styles[format],
         className

@@ -22,16 +22,13 @@ class TooltipOverlayDocs extends React.Component {
             <div className="Pattern__docs">
                 <div data-code>
                     <ParagraphMd>Tooltips Overlays can be used to add additional information to elements on a page. Note that any prop that can be passed to the Tooltip component can be passed to the TooltipOverlay as well.</ParagraphMd>
-                    <ParagraphMd>Any props that are not in the API table below will be spread to to anchor tag that wraps the triggering element</ParagraphMd>
+                    <ParagraphMd>Any props that are not in the API table below will be spread to to the span tag that wraps the triggering element</ParagraphMd>
 
                     <NotificationWarning>
                         <ParagraphMd>The element passed to the component as child must not, itself be interactive.</ParagraphMd>
                         <List>
                             <ListItem>
                                 If you use a button, use the <code>isButtonElement=false</code> flag.
-                            </ListItem>
-                            <ListItem>
-                                If you are passing a bit of text formatted by the LinkText component, use <code>element="span"</code>
                             </ListItem>
                         </List>
                     </NotificationWarning>
