@@ -262,10 +262,10 @@ class ModalWrapper extends React.Component<any, any> {
     }
 
     _unfreezeBodyScroll() {
-        document.body.style.position = null;
-        document.body.style.height = null;
-        document.body.style.width = null;
-        document.body.style.top = null;
+        document.body.style.position = '';
+        document.body.style.height = '';
+        document.body.style.width = '';
+        document.body.style.top = '';
 
         // reset scroll place, needs a slight delay to work.
         setTimeout(() => {
