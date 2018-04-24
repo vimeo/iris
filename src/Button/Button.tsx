@@ -1,6 +1,6 @@
 import React from 'react';
 import { rem } from 'polished';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import ButtonIconElement from './ButtonIconElement';
 import {
     getActiveCSSByFormat,
@@ -26,6 +26,19 @@ export interface ButtonProps
     autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid';
     children: React.ReactNode;
     className?: string;
+    /**
+     * For custom color themes, specify color strings (any valid css color value) for the background and text color for default and hover states.
+     *  *`hoverTextColor` is optional and falls back to `defaultTextColor`
+     *  *`hoverBorderColor`  and `defaultBorderColor` are optional and fall back to background color pairings
+     */
+    customTheme?: {
+        defaultBackgroundColor: string,
+        defaultBorderColor?: string,
+        defaultTextColor: string,
+        hoverBackgroundColor: string,
+        hoverBorderColor?: string,
+        hoverTextColor?: string,
+    };
     /**
      * Chooses the color theme
      */
@@ -103,16 +116,34 @@ const ButtonElement = styled<ButtonProps, any>(ButtonVariableElement)`
     justify-content: center;
     -webkit-font-smoothing: antialiased;
 
-    ${getDefaultCSSByFormat} ${getSizeCSS}
+    ${props=> props.customTheme ? css`
+        background: ${props.customTheme.defaultBackgroundColor};
+        border-color: ${props.customTheme.defaultBorderColor || props.customTheme.defaultBackgroundColor};
+        color: ${props.customTheme.defaultTextColor};
+    `
+    : getDefaultCSSByFormat}
+    
+    ${getSizeCSS}
 
-&:hover {
-        ${getHoverCSSByFormat} cursor: pointer;
+    &:hover {
+            cursor: pointer;
+        ${props=> props.customTheme ? css`
+            background: ${props.customTheme.hoverBackgroundColor};
+            border-color: ${props.customTheme.hoverBorderColor || props.customTheme.hoverBackgroundColor};
+            color: ${props.customTheme.hoverTextColor || props.customTheme.defaultTextColor};
+        `
+        : getHoverCSSByFormat}
     }
 
     &:active {
         outline: 0;
         transform: scale(0.98);
-        ${getActiveCSSByFormat};
+        ${props=> props.customTheme ? css`
+            background: ${props.customTheme.hoverBackgroundColor};
+            border-color: ${props.customTheme.hoverBorderColor || props.customTheme.hoverBackgroundColor};
+            color: ${props.customTheme.hoverTextColor || props.customTheme.defaultTextColor};
+        `
+        :getActiveCSSByFormat};
     }
 
     &:disabled,
