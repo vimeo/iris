@@ -152,7 +152,7 @@ const StyledElement = styled(TypeElement)`
         TypeBaseStyleSettings.format[props.format][props.size] ||
         TypeBaseStyleSettings.format[props.format].default};
 
-    max-width: ${rem(468)};
+    max-width: 44rem;
 
     margin-bottom: ${props =>
         props.noMargin
