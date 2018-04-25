@@ -24,6 +24,7 @@ export { default as ParagraphXs} from './Type/ParagraphXs';
 export { default as ParagraphAltLg } from './Type/ParagraphAltLg';
 export { default as ParagraphAltMd } from './Type/ParagraphAltMd';
 export { default as ParagraphAltSm } from './Type/ParagraphAltSm';
+export {default as ParagraphAltXs } from './Type/ParagraphAltXs';
 export { default as withCopyAbility } from './withCopyAbility';
 export { default as withCharacterCount } from './withCharacterCount';
 
