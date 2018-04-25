@@ -60,7 +60,7 @@ class ButtonDocs extends React.Component {
                     `}
                 </ExampleSource>
 
-                 <Header3>Text-Only Buttons</Header3>
+                <Header3>Text-Only Buttons</Header3>
                 <ParagraphMd>In cases where we need a button element but want it to appear like text, we use the Text-only buttons</ParagraphMd>
                 <div data-code style={{ 'padding': '1em', 'width': '100%' }}>
                     <Button format="primaryTextOnly" icon={<ShareIcon />}>Primary TextOnly</Button>
@@ -107,6 +107,57 @@ class ButtonDocs extends React.Component {
                 <ExampleSource>
                     {`
 <Button format="lightTransparent">White Transparent</Button>
+                    `}
+                </ExampleSource>
+
+                 <Header3>Custom Themes</Header3>
+                <ParagraphMd>For custom button color themes.</ParagraphMd>
+                <div data-code>
+                    <Button
+                        customTheme={{
+                            defaultBackgroundColor: '#f59753',
+                            defaultTextColor: '#fff',
+                            hoverBackgroundColor: '#fbf1e9',
+                            hoverBorderColor: '#f59753',
+                            hoverTextColor: '#f59753',
+                        }}
+                    >
+                        Click
+                    </Button>
+                    <Button
+                        customTheme={{
+                            defaultBackgroundColor: '#6e5ff9',
+                            defaultTextColor: '#fff',
+                            hoverBackgroundColor: '#180a9e',
+                        }}
+                    >
+                        Click
+                    </Button>
+
+                </div>
+
+                <ExampleSource>
+                    {`
+<Button
+    customTheme={{
+        defaultBackgroundColor: '#f59753',
+        defaultTextColor: '#fff',
+        hoverBackgroundColor: '#fbf1e9',
+        hoverBorderColor: '#f59753',
+        hoverTextColor: '#f59753',
+    }}
+>
+    Click
+</Button>
+<Button
+    customTheme={{
+        defaultBackgroundColor: '#6e5ff9',
+        defaultTextColor: '#fff',
+        hoverBackgroundColor: '#180a9e',
+    }}
+>
+    Click
+</Button>
                     `}
                 </ExampleSource>
 
