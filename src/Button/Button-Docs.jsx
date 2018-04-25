@@ -110,11 +110,11 @@ class ButtonDocs extends React.Component {
                     `}
                 </ExampleSource>
 
-                 <Header3>Custom Themes</Header3>
+                <Header3>Custom Format</Header3>
                 <ParagraphMd>For custom button color themes.</ParagraphMd>
                 <div data-code>
                     <Button
-                        customTheme={{
+                        customFormat={{
                             defaultBackgroundColor: '#f59753',
                             defaultTextColor: '#fff',
                             hoverBackgroundColor: '#fbf1e9',
@@ -125,7 +125,7 @@ class ButtonDocs extends React.Component {
                         Click
                     </Button>
                     <Button
-                        customTheme={{
+                        customFormat={{
                             defaultBackgroundColor: '#6e5ff9',
                             defaultTextColor: '#fff',
                             hoverBackgroundColor: '#180a9e',
@@ -139,7 +139,7 @@ class ButtonDocs extends React.Component {
                 <ExampleSource>
                     {`
 <Button
-    customTheme={{
+    customFormat={{
         defaultBackgroundColor: '#f59753',
         defaultTextColor: '#fff',
         hoverBackgroundColor: '#fbf1e9',
@@ -150,7 +150,7 @@ class ButtonDocs extends React.Component {
     Click
 </Button>
 <Button
-    customTheme={{
+    customFormat={{
         defaultBackgroundColor: '#6e5ff9',
         defaultTextColor: '#fff',
         hoverBackgroundColor: '#180a9e',

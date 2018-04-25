@@ -31,7 +31,7 @@ export interface ButtonProps
      *  *`hoverTextColor` is optional and falls back to `defaultTextColor`
      *  *`hoverBorderColor`  and `defaultBorderColor` are optional and fall back to background color pairings
      */
-    customTheme?: {
+    customFormat?: {
         defaultBackgroundColor: string,
         defaultBorderColor?: string,
         defaultTextColor: string,
@@ -83,6 +83,8 @@ const ButtonVariableElement = ({
     autoMargins, // filter out prop
     //@ts-ignore
     autoWidth, // filter out prop
+    //@ts-ignore
+    customFormat, // filter out prop
     isButtonElement, // filter out prop
     //@ts-ignore
     isInline, // filter out prop
@@ -116,10 +118,10 @@ const ButtonElement = styled<ButtonProps, any>(ButtonVariableElement)`
     justify-content: center;
     -webkit-font-smoothing: antialiased;
 
-    ${props=> props.customTheme ? css`
-        background: ${props.customTheme.defaultBackgroundColor};
-        border-color: ${props.customTheme.defaultBorderColor || props.customTheme.defaultBackgroundColor};
-        color: ${props.customTheme.defaultTextColor};
+    ${props=> props.customFormat ? css`
+        background: ${props.customFormat.defaultBackgroundColor};
+        border-color: ${props.customFormat.defaultBorderColor || props.customFormat.defaultBackgroundColor};
+        color: ${props.customFormat.defaultTextColor};
     `
     : getDefaultCSSByFormat}
     
@@ -127,10 +129,10 @@ const ButtonElement = styled<ButtonProps, any>(ButtonVariableElement)`
 
     &:hover {
             cursor: pointer;
-        ${props=> props.customTheme ? css`
-            background: ${props.customTheme.hoverBackgroundColor};
-            border-color: ${props.customTheme.hoverBorderColor || props.customTheme.hoverBackgroundColor};
-            color: ${props.customTheme.hoverTextColor || props.customTheme.defaultTextColor};
+        ${props=> props.customFormat ? css`
+            background: ${props.customFormat.hoverBackgroundColor};
+            border-color: ${props.customFormat.hoverBorderColor || props.customFormat.hoverBackgroundColor};
+            color: ${props.customFormat.hoverTextColor || props.customFormat.defaultTextColor};
         `
         : getHoverCSSByFormat}
     }
@@ -138,10 +140,10 @@ const ButtonElement = styled<ButtonProps, any>(ButtonVariableElement)`
     &:active {
         outline: 0;
         transform: scale(0.98);
-        ${props=> props.customTheme ? css`
-            background: ${props.customTheme.hoverBackgroundColor};
-            border-color: ${props.customTheme.hoverBorderColor || props.customTheme.hoverBackgroundColor};
-            color: ${props.customTheme.hoverTextColor || props.customTheme.defaultTextColor};
+        ${props=> props.customFormat ? css`
+            background: ${props.customFormat.hoverBackgroundColor};
+            border-color: ${props.customFormat.hoverBorderColor || props.customFormat.hoverBackgroundColor};
+            color: ${props.customFormat.hoverTextColor || props.customFormat.defaultTextColor};
         `
         :getActiveCSSByFormat};
     }
