@@ -27,6 +27,7 @@ import GearIcon from '../icons/gear.svg';
 import DotsMenuIcon from '../icons/dots-menu.svg';
 import LinkText from '../LinkText';
 import Badge from '../Badge';
+import Avatar from '../Avatar';
 
 const getApiHtml = htmlData => {
     return {
@@ -145,10 +146,18 @@ const contextCardWithIcon = (
 
 const exampleAttribution = (
     <VideoCardFooterAttribution
-        userAvatarSrc="https://i.vimeocdn.com/portrait/23898613_75x75.jpg"
-        userAvatarSrcSet="https://i.vimeocdn.com/portrait/23898613_150x150.jpg 2x"
+        userAvatar={(
+            <a href="#">
+                <Avatar
+                    alt="Killian Vilim"
+                    src="https://i.vimeocdn.com/portrait/23898613_75x75.jpg"
+                    srcSet="https://i.vimeocdn.com/portrait/23898613_150x150.jpg 2x"
+                    size="xs"
+                />
+            </a>
+        )}
         userBadge={<Badge format="pro">pro</Badge>}
-        userName="Killian Vilim"
+        userName={<LinkText decoration="inherit" href="#">Killian Vilim</LinkText>}
     />
 );
 
@@ -157,8 +166,14 @@ const exampleAttributionLongName = (
         attributionActionArea={attributionAction}
         actionMenuDescription="See additional actions"
         actionMenuContent={<ParagraphMd>User Menu Here</ParagraphMd>}
-        userAvatarSrc="https://i.vimeocdn.com/portrait/23898613_75x75.jpg"
-        userAvatarSrcSet="https://i.vimeocdn.com/portrait/23898613_150x150.jpg 2x"
+        userAvatar={(
+            <Avatar
+                alt="John Jacob Jingleheimer Schmidt"
+                src="https://i.vimeocdn.com/portrait/23898613_75x75.jpg"
+                srcSet="https://i.vimeocdn.com/portrait/23898613_150x150.jpg 2x"
+                size="xs"
+            />
+        )}
         userBadge={<Badge format="plus">plus</Badge>}
         userName="John Jacob Jingleheimer Schmidt"
     />
@@ -392,6 +407,12 @@ class VideoCardDocs extends React.Component {
                                     }
                                 />
                             </GridCol>
+                            <GridCol mdSpan={12} lgSpan={8}>
+                                <VideoCard
+                                    isLoading
+                                    title="Loading"
+                                />
+                            </GridCol>
                         </GridBlock>
                     </Grid>
                 </div>
@@ -543,6 +564,10 @@ import {
     title="Sample Album"
     titleSubheader={<span>2 videos &#183; 5d</span>}
 />
+<VideoCard
+    isLoading
+    title="Loading"
+/>
                     `}
                 </ExampleSource>
                 <Header3>Prop Value Variables Used in Above Examples</Header3>
@@ -683,10 +708,18 @@ const contextCardWithIcon = (
 
 const exampleAttribution = (
     <VideoCardFooterAttribution
-        userAvatarSrc="https://i.vimeocdn.com/portrait/23898613_75x75.jpg"
-        userAvatarSrcSet="https://i.vimeocdn.com/portrait/23898613_150x150.jpg 2x"
+        userAvatar={(
+            <a href="#">
+                <Avatar
+                    alt="Killian Vilim"
+                    src="https://i.vimeocdn.com/portrait/23898613_75x75.jpg"
+                    srcSet="https://i.vimeocdn.com/portrait/23898613_150x150.jpg 2x"
+                    size="xs"
+                />
+            </a>
+        )}
         userBadge={<Badge format="pro">pro</Badge>}
-        userName="Killian Vilim"
+        userName={<LinkText decoration="inherit" href="#">Killian Vilim</LinkText>}
     />
 );
 
@@ -695,8 +728,14 @@ const exampleAttributionLongName = (
         attributionActionArea={attributionAction}
         actionMenuDescription="See additional actions"
         actionMenuContent={<ParagraphMd>User Menu Here</ParagraphMd>}
-        userAvatarSrc="https://i.vimeocdn.com/portrait/23898613_75x75.jpg"
-        userAvatarSrcSet="https://i.vimeocdn.com/portrait/23898613_150x150.jpg 2x"
+        userAvatar={(
+            <Avatar
+                alt="John Jacob Jingleheimer Schmidt"
+                src="https://i.vimeocdn.com/portrait/23898613_75x75.jpg"
+                srcSet="https://i.vimeocdn.com/portrait/23898613_150x150.jpg 2x"
+                size="xs"
+            />
+        )}
         userBadge={<Badge format="plus">plus</Badge>}
         userName="John Jacob Jingleheimer Schmidt"
     />

@@ -4,7 +4,6 @@ import { rem } from 'polished';
 import { ParagraphSm } from '../Type';
 import { TypeProps } from '../Type/TypeHelpers';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
-import Avatar from '../Avatar';
 
 export interface VideoCardFooterAttributionProps {
     /**
@@ -12,21 +11,17 @@ export interface VideoCardFooterAttributionProps {
      */
     attributionActionArea?: React.ReactNode;
     /**
-     * URI for user avatar
+     * Should be an xs Avatar component optionally wrapped in a link. Use this: `<Avatar alt={userName} src={userAvatarSrc} srcSet={userAvatarSrcSet} size="xs" />`
      */
-    userAvatarSrc: string;
-    /**
-     * URI for user avatar srcSet
-     */
-    userAvatarSrcSet?: string;
+    userAvatar: string;
     /**
      * pass in an small Iris Badge Component
      */
     userBadge?: React.ReactNode;
     /**
-     * The author's name
+     * The author's name as a string or link, if a link use `<LinkText decoration="inherit">`
      */
-    userName: string;
+    userName: React.ReactNode;
 }
 
 // ==================== VideoCardFooterAttribution Styled
@@ -37,7 +32,7 @@ const Wrapper = styled('div')`
     justify-content: flex-end;
 `;
 
-const AvatarStyled = styled(Avatar)`
+const AvatarWrapperStyled = styled('div')`
     display: inline-flex;
     margin-right: ${rem(4)};
 `;
@@ -93,8 +88,7 @@ const VideoCardFooterAttribution: React.SFC<
     VideoCardFooterAttributionProps
 > = ({
     attributionActionArea,
-    userAvatarSrc,
-    userAvatarSrcSet,
+    userAvatar,
     userBadge,
     userName,
     ...filteredProps
@@ -107,12 +101,7 @@ const VideoCardFooterAttribution: React.SFC<
     return (
         <Wrapper onClick={suppressClickPropagation} {...filteredProps}>
             <AttributionStyled hasActionArea={attributionActionArea}>
-                <AvatarStyled
-                    alt={userName}
-                    src={userAvatarSrc}
-                    srcSet={userAvatarSrcSet}
-                    size="xs"
-                />
+                <AvatarWrapperStyled>{userAvatar}</AvatarWrapperStyled>
                 <UserNameStyled
                     element="span"
                     noMargin

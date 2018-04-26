@@ -4,6 +4,7 @@ import { rem } from 'polished';
 import COLORS from '../globals/js/constants/COLORS';
 import VideoCardThumbnailArea from './VideoCardThumbnailArea';
 import VideoCardInfoArea from './VideoCardInfoArea';
+import VideoCardLoadingState from './VideoCardLoadingState';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 import LoaderCircular from '../LoaderCircular';
 
@@ -43,7 +44,11 @@ export interface VideoCardProps {
      */
     isGroup?: boolean;
     /**
-     * Set to `true` to put the card in a loading/processing state
+     * Set to `true` to show an empty loading state for the card
+     */
+    isLoading?: boolean;
+    /**
+     * Set to `true` to put the card in a processing state (spinner)
      */
     isProcessing?: boolean;
     /**
@@ -135,12 +140,13 @@ export interface WrapperStyledProps extends React.HTMLProps<HTMLDivElement> {
     hasContextArea?: boolean;
     isSelected?: boolean;
     isHovered?: boolean;
+    isLoading?: boolean;
     isProcessing?: boolean;
 }
 
 const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
     position: relative;
-    background: #ffffff;
+    background: ${props => props.isLoading ? COLORS.Plaster : COLORS.White};
     border: ${rem(1)} solid
         ${props =>
             props.isSelected ? COLORS.VimeoBlueDarkened : COLORS.Plaster};
@@ -155,7 +161,7 @@ const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
     margin-bottom: ${rem(20)};
     transition: box-shadow ${VideoCardStyleSettings.hoverTransition};
     &:hover {
-        cursor: ${props => (props.isProcessing ? 'auto' : 'pointer')};
+        cursor: ${props => (props.isProcessing || props.isLoading ? 'auto' : 'pointer')};
     }
 `;
 
@@ -164,10 +170,7 @@ export interface ContentPositionWrapperStyledProps
     isProcessing?: boolean;
 }
 
-const ContentPositionWrapperStyled = styled<
-    ContentPositionWrapperStyledProps,
-    'div'
->('div')`
+const ContentPositionWrapperStyled = styled<ContentPositionWrapperStyledProps,'div'>('div')`
     position: absolute;
     top: 0;
     left: 0;
@@ -175,22 +178,15 @@ const ContentPositionWrapperStyled = styled<
     filter: ${props => (props.isProcessing ? 'grayscale(.7)' : 'none')};
 `;
 
-const FooterAreaStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
-    padding: ${rem(
-            (VideoCardStyleSettings.footerHeight -
-                VideoCardStyleSettings.actionButtonSize) /
-                2
-        )}
-        ${rem(VideoCardStyleSettings.padding)};
+const FooterAreaStyled = styled('div')`
+    padding: ${rem((VideoCardStyleSettings.footerHeight - VideoCardStyleSettings.actionButtonSize) / 2)} ${rem(VideoCardStyleSettings.padding)};
     position: absolute;
     bottom: 0;
     display: flex;
     width: 100%;
 `;
 
-const ProcessingOverlayStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
-    'div'
-)`
+const ProcessingOverlayStyled = styled('div')`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -251,6 +247,7 @@ class VideoCard extends React.Component<VideoCardProps, any> {
             contextInfoArea,
             footer,
             isGroup,
+            isLoading,
             isPrivate,
             isProcessing,
             isSelected,
@@ -272,17 +269,8 @@ class VideoCard extends React.Component<VideoCardProps, any> {
             ...filteredProps
         } = this.props;
 
-        return (
-            <WrapperStyled
-                hasContextArea={contextInfoArea ? true : false}
-                isHovered={this.state.isHovered}
-                isProcessing={isProcessing}
-                isSelected={isSelected}
-                onClick={this._handleClick}
-                onMouseEnter={this._handleMouseEnter}
-                onMouseLeave={this._handleMouseLeave}
-                {...filteredProps}
-            >
+        const VideoCardContent = (
+            <div>
                 <ContentPositionWrapperStyled isProcessing={isProcessing}>
                     {contextInfoArea}
                     <VideoCardThumbnailArea
@@ -313,12 +301,28 @@ class VideoCard extends React.Component<VideoCardProps, any> {
                         titleSubheader={titleSubheader}
                     />
                 </ContentPositionWrapperStyled>
-                {footer && <FooterAreaStyled>{footer}</FooterAreaStyled>}
+                {footer ? <FooterAreaStyled>{footer}</FooterAreaStyled> : null}
                 {isProcessing && (
                     <ProcessingOverlayStyled onClick={this._suppressEvents}>
                         <LoaderCircular size="xl" format="light" />
                     </ProcessingOverlayStyled>
                 )}
+            </div>
+        )
+
+        return (
+            <WrapperStyled
+                hasContextArea={contextInfoArea ? true : false}
+                isHovered={isLoading ? false : this.state.isHovered}
+                isLoading={isLoading}
+                isProcessing={isProcessing}
+                isSelected={isSelected}
+                onClick={this._handleClick}
+                onMouseEnter={this._handleMouseEnter}
+                onMouseLeave={this._handleMouseLeave}
+                {...filteredProps}
+            >
+                {isLoading ? <VideoCardLoadingState /> : VideoCardContent}
             </WrapperStyled>
         );
     }
