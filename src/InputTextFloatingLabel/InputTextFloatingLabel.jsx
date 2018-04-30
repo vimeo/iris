@@ -2,6 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './InputTextFloatingLabel.scss';
+// $FlowFixMe
 import InputWrapper from '../InputWrapper';
 import EyeIcon from '../icons/eye.svg';
 import EyeOffIcon from '../icons/eye-off.svg';

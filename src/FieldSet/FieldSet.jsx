@@ -2,6 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './FieldSet.scss';
+// $FlowFixMe
 import InputLabel from '../InputLabel/InputLabel';
 import InputMessageArea from '../InputMessageArea/InputMessageArea';
 

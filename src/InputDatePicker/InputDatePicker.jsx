@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import DateTime from 'react-datetime';
+// $FlowFixMe
 import InputText from '../InputText/InputText';
 import MenuPanel from '../MenuPanel/MenuPanel';
 import styles from './InputDatePicker.scss';

@@ -33,6 +33,8 @@ const VimeoStyleSettings = {
             alertColorHover: COLORS.SunsetOrangeDarkened,
             alertColorLight: COLORS.PalePink,
             liveColor: COLORS.SunsetOrange,
+            positiveColor: COLORS.Pistachio,
+            positiveColorHover: COLORS.PistachioDarkened,
             primaryColor: COLORS.VimeoBlue,
             primaryColorHover: COLORS.VimeoBlueDarkened,
             primaryColorLight: COLORS.Foam,

@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import styles from './CopyField.scss';
 import ClipboardIcon from '../icons/clipboard.svg';
 import withCopyAbility from '../withCopyAbility/withCopyAbility';
+// $FlowFixMe
 import InputText from '../InputText/InputText';
 import ButtonInlineInputText from '../ButtonInlineInputText/ButtonInlineInputText';
 

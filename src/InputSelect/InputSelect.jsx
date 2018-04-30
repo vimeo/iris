@@ -2,6 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './InputSelect.scss';
+// $FlowFixMe
 import InputWrapper from '../InputWrapper/InputWrapper';
 import ChevronIris from '../icons/chevron-down.svg';
 

@@ -2,6 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './TextArea.scss';
+// $FlowFixMe
 import InputWrapper from '../InputWrapper/InputWrapper';
 
 const displayName = 'TextArea';

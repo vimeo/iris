@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { ChromePicker } from 'react-color';
+// $FlowFixMe
 import InputText from '../InputText/InputText';
 import MenuPanel from '../MenuPanel/MenuPanel';
 import styles from './InputColorPicker.scss';

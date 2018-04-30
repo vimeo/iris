@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+// $FlowFixMe
 import InputText from '../InputText/InputText';
 import ButtonInlineInputText from '../ButtonInlineInputText/ButtonInlineInputText';
 import SearchIcon from '../icons/search.svg';

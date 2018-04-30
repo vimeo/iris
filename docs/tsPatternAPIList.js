@@ -2,6 +2,7 @@
 
 import ButtonAPI from '../data/tsdocsHTML/interfaces/_button_button_.buttonprops.html';
 import CategoryCardAPI from '../data/tsdocsHTML/interfaces/_categorycard_categorycard_.categorycardprops.html';
+import InputTextAPI from '../data/tsdocsHTML/interfaces/_inputtext_inputtext_.inputtextprops.html';
 import LoaderCircularAPI from '../data/tsdocsHTML/interfaces/_loadercircular_loadercircular_.loadercircularprops.html';
 import ModalAPI from '../data/tsdocsHTML/interfaces/_modal_modal_.modalprops.html';
 import ModalFeatureUpdateAPI from '../data/tsdocsHTML/interfaces/_modalfeatureupdate_modalfeatureupdate_.modalfeatureupdateprops.html';
@@ -12,6 +13,9 @@ import VideoCardAPI from '../data/tsdocsHTML/interfaces/_videocard_videocard_.vi
 const tsPatternAPIList = {
     Button: {
         data: ButtonAPI,
+    },
+    InputText: {
+        data: InputTextAPI,
     },
     CategoryCard: {
         data: CategoryCardAPI,
