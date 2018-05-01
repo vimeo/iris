@@ -35,7 +35,7 @@ const widthMap = {
 
 const TooltipStyled = styled<TooltipStyledProps, 'div'>('div')`
     width: ${props => rem(widthMap[props.tooltipSize])};
-    padding: ${rem(9)} ${rem(12)};
+    padding: ${rem(8)} ${rem(8)};
 
     color: ${COLORS.White};
     border-radius: ${rem(3)};
