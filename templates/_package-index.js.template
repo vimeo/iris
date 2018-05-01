@@ -42,6 +42,7 @@ export { default as Modal } from './Modal';
 export { default as MenuPanelListItem} from './MenuPanelListItem';
 export {default as ModalFeatureUpdate, ModalFeatureUpdateTemplate} from './ModalFeatureUpdate';
 export { default as ProgressBar } from './ProgressBar';
+export { default as SteppedContentSlider} from './SteppedContentSlider';
 export { default as Tooltip } from './Tooltip';
 export { default as TooltipOverlay } from './TooltipOverlay';
 export {
