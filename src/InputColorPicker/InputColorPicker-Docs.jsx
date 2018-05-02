@@ -13,6 +13,14 @@ const InputColorPickerDocs = (props) => {
                     defaultColor = "#00adef"
                     label="Pick a Color"
                     id="SampleColorPicker"
+                    resetButtonLabel="Reset"
+                />
+                <InputColorPicker
+                    defaultColor = "#00adef"
+                    label="Pick a Color (Disabled)"
+                    id="SampleColorPickerDisabled"
+                    resetButtonLabel="Reset"
+                    disabled
                 />
             </div>
 
@@ -22,6 +30,14 @@ const InputColorPickerDocs = (props) => {
     defaultColor = "#00adef"
     label="Pick a Color"
     id="SampleColorPicker"
+    resetButtonLabel="reset"
+/>
+<InputColorPicker
+    defaultColor = "#00adef"
+    label="Pick a Color (Disabled)"
+    id="SampleColorPickerDisabled"
+    resetButtonLabel="Reset"
+    disabled
 />
                     `}
             </ExampleSource>

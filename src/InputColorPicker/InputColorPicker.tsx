@@ -1,30 +1,125 @@
-// @flow
 import React from 'react';
+import styled from 'styled-components';
+import { rem } from 'polished';
 import { ChromePicker } from 'react-color';
 // $FlowFixMe
 import InputText from '../InputText/InputText';
 import MenuPanel from '../MenuPanel/MenuPanel';
-import styles from './InputColorPicker.scss';
-import KEY_CODES from '../globals/js/constants/KEY_CODES';
+import { COLORS, KEY_CODES } from '../globals/js/constants';
+import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 
-const defaultColorValue = '#00adef';
+const defaultColorValue = COLORS.VimeoBlue;
 
-type Props = {
-    defaultColor?: string,
-    onBlur?: Function,
-    onChangeColor?: (hex: string) => void,
-    label: string,
-    menuPanelZIndexOverride: number,
-    id: string,
+export interface InputColorPickerProps {
+    /**
+     * a string that is a legal hex value, including # (defaults to `"#00adef"`, Vimeo Blue)
+     */
+    defaultColor?: string;
+    disabled?: boolean;
+    /**
+     * Callback fires if the color input blurs
+     */
+    onBlur?: (event: React.FormEvent<HTMLInputElement>) => void;
+     /**
+     * Callback fires the color value changes
+     */
+    onChangeColor?: (hex: string) => void;
+     /**
+     * Field label
+     */
+    label: string;
+    /**
+     * Translated label for "Reset" If not preset there will be no reset button.
+     */
+    resetButtonLabel?: string;
+    /**
+     * Use a number to override the Z-index on the menu panel that opens with the color picker.
+    */
+    menuPanelZIndexOverride: number;
+    /**
+     * Add a unique id to the input.
+    */
+    id: string;
 };
+
+export interface InputColorPickerState {
+    currentColor?: string;
+    fieldValue?: string;
+    focusShouldOpenMenu?: boolean;
+    menuHovered?: boolean;
+    showReset?: boolean;
+    showColorPicker?: boolean;          
+    shouldFocusNextUpdate?: boolean;
+};
+
+const ComponentWrapperStyled = styled('div') `
+    position: relative;
+`;
+
+const ColorPickerPanelStyled = styled('div')`
+    margin-top: ${rem(8)};
+`;
+
+const ColorButtonWrapperStyled = styled('div')`
+    position: absolute;
+    top: ${rem(8)};
+    left: ${rem(8)};
+`;
+
+const ColorButtonStyled = styled<HTMLButtonElement, any>('button')`
+    width: ${rem(24)};
+    height: ${rem(24)};
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    border-radius: ${rem(3)};
+    background: transparent;
+    box-shadow: inset 0 0 0 ${rem(1)} rgba(0, 0, 0, 0.2);
+
+    cursor: pointer;
+
+    appearance: none;
+
+    &:focus {
+        outline: 0;
+    }
+`;
+
+const InputStyled = styled(InputText)`
+    padding-left: ${rem(37)};
+`;
+
+interface ResetButtonStyledStyledProps extends HTMLAnchorElement {
+    isShowing: boolean,
+}
+
+const ResetButtonStyled = styled<ResetButtonStyledStyledProps, any>('a')`
+    position: absolute;
+    top: ${rem(37)};
+    right: ${rem(8)};
+    display: block;
+    font-size: ${rem(12)};
+    padding: ${rem(4)};
+    color: ${VimeoStyleSettings.colors.typeColors.textColorMediumLight};
+    text-decoration: none;
+    background: ${COLORS.White};
+
+    opacity: ${props => props.isShowing ? '1' : '0'};
+    transform: scale(${props => props.isShowing ? 1 : 0.5});
+    transition: all 150ms ease;
+
+    &:hover {
+        color: ${VimeoStyleSettings.colors.typeColors.textColorDark};
+    }
+`;
 
 class InputColorPicker extends React.Component {
     static defaultProps = {
         defaultColor: defaultColorValue,
-        onChangeColor: (color: string) => {},
     };
 
-    constructor(props: Props) {
+    constructor(props: InputColorPickerProps) {
         super(props);
 
         // make sure the color passed to props.defaultColor is valid, otherwise fallback to component default.
@@ -35,26 +130,27 @@ class InputColorPicker extends React.Component {
 
         this.state = {
             currentColor: initialColor,
-            showColorPicker: false,
             fieldValue: props.defaultColor,
-            menuHovered: false,
             focusShouldOpenMenu: true,
+            menuHovered: false,
+            showReset: false,
+            showColorPicker: false,           
             shouldFocusNextUpdate: false,
         };
     }
 
-    state: Object;
+    state: InputColorPickerState;
 
-    componentDidUpdate = () => {
+    componentDidUpdate(){
         // refocus the field on menu close, but don't open the menu again
         if (!this.state.showColorPicker && this.state.shouldFocusNextUpdate) {
             setTimeout(() => {
                 this._setFocus();
             }, 250);
         }
-    };
+    }
 
-    props: Props;
+    props: InputColorPickerProps;
     InputWrapper: HTMLElement;
 
     _bindCloseMenuListeners = () => {
@@ -69,7 +165,6 @@ class InputColorPicker extends React.Component {
 
     _setFocus = () => {
         const thisInput = this.InputWrapper.querySelector('[data-input-field]');
-
         if (thisInput instanceof HTMLInputElement) {
             thisInput.focus();
         }
@@ -98,18 +193,21 @@ class InputColorPicker extends React.Component {
         this._unbindCloseMenuListeners();
     };
 
-    _handleBlur = (e: Event) => {
-        if (e.target && e.target.value) {
-            const value = e.target.value;
+    _handleBlur = (event: React.FormEvent<HTMLInputElement>) => {
+        //@ts-ignore TS doesn't know event target has value sometimes, but I'm guarding agains that
+        if (event.target && event.target.value) {
+            //@ts-ignore see above
+            const value = event.target.value;
 
             if (typeof value === 'string' && this._isHexValid(value)) {
                 this.setState({
+                    showReset: value !== this.props.defaultColor,
                     currentColor: value,
                     showColorPicker: this.state.menuHovered,
                 });
-            }
-            else {
+            } else {
                 this.setState({
+                    showReset: false,
                     fieldValue: this.props.defaultColor,
                     currentColor: this.props.defaultColor,
                 });
@@ -117,7 +215,7 @@ class InputColorPicker extends React.Component {
         }
 
         if (typeof this.props.onBlur === 'function') {
-            this.props.onBlur(e);
+            this.props.onBlur(event);
         }
     };
 
@@ -138,6 +236,7 @@ class InputColorPicker extends React.Component {
         hsl: Object,
     }) => {
         this.setState({
+            showReset: color.hex !== this.props.defaultColor,
             currentColor: color.hex,
             fieldValue: color.hex,
         });
@@ -151,7 +250,7 @@ class InputColorPicker extends React.Component {
         }
     };
 
-    _handleDocumentKeyDown = (e: Event) => {
+    _handleDocumentKeyDown = (e: KeyboardEvent) => {
         if (e.keyCode === KEY_CODES.esc || e.keyCode === KEY_CODES.tab) {
             this._closeMenu();
         }
@@ -163,14 +262,17 @@ class InputColorPicker extends React.Component {
         }
     };
 
-    _handleInputChange = (e: Event) => {
+    _handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
+        //@ts-ignore TS doesn't know event target has value sometimes, but I'm guarding agains that
         if (e.target && e.target.value) {
+            //@ts-ignore see above
             const value = e.target.value;
 
             if (typeof value === 'string') {
                 if (this._isHexValid(value)) {
                     this._handleColorChange(value);
                     this.setState({
+                        showReset: value !== this.props.defaultColor,
                         currentColor: value,
                         fieldValue: value,
                     });
@@ -196,6 +298,15 @@ class InputColorPicker extends React.Component {
         });
     };
 
+    _handleResetClick = (e) => {
+        e.preventDefault();
+        this.setState({
+            showReset: false,
+            fieldValue: this.props.defaultColor,
+            currentColor: this.props.defaultColor,
+        });
+    };
+
     _isHexValid = (color: string) => {
         return /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(color);
     };
@@ -205,15 +316,16 @@ class InputColorPicker extends React.Component {
             id,
             onBlur, // eslint-disable-line no-unused-vars
             defaultColor, // eslint-disable-line no-unused-vars
+            disabled,
             onChangeColor, // eslint-disable-line no-unused-vars
             label,
             menuPanelZIndexOverride,
+            resetButtonLabel,
             ...filteredProps
         } = this.props;
 
         const ColorPickerPanelContent = (
-            <div
-                className={styles.ColorPicker}
+            <ColorPickerPanelStyled
                 onMouseEnter={this._handleHoverOnMenu}
                 onMouseLeave={this._handleHoverOutMenu}
             >
@@ -222,12 +334,11 @@ class InputColorPicker extends React.Component {
                     onChangeComplete={this._handleColorPickerUpdate}
                     disableAlpha
                 />
-            </div>
+            </ColorPickerPanelStyled>
         );
         const ColorButton = (
-            <div className={styles.ColorButtonWrapper}>
+            <ColorButtonWrapperStyled>
                 <MenuPanel
-                    className={styles.ButtonMenu}
                     alignment="left"
                     menuContent={ColorPickerPanelContent}
                     size="md"
@@ -235,37 +346,46 @@ class InputColorPicker extends React.Component {
                     isControlled
                     zIndexOverride={menuPanelZIndexOverride}
                 >
-                    <button
+                    <ColorButtonStyled
                         style={{ backgroundColor: this.state.currentColor }}
-                        className={styles.ColorButton}
                         type="button"
-                        onClick={this._handleButtonClick}
+                        onClick={!disabled && this._handleButtonClick}   
                     />
                 </MenuPanel>
-            </div>
+            </ColorButtonWrapperStyled>
         );
 
         return (
-            <div
-                ref={div => {
+            <ComponentWrapperStyled
+                innerRef={div => {
                     this.InputWrapper = div;
                 }}
             >
-                <InputText
+                <InputStyled
                     {...filteredProps}
+                    disabled={disabled}
                     id={id}
                     label={label}
-                    className={styles.Input}
                     value={this.state.fieldValue}
                     isInline
                     onChange={this._handleInputChange}
                     size="md"
                     preMessage={ColorButton}
-                    onBlur={this._handleBlur}
-                    onFocus={this._handleFocus}
+                    onBlur={!disabled && this._handleBlur}
+                    onFocus={!disabled && this._handleFocus}
                     data-input-field
                 />
-            </div>
+                {resetButtonLabel && (
+                    <ResetButtonStyled
+                        href="#"
+                        isShowing={this.state.showReset}
+                        onClick={!disabled && this._handleResetClick}
+                    >
+                        {resetButtonLabel}
+                    </ResetButtonStyled>
+                )}
+
+            </ComponentWrapperStyled>
         );
     }
 }

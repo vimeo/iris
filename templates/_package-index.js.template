@@ -37,6 +37,7 @@ export { default as <%- pattern['displayName']%> } from './<%- pattern['displayN
 export { default as Button} from './Button';
 export { default as InputText} from './InputText';
 export { default as CategoryCard} from './CategoryCard';
+export { default as InputColorPicker} from './InputColorPicker';
 export { default as LoaderCircular } from './LoaderCircular';
 export { default as Modal } from './Modal';
 export { default as MenuPanelListItem} from './MenuPanelListItem';
