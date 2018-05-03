@@ -35,7 +35,7 @@ const InputStyled = styled<InputStyledProps, 'input'>('input')`
     font-size: ${props => rem(InputStyleSettings.size[props.inputSize].fontSize)};
     line-height: ${props => InputStyleSettings.size[props.inputSize].lineHeight / InputStyleSettings.size[props.inputSize].fontSize};
 
-    margin: 0 0 ${rem(InputStyleSettings.marginBottom)} 0;
+    margin: 0 0 ${props => props.isInline ? 0 : rem(InputStyleSettings.marginBottom)} 0;
 
     border-color: ${props => InputStyleSettings.color[props.theme].border[props.format].default};
     border-width: ${rem(InputStyleSettings.border.borderSize)};
@@ -117,6 +117,7 @@ const InputText:React.SFC<InputTextProps>  = ({
                     hasIcon={hasIcon}
                     id={id}
                     inlineButton={inlineButton}
+                    isInline={isInline}
                     label={label}
                     inputSize={size}
                     theme={themeDefaultSupport}
