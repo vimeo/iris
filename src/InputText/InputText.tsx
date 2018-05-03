@@ -27,7 +27,7 @@ const InputStyled = styled<InputStyledProps, 'input'>('input')`
     color: ${props => InputStyleSettings.color[props.theme].text.default};
     font-family: ${VimeoStyleSettings.type.fontFamily.regular};
 
-    height:${props => InputStyleSettings.size[props.inputSize] ? rem(InputStyleSettings.size[props.inputSize].height : InputStyleSettings.size.md.height)};
+    height:${props => InputStyleSettings.size[props.inputSize] ? rem(InputStyleSettings.size[props.inputSize].height) : rem(InputStyleSettings.size.md.height)};
     padding: ${props => rem(InputStyleSettings.size[props.inputSize].paddingVertical)};
     padding-right: ${props => rem(props.inlineButton ? InputStyleSettings.size[props.inputSize].buttonInputPaddingHorizontal : InputStyleSettings.size[props.inputSize].paddingHorizontal)};
     padding-left: ${props => rem(props.hasIcon ? InputStyleSettings.size[props.inputSize].iconInputPaddingHorizontal : InputStyleSettings.size[props.inputSize].paddingHorizontal)};
