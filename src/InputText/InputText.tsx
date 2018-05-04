@@ -19,21 +19,41 @@ export interface InputStyledProps extends InputTextProps {
     inputSize: 'md' | 'lg' | 'xl',
 };
 
+const getMaybeInlineButtonPadding = (props) => {
+    if(props.inlineButton  && InputStyleSettings.size[props.inputSize]) {
+        return InputStyleSettings.size[props.inputSize].buttonInputPaddingHorizontal;
+    } else if (!props.inlineButton &&  InputStyleSettings.size[props.inputSize]) {
+        return  InputStyleSettings.size[props.inputSize].paddingHorizontal;
+    }
+    
+    return 0;
+};
+
+const getMaybeIconPadding = (props) => {
+    if(props.hasIcon && InputStyleSettings.size[props.inputSize]) {
+        return InputStyleSettings.size[props.inputSize].iconInputPaddingHorizontal;
+    } else if (!props.hasIcon &&  InputStyleSettings.size[props.inputSize]) {
+        return InputStyleSettings.size[props.inputSize].paddingHorizontal
+    }
+    
+    return 0;
+};
+
 const InputStyled = styled<InputStyledProps, 'input'>('input')`
     display: inline-block;
     width: 100%;
 
-    background-color: ${props => InputStyleSettings.color[props.theme].background.default};
-    color: ${props => InputStyleSettings.color[props.theme].text.default};
+    background-color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].background.default : InputStyleSettings.color.light.background.default};
+    color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].text.default : InputStyleSettings.color.light.text.default};
     font-family: ${VimeoStyleSettings.type.fontFamily.regular};
 
     height:${props => InputStyleSettings.size[props.inputSize] ? rem(InputStyleSettings.size[props.inputSize].height) : rem(InputStyleSettings.size.md.height)};
-    padding: ${props => rem(InputStyleSettings.size[props.inputSize].paddingVertical)};
-    padding-right: ${props => rem(props.inlineButton ? InputStyleSettings.size[props.inputSize].buttonInputPaddingHorizontal : InputStyleSettings.size[props.inputSize].paddingHorizontal)};
-    padding-left: ${props => rem(props.hasIcon ? InputStyleSettings.size[props.inputSize].iconInputPaddingHorizontal : InputStyleSettings.size[props.inputSize].paddingHorizontal)};
+    padding: ${props =>  InputStyleSettings.size[props.inputSize] ? rem(InputStyleSettings.size[props.inputSize].paddingVertical) : rem(InputStyleSettings.size.md.paddingVertical)};
+    padding-right: ${props => rem(getMaybeInlineButtonPadding(props))};
+    padding-left: ${props => rem(getMaybeIconPadding(props))};
 
-    font-size: ${props => rem(InputStyleSettings.size[props.inputSize].fontSize)};
-    line-height: ${props => InputStyleSettings.size[props.inputSize].lineHeight / InputStyleSettings.size[props.inputSize].fontSize};
+    font-size: ${props => InputStyleSettings.size[props.inputSize] ? rem(InputStyleSettings.size[props.inputSize].fontSize) : rem(InputStyleSettings.size.md.fontSize)};
+    line-height: ${props => InputStyleSettings.size[props.inputSize] ? InputStyleSettings.size[props.inputSize].lineHeight / InputStyleSettings.size[props.inputSize].fontSize : InputStyleSettings.size.md.lineHeight / InputStyleSettings.size.md.fontSize};
 
     margin: 0 0 ${props => props.isInline ? 0 : rem(InputStyleSettings.marginBottom)} 0;
 
@@ -46,28 +66,28 @@ const InputStyled = styled<InputStyledProps, 'input'>('input')`
     transition: all ${InputStyleSettings.animationSpeed}ms ease-out;
 
     &:hover {
-        border-color: ${props => InputStyleSettings.color[props.theme].border[props.format].hover};
+        border-color: ${props => InputStyleSettings.color[props.theme] && InputStyleSettings.color[props.theme].border[props.format] ?InputStyleSettings.color[props.theme].border[props.format].hover : InputStyleSettings.color.light.border.neutral};
     }
 
     &:focus {
-        box-shadow: ${props => getInputBorderBoxShadow(InputStyleSettings.color[props.theme].border.focus)};
-        border-color: ${props => InputStyleSettings.color[props.theme].border.focus};
+        box-shadow: ${props => InputStyleSettings.color[props.theme] ? getInputBorderBoxShadow(InputStyleSettings.color[props.theme].border.focus) : getInputBorderBoxShadow(InputStyleSettings.color.light.border.focus)};
+        border-color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].border.focus : InputStyleSettings.color.light.border.focus};
         outline: 0;
     }
 
     &::placeholder {
-        color: ${props => InputStyleSettings.color[props.theme].text.placeholder};
+        color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].text.placeholder : InputStyleSettings.color.light.text.placeholder};
     }
 
     &:read-only {
-        color: ${props => InputStyleSettings.color[props.theme].text.disabled};
-        background-color: ${props => InputStyleSettings.color[props.theme].background.disabled};
+        color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].text.disabled : InputStyleSettings.color.light.text.disabled };
+        background-color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].background.disabled : InputStyleSettings.color.light.background.disabled};
     }
 
     &:disabled {
-        color: ${props => InputStyleSettings.color[props.theme].text.disabled} !important;
-        background-color: ${props => InputStyleSettings.color[props.theme].background.disabled}!important;
-        border-color: ${props => InputStyleSettings.color[props.theme].border.disabled} !important;
+        color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].text.disabled : InputStyleSettings.color.light.text.disabled} !important;
+        background-color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].background.disabled : InputStyleSettings.color.light.background.disabled}!important;
+        border-color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].border.disabled : InputStyleSettings.color.light.border.disabled} !important;
     }
 `
 
@@ -94,6 +114,7 @@ const InputText:React.SFC<InputTextProps>  = ({
     const hasIcon = isNegative || format === 'positive';
     // support deprecated 'default' theme as 'light'
     const themeDefaultSupport = theme === 'default' ? 'light' : theme;
+    // Protect against invalid props that are needed for style look up.
 
     return (
             <InputWrapper
@@ -120,7 +141,7 @@ const InputText:React.SFC<InputTextProps>  = ({
                     isInline={isInline}
                     label={label}
                     inputSize={size}
-                    theme={themeDefaultSupport}
+                    theme={theme}
                     type={type}
                 />
                     {inlineButton}
