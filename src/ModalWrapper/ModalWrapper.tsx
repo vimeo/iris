@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled, { css } from 'styled-components';
+import {rem} from 'polished';
 import { Transition } from 'react-transition-group';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';
 import Z_INDEX from '../globals/js/constants/Z_INDEXES';
@@ -77,6 +78,7 @@ const getModalPositionCSS = (props) => {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            max-width: calc(100% - ${rem(40)});
         `;
     }
 }

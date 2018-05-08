@@ -41,19 +41,29 @@ const CounterIcon = ({
         autoMargins ? styles.autoMargins : null
     );
 
+    const CounterIconContent = (
+        <span {...filteredProps} className={componentClass}>
+            <span className={IconClass}>{icon}</span>
+            <ParagraphLg className={CountNumberClass} element="span">
+                {children}
+            </ParagraphLg>
+        </span>
+    );
+
+    const maybeLinkContent = href ? (
+        <a href={href} onClick={onClick}>
+            {CounterIconContent}
+        </a>
+    ) : CounterIconContent;
+
     return (
         <div className={WrapperClass}>
             <TooltipOverlay
                 href={href}
-                onClick={onClick}
                 tooltipText={counterTitle}
+                onClick={!href && onClick}
             >
-                <span {...filteredProps} className={componentClass}>
-                    <span className={IconClass}>{icon}</span>
-                    <ParagraphLg className={CountNumberClass} element="span">
-                        {children}
-                    </ParagraphLg>
-                </span>
+                {maybeLinkContent}
             </TooltipOverlay>
         </div>
     );

@@ -18,48 +18,32 @@ class ModalDocs extends React.Component {
             showModalTwo: false,
             showModalThree: false,
             showModalFour: false,
+            showModalFive: false,
         };
-        this.openModal1 = this.openModal1.bind(this);
-        this.openModal2 = this.openModal2.bind(this);
-        this.openModal3 = this.openModal3.bind(this);
-        this.openModal4 = this.openModal4.bind(this);
-        this.closeModal1 = this.closeModal1.bind(this);
-        this.closeModal2 = this.closeModal2.bind(this);
-        this.closeModal3 = this.closeModal3.bind(this);
-        this.closeModal4 = this.closeModal4.bind(this);
     }
 
-    closeModal1() {
-        this.setState({ showModalOne: false });
-    }
+    closeModal1 = () => this.setState({ showModalOne: false });
 
-    openModal1() {
-        this.setState({ showModalOne: true });
-    }
 
-    closeModal2() {
-        this.setState({ showModalTwo: false });
-    }
+    openModal1 = () => this.setState({ showModalOne: true });
 
-    openModal2() {
-        this.setState({ showModalTwo: true });
-    }
 
-    closeModal3() {
-        this.setState({ showModalThree: false });
-    }
+    closeModal2 = () => this.setState({ showModalTwo: false });
 
-    openModal3() {
-        this.setState({ showModalThree: true });
-    }
 
-    closeModal4() {
-        this.setState({ showModalFour: false });
-    }
+    openModal2 = () => this.setState({ showModalTwo: true });
 
-    openModal4() {
-        this.setState({ showModalFour: true });
-    }
+    closeModal3= () => this.setState({ showModalThree: false });
+
+    openModal3 = () => this.setState({ showModalThree: true });
+
+    closeModal4 = () => this.setState({ showModalFour: false });
+
+    openModal4 = () => this.setState({ showModalFour: true });
+
+    closeModal5 = () => this.setState({ showModalFive: false });
+
+    openModal5 = () => this.setState({ showModalFive: true });
 
     render() {
         const MenuList = (
@@ -190,6 +174,49 @@ class ModalDocs extends React.Component {
 </Modal>
                         `}
                     </ExampleSource>
+
+                    <Header3>Fluid Modal</Header3>
+                    <ParagraphMd>Applying <code>size="fluid"</code> to a Modal allows the modal to stretch to the size of its internal content (up to a small margin from the edge of the viewport.)</ParagraphMd>
+                    <Modal
+                        modalLabelId="exampleModalFullLabel"
+                        modalDescriptionId="exampleModalFullDesc"
+                        modalCloseLabel="Close this dialog."
+                        modalTitle="Modal in Fluid Size"
+                        onDismiss={this.closeModal5}
+                        isShowing = {this.state.showModalFive}
+                        size="fluid"
+                    >
+                        <img src="https://placekitten.com/1000/800" style={{ width: '80rem' }} />
+                        <ParagraphMd id="exampleModal5Desc">I am a Fluid Modal.</ParagraphMd>
+                        <ParagraphMd>Modals are about presenting a choice to the user and also disprupting them from what they were doing to get their attention.</ParagraphMd>
+                        <ParagraphMd>Twas brillig, and the slithy toves Did gyre and gimble in the wabe: All mimsy were the borogoves, And the mome raths outgrabe.</ParagraphMd>
+                        <ParagraphMd>"Beware the Jabberwock, my son! The jaws that bite, the claws that catch! Beware the Jubjub bird, and shun The frumious Bandersnatch!"</ParagraphMd>
+                        <ParagraphMd>He took his vorpal sword in hand: Long time the manxome foe he sought -- So rested he by the Tumtum tree, And stood awhile in thought.</ParagraphMd>
+                        <ParagraphMd>And, as in uffish thought he stood,The Jabberwock, with eyes of flame, Came whiffling through the tulgey wood, And burbled as it came!</ParagraphMd>
+                    </Modal>
+
+                    <Button format="primaryOutline"
+                        onClick={this.openModal5}
+                    >
+                        Show Modal
+                    </Button>
+
+                     <ExampleSource>
+                    {`
+<Modal
+    modalLabelId="exampleModalFullLabel"
+    modalDescriptionId="exampleModalFullDesc"
+    modalCloseLabel="Close this dialog."
+    modalTitle="Modal in Fluid Size"
+    onDismiss={this.closeModal5}
+    isShowing = {this.state.showModalFive}
+    size="fluid"
+>
+    ... content here
+</Modal>
+                        `}
+                    </ExampleSource>
+
                     <Header3>Free-form Modal, no dismiss button (Size: "sm")</Header3>
                     <ParagraphMd>If there is a string passed to <code>modalTitle</code> The modal will print a pre-formatted title.</ParagraphMd>
                     <ParagraphMd>The dismiss button can be hidden with the <code>hideDismissButton</code> prop.</ParagraphMd>

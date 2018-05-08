@@ -21,6 +21,7 @@ class CounterIconDocs extends React.Component {
                         2.12K
                     </CounterIcon>
                      <CounterIcon
+                        href="http://www.vimeo.com"
                         icon = {<CollectionIcon />}
                         counterTitle="Play Count (Alternative)"
                     >
