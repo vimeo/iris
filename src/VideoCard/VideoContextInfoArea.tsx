@@ -2,13 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
-import { ParagraphAltXs, Header6 } from '../Type';
 
 export interface VideoCardContextInfoAreaProps {
-    /**
-     * Intro header for context, e.g. "Added to"
-     */
-    contextSubHeader: string;
     /**
      * Icon decoration for intro header, for likes use <VideoCardLikeIcon />
      */
@@ -23,45 +18,28 @@ export interface WrapperStyledProps extends React.HTMLProps<HTMLDivElement> {
     hasIcon: boolean;
 }
 
-const ContextIconSize = 12;
+const ContextIconSize = 14;
 // ==================== VideoCardContextArea Styled
 const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
-    position: relative;
-    max-height: ${rem(VideoCardStyleSettings.contextAreaHeight)};
-    padding-top: ${rem(VideoCardStyleSettings.padding / 2)};
-    padding-right: ${rem(VideoCardStyleSettings.padding)};
-    padding-bottom: ${rem(VideoCardStyleSettings.padding / 2)};
-    padding-left: ${props =>
-        props.hasIcon
-            ? rem(VideoCardStyleSettings.padding + ContextIconSize + 4)
-            : rem(VideoCardStyleSettings.padding)};
+    display: flex;
+    height: ${rem(VideoCardStyleSettings.contextAreaHeight)};
+    padding: ${rem(VideoCardStyleSettings.padding / 2)} ${rem(VideoCardStyleSettings.padding)};
+    align-items: center;
 `;
 
 const IconStyled = styled('div')`
-    position: absolute;
-    top: ${rem(2)};
-    left: ${rem(VideoCardStyleSettings.padding)};
-    height: ${rem(ContextIconSize)};
-    width: ${rem(ContextIconSize)};
+    padding-top: ${rem(3)};
+    margin-right: ${rem(4)};
     svg {
         height: ${rem(ContextIconSize)};
         width: ${rem(ContextIconSize)};
     }
 `;
 
-const TruncationWrapStyled = styled('span')`
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: inline-block;
-    width: 100%;
-`;
-
 // ==================== VideoCardContextArea
 
 const VideoCardContextInfoArea = ({
     contextAttributionHeader,
-    contextSubHeader,
     contextSubHeaderIcon,
     ...filteredProps
 }: VideoCardContextInfoAreaProps) => {
@@ -78,12 +56,7 @@ const VideoCardContextInfoArea = ({
             {contextSubHeaderIcon && (
                 <IconStyled>{contextSubHeaderIcon}</IconStyled>
             )}
-            <ParagraphAltXs noMargin>{contextSubHeader}</ParagraphAltXs>
-            <Header6 element="p" noMargin>
-                <TruncationWrapStyled>
-                    {contextAttributionHeader}
-                </TruncationWrapStyled>
-            </Header6>
+            {contextAttributionHeader}
         </WrapperStyled>
     );
 };

@@ -50,6 +50,8 @@
   
  exports.Collections = require('../../../src/icons/collections.svg');
   
+ exports.Comment = require('../../../src/icons/comment.svg');
+  
  exports.DismissX = require('../../../src/icons/dismiss-x.svg');
   
  exports.DotsMenu = require('../../../src/icons/dots-menu.svg');

@@ -25,21 +25,33 @@ export interface VideoCardThumbnailAreaProps {
     thumbnailData: Array<VideoCardThumbnailData>;
 }
 
-export interface VideoCardThumbnailWrapperProps
-    extends React.HTMLProps<HTMLDivElement> {
+export interface VideoCardThumbnailWrapperProps extends React.HTMLProps<HTMLDivElement> {
     isHovered?: boolean;
 }
 
 // ==================== VideoCardThumbnailArea Styled
 
-const WrapperStyled = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
+const WrapperStyled = styled('div')`
     position: relative;
 `;
 
-export interface ThumbnailStyledProps
-    extends React.HTMLProps<HTMLImageElement> {
+export interface ThumbnailStyledProps extends React.HTMLProps<HTMLImageElement> {
     isTopOfCard: boolean;
 }
+
+const ThumbnailShadowStyled = styled<ThumbnailStyledProps, 'div'>('div')`
+    border-radius: ${props =>
+        props.isTopOfCard
+            ? `${rem(VideoCardStyleSettings.borderRadius)}
+        ${rem(VideoCardStyleSettings.borderRadius)} 0 0`
+            : '0'};
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: inset 0 ${rem(-1)} 0 0 rgba(0,0,0,0.075);
+    width: 100%;
+    padding-bottom: 56.15%;
+`;
 
 const ThumbnailStyled = styled<ThumbnailStyledProps, 'img'>('img')`
     border-radius: ${props =>
@@ -61,9 +73,10 @@ const ThumbnailContainerStyled = styled<VideoCardThumbnailWrapperProps, 'div'>(
         ${rem(VideoCardStyleSettings.borderRadius)} 0 0;
     filter: ${props => (props.isHovered ? 'grayscale(0.7)' : 'grayscale(0)')};
     transition: filter ${VideoCardStyleSettings.hoverTransition};
+    box-shadow: inset 1px 1px 0px 0px rgba(0,0,0,0.10);
 `;
 
-const ThumbnailPreloadWrapperStyled = styled<React.SFC<HTMLDivElement>, 'div'>(
+const ThumbnailPreloadWrapperStyled = styled(
     'div'
 )`
     background-color: ${COLORS.Plaster};
@@ -80,7 +93,7 @@ const hoverOverlayKeyframes = keyframes`
         }
 `;
 
-const HoverOverlayWrapperStyled = styled<React.SFC<HTMLDivElement>, 'div'>(
+const HoverOverlayWrapperStyled = styled(
     'div'
 )`
     border-radius: ${rem(VideoCardStyleSettings.borderRadius)}
@@ -94,7 +107,7 @@ const HoverOverlayWrapperStyled = styled<React.SFC<HTMLDivElement>, 'div'>(
         ${VideoCardStyleSettings.hoverTransition};
 `;
 
-const HoverOverlayStyled = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
+const HoverOverlayStyled = styled('div')`
     width: 100%;
     height: 100%;
     background-image: linear-gradient(
@@ -136,6 +149,9 @@ const VideoCardThumbnailArea: React.SFC<VideoCardThumbnailAreaProps> = ({
                             alt={thumbnailData[0].thumbnailAltText}
                             src={thumbnailData[0].thumbnailSrc}
                             srcSet={thumbnailData[0].thumbnailSrcSet}
+                            isTopOfCard={isTopOfCard}
+                        />
+                        <ThumbnailShadowStyled
                             isTopOfCard={isTopOfCard}
                         />
                     </ThumbnailPreloadWrapperStyled>

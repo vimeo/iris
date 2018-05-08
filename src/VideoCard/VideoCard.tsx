@@ -7,7 +7,7 @@ import VideoCardInfoArea from './VideoCardInfoArea';
 import VideoCardLoadingState from './VideoCardLoadingState';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 import LoaderCircular from '../LoaderCircular';
-
+import { Omit } from '../globals/js/type-helpers';
 export interface VideoCardThumbnailData {
     /**
      * Alt Text for Thumbnail, probably the video title. **Required** for single video cards, can be excluded for group cards.
@@ -40,6 +40,10 @@ export interface VideoCardProps {
      */
     footer?: React.Component<any>;
     /**
+     * Set to true if the card is being used in a drag n'drop interfavce
+     */
+    isDraggable?: boolean;
+    /**
      * Set to `true` if card is representing a group of videos (e.g. an album)
      */
     isGroup?: boolean;
@@ -64,6 +68,10 @@ export interface VideoCardProps {
      */
     isSelectable?: boolean;
     /**
+     * Defeats standard margin-bottom on cards
+     */
+    noMargin?: boolean;
+    /**
      * Fires when the checkbox is clicked. This callback should control `isSelected`
      */
     onCheckBoxClick: (event) => void;
@@ -83,6 +91,14 @@ export interface VideoCardProps {
      * A string that descibes the privacy level
      */
     privacyDescription?: string;
+    /**
+     * use 'sm' for a more compact card, best used if width is below 250px wide. Default is 'md'
+     */
+    size?: 'sm' | 'md';
+    /**
+     * Action area specifically for small size. Usually an iconOnly button wraped in a menuPanel
+     */
+    smallActionArea?: React.ReactNode;
     /**
      * Top-left area of thumbnail for branding like SP Badge or VOD. This should receive an SVG component.
      */
@@ -136,12 +152,15 @@ const getBoxShadow = props => {
     return `0 0 ${rem(10)} 0 rgba(0,0,0,0.05)`;
 };
 
-export interface WrapperStyledProps extends React.HTMLProps<HTMLDivElement> {
+export interface WrapperStyledProps extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
     hasContextArea?: boolean;
+    isDraggable?: boolean;
     isSelected?: boolean;
     isHovered?: boolean;
     isLoading?: boolean;
     isProcessing?: boolean;
+    noMargin?: boolean;
+    size?: 'sm' | 'md';
 }
 
 const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
@@ -151,17 +170,22 @@ const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
         ${props =>
             props.isSelected ? COLORS.VimeoBlueDarkened : COLORS.Plaster};
     border-radius: ${rem(VideoCardStyleSettings.borderRadius)};
-    box-shadow: ${getBoxShadow};
-    min-height: ${rem(248)};
+    ${props => !props.isLoading ? `box-shadow: ${getBoxShadow};` : ''}
+    ${props => props.size !== 'sm' && `min-height: ${rem(248)};`}
     width: 100%;
     padding-bottom: ${props =>
         props.hasContextArea
             ? `calc(100% + ${rem(VideoCardStyleSettings.contextAreaHeight)})`
             : '100%'}; // forces square aspect ratio
-    margin-bottom: ${rem(20)};
+    margin-bottom: ${props => props.noMargin ? 0 : rem(20)};
     transition: box-shadow ${VideoCardStyleSettings.hoverTransition};
     &:hover {
-        cursor: ${props => (props.isProcessing || props.isLoading ? 'auto' : 'pointer')};
+        cursor: ${props => {
+            if(props.isProcessing || props.isLoading ) return 'auto';
+            if(props.isDraggable) return 'move';
+
+            return 'pointer';
+            }};
     }
 `;
 
@@ -176,6 +200,12 @@ const ContentPositionWrapperStyled = styled<ContentPositionWrapperStyledProps,'d
     left: 0;
     width: 100%;
     filter: ${props => (props.isProcessing ? 'grayscale(.7)' : 'none')};
+`;
+
+const SmallActionWrapperStyled = styled('div')`
+    position: absolute;
+    right: ${rem(4)};
+    bottom: ${rem(4)};
 `;
 
 const FooterAreaStyled = styled('div')`
@@ -246,17 +276,21 @@ class VideoCard extends React.Component<VideoCardProps, any> {
             checkboxA11yLabel,
             contextInfoArea,
             footer,
+            isDraggable,
             isGroup,
             isLoading,
             isPrivate,
             isProcessing,
             isSelected,
             isSelectable,
+            noMargin,
             onCheckBoxClick,
             onCardClick,
             onMouseEnter,
             onMouseLeave,
             privacyDescription,
+            size = "md",
+            smallActionArea,
             thumbnailBrandDecorationArea,
             thumbnailSocialBadgeArea,
             thumbnailTimestampArea,
@@ -269,6 +303,8 @@ class VideoCard extends React.Component<VideoCardProps, any> {
             ...filteredProps
         } = this.props;
 
+        const showAllContent = size !== 'sm';
+
         const VideoCardContent = (
             <div>
                 <ContentPositionWrapperStyled isProcessing={isProcessing}>
@@ -276,32 +312,41 @@ class VideoCard extends React.Component<VideoCardProps, any> {
                     <VideoCardThumbnailArea
                         checkboxA11yLabel={checkboxA11yLabel}
                         isGroup={isGroup}
-                        isTopOfCard={contextInfoArea ? false : true}
+                        isTopOfCard={contextInfoArea && showAllContent ? false : true}
                         isHovered={this.state.isHovered}
                         isSelectable={isSelectable}
                         isSelected={isSelected}
                         onCheckBoxClick={onCheckBoxClick}
                         thumbnailBrandDecorationArea={
-                            thumbnailBrandDecorationArea
+                            showAllContent && thumbnailBrandDecorationArea
                         }
-                        thumbnailSocialBadgeArea={thumbnailSocialBadgeArea}
-                        thumbnailTimestampArea={thumbnailTimestampArea}
+                        thumbnailSocialBadgeArea={showAllContent && thumbnailSocialBadgeArea}
+                        thumbnailTimestampArea={showAllContent && thumbnailTimestampArea}
                         thumbnailVideoCardPropertiesArea={
-                            thumbnailVideoCardPropertiesArea
+                            showAllContent && thumbnailVideoCardPropertiesArea
                         }
                         thumbnailData={thumbnailData}
                     />
                     <VideoCardInfoArea
-                        footer={footer}
+                        footer={showAllContent && footer}
                         isPrivate={isPrivate}
                         privacyDescription={privacyDescription}
+                        size={size}
                         title={title}
                         titleLinkElement={titleLinkElement}
                         titleLinkProps={titleLinkProps}
-                        titleSubheader={titleSubheader}
+                        titleSubheader={showAllContent && titleSubheader}
                     />
                 </ContentPositionWrapperStyled>
-                {footer ? <FooterAreaStyled>{footer}</FooterAreaStyled> : null}
+                {!showAllContent && smallActionArea && (
+                    <SmallActionWrapperStyled
+                        onClick={this._suppressEvents}
+                    >
+                        {smallActionArea}
+                    </SmallActionWrapperStyled>
+                    )   
+                }
+                {showAllContent && footer ? <FooterAreaStyled>{footer}</FooterAreaStyled> : null}
                 {isProcessing && (
                     <ProcessingOverlayStyled onClick={this._suppressEvents}>
                         <LoaderCircular size="xl" format="light" />
@@ -312,14 +357,17 @@ class VideoCard extends React.Component<VideoCardProps, any> {
 
         return (
             <WrapperStyled
-                hasContextArea={contextInfoArea ? true : false}
+                hasContextArea={showAllContent && contextInfoArea ? true : false}
+                isDraggable={isDraggable}
                 isHovered={isLoading ? false : this.state.isHovered}
                 isLoading={isLoading}
                 isProcessing={isProcessing}
                 isSelected={isSelected}
+                noMargin={noMargin}
                 onClick={this._handleClick}
                 onMouseEnter={this._handleMouseEnter}
                 onMouseLeave={this._handleMouseLeave}
+                size={size}
                 {...filteredProps}
             >
                 {isLoading ? <VideoCardLoadingState /> : VideoCardContent}

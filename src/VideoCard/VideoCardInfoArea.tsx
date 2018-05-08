@@ -3,18 +3,20 @@ import styled from 'styled-components';
 import COLORS from '../globals/js/constants/COLORS';
 import { rem } from 'polished';
 import LinkText from '../LinkText';
-import { Header6, ParagraphAltMd } from '../Type';
+import TruncatedTextWrapper from '../TruncatedTextWrapper';
+import { Header6, ParagraphSm, ParagraphAltMd } from '../Type';
 // @ts-ignore
 import LockFilled from '../icons/lock-filled.svg';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
-import { TypeBaseStyleSettings } from '../Type/TypeBase';
 import TooltipOverlay from '../TooltipOverlay';
-
+import { Omit } from '../globals/js/type-helpers';
+import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 export interface VideoCardInfoAreaProps
-    extends React.HTMLProps<HTMLDivElement> {
+extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
     footer?: React.Component<any>;
     isPrivate?: boolean;
     privacyDescription?: string;
+    size?: 'sm' | 'md';
     title: string;
     titleLinkElement?: any;
     titleLinkProps?: any;
@@ -32,7 +34,11 @@ const VideoCardInfoAreaStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
         ${rem(VideoCardStyleSettings.footerHeight)};
 `;
 
-const PrivacyIconStyled = styled<React.HTMLProps<HTMLSpanElement>, 'span'>(
+interface PrivacyIconStyledProps extends Omit<React.HTMLProps<HTMLSpanElement>, 'size'> {
+    size: 'sm' | 'md';
+}
+
+const PrivacyIconStyled = styled<PrivacyIconStyledProps, 'span'>(
     'span'
 )`
     float: left;
@@ -42,13 +48,13 @@ const PrivacyIconStyled = styled<React.HTMLProps<HTMLSpanElement>, 'span'>(
     transform: translateY(${rem(2)});
     transition: transform 300ms ease;
 
-    &:hover * {
-        transform: scale(1.04);
+    &:hover svg {
+        transform: scale(1.15);
         cursor: default;
     }
     svg {
-        width: ${rem(16)};
-        height: ${rem(16)};
+        width: ${props => props.size === 'sm' ? rem(12) : rem(16)};
+        height:  ${props => props.size === 'sm' ? rem(12) : rem(16)};
 
         * {
             fill: ${COLORS.AstroGranite};
@@ -60,55 +66,13 @@ const PrivacyIconStyled = styled<React.HTMLProps<HTMLSpanElement>, 'span'>(
     }
 `;
 
-/* Header is truncated using technique from http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/ */
 
-const HeaderStyled = styled(Header6)`
-        word-wrap: break-word;
-        /* start text truncation CSS */
-        width: 100%;
-        /* hide text if it more than N lines  */
-        overflow: hidden;
-        /* for set '...' in absolute position */
-        position: relative; 
-        /* max-height = line height of text * 2 lines */
-        max-height: ${rem(TypeBaseStyleSettings.lineHeight.h6 * 2)}; 
-        /* fix problem when last visible word doesn't adjoin right side  */
-        text-align: justify;  
-        /* place for '...' */
-        margin-right: -1em;
-        padding-right: 1em;
-    }
-
-    /* create the ... */
-    &:before {
-        /* ellipsis in the end */
-        content: '...';
-        /* absolute position */
-        position: absolute;
-        /* set position to right bottom corner of block */
-        right: 0;
-        bottom: 0;
-    }
-
-    /* hide ... if we have text, which is less than or equal to max lines */
-    &:after {
-        /* points in the end */
-        content: '';
-        /* absolute position */
-        position: absolute;
-        /* set position to right bottom corner of text */
-        right: 0;
-        /* set width and height */
-        width: 1em;
-        height: 1em;
-        margin-top: 0.2em;
-        /* bg color = bg color under block */
-        background: ${COLORS.White};
-    }
+const HeaderSmStyled = styled(ParagraphSm)`
+    font-weight: ${VimeoStyleSettings.type.weights.bold}
 `;
 
 const LinkTextStyled = styled(LinkText)`
-    display: inline;
+    display: flex;
 `;
 
 export interface TitleHeaderStyledProps
@@ -123,6 +87,7 @@ export interface TitleHeaderStyledProps
 const VideoCardInfoArea: React.SFC<VideoCardInfoAreaProps> = ({
     isPrivate,
     privacyDescription,
+    size,
     title,
     titleLinkElement,
     titleLinkProps,
@@ -140,7 +105,7 @@ const VideoCardInfoArea: React.SFC<VideoCardInfoAreaProps> = ({
     const LinkTextElement = (
         <span>
             {isPrivate && (
-                <PrivacyIconStyled>
+                <PrivacyIconStyled size={size}>
                     <TooltipOverlay
                         tooltipText={privacyDescription}
                         onClick={stopClickPropagation}
@@ -149,15 +114,24 @@ const VideoCardInfoArea: React.SFC<VideoCardInfoAreaProps> = ({
                     </TooltipOverlay>
                 </PrivacyIconStyled>
             )}
-            <LinkTextStyled decoration="inherit" element="span">
-                {title}
-            </LinkTextStyled>
+            <TooltipOverlay
+                breakWords
+                tooltipText={title}
+            >
+                <LinkTextStyled
+                    decoration="inherit"
+                    element="span"
+                >
+                    <TruncatedTextWrapper>
+                        {title}
+                    </TruncatedTextWrapper>
+                </LinkTextStyled>
+            </TooltipOverlay>
         </span>
     );
 
     const defaultLinkElement = (
         <a
-            title={title}
             href="#"
             onClick={_defaultLinkClickHandler}
             {...titleLinkProps}
@@ -167,13 +141,12 @@ const VideoCardInfoArea: React.SFC<VideoCardInfoAreaProps> = ({
     );
 
     const LinkElement = titleLinkElement;
-
+    const TypeElement = size === 'sm' ? HeaderSmStyled : Header6;
     return (
         <VideoCardInfoAreaStyled>
-            <HeaderStyled element="h4" noMargin>
+            <TypeElement element="h4" noMargin>
                 {LinkElement ? (
                     <LinkElement
-                        title={title}
                         onClick={_defaultLinkClickHandler}
                         {...titleLinkProps}
                     >
@@ -182,7 +155,7 @@ const VideoCardInfoArea: React.SFC<VideoCardInfoAreaProps> = ({
                 ) : (
                     defaultLinkElement
                 )}
-            </HeaderStyled>
+            </TypeElement>
             {titleSubheader && (
                 <ParagraphAltMd element="span" noMargin>
                     {titleSubheader}

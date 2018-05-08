@@ -11,6 +11,10 @@ const TOOLTIP_SPEED = 50;
 
 export interface TooltipOverlayProps {
     /**
+     * Sets word-break: break-all on tooltip text.
+     */
+    breakWords?: boolean;
+    /**
      * The triggering Element
      */
     children: React.ReactNode;
@@ -209,6 +213,7 @@ class TooltipOverlay extends React.Component {
 
     render() {
         const {
+            breakWords,
             children,
             className,
             attachment,
@@ -245,7 +250,12 @@ class TooltipOverlay extends React.Component {
                             this.overlay = overlay;
                         }}
                     >
-                        <Tooltip size={size}>{tooltipText}</Tooltip>
+                        <Tooltip
+                            breakWords={breakWords}
+                            size={size}
+                        >
+                            {tooltipText}
+                        </Tooltip>
                     </TooltipWrapperStyled>
                 )}
             </Transition>

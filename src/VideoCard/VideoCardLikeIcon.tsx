@@ -10,8 +10,6 @@ const VideoCardLikeIconStyled = styled<
     'span'
 >('span')`
     svg {
-        width: 100%;
-        height: auto;
         * {
             fill: ${COLORS.SunsetOrange};
     }

@@ -13,13 +13,15 @@ import VideoCardFooterAttributionAPI from '../../data/tsdocsHTML/interfaces/_vid
 import VideoCardThumbnailDataAPI from '../../data/tsdocsHTML/interfaces/_videocard_videocard_.videocardthumbnaildata.html';
 import VideoContextInfoAreaAPI from '../../data/tsdocsHTML/interfaces/_videocard_videocontextinfoarea_.videocardcontextinfoareaprops.html';
 import MenuPanel from '../MenuPanel';
+import MenuPanelList from '../MenuPanelList';
+import TruncatedTextWrapper from '../TruncatedTextWrapper';
 import Grid from '../Grid';
 import GridBlock from '../GridBlock';
 import GridCol from '../GridCol';
 import SPicon from '../illustrations/staff-picks-badge-just-sp.svg';
 import FBChip from '../icons/third-party/social-chip-facebook.svg';
 import YTChip from '../icons/third-party/social-chip-youtube.svg';
-import { ParagraphMd, Header3, Header4, Header5 } from '../Type';
+import { ParagraphMd, ParagraphAltMd, Header6, Header3, Header4, Header5 } from '../Type';
 import TooltipOverlay from '../TooltipOverlay';
 import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
 import SendIcon from '../icons/paper-plane.svg';
@@ -125,22 +127,31 @@ const contextCard = (
     <VideoContextInfoArea
         contextSubHeader="Added to"
         contextAttributionHeader={
-            <LinkText
-                href="https://vimeo.com/channels/staffpicks"
-                target="_blank"
-                decoration="inherit"
-            >
-                Vimeo Staff Picks
-            </LinkText>
+            <TruncatedTextWrapper>
+                <ParagraphAltMd element="span" noMargin>Added to </ParagraphAltMd>
+                <Header6 noMargin element="span">
+                <LinkText
+                    href="https://vimeo.com/channels/staffpicks"
+                    target="_blank"
+                    decoration="inherit"
+                >
+                    Vimeo Staff Picks
+                </LinkText>
+                </Header6>
+            </TruncatedTextWrapper>
         }
     />
 );
 
 const contextCardWithIcon = (
     <VideoContextInfoArea
-        contextSubHeader="Liked by"
         contextSubHeaderIcon={<VideoCardLikeIcon />}
-        contextAttributionHeader="Wes Anderson With A Longer Name"
+        contextAttributionHeader={
+            <TruncatedTextWrapper>
+                <ParagraphAltMd element="span" noMargin>Liked by </ParagraphAltMd>
+                <Header6 noMargin element="span">Wes Anderson With A Longer Name</Header6>
+            </TruncatedTextWrapper>
+        }
     />
 );
 
@@ -178,7 +189,6 @@ const exampleAttributionLongName = (
         userName="John Jacob Jingleheimer Schmidt"
     />
 );
-
 const singleThumbnail = [
     {
         thumbnailAltText: 'Le Futur Sera Chauve / The Bald Future',
@@ -187,6 +197,16 @@ const singleThumbnail = [
             'https://i.vimeocdn.com/video/685707758_780x439.jpg 2x',
     },
 ];
+
+const singleThumbnail2 = [
+    {
+        thumbnailAltText: 'Le Futur Sera Chauve / The Bald Future',
+        thumbnailSrc: 'https://i.vimeocdn.com/video/698008491_390x220.jpg',
+        thumbnailSrcSet:
+            'https://i.vimeocdn.com/video/698008491_780x439.jpg 2x',
+    },
+];
+
 
 const albumThumbnails = [
     {
@@ -230,6 +250,37 @@ const videoProperties = [
     <VideoCardPropertyBadge label="HDR" />,
     <VideoCardPropertyBadge label="360" />,
 ];
+
+const smallMenuList = (
+    <MenuPanelList
+    menuItems = {[
+        {
+            label: 'Item 1',
+            href: '#',
+        },
+        {
+            label: 'Item 2',
+            href: '#',
+            'data-foo': 'bar',
+        },
+    ]}
+    />
+);
+
+const smallMenu = (
+    <MenuPanel
+        alignment="right"
+        menuContent={smallMenuList}
+        size="sm"
+    >
+        <ButtonIconOnly
+            icon={<DotsMenuIcon />}
+            format="midDark"
+            size="sm"
+            isButtonElement={false}
+        />
+    </MenuPanel>
+);
 
 class VideoCardDocs extends React.Component {
     render() {
@@ -275,7 +326,7 @@ class VideoCardDocs extends React.Component {
                                     onCheckBoxClick={testCheckboxClick}
                                     privacyDescription="Only me"
                                     thumbnailBrandDecorationArea={<SPicon />}
-                                    thumbnailData={singleThumbnail}
+                                    thumbnailData={singleThumbnail2}
                                     thumbnailSocialBadgeArea={socialBadges}
                                     thumbnailTimestampArea={
                                         <VideoCardTimestamp timestamp="04:15" />
@@ -410,6 +461,90 @@ class VideoCardDocs extends React.Component {
                             <GridCol mdSpan={12} lgSpan={8}>
                                 <VideoCard
                                     isLoading
+                                    title="Loading"
+                                />
+                            </GridCol>
+                        </GridBlock>
+                        <GridBlock>
+                            <GridCol mdSpan={6} lgSpan={4}>
+                                <VideoCard
+                                    footer={exampleAttribution}
+                                    isPrivate
+                                    isSelectable
+                                    onClick={testClick}
+                                    onCheckBoxClick={testCheckboxClick}
+                                    privacyDescription="Only me"
+                                    size="sm"
+                                    thumbnailBrandDecorationArea={<SPicon />}
+                                    thumbnailData={singleThumbnail}
+                                    thumbnailSocialBadgeArea={socialBadges}
+                                    thumbnailTimestampArea={
+                                        <VideoCardTimestamp timestamp="04:15" />
+                                    }
+                                    thumbnailVideoCardPropertiesArea={
+                                        videoProperties
+                                    }
+                                    title="Very_Very_Very_Very_Very_Very_Long_Title Example_for _Truncation"
+                                    titleSubheader={
+                                        <span>8432 plays &#183; 5d</span>
+                                    }
+                                />
+                            </GridCol>
+                            <GridCol mdSpan={6} lgSpan={4}>
+                                <VideoCard
+                                    footer={exampleAttribution}
+                                    isDraggable
+                                    isPrivate
+                                    isSelectable
+                                    onClick={testClick}
+                                    onCheckBoxClick={testCheckboxClick}
+                                    privacyDescription="Only me"
+                                    size="sm"
+                                    smallActionArea={smallMenu}
+                                    thumbnailBrandDecorationArea={<SPicon />}
+                                    thumbnailData={singleThumbnail}
+                                    thumbnailSocialBadgeArea={socialBadges}
+                                    thumbnailTimestampArea={
+                                        <VideoCardTimestamp timestamp="04:15" />
+                                    }
+                                    thumbnailVideoCardPropertiesArea={
+                                        videoProperties
+                                    }
+                                    title="Very_Very_Very_Very_Very_Very_Long_Title Example_for _Truncation"
+                                    titleSubheader={
+                                        <span>8432 plays &#183; 5d</span>
+                                    }
+                                />
+                            </GridCol>
+                            <GridCol mdSpan={6} lgSpan={4}>
+                                <VideoCard
+                                    footer={exampleAttribution}
+                                    isProcessing
+                                    isPrivate
+                                    isSelectable
+                                    onClick={testClick}
+                                    onCheckBoxClick={testCheckboxClick}
+                                    privacyDescription="Only me"
+                                    size="sm"
+                                    thumbnailBrandDecorationArea={<SPicon />}
+                                    thumbnailData={singleThumbnail}
+                                    thumbnailSocialBadgeArea={socialBadges}
+                                    thumbnailTimestampArea={
+                                        <VideoCardTimestamp timestamp="04:15" />
+                                    }
+                                    thumbnailVideoCardPropertiesArea={
+                                        videoProperties
+                                    }
+                                    title="Very_Very_Very_Very_Very_Very_Long_Title Example_for _Truncation"
+                                    titleSubheader={
+                                        <span>8432 plays &#183; 5d</span>
+                                    }
+                                />
+                            </GridCol>
+                            <GridCol mdSpan={6} lgSpan={4}>
+                                <VideoCard
+                                    isLoading
+                                    size="sm"
                                     title="Loading"
                                 />
                             </GridCol>
@@ -568,7 +703,103 @@ import {
     isLoading
     title="Loading"
 />
+
+<VideoCard
+    footer={exampleAttribution}
+    isPrivate
+    isSelectable
+    onClick={testClick}
+    onCheckBoxClick={testCheckboxClick}
+    privacyDescription="Only me"
+    size="sm"
+    thumbnailBrandDecorationArea={<SPicon />}
+    thumbnailData={singleThumbnail}
+    thumbnailSocialBadgeArea={socialBadges}
+    thumbnailTimestampArea={
+        <VideoCardTimestamp timestamp="04:15" />
+    }
+    thumbnailVideoCardPropertiesArea={
+        videoProperties
+    }
+    title="Very_Very_Very_Very_Very_Very_Long_Title Example_for _Truncation"
+    titleSubheader={
+        <span>8432 plays &#183; 5d</span>
+    }
+/>
+
+<VideoCard
+    footer={exampleAttribution}
+    isDraggable
+    isPrivate
+    isSelectable
+    onClick={testClick}
+    onCheckBoxClick={testCheckboxClick}
+    privacyDescription="Only me"
+    size="sm"
+    smallActionArea={smallMenu}
+    thumbnailBrandDecorationArea={<SPicon />}
+    thumbnailData={singleThumbnail}
+    thumbnailSocialBadgeArea={socialBadges}
+    thumbnailTimestampArea={
+        <VideoCardTimestamp timestamp="04:15" />
+    }
+    thumbnailVideoCardPropertiesArea={
+        videoProperties
+    }
+    title="Very_Very_Very_Very_Very_Very_Long_Title Example_for _Truncation"
+    titleSubheader={
+        <span>8432 plays &#183; 5d</span>
+    }
+/>
+
+<VideoCard
+    footer={exampleAttribution}
+    isProcessing
+    isPrivate
+    isSelectable
+    onClick={testClick}
+    onCheckBoxClick={testCheckboxClick}
+    privacyDescription="Only me"
+    size="sm"
+    thumbnailBrandDecorationArea={<SPicon />}
+    thumbnailData={singleThumbnail}
+    thumbnailSocialBadgeArea={socialBadges}
+    thumbnailTimestampArea={
+        <VideoCardTimestamp timestamp="04:15" />
+    }
+    thumbnailVideoCardPropertiesArea={
+        videoProperties
+    }
+    title="Very_Very_Very_Very_Very_Very_Long_Title Example_for _Truncation"
+    titleSubheader={
+        <span>8432 plays &#183; 5d</span>
+    }
+/>
+
+
+<VideoCard
+    isLoading
+    size="sm"
+    title="Loading"
+/>
                     `}
+                </ExampleSource>
+                <Header3>Using VideoContextInfoArea</Header3>
+                <ParagraphMd> We use the <code>VideoContextInfoArea</code> component to add context for the inclusion of a video card in a set.</ParagraphMd>
+                <ParagraphMd>Because of the need for text order flexibility for internationalization, the content of the <code>contextAttributionHeader</code> prop requires some manual formatting.</ParagraphMd>
+                <ParagraphMd>The entire content should be wrapped in a <code>TruncatedTextWrapper</code> component. Then the content itself should be wrapped in Iris type components as below.</ParagraphMd>
+                <ExampleSource>
+                    {`
+<VideoContextInfoArea
+    contextSubHeaderIcon={<VideoCardLikeIcon />}
+    contextAttributionHeader={
+        <TruncatedTextWrapper>
+            <ParagraphAltMd element="span" noMargin>Liked by </ParagraphAltMd>
+            <Header6 noMargin element="span">Wes Anderson With A Longer Name</Header6>
+        </TruncatedTextWrapper>
+    }
+/>
+    `}
                 </ExampleSource>
                 <Header3>Prop Value Variables Used in Above Examples</Header3>
                 <ExampleSource>
@@ -687,22 +918,31 @@ const contextCard = (
     <VideoContextInfoArea
         contextSubHeader="Added to"
         contextAttributionHeader={
-            <LinkText
-                href="https://vimeo.com/channels/staffpicks"
-                target="_blank"
-                decoration="inherit"
-            >
-                Vimeo Staff Picks
-            </LinkText>
+            <TruncatedTextWrapper>
+                <ParagraphAltMd element="span" noMargin>Added to </ParagraphAltMd>
+                <Header6 noMargin element="span">
+                <LinkText
+                    href="https://vimeo.com/channels/staffpicks"
+                    target="_blank"
+                    decoration="inherit"
+                >
+                    Vimeo Staff Picks
+                </LinkText>
+                </Header6>
+            </TruncatedTextWrapper>
         }
     />
 );
 
 const contextCardWithIcon = (
     <VideoContextInfoArea
-        contextSubHeader="Liked by"
         contextSubHeaderIcon={<VideoCardLikeIcon />}
-        contextAttributionHeader="Wes Anderson With A Longer Name"
+        contextAttributionHeader={
+            <TruncatedTextWrapper>
+                <ParagraphAltMd element="span" noMargin>Liked by </ParagraphAltMd>
+                <Header6 noMargin element="span">Wes Anderson With A Longer Name</Header6>
+            </TruncatedTextWrapper>
+        }
     />
 );
 
@@ -769,6 +1009,38 @@ const albumThumbnailsIncomplete = [
         thumbnailSrc: 'https://i.vimeocdn.com/video/679933026_390x220.jpg',
     },
 ];
+
+const smallMenuList = (
+    <MenuPanelList
+    menuItems = {[
+        {
+            label: 'Item 1',
+            href: '#',
+        },
+        {
+            label: 'Item 2',
+            href: '#',
+            'data-foo': 'bar',
+        },
+    ]}
+    />
+);
+
+const smallMenu = (
+    <MenuPanel
+        alignment="right"
+        menuContent={smallMenuList}
+        size="sm"
+    >
+        <ButtonIconOnly
+            icon={<DotsMenuIcon />}
+            format="dark"
+            size="sm"
+            isButtonElement={false}
+        />
+    </MenuPanel>
+);
+
 
 const socialBadges = [
     (

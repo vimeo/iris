@@ -5,12 +5,14 @@ import { COLORS } from '../globals/js/constants';
 import { ParagraphMd } from '../Type';
 
 export interface TooltipProps {
+    breakWords?: boolean;
     className?: string;
     children: string;
     size?: 'sm' | 'md' | 'lg';
 }
 
 interface TooltipStyledProps {
+    breakWords?: boolean;
     tooltipSize: 'sm' | 'md' | 'lg';
 }
 
@@ -44,6 +46,7 @@ const TooltipStyled = styled<TooltipStyledProps, 'div'>('div')`
     p {
         color: ${COLORS.White}; //override default paragraph color
         white-space: pre-line;
+        ${props => props.breakWords ? 'word-break: break-all' : ''};
     }
 
     text-align: ${props => (props.tooltipSize === 'lg' ? 'left' : 'center')};

@@ -15,7 +15,7 @@ export interface VideoCardPropertyBadge extends React.HTMLProps<HTMLInputElement
 
 const VideoCardPropertyBadgeStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
     align-items: center;
-    background: ${rgba(COLORS.White, .9)};
+    background: ${rgba(COLORS.Paste, .9)};
     border-radius: ${rem(2)};
     display: inline-flex;
     padding: ${rem(4)} ${rem(8)};

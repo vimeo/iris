@@ -4,6 +4,7 @@ import { rem } from 'polished';
 import { ParagraphSm } from '../Type';
 import { TypeProps } from '../Type/TypeHelpers';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
+import TruncatedTextWrapper from '../TruncatedTextWrapper';
 
 export interface VideoCardFooterAttributionProps {
     /**
@@ -70,12 +71,6 @@ const AttributionStyled = styled<AttributionStyledProps, any>('div')`
     align-items: center;
 `;
 
-const UserNameTruncation = styled('span')`
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: inline-block;
-`;
 
 const BadgeAreaStyled = styled('span')`
     display: inline-flex;
@@ -108,7 +103,7 @@ const VideoCardFooterAttribution: React.SFC<
                     //@ts-ignore
                     hasActionArea={attributionActionArea}
                 >
-                    <UserNameTruncation>{userName}</UserNameTruncation>
+                    <TruncatedTextWrapper>{userName}</TruncatedTextWrapper>
                     {userBadge && (
                         <BadgeAreaStyled>{userBadge}</BadgeAreaStyled>
                     )}
