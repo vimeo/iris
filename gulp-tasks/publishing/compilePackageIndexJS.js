@@ -9,6 +9,6 @@ gulp.task('compilePackageIndexJS', function () {
 	patternData = {"patterns": [patternData]};
 	return gulp.src('./templates/_package-index.js.template')
 	.pipe(template(patternData))
-	.pipe(rename('index.js'))
-	.pipe(gulp.dest('dist'));
+	.pipe(rename('index.ts'))
+	.pipe(gulp.dest('src'));
 });
