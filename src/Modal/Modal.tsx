@@ -76,7 +76,7 @@ export interface ModalProps {
     /**
      * Choose Modal width mode (Default: md)
      */
-    size?: 'sm' | 'md' | 'lg',
+    size?: 'sm' | 'md' | 'lg' | 'fluid',
      /**
      * Override the z-index of the modal
      */
@@ -106,12 +106,13 @@ const modalWidths = {
 };
 
 interface ModalStyledProps {
-    modalSize?: 'sm' | 'md' | 'lg',
+    modalSize?: 'sm' | 'md' | 'lg' | 'fluid',
 }
 
 const ModalStyled = styled<ModalStyledProps, 'div'>('div')`
     position: relative;
     width: 76%;
+    margin: 0 auto;
     min-height: ${MODAL_MAX_HEIGHT};
 
     border-radius: ${rem(3)};
@@ -130,11 +131,18 @@ const ModalStyled = styled<ModalStyledProps, 'div'>('div')`
             return mediaQuery.sm`
                 width: ${rem(modalWidths.sm)};
             `;
+        } else if (props.modalSize === 'fluid') {
+            return`
+                width: auto;
+                overflow: auto;
+            `;
+        } else {
+            return mediaQuery.md`
+                width: ${props => rem(modalWidths[props.modalSize])} 
+            `;
         }
 
-        return mediaQuery.md`
-                width: ${rem(modalWidths[props.modalSize])};
-        `;
+        
     }}
 `;
 
