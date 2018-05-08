@@ -22,6 +22,10 @@ export interface ModalFeatureUpdateProps {
      */
     dismissButtonFormat?: 'dark' | 'lightTransparent';
     /**
+     * Pass an object of props to be spread across the dismiss button.
+     */
+    dismissButtonProps?: Object;
+    /**
      * a querySelectorString passed to `querySelector()` that will find the DOM element that should receive first focus on open, defaults to the dismiss button.
      */
     firstFocusSelector?: string;
@@ -109,8 +113,9 @@ class ModalFeatureUpdate extends React.Component<any, any> {
     public render() {
         const {
             children,
-            dismissButtonLabel,
             dismissButtonFormat,
+            dismissButtonLabel,
+            dismissButtonProps,
             firstFocusSelector = '[data-modal-close]',
             isOpen,
             noDismiss,
@@ -141,6 +146,7 @@ class ModalFeatureUpdate extends React.Component<any, any> {
                         >
                             {!noDismiss && (
                                 <ButtonDialogCloseStyled
+                                    {...dismissButtonProps}
                                     buttonTitle={dismissButtonLabel}
                                     format={dismissButtonFormat}
                                     isButtonElement={true}

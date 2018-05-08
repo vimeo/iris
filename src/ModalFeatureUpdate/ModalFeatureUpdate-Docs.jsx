@@ -45,6 +45,9 @@ class ModalFeatureUpdateDocs extends React.Component {
                         {this.state.isOpen ? 'Close' : 'Open'} Modal
                     </Button>
                     <ModalFeatureUpdate
+                        dismissButtonProps={{
+                            'data-foo': 'bar',
+                        }}
                         dismissButtonLabel="Close"
                         dismissButtonFormat="lightTransparent"
                         isOpen={this.state.isOpen}
@@ -94,6 +97,9 @@ class ModalFeatureUpdateDocs extends React.Component {
 <ModalFeatureUpdate
     dismissButtonLabel="Close"
     dismissButtonFormat="lightTransparent"
+    dismissButtonProps={{
+        'data-foo': 'bar',
+    }}
     isOpen={this.state.isOpen}
     onCloseEvent={this.closeModal}
 >
