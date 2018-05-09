@@ -35,6 +35,7 @@ export { default as <%- pattern['displayName']%> } from './<%- pattern['displayN
 
 /* Components that are typescript, not flow */
 export { default as Button} from './Button';
+export { default as ButtonIconOnly} from './ButtonIconOnly';
 export { default as InputText} from './InputText';
 export { default as CategoryCard} from './CategoryCard';
 export { default as InputColorPicker} from './InputColorPicker';
