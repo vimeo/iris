@@ -27,7 +27,7 @@ type Props = {
     passwordShowText?: string,
     preMessage?: any,
     theme?: 'default' | 'dark',
-    tooltipProps?: object,
+    tooltipProps?: Object,
     type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' |'url',
     value?: string,
 };
