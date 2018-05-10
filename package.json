@@ -1,6 +1,6 @@
 {
     "name": "@vimeo/iris",
-    "version": "5.0.3",
+    "version": "5.0.4",
     "description": "Iris UI Pattern Framework",
     "main": "dist/index.js",
     "scripts": {
