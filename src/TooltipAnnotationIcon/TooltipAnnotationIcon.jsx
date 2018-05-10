@@ -14,6 +14,7 @@ type Props = {
     labelType?: 'textBlock' | 'inline' | 'noPosition',
     tooltipText: string,
     size?: 'md' | 'lg',
+    tooltipProps?: Object,
 };
 
 const TooltipAnnotationIcon = ({
@@ -22,6 +23,7 @@ const TooltipAnnotationIcon = ({
     labelType = 'inline',
     size = 'md',
     tooltipText,
+    tooltipProps,
     ...filteredProps
 }: Props): React$Element<*> => {
     // className builder
@@ -46,11 +48,11 @@ const TooltipAnnotationIcon = ({
     };
 
     return (
-        <div className={styles.Wrapper}>
+        <div {...filteredProps} className={styles.Wrapper}>
             {children}
             <div className={iconWrapperClass}>
                 <TooltipOverlay
-                    {...filteredProps}
+                    {...tooltipProps}
                     className={styles.Tooltip}
                     tooltipText={tooltipText}
                     onClick={catchEvent}

@@ -15,6 +15,7 @@ type Props = {
     onClose?: Function,
     onOpen?: Function,
     size?: 'sm' | 'md' | 'lg',
+    tooltipProps?: Object,
 };
 
 const VerticalMenuContextualMenuPanel = ({
@@ -26,10 +27,14 @@ const VerticalMenuContextualMenuPanel = ({
     onOpen,
     size = 'md',
     tooltipText,
+    tooltipProps,
     ...filteredProps
 }: Props): React$Element<*> => {
     const ButtonWithTooltip = (
-        <TooltipOverlay tooltipText={tooltipText}>
+        <TooltipOverlay
+            tooltipText={tooltipText}
+            {...tooltipProps}
+        >
             {buttonElement}
         </TooltipOverlay>
     );

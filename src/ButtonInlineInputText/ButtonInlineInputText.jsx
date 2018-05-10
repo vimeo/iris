@@ -13,6 +13,7 @@ type Props = {
     size: 'md' | 'lg',
     tooltipText: string,
     tooltipPosition: 'top' | 'right' | 'bottom' | 'left',
+    tooltipProps?: Object;
 };
 
 const ButtonInlineInputText = ({
@@ -22,6 +23,7 @@ const ButtonInlineInputText = ({
     size = 'md',
     tooltipText,
     tooltipPosition = 'top',
+    tooltipProps,
     ...filteredProps
 }: Props): React$Element<*> => {
     // className builder
@@ -39,7 +41,11 @@ const ButtonInlineInputText = ({
     );
 
     const TooltipWrappedButton = (
-        <TooltipOverlay tooltipText={tooltipText} attachment={tooltipPosition}>
+        <TooltipOverlay
+            tooltipText={tooltipText}
+            attachment={tooltipPosition}
+            {...tooltipProps}
+        >
             {ButtonComponent}
         </TooltipOverlay>
     );

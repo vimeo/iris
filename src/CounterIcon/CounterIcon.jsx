@@ -17,6 +17,7 @@ type Props = {
     icon: React$Element<*>,
     onClick?: any,
     href?: string,
+    tooltipProps?: Object,
 };
 
 const CounterIcon = ({
@@ -27,6 +28,7 @@ const CounterIcon = ({
     icon,
     counterTitle,
     onClick,
+    tooltipProps,
     ...filteredProps
 }: Props): React$Element<*> => {
     // className builder
@@ -62,6 +64,7 @@ const CounterIcon = ({
                 href={href}
                 tooltipText={counterTitle}
                 onClick={!href && onClick}
+                {...tooltipProps}
             >
                 {maybeLinkContent}
             </TooltipOverlay>

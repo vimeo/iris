@@ -8,11 +8,13 @@ const displayName = 'VerticalMenuActionButton';
 type Props = {
     icon: React$Element<*>,
     tooltipText?: string,
+    tooltipProps?: Object,
 };
 
 const VerticalMenuActionButton = ({
     icon,
     tooltipText,
+    tooltipProps,
     ...filteredProps
 }: Props): React$Element<*> => {
     const ActionButton = () => (
@@ -27,7 +29,7 @@ const VerticalMenuActionButton = ({
     );
 
     const TooltipWrappedActionButton = () => (
-        <TooltipOverlay tooltipText={tooltipText}>
+        <TooltipOverlay tooltipText={tooltipText} {...tooltipProps}>
             <ActionButton />
         </TooltipOverlay>
     );
