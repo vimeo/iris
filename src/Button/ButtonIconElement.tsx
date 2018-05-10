@@ -5,7 +5,7 @@ import { ButtonStyleSettings } from './ButtonHelpers';
 import { Omit } from '../globals/js/type-helpers';
 export interface ButtonIconElementStyledProps
     extends Omit<React.HTMLProps<HTMLSpanElement>, 'size'> {
-    iconLocation: 'beforeLabel' | 'afterLabel';
+    iconLocation?: 'beforeLabel' | 'afterLabel';
     size: 'xs' | 'sm' | 'md' | 'lg';
 }
 
@@ -21,7 +21,7 @@ const ButtonIconElementStyled = styled<ButtonIconElementStyledProps, 'span'>(
 
     align-items: center;
 
-    margin-${getMarginDirection}: ${getIconMargin};
+    ${props => props.iconLocation ? `margin-${getMarginDirection}: ${getIconMargin};` : ''}
 
     svg {
         width: ${getIconSize};

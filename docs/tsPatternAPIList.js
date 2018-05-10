@@ -1,6 +1,7 @@
 // This file tells Steadicam which files have TypeScript driven props interfaces that have been converted to HTML.
 
 import ButtonAPI from '../data/tsdocsHTML/interfaces/_button_button_.buttonprops.html';
+import ButtonSplitMenuAPI from '../data/tsdocsHTML/interfaces/_buttonsplitmenu_buttonsplitmenu_.buttonsplitmenuprops.html';
 import CategoryCardAPI from '../data/tsdocsHTML/interfaces/_categorycard_categorycard_.categorycardprops.html';
 import InputColorPickerAPI from '../data/tsdocsHTML/interfaces/_inputcolorpicker_inputcolorpicker_.inputcolorpickerprops.html';
 import InputTextAPI from '../data/tsdocsHTML/interfaces/_inputtext_inputtext_.inputtextprops.html';
@@ -16,14 +17,17 @@ const tsPatternAPIList = {
     Button: {
         data: ButtonAPI,
     },
-    InputText: {
-        data: InputTextAPI,
+    ButtonSplitMenu: {
+        data: ButtonSplitMenuAPI,
     },
     CategoryCard: {
         data: CategoryCardAPI,
     },
     InputColorPicker: {
         data: InputColorPickerAPI,
+    },
+    InputText: {
+        data: InputTextAPI,
     },
     LoaderCircular: {
         data: LoaderCircularAPI,

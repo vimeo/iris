@@ -5,6 +5,29 @@ import calculateLineHeightTarget from '../globals/js/style-helpers/calculateLine
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import mediaQuery from '../globals/js/style-helpers/mediaQuery';
 
+const ButtonCoreCSS = `
+    display: inline-flex;
+    position: relative;
+
+    width: 100%;
+    margin: 0;
+
+    font-family: ${VimeoStyleSettings.type.fontFamily.regular};
+    font-weight: 700;
+
+    border-width: ${rem(1)};
+    border-style: solid;
+
+    transition: all 0.1s ease-in-out;
+    text-align: center;
+    vertical-align: middle;
+    letter-spacing: 0.1px;
+    align-items: center;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+`;
+
+
 const ButtonColors = {
     AlternativeBackground: '#3A5161',
     AlternativeBackgroundHover: COLORS.AstroGranite,
@@ -312,7 +335,7 @@ const ButtonStyleSettings = {
             fontSize: rem(14),
             lineHeight: calculateLineHeightTarget(14, 38),
             minWidth: rem(84),
-            minHeight: rem(38),
+            minHeight: rem(39),
             padding: `0 ${rem(16)}`,
         },
 
@@ -320,7 +343,7 @@ const ButtonStyleSettings = {
             fontSize: rem(14),
             lineHeight: calculateLineHeightTarget(14, 30),
             minWidth: rem(68),
-            minHeight: rem(30),
+            minHeight: rem(32),
             padding: `0 ${rem(10)}`,
         },
 
@@ -358,6 +381,7 @@ const getAutoWidthCSS = props => {
         ${autoWidthCSS}
     `;
 };
+
 
 const getDefaultCSSByFormat = props => {
     const thisButtonFormat = ButtonStyleSettings.Formats[props.format].default;
@@ -428,6 +452,7 @@ const getVerticalAutoMarginCSS = props =>
 
 export {
     ButtonColors,
+    ButtonCoreCSS,
     ButtonStyleSettings,
     getActiveCSSByFormat,
     getAutoWidthCSS,

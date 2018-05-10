@@ -3,6 +3,7 @@ import { rem } from 'polished';
 import styled, { css } from 'styled-components';
 import ButtonIconElement from './ButtonIconElement';
 import {
+    ButtonCoreCSS,
     getActiveCSSByFormat,
     getAutoWidthCSS,
     getDefaultCSSByFormat,
@@ -11,7 +12,6 @@ import {
     getSizeCSS,
     getVerticalAutoMarginCSS,
 } from './ButtonHelpers';
-import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import { Omit } from '../globals/js/type-helpers';
 
 export interface ButtonProps
@@ -96,29 +96,11 @@ const ButtonVariableElement = ({
 };
 
 const ButtonElement = styled<ButtonProps, any>(ButtonVariableElement)`
-    display: inline-flex;
+   ${ButtonCoreCSS}
 
-    position: relative;
-
-    width: 100%;
-    margin: 0;
-
-    font-family: ${VimeoStyleSettings.type.fontFamily.regular};
-    font-weight: 700;
-
-    border-width: ${rem(1)};
-    border-style: solid;
     border-radius: ${props => (props.size === 'xs' ? rem(2) : rem(3))};
 
-    transition: all 0.1s ease-in-out;
-    text-align: center;
-    vertical-align: middle;
-    letter-spacing: 0.1px;
-    align-items: center;
-    justify-content: center;
-    -webkit-font-smoothing: antialiased;
-
-    ${props=> props.customFormat ? css`
+    ${props => props.customFormat ? css`
         background: ${props.customFormat.defaultBackgroundColor};
         border-color: ${props.customFormat.defaultBorderColor || props.customFormat.defaultBackgroundColor};
         color: ${props.customFormat.defaultTextColor};
@@ -129,7 +111,7 @@ const ButtonElement = styled<ButtonProps, any>(ButtonVariableElement)`
 
     &:hover {
             cursor: pointer;
-        ${props=> props.customFormat ? css`
+        ${props => props.customFormat ? css`
             background: ${props.customFormat.hoverBackgroundColor};
             border-color: ${props.customFormat.hoverBorderColor || props.customFormat.hoverBackgroundColor};
             color: ${props.customFormat.hoverTextColor || props.customFormat.defaultTextColor};
@@ -140,7 +122,7 @@ const ButtonElement = styled<ButtonProps, any>(ButtonVariableElement)`
     &:active {
         outline: 0;
         transform: scale(0.98);
-        ${props=> props.customFormat ? css`
+        ${props => props.customFormat ? css`
             background: ${props.customFormat.hoverBackgroundColor};
             border-color: ${props.customFormat.hoverBorderColor || props.customFormat.hoverBackgroundColor};
             color: ${props.customFormat.hoverTextColor || props.customFormat.defaultTextColor};
