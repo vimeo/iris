@@ -4,6 +4,7 @@ import { rem } from 'polished';
 import mediaQuery from '../globals/js/style-helpers/mediaQuery';
 //@ts-ignore 
 import ArrowLeft from '../icons/arrow-left.svg';
+import { ARROWLEFT_CLASSNAME} from '../Breadcrumb/Breadcrumb';
 
 const ArrowLeftWrapper = styled.span`
         display: inline-block;
@@ -34,7 +35,7 @@ const LinkLabel = styled.span`
 const BreadcrumbLinkContent: React.SFC<React.HTMLProps<HTMLElement>> = (props) => {
     return (
         <span>
-            <ArrowLeftWrapper data-breadcrumb-arrow>
+            <ArrowLeftWrapper className={ARROWLEFT_CLASSNAME}>
                 <ArrowLeft />
             </ArrowLeftWrapper>
             <LinkLabel>

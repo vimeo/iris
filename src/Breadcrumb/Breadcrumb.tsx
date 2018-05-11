@@ -16,6 +16,7 @@ const BreadCrumbSetWrapper = styled.div `width: 100%;`;
 
 const ArrowIconWidth = 24;
 const ArrowIconSmallPadding = 8;
+export const ARROWLEFT_CLASSNAME = 'BreadcrumbLink_ArrowLeft';
 
 const truncatewithEllipsisCSS = css`
     display: inline-block;
@@ -45,7 +46,7 @@ const CrumbWrapper = styled<CrumbWrapperProps,'div'>('div')`
     `}
 
     ${props => props.showOnSmall ? css`
-        [data-breadcrumb-arrow] {
+        .${ARROWLEFT_CLASSNAME} {
             display: inline-block;
             padding-right: ${rem(8)};
             ${mediaQuery.md`
