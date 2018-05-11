@@ -34,7 +34,7 @@ const SearchField = ({
             {...buttonProps}
             title={buttonLabel}
             icon = {<SearchIcon />}
-            format="subtle"
+            format={buttonFormat}
             size={size}
         />
     );

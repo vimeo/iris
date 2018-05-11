@@ -13,7 +13,7 @@ type Props = {
     size: 'md' | 'lg',
     tooltipText: string,
     tooltipPosition: 'top' | 'right' | 'bottom' | 'left',
-    tooltipProps?: Object;
+    tooltipProps?: Object,
 };
 
 const ButtonInlineInputText = ({
