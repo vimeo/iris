@@ -120,6 +120,10 @@ export interface ButtonSplitMenuProps {
     */
     menuButtonA11yLabel: string,
     /**
+     * onClick callback for the menu button
+    */
+    menuButtonOnClick: (event: React.MouseEvent<HTMLElement>) => void,
+    /**
      * Menu Direction (see MenuPanel)
     */
     menuAlignment?: 'left' | 'right' | 'center',
@@ -145,6 +149,7 @@ const ButtonSplitMenu = ({
     buttonLabel,
     format = 'primary',
     menuButtonA11yLabel,
+    menuButtonOnClick,
     menuAlignment = 'right',
     menuContent,
     menuProps,
@@ -176,6 +181,7 @@ const ButtonSplitMenu = ({
                         <MenuButtonStyled
                             size={size}
                             format={format}
+                            onClick={menuButtonOnClick}
                         >
                             <ButtonIconElement size={size}>
                                 <ChevronDown title={menuButtonA11yLabel} />
