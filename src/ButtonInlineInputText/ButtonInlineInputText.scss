@@ -3,13 +3,13 @@
 $InputTextWithButton-size-md: rem-calc(40);
 $InputTextWithButton-size-lg: rem-calc(48);
 $InputTextWithButton-size-xl: rem-calc(48);
-$InputTextWithButton-size-md-subtle: rem-calc(36);
-$InputTextWithButton-size-lg-subtle: rem-calc(44);
-
+$InputTextWithButton-size-md-subtle: rem-calc(38);
+$InputTextWithButton-size-lg-subtle: rem-calc(46);
+$InputTextWithButton-size-xl-subtle: rem-calc(46);
 .Wrapper.Wrapper {
     position: absolute;
-    top: rem-calc(1);
-    right: rem-calc(1);
+    top: 0;
+    right: 0;
 }
 
 .ButtonInlineInputText {
@@ -95,14 +95,20 @@ $InputTextWithButton-size-lg-subtle: rem-calc(44);
     }
 
     &.subtle {
-        top: rem-calc(2);
-        right: rem-calc(2);
+        position: relative;
+        top: rem-calc(1);
+        right: rem-calc(1);
 
         border-color: transparent;
         background: $inputs_background-color;
 
         svg * {
             fill: $inputs_border-color;
+        }
+
+        &.xl {
+            width: $InputTextWithButton-size-xl-subtle;
+            height: $InputTextWithButton-size-xl-subtle;
         }
 
         &.lg {
