@@ -1,33 +1,24 @@
-// @flow
 import React from 'react';
 import LinkText from '../LinkText';
-import styles from '../Breadcrumb/Breadcrumb.scss';
 import BreadcrumbLinkContent from '../BreadcrumbLinkContent';
 
-const displayName = 'BreadcrumbLink';
-
-type Props = {
-    className?: string,
-    children: string,
-    href: string,
-    onClick?: (e: Event) => {}
+export interface BreadcrumbLinkProps {
+    children: React.ReactChildren;
+    href: string;
 };
 
 const BreadcrumbLink = ({
-    className,
     children,
     href,
-    onClick,
     ...filteredProps
-    }: Props): React$Element<*> => {
+    }: BreadcrumbLinkProps) => {
 
     return (
         <LinkText
-            className={styles.Link}
             href={href}
-            onClick={onClick}
             format="silent"
             title={children}
+            {...filteredProps}
         >
             <BreadcrumbLinkContent>
                 {children}
@@ -35,7 +26,5 @@ const BreadcrumbLink = ({
         </LinkText>
     );
 };
-
-BreadcrumbLink.displayName = displayName;
 
 export default BreadcrumbLink;

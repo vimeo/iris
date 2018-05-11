@@ -1,34 +1,25 @@
-// @flow
 import React from 'react';
 import LinkText from '../LinkText';
-import styles from '../Breadcrumb/Breadcrumb.scss';
 import BreadcrumbLinkContent from '../BreadcrumbLinkContent';
 import { Link } from 'react-router-dom';
 
-const displayName = 'BreadcrumbLink';
-
-type Props = {
-    className?: string,
-    children: string,
-    to: string,
-    onClick?: (e: Event) => {}
+export interface BreadcrumbLinkReactRouterProps {
+    children: React.ReactChildren;
+    to: string;
 };
 
 const BreadcrumbLinkReactRouter = ({
-    className,
     children,
     to,
-    onClick,
     ...filteredProps
-    }: Props): React$Element<*> => {
+    }: BreadcrumbLinkReactRouterProps)=> {
 
     return (
         <Link
             to={to}
-            onClick={onClick}
+            {...filteredProps}
         >
             <LinkText
-                className={styles.Link}
                 element="span"
                 format="silent"
                 title={children}
@@ -40,7 +31,5 @@ const BreadcrumbLinkReactRouter = ({
         </Link>
     );
 };
-
-BreadcrumbLinkReactRouter.displayName = displayName;
 
 export default BreadcrumbLinkReactRouter;

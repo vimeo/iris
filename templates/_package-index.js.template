@@ -34,6 +34,9 @@ export { default as <%- pattern['displayName']%> } from './<%- pattern['displayN
 <% }}); %>
 
 /* Components that are typescript, not flow */
+export { default as Breadcrumb} from './Breadcrumb';
+export { default as BreadcrumbLink } from './BreadcrumbLink';
+export { default as BreadcrumbLinkReactRouter } from './BreadcrumbLinkReactRouter';
 export { default as Button} from './Button';
 export { default as ButtonSplitMenu} from './ButtonSplitMenu';
 export { default as CategoryCard} from './CategoryCard';
