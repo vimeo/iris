@@ -100,6 +100,7 @@ const Breadcrumb = ({
                 >
                     <CrumbLabel
                         element="span"
+                        noMargin
                     >
                         {crumb}
                     </CrumbLabel>
@@ -116,6 +117,7 @@ const Breadcrumb = ({
 
             <CurrentPageCrumb
                 element="span"
+                noMargin
                 style={{ 'maxWidth': crumbWidth }}
             >
                 {currentPageLabel}
