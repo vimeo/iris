@@ -10,9 +10,7 @@ export interface ButtonIconElementStyledProps
 }
 
 const getIconSize = props => rem(ButtonStyleSettings.IconSizes[props.size]);
-const getIconMargin = props => (props.size === 'lg' ? rem(8) : rem(4));
-const getMarginDirection = props =>
-    props.iconLocation === 'beforeLabel' ? 'right' : 'left';
+
 
 const ButtonIconElementStyled = styled<ButtonIconElementStyledProps, 'span'>(
     'span'
@@ -21,7 +19,7 @@ const ButtonIconElementStyled = styled<ButtonIconElementStyledProps, 'span'>(
 
     align-items: center;
 
-    ${props => props.iconLocation ? `margin-${getMarginDirection}: ${getIconMargin};` : ''}
+    ${props => `margin-${props.iconLocation === 'afterLabel' ? 'left' : 'right' }: ${props.size === 'lg' ? rem(8) : rem(4)};`}
 
     svg {
         width: ${getIconSize};
