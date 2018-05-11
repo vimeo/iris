@@ -74,19 +74,19 @@ export interface VideoCardProps {
     /**
      * Fires when the checkbox is clicked. This callback should control `isSelected`
      */
-    onCheckBoxClick: (event) => void;
+    onCheckBoxClick: (event: React.MouseEvent<HTMLElement>) => void;
     /**
      * Fires when an area of card that does not have its own click behavior is clicked.
      */
-    onCardClick?: (event) => void;
+    onCardClick?: (event: React.MouseEvent<HTMLElement>) => void;
     /**
      * Fires when the card receives MouseEnter
      */
-    onMouseEnter?: (event) => void;
+    onMouseEnter?: (event: React.MouseEvent<HTMLElement>) => void;
     /**
      * Fires when the card receives MouseEnter
      */
-    onMouseLeave?: (event) => void;
+    onMouseLeave?: (event: React.MouseEvent<HTMLElement>) => void;
     /**
      * A string that descibes the privacy level
      */
