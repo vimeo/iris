@@ -16,7 +16,7 @@ const ArrowLeftWrapper = styled.span`
             width:${rem(24)};
 
             * {
-            fill: currentColor;
+                fill: currentColor;
             }
         }
 
