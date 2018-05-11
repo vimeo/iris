@@ -68,6 +68,10 @@ export interface VideoCardProps {
      */
     isSelectable?: boolean;
     /**
+     * Set to `tall` to force the loading state to be tall, as if the card had a context area, otherwise defaults to "normal"
+     */
+    loadingStyle?: 'normal' | 'tall';
+    /**
      * Defeats standard margin-bottom on cards
      */
     noMargin?: boolean;
@@ -283,6 +287,7 @@ class VideoCard extends React.Component<VideoCardProps, any> {
             isProcessing,
             isSelected,
             isSelectable,
+            loadingStyle="normal",
             noMargin,
             onCheckBoxClick,
             onCardClick,
@@ -357,7 +362,7 @@ class VideoCard extends React.Component<VideoCardProps, any> {
 
         return (
             <WrapperStyled
-                hasContextArea={showAllContent && contextInfoArea ? true : false}
+                hasContextArea={(isLoading && loadingStyle==="tall") || (showAllContent && contextInfoArea) ? true : false}
                 isDraggable={isDraggable}
                 isHovered={isLoading ? false : this.state.isHovered}
                 isLoading={isLoading}

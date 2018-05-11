@@ -442,26 +442,33 @@ class VideoCardDocs extends React.Component {
                             </GridCol>
                             <GridCol mdSpan={12} lgSpan={8}>
                                 <VideoCard
-                                    footer={
-                                        <VideoCardFooterActionsGrid
-                                            actionItems={actionButtonsJustTwo}
-                                        />
-                                    }
-                                    isGroup
-                                    isProcessing
-                                    isSelectable
-                                    onClick={testClick}
-                                    thumbnailData={albumThumbnailsIncomplete}
-                                    title="Sample Album"
-                                    titleSubheader={
-                                        <span>2 videos &#183; 5d</span>
-                                    }
+                                    isLoading
+                                    title="Loading"
                                 />
                             </GridCol>
                             <GridCol mdSpan={12} lgSpan={8}>
                                 <VideoCard
+                                    contextInfoArea={contextCard}
+                                    footer={exampleAttributionLongName}
+                                    isPrivate
                                     isLoading
-                                    title="Loading"
+                                    loadingStyle="tall"
+                                    onClick={testClick}
+                                    onCheckBoxClick={testCheckboxClick}
+                                    privacyDescription="Only me"
+                                    thumbnailBrandDecorationArea={<SPicon />}
+                                    thumbnailData={singleThumbnail}
+                                    thumbnailSocialBadgeArea={socialBadges}
+                                    thumbnailTimestampArea={
+                                        <VideoCardLiveBadge liveLabelString="Live" />
+                                    }
+                                    thumbnailVideoCardPropertiesArea={
+                                        videoProperties
+                                    }
+                                    title="Le Futur Sera Chauve / The Bald Future"
+                                    titleSubheader={
+                                        <span>8432 plays &#183; 5d</span>
+                                    }
                                 />
                             </GridCol>
                         </GridBlock>
@@ -679,19 +686,6 @@ import {
         />
     )}
     isGroup
-    isSelectable
-    onClick={testClick}
-    thumbnailData={albumThumbnailsIncomplete}
-    title="Sample Album"
-    titleSubheader={<span>2 videos &#183; 5d</span>}
-/>
-<VideoCard
-    footer={(
-        <VideoCardFooterActionsGrid
-            actionItems={actionButtonsJustTwo}
-        />
-    )}
-    isGroup
     isProcessing
     isSelectable
     onClick={testClick}
@@ -703,6 +697,29 @@ import {
     isLoading
     title="Loading"
 />
+<VideoCard
+    contextInfoArea={contextCard}
+    footer={exampleAttributionLongName}
+    isPrivate
+    isLoading
+    loadingStyle="tall"
+    onClick={testClick}
+    onCheckBoxClick={testCheckboxClick}
+    privacyDescription="Only me"
+    thumbnailBrandDecorationArea={<SPicon />}
+    thumbnailData={singleThumbnail}
+    thumbnailSocialBadgeArea={socialBadges}
+    thumbnailTimestampArea={
+        <VideoCardLiveBadge liveLabelString="Live" />
+    }
+    thumbnailVideoCardPropertiesArea={
+        videoProperties
+    }
+    title="Le Futur Sera Chauve / The Bald Future"
+    titleSubheader={
+        <span>8432 plays &#183; 5d</span>
+    }
+    />
 
 <VideoCard
     footer={exampleAttribution}
