@@ -8,8 +8,18 @@ import ChevronRight from '../icons/chevron-right.svg';
 import { ParagraphMd } from '../Type';
 
 export interface BreadcrumbProps {
+    /**
+     * An aray of BreadcrumpbLink or BreadCrumbLinkReactRouter components
+     */
     crumbs?: Array<React.ReactNode>,
+    /**
+     * A string decribing the current page title
+     */
     currentPageLabel: string;
+    /**
+     * suppress bottom margin if true
+     */
+    noMargin?: boolean;
 };
 
 const BreadCrumbSetWrapper = styled.div `width: 100%;`;
@@ -85,6 +95,7 @@ const CurrentPageCrumb = styled(ParagraphMd)`
 const Breadcrumb = ({
     crumbs,
     currentPageLabel,
+    noMargin,
     ...filteredProps
 }: BreadcrumbProps) => {
 
@@ -100,7 +111,7 @@ const Breadcrumb = ({
                 >
                     <CrumbLabel
                         element="span"
-                        noMargin
+                        noMargin={noMargin}
                     >
                         {crumb}
                     </CrumbLabel>
@@ -117,7 +128,7 @@ const Breadcrumb = ({
 
             <CurrentPageCrumb
                 element="span"
-                noMargin
+                noMargin={noMargin}
                 style={{ 'maxWidth': crumbWidth }}
             >
                 {currentPageLabel}
