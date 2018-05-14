@@ -15,6 +15,7 @@ gulp.task('compilePackageIndexJS', function () {
 
 	return gulp.src('./templates/_package-index.js.template')
 	.pipe(template(componentData))
-	.pipe(rename('index.ts'))
-	.pipe(gulp.dest('src'));
+	.pipe(rename('index.js'))
+	.pipe(gulp.dest('src'))
+	.pipe(gulp.dest('dist'));
 });

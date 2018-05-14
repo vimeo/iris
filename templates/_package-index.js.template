@@ -8,7 +8,6 @@
 /* Flow-typed Components */
 
 <% _.forEach(flowComponents, function(component) { if(component.name){ %>
-// @ts-ignore 
 export { default as <%- component.name%> } from '<%- component.path%>';
 <% }}); %>
 
