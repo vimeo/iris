@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Button';
+import { Button } from '../index';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import ShareIcon from '../icons/paper-plane.svg';
 import HeartIcon from '../icons/heart.svg';

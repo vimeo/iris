@@ -1,7 +1,9 @@
 import React from 'react';
-import {{pascalCase name}} from './{{pascalCase name}}';
+import {
+    {pascalCase name},
+    ParagraphMd,
+} from '../index';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import {ParagraphMd} from '../Type';
 
 class {{pascalCase name}}Docs extends React.Component {
     render() {
