@@ -10,10 +10,11 @@ parseTsDocsData= () => {
             const componentName = filePath.split('/')[1];
 
             const excludedNames = [
-                'index'
+                'index',
             ];
 
-            if(excludedNames.indexOf(componentName)) {
+            // exclude typed index files and any Docs files made with TS
+            if(excludedNames.indexOf(componentName) && componentName.indexOf('-Docs') < 0) {
                 patternArray.push({
                         name: componentName,
                         path: `./${filePath}`

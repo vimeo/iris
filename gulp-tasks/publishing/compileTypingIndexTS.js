@@ -1,20 +1,18 @@
 const gulp = require('gulp');
 const rename = require('gulp-rename');
 const template = require('gulp-template');
-const parseFlowDocsData = require('../build-tasks/parseFlowDocsData.js');
 const parseTSDocsData = require('../build-tasks/parseTSDocsData.js');
 // Build a list of the components for export from Iris.
-gulp.task('compilePackageIndexJS', function () {
+gulp.task('compileTypingIndexJS', function () {
 	const componentData = {
-		flowComponents: parseFlowDocsData(),
 		tsComponents: parseTSDocsData(),
 	};
 
 	// Uncomment below to Debug
-	// console.log('Compiling Index JS file from:' , componentData);
+	// console.log('Compiling TypeJS file from:' , componentData);
 
-	return gulp.src('./templates/_package-index.js.template')
+	return gulp.src('./templates/_typing-index.js.template')
 	.pipe(template(componentData))
-	.pipe(rename('index.ts'))
+	.pipe(rename('ts_types_index.ts'))
 	.pipe(gulp.dest('src'));
 });
