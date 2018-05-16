@@ -50,7 +50,6 @@ const VerticalMenuItemContent = ({
     const iconWrapperClass = classNames(
         styles.LabelIconWrapper,
         styles[labelIconTheme],
-        (isActive && labelIconTheme !== 'subtle' ? styles.isActive : null),
     );
 
     const labelWrapperClass = classNames(
