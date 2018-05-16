@@ -8,6 +8,8 @@ gulp.task('prepublish' , function(cb) {
         'svgOptimize',
 		'svgListBuild',
         'svgExportBuild',
+        ['reactDocGenBuild', 'tsDocs'],
+        'reactDocGenParse',
         'compilePackageIndexJS',
         'transpileTS',
         [ 

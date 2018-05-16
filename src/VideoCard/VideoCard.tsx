@@ -68,25 +68,29 @@ export interface VideoCardProps {
      */
     isSelectable?: boolean;
     /**
+     * Set to `tall` to force the loading state to be tall, as if the card had a context area, otherwise defaults to "normal"
+     */
+    loadingStyle?: 'normal' | 'tall';
+    /**
      * Defeats standard margin-bottom on cards
      */
     noMargin?: boolean;
     /**
      * Fires when the checkbox is clicked. This callback should control `isSelected`
      */
-    onCheckBoxClick: (event) => void;
+    onCheckBoxClick: (event: React.MouseEvent<HTMLElement>) => void;
     /**
      * Fires when an area of card that does not have its own click behavior is clicked.
      */
-    onCardClick?: (event) => void;
+    onCardClick?: (event: React.MouseEvent<HTMLElement>) => void;
     /**
      * Fires when the card receives MouseEnter
      */
-    onMouseEnter?: (event) => void;
+    onMouseEnter?: (event: React.MouseEvent<HTMLElement>) => void;
     /**
      * Fires when the card receives MouseEnter
      */
-    onMouseLeave?: (event) => void;
+    onMouseLeave?: (event: React.MouseEvent<HTMLElement>) => void;
     /**
      * A string that descibes the privacy level
      */
@@ -283,6 +287,7 @@ class VideoCard extends React.Component<VideoCardProps, any> {
             isProcessing,
             isSelected,
             isSelectable,
+            loadingStyle="normal",
             noMargin,
             onCheckBoxClick,
             onCardClick,
@@ -357,7 +362,7 @@ class VideoCard extends React.Component<VideoCardProps, any> {
 
         return (
             <WrapperStyled
-                hasContextArea={showAllContent && contextInfoArea ? true : false}
+                hasContextArea={(isLoading && loadingStyle==="tall") || (showAllContent && contextInfoArea) ? true : false}
                 isDraggable={isDraggable}
                 isHovered={isLoading ? false : this.state.isHovered}
                 isLoading={isLoading}

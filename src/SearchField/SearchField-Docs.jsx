@@ -16,40 +16,129 @@ class SearchFieldDocs extends React.Component {
                 <ParagraphMd><code>buttonLabel</code> is required and will label the button icon button with a title attribute. Generally whatever text you would have included as the label of normal button would suffice. For example "Search" or "Click to Search"</ParagraphMd>
                 <ParagraphMd><code>fieldLabel</code> is required and will label the input itself. Generally whatever text you would have included as the label of the input if the label was showing would suffice. For example "Search" or "Search This Channel". <strong>Note:</strong> placeholder text is not a substitute for a label.</ParagraphMd>
                 <div data-code>
-                    <SearchField
-                        buttonLabel="submit"
-                        buttonProps= {{
-                            'data-foo': 'bar',
-                        }}
-                        fieldLabel="Search"
-                        id="exampleSearchField1"
-                        placeholder="Search our videos"
-                        size="md"
-                    />
-                      <SearchField
-                        buttonLabel="submit"
-                        fieldLabel="Search"
-                        id="exampleSearchField2"
-                        placeholder="Search our videos"
-                        size="lg"
-                    />
+                    <div style={{ marginBottom: '1.25em' }}>
+                        <SearchField
+                            buttonFormat="neutral"
+                            buttonLabel="submit"
+                            buttonProps= {{
+                                'data-foo': 'bar',
+                            }}
+                            fieldLabel="Search"
+                            id="exampleSearchField1"
+                            placeholder="Search our videos"
+                            size="md"
+                        />
+                    </div>
+                    <div style={{ marginBottom: '1.25em' }}>
+                        <SearchField
+                            buttonFormat="neutral"
+                            buttonLabel="submit"
+                            fieldLabel="Search"
+                            id="exampleSearchField2"
+                            placeholder="Search our videos"
+                            size="lg"
+                        />
+                    </div>
+                    <div style={{ marginBottom: '1.25em' }}>
+                        <SearchField
+                            buttonLabel="submit"
+                            buttonProps= {{
+                                'data-foo': 'bar',
+                            }}
+                            fieldLabel="Search"
+                            id="exampleSearchField3"
+                            placeholder="Search our videos"
+                            size="md"
+                        />
+                    </div>
+                    <div style={{ marginBottom: '1.25em' }}>
+                        <SearchField
+                            buttonLabel="submit"
+                            fieldLabel="Search"
+                            id="exampleSearchField4"
+                            placeholder="Search our videos"
+                            size="lg"
+                        />
+                    </div>
+                    <div style={{ marginBottom: '1.25em' }}>
+                        <SearchField
+                            buttonFormat="strong"
+                            buttonLabel="submit"
+                            buttonProps= {{
+                                'data-foo': 'bar',
+                            }}
+                            fieldLabel="Search"
+                            id="exampleSearchField5"
+                            placeholder="Search our videos"
+                            size="md"
+                        />
+                    </div>
+                    <div style={{ marginBottom: '1.25em' }}>
+                        <SearchField
+                            buttonFormat="strong"
+                            buttonLabel="submit"
+                            fieldLabel="Search"
+                            id="exampleSearchField6"
+                            placeholder="Search our videos"
+                            size="lg"
+                        />
+                    </div>
                 </div>
 
                 <ExampleSource>
                     {`
 <SearchField
+    buttonFormat="neutral"
     buttonLabel="submit"
     buttonProps= {{
         'data-foo': 'bar',
     }}
-    id="exampleSearchField1"
     fieldLabel="Search"
+    id="exampleSearchField1"
     placeholder="Search our videos"
+    size="md"
 />
-<SearchField
+    <SearchField
+    buttonFormat="neutral"
     buttonLabel="submit"
     fieldLabel="Search"
     id="exampleSearchField2"
+    placeholder="Search our videos"
+    size="lg"
+/>
+<SearchField
+    buttonLabel="submit"
+    buttonProps= {{
+        'data-foo': 'bar',
+    }}
+    fieldLabel="Search"
+    id="exampleSearchField3"
+    placeholder="Search our videos"
+    size="md"
+/>
+    <SearchField
+    buttonLabel="submit"
+    fieldLabel="Search"
+    id="exampleSearchField4"
+    placeholder="Search our videos"
+    size="lg"
+/>
+    <SearchField
+    buttonFormat="strong"
+    buttonLabel="submit"
+    buttonProps= {{
+        'data-foo': 'bar',
+    }}
+    fieldLabel="Search"
+    id="exampleSearchField5"
+    placeholder="Search our videos"
+    size="md"
+/>
+    <SearchField
+    buttonFormat="strong"
+    buttonLabel="submit"
+    fieldLabel="Search"
+    id="exampleSearchField6"
     placeholder="Search our videos"
     size="lg"
 />

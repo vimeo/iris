@@ -1,8 +1,6 @@
-// @flow
 import React from 'react';
 import styled from 'styled-components';
 import { Transition } from 'react-transition-group';
-//@ts-ignore
 import { Manager, Target, Popper } from 'react-popper';
 import { Z_INDEX } from '../globals/js/constants';
 import Tooltip from '../Tooltip/Tooltip';
@@ -38,6 +36,10 @@ export interface TooltipOverlayProps {
      * Event Callback
      */
     onMouseLeave?: (event: React.MouseEvent<HTMLSpanElement>) => void;
+    /**
+     * Toggle popper events enabled (default is false). See [React Popper docs](https://github.com/FezVrasta/react-popper)
+     */
+    popperEventsEnabled?: boolean;
     /**
      * Tooltip Size (See docs)
      */
@@ -220,6 +222,7 @@ class TooltipOverlay extends React.Component {
             onClick,
             onMouseEnter,
             onMouseLeave,
+            popperEventsEnabled,
             size,
             tooltipText,
             triggerOnClick, // eslint-disable-line no-unused-vars
@@ -277,6 +280,8 @@ class TooltipOverlay extends React.Component {
                     </span>
                 </TargetStyled>
                 <PopperStyled
+                    //@ts-ignore  eventsEnabled is a Popper prop
+                    eventsEnabled={popperEventsEnabled}
                     //@ts-ignore modifiers is a Popper prop
                     modifiers={{
                         offset: {
