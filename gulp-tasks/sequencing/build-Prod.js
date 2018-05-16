@@ -3,9 +3,9 @@ const runSequence = require('run-sequence');
 
 gulp.task('build-Prod' , function(cb) {
 	runSequence(
+        ['compileComponentListJSX','compileEntryPoints-Prod'],
         ['reactDocGenBuild', 'tsDocs'],
         'reactDocGenParse',
-        ['compileComponentListJSX','compileEntryPoints-Prod'],
         'sassGlobals',
         'copyStaticAssets',
         'copyFavicon',
