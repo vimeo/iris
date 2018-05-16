@@ -1,4 +1,7 @@
 {
+    "Iris": [
+        ["Home", "Welcome to Iris", true]
+    ],
     "Brand": [
         ["Colors", "Color Palette", true],
         ["ColorRibbon", "Color Ribbon", true],

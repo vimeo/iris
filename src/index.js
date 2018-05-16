@@ -12,6 +12,10 @@ export { default as Avatar } from './Avatar';
 
 export { default as Badge } from './Badge';
 
+export { default as Breadcrumb } from './Breadcrumb';
+
+export { default as BreadcrumbLink } from './BreadcrumbLink';
+
 export { default as ButtonDialogClose } from './ButtonDialogClose';
 
 export { default as ButtonFileUpload } from './ButtonFileUpload';
@@ -136,14 +140,6 @@ export { default as VerticalMenuToggleButton } from './VerticalMenuToggleButton'
 
 
 /* TypeScript Components */
-
-export { default as Breadcrumb } from './Breadcrumb/Breadcrumb';
-
-export { default as BreadCrumbLink } from './BreadcrumbLink/BreadCrumbLink';
-
-export { default as BreadcrumbLinkContent } from './BreadcrumbLinkContent/BreadcrumbLinkContent';
-
-export { default as BreadcrumbLinkReactRouter } from './BreadcrumbLinkReactRouter/BreadcrumbLinkReactRouter';
 
 export { default as Button } from './Button/Button';
 
