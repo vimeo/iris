@@ -136,6 +136,7 @@ const ButtonElement = styled<ButtonProps, any>(ButtonVariableElement)`
         ${getDisabledCSSByFormat} cursor: not-allowed;
         outline: 0;
         transform: scale(1);
+        pointer-events: none;
     }
 
     ${getVerticalAutoMarginCSS} ${getAutoWidthCSS};
