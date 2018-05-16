@@ -1,6 +1,7 @@
-const patternData = require('../../data/tsDocs.json');
+
 
 parseTsDocsData= () => {  
+    const patternData = require('../../data/tsDocs.json');
     let patternArray = [];
     patternData.children.map((item) => {
         const filePath = item.name.replace(/"/g,"");

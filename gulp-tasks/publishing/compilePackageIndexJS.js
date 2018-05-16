@@ -1,10 +1,15 @@
 const gulp = require('gulp');
 const rename = require('gulp-rename');
 const template = require('gulp-template');
-const parseFlowDocsData = require('../build-tasks/parseFlowDocsData.js');
-const parseTSDocsData = require('../build-tasks/parseTsDocsData.js');
+
 // Build a list of the components for export from Iris.
 gulp.task('compilePackageIndexJS', function () {
+
+	setTimeout(function(){
+
+	
+	const parseFlowDocsData = require('../build-tasks/parseFlowDocsData.js');
+	const parseTSDocsData = require('../build-tasks/parseTsDocsData.js');
 	const componentData = {
 		flowComponents: parseFlowDocsData(),
 		tsComponents: parseTSDocsData(),
@@ -18,4 +23,6 @@ gulp.task('compilePackageIndexJS', function () {
 	.pipe(rename('index.js'))
 	.pipe(gulp.dest('src'))
 	.pipe(gulp.dest('dist'));
+
+}, 3000)
 });
