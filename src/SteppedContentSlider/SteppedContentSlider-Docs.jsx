@@ -1,7 +1,7 @@
 import React from 'react';
 import SteppedContentSlider from './SteppedContentSlider';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd, ParagraphSm, Header3 } from '../Type';
+import { ParagraphMd, Header3 } from '../Type';
 import LinkText from '../LinkText';
 
 class SteppedContentSliderDocs extends React.Component {
@@ -30,9 +30,9 @@ class SteppedContentSliderDocs extends React.Component {
                     <ParagraphMd>The SteppedContenSlider component displays a content slider for fixed-width content lists that exceed the viewport width.</ParagraphMd>
                     <SteppedContentSlider
                         additionalControlArea={(
-                            <ParagraphSm noMargin>
+                            <ParagraphMd noMargin>
                                 <LinkText decoration="silent" href="#">View all</LinkText>
-                            </ParagraphSm>
+                            </ParagraphMd>
                         )}
                         previousLabel="Go to Previous Set"
                         nextLabel="Go to Next Set"
@@ -44,9 +44,9 @@ class SteppedContentSliderDocs extends React.Component {
                     {`
 <SteppedContentSlider
     additionalControlArea={(
-        <ParagraphSm noMargin>
+        <ParagraphMd noMargin>
             <LinkText decoration="silent" href="#">View all</LinkText>
-        </ParagraphSm>
+        </ParagraphMd>
     )}
     previousLabel="Go to Previous Set"
     nextLabel="Go to Next Set"
@@ -61,9 +61,9 @@ class SteppedContentSliderDocs extends React.Component {
                     <ParagraphMd>The slider's position can be set with the <code>currentSlide</code> prop, which takes a zero-indexed integer representing the desired slide.</ParagraphMd>
                     <SteppedContentSlider
                         additionalControlArea={(
-                            <ParagraphSm noMargin>
+                            <ParagraphMd noMargin>
                                 <LinkText decoration="silent" href="#">View all</LinkText>
-                            </ParagraphSm>
+                            </ParagraphMd>
                         )}
                         currentSlide={3}
                         previousLabel="Go to Previous Set"
@@ -77,9 +77,9 @@ class SteppedContentSliderDocs extends React.Component {
                     {`
 <SteppedContentSlider
     additionalControlArea={(
-        <ParagraphSm noMargin>
+        <ParagraphMd noMargin>
             <LinkText decoration="silent" href="#">View all</LinkText>
-        </ParagraphSm>
+        </ParagraphMd>
     )}
     currentSlide={3}
     previousLabel="Go to Previous Set"
@@ -92,9 +92,9 @@ class SteppedContentSliderDocs extends React.Component {
                     <Header3>Empty Set</Header3>
                     <SteppedContentSlider
                         additionalControlArea={(
-                            <ParagraphSm noMargin>
+                            <ParagraphMd noMargin>
                                 <LinkText decoration="silent" href="#">View all</LinkText>
-                            </ParagraphSm>
+                            </ParagraphMd>
                         )}
                         previousLabel="Go to Previous Set"
                         nextLabel="Go to Next Set"
@@ -108,9 +108,9 @@ class SteppedContentSliderDocs extends React.Component {
                     {`
 <SteppedContentSlider
     additionalControlArea={(
-        <ParagraphSm noMargin>
+        <ParagraphMd noMargin>
             <LinkText decoration="silent" href="#">View all</LinkText>
-        </ParagraphSm>
+        </ParagraphMd>
     )}
     previousLabel="Go to Previous Set"
     nextLabel="Go to Next Set"
