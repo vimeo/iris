@@ -222,7 +222,7 @@ class TooltipOverlay extends React.Component {
             onClick,
             onMouseEnter,
             onMouseLeave,
-            popperEventsEnabled,
+            popperEventsEnabled = false,
             size,
             tooltipText,
             triggerOnClick, // eslint-disable-line no-unused-vars
