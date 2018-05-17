@@ -149,6 +149,10 @@ export { default as ButtonIconElement } from './Button/ButtonIconElement';
 
 export { default as ButtonSplitMenu } from './ButtonSplitMenu/ButtonSplitMenu';
 
+export { default as Card } from './Card/Card';
+
+export { default as CardSettings } from './Card/CardSettings';
+
 export { default as CategoryCard } from './CategoryCard/CategoryCard';
 
 export { default as InputColorPicker } from './InputColorPicker/InputColorPicker';

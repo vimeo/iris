@@ -28,6 +28,7 @@
         ["ButtonSplitMenu", "Buttons: Split Menu"],
         ["ButtonToggleState", "Buttons: ToggleState"],
         ["CategoryCard", "Category Cards"],
+        ["Card", "Card"],
         ["CircularButton", "Circular Button"],
         ["CopyField", "Copy Field"],
         ["CounterIcon", "Counter Icons"],
