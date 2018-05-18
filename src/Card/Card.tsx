@@ -32,7 +32,7 @@ const getBoxShadow = props => {
 
 const CardStyled = styled<CardProps, 'div'>('div')`
     position: relative;
-    background: ${props => props.isLoading ? COLORS.Plaster : COLORS.White};
+    background: ${props => props.isLoading ? COLORS.Paste : COLORS.White};
     border: ${rem(1)} solid ${props => props.isSelected ? COLORS.VimeoBlueDarkened : COLORS.Plaster};
     border-radius: ${rem(CardSettings.borderRadius)};
     box-shadow: ${getBoxShadow};
