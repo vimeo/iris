@@ -4,7 +4,7 @@
     display: block;
 
     position: absolute;
-    bottom: 0;
+    bottom: rem-calc(-1);
     left: 0;
 
     width: 100%;
@@ -17,7 +17,7 @@
 }
 
 .LinkText {
-    display: inline-block;
+    display: inline;
 
     position: relative;
 
