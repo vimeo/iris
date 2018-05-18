@@ -149,7 +149,12 @@ const contextCardWithIcon = (
         contextAttributionHeader={
             <TruncatedTextWrapper>
                 <ParagraphAltMd element="span" noMargin>Liked by </ParagraphAltMd>
-                <Header6 noMargin element="span">Wes Anderson With A Longer Name</Header6>
+                <Header6 noMargin element="span">
+                    <LinkText
+                        href="https://vimeo.com/channels/staffpicks"
+                        target="_blank"
+                        decoration="inherit"
+                    >Wes Anderson With A Longer Name</LinkText></Header6>
             </TruncatedTextWrapper>
         }
     />
