@@ -1,14 +1,19 @@
 import React from 'react';
-import Modal from './Modal';
-import Button from '../Button/Button';
-import InputText from '../InputText/InputText';
-import { ParagraphMd, Header1, Header2, Header3 } from '../Type';
+import {
+    Button,
+    Header1,
+    Header2,
+    Header3,
+    InputText,
+    List,
+    ListItem,
+    MenuPanel,
+    MenuPanelList,
+    Modal,
+    ParagraphMd,
+} from '../index';
 import styles from './Modal-Docs.scss';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import List from '../List';
-import ListItem from '../ListItem';
-import MenuPanel from '../MenuPanel';
-import MenuPanelList from '../MenuPanelList';
 import SettingsIcon from '../icons/gear.svg';
 class ModalDocs extends React.Component {
     constructor(props) {

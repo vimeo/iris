@@ -1,10 +1,14 @@
 import React from 'react';
-import TooltipAnnotationIcon from './TooltipAnnotationIcon';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd, Header3, Header4 } from '../Type';
-import InputText from '../InputText/InputText';
-import InputToggle from '../InputToggle/InputToggle';
-import InputCheckbox from '../InputCheckbox/InputCheckbox';
+import {
+    InputCheckbox,
+    InputText,
+    InputToggle,
+    ParagraphMd,
+    TooltipAnnotationIcon,
+    Header3,
+    Header4,
+} from '../index';
 
 class TooltipAnnotationIconDocs extends React.Component {
     constructor(props) {

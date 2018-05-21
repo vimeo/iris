@@ -1,10 +1,6 @@
 import React from 'react';
-import ButtonSplitMenu from './ButtonSplitMenu';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import List from '../List';
-import ListItem from '../ListItem';
-import { ParagraphMd, Header3 } from '../Type';
-import MenuPanelList from '../MenuPanelList';
+import { ButtonSplitMenu, List, ListItem, MenuPanelList, ParagraphMd, Header3 } from '../index';
 
 class ButtonSplitMenuDocs extends React.Component {
     render() {

@@ -1,8 +1,8 @@
 import React from 'react';
-import Badge from './Badge';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 // $FlowFixMe
-import { ParagraphMd, Header3 } from '../Type';
+import { Badge, ParagraphMd, Header3 } from '../index.js';
+
 const BadgeDocs = (props) => {
     return (
         <div className="Pattern__docs">

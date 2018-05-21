@@ -1,8 +1,11 @@
 import React from 'react';
-import SteppedContentSlider from './SteppedContentSlider';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd, Header3 } from '../Type';
-import LinkText from '../LinkText';
+import {
+    Header3,
+    LinkText,
+    ParagraphMd,
+    SteppedContentSlider,
+} from '../index';
 
 class SteppedContentSliderDocs extends React.Component {
 

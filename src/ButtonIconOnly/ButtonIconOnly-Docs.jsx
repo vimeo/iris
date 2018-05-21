@@ -1,10 +1,10 @@
 import React from 'react';
-import ButtonIconOnly from './ButtonIconOnly';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import SettingsIcon from '../icons/gear.svg';
 import DownloadIcon from '../icons/download-arrow.svg';
 import DeleteIcon from '../icons/trash.svg';
-import { ParagraphMd, Header3 } from '../Type';
+import { ButtonIconOnly, ParagraphMd, Header3 } from '../index';
+
 const ButtonIconOnlyDocs = (props) => {
     return (
         <div className="Pattern__docs">

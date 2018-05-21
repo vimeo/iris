@@ -1,7 +1,6 @@
 import React from 'react';
-import InputTextFloatingLabel from './InputTextFloatingLabel';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd, Header3 } from '../Type';
+import { InputTextFloatingLabel, ParagraphMd, Header3 } from '../index';
 
 class InputTextFloatingLabelDocs extends React.Component {
     render() {

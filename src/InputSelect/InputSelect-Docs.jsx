@@ -1,9 +1,8 @@
 import React from 'react';
-import InputSelect from './InputSelect';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import Button from '../Button/Button';
 import VisaLogo from '../icons/third-party/cc-visa.svg';
-import { ParagraphMd, Header3 } from '../Type';
+import { Button, InputSelect, ParagraphMd, Header3 } from '../index';
+
 const demoOptions = (
                     <optgroup label="Option Group">
                         <option value="" defaultValue disabled hidden>Select something...</option>

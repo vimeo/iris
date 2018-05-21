@@ -1,7 +1,6 @@
 import React from 'react';
-import ProgressBar from './ProgressBar';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../Type';
+import { ParagraphMd, ProgressBar } from '../index';
 
 class ProgressBarDocs extends React.Component {
     render() {

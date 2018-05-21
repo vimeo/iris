@@ -1,9 +1,6 @@
 import React from 'react';
-import InputCheckboxSet from './InputCheckboxSet';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import List from '../List';
-import ListItem from '../ListItem';
-import { ParagraphMd, Header3 } from '../Type';
+import { InputCheckboxSet, List, ListItem, ParagraphMd, Header3 } from '../index';
 
 class InputCheckboxSetDocs extends React.Component {
     render() {

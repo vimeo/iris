@@ -1,14 +1,17 @@
 import React from 'react';
-import FeatureTourPanel from './FeatureTourPanel';
-import FeatureTourDot from '../FeatureTourDot';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd, Header3, Header5 } from '../Type';
-
-import LinkText from '../LinkText';
-import NotificationNeutral from '../NotificationNeutral';
-import List from '../List';
-import ListItem from '../ListItem';
-import FeatureTourPanelButton from '../FeatureTourPanelButton';
+import {
+    FeatureTourPanelButton,
+    FeatureTourDot,
+    FeatureTourPanel,
+    Header3,
+    Header5,
+    LinkText,
+    List,
+    ListItem,
+    NotificationNeutral,
+    ParagraphMd,
+} from '../index';
 import styles from './FeatureTourPanel-Docs.scss';
 
 class FeatureTourPanelDocs extends React.Component {

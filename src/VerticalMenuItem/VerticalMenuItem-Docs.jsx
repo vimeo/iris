@@ -1,18 +1,21 @@
 import React from 'react';
-import VerticalMenuItem from './VerticalMenuItem';
-import VerticalMenuItemContent from '../VerticalMenuItemContent';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import List from '../List';
-import ListItem from '../ListItem';
-import { ParagraphMd, Header3 } from '../Type';
 import PopOutIcon from '../icons/pop-out.svg';
 import HomeIcon from '../icons/home.svg';
 import LockIcon from '../icons/lock.svg';
 import SettingsIcon from '../icons/gear.svg';
 import HomeFilledIcon from '../icons/home-filled.svg';
-import MenuPanelList from '../MenuPanelList/MenuPanelList';
-import VerticalMenuActionButton from '../VerticalMenuActionButton';
 import CirclePlusIcon from '../icons/circle-plus';
+import {
+    Header3,
+    List,
+    ListItem,
+    MenuPanelList,
+    ParagraphMd,
+    VerticalMenuActionButton,
+    VerticalMenuItem,
+    VerticalMenuItemContent,
+} from '../index';
 
 const VerticalMenuItemDocs = (props) => {
     const onClickHandler = (e) => {

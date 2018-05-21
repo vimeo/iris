@@ -1,7 +1,6 @@
 import React from 'react';
-import InputCheckbox from './InputCheckbox';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { Header3, ParagraphMd } from '../Type';
+import { InputCheckbox, Header3, ParagraphMd } from '../index';
 
 class InputCheckboxDocs extends React.Component {
     constructor(props) {

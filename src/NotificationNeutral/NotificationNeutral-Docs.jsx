@@ -1,9 +1,11 @@
 import React from 'react';
-import NotificationNeutral from './NotificationNeutral';
+import {
+    Button,
+    NotificationNeutral,
+    ParagraphMd,
+    SlideUpDown,
+} from '../index';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import Button from '../Button/Button';
-import SlideUpDown from '../SlideUpDown';
-import { ParagraphMd } from '../Type';
 
 class NotificationNeutralDocs extends React.Component {
     // test handler for onDismiss event

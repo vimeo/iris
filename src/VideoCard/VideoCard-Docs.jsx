@@ -1,5 +1,17 @@
 import React from 'react';
-import VideoCard, {
+import {
+    Avatar,
+    Badge,
+    ButtonIconOnly,
+    MenuPanel,
+    MenuPanelList,
+    TruncatedTextWrapper,
+    Grid,
+    GridBlock,
+    GridCol,
+    LinkText,
+    TooltipOverlay,
+    VideoCard,
     VideoContextInfoArea,
     VideoCardFooterActionsGrid,
     VideoCardFooterAttribution,
@@ -7,29 +19,23 @@ import VideoCard, {
     VideoCardLiveBadge,
     VideoCardPropertyBadge,
     VideoCardTimestamp,
-} from './index';
+    ParagraphMd,
+    ParagraphAltMd,
+    Header6,
+    Header3,
+    Header4,
+    Header5,
+} from '../index';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import VideoCardFooterAttributionAPI from '../../data/tsdocsHTML/interfaces/_videocard_videocardfooterattribution_.videocardfooterattributionprops.html';
 import VideoCardThumbnailDataAPI from '../../data/tsdocsHTML/interfaces/_videocard_videocard_.videocardthumbnaildata.html';
 import VideoContextInfoAreaAPI from '../../data/tsdocsHTML/interfaces/_videocard_videocontextinfoarea_.videocardcontextinfoareaprops.html';
-import MenuPanel from '../MenuPanel';
-import MenuPanelList from '../MenuPanelList';
-import TruncatedTextWrapper from '../TruncatedTextWrapper';
-import Grid from '../Grid';
-import GridBlock from '../GridBlock';
-import GridCol from '../GridCol';
 import SPicon from '../illustrations/staff-picks-badge-just-sp.svg';
 import FBChip from '../icons/third-party/social-chip-facebook.svg';
 import YTChip from '../icons/third-party/social-chip-youtube.svg';
-import { ParagraphMd, ParagraphAltMd, Header6, Header3, Header4, Header5 } from '../Type';
-import TooltipOverlay from '../TooltipOverlay';
-import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
 import SendIcon from '../icons/paper-plane.svg';
 import GearIcon from '../icons/gear.svg';
 import DotsMenuIcon from '../icons/dots-menu.svg';
-import LinkText from '../LinkText';
-import Badge from '../Badge';
-import Avatar from '../Avatar';
 
 const getApiHtml = htmlData => {
     return {

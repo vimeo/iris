@@ -1,9 +1,11 @@
 import React from 'react';
-import Breadcrumb from './Breadcrumb';
-import BreadcrumbLink from '../BreadcrumbLink';
-import BreadcrumbLinkReactRouter from '../BreadcrumbLinkReactRouter';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../Type';
+import {
+    Breadcrumb,
+    BreadcrumbLink,
+    BreadcrumbLinkReactRouter,
+    ParagraphMd,
+} from '../index';
 
 class BreadcrumbDocs extends React.Component {
     render() {

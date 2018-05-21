@@ -5,7 +5,7 @@ import styles from '../Breadcrumb/Breadcrumb.scss';
 import BreadcrumbLinkContent from '../BreadcrumbLinkContent';
 import { Link } from 'react-router-dom';
 
-const displayName = 'BreadcrumbLink';
+const displayName = 'BreadcrumbLinkReactRouter';
 
 type Props = {
     className?: string,

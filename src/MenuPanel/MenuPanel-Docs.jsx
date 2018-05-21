@@ -1,17 +1,23 @@
 import React from 'react';
-import MenuPanel from './MenuPanel';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { Header4, Header3, ParagraphMd } from '../Type';
-import List from '../List';
-import ListItem from '../ListItem';
-import LinkText from '../LinkText/LinkText';
-import MenuPanelList from '../MenuPanelList/MenuPanelList';
-import NotificationWarning from '../NotificationWarning/NotificationWarning';
-import Button from '../Button/Button';
-import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
+import {
+    Button,
+    ButtonIconOnly,
+    Header4,
+    Header3,
+    InputText,
+    LinkText,
+    List,
+    ListItem,
+    MenuPanelList,
+    MenuPanel,
+    MenuPanelScrollableWithActionArea,
+    NotificationWarning,
+    ParagraphMd,
+} from '../index';
+
 import SettingsIcon from '../icons/gear.svg';
-import MenuPanelScrollableWithActionArea from '../MenuPanelScrollableWithActionArea/MenuPanelScrollableWithActionArea';
-import InputText from '../InputText/InputText';
+
 import styles from './MenuPanel-Docs.scss';
 class MenuPanelDocs extends React.Component {
     constructor(props) {

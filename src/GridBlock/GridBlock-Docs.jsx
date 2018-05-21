@@ -1,5 +1,5 @@
 import React from 'react';
-import GridBlock from './GridBlock';
+import { GridBlock } from '../index';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 const BlockDocs = (props) => {

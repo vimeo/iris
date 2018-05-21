@@ -1,11 +1,9 @@
 import React from 'react';
-import { Button } from '../index';
+import { Button, ParagraphMd, Header3, Header4 } from '../index';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import ShareIcon from '../icons/paper-plane.svg';
 import HeartIcon from '../icons/heart.svg';
 import DownloadIcon from '../icons/download-arrow.svg';
-// $FlowFixMe
-import { ParagraphMd, Header3, Header4 } from '../Type';
 class ButtonDocs extends React.Component {
     clickExample() {
         console.log('click');

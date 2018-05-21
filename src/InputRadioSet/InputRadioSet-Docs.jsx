@@ -1,5 +1,5 @@
 import React from 'react';
-import InputRadioSet from './InputRadioSet';
+import { InputRadioSet } from '../index';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 

@@ -21,6 +21,8 @@ export { default as Breadcrumb } from './Breadcrumb';
 
 export { default as BreadcrumbLink } from './BreadcrumbLink';
 
+export { default as BreadcrumbLinkReactRouter } from './BreadcrumbLinkReactRouter';
+
 export { default as ButtonDialogClose } from './ButtonDialogClose';
 
 export { default as ButtonFileUpload } from './ButtonFileUpload';

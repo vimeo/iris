@@ -1,11 +1,14 @@
 import React from 'react';
-import ModalFeatureUpdate from './ModalFeatureUpdate';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import Button from '../Button';
-import LinkText from '../LinkText';
+import {
+    Button,
+    Header3,
+    LinkText,
+    ModalFeatureUpdate,
+    ParagraphMd,
+} from '../index';
 import ModalFeatureUpdateTemplate from './ModalFeatureUpdateTemplate';
 import TemplateAPI from '../../data/tsdocsHTML/interfaces/_modalfeatureupdate_modalfeatureupdatetemplate_.modalfeatureupdatetemplateprops.html';
-import { ParagraphMd, Header3 } from '../Type';
 
 const getApiHtml = htmlData => {
     return {
