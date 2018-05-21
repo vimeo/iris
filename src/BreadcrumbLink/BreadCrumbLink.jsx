@@ -26,7 +26,7 @@ const BreadcrumbLink = ({
             className={styles.Link}
             href={href}
             onClick={onClick}
-            format="silent"
+            decoration="silent"
             title={children}
         >
             <BreadcrumbLinkContent>

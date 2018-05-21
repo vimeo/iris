@@ -6,6 +6,7 @@ import CategoryCardAPI from '../data/tsdocsHTML/interfaces/_categorycard_categor
 import CardAPI from '../data/tsdocsHTML/interfaces/_card_card_.cardprops.html'
 import InputColorPickerAPI from '../data/tsdocsHTML/interfaces/_inputcolorpicker_inputcolorpicker_.inputcolorpickerprops.html';
 import InputTextAPI from '../data/tsdocsHTML/interfaces/_inputtext_inputtext_.inputtextprops.html';
+import LinkTextAPI from '../data/tsdocsHTML/interfaces/_linktext_linktext_.linktextprops.html';
 import LoaderCircularAPI from '../data/tsdocsHTML/interfaces/_loadercircular_loadercircular_.loadercircularprops.html';
 import ModalAPI from '../data/tsdocsHTML/interfaces/_modal_modal_.modalprops.html';
 import ModalFeatureUpdateAPI from '../data/tsdocsHTML/interfaces/_modalfeatureupdate_modalfeatureupdate_.modalfeatureupdateprops.html';
@@ -32,6 +33,9 @@ const tsPatternAPIList = {
     },
     InputText: {
         data: InputTextAPI,
+    },
+    LinkText: {
+        data: LinkTextAPI,
     },
     LoaderCircular: {
         data: LoaderCircularAPI,

@@ -30,7 +30,7 @@ const BreadcrumbLinkReactRouter = ({
             <LinkText
                 className={styles.Link}
                 element="span"
-                format="silent"
+                decoration="silent"
                 title={children}
             >
                 <BreadcrumbLinkContent>
