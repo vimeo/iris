@@ -61,6 +61,10 @@ export interface SteppedContentSliderProps {
      */
     showEmptyState?: boolean,
     /**
+     *  flag to signify that the slide count is subject to change
+     */
+    isUnlimited?: boolean,
+    /**
      * takes an integer representing the desired spacing in pixels between slides (default `16`, pixels will be converted to rems)
      */
     slideMargin?: number,
@@ -304,7 +308,20 @@ class SteppedContentSlider extends React.Component {
             offsetModifier += TRUNCATION_WIDTH;
         }
 
-        const trackOffset = nextSlide * -1 * (this.props.slideMargin + this.state.slideWidth) + offsetModifier;
+        // Set the track offset based on slide content so that we can right-align when the user reaches the end
+        let trackOffset;
+        if (
+            this._lastSlideVisible(nextSlide) // The right-most slide is visible
+            && this.state.slideCount > this.state.slideCountPerStep // and the total # of slides exceed the visible area
+            && !this.props.isUnlimited // and we're not loading more slides (i.e. we might know we're only temporarily be at the end)
+        ) {
+            // Right-align: offset by the total width of the track, less the width of the view container
+            trackOffset = (this.state.trackWidth * -1) + this.viewContainer.offsetWidth;
+        }
+        else {
+            // "Normal" left-align: set the position based on the current slide aligned at the left
+            trackOffset = nextSlide * -1 * (this.props.slideMargin + this.state.slideWidth) + offsetModifier;
+        }
 
         this.setState({
             animate,
@@ -315,10 +332,15 @@ class SteppedContentSlider extends React.Component {
         });
     }
 
+    // Is the last slide within the visible area?
+    private _lastSlideVisible = (slide: number): boolean => {
+        return slide + this.state.slideCountPerStep >= this.state.slideCount;
+    }
+
     // assess what controls, if any, we need
     _checkPrevNextShow = (slide: number) => {
         return ({
-            showNext: !this.props.showEmptyState && (slide + 1) < this.state.slideCount,
+            showNext: !this.props.showEmptyState && !this._lastSlideVisible(slide),
             showPrevious: !this.props.showEmptyState && slide > 0,
         });
 
