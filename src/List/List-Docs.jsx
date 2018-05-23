@@ -1,8 +1,6 @@
 import React from 'react';
-import List from './List';
-import ListItem from '../ListItem';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd, Header3, Header6 } from '../Type';
+import { List, ListItem, ParagraphMd, Header3, Header6 } from '../index';
 
 class ListDocs extends React.Component {
     constructor(props) {

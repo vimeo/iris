@@ -1,9 +1,12 @@
 import React from 'react';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../Type';
-import MenuPanelList from '../MenuPanelList/MenuPanelList';
+import {
+    MenuPanelList,
+    ParagraphMd,
+    VerticalMenuItem,
+} from '../index';
+
 import SettingsIcon from '../icons/gear.svg';
-import VerticalMenuItem from '../VerticalMenuItem/VerticalMenuItem';
 
 class VerticalMenuContextualMenuPanelDocs extends React.Component {
     render() {

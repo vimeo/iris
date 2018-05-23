@@ -1,9 +1,6 @@
 import React from 'react';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { Header3, ParagraphMd } from '../Type';
-import LinkText from '../LinkText/LinkText';
-import NotificationWarning from '../NotificationWarning/NotificationWarning';
-
+import { Header3, LinkText, NotificationWarning, ParagraphMd } from '../index';
 class MenuPanelListDocs extends React.Component {
 
     render() {

@@ -1,7 +1,6 @@
 import React from 'react';
-import InputRadio from './InputRadio';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../Type';
+import { InputRadio, ParagraphMd } from '../index';
 
 class InputRadioDocs extends React.Component {
     constructor(props) {

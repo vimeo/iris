@@ -25,7 +25,6 @@ export interface BreadcrumbProps {
 const BreadCrumbSetWrapper = styled.div `width: 100%;`;
 
 const ArrowIconWidth = 24;
-const ArrowIconSmallPadding = 8;
 export const ARROWLEFT_CLASSNAME = 'BreadcrumbLink_ArrowLeft';
 
 const truncatewithEllipsisCSS = css`
@@ -86,9 +85,9 @@ const CrumbArrowIcon = styled(ChevronRight)`
 
 const CurrentPageCrumb = styled(ParagraphMd)`
     ${truncatewithEllipsisCSS}
+    width: calc(50%);
     ${mediaQuery.md`
-        //cancels-out inline calculated style with 100% minus the width of the arrow icon and its padding.
-        max-width: calc(100% - ${rem(ArrowIconWidth + ArrowIconSmallPadding) }) !important; 
+        width: calc(33%);
     `}
 `;
 

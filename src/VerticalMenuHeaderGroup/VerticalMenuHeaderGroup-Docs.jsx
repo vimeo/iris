@@ -1,11 +1,13 @@
 import React from 'react';
-import VerticalMenuHeaderGroup from './VerticalMenuHeaderGroup';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../Type';
+import {
+    List,
+    ListItem,
+    NotificationNeutral,
+    ParagraphMd,
+    VerticalMenuHeaderGroup,
+} from '../index';
 import CirclePlusIcon from '../icons/circle-plus';
-import List from '../List';
-import ListItem from '../ListItem';
-import NotificationNeutral from '../NotificationNeutral';
 
 
 class VerticalMenuHeaderGroupDocs extends React.Component {

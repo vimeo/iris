@@ -1,7 +1,6 @@
 import React from 'react';
-import LoaderCircular from './LoaderCircular';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd, Header4 } from '../Type';
+import { LoaderCircular, ParagraphMd, Header4 } from '../index';
 const LoaderCircularDocs = (props) => {
     return (
         <div>

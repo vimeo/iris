@@ -1,15 +1,19 @@
 import React from 'react';
-import TooltipOverlay from './TooltipOverlay';
-import Button from '../Button/Button';
-import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
-import DeleteIcon from '../icons/trash.svg';
-import LinkText from '../LinkText/LinkText';
-import List from '../List';
-import ListItem from '../ListItem';
-import { ParagraphMd, Header3 } from '../Type';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import NotificationWarning from '../NotificationWarning/NotificationWarning';
+import {
+    Button,
+    ButtonIconOnly,
+    Header3,
+    LinkText,
+    List,
+    ListItem,
+    NotificationWarning,
+    ParagraphMd,
+    TooltipOverlay,
+ } from '../index';
 
+import DeleteIcon from '../icons/trash.svg';
+
+import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 class TooltipOverlayDocs extends React.Component {
     constructor(props) {
         super(props);

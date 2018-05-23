@@ -1,11 +1,13 @@
 import React from 'react';
-import VerticalMenuItem from '../VerticalMenuItem';
-import VerticalMenuItemContent from './VerticalMenuItemContent';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import List from '../List';
-import ListItem from '../ListItem';
-import { ParagraphMd, Header3 } from '../Type';
 import PopOutIcon from '../icons/pop-out.svg';
+import {
+    Header3,
+    ListItem,
+    ParagraphMd,
+    VerticalMenuItem,
+    VerticalMenuItemContent,
+} from '../index';
 
 const VerticalMenuItemContentDocs = (props) => {
     const onClickHandler = (e) => {

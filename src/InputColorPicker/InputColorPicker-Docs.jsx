@@ -1,7 +1,7 @@
 import React from 'react';
-import InputColorPicker from './InputColorPicker';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../Type';
+import { InputColorPicker, ParagraphMd } from '../index';
+
 const InputColorPickerDocs = (props) => {
     return (
         <div className="Pattern__docs">

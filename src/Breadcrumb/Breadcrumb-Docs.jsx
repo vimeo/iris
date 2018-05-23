@@ -1,9 +1,11 @@
 import React from 'react';
-import Breadcrumb from './Breadcrumb';
-import BreadcrumbLink from '../BreadcrumbLink';
-import BreadcrumbLinkReactRouter from '../BreadcrumbLinkReactRouter';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../Type';
+import {
+    Breadcrumb,
+    BreadcrumbLink,
+    BreadcrumbLinkReactRouter,
+    ParagraphMd,
+} from '../index';
 
 class BreadcrumbDocs extends React.Component {
     render() {
@@ -11,7 +13,7 @@ class BreadcrumbDocs extends React.Component {
             <div className="Pattern__docs">
                 <ParagraphMd>Breadcrumbs help orient the user within an page flow.</ParagraphMd>
                 <ParagraphMd>"Crumb" links are passed to <code>crumbs</code> as an array of either <code>BreadcrumbLink</code> or <code>BreadcrumbLinkReactRouter</code> components that should be imported as needed. These components take all the props a regular anchor link or React Router Link can take.</ParagraphMd>
-                <ParagraphMd>Below our medium breakpoint only the current page label will show, but there will be a linked arrow that will get link properties from the last breadcrump in the <code>crumbs</code> array.</ParagraphMd>
+                <ParagraphMd>Below our medium breakpoint only the current page label will show, but there will be a linked arrow that will get link properties from the last breadcrumb in the <code>crumbs</code> array.</ParagraphMd>
 
                 <div data-code>
                     <Breadcrumb

@@ -63,9 +63,9 @@ const WrapperStyled = styled<ButtonStylingProps, 'div'>('div')`
         background-color: ${props => buttonBackgrounds[props.format] || buttonBackgrounds.primary}
     }
 
-      &:hover::after {
-            background-color: rgba(0,0,0,0);
-        }
+    &:hover::after {
+        background-color: rgba(0,0,0,0);
+    }
 
 `;
 
@@ -106,7 +106,7 @@ const MenuButtonStyled = styled<ButtonStylingProps, 'button'>('button') `
     ${activeAnimation}
 `;
 
-export interface ButtonSplitMenuProps {
+export interface ButtonSplitMenuProps extends Omit<React.HTMLProps<HTMLElement>, 'size'>  {
     /**
      * Text of button
     */
@@ -122,7 +122,7 @@ export interface ButtonSplitMenuProps {
     /**
      * onClick callback for the menu button
     */
-    menuButtonOnClick: (event: React.MouseEvent<HTMLElement>) => void,
+    menuButtonOnClick?: (event: React.MouseEvent<HTMLElement>) => void,
     /**
      * Menu Direction (see MenuPanel)
     */
@@ -140,6 +140,10 @@ export interface ButtonSplitMenuProps {
     */
     menuSize: 'sm' | 'md' | 'lg',
     /**
+     * regular on click event passes to "main" button.
+     */
+    onClick?: (event: React.MouseEvent<HTMLElement>) => void, 
+    /**
      * Button Size
     */
     size?: 'sm' | 'md' | 'lg',
@@ -155,6 +159,7 @@ const ButtonSplitMenu = ({
     menuProps,
     menuSize,
     size = 'md',
+    ref: _,
     ...filteredProps
 }: ButtonSplitMenuProps) => {
 

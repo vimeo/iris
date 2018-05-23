@@ -22,9 +22,9 @@ const loadingGradient = css`
     background: linear-gradient(
         to right,
         rgba(0,0,0,0) 0%,
-        rgba(0,0,0,.03) 25%,
-        rgba(0,0,0,.07) 50%,
-        rgba(0,0,0,.03) 75%,
+        rgba(0,0,0,.02) 25%,
+        rgba(0,0,0,.04) 50%,
+        rgba(0,0,0,.02) 75%,
         rgba(0,0,0,.0) 100%
     );
     background-size: 200%;

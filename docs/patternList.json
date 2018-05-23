@@ -1,4 +1,7 @@
 {
+    "Iris": [
+        ["Home", "Welcome to Iris", true]
+    ],
     "Brand": [
         ["Colors", "Color Palette", true],
         ["ColorRibbon", "Color Ribbon", true],
@@ -25,6 +28,7 @@
         ["ButtonSplitMenu", "Buttons: Split Menu"],
         ["ButtonToggleState", "Buttons: ToggleState"],
         ["CategoryCard", "Category Cards"],
+        ["Card", "Card"],
         ["CircularButton", "Circular Button"],
         ["CopyField", "Copy Field"],
         ["CounterIcon", "Counter Icons"],

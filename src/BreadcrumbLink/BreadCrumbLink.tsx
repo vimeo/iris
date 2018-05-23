@@ -16,7 +16,7 @@ const BreadcrumbLink = ({
     return (
         <LinkText
             href={href}
-            format="silent"
+            decoration="silent"
             title={children}
             {...filteredProps}
         >

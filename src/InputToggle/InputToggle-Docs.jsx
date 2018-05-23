@@ -1,7 +1,6 @@
 import React from 'react';
-import InputToggle from './InputToggle';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd, Header3 } from '../Type';
+import { InputToggle, ParagraphMd, Header3 } from '../index';
 
 class InputToggleDocs extends React.Component {
     constructor(props) {

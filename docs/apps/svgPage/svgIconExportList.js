@@ -22,6 +22,8 @@
   
  exports.Camera = require('../../../src/icons/camera.svg');
   
+ exports.Cart = require('../../../src/icons/cart.svg');
+  
  exports.Checkmark = require('../../../src/icons/checkmark.svg');
   
  exports.ChevronDownDouble = require('../../../src/icons/chevron-down-double.svg');

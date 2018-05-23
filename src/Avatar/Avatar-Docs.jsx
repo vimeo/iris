@@ -1,8 +1,7 @@
 import React from 'react';
-import Avatar from './Avatar';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 // $FlowFixMe
-import { ParagraphMd, Header3 } from '../Type';
+import { Avatar, ParagraphMd, Header3 } from '../index.js';
 
 const AvatarDocs = (props) => {
     return (

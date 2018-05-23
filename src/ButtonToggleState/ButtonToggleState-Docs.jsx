@@ -1,7 +1,6 @@
 import React from 'react';
-import ButtonToggleState from './ButtonToggleState';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../Type';
+import { ButtonToggleState, ParagraphMd } from '../index';
 
 import PlusIcon from '../icons/plus.svg';
 import CheckIcon from '../icons/checkmark.svg';

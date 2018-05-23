@@ -1,11 +1,16 @@
 import React from 'react';
-import TabNavigationHorizontal from './TabNavigationHorizontal';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { Header2, Header3, ParagraphMd } from '../Type';
-import LinkText from '../LinkText/LinkText';
-import NotificationNeutral from '../NotificationNeutral/NotificationNeutral';
-import List from '../List';
-import ListItem from '../ListItem';
+import {
+    Header2,
+    Header3,
+    LinkText,
+    List,
+    ListItem,
+    NotificationNeutral,
+    ParagraphMd,
+    TabNavigationHorizontal,
+} from '../index';
+
 class TabNavigationHorizontalDocs extends React.Component {
 
     render() {

@@ -1,6 +1,8 @@
-const patternData = require('../../data/componentAPITransformed.json');
+
 
 parseFlowDocsData= () => {  
+    const patternData = require('../../data/componentAPITransformed.json');
+   
     let patternArray = [];
     
     for (key in patternData) {

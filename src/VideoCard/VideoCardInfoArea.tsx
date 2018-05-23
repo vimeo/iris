@@ -114,26 +114,22 @@ const VideoCardInfoArea: React.SFC<VideoCardInfoAreaProps> = ({
                     </TooltipOverlay>
                 </PrivacyIconStyled>
             )}
-            <TooltipOverlay
-                breakWords
-                tooltipText={title}
+            <LinkTextStyled
+                decoration="inherit"
+                element="span"
             >
-                <LinkTextStyled
-                    decoration="inherit"
-                    element="span"
-                >
-                    <TruncatedTextWrapper>
-                        {title}
-                    </TruncatedTextWrapper>
-                </LinkTextStyled>
-            </TooltipOverlay>
-        </span>
+                <TruncatedTextWrapper>
+                    {title}
+                </TruncatedTextWrapper>
+            </LinkTextStyled>
+    </span>
     );
 
     const defaultLinkElement = (
         <a
             href="#"
             onClick={_defaultLinkClickHandler}
+            title={title}
             {...titleLinkProps}
         >
             {LinkTextElement}

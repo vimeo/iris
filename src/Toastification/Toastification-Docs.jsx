@@ -1,9 +1,12 @@
 import React from 'react';
-import Toastification from './Toastification';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd, Header3 } from '../Type';
-import NotificationNeutral from '../NotificationNeutral/NotificationNeutral';
-import Button from '../Button/Button';
+import {
+    Button,
+    Header3,
+    NotificationNeutral,
+    ParagraphMd,
+    Toastification,
+} from '../index';
 
 class ToastificationDocs extends React.Component {
     constructor(props) {

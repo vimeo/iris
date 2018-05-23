@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import COLORS from '../globals/js/constants/COLORS';
+import Card from '../Card';
 import VideoCardThumbnailArea from './VideoCardThumbnailArea';
 import VideoCardInfoArea from './VideoCardInfoArea';
 import VideoCardLoadingState from './VideoCardLoadingState';
@@ -148,49 +148,24 @@ export interface VideoCardState extends React.HTMLProps<HTMLDivElement> {
 
 // ==================== VideoCardWrapper
 
-const getBoxShadow = props => {
-    if (props.isSelected) return `0 0 0 ${rem(3)} ${COLORS.VimeoBlue}`;
 
-    if (props.isHovered) return `0 ${rem(4)} ${rem(8)} 0 rgba(0,0,0,0.15)`;
-
-    return `0 0 ${rem(10)} 0 rgba(0,0,0,0.05)`;
-};
 
 export interface WrapperStyledProps extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
     hasContextArea?: boolean;
     isDraggable?: boolean;
     isSelected?: boolean;
-    isHovered?: boolean;
     isLoading?: boolean;
     isProcessing?: boolean;
     noMargin?: boolean;
     size?: 'sm' | 'md';
 }
 
-const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
-    position: relative;
-    background: ${props => props.isLoading ? COLORS.Plaster : COLORS.White};
-    border: ${rem(1)} solid
-        ${props =>
-            props.isSelected ? COLORS.VimeoBlueDarkened : COLORS.Plaster};
-    border-radius: ${rem(VideoCardStyleSettings.borderRadius)};
-    ${props => !props.isLoading ? `box-shadow: ${getBoxShadow};` : ''}
-    ${props => props.size !== 'sm' && `min-height: ${rem(248)};`}
-    width: 100%;
+const WrapperStyled = styled<WrapperStyledProps, any>(Card)`
     padding-bottom: ${props =>
         props.hasContextArea
             ? `calc(100% + ${rem(VideoCardStyleSettings.contextAreaHeight)})`
             : '100%'}; // forces square aspect ratio
     margin-bottom: ${props => props.noMargin ? 0 : rem(20)};
-    transition: box-shadow ${VideoCardStyleSettings.hoverTransition};
-    &:hover {
-        cursor: ${props => {
-            if(props.isProcessing || props.isLoading ) return 'auto';
-            if(props.isDraggable) return 'move';
-
-            return 'pointer';
-            }};
-    }
 `;
 
 export interface ContentPositionWrapperStyledProps
@@ -364,7 +339,6 @@ class VideoCard extends React.Component<VideoCardProps, any> {
             <WrapperStyled
                 hasContextArea={(isLoading && loadingStyle==="tall") || (showAllContent && contextInfoArea) ? true : false}
                 isDraggable={isDraggable}
-                isHovered={isLoading ? false : this.state.isHovered}
                 isLoading={isLoading}
                 isProcessing={isProcessing}
                 isSelected={isSelected}

@@ -1,7 +1,6 @@
 import React from 'react';
-import ButtonLoadingState from './ButtonLoadingState';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd } from '../Type';
+import { ButtonLoadingState, ParagraphMd } from '../index';
 import SettingsIcon from '../icons/gear.svg';
 
 class ButtonLoadingStateDocs extends React.Component {

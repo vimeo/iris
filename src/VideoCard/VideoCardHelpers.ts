@@ -1,10 +1,12 @@
+import CardSettings from '../Card/CardSettings';
+
 const VideoCardStyleSettings = {
     actionButtonSize: 32,
     contextAreaHeight: 44,
-    borderRadius: 3,
+    borderRadius: CardSettings.borderRadius,
     footerHeight: 48,
     padding: 12,
-    hoverTransition: '50ms ease',
+    hoverTransition: CardSettings.hoverTransition,
 };
 
 export { VideoCardStyleSettings };

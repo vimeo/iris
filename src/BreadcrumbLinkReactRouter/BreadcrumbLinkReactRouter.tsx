@@ -2,7 +2,6 @@ import React from 'react';
 import LinkText from '../LinkText';
 import BreadcrumbLinkContent from '../BreadcrumbLinkContent';
 import { Link } from 'react-router-dom';
-
 export interface BreadcrumbLinkReactRouterProps {
     children: React.ReactChildren;
     to: string;
@@ -21,7 +20,7 @@ const BreadcrumbLinkReactRouter = ({
         >
             <LinkText
                 element="span"
-                format="silent"
+                decoration="silent"
                 title={children}
             >
                 <BreadcrumbLinkContent>

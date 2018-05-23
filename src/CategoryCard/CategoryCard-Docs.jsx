@@ -1,9 +1,11 @@
 import React from 'react';
-import CategoryCard from './CategoryCard';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import Grid from '../Grid';
-import GridBlock from '../GridBlock';
-import GridCol from '../GridCol';
+import {
+    CategoryCard,
+    Grid,
+    GridBlock,
+    GridCol,
+} from '../index';
 import SportsIcon from '../legacyIcons/iris_icon_sports_32.svg';
 import AnimationIcon from '../legacyIcons/iris_icon_animation_32.svg';
 import TravelIcon from '../legacyIcons/iris_icon_travel_32.svg';

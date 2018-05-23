@@ -27,7 +27,8 @@ $iris_badge--plus: $VimeoBlue;
 $iris_badge--pro: $AstroGranite;
 $iris_badge--business: $Pistachio;
 $iris_badge--staff: #FFB21E;
-$iris_badge--staff_text: #FF8A00;  // STAFF/CURATION/SUPPORT have a different text color
+$iris_badge--staff_text: #FF8A00; // STAFF/CURATION/SUPPORT have a different text color
+$iris_badge--upgrade: $VimeoBlue;
 
 @mixin vimeo_badge($base_color, $hover: true) {
     color: $base_color;
@@ -201,6 +202,16 @@ a.explicit {
     &:active,
     &:hover {
         background-color: $Plaster;
+    }
+}
+
+.upgrade {
+    color: $White;
+    background-color: $VimeoBlue;
+
+    &:hover {
+        color: $White;
+        background-color: $VimeoBlue-Darkened;
     }
 }
 

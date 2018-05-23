@@ -1,16 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import List from '../List';
-import ListItem from '../ListItem';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
-import { ParagraphMd, Header3 } from '../Type';
-import VerticalMenuItem from '../VerticalMenuItem';
-import VerticalMenuNested from './VerticalMenuNested';
-import VerticalMenuItemContent from '../VerticalMenuItemContent';
-import VerticalMenuActionButton from '../VerticalMenuActionButton';
 import CirclePlusIcon from '../icons/circle-plus';
 import FolderIcon from '../icons/folder';
+import {
+    List,
+    ListItem,
+    Header3,
+    ParagraphMd,
+    VerticalMenuActionButton,
+    VerticalMenuItem,
+    VerticalMenuItemContent,
+    VerticalMenuNested,
+} from '../index';
 
 const VerticalMenuNestedDocs = (props) => {
     const onClickHandler = (e) => {

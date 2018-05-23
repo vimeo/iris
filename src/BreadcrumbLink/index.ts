@@ -1,3 +1,3 @@
-import BreadCrumbLink from './BreadCrumbLink';
+import BreadcrumbLink from './BreadcrumbLink';
 
-export default BreadCrumbLink;
+export default BreadcrumbLink;

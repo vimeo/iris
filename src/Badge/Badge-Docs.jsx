@@ -1,8 +1,8 @@
 import React from 'react';
-import Badge from './Badge';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 // $FlowFixMe
-import { ParagraphMd, Header3 } from '../Type';
+import { Badge, ParagraphMd, Header3 } from '../index.js';
+
 const BadgeDocs = (props) => {
     return (
         <div className="Pattern__docs">
@@ -25,6 +25,7 @@ const BadgeDocs = (props) => {
                 <Badge href="#" format="sponsor">sponsor</Badge>
                 <Badge href="#" format="staff">staff</Badge>
                 <Badge href="#" format="support">support</Badge>
+                <Badge href="#" format="upgrade">upgrade</Badge>
                 <Badge href="#" format="vod">vod</Badge>
             </div>
             <div className="Pattern-DarkBlock">
@@ -63,6 +64,7 @@ const BadgeDocs = (props) => {
 <Badge href="#" format="sponsor">sponsor</Badge>
 <Badge href="#" format="staff">staff</Badge>
 <Badge href="#" format="support">support</Badge>
+<Badge href="#" format="upgrade">upgrade</Badge>
 <Badge href="#" format="vod">vod</Badge>
                 `}
                 </ExampleSource>
