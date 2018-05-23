@@ -1,6 +1,7 @@
 /* eslint-env node */
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 var path = require('path');
 var STYLEGUIDE_DIR = 'node_modules/steadicam';
 
@@ -109,6 +110,7 @@ module.exports = {
 
     plugins: [
         new ExtractTextPlugin('css/modules.css', { allChunks: true }),
+        new CaseSensitivePathsPlugin(),
         new webpack.LoaderOptionsPlugin({
             minimize: true,
         }),

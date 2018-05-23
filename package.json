@@ -38,6 +38,7 @@
         "babel-preset-stage-0": "^6.16.0",
         "babel-register": "^6.18.0",
         "browser-sync": "^2.18.8",
+        "case-sensitive-paths-webpack-plugin": "^2.1.2",
         "connect-history-api-fallback": "^1.4.0",
         "css-loader": "^0.28.7",
         "del": "^2.2.2",
