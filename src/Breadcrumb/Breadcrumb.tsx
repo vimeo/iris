@@ -9,7 +9,7 @@ import { ParagraphMd } from '../Type';
 
 export interface BreadcrumbProps {
     /**
-     * An aray of BreadcrumpbLink or BreadCrumbLinkReactRouter components
+     * An aray of BreadcrumbLink or BreadcrumbLinkReactRouter components
      */
     crumbs?: Array<React.ReactNode>,
     /**
