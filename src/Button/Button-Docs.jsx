@@ -41,6 +41,7 @@ class ButtonDocs extends React.Component {
                     <Button format="secondaryOutline">Secondary Outline</Button>
                     <Button format="alternativeOutline">Alternative Outline</Button>
                     <Button format="successOutline">Success Outline</Button>
+                    <Button format="warningOutline">Warning Outline</Button>
                 </div>
 
                 <div className="Pattern-DarkBlock">
@@ -55,6 +56,7 @@ class ButtonDocs extends React.Component {
 <Button format="primaryOutline">Primary Outline</Button>
 <Button format="secondaryOutline">Secondary Outline</Button>
 <Button format="successOutline">Success Outline</Button>
+<Button format="warningOutline">Warning Outline</Button>
                     `}
                 </ExampleSource>
 
@@ -68,6 +70,7 @@ class ButtonDocs extends React.Component {
                 <div className="Pattern-DarkBlock">
                     <Button format="primaryTextOnly" icon={<ShareIcon />}>Primary TextOnly</Button>
                     <Button format="lightTextOnly" icon={<ShareIcon />}>Light TextOnly</Button>
+                    <Button format="warningTextOnly" icon={<ShareIcon />}>Warning TextOnly</Button>
                 </div>
 
                 <ExampleSource>
@@ -75,6 +78,7 @@ class ButtonDocs extends React.Component {
 <Button format="primaryTextOnly" icon={<ShareIcon />}>Primary TextOnly</Button>
 <Button format="secondaryTextOnly">Secondary TextOnly</Button>
 <Button format="lightTextOnly" icon={<ShareIcon />}>Light TextOnly</Button>
+<Button format="warningTextOnly" icon={<ShareIcon />}>Warning TextOnly</Button>
                     `}
                 </ExampleSource>
 
@@ -82,7 +86,7 @@ class ButtonDocs extends React.Component {
                     <Button format="primaryTextOnly" size="lg" icon={<ShareIcon />}>Primary TextOnly</Button>
                     <Button format="primaryTextOnly" size="md" icon={<ShareIcon />}>Primary TextOnly</Button>
                     <Button format="primaryTextOnly" size="sm" icon={<ShareIcon />}>Primary TextOnly</Button>
-                    <Button format="primaryTextOnly" size="xs" icon={<ShareIcon />}>Primary TextOnly</Button>
+                    <Button format="warningTextOnly" size="lg" icon={<ShareIcon />}>Warning TextOnly</Button>
                 </div>
 
                 <ExampleSource>
@@ -91,6 +95,7 @@ class ButtonDocs extends React.Component {
 <Button format="primaryTextOnly" size="md" icon={<ShareIcon />}>Primary TextOnly</Button>
 <Button format="primaryTextOnly" size="sm" icon={<ShareIcon />}>Primary TextOnly</Button>
 <Button format="primaryTextOnly" size="xs" icon={<ShareIcon />}>Primary TextOnly</Button>
+<Button format="warningTextOnly" size="lg" icon={<ShareIcon />}>Warning TextOnly</Button>
                     `}
                 </ExampleSource>
 

@@ -54,6 +54,8 @@ export interface ButtonProps
         | 'success'
         | 'successOutline'
         | 'warning'
+        | 'warningOutline'
+        | 'warningTextOnly'
         | 'lightTransparent'
         | 'lightTextOnly';
     /**

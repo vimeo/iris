@@ -313,6 +313,22 @@ const ButtonStyleSettings = {
                 backgroundColor: ButtonColors.WarningBackground,
             },
         },
+
+        warningTextOnly: {
+            active: {
+                backgroundColor: ButtonColors.WarningBackgroundActive,
+            },
+            default: {
+                color: ButtonColors.WarningBackground,
+                borderColor: ButtonColors.Transparent,
+                backgroundColor: ButtonColors.Transparent,
+            },
+            hover: {
+                color: ButtonColors.LightText,
+                borderColor: ButtonColors.WarningBackground,
+                backgroundColor: ButtonColors.WarningBackground,
+            },
+        },
     },
 
     IconSizes: {
