@@ -118,7 +118,9 @@ const VideoCardInfoArea: React.SFC<VideoCardInfoAreaProps> = ({
                 decoration="inherit"
                 element="span"
             >
-                <TruncatedTextWrapper>
+                <TruncatedTextWrapper
+                    displayCSSType="block"
+                >
                     {title}
                 </TruncatedTextWrapper>
             </LinkTextStyled>
