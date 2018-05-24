@@ -6,24 +6,22 @@ import COLORS from '../globals/js/constants/COLORS';
 
 export interface LinkTextProps {
     /**
-     * Choose the link decoration if it shoudld be non-standard.
+     * The text of the link
      */
-    decoration?: 'loud' | 'inherit' | 'silent';
+    children: React.ReactChildren;
     /**
      * The element that should be rendered. Defaults to "a".
      */
     element?: 'a' | 'span';
     /**
-     * If the element is an anchor tag, this provides the href attribute.
-     */
-    href?: string;
-    /**
      * Choose the link format (coloring), defaults to "primary".
      */
     format?: 'primary' | 'warning' | 'light';
+    /**
+     * Choose the link decoration if it shoudld be non-standard.
+     */
+    decoration?: 'loud' | 'inherit' | 'silent';
 };
-
-export interface LinkTextPropsCombined extends LinkTextProps, React.HTMLProps<HTMLElement>{};
 
 const linkBorderCss = css`
     display: block;
@@ -99,9 +97,8 @@ const LinkText = ({
     children,
     element = 'a',
     format = 'primary',
-    ref:_,
     ...filteredProps
-}: LinkTextPropsCombined) => {
+}: LinkTextProps) => {
 
     const LinkTextStyled = styled<LinkTextProps, any>(element)`
         display: inline;
