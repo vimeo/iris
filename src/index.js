@@ -142,7 +142,7 @@ export { default as VerticalMenuToggleButton } from './VerticalMenuToggleButton'
 
 export { default as Breadcrumb } from './Breadcrumb/Breadcrumb';
 
-export { default as BreadcrumbLink } from './BreadcrumbLink/BreadcrumbLink';
+export { default as BreadCrumblink } from './BreadcrumbLink/BreadCrumblink';
 
 export { default as BreadcrumbLinkContent } from './BreadcrumbLinkContent/BreadcrumbLinkContent';
 
