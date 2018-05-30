@@ -258,7 +258,7 @@ class SteppedContentSlider extends React.Component {
     viewTrack: HTMLElement;
     truncationWidth: number;
 
-    // this is the core slide initialization 
+    // this is the core slide initialization
     // may be accessed externally by name!
     buildSlides = (children = this.props.children) => {
         const slideSpecs = this._setSlideSpecs();
@@ -293,11 +293,11 @@ class SteppedContentSlider extends React.Component {
 
     // handle slide changes
     _changeSlide = (nextSlide: number, animate: boolean) => {
-        // catch slide target exceeding slide count.
+        // catch slide target exceeding slide count (if there are slides)
         if (nextSlide < 0) {
             nextSlide = 0;
         }
-        else if (nextSlide >= this.state.slideCount) {
+        else if (this.state.slideCount > 0 && nextSlide >= this.state.slideCount) {
             nextSlide = this.state.slideCount - 1;
         }
 
