@@ -21,11 +21,34 @@ class TagDocs extends React.Component {
                     <Tag size="lg">Comedy</Tag>
                 </div>
 
+                <div className="Pattern-DarkBlock">
+                    <Tag format="dark" size="sm">Animation</Tag>
+                    <Tag format="dark" size="md">Narrative</Tag>
+                    <Tag format="dark" size="lg">Comedy</Tag>
+                    <Tag
+                        format="dark"
+                        onDismiss={this._dismissHandler}
+                        size="lg"
+                    >
+                        Comedy
+                    </Tag>
+                </div>
+
                 <ExampleSource>
                     {`
 <Tag size="sm">Animation</Tag>
 <Tag size="md">Narrative</Tag>
 <Tag size="lg">Comedy</Tag>
+<Tag format="dark" size="sm">Animation</Tag>
+<Tag format="dark" size="md">Narrative</Tag>
+<Tag format="dark" size="lg">Comedy</Tag>
+<Tag
+    format="dark"
+    onDismiss={this._dismissHandler}
+    size="lg"
+>
+    Comedy
+</Tag>
                         `}
                     </ExampleSource>
                     <ParagraphMd>Tags can also be delete-able by passing a handler function to <code>onDismiss</code></ParagraphMd>

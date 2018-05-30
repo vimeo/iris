@@ -26,12 +26,18 @@ const colorData = {
 	},
 	"Interaction State Colors": {
 		"VimeoBlue-Darkened": COLORS.VimeoBlueDarkened,
+		"VimeoBlue-Lightened": COLORS.VimeoBlueLightened,
 		"Pistachio-Darkened": COLORS.PistachioDarkened,
 		"SunsetOrange-Darkened": COLORS.SunsetOrangeDarkened,
 		"WarningYellow": COLORS.WarningYellow,
 	},
 	"Dark Theme Colors": {
-		"DarkDark": COLORS.DarkDark,
+		RavenImperial: COLORS.RavenImperial,
+		ObsidianState: COLORS.ObsidianState,
+		"DarkDark (Deprecated)": COLORS.DarkDark,
+		SovereignShadow: COLORS.SovereignShadow,
+		AshenWinter: COLORS.AshenWinter,
+		IronHeart: COLORS.IronHeart,
 	}
 }
 

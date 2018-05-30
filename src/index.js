@@ -113,8 +113,6 @@ export { default as TabNavigationHorizontal } from './TabNavigationHorizontal';
 
 export { default as TabNavigationHorizontalItem } from './TabNavigationHorizontalItem';
 
-export { default as Tag } from './Tag';
-
 export { default as TextArea } from './TextArea';
 
 export { default as Toastification } from './Toastification';
@@ -193,6 +191,8 @@ export { default as ProgressBarHelpers } from './ProgressBar/ProgressBarHelpers'
 export { default as ProgressBarIndicator } from './ProgressBar/ProgressBarIndicator';
 
 export { default as SteppedContentSlider } from './SteppedContentSlider/SteppedContentSlider';
+
+export { default as Tag } from './Tag/Tag';
 
 export { default as Tooltip } from './Tooltip/Tooltip';
 

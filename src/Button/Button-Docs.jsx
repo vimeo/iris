@@ -22,6 +22,11 @@ class ButtonDocs extends React.Component {
                     <Button format="warning">Warning</Button>
                 </div>
 
+                <div className="Pattern-DarkBlock">
+                    <Button format="primaryDark">Dark Primary</Button>
+                    <Button format="secondaryDark">Dark Secondary</Button>
+                </div>
+
                 <ExampleSource>
                     {`
 <Button className="someArbitraryClass" onClick={this.clickExample}>Primary</Button>
@@ -29,6 +34,9 @@ class ButtonDocs extends React.Component {
 <Button format="alternative">Alternative</Button>
 <Button format="success">Success</Button>
 <Button format="warning">Warning</Button>
+// dark buttons
+<Button format="primaryDark">Dark Primary</Button>
+<Button format="secondaryDark">Dark Secondary</Button>
                     `}
                 </ExampleSource>
 

@@ -80,7 +80,7 @@ const getLinkDecorationCss = (decoration) => {
 const formats = {
     light: {
         defaultColor: COLORS.White,
-        hoverColor: 'rgba(255, 255, 255, 0.7)',
+        hoverColor: COLORS.VimeoBlueLightened,
     },
     primary: {
         defaultColor: VimeoStyleSettings.colors.typeColors.linkColorLight,

@@ -1,5 +1,9 @@
 import { css } from 'styled-components';
-import { darken, rem, rgba } from 'polished';
+import {
+    darken,
+    rem,
+    rgba,
+} from 'polished';
 import COLORS from '../globals/js/constants/COLORS';
 import calculateLineHeightTarget from '../globals/js/style-helpers/calculateLineHeight';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
@@ -46,6 +50,10 @@ const ButtonColors = {
     PrimaryBackgroundActive: darken(0.1, COLORS.VimeoBlueDarkened),
     PrimaryBackgroundHover: COLORS.VimeoBlueDarkened,
 
+    PrimaryDarkBackground: COLORS.VimeoBlue,
+    PrimaryDarkBackgroundActive: COLORS.VimeoBlueDarkened,
+    PrimaryDarkBackgroundHover: COLORS.VimeoBlueLightened,
+
     PrimaryDisabledText: rgba(COLORS.White, 0.7),
     PrimaryDisabledBackground: rgba(COLORS.VimeoBlue, 0.4),
 
@@ -53,6 +61,10 @@ const ButtonColors = {
     SecondaryBackground: COLORS.Plaster,
     SecondaryBackgroundActive: darken(0.06, COLORS.Plaster),
     SecondaryBackgroundHover: COLORS.Porcelain,
+
+    SecondaryDarkBackground: COLORS.AshenWinter,
+    SecondaryDarkBackgroundHover: COLORS.IronHeart,
+    SecondaryDarkBackgroundActive: COLORS.AshenWinter,
 
     SecondaryOutlineText: COLORS.RegentGray,
     SecondaryOutlineBackgroundHover: '#D0D8DB',
@@ -109,6 +121,22 @@ const ButtonStyleSettings = {
             },
         },
 
+        secondaryDark: {
+            active: {
+                backgroundColor: ButtonColors.SecondaryDarkBackgroundActive,
+            },
+            default: {
+                color: ButtonColors.LightText,
+                borderColor: ButtonColors.SecondaryDarkBackground,
+                backgroundColor: ButtonColors.SecondaryDarkBackground,
+            },
+            hover: {
+                color: ButtonColors.LightText,
+                borderColor: ButtonColors.SecondaryDarkBackgroundHover,
+                backgroundColor: ButtonColors.SecondaryDarkBackgroundHover,
+            },
+        },
+
         lightTransparent: {
             active: {
                 color: ButtonColors.LightText,
@@ -162,6 +190,27 @@ const ButtonStyleSettings = {
                 color: ButtonColors.LightText,
                 borderColor: ButtonColors.PrimaryBackgroundHover,
                 backgroundColor: ButtonColors.PrimaryBackgroundHover,
+            },
+            disabled: {
+                color: ButtonColors.PrimaryDisabledText,
+                borderColor: ButtonColors.PrimaryDisabledBackground,
+                backgroundColor: ButtonColors.PrimaryDisabledBackground,
+            },
+        },
+
+        primaryDark: {
+            active: {
+                backgroundColor: ButtonColors.PrimaryDarkBackgroundActive,
+            },
+            default: {
+                color: ButtonColors.LightText,
+                borderColor: ButtonColors.PrimaryDarkBackground,
+                backgroundColor: ButtonColors.PrimaryDarkBackground,
+            },
+            hover: {
+                color: ButtonColors.LightText,
+                borderColor: ButtonColors.PrimaryDarkBackgroundHover,
+                backgroundColor: ButtonColors.PrimaryDarkBackgroundHover,
             },
             disabled: {
                 color: ButtonColors.PrimaryDisabledText,
@@ -400,12 +449,18 @@ const getAutoWidthCSS = props => {
 
 
 const getDefaultCSSByFormat = props => {
-    const thisButtonFormat = ButtonStyleSettings.Formats[props.format].default;
-    return `
-        background-color: ${thisButtonFormat.backgroundColor};
-        border-color: ${thisButtonFormat.borderColor};
-        color: ${thisButtonFormat.color};
-    `;
+    const thisButtonFormat = ButtonStyleSettings.Formats[props.format] && ButtonStyleSettings.Formats[props.format].default;
+
+    if(thisButtonFormat) {
+        return `
+            background-color: ${thisButtonFormat.backgroundColor};
+            border-color: ${thisButtonFormat.borderColor};
+            color: ${thisButtonFormat.color};
+        `;
+    }
+
+    return '';
+    
 };
 
 const getDisabledCSSByFormat = props => {
@@ -431,19 +486,29 @@ const getDisabledCSSByFormat = props => {
 };
 
 const getHoverCSSByFormat = props => {
-    const thisButtonFormat = ButtonStyleSettings.Formats[props.format].hover;
-    return `
-        background-color: ${thisButtonFormat.backgroundColor};
-        border-color: ${thisButtonFormat.borderColor};
-        color: ${thisButtonFormat.color};
-    `;
+    const thisButtonFormat = ButtonStyleSettings.Formats[props.format] &&ButtonStyleSettings.Formats[props.format].hover;
+
+    if (thisButtonFormat) {
+        return `
+            background-color: ${thisButtonFormat.backgroundColor};
+            border-color: ${thisButtonFormat.borderColor};
+            color: ${thisButtonFormat.color};
+        `;
+    }
+
+    return '';
 };
 
 const getActiveCSSByFormat = props => {
-    const thisButtonFormat = ButtonStyleSettings.Formats[props.format].active;
-    return `
-        background-color: ${thisButtonFormat.backgroundColor};
-    `;
+    const thisButtonFormat = ButtonStyleSettings.Formats[props.format] &&ButtonStyleSettings.Formats[props.format].active;
+    if (thisButtonFormat) {
+        return `
+            background-color: ${thisButtonFormat.backgroundColor};
+            border-color: ${thisButtonFormat.backgroundColor};
+        `;
+    }
+
+    return '';
 };
 
 const getSizeCSS = props => {

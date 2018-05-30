@@ -1,40 +1,39 @@
-// @flow
 import React from 'react';
-import classNames from 'classnames';
-import styles from './Tag.scss';
-// $FlowFixMe
-import Button from '../Button/Button';
+import Button from '../Button';
+import styled from 'styled-components';
+import { rem } from 'polished';
+// @ts-ignore
 import DeleteIcon from '../icons/dismiss-x.svg';
 
-const displayName = 'Tag';
-
-type Props = {
+export interface TagProps {
     autoMargins?: boolean,
     autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid',
-    children: React$Element<*>,
+    children: React.ReactChildren,
     className?: string,
+    /**
+     * default is 'light'
+     */
+    format?: 'light' | 'dark',
     isButtonElement?: boolean,
     isInline?: boolean,
     onDismiss: any,
     size?: 'xs' | 'sm' | 'md' | 'lg',
 };
 
+const ButtonStyledAsTag = styled(Button)`
+    border-radius: ${rem(66)};
+`;
+
 const Tag = ({
                 autoMargins,
                 autoWidth = 'xs',
                 children,
-                className,
+                format = 'light',
                 isButtonElement,
                 onDismiss,
                 size = 'md',
                 ...filteredProps
-            }: Props): React$Element<*> => {
-
-    // className builder
-    const componentClass = classNames(
-        styles.Tag,
-        className
-    );
+            }: TagProps)=> {
 
     const handleDismiss = (e) => {
         e.preventDefault();
@@ -52,22 +51,21 @@ const Tag = ({
         };
     }
 
+    const buttonFormat = format === 'dark' ? 'secondaryDark' : 'secondary';
+
     return (
-        <Button
+        <ButtonStyledAsTag
             {...filteredProps}
             {...iconProps}
             autoMargins={autoMargins}
             autoWidth={autoWidth}
             isButtonElement={isButtonElement}
-            className={componentClass}
-            format="secondary"
+            format={buttonFormat}
             size={size}
             children={children}
             onClick={handleDismiss}
         />
     );
 };
-
-Tag.displayName = displayName;
 
 export default Tag;

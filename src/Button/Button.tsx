@@ -44,6 +44,7 @@ export interface ButtonProps
      */
     format?:
         | 'primary'
+        | 'primaryDark'
         | 'primaryOutline'
         | 'primaryTextOnly'
         | 'secondary'
@@ -51,6 +52,7 @@ export interface ButtonProps
         | 'secondaryTextOnly'
         | 'alternative'
         | 'alternativeOutline'
+        | 'darkSecondary'
         | 'success'
         | 'successOutline'
         | 'warning'

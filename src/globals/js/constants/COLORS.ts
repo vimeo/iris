@@ -6,6 +6,7 @@
 const COLORS = {
     VimeoBlue: '#00adef',
     VimeoBlueDarkened: '#0088cc',
+    VimeoBlueLightened: '#36C5FC',
     Foam: '#e5f7fd',
     Pistachio: '#7fc400',
     PistachioDarkened: '#5a9e02',
@@ -23,5 +24,10 @@ const COLORS = {
     WarningYellow: '#ffb21e',
     DarkDark: '#2E2E2E',
     Black: '#000',
+    RavenImperial: '#1f1f1f',
+    ObsidianState: '#2e2e2e',
+    SovereignShadow: '#404040',
+    AshenWinter: '#4b4b4b',
+    IronHeart: '#666',
 };
 export default COLORS;

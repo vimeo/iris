@@ -12,6 +12,7 @@ import ModalAPI from '../data/tsdocsHTML/interfaces/_modal_modal_.modalprops.htm
 import ModalFeatureUpdateAPI from '../data/tsdocsHTML/interfaces/_modalfeatureupdate_modalfeatureupdate_.modalfeatureupdateprops.html';
 import ProgressBarAPI from '../data/tsdocsHTML/interfaces/_progressbar_progressbar_.progressbarprops.html';
 import SteppedContentSliderAPI from '../data/tsdocsHTML/interfaces/_steppedcontentslider_steppedcontentslider_.steppedcontentsliderprops.html';
+import TagAPI from '../data/tsdocsHTML/interfaces/_tag_tag_.tagprops.html';
 import TooltipOverlayAPI from '../data/tsdocsHTML/interfaces/_tooltipoverlay_tooltipoverlay_.tooltipoverlayprops.html';
 import VideoCardAPI from '../data/tsdocsHTML/interfaces/_videocard_videocard_.videocardprops.html';
 
@@ -54,6 +55,9 @@ const tsPatternAPIList = {
     },
     SteppedContentSlider: {
         data: SteppedContentSliderAPI,
+    },
+    Tag: {
+        data: TagAPI,
     },
     TooltipOverlay: {
         data: TooltipOverlayAPI,
