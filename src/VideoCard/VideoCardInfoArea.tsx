@@ -38,12 +38,16 @@ interface PrivacyIconStyledProps extends Omit<React.HTMLProps<HTMLSpanElement>, 
     size: 'sm' | 'md';
 }
 
+const PrivacyIconSize = {
+    sm: '.75rem',
+    md: '1rem',
+}
+
 const PrivacyIconStyled = styled<PrivacyIconStyledProps, 'span'>(
     'span'
 )`
     float: left;
     display: inline-block;
-    line-height: 1; // cancels out header line height
     margin-right: ${rem(4)};
     transform: translateY(${rem(2)});
     transition: transform 300ms ease;
@@ -53,8 +57,8 @@ const PrivacyIconStyled = styled<PrivacyIconStyledProps, 'span'>(
         cursor: default;
     }
     svg {
-        width: ${props => props.size === 'sm' ? rem(12) : rem(16)};
-        height:  ${props => props.size === 'sm' ? rem(12) : rem(16)};
+        width: ${props => PrivacyIconSize[props.size] || PrivacyIconSize.md };
+        height:  ${props => PrivacyIconSize[props.size] || PrivacyIconSize.md };
 
         * {
             fill: ${COLORS.AstroGranite};
@@ -66,6 +70,16 @@ const PrivacyIconStyled = styled<PrivacyIconStyledProps, 'span'>(
     }
 `;
 
+interface TitleWrapperProps extends React.HTMLProps<HTMLDivElement> {
+    isPrivate: boolean;
+    cardSize: 'sm' | 'md';
+}
+
+const TitleWrapper = styled<TitleWrapperProps, 'div'>('div')`
+    ${props => props.isPrivate ? `
+    padding-left: ${PrivacyIconSize[props.cardSize] || PrivacyIconSize.md }
+    ` : ''}
+`;
 
 const HeaderSmStyled = styled(ParagraphSm)`
     font-weight: ${VimeoStyleSettings.type.weights.bold}
@@ -104,16 +118,6 @@ const VideoCardInfoArea: React.SFC<VideoCardInfoAreaProps> = ({
 
     const LinkTextElement = (
         <span>
-            {isPrivate && (
-                <PrivacyIconStyled size={size}>
-                    <TooltipOverlay
-                        tooltipText={privacyDescription}
-                        onClick={stopClickPropagation}
-                    >
-                        <LockFilled />
-                    </TooltipOverlay>
-                </PrivacyIconStyled>
-            )}
             <LinkTextStyled
                 decoration="inherit"
                 element="span"
@@ -142,6 +146,20 @@ const VideoCardInfoArea: React.SFC<VideoCardInfoAreaProps> = ({
     const TypeElement = size === 'sm' ? HeaderSmStyled : Header6;
     return (
         <VideoCardInfoAreaStyled>
+            {isPrivate && (
+                    <PrivacyIconStyled size={size}>
+                        <TooltipOverlay
+                            tooltipText={privacyDescription}
+                            onClick={stopClickPropagation}
+                        >
+                            <LockFilled />
+                        </TooltipOverlay>
+                    </PrivacyIconStyled>
+                )}
+            <TitleWrapper
+                cardSize={size}
+                isPrivate={isPrivate}
+            >
             <TypeElement element="h4" noMargin>
                 {LinkElement ? (
                     <LinkElement
@@ -154,6 +172,7 @@ const VideoCardInfoArea: React.SFC<VideoCardInfoAreaProps> = ({
                     defaultLinkElement
                 )}
             </TypeElement>
+            </TitleWrapper>
             {titleSubheader && (
                 <ParagraphAltMd element="span" noMargin>
                     {titleSubheader}
