@@ -66,6 +66,8 @@
   
  exports.Facebook = require('../../../src/icons/facebook.svg');
   
+ exports.Filters = require('../../../src/icons/filters.svg');
+  
  exports.FolderFilled = require('../../../src/icons/folder-filled.svg');
   
  exports.Folder = require('../../../src/icons/folder.svg');
