@@ -96,8 +96,6 @@ const hoverOverlayKeyframes = keyframes`
 const HoverOverlayWrapperStyled = styled(
     'div'
 )`
-    border-radius: ${rem(VideoCardStyleSettings.borderRadius)}
-        ${rem(VideoCardStyleSettings.borderRadius)} 0 0;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -110,6 +108,8 @@ const HoverOverlayWrapperStyled = styled(
 const HoverOverlayStyled = styled('div')`
     width: 100%;
     height: 100%;
+    border-radius: ${rem(VideoCardStyleSettings.borderRadius)}
+        ${rem(VideoCardStyleSettings.borderRadius)} 0 0;
     background-image: linear-gradient(
         -180deg,
         rgba(0, 0, 0, 0.6) 0%,
