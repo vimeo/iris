@@ -24,6 +24,7 @@ $iris_badge--live: #FF4D4D;
 $iris_badge--live-archive: #8699A6;
 $iris_badge--new: $SunsetOrange;
 $iris_badge--plus: $VimeoBlue;
+$iris_badge--producer: #503873;
 $iris_badge--pro: $AstroGranite;
 $iris_badge--business: $Pistachio;
 $iris_badge--staff: #FFB21E;
@@ -188,6 +189,12 @@ a.explicit {
 
 .plus {
     @include vimeo_badge($iris_badge--plus);
+
+    border: none;
+}
+
+.producer {
+    @include vimeo_badge($iris_badge--producer);
 
     border: none;
 }
