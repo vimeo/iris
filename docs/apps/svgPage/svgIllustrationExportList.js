@@ -14,6 +14,8 @@
   
  exports.StaffPicksBadgeJustSp = require('../../../src/illustrations/staff-picks-badge-just-sp.svg');
   
+ exports.VimeoPlusBlueBoxLogo = require('../../../src/illustrations/vimeo-plus-blue-box-logo.svg');
+  
  exports.VimeostockBlack = require('../../../src/illustrations/vimeostock_black.svg');
   
  exports.VimeostockDark = require('../../../src/illustrations/vimeostock_dark.svg');
