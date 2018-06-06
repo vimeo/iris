@@ -4,11 +4,13 @@ import BreadcrumbLinkContent from '../BreadcrumbLinkContent';
 
 export interface BreadcrumbLinkProps {
     children: React.ReactChildren;
+    format: 'lightTheme' | 'darkTheme';
     href: string;
 };
 
 const BreadcrumbLink = ({
     children,
+    format="lightTheme",
     href,
     ...filteredProps
     }: BreadcrumbLinkProps) => {
@@ -17,6 +19,7 @@ const BreadcrumbLink = ({
         <LinkText
             href={href}
             decoration="silent"
+            format={format === 'darkTheme' ? 'primaryDark' : 'primary'}
             title={children}
             {...filteredProps}
         >

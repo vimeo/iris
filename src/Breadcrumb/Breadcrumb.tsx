@@ -6,6 +6,7 @@ import mediaQuery from '../globals/js/style-helpers/mediaQuery';
 //@ts-ignore
 import ChevronRight from '../icons/chevron-right.svg';
 import { ParagraphMd } from '../Type';
+import COLORS from '../globals/js/constants/COLORS';
 
 export interface BreadcrumbProps {
     /**
@@ -13,9 +14,13 @@ export interface BreadcrumbProps {
      */
     crumbs?: Array<React.ReactNode>,
     /**
-     * A string decribing the current page title
+     * A string describing the current page title
      */
     currentPageLabel: string;
+    /**
+     * Set the current color theme, must also be set on the BreadcrumbLink or BreadcrumbLinkReactRouter
+     */
+    format: 'lightTheme' | 'darkTheme';
     /**
      * suppress bottom margin if true
      */
@@ -41,10 +46,12 @@ const truncatewithEllipsisCSS = css`
 `;
 
 interface CrumbWrapperProps extends React.HTMLProps<HTMLDivElement>{
+    format: 'lightTheme' | 'darkTheme';
     showOnSmall?: boolean;
 }
 
 const CrumbWrapper = styled<CrumbWrapperProps,'div'>('div')`
+    color: ${props => props.format === 'darkTheme' ? COLORS.IronHeart : COLORS.AstroGranite}
     display: ${props => props.showOnSmall ? 'inline-block' : 'none'};
 
     position: relative;
@@ -78,6 +85,10 @@ const CrumbArrowIcon = styled(ChevronRight)`
     display: none;
     right: 0;
 
+    * {
+        fill: currentColor;
+    }
+
     ${mediaQuery.md`
         display: inline-block;
     `}
@@ -94,6 +105,7 @@ const CurrentPageCrumb = styled(ParagraphMd)`
 const Breadcrumb = ({
     crumbs,
     currentPageLabel,
+    format="lightTheme",
     noMargin,
     ...filteredProps
 }: BreadcrumbProps) => {
@@ -105,11 +117,13 @@ const Breadcrumb = ({
         return (
                 <CrumbWrapper
                     showOnSmall={i === crumbs.length - 1}
+                    format={format}
                     key={`crumb-${i}`}
                     style={{ 'maxWidth': crumbWidth }}
                 >
                     <CrumbLabel
                         element="span"
+                        format={format === 'darkTheme' ? 'light' : 'dark'}
                         noMargin={noMargin}
                     >
                         {crumb}
@@ -127,6 +141,7 @@ const Breadcrumb = ({
 
             <CurrentPageCrumb
                 element="span"
+                format={format === 'darkTheme' ? 'light' : 'dark'}
                 noMargin={noMargin}
                 style={{ 'maxWidth': crumbWidth }}
             >

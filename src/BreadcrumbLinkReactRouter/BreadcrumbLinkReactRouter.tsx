@@ -4,11 +4,13 @@ import BreadcrumbLinkContent from '../BreadcrumbLinkContent';
 import { Link } from 'react-router-dom';
 export interface BreadcrumbLinkReactRouterProps {
     children: React.ReactChildren;
+    format: 'lightTheme' | 'darkTheme';
     to: string;
 };
 
 const BreadcrumbLinkReactRouter = ({
     children,
+    format="lightTheme",
     to,
     ...filteredProps
     }: BreadcrumbLinkReactRouterProps)=> {
@@ -20,6 +22,7 @@ const BreadcrumbLinkReactRouter = ({
         >
             <LinkText
                 element="span"
+                format={format === 'darkTheme' ? 'primaryDark' : 'primary'}
                 decoration="silent"
                 title={children}
             >

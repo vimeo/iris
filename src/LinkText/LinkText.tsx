@@ -16,7 +16,7 @@ export interface LinkTextProps {
     /**
      * Choose the link format (coloring), defaults to "primary".
      */
-    format?: 'primary' | 'warning' | 'light';
+    format?: 'primary'|  'primaryDark' | 'warning' | 'light';
     /**
      * Choose the link decoration if it shoudld be non-standard.
      */
@@ -84,7 +84,11 @@ const formats = {
     },
     primary: {
         defaultColor: VimeoStyleSettings.colors.typeColors.linkColorLight,
-        hoverColor: VimeoStyleSettings.colors.typeColors.linkColorLightHover,
+        hoverColor: VimeoStyleSettings.colors.typeColors.linkColorLightToDarkHover,
+    },
+    primaryDark: {
+        defaultColor: VimeoStyleSettings.colors.typeColors.linkColorLight,
+        hoverColor: VimeoStyleSettings.colors.typeColors.linkColorLightToLightHover,
     },
     warning: {
         defaultColor: VimeoStyleSettings.colors.uiColors.alertColor,

@@ -25,6 +25,7 @@ class LinkTextDocs extends React.Component {
                     </ParagraphMd>
 
                     <div style={{ backgroundColor: 'black', padding: '1.25rem', marginBottom: '0.875rem' }}>
+                        <ParagraphMd><LinkText format="primaryDark" href="#">PrimaryDark</LinkText></ParagraphMd>
                         <ParagraphMd><LinkText format="light" href="#">Light</LinkText></ParagraphMd>
                     </div>
                 </div>

@@ -5,6 +5,7 @@ import {
     BreadcrumbLink,
     BreadcrumbLinkReactRouter,
     ParagraphMd,
+    Header3,
 } from '../index';
 
 class BreadcrumbDocs extends React.Component {
@@ -38,6 +39,36 @@ class BreadcrumbDocs extends React.Component {
                         ]}
                         currentPageLabel="Current Page Label is Pretty Long So Cut it Off"
                     />
+
+                    <Header3>Dark Theme</Header3>
+                    <ParagraphMd>To use the Breadcrumb in a darh theme setting. Apply <code>format="darkTheme"</code> to <strong>both</strong> <code>Breadcrumb</code> and the Breadcrumb link component you are passing to <code>crumbs</code>.</ParagraphMd>
+                    <div className="Pattern-DarkBlock">
+                        <Breadcrumb
+                            crumbs = {[
+                                (<BreadcrumbLink
+                                    format="darkTheme"
+                                    href="#"
+                                >
+                                    Breadcrumb Item 1 is Pretty Long So Cut it Off
+                                </BreadcrumbLink>
+                                ),
+                                (
+                                <BreadcrumbLinkReactRouter
+                                            to="#"
+                                            format="darkTheme"
+                                            onClick = {(e) => {
+                                                e.preventDefault();
+                                                console.log('click');
+                                            }}
+                                        >
+                                            Breadcrumb Item 2
+                                    </BreadcrumbLinkReactRouter>
+                                ),
+                            ]}
+                            currentPageLabel="Current Page Label is Pretty Long So Cut it Off"
+                            format="darkTheme"
+                        />
+                    </div>
                 </div>
 
                 <ExampleSource>
@@ -64,6 +95,32 @@ import {Breadcrumb, BreadcrumbLink, BreadcrumbLinkReactRouter} from '@vimeo/iris
         ),
     ]}
     currentPageLabel="Current Page Label is Pretty Long So Cut it Off"
+/>
+
+<Breadcrumb
+    crumbs = {[
+        (<BreadcrumbLink
+            format="darkTheme"
+            href="#"
+        >
+            Breadcrumb Item 1 is Pretty Long So Cut it Off
+        </BreadcrumbLink>
+        ),
+        (
+        <BreadcrumbLinkReactRouter
+                    to="#"
+                    format="darkTheme"
+                    onClick = {(e) => {
+                        e.preventDefault();
+                        console.log('click');
+                    }}
+                >
+                    Breadcrumb Item 2
+            </BreadcrumbLinkReactRouter>
+        ),
+    ]}
+    currentPageLabel="Current Page Label is Pretty Long So Cut it Off"
+    format="darkTheme"
 />
                         `}
                     </ExampleSource>
