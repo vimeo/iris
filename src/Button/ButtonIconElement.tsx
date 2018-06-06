@@ -1,17 +1,26 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { ButtonStyleSettings } from './ButtonHelpers';
 import { Omit } from '../globals/js/type-helpers';
 export interface ButtonIconElementStyledProps
     extends Omit<React.HTMLProps<HTMLSpanElement>, 'size'> {
-    iconLocation?: 'beforeLabel' | 'afterLabel';
-    size: 'xs' | 'sm' | 'md' | 'lg';
+    iconLocation?: 'beforeLabel' | 'afterLabel' |'featuredLeft';
+    size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
 const getIconSize = props => rem(ButtonStyleSettings.IconSizes[props.size]);
 
+const iconStyle = css`
+    svg {
+        width: ${getIconSize};
+        height: ${getIconSize};
+    }
 
+    svg * {
+        fill: currentColor;
+    }
+`;
 const ButtonIconElementStyled = styled<ButtonIconElementStyledProps, 'span'>(
     'span'
 )`
@@ -21,22 +30,45 @@ const ButtonIconElementStyled = styled<ButtonIconElementStyledProps, 'span'>(
 
     ${props => `margin-${props.iconLocation === 'afterLabel' ? 'left' : 'right' }: ${props.size === 'lg' ? rem(8) : rem(4)};`}
 
-    svg {
-        width: ${getIconSize};
-        height: ${getIconSize};
-    }
-    
-    svg * {
-        fill: currentColor;
-    }
-    
+    ${iconStyle}
+`;
+
+const getFeaturedIconSizeCSS = props => {
+    const thisButtonSize = ButtonStyleSettings.Sizes[props.size] || ButtonStyleSettings.Sizes.md;
+
+    return `
+        width: ${thisButtonSize.minHeight};
+        height: ${thisButtonSize.minHeight};
+    `;
+};
+
+interface FeaturedIconElementProps {
+    size: 'xs' | 'sm' | 'md' | 'lg' |'xl';
+}
+
+const featuredIconBGColor = 'rgba(255,255,255,.2)';
+
+const FeaturedIconElement = styled<FeaturedIconElementProps, 'span'>('span')`
+    display: flex;
+    position: absolute;
+    left: ${rem(-1)};
+    top: ${rem(-1)};
+    align-items: center;
+    justify-content: center;
+    background: ${featuredIconBGColor};
+    //box-shadow: 0 0 0 ${rem(1)} ${featuredIconBGColor};
+    ${getFeaturedIconSizeCSS}
+    ${iconStyle}
 `;
 
 const ButtonIconElement: React.SFC<ButtonIconElementStyledProps> = ({
-    ref: _, // filter out ref from styled component
+    iconLocation,
+    ref: _,// filter out ref from styled component
     ...filteredProps
 }) => {
-    return <ButtonIconElementStyled {...filteredProps} />;
+    return iconLocation === 'featuredLeft' ? 
+    <FeaturedIconElement {...filteredProps} /> :
+    <ButtonIconElementStyled iconLocation={iconLocation} {...filteredProps} />
 };
 
 export default ButtonIconElement;

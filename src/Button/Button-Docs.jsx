@@ -4,6 +4,7 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 import ShareIcon from '../icons/paper-plane.svg';
 import HeartIcon from '../icons/heart.svg';
 import DownloadIcon from '../icons/download-arrow.svg';
+import CartIcon from '../icons/cart.svg';
 class ButtonDocs extends React.Component {
     clickExample() {
         console.log('click');
@@ -176,6 +177,10 @@ class ButtonDocs extends React.Component {
                 <ParagraphMd>Buttons come in four sizes. <strong>medium (md)</strong> is the default. Size is determined by the <code>size</code> property.</ParagraphMd>
                 <div data-code>
                     <div>
+                        <Button format="primary" size="xl">xl Button</Button>
+                        <Button format="secondary" size="xl">xl Button</Button>
+                    </div>
+                    <div>
                         <Button format="primaryOutline" size="lg">lg Button</Button><Button size="lg" format="secondaryOutline">lg Button</Button>
                     </div>
                     <div>
@@ -198,7 +203,7 @@ class ButtonDocs extends React.Component {
 <Button format="successOutline" size="sm">sm</Button>
                     `}
                 </ExampleSource>
-                <Header3>Buttons with Icons</Header3>
+                <Header3>Buttons with Label Icons</Header3>
                 <ParagraphMd>Buttons can include SVG icons. These icons get passed in as JSX elements to the <code>icon</code> prop. Icons should aways be on the left (the default) unless there is a compelling reason to have it on the right (e.g. forward button with right arrow), using the <code>iconLocation</code></ParagraphMd>
                 <div data-code>
                     <div>
@@ -244,6 +249,52 @@ class ButtonDocs extends React.Component {
                     `}
                 </ExampleSource>
 
+                <Header3>Buttons with Featured Icons</Header3>
+                <ParagraphMd>Featured icons are emphasized icon buttons. They are created by using <code>iconLocation="featuredLeft"</code></ParagraphMd>
+                <div>
+                    <Button
+                        autoWidth="fluid"
+                        format="primary"
+                        icon={<CartIcon />}
+                        iconLocation="featuredLeft"
+                        size="xl"
+                    >
+                        Checkout
+                    </Button>
+                    <div className="Pattern-DarkBlock">
+                        <Button
+                            autoWidth="fluid"
+                            format="secondaryDark"
+                            icon={<CartIcon />}
+                            iconLocation="featuredLeft"
+                            size="lg"
+                        >
+                            Checkout
+                        </Button>
+                    </div>
+                </div>
+                <ExampleSource>
+                    {`
+<Button
+    autoWidth="fluid"
+    format="primary"
+    icon={<CartIcon />}
+    iconLocation="featuredLeft"
+    size="xl"
+>
+    Checkout
+</Button>
+<Button
+    autoWidth="fluid"
+    format="secondaryDark"
+    icon={<CartIcon />}
+    iconLocation="featuredLeft"
+    size="lg"
+>
+    Checkout
+</Button>
+                    `}
+                </ExampleSource>
 
                     <Header3>Button as Links</Header3>
                     <ParagraphMd>When buttons should actually be links that look like buttons and not button elements, we set the <code>isButtonElement</code> prop to "false". This will render the button as a span tag which can be nested in an anchor tag or React Router {'<Link>'} tag</ParagraphMd>

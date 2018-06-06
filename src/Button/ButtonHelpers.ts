@@ -381,6 +381,7 @@ const ButtonStyleSettings = {
     },
 
     IconSizes: {
+        xl: 24,
         lg: 18,
         md: 16,
         sm: 14,
@@ -388,6 +389,13 @@ const ButtonStyleSettings = {
     },
 
     Sizes: {
+        xl: {
+            fontSize: rem(16),
+            lineHeight: calculateLineHeightTarget(16, 58),
+            minWidth: rem(112),
+            minHeight: rem(60),
+            padding: `0 ${rem(24)}`,
+        },
         lg: {
             fontSize: rem(16),
             lineHeight: calculateLineHeightTarget(16, 46),

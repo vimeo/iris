@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 import ButtonIconElement from './ButtonIconElement';
 import {
     ButtonCoreCSS,
+    ButtonStyleSettings,
     getActiveCSSByFormat,
     getAutoWidthCSS,
     getDefaultCSSByFormat,
@@ -67,7 +68,7 @@ export interface ButtonProps
     /**
      * Choose icon location (default: beforeLabel)
      */
-    iconLocation?: 'beforeLabel' | 'afterLabel';
+    iconLocation?: 'beforeLabel' | 'afterLabel' |'featuredLeft';
     /**
      * If `false` the button will be rendered as a span tag
      */
@@ -79,7 +80,7 @@ export interface ButtonProps
     /**
      * Choose the button size
      */
-    size?: 'xs' | 'sm' | 'md' | 'lg';
+    size?: 'xs' | 'sm' | 'md' | 'lg' |'xl';
 }
 
 const ButtonVariableElement = ({
@@ -99,8 +100,20 @@ const ButtonVariableElement = ({
     return <ButtonElementType {...rest} />;
 };
 
+
+const maybeGetFeaturedIconCSS = props => {
+    const thisButtonSize = ButtonStyleSettings.Sizes[props.size] || ButtonStyleSettings.Sizes.md;
+    if(props.hasFeaturedIcon && thisButtonSize) {
+        const combinedPaddingBySize = `${thisButtonSize.minHeight} + 1rem`;
+        return `
+            padding-right: calc(${combinedPaddingBySize});
+            padding-left: calc(${combinedPaddingBySize});
+        `
+    } 
+};
+
 const ButtonElement = styled<ButtonProps, any>(ButtonVariableElement)`
-   ${ButtonCoreCSS}
+    ${ButtonCoreCSS}
 
     border-radius: ${props => (props.size === 'xs' ? rem(2) : rem(3))};
 
@@ -112,6 +125,7 @@ const ButtonElement = styled<ButtonProps, any>(ButtonVariableElement)`
     : getDefaultCSSByFormat}
     
     ${getSizeCSS}
+    ${maybeGetFeaturedIconCSS}
 
     &:hover {
             cursor: pointer;
@@ -168,27 +182,34 @@ const Button: React.SFC<ButtonProps> = ({
 }) => {
     const hasIconBefore = icon && iconLocation === 'beforeLabel';
     const hasIconAfter = icon && iconLocation === 'afterLabel';
+    const hasFeaturedIcon = icon && iconLocation === 'featuredLeft';
 
     const iconElement = (
-        <ButtonIconElement size={size} iconLocation={iconLocation}>
+        <ButtonIconElement
+            size={size}
+            iconLocation={iconLocation}
+        >
             {icon}
         </ButtonIconElement>
     );
+
 
     return (
         <ButtonElement
             autoMargins={autoMargins}
             autoWidth={autoWidth}
             format={format}
+            hasFeaturedIcon={hasFeaturedIcon}
             isButtonElement={isButtonElement}
             isInline={isInline}
             size={size}
             {...filteredProps}
         >
+            {hasFeaturedIcon && iconElement}
             <ButtonLabel>
-                {hasIconBefore ? iconElement : null}
+                {hasIconBefore && iconElement}
                 {children}
-                {hasIconAfter ? iconElement : null}
+                {hasIconAfter && iconElement}
             </ButtonLabel>
         </ButtonElement>
     );
