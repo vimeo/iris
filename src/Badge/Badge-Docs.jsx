@@ -21,6 +21,7 @@ const BadgeDocs = (props) => {
                 <Badge href="#" format="new">new</Badge>
                 <Badge href="#" format="partner">partner</Badge>
                 <Badge href="#" format="plus">plus</Badge>
+                <Badge href="#" format="producer">producer</Badge>
                 <Badge href="#" format="pro">pro</Badge>
                 <Badge href="#" format="sponsor">sponsor</Badge>
                 <Badge href="#" format="staff">staff</Badge>
@@ -40,6 +41,7 @@ const BadgeDocs = (props) => {
                 <Badge href="#" format="new">new</Badge>
                 <Badge href="#" format="partner">partner</Badge>
                 <Badge href="#" format="plus">plus</Badge>
+                <Badge href="#" format="producer">producer</Badge>
                 <Badge href="#" format="pro">pro</Badge>
                 <Badge href="#" format="sponsor">sponsor</Badge>
                 <Badge href="#" format="staff">staff</Badge>
@@ -60,6 +62,7 @@ const BadgeDocs = (props) => {
 <Badge href="#" format="new">new</Badge>
 <Badge href="#" format="partner">partner</Badge>
 <Badge href="#" format="plus">plus</Badge>
+<Badge href="#" format="producer">producer</Badge>
 <Badge href="#" format="pro">pro</Badge>
 <Badge href="#" format="sponsor">sponsor</Badge>
 <Badge href="#" format="staff">staff</Badge>
