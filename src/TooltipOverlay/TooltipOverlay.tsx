@@ -25,6 +25,10 @@ export interface TooltipOverlayProps {
      */
     attachment?: 'top' | 'right' | 'left' | 'bottom';
     /**
+     * set to true to disable the tooltip.
+     */
+    isDisabled?: boolean;
+    /**
      * Event Callback
      */
     onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
@@ -130,16 +134,19 @@ class TooltipOverlay extends React.Component {
     // Functions
 
     showTooltip = () => {
-        // iOS won't bubble clicks to the body unless it has cursor pointer
-        // we listen for a body click to close the tooltip
-        if (document.body) {
-            document.body.style.cursor = 'pointer';
-        }
-        this.setState({
-            isShowing: true,
-        });
 
-        this.listenForClose();
+        if (!this.props.isDisabled) {
+            // iOS won't bubble clicks to the body unless it has cursor pointer
+            // we listen for a body click to close the tooltip
+            if (document.body) {
+                document.body.style.cursor = 'pointer';
+            }
+            this.setState({
+                isShowing: true,
+            });
+
+            this.listenForClose();
+        }
     };
 
     hideTooltip = () => {
@@ -157,7 +164,7 @@ class TooltipOverlay extends React.Component {
 
     toggleTooltip = () => {
         this.setState({
-            isShowing: !this.state.isShowing,
+            isShowing: this.props.isDisabled ? false : !this.state.isShowing,
         });
     };
 
@@ -219,6 +226,7 @@ class TooltipOverlay extends React.Component {
             children,
             className,
             attachment,
+            isDisabled,
             onClick,
             onMouseEnter,
             onMouseLeave,

@@ -61,6 +61,31 @@ class TooltipOverlayDocs extends React.Component {
                                 size="md"
                             />
                         </TooltipOverlay>
+                        <TooltipOverlay
+                            tooltipText="Delete"
+                            onClick={this.clickTest}
+                        >
+                            <ButtonIconOnly
+                                disabled
+                                icon={<DeleteIcon title="Delete"/>}
+                                format="warning"
+                                isButtonElement={false}
+                                size="md"
+                            />
+                        </TooltipOverlay>
+                        <TooltipOverlay
+                            isDisabled
+                            tooltipText="Delete"
+                            onClick={this.clickTest}
+                        >
+                            <ButtonIconOnly
+                                disabled
+                                icon={<DeleteIcon title="Delete"/>}
+                                format="warning"
+                                isButtonElement={false}
+                                size="md"
+                            />
+                        </TooltipOverlay>
                     </div>
                     <ExampleSource>
                     {`
@@ -79,6 +104,31 @@ tooltipText="Delete"
 onClick={this.clickTest}
 >
     <ButtonIconOnly
+        icon={<DeleteIcon title="Delete"/>}
+        format="warning"
+        isButtonElement={false}
+        size="md"
+    />
+</TooltipOverlay>
+<TooltipOverlay
+    tooltipText="Delete"
+    onClick={this.clickTest}
+>
+    <ButtonIconOnly
+        disabled
+        icon={<DeleteIcon title="Delete"/>}
+        format="warning"
+        isButtonElement={false}
+        size="md"
+    />
+</TooltipOverlay>
+<TooltipOverlay
+    isDisabled
+    tooltipText="Delete"
+    onClick={this.clickTest}
+>
+    <ButtonIconOnly
+        disabled
         icon={<DeleteIcon title="Delete"/>}
         format="warning"
         isButtonElement={false}

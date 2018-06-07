@@ -9,6 +9,7 @@ const displayName = 'ButtonIconOnly';
 type Props = {
     autoSpacingHorizontal?: boolean,
     className?: string,
+    disabled?: boolean,
     format?: 'alternative' | 'dark'| 'light' | 'lightTransparent' | 'lightWarning'| 'midDark' | 'secondaryDark' | 'warning',
     icon: React$Element<*>,
     isButtonElement?: boolean,
@@ -18,6 +19,7 @@ type Props = {
 const ButtonIconOnly = ({
                         autoSpacingHorizontal = true,
                         className,
+                        disabled,
                         format = 'dark',
                         icon,
                         isButtonElement = true,
@@ -30,6 +32,7 @@ const ButtonIconOnly = ({
     const componentClass = classNames(
         styles.ButtonIconOnly,
         styles[size],
+        (disabled ? styles.isDisabled : null),
         (autoSpacingHorizontal ? styles.autoSpacingHorizontal : null),
         styles[format],
         className
@@ -41,6 +44,7 @@ const ButtonIconOnly = ({
             <ButtonElement
                 {...filteredProps}
                 className={componentClass}
+                disabled={disabled}
             >
                     <span className={styles.Icon}>{icon}</span>
             </ButtonElement>

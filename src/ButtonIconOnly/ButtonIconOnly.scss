@@ -151,6 +151,8 @@ $ButtonIconOnly_icon-size: rem-calc(16);
 .isDisabled {
     color: $Porcelain;
 
+    pointer-events: none;
+
     &:hover {
         color: $Porcelain;
         background: inherit;
