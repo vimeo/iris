@@ -107,6 +107,16 @@ $ButtonIconOnly_icon-size: rem-calc(16);
     }
 }
 
+.secondaryDark {
+    color: $White;
+    background-color: $AshenWinter;
+
+    &:hover {
+        background-color: $IronHeart;
+    }
+}
+
+
 // sizing
 .sm {
     width: $ButtonIconOnly_button-size-small;

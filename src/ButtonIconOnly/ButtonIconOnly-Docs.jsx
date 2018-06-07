@@ -84,9 +84,9 @@ const ButtonIconOnlyDocs = (props) => {
                          size="md"
                     />
                     <ButtonIconOnly
-                    icon={<SettingsIcon title="Settings" />}
-                    format="lightTransparent"
-                    size="sm"
+                        icon={<SettingsIcon title="Settings" />}
+                        format="lightTransparent"
+                        size="sm"
                     />
 
                     <ButtonIconOnly
@@ -102,6 +102,28 @@ const ButtonIconOnlyDocs = (props) => {
                     <ButtonIconOnly
                         icon={<DownloadIcon title="Download" />}
                         format="lightTransparent"
+                        size="md"
+                    />
+
+                    <ButtonIconOnly
+                        icon={<SettingsIcon title="Settings" />}
+                        format="secondaryDark"
+                        size="sm"
+                    />
+
+                    <ButtonIconOnly
+                        icon={<DownloadIcon title="Download" />}
+                        format="secondaryDark"
+                        size="sm"
+                    />
+                    <ButtonIconOnly
+                        icon={<SettingsIcon title="Settings" />}
+                        format="secondaryDark"
+                        size="md"
+                    />
+                    <ButtonIconOnly
+                        icon={<DownloadIcon title="Download" />}
+                        format="secondaryDark"
                         size="md"
                     />
             </div>
@@ -142,6 +164,13 @@ const ButtonIconOnlyDocs = (props) => {
  <ButtonIconOnly
     icon={<DownloadIcon title="Download" />}
     format="midDark"
+    size="md"
+/>
+
+// secondaryDark
+<ButtonIconOnly
+    icon={<DownloadIcon title="Download" />}
+    format="secondaryDark"
     size="md"
 />
 
