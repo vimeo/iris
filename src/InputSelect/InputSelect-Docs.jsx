@@ -70,25 +70,25 @@ class InputSelectDocs extends React.Component {
             <ParagraphMd>Our select menus are a theming of the native select menu component. <a href = "https://caniuse.com/#feat=css-appearance" target="_blank">Browsers that do not support the "Appearance" CSS property</a>, (specifically IE and Opera) will receive a slightly less styled component.</ParagraphMd>
                 <div data-code>
                     <InputSelect
-                        name="ExampleSelect1"
-                        id="ExampleSelect1"
-                        label="Default (medium)"
+                        name="ExampleSelect1XL"
+                        id="ExampleSelect1XL"
+                        label="XL Select"
+                        size="xl"
                     >
                         {demoOptions}
                     </InputSelect>
                     <InputSelect
                         name="ExampleSelect1Large"
                         id="ExampleSelect1Large"
-                        label="Large Select"
+                        label="LG Select"
                         size="lg"
                     >
                         {demoOptions}
                     </InputSelect>
                     <InputSelect
-                        name="ExampleSelect1XL"
-                        id="ExampleSelect1XL"
-                        label="XL Select"
-                        size="xl"
+                        name="ExampleSelect1"
+                        id="ExampleSelect1"
+                        label="MD select (default)"
                     >
                         {demoOptions}
                     </InputSelect>
@@ -191,18 +191,19 @@ class InputSelectDocs extends React.Component {
                 <ExampleSource>
                     {`
 const demoOptions = (
-                    <optgroup label="Option Group">
-                        <option value="" defaultValue disabled hidden>Select something...</option>
-                        <option value="1">Value 1</option>
-                        <option value="2">Value 2 has a long label</option>
-                        <option value="3" disabled>Value 2 (Disabled)</option>
-                    </optgrouParagraphMd>
-                    );
+    <optgroup label="Option Group">
+        <option value="" defaultValue disabled hidden>Select something...</option>
+        <option value="1">Value 1</option>
+        <option value="2">Value 2 has a long label</option>
+        <option value="3" disabled>Value 2 (Disabled)</option>
+    </optgrouParagraphMd>
+);
 
 <InputSelect
-    name="ExampleSelect1"
-    id="ExampleSelect1"
-    label="Default (medium)"
+    name="ExampleSelect1XL"
+    id="ExampleSelect1XL"
+    label="XL Select"
+    size="xl"
 >
     {demoOptions}
 </InputSelect>
@@ -211,6 +212,21 @@ const demoOptions = (
     id="ExampleSelect1Large"
     label="Large Select"
     size="lg"
+>
+    {demoOptions}
+</InputSelect>
+<InputSelect
+    name="ExampleSelect1"
+    id="ExampleSelect1"
+    label="Default (medium)"
+>
+    {demoOptions}
+</InputSelect>
+<InputSelect
+    name="ExampleSelect1sm"
+    id="ExampleSelect1sm"
+    label="SM Select"
+    size="sm"
 >
     {demoOptions}
 </InputSelect>
