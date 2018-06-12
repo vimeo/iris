@@ -32,6 +32,8 @@
   
  exports.ChevronRight = require('../../../src/icons/chevron-right.svg');
   
+ exports.CircleCheck = require('../../../src/icons/circle-check.svg');
+  
  exports.CircleFilled = require('../../../src/icons/circle-filled.svg');
   
  exports.CircleInfoSmall = require('../../../src/icons/circle-info-small.svg');
