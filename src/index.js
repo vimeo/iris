@@ -75,8 +75,6 @@ export { default as InputRadio } from './InputRadio';
 
 export { default as InputRadioSet } from './InputRadioSet';
 
-export { default as InputSelect } from './InputSelect';
-
 export { default as InputTextFloatingLabel } from './InputTextFloatingLabel';
 
 export { default as InputToggle } from './InputToggle';
@@ -160,9 +158,13 @@ export { default as CardSettings } from './Card/CardSettings';
 
 export { default as CategoryCard } from './CategoryCard/CategoryCard';
 
+export { default as FauxSelect } from './FauxSelect/FauxSelect';
+
 export { default as InputColorPicker } from './InputColorPicker/InputColorPicker';
 
 export { default as InputLabel } from './InputLabel/InputLabel';
+
+export { default as InputSelect } from './InputSelect/InputSelect';
 
 export { default as InputHelpers } from './InputText/InputHelpers';
 
@@ -189,6 +191,8 @@ export { default as ProgressBar } from './ProgressBar/ProgressBar';
 export { default as ProgressBarHelpers } from './ProgressBar/ProgressBarHelpers';
 
 export { default as ProgressBarIndicator } from './ProgressBar/ProgressBarIndicator';
+
+export { default as SelectWrapper } from './SelectWrapper/SelectWrapper';
 
 export { default as SteppedContentSlider } from './SteppedContentSlider/SteppedContentSlider';
 

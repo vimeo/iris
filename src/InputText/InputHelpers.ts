@@ -1,22 +1,40 @@
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import {
+    css,
+    //@ts-ignore
+    InterpolationFunction,
+    //@ts-ignore
+    StyledComponentClass,
+    //@ts-ignore
+    Styles,
+    //@ts-ignore
+    ThemeProps,
+} from 'styled-components';
+import {
     rem,
     rgba
 } from 'polished';
 import COLORS from '../globals/js/constants/COLORS';
-import {Omit} from '../globals/js/type-helpers';
-
-export interface InputProps extends Omit<React.HTMLProps<HTMLInputElement>, 'label' | 'size'> {
+export interface InputProps {
     errorMsg?: React.ReactNode,
     format?: 'negative' | 'positive' | 'neutral',
     isInline?: boolean,
+    hasIcon?: boolean,
     helperMsg?: React.ReactNode,
     label: React.ReactNode,
     id: string,
     preMessage?: any,
     showLabel?: boolean,
     theme?: 'default' | 'light' | 'dark',
-    size?: 'md' | 'lg' | 'xl',
+    size?: 'sm' | 'md' | 'lg' | 'xl',
+}
+
+export interface InputStyledProps extends React.HTMLProps<HTMLInputElement>{
+    format: 'negative' | 'positive' | 'neutral',
+    isInline?: boolean,
+    hasIcon?: boolean,
+    theme?: 'default' | 'light' | 'dark',
+    inputSize?: 'sm' | 'md' | 'lg' | 'xl',
 }
 
 export const InputStyleSettings = {
@@ -85,6 +103,18 @@ export const InputStyleSettings = {
     },
     marginBottom: 8,
     size: {
+        sm: {
+            buttonInputPaddingHorizontal: 40,
+            fontSize: 14,
+            height: 32,
+            iconInputPaddingHorizontal: 28,
+            iconWrapperPaddingHorizontal: 12,
+            iconWrapperPaddingVertical: 9,
+            iconSize: 16,
+            lineHeight: 16,
+            paddingHorizontal: 9,
+            paddingVertical: 7,
+        },
         md: {
             buttonInputPaddingHorizontal: 40,
             fontSize: 14,
@@ -123,5 +153,76 @@ export const InputStyleSettings = {
         },
     }
 };
+
+const getMaybeInlineButtonPadding = props => {
+    if(props.inlineButton  && InputStyleSettings.size[props.inputSize]) {
+        return InputStyleSettings.size[props.inputSize].buttonInputPaddingHorizontal;
+    } else if (!props.inlineButton &&  InputStyleSettings.size[props.inputSize]) {
+        return  InputStyleSettings.size[props.inputSize].paddingHorizontal;
+    }
+    
+    return 0;
+};
+
+
+const getMaybeIconPadding = props => {
+
+    if(InputStyleSettings.size[props.inputSize]) {
+        return props.hasIcon ? InputStyleSettings.size[props.inputSize].iconInputPaddingHorizontal : InputStyleSettings.size[props.inputSize].paddingHorizontal;
+    }
+
+    return 0;
+};
+
+// @ts-ignore
+export const getInputBaseStyles = props => props && css`
+    display: inline-block;
+    width: 100%;
+
+    background-color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].background.default : InputStyleSettings.color.light.background.default};
+    color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].text.default : InputStyleSettings.color.light.text.default};
+    font-family: ${VimeoStyleSettings.type.fontFamily.regular};
+    // @ts-ignore
+    height:${props => InputStyleSettings.size[props.inputSize] ? rem(InputStyleSettings.size[props.inputSize].height) : rem(InputStyleSettings.size.md.height)};
+    // @ts-ignore
+    padding: ${props =>  InputStyleSettings.size[props.inputSize] ? rem(InputStyleSettings.size[props.inputSize].paddingVertical) : rem(InputStyleSettings.size.md.paddingVertical)};
+    padding-right: ${props => rem(getMaybeInlineButtonPadding(props))};
+    padding-left: ${props => rem(getMaybeIconPadding(props))};
+    // @ts-ignore
+    font-size: ${props => InputStyleSettings.size[props.inputSize] ? rem(InputStyleSettings.size[props.inputSize].fontSize) : rem(InputStyleSettings.size.md.fontSize)};
+    // @ts-ignore
+    line-height: ${props => InputStyleSettings.size[props.inputSize] ? InputStyleSettings.size[props.inputSize].lineHeight / InputStyleSettings.size[props.inputSize].fontSize : InputStyleSettings.size.md.lineHeight / InputStyleSettings.size.md.fontSize};
+    // @ts-ignore
+    margin: 0 0 ${props => props.isInline ? 0 : rem(InputStyleSettings.marginBottom)} 0;
+    // @ts-ignore
+    border-color: ${props => InputStyleSettings.color[props.theme].border[props.format].default};
+    border-width: ${rem(InputStyleSettings.border.borderSize)};
+    border-style: ${InputStyleSettings.border.borderStyle};
+    border-radius: ${rem(InputStyleSettings.border.borderRadius)};
+    box-shadow: inset 0 0 0 0 #FFFFFF;
+
+    transition: all ${InputStyleSettings.animationSpeed}ms ease-out;
+
+    &:hover {
+        // @ts-ignore
+        border-color: ${props => InputStyleSettings.color[props.theme] && InputStyleSettings.color[props.theme].border[props.format] ?InputStyleSettings.color[props.theme].border[props.format].hover : InputStyleSettings.color.light.border.neutral};
+    }
+
+    &:focus {
+        box-shadow: ${props => InputStyleSettings.color[props.theme] ? getInputBorderBoxShadow(InputStyleSettings.color[props.theme].border.focus) : getInputBorderBoxShadow(InputStyleSettings.color.light.border.focus)};
+        border-color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].border.focus : InputStyleSettings.color.light.border.focus};
+        outline: 0;
+    }
+
+    &::placeholder {
+        color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].text.placeholder : InputStyleSettings.color.light.text.placeholder};
+    }
+
+    &:disabled {
+        color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].text.disabled : InputStyleSettings.color.light.text.disabled} !important;
+        background-color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].background.disabled : InputStyleSettings.color.light.background.disabled}!important;
+        border-color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].border.disabled : InputStyleSettings.color.light.border.disabled} !important;
+    }
+`;
 
 export const getInputBorderBoxShadow = (color) => `0 0 0 ${rem(1)} ${color}`;

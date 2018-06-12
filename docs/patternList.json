@@ -32,6 +32,7 @@
         ["CircularButton", "Circular Button"],
         ["CopyField", "Copy Field"],
         ["CounterIcon", "Counter Icons"],
+        ["FauxSelect", "Faux Select"],
         ["FeatureTourPanel", "Feature Tour Panel"],
         ["FieldSet", "FieldSet"],
         ["InputCheckbox", "Inputs: Checkbox"],

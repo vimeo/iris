@@ -24,7 +24,7 @@ export interface InputWrapperProps extends Omit<React.HTMLProps<HTMLDivElement>,
     labelForId?: string,
     preMessage?: React.ReactNode,
     showLabel: boolean,
-    size?: 'md' | 'lg' | 'xl',
+    size?: 'sm' |'md' | 'lg' | 'xl',
     theme?: 'light' | 'dark' | 'default',
 };
 
@@ -74,7 +74,7 @@ const getIconColor = props => {
 };
 
 export interface IconStyledProps {
-    iconSize?: 'md' | 'lg' | 'xl',
+    iconSize?: 'sm' | 'md' | 'lg' | 'xl',
     format?: 'negative' | 'positive' | 'neutral',
     theme?: 'light' | 'dark',
 }

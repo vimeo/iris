@@ -25,6 +25,10 @@ $MenuPanel_animation-speed: 200ms;
     &.isFluid {
         display: block;
     }
+
+    .hideOutline:focus {
+        outline: none;
+    }
 }
 
 .MenuPanel {

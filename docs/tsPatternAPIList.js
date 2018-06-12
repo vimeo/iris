@@ -4,6 +4,7 @@ import ButtonAPI from '../data/tsdocsHTML/interfaces/_button_button_.buttonprops
 import ButtonSplitMenuAPI from '../data/tsdocsHTML/interfaces/_buttonsplitmenu_buttonsplitmenu_.buttonsplitmenuprops.html';
 import CategoryCardAPI from '../data/tsdocsHTML/interfaces/_categorycard_categorycard_.categorycardprops.html';
 import CardAPI from '../data/tsdocsHTML/interfaces/_card_card_.cardprops.html'
+import FauxSelectAPI from '../data/tsdocsHTML/interfaces/_fauxselect_fauxselect_.fauxselectprops.html';
 import InputColorPickerAPI from '../data/tsdocsHTML/interfaces/_inputcolorpicker_inputcolorpicker_.inputcolorpickerprops.html';
 import InputTextAPI from '../data/tsdocsHTML/interfaces/_inputtext_inputtext_.inputtextprops.html';
 import LinkTextAPI from '../data/tsdocsHTML/interfaces/_linktext_linktext_.linktextprops.html';
@@ -31,6 +32,9 @@ const tsPatternAPIList = {
     },
     Card: {
         data: CardAPI,
+    },
+    FauxSelect: {
+        data: FauxSelectAPI,
     },
     InputColorPicker: {
         data: InputColorPickerAPI,

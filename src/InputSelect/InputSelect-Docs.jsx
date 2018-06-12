@@ -93,6 +93,14 @@ class InputSelectDocs extends React.Component {
                         {demoOptions}
                     </InputSelect>
                     <InputSelect
+                        name="ExampleSelect1sm"
+                        id="ExampleSelect1sm"
+                        label="SM Select"
+                        size="sm"
+                    >
+                        {demoOptions}
+                    </InputSelect>
+                    <InputSelect
                         name="ExampleSelect2"
                         helperMsg = {<ParagraphMd>I am helpful text!</ParagraphMd>}
                         id="ExampleSelect2"

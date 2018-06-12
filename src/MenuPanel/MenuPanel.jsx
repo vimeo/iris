@@ -18,6 +18,7 @@ type Props = {
     className?: string,
     children: React$Element <*>,
     href?: string,
+    hideOutline?: boolean,
     isShowing?: boolean,
     menuContent: React$Element <*>,
     onClose?: Function,
@@ -262,6 +263,7 @@ class MenuPanel extends React.Component {
             children,
             className,
             href,
+            hideOutline,
             isControlled, // eslint-disable-line no-unused-vars
             isFluid,
             isShowing, // eslint-disable-line no-unused-vars
@@ -288,6 +290,7 @@ class MenuPanel extends React.Component {
         const triggerClass = classNames(
             styles.MenuTrigger,
             (isFluid ? styles.isFluid : null),
+            (hideOutline ? styles.hideOutline : null),
             className,
         );
 
