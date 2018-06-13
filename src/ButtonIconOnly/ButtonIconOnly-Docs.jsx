@@ -21,11 +21,13 @@ const ButtonIconOnlyDocs = (props) => {
                     icon={<SettingsIcon />}
                     format="dark"
                     size="sm"
+                    onClick={clickHandler}
                 />
                 <ButtonIconOnly
                     icon={<DownloadIcon title="Download" />}
                     format="dark"
                     size="sm"
+                    onClick={clickHandler}
                 />
 
                 <ButtonIconOnly
@@ -38,6 +40,7 @@ const ButtonIconOnlyDocs = (props) => {
                     icon={<DownloadIcon title="Download" />}
                     format="midDark"
                     size="md"
+                    onClick={clickHandler}
                 />
             </div>
  <ParagraphMd>For buttons on image backgrounds we use the light formats. The <code>light</code> format is the standard, <code>lightWarning</code> is used for destructive actions.</ParagraphMd>
@@ -46,52 +49,61 @@ const ButtonIconOnlyDocs = (props) => {
                     icon={<DeleteIcon title="Delete"/>}
                     format="warning"
                     size="sm"
+                    onClick={clickHandler}
                 />
                 <ButtonIconOnly
                     icon={<DeleteIcon title="Delete"/>}
                     format="warning"
                     size="sm"
+                    onClick={clickHandler}
                 />
 
                 <ButtonIconOnly
                     icon={<DeleteIcon title="Delete"/>}
                     format="warning"
                     size="md"
+                    onClick={clickHandler}
                 />
                 <ButtonIconOnly
                     icon={<DeleteIcon title="Delete"/>}
                     format="warning"
                     size="md"
+                    onClick={clickHandler}
                 />
             </div>
 
-             <div data-code style={{ 'backgroundColor': '#2E2E2E', 'padding': '1rem', 'width': '100%' }}>
+            <div data-code style={{ 'backgroundColor': '#2E2E2E', 'padding': '1rem', 'width': '100%' }}>
                     <ButtonIconOnly
                         icon={<SettingsIcon title="Settings" />}
                         format="alternative"
                         size="sm"
+                        onClick={clickHandler}
                     />
 
                     <ButtonIconOnly
                         icon={<DownloadIcon title="Download" />}
                         format="alternative"
                         size="sm"
+                        onClick={clickHandler}
                     />
                      <ButtonIconOnly
                         icon={<SettingsIcon title="Settings" />}
                         format="alternative"
                          size="md"
+                         onClick={clickHandler}
                     />
 
                     <ButtonIconOnly
                         icon={<DownloadIcon title="Download" />}
                         format="alternative"
                          size="md"
+                         onClick={clickHandler}
                     />
                     <ButtonIconOnly
                         icon={<SettingsIcon title="Settings" />}
                         format="lightTransparent"
                         size="sm"
+                        onClick={clickHandler}
                     />
 
                     <ButtonIconOnly
@@ -103,33 +115,39 @@ const ButtonIconOnlyDocs = (props) => {
                         icon={<SettingsIcon title="Settings" />}
                         format="lightTransparent"
                         size="md"
+                        onClick={clickHandler}
                     />
                     <ButtonIconOnly
                         icon={<DownloadIcon title="Download" />}
                         format="lightTransparent"
                         size="md"
+                        onClick={clickHandler}
                     />
 
                     <ButtonIconOnly
                         icon={<SettingsIcon title="Settings" />}
                         format="secondaryDark"
                         size="sm"
+                        onClick={clickHandler}
                     />
 
                     <ButtonIconOnly
                         icon={<DownloadIcon title="Download" />}
                         format="secondaryDark"
                         size="sm"
+                        onClick={clickHandler}
                     />
                     <ButtonIconOnly
                         icon={<SettingsIcon title="Settings" />}
                         format="secondaryDark"
                         size="md"
+                        onClick={clickHandler}
                     />
                     <ButtonIconOnly
                         icon={<DownloadIcon title="Download" />}
                         format="secondaryDark"
                         size="md"
+                        onClick={clickHandler}
                     />
             </div>
             <div data-code style={{ 'backgroundImage': 'url(https://placekitten.com/1000/800)', 'backgroundSize': 'cover', 'backgroundPosition': 'center', 'padding': '1rem', 'width': '100%' }}>
@@ -137,22 +155,26 @@ const ButtonIconOnlyDocs = (props) => {
                     icon={<SettingsIcon title="Settings" />}
                     format="light"
                     size="sm"
+                    onClick={clickHandler}
                 />
                 <ButtonIconOnly
                     icon={<DownloadIcon title="Download" />}
                     format="light"
                     size="md"
+                    onClick={clickHandler}
                 />
 
                 <ButtonIconOnly
                     icon={<DeleteIcon title="Delete" />}
                     format="lightWarning"
                     size="sm"
+                    onClick={clickHandler}
                 />
                 <ButtonIconOnly
                     icon={<DeleteIcon title="Delete" />}
                     format="lightWarning"
                     size="md"
+                    onClick={clickHandler}
                 />
             </div>
 
@@ -163,6 +185,7 @@ const ButtonIconOnlyDocs = (props) => {
     icon={<SettingsIcon title="Settings" />}
     format="dark"
     size="sm"
+    onClick={clickHandler}
  />
 
  // MidDark
@@ -170,6 +193,7 @@ const ButtonIconOnlyDocs = (props) => {
     icon={<DownloadIcon title="Download" />}
     format="midDark"
     size="md"
+    onClick={clickHandler}
 />
 
 // secondaryDark
@@ -177,6 +201,7 @@ const ButtonIconOnlyDocs = (props) => {
     icon={<DownloadIcon title="Download" />}
     format="secondaryDark"
     size="md"
+    onClick={clickHandler}
 />
 
  //Warning
@@ -184,31 +209,36 @@ const ButtonIconOnlyDocs = (props) => {
     icon={<DeleteIcon title="Delete"/>}
     format="warning"
     size="sm"
+    onClick={clickHandler}
 />
  // Alternative
  <ButtonIconOnly
     icon={<SettingsIcon title="Settings" />}
     format="alternative"
     size="sm"
+    onClick={clickHandler}
 />
 
 // LightTransparent
 <ButtonIconOnly
-icon={<DownloadIcon title="Download" />}
-format="lightTransparent"
-size="md"
+    icon={<DownloadIcon title="Download" />}
+    format="lightTransparent"
+    size="md"
+    onClick={clickHandler}
 />
 // Light
  <ButtonIconOnly
     icon={<SettingsIcon title="Settings" />}
     format="light"
     size="sm"
+    onClick={clickHandler}
 />
 //lightWarning
  <ButtonIconOnly
     icon={<DeleteIcon title="Delete" />}
     format="lightWarning"
     size="md"
+    onClick={clickHandler}
 />
                 `}
                 </ExampleSource>
