@@ -16,6 +16,8 @@
   
  exports.VimeoPlusBlueBoxLogo = require('../../../src/illustrations/vimeo-plus-blue-box-logo.svg');
   
+ exports.VimeoPlusLogoBlackBlue = require('../../../src/illustrations/vimeo-plus-logo-black-blue.svg');
+  
  exports.VimeostockBlack = require('../../../src/illustrations/vimeostock_black.svg');
   
  exports.VimeostockDark = require('../../../src/illustrations/vimeostock_dark.svg');
