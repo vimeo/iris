@@ -5,6 +5,10 @@ import DownloadIcon from '../icons/download-arrow.svg';
 import DeleteIcon from '../icons/trash.svg';
 import { ButtonIconOnly, ParagraphMd, Header3 } from '../index';
 
+const clickHandler = (event) => {
+    console.log('clicked', event);
+};
+
 const ButtonIconOnlyDocs = (props) => {
     return (
         <div className="Pattern__docs">
@@ -28,6 +32,7 @@ const ButtonIconOnlyDocs = (props) => {
                     icon={<SettingsIcon />}
                     format="midDark"
                     size="md"
+                    onClick={clickHandler}
                 />
                 <ButtonIconOnly
                     icon={<DownloadIcon title="Download" />}
