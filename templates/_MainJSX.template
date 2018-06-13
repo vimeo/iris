@@ -9,6 +9,7 @@ import ProjectDependencies from './ProjectDependencies';
 import styles from './styleguide-assets/sass/styleguide.scss';
 
 // DO NOT EDIT: THIS FILE IS GENERATED FROM templates/_MainJSX.template //
+const targetNode = typeof window !== 'undefined' && document.getElementById('app-root');
 
 let App = function App() {
     return (
@@ -37,8 +38,9 @@ let App = function App() {
 )
 };
 
-
-ReactDOM.render(
-    <App />,
-    document.getElementById('app-root')
-);
+if( targetNode){
+    ReactDOM.render(
+        <App />,
+        targetNode,
+    );
+}

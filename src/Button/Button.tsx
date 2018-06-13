@@ -90,6 +90,8 @@ const ButtonVariableElement = ({
     autoWidth, // filter out prop
     //@ts-ignore
     customFormat, // filter out prop
+     //@ts-ignore
+    hasFeaturedIcon, // filter out prop
     isButtonElement, // filter out prop
     //@ts-ignore
     isInline, // filter out prop
