@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    {pascalCase name},
+    {{pascalCase name}},
     ParagraphMd,
 } from '../index';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
