@@ -8,7 +8,7 @@ import DeleteIcon from '../icons/dismiss-x.svg';
 export interface TagProps {
     autoMargins?: boolean,
     autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid',
-    children: React.ReactChildren,
+    children: React.ReactChildren | string,
     className?: string,
     /**
      * default is 'light'
@@ -16,7 +16,7 @@ export interface TagProps {
     format?: 'light' | 'dark',
     isButtonElement?: boolean,
     isInline?: boolean,
-    onDismiss: any,
+    onDismiss?: any,
     size?: 'xs' | 'sm' | 'md' | 'lg',
 };
 
@@ -25,15 +25,15 @@ const ButtonStyledAsTag = styled(Button)`
 `;
 
 const Tag = ({
-                autoMargins,
-                autoWidth = 'xs',
-                children,
-                format = 'light',
-                isButtonElement,
-                onDismiss,
-                size = 'md',
-                ...filteredProps
-            }: TagProps)=> {
+		autoMargins,
+		autoWidth = 'xs',
+		children,
+		format = 'light',
+		isButtonElement,
+		onDismiss,
+		size = 'md',
+		...filteredProps
+	}: TagProps)=> {
 
     const handleDismiss = (e) => {
         e.preventDefault();
