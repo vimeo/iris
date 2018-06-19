@@ -4,7 +4,7 @@ import { rem } from 'polished';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import COLORS from '../globals/js/constants/COLORS';
 
-export interface LinkTextProps {
+export interface LinkTextProps extends React.HTMLProps<HTMLAnchorElement>{
     /**
      * The text of the link
      */
@@ -96,64 +96,94 @@ const formats = {
     },
 };
 
+const AnchorStyled = styled.a`
+    &:hover {
+        text-decoration: none;
+    }
+`;
+
+const getDefaultColor = props => props.format && formats[props.format] ? formats[props.format].defaultColor : '';
+
+const getHoverColor = props => props.format && formats[props.format] ? formats[props.format].hoverColor : '';
+
+const LinkTextStyled = styled<LinkTextProps, 'span'>('span')`
+    display: inline;
+    position: relative;
+
+    padding: 0;
+
+    color: ${getDefaultColor};
+
+    font-size: inherit;
+    line-height: inherit;
+
+    border: 0;
+    background-color: transparent;
+
+    transition: all 0.1s ease-in-out;
+    text-decoration: none;
+
+    appearance: none;
+
+    &::-moz-focus-inner {
+        margin: 0;
+        padding: 0;
+
+        border: 0;
+    }
+    &:hover,
+    &:focus {
+        color: ${getHoverColor};
+        cursor: pointer;
+    }
+    &:active {
+        cursor: wait;
+    }
+
+    &::after {
+        ${linkBorderCss}
+    }
+
+    ${props => getLinkDecorationCss(props.decoration)};
+    `;
+
 
 const LinkText = ({
     children,
+    decoration,
     element = 'a',
     format = 'primary',
+    href,
+    ref:_,
     ...filteredProps
 }: LinkTextProps) => {
 
-    const LinkTextStyled = styled<LinkTextProps, any>(element)`
-        display: inline;
-        position: relative;
-
-        padding: 0;
-
-        color: ${props => props.format && formats[props.format] ? formats[props.format].defaultColor : ''};
-
-        font-size: inherit;
-        line-height: inherit;
-
-        border: 0;
-        background-color: transparent;
-
-        transition: all 0.1s ease-in-out;
-        text-decoration: none;
-
-        appearance: none;
-
-        &::-moz-focus-inner {
-            margin: 0;
-            padding: 0;
-
-            border: 0;
-        }
-        &:hover,
-        &:focus {
-            color: ${props => props.format && formats[props.format] ? formats[props.format].hoverColor : ''};
-            cursor: pointer;
-        }
-        &:active {
-            cursor: wait;
-        }
-
-        &::after {
-            ${linkBorderCss}
-        }
-
-        ${props => getLinkDecorationCss(props.decoration)};
-    `;
-
-    return (
+    const maybeAnchorTag = element === 'a' ? (
+        <AnchorStyled
+            href={href}
+            {...filteredProps}
+        >
             <LinkTextStyled
+                decoration={decoration}
                 format={format}
-                {...filteredProps}
 
             >
-                    {children}
+                {children}
             </LinkTextStyled>
+        </AnchorStyled>
+    ) : (
+        <LinkTextStyled
+            decoration={decoration}
+            format={format}
+            {...filteredProps}
+
+        >
+                {children}
+        </LinkTextStyled>
     );
+
+    return maybeAnchorTag
+
 };
 
 export default LinkText;
