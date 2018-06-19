@@ -11,6 +11,7 @@ gulp.task('prepublish' , function(cb) {
         ['reactDocGenBuild', 'tsDocs'],
         'reactDocGenParse',
         'compilePackageIndexJS',
+        'compileComponentMap',
         'transpileTS',
         [ 
             'transpileJS',

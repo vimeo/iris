@@ -83,6 +83,7 @@
     },
     "dependencies": {
         "animejs": "^2.0.2",
+        "babel-plugin-transform-imports": "1.5.0",
         "classnames": "^2.2.5",
         "clipboard": "^1.7.1",
         "gulp-svgmin": "^1.2.4",

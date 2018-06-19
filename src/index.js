@@ -275,14 +275,17 @@ export { default as VideoCardTimestamp } from './VideoCard/VideoCardTimestamp';
 export { default as VideoContextInfoArea } from './VideoCard/VideoContextInfoArea';
 
 
-/* Export the Vimeo Style Settings */
+/* Exceptions to path rules */
+
 export { default as VimeoStyleSettings } from './globals/js/style-settings/VimeoStyleSettings';
 
+export { default as BREAKPOINTS } from './globals/js/constants/BREAKPOINTS';
 
-/* Export the Constants */
-export {BREAKPOINTS, COLORS, KEY_CODES} from './globals/js/constants';
+export { default as COLORS } from './globals/js/constants/COLORS';
 
-/* Export Utilities */
+export { default as KEY_CODES } from './globals/js/constants/KEY_CODES';
+
 export { default as withCopyAbility } from './withCopyAbility';
+
 export { default as withCharacterCount } from './withCharacterCount';
 

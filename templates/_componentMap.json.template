@@ -1,0 +1,14 @@
+{
+<% _.forEach(flowComponents, function(component) { if(component.name){ %>
+    "<%- component.name %>": "<%- component.path %>",
+<% }}); %>
+
+<% _.forEach(tsComponents, function(component) { if(component.name){ %>
+    "<%- component.name %>": "<%- component.path %>",
+<% }}); %>
+
+<% // Loop through the keys so we can conditionally omit the trailing comma %>
+<% _.forEach(_.keys(pathExceptions), function(name, index, names) { %>
+    "<%- name %>": "<%- names[index] %>"<%- index === names.length - 1 ? '' : ',' %>
+<% }); %>
+}

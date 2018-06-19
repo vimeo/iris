@@ -4,25 +4,18 @@ const template = require('gulp-template');
 
 // Build a list of the components for export from Iris.
 gulp.task('compilePackageIndexJS', function () {
-
 	setTimeout(function(){
+		const parseComponentPathData = require('../build-tasks/parseComponentPathData');
+		const componentData = parseComponentPathData();
 
-	
-	const parseFlowDocsData = require('../build-tasks/parseFlowDocsData.js');
-	const parseTSDocsData = require('../build-tasks/parseTsDocsData.js');
-	const componentData = {
-		flowComponents: parseFlowDocsData(),
-		tsComponents: parseTSDocsData(),
-	};
+		// Uncomment below to Debug
+		// console.log('Compiling Index JS file from:' , componentData);
 
-	// Uncomment below to Debug
-	// console.log('Compiling Index JS file from:' , componentData);
+		return gulp.src('./templates/_package-index.js.template')
+			.pipe(template(componentData))
+			.pipe(rename('index.js'))
+			.pipe(gulp.dest('src'))
+			.pipe(gulp.dest('dist'));
 
-	return gulp.src('./templates/_package-index.js.template')
-	.pipe(template(componentData))
-	.pipe(rename('index.js'))
-	.pipe(gulp.dest('src'))
-	.pipe(gulp.dest('dist'));
-
-}, 3000)
+	}, 3000);
 });

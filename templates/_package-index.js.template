@@ -21,14 +21,7 @@ export { default as <%- component.name%> } from '<%- component.path%>';
 export { default as <%- component.name%> } from '<%- component.path%>';
 <% }}); %>
 
-/* Export the Vimeo Style Settings */
-export { default as VimeoStyleSettings } from './globals/js/style-settings/VimeoStyleSettings';
-
-
-/* Export the Constants */
-export {BREAKPOINTS, COLORS, KEY_CODES} from './globals/js/constants';
-
-/* Export Utilities */
-export { default as withCopyAbility } from './withCopyAbility';
-export { default as withCharacterCount } from './withCharacterCount';
-
+/* Exceptions to path rules */
+<% _.forEach(pathExceptions, function(path, name) { %>
+export { default as <%- name %> } from '<%- path %>';
+<% }); %>
