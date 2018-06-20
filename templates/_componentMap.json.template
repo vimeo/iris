@@ -9,6 +9,6 @@
 
 <% // Loop through the keys so we can conditionally omit the trailing comma %>
 <% _.forEach(_.keys(pathExceptions), function(name, index, names) { %>
-    "<%- name %>": "<%- names[index] %>"<%- index === names.length - 1 ? '' : ',' %>
+    "<%- name %>": "<%- pathExceptions[name] %>"<%- index === names.length - 1 ? '' : ',' %>
 <% }); %>
 }
