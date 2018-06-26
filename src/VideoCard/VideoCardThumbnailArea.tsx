@@ -71,6 +71,7 @@ const ThumbnailContainerStyled = styled<VideoCardThumbnailWrapperProps, 'div'>(
 )`
     border-radius: ${rem(VideoCardStyleSettings.borderRadius)}
         ${rem(VideoCardStyleSettings.borderRadius)} 0 0;
+    ${props => props.isHovered && 'opacity: .66;'}
     box-shadow: inset 1px 1px 0px 0px rgba(0,0,0,0.10);
 `;
 
@@ -110,7 +111,7 @@ const HoverOverlayStyled = styled('div')`
         ${rem(VideoCardStyleSettings.borderRadius)} 0 0;
     background-image: linear-gradient(
         -180deg,
-        rgba(0, 0, 0, 0.6) 0%,
+        rgba(0, 0, 0, 0.7) 0%,
         rgba(0, 0, 0, 0) 100%
     );
 `;
