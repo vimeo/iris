@@ -71,8 +71,6 @@ const ThumbnailContainerStyled = styled<VideoCardThumbnailWrapperProps, 'div'>(
 )`
     border-radius: ${rem(VideoCardStyleSettings.borderRadius)}
         ${rem(VideoCardStyleSettings.borderRadius)} 0 0;
-    filter: ${props => (props.isHovered ? 'grayscale(0.7)' : 'grayscale(0)')};
-    transition: filter ${VideoCardStyleSettings.hoverTransition};
     box-shadow: inset 1px 1px 0px 0px rgba(0,0,0,0.10);
 `;
 
