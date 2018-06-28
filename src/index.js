@@ -13,8 +13,6 @@
 /* Flow-typed Components */
 
 
-export { default as Avatar } from './Avatar';
-
 export { default as Badge } from './Badge';
 
 export { default as ButtonDialogClose } from './ButtonDialogClose';
@@ -135,6 +133,12 @@ export { default as VerticalMenuToggleButton } from './VerticalMenuToggleButton'
 
 
 /* TypeScript Components */
+
+export { default as Avatar } from './Avatar/Avatar';
+
+export { default as AvatarProps } from './Avatar/AvatarProps';
+
+export { default as AvatarStyled } from './Avatar/AvatarStyled';
 
 export { default as Breadcrumb } from './Breadcrumb/Breadcrumb';
 
