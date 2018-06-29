@@ -116,7 +116,7 @@ const AdditionalControlAreaStyled = styled('div')`
 
 
 const SlideContentStyled = styled('div')`
-    float: left;
+    flex: 0 1 auto;
 `;
 
 interface ViewContainerStyled extends React.HTMLProps<HTMLDivElement>{
@@ -130,7 +130,33 @@ const ViewContainerStyled = styled<ViewContainerStyled, 'div'>('div')`
 
     width: 100%;
 
+    display: flex;
+
     ${props => props.slideIsBiggerThanViewport ? `overflow-x: scroll;` : ''}
+`;
+
+interface ViewTrackProps {
+    trackOffset: number;
+    speed:  number;
+    animate?: boolean;
+    setRef: (HTMLDivElement) => void;
+};
+
+const ViewTrack: React.SFC<ViewTrackProps> = ({
+    trackOffset: _0,
+    speed: _1,
+    animate: _2,
+    ...props
+}) => <div ref={props.setRef} {...props} />;
+
+const ViewTrackStyled = styled(ViewTrack)`
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 0 1 auto;
+    transform: ${props => `translateX(${ rem(props.trackOffset) })`};
+    ${props => props.animate ? `transition: transform ${props.speed}ms ease;` : ''}
 `;
 
 const EmptyStateWrapperStyled = styled('div')`
@@ -501,18 +527,16 @@ class SteppedContentSlider extends React.Component {
                             slideIsBiggerThanViewport={this.state.slideIsBiggerThanViewport}
                             {...filteredProps}
                         >
-                            <div
-                                ref={(div) => {
+                            <ViewTrackStyled
+                                setRef={(div) => {
                                     this.viewTrack = div;
                                 }}
-                                style={{
-                                    width: rem(this.state.trackWidth),
-                                    transform: `translateX(${rem(this.state.trackOffset)})`,
-                                    transition: this.state.animate && `transform ${speed}ms ease`,
-                                }}
+                                trackOffset={this.state.trackOffset}
+                                speed={speed}
+                                animate={this.state.animate}
                             >
                                 {this.state.slides}
-                            </div>
+                            </ViewTrackStyled>
                             <PreviousTruncationStyled
                                 backgroundBlendColor={backgroundBlendColor}
                                 isShowing={this.state.showPrevious && !this.state.slideIsBiggerThanViewport}
