@@ -34,6 +34,8 @@
   
  exports.CircleCheck = require('../../../src/icons/circle-check.svg');
   
+ exports.CircleDollar = require('../../../src/icons/circle-dollar.svg');
+  
  exports.CircleFilled = require('../../../src/icons/circle-filled.svg');
   
  exports.CircleInfoSmall = require('../../../src/icons/circle-info-small.svg');
@@ -67,6 +69,8 @@
  exports.Eye = require('../../../src/icons/eye.svg');
   
  exports.Facebook = require('../../../src/icons/facebook.svg');
+  
+ exports.Feed = require('../../../src/icons/feed.svg');
   
  exports.Filters = require('../../../src/icons/filters.svg');
   
@@ -108,6 +112,12 @@
   
  exports.Mic = require('../../../src/icons/mic.svg');
   
+ exports.Note = require('../../../src/icons/note.svg');
+  
+ exports.Ondemand = require('../../../src/icons/ondemand.svg');
+  
+ exports.PaintRoller = require('../../../src/icons/paint-roller.svg');
+  
  exports.PaperPlane = require('../../../src/icons/paper-plane.svg');
   
  exports.Pencil = require('../../../src/icons/pencil.svg');
@@ -135,6 +145,8 @@
  exports.Star = require('../../../src/icons/star.svg');
   
  exports.Stats = require('../../../src/icons/stats.svg');
+  
+ exports.Television = require('../../../src/icons/television.svg');
   
  exports.Trash = require('../../../src/icons/trash.svg');
   
