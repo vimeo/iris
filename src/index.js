@@ -158,6 +158,10 @@ export { default as CardSettings } from './Card/CardSettings';
 
 export { default as CategoryCard } from './CategoryCard/CategoryCard';
 
+export { default as CategoryCardStyled } from './CategoryCard/CategoryCardStyled';
+
+export { default as CategoryCardTypes } from './CategoryCard/CategoryCardTypes';
+
 export { default as FauxSelect } from './FauxSelect/FauxSelect';
 
 export { default as InputColorPicker } from './InputColorPicker/InputColorPicker';
