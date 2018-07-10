@@ -96,7 +96,7 @@ interface ResetButtonStyledStyledProps extends HTMLAnchorElement {
 
 const ResetButtonStyled = styled<ResetButtonStyledStyledProps, any>('a')`
     position: absolute;
-    top: ${rem(37)};
+    top: ${rem(30)};
     right: ${rem(8)};
     display: block;
     font-size: ${rem(12)};
