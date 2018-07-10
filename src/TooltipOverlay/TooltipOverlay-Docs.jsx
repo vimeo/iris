@@ -171,6 +171,14 @@ onClick={this.clickTest}
                         <Button isButtonElement={false} autoMargins={false}>Outset Island</Button>
                     </TooltipOverlay>
                 </div>
+                <div style={{ marginBottom: '1rem' }}>
+                    <TooltipOverlay
+                        tooltipText="I am a medium tooltip"
+                        triggerOnClick
+                    >
+                        <Button isButtonElement={false} autoMargins={false}>Outset Island</Button>
+                    </TooltipOverlay>
+                </div>
 
                 <ExampleSource>
                     {`
@@ -249,37 +257,6 @@ onClick={this.clickTest}
 </TooltipOverlay>
                         `}
                 </ExampleSource>
-                <Header3>Forcing Size</Header3>
-                <TooltipOverlay
-                        tooltipText="This is some short text, under 45 chars."
-                        attachment="top"
-                        size="lg"
-                        triggerOnClick
-                >
-                    <Button
-                        isButtonElement={false}
-                        autoMargins={false}
-                    >
-                        Forced Large Button
-                    </Button>
-                </TooltipOverlay>
-                <ExampleSource>
-                    {`
-<TooltipOverlay
-        tooltipText="This is some short text, under 45 chars."
-        attachment="top"
-        size="lg"
-        triggerOnClick
->
-    <Button
-        isButtonElement={false}
-        autoMargins={false}
-    >
-        Forced Large Button
-    </Button>
-</TooltipOverlay>
-                        `}
-            </ExampleSource>
             </div>
         );
     }

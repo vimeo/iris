@@ -45,7 +45,7 @@ export interface TooltipOverlayProps {
      */
     popperEventsEnabled?: boolean;
     /**
-     * Tooltip Size (See docs)
+     * Tooltip Size (DEPRECATED!)
      */
     size?: 'sm' | 'md' | 'lg';
     /**
@@ -231,6 +231,7 @@ class TooltipOverlay extends React.Component {
             onMouseEnter,
             onMouseLeave,
             popperEventsEnabled = false,
+            //@ts-ignore deprecated prop will remove
             size,
             tooltipText,
             triggerOnClick, // eslint-disable-line no-unused-vars
@@ -263,7 +264,6 @@ class TooltipOverlay extends React.Component {
                     >
                         <Tooltip
                             breakWords={breakWords}
-                            size={size}
                         >
                             {tooltipText}
                         </Tooltip>
