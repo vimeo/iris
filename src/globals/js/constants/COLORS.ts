@@ -7,6 +7,7 @@ const COLORS = {
     VimeoBlue: '#00adef',
     VimeoBlueDarkened: '#0088cc',
     VimeoBlueLightened: '#36C5FC',
+    DarkerBlue: '#093AC9',
     Foam: '#e5f7fd',
     Pistachio: '#7fc400',
     PistachioDarkened: '#5a9e02',

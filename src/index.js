@@ -39,14 +39,6 @@ export { default as CopyField } from './CopyField';
 
 export { default as CounterIcon } from './CounterIcon';
 
-export { default as FeatureTourDot } from './FeatureTourDot';
-
-export { default as FeatureTourPanel } from './FeatureTourPanel';
-
-export { default as FeatureTourPanelButton } from './FeatureTourPanelButton';
-
-export { default as FeatureTourPanelContent } from './FeatureTourPanelContent';
-
 export { default as FieldSet } from './FieldSet';
 
 export { default as FocusBloop } from './FocusBloop';
@@ -163,6 +155,14 @@ export { default as CategoryCardStyled } from './CategoryCard/CategoryCardStyled
 export { default as CategoryCardTypes } from './CategoryCard/CategoryCardTypes';
 
 export { default as FauxSelect } from './FauxSelect/FauxSelect';
+
+export { default as FeatureTourDot } from './FeatureTourDot/FeatureTourDot';
+
+export { default as FeatureTourPanel } from './FeatureTourPanel/FeatureTourPanel';
+
+export { default as FeatureTourPanelButton } from './FeatureTourPanelButton/FeatureTourPanelButton';
+
+export { default as FeatureTourPanelContent } from './FeatureTourPanelContent/FeatureTourPanelContent';
 
 export { default as InputColorPicker } from './InputColorPicker/InputColorPicker';
 

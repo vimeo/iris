@@ -1,19 +1,11 @@
 // @flow
 import React from 'react';
-// $FlowFixMe
-import Button from '../Button';
-
-const displayName = 'FeatureTourPanelButton';
-
-type Props = {
-    children: React$Element<*>,
-};
+import Button, { ButtonProps } from '../Button/Button';
 
 const FeatureTourPanelButton = ({
     children,
     ...filteredProps
-}: Props): React$Element<*> => {
-
+}: ButtonProps) => {
     return (
         <Button
             {...filteredProps}
@@ -24,7 +16,5 @@ const FeatureTourPanelButton = ({
         />
     );
 };
-
-FeatureTourPanelButton.displayName = displayName;
 
 export default FeatureTourPanelButton;

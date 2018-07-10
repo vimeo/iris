@@ -37,6 +37,7 @@ class FeatureTourPanelDocs extends React.Component {
                             dismissButtonA11yLabel="Close"
                             dotZIndex={100}
                             wrapperClass={styles.dotOne}
+                            contextualInfo="Step 1 of 4"
                         >
                             This is the body text. Vimeo was born in{' '}
                             <LinkText
@@ -62,6 +63,7 @@ class FeatureTourPanelDocs extends React.Component {
                             dismissButtonA11yLabel="Close"
                             dotZIndex={100}
                             wrapperClass={styles.dotTwo}
+                            contextualInfo="Step 2 of 4"
                         >
                             This is the body text. Vimeo was born in{' '}
                             <LinkText
@@ -87,6 +89,7 @@ class FeatureTourPanelDocs extends React.Component {
                             dismissButtonA11yLabel="Close"
                             dotZIndex={100}
                             wrapperClass={styles.dotThree}
+                            contextualInfo="Step 3 of 4"
                         >
                             This is the body text. Vimeo was born in{' '}
                             <LinkText
@@ -113,6 +116,7 @@ class FeatureTourPanelDocs extends React.Component {
                             dotZIndex={100}
                             shouldRefocusTriggerOnClose={false}
                             wrapperClass={styles.dotFour}
+                            contextualInfo="Step 4 of 4"
                         >
                             This is the body text. Vimeo was born in{' '}
                             <LinkText
@@ -134,7 +138,7 @@ class FeatureTourPanelDocs extends React.Component {
                             }
                             attachment="right"
                             shouldHideOnClose
-                            headerText="Right Attachment"
+                            headerText="Right Attachment With Long Title For Multi-line"
                             beaconDelayIndex={5}
                             beaconA11yText="click to learn more"
                             dismissButtonA11yLabel="Close"
@@ -284,6 +288,7 @@ class FeatureTourPanelDocs extends React.Component {
     dismissButtonA11yLabel="Close"
     dotZIndex={100}
     wrapperClass={styles.dotOne}
+    contextualInfo="Step 1 of 4"
 >
     This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
 </FeatureTourPanel>
@@ -296,6 +301,7 @@ class FeatureTourPanelDocs extends React.Component {
     dismissButtonA11yLabel="Close"
     dotZIndex={100}
     wrapperClass={styles.dotTwo}
+    contextualInfo="Step 2 of 4"
 >
     This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
 </FeatureTourPanel>
@@ -308,6 +314,7 @@ class FeatureTourPanelDocs extends React.Component {
     dismissButtonA11yLabel="Close"
     dotZIndex={100}
     wrapperClass={styles.dotThree}
+    contextualInfo="Step 3 of 4"
 >
     This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
 </FeatureTourPanel>
@@ -321,6 +328,7 @@ class FeatureTourPanelDocs extends React.Component {
     dotZIndex={100}
     shouldRefocusTriggerOnClose={false}
     wrapperClass={styles.dotFour}
+    contextualInfo="Step 4 of 4"
 >
     This is the body text. Vimeo was born in <LinkText href="https://en.wikipedia.org/wiki/2004" target="_blank" format="light">2004</LinkText>, created by a group of filmmakers who wanted an easy and beautiful way to share videos with their friends.
 </FeatureTourPanel>
