@@ -22,6 +22,13 @@ const InputColorPickerDocs = (props) => {
                     resetButtonLabel="Reset"
                     disabled
                 />
+                <InputColorPicker
+                    defaultColor = "#00adef"
+                    label="I default to blue, but I reset to black!"
+                    id="SampleColorPickerReset"
+                    resetButtonLabel="Reset me to #000"
+                    resetColor="#000"
+                />
             </div>
 
             <ExampleSource>
@@ -38,6 +45,13 @@ const InputColorPickerDocs = (props) => {
     id="SampleColorPickerDisabled"
     resetButtonLabel="Reset"
     disabled
+/>
+<InputColorPicker
+    defaultColor = "#00adef"
+    label="I default to blue, but I reset to black!"
+    id="SampleColorPickerReset"
+    resetButtonLabel="Reset me to #000"
+    resetColor="#000"
 />
                     `}
             </ExampleSource>

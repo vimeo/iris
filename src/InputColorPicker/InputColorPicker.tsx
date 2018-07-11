@@ -33,6 +33,10 @@ export interface InputColorPickerProps {
      */
     resetButtonLabel?: string;
     /**
+     * legal hex value other than default color value to reset to (defaults to defaultColor, see above)
+     */
+    resetColor?: string;
+    /**
      * Use a number to override the Z-index on the menu panel that opens with the color picker.
     */
     menuPanelZIndexOverride: number;
@@ -48,7 +52,7 @@ export interface InputColorPickerState {
     focusShouldOpenMenu?: boolean;
     menuHovered?: boolean;
     showReset?: boolean;
-    showColorPicker?: boolean;          
+    showColorPicker?: boolean;
     shouldFocusNextUpdate?: boolean;
 };
 
@@ -134,7 +138,7 @@ class InputColorPicker extends React.Component {
             focusShouldOpenMenu: true,
             menuHovered: false,
             showReset: false,
-            showColorPicker: false,           
+            showColorPicker: false,
             shouldFocusNextUpdate: false,
         };
     }
@@ -302,8 +306,8 @@ class InputColorPicker extends React.Component {
         e.preventDefault();
         this.setState({
             showReset: false,
-            fieldValue: this.props.defaultColor,
-            currentColor: this.props.defaultColor,
+            fieldValue: this.props.resetColor ? this.props.resetColor : this.props.defaultColor,
+            currentColor: this.props.resetColor ? this.props.resetColor : this.props.defaultColor,
         });
     };
 
@@ -349,7 +353,7 @@ class InputColorPicker extends React.Component {
                     <ColorButtonStyled
                         style={{ backgroundColor: this.state.currentColor }}
                         type="button"
-                        onClick={!disabled && this._handleButtonClick}   
+                        onClick={!disabled && this._handleButtonClick}
                     />
                 </MenuPanel>
             </ColorButtonWrapperStyled>
