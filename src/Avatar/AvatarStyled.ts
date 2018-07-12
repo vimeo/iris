@@ -21,7 +21,7 @@ const avatarSizes = {
 };
 
 export const AvatarStyled = styled<AvatarProps, 'img'>('img')`
-    display: ${props => props.isInline ? 'inline-block' : 'none'};
+    display: ${props => props.isInline ? 'inline-block' : 'block'};
     height: ${props => avatarSizes[props.size]};
     width: ${props => avatarSizes[props.size]};
     position: relative;
