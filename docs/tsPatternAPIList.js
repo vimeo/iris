@@ -3,10 +3,11 @@ import BreadcrumbAPI from '../data/tsdocsHTML/interfaces/_breadcrumb_breadcrumb_
 import ButtonAPI from '../data/tsdocsHTML/interfaces/_button_button_.buttonprops.html';
 import ButtonSplitMenuAPI from '../data/tsdocsHTML/interfaces/_buttonsplitmenu_buttonsplitmenu_.buttonsplitmenuprops.html';
 import CategoryCardAPI from '../data/tsdocsHTML/interfaces/_categorycard_categorycardtypes_.categorycardprops.html';
-import CardAPI from '../data/tsdocsHTML/interfaces/_card_card_.cardprops.html'
+import CardAPI from '../data/tsdocsHTML/interfaces/_card_card_.cardprops.html';
 import FauxSelectAPI from '../data/tsdocsHTML/interfaces/_fauxselect_fauxselect_.fauxselectprops.html';
 import InputColorPickerAPI from '../data/tsdocsHTML/interfaces/_inputcolorpicker_inputcolorpicker_.inputcolorpickerprops.html';
 import InputTextAPI from '../data/tsdocsHTML/interfaces/_inputtext_inputtext_.inputtextprops.html';
+import InputSliderAPI from '../data/tsdocsHTML/interfaces/_inputslider_inputslider_.inputsliderprops.html';
 import FeatureTourPanelAPI from '../data/tsdocsHTML/interfaces/_featuretourpanel_featuretourpanel_.featuretourpanelprops.html';
 import LinkTextAPI from '../data/tsdocsHTML/interfaces/_linktext_linktext_.linktextprops.html';
 import LoaderCircularAPI from '../data/tsdocsHTML/interfaces/_loadercircular_loadercircular_.loadercircularprops.html';
@@ -19,7 +20,7 @@ import TooltipOverlayAPI from '../data/tsdocsHTML/interfaces/_tooltipoverlay_too
 import VideoCardAPI from '../data/tsdocsHTML/interfaces/_videocard_videocard_.videocardprops.html';
 
 const tsPatternAPIList = {
-    Breadcrumb:{
+    Breadcrumb: {
         data: BreadcrumbAPI,
     },
     Button: {
@@ -45,6 +46,9 @@ const tsPatternAPIList = {
     },
     InputText: {
         data: InputTextAPI,
+    },
+    InputSlider: {
+        data: InputSliderAPI,
     },
     LinkText: {
         data: LinkTextAPI,

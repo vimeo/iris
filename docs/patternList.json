@@ -42,6 +42,7 @@
         ["InputRadio", "Inputs: Radio"],
         ["InputRadioSet", "Inputs: Radio Set"],
         ["InputSelect", "Inputs: Select Menu"],
+        ["InputSlider", "Inputs: Range Slider"],
         ["InputText", "Inputs: Text-Like"],
         ["InputTextFloatingLabel", "Inputs: Text with Floating Label"],
         ["InputToggle", "Inputs: Toggle"],

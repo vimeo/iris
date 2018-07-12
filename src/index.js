@@ -170,6 +170,12 @@ export { default as InputLabel } from './InputLabel/InputLabel';
 
 export { default as InputSelect } from './InputSelect/InputSelect';
 
+export { default as InputSlider } from './InputSlider/InputSlider';
+
+export { default as InputSliderHelpers } from './InputSlider/InputSliderHelpers';
+
+export { default as SliderLabel } from './InputSlider/SliderLabel';
+
 export { default as InputHelpers } from './InputText/InputHelpers';
 
 export { default as InputText } from './InputText/InputText';
