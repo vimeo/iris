@@ -35,7 +35,7 @@ export interface FeatureTourPanelContentProps {
     /**
      * Fires when panel is dismissed
      */
-    onDismissClick: (e: Event) => void;
+    onDismissClick?: (event?: MouseEvent) => void;
 }
 
 const HeaderWrapperStyled = styled.div`
@@ -72,6 +72,13 @@ const FeatureTourPanelContent = ({
     dismissButtonProps,
     ...filteredProps
 }: FeatureTourPanelContentProps) => {
+
+    const handleClick = event => {
+        if(typeof onDismissClick === 'function') {
+            onDismissClick(event)
+        }
+    }
+
     return (
         <FeatureTourPanelContentStyled {...filteredProps}>
             <DismissButtonStyled
@@ -79,7 +86,7 @@ const FeatureTourPanelContent = ({
                 icon={<DismissIcon title={dismissButtonA11yLabel} />}
                 format="lightTransparent"
                 size="sm"
-                onClick={onDismissClick}
+                onClick={handleClick}
             />
             {headerText && <HeaderWrapperStyled><Header5 format="white">{headerText}</Header5></HeaderWrapperStyled>}
             <ParagraphMd element="div" format="white">

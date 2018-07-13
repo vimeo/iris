@@ -20,7 +20,7 @@ export interface FeatureTourPanelProps {
     shouldHideOnClose?: boolean;
     isOpen?: boolean;
     onClose: () => void;
-    onDismissClick?: (e: Event) => void;
+    onDismissClick?: (event?: MouseEvent) => void;
     onOpen?: () => void;
     shouldRefocusTriggerOnClose?: boolean;
     wrapperClass?: string;
@@ -142,14 +142,14 @@ class FeatureTourPanel extends React.Component {
         }
     };
 
-    _handleDismissClick = (e: Event) => {
+    _handleDismissClick = (event: MouseEvent) => {
         this.setState({
             isOpen: false,
             beaconMode: 'inactive',
         });
 
         if (typeof this.props.onDismissClick === 'function') {
-            this.props.onDismissClick(e);
+            this.props.onDismissClick(event);
         }
     };
 
