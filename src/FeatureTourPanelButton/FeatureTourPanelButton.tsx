@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
-import Button, { ButtonProps } from '../Button/Button';
+import Button from '../Button/Button';
+import { ButtonProps } from '../Button/ButtonProps';
 
 const FeatureTourPanelButton = ({
     children,
