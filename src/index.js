@@ -142,9 +142,17 @@ export { default as BreadcrumbLinkReactRouter } from './BreadcrumbLinkReactRoute
 
 export { default as Button } from './Button/Button';
 
+export { default as ButtonColors } from './Button/ButtonColors';
+
 export { default as ButtonHelpers } from './Button/ButtonHelpers';
 
 export { default as ButtonIconElement } from './Button/ButtonIconElement';
+
+export { default as ButtonProps } from './Button/ButtonProps';
+
+export { default as ButtonStyleSettings } from './Button/ButtonStyleSettings';
+
+export { default as ButtonStyled } from './Button/ButtonStyled';
 
 export { default as ButtonSplitMenu } from './ButtonSplitMenu/ButtonSplitMenu';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import { ButtonStyleSettings } from './ButtonHelpers';
+import { ButtonStyleSettings } from './ButtonStyleSettings';
 import { Omit } from '../globals/js/type-helpers';
 export interface ButtonIconElementStyledProps
     extends Omit<React.HTMLProps<HTMLSpanElement>, 'size'> {
@@ -21,14 +21,17 @@ const iconStyle = css`
         fill: currentColor;
     }
 `;
-const ButtonIconElementStyled = styled<ButtonIconElementStyledProps, 'span'>(
-    'span'
-)`
+const ButtonIconElementStyled = styled<ButtonIconElementStyledProps, 'span'>('span')`
     display: inline-flex;
-
     align-items: center;
 
-    ${props => `margin-${props.iconLocation === 'afterLabel' ? 'left' : 'right' }: ${props.size === 'lg' ? rem(8) : rem(4)};`}
+    ${props => props.iconLocation === 'afterLabel' 
+        ? `margin-left: ${props.size === 'lg'
+            ? rem(8)
+            : rem(4)}`
+        : `margin-right: ${props.size === 'lg'
+            ? rem(8)
+            : rem(4)}`}
 
     ${iconStyle}
 `;

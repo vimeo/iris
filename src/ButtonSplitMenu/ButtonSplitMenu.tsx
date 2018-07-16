@@ -9,11 +9,11 @@ import MenuPanel from '../MenuPanel';
 import ButtonIconElement from '../Button/ButtonIconElement';
 import {
     ButtonCoreCSS,
-    ButtonStyleSettings,
     getDefaultCSSByFormat,
     getHoverCSSByFormat,
     getSizeCSS,
 } from '../Button/ButtonHelpers';
+import { ButtonStyleSettings } from '../Button/ButtonStyleSettings';
 import { Omit } from '../globals/js/type-helpers';
 
 const menuButtonWidths = {
