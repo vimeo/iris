@@ -27,6 +27,7 @@ const MinorThumbnailsWrapper = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
     flex: 0 1 40%;
     flex-direction: column;
     overflow: hidden;
+    height: 100%;
 `;
 
 const MajorThumbnail = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
@@ -36,7 +37,7 @@ const MajorThumbnail = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
 
 const MinorThumbnail = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
     display: flex;
-    max-height: 50%;
+    height: 50%;
     flex-basis: 50%;
     margin: 0 0 0 ${rem(VideoCardStyleSettings.padding / 2)};
     
@@ -47,7 +48,7 @@ const MinorThumbnail = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
 
 const GroupThumbnailImage = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
     width: 100%;
-    height: 100%;
+    height: auto;
     border-radius: ${rem(2)};
     background-size: cover;
     background-position: center;
