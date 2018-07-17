@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { ChromePicker } from 'react-color';
-// $FlowFixMe
-import InputText from '../InputText/InputText';
+import InputText, {InputTextProps} from '../InputText/InputText';
 import MenuPanel from '../MenuPanel/MenuPanel';
 import { COLORS, KEY_CODES } from '../globals/js/constants';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
+import { Omit } from '../globals/js/type-helpers';
 
 const defaultColorValue = COLORS.VimeoBlue;
 
@@ -15,11 +15,6 @@ export interface InputColorPickerProps {
      * a string that is a legal hex value, including # (defaults to `"#00adef"`, Vimeo Blue)
      */
     defaultColor?: string;
-    disabled?: boolean;
-    /**
-     * Callback fires if the color input blurs
-     */
-    onBlur?: (event: React.FormEvent<HTMLInputElement>) => void;
      /**
      * Callback fires the color value changes
      */
@@ -45,6 +40,8 @@ export interface InputColorPickerProps {
     */
     id: string;
 };
+
+export interface InputColorPickerCombinedProps extends InputColorPickerProps,Omit<InputTextProps, 'label'>{};
 
 export interface InputColorPickerState {
     currentColor?: string;
@@ -123,7 +120,7 @@ class InputColorPicker extends React.Component {
         defaultColor: defaultColorValue,
     };
 
-    constructor(props: InputColorPickerProps) {
+    constructor(props: InputColorPickerCombinedProps) {
         super(props);
 
         // make sure the color passed to props.defaultColor is valid, otherwise fallback to component default.
@@ -154,7 +151,7 @@ class InputColorPicker extends React.Component {
         }
     }
 
-    props: InputColorPickerProps;
+    props: InputColorPickerCombinedProps;
     InputWrapper: HTMLElement;
 
     _bindCloseMenuListeners = () => {
@@ -197,10 +194,8 @@ class InputColorPicker extends React.Component {
         this._unbindCloseMenuListeners();
     };
 
-    _handleBlur = (event: React.FormEvent<HTMLInputElement>) => {
-        //@ts-ignore TS doesn't know event target has value sometimes, but I'm guarding agains that
+    _handleBlur = (event) => {
         if (event.target && event.target.value) {
-            //@ts-ignore see above
             const value = event.target.value;
 
             if (typeof value === 'string' && this._isHexValid(value)) {
@@ -325,6 +320,7 @@ class InputColorPicker extends React.Component {
             label,
             menuPanelZIndexOverride,
             resetButtonLabel,
+            ref:_,
             ...filteredProps
         } = this.props;
 

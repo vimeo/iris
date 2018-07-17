@@ -19,6 +19,8 @@ export interface CardProps {
     noHoverState?: boolean;
 };
 
+export interface CardPropsCombined extends CardProps, React.HTMLProps<HTMLDivElement>{};
+
 const boxShadow = {
     inactive: `0 0 ${rem(10)} 0 rgba(0,0,0,0.15)`,
     isSelected: `0 0 0 ${rem(3)} ${COLORS.VimeoBlue}`,
@@ -61,7 +63,10 @@ const CardStyled = styled<CardProps, 'div'>('div')`
 
 // ==================== Card
 
-const Card: React.SFC<CardProps> = (props) => (
+const Card: React.SFC<CardPropsCombined> = ({
+    ref:_,
+    ...props
+}) => (
     <CardStyled
         {...props}
     />

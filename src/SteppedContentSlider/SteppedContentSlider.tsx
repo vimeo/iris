@@ -11,7 +11,7 @@ import ChevronRight from '../icons/chevron-right.svg';
 
 const TRUNCATION_WIDTH = 100;
 
-export interface SteppedContentSliderProps {
+export interface SteppedContentSliderProps extends React.HTMLProps<HTMLDivElement> {
     /**
      * adds an area to the left of the navigation controls for things like a "view all" link
      */
@@ -473,6 +473,7 @@ class SteppedContentSlider extends React.Component {
             slideMargin, // eslint-disable-line no-unused-vars
             stepMode, // eslint-disable-line no-unused-vars
             speed,
+            ref:_,
             ...filteredProps
         } = this.props;
 

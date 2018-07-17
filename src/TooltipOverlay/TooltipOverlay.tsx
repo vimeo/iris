@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Omit } from '../globals/js/type-helpers';
 import { Transition } from 'react-transition-group';
 import { Manager, Target, Popper } from 'react-popper';
 import { Z_INDEX } from '../globals/js/constants';
@@ -7,7 +8,7 @@ import Tooltip from '../Tooltip/Tooltip';
 
 const TOOLTIP_SPEED = 50;
 
-export interface TooltipOverlayProps {
+export interface TooltipOverlayProps extends Omit<React.HTMLProps<HTMLSpanElement>, 'size'>{
     /**
      * Sets word-break: break-all on tooltip text.
      */
@@ -236,6 +237,7 @@ class TooltipOverlay extends React.Component {
             tooltipText,
             triggerOnClick, // eslint-disable-line no-unused-vars
             zIndexOverride,
+            ref:_,
             ...filteredProps
         } = this.props;
 

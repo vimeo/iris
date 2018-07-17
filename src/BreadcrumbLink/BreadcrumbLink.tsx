@@ -1,8 +1,8 @@
 import React from 'react';
-import LinkText from '../LinkText';
+import LinkText, {LinkTextProps} from '../LinkText';
 import BreadcrumbLinkContent from '../BreadcrumbLinkContent';
 
-export interface BreadcrumbLinkProps {
+export interface BreadcrumbLinkProps extends LinkTextProps {
     children: React.ReactChildren;
     format: 'lightTheme' | 'darkTheme';
     href: string;

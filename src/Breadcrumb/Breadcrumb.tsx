@@ -27,6 +27,8 @@ export interface BreadcrumbProps {
     noMargin?: boolean;
 };
 
+export interface BreadcrumbPropsCombined extends React.HTMLProps<HTMLDivElement>, BreadcrumbProps{};
+
 const BreadCrumbSetWrapper = styled.div `width: 100%;`;
 
 const ArrowIconWidth = 24;
@@ -107,8 +109,9 @@ const Breadcrumb = ({
     currentPageLabel,
     format="lightTheme",
     noMargin,
+    ref:_,
     ...filteredProps
-}: BreadcrumbProps) => {
+}: BreadcrumbPropsCombined) => {
 
     const crumbWidth = crumbs ? `${100 / (crumbs.length + 1)}%` : '100%';
 

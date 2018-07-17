@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { Transition } from 'react-transition-group';
 import throttle from 'lodash/throttle';
+import { Omit } from '../globals/js/type-helpers';
 import mediaQuery from '../globals/js/style-helpers/mediaQuery';
 import COLORS from '../globals/js/constants/COLORS';
 import Z_INDEX from '../globals/js/constants/Z_INDEXES';
@@ -20,7 +21,7 @@ const MODAL_MAX_HEIGHT = '86vh';
 const MODAL_HEIGHT_SM_SCREEN = 134;
 const MODAL_HEIGHT_LG_SCREEN = 80;
 
-export interface ModalProps {
+export interface ModalProps extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
     /**
      * The Content of the modal
      */
@@ -310,6 +311,7 @@ class Modal extends React.Component {
             secondaryButtonProps,
             size,
             zIndexStartingPoint,
+            ref:_,
             ...filteredProps
         } = this.props;
 

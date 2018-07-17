@@ -22,7 +22,7 @@ export interface VideoCardThumbnailData {
      */
     thumbnailSrcSet?: string;
 }
-export interface VideoCardProps {
+export interface VideoCardProps extends Omit<React.HTMLProps<HTMLDivElement>, 'size'>{
     /**
      * A string to describe what checking the checkbox does. This is for screenreaders. This is **required** if `isSelectable` is chosen.
      */
@@ -280,6 +280,7 @@ class VideoCard extends React.Component<VideoCardProps, any> {
             titleLinkProps,
             title,
             titleSubheader,
+            ref:_,
             ...filteredProps
         } = this.props;
 

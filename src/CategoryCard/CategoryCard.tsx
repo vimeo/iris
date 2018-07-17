@@ -16,8 +16,9 @@ const CategoryCard = ({
     backgroundImageURL,
     children,
     icon,
+    ref:_,
     ...filteredProps
-}: CategoryCardProps) => {
+}: CategoryCardProps ) => {
     return (
         <CategoryCardStyled {...filteredProps}>
             <BackgroundStyled

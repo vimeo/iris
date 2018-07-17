@@ -47,6 +47,8 @@ export interface ModalFeatureUpdateProps {
     zIndexStartingPoint?: number;
 }
 
+export interface ModalFeatureUpdatePropsCombined extends ModalFeatureUpdateProps,  React.HTMLProps<HTMLDivElement> {};
+
 // ==================== ModalFeatureUpdate Styled
 export interface ModalFeatureUpdateStyledProps {
     isOpen?: boolean;
@@ -103,7 +105,7 @@ const ButtonDialogCloseStyled = styled<ButtonDialogCloseStyledProps, any>(
 
 // ==================== ModalFeatureUpdate
 
-class ModalFeatureUpdate extends React.Component<any, any> {
+class ModalFeatureUpdate extends React.Component<ModalFeatureUpdatePropsCombined, any> {
     _handleDismissButtonClick = (e: Event) => {
         if (typeof this.props.onCloseEvent === 'function') {
             this.props.onCloseEvent(e);
@@ -121,6 +123,7 @@ class ModalFeatureUpdate extends React.Component<any, any> {
             noDismiss,
             onCloseEvent,
             zIndexStartingPoint,
+            ref:_,
             ...filteredProps
         } = this.props;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface CategoryCardProps {
+export interface CategoryCardProps extends React.HTMLProps<HTMLDivElement> {
     /**
      * a URL for a backgroundImage to represent the category
      */
