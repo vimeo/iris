@@ -14,7 +14,7 @@ import { AvatarProps } from './AvatarProps';
 const avatarSizes = {
     auto: '100%',
     xs: `${rem(16)}`,
-    sm: `${rem(30)}`,
+    sm: `${rem(32)}`,
     md: `${rem(40)}`,
     lg: `${rem(64)}`,
     xl: `${rem(150)}`
