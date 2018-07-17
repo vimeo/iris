@@ -230,6 +230,7 @@ class InputSlider extends React.Component<any, any> {
     private handleDiameter: number; // diameter of slider handle
     private initialMin: number;
     private initialMax: number;
+    private valueOffset: number;
 
     constructor(props: InputSliderProps) {
         super(props);
@@ -247,6 +248,7 @@ class InputSlider extends React.Component<any, any> {
         ).outRangeBgColor;
         this.handleDiameter =
             InputSliderStyleSettings.dimensions.handleDiameter;
+        this.valueOffset = this.props.minValue;
     }
 
     state: InputSliderState;
@@ -360,8 +362,8 @@ class InputSlider extends React.Component<any, any> {
 
     // set the background style for slider track using the values
     private setSliderBackground = (startValue, endValue) => {
-        const start = parseInt(startValue, 10);
-        const end = parseInt(endValue, 10);
+        const start = parseInt(startValue, 10) - this.valueOffset;
+        const end = parseInt(endValue, 10) - this.valueOffset;
         this.setState({
             sliderBgStyle: {
                 backgroundImage: `linear-gradient(to right, ${
@@ -377,13 +379,15 @@ class InputSlider extends React.Component<any, any> {
 
     // update the position of value bubbles
     private positionRangeValues = (selectedInput, value) => {
+        const postOffsetValue = value - this.valueOffset;
         const gradientOffset =
             InputSliderStyleSettings.dimensions.gradientOffset;
         const gradientOffsetValue =
             selectedInput == this.startRange ? -gradientOffset : gradientOffset;
-        const bubbleOffset = (value / this.totalRange) * this.handleDiameter;
+        const bubbleOffset =
+            (postOffsetValue / this.totalRange) * this.handleDiameter;
 
-        const leftPos = `calc(${(value / this.totalRange) *
+        const leftPos = `calc(${(postOffsetValue / this.totalRange) *
             100}% - ${bubbleOffset -
             gradientOffsetValue +
             this.handleDiameter / 2}px)`;

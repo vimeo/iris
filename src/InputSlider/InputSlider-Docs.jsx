@@ -7,9 +7,9 @@ class InputSliderDocs extends React.Component {
         startVal: 0,
         endVal: 0,
     };
-    minValue = 0;
+    minValue = 10;
     maxValue = 600;
-    initialTimeMinValue = 10;
+    initialTimeMinValue = 40;
     initialTimeMaxValue = 400;
     getRange = (start, end) => {
         return {
@@ -43,17 +43,17 @@ class InputSliderDocs extends React.Component {
                 <div className="Pattern-DarkBlock">
                     <div data-code>
                         <InputSlider
-                            minValue={0}
+                            minValue={60}
                             maxValue={200}
-                            initialMinValue={15}
-                            initialMaxValue={175}
+                            initialMinValue={130}
+                            initialMaxValue={195}
                             gap={10}
                         />
                     </div>
                 </div>
                 <ExampleSource>
                     {`
-    <InputSlider minValue={0} maxValue={200} initialMinValue={15} initialMaxValue={175} gap={10} />
+    <InputSlider minValue={60} maxValue={200} initialMinValue={130} initialMaxValue={195} gap={10} />
                     `}
                 </ExampleSource>
                 <ParagraphMd>
@@ -136,6 +136,22 @@ class InputSliderDocs extends React.Component {
 <InputSlider minValue={0} maxValue={100} initialMinValue={25} initialMaxValue={75} gap={10} format="light" ref={instance => { this.rangeSlider = instance}} />
 
 <Button format="primaryTextOnly" onClick={() => { this.rangeSlider.resetSlider()}}>Reset Values</Button>
+                    `}
+                </ExampleSource>
+                <div data-code>
+                    <InputSlider
+                        format="light"
+                        minValue={40}
+                        maxValue={200}
+                        initialMinValue={55}
+                        initialMaxValue={175}
+                        gap={10}
+                        editableLabel={true}
+                    />
+                </div>
+                <ExampleSource>
+                    {`
+ <InputSlider format="light" minValue={0} maxValue={200} initialMinValue={15} initialMaxValue={175} gap={10} editableLabel={true} />
                     `}
                 </ExampleSource>
             </div>
