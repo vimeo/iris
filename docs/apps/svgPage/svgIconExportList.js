@@ -98,6 +98,8 @@
   
  exports.Instagram = require('../../../src/icons/instagram.svg');
   
+ exports.LifePreserver = require('../../../src/icons/life-preserver.svg');
+  
  exports.Link = require('../../../src/icons/link.svg');
   
  exports.List = require('../../../src/icons/list.svg');
