@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import COLORS from '../globals/js/constants/COLORS';
 import CardSettings from './CardSettings';
@@ -20,7 +20,7 @@ export interface CardProps {
 };
 
 const boxShadow = {
-    inactive: `0 0 ${rem(10)} 0 rgba(0,0,0,0.05)`,
+    inactive: `0 0 ${rem(10)} 0 rgba(0,0,0,0.15)`,
     isSelected: `0 0 0 ${rem(3)} ${COLORS.VimeoBlue}`,
 
 }
@@ -35,12 +35,28 @@ const CardStyled = styled<CardProps, 'div'>('div')`
     background: ${props => props.isLoading ? COLORS.Paste : COLORS.White};
     border: ${rem(1)} solid ${props => props.isSelected ? COLORS.VimeoBlueDarkened : COLORS.Plaster};
     border-radius: ${rem(CardSettings.borderRadius)};
-    box-shadow: ${getBoxShadow};
     width: 100%;
-    transition: box-shadow ${CardSettings.hoverTransition};
-    &:hover {
-        ${props => !props.noHoverState && !props.isLoading && !props.isSelected ? `box-shadow: 0 ${rem(4)} ${rem(8)} 0 rgba(0,0,0,0.15);` : ''}
+
+    &:after {
+        display: block;
+        position: absolute;
+        content: '';
+        width: 100%;
+        padding-bottom: calc(100% + ${rem(2)});
+        border-radius: ${rem(CardSettings.borderRadius)};
+        box-shadow: ${getBoxShadow};
+        opacity: ${props => props.isSelected ? '1' : '.85'};
+        transition: opacity ${CardSettings.hoverTransition}, transform ${CardSettings.hoverTransition};
+        z-index: -1;
     }
+
+    ${props => !props.isLoading && !props.isSelected ? css`
+        &:hover:after {
+            background: rgba(0,0,0,0.1);
+            opacity: 1;
+            transform: scale(1.01);
+        }
+    ` : ''}
 `;
 
 // ==================== Card
