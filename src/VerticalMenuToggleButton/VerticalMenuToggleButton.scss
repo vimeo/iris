@@ -4,6 +4,8 @@ $VerticalMenuToggleButton_size: rem-calc(20);
 $VerticalMenuToggleButton_Icon_size: rem-calc(18);
 
 .VerticalMenuToggleButton {
+    display: block;
+
     position: relative;
 
     width: $VerticalMenuToggleButton_size;
