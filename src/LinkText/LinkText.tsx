@@ -6,10 +6,6 @@ import COLORS from '../globals/js/constants/COLORS';
 
 export interface LinkTextProps extends React.HTMLProps<HTMLAnchorElement>{
     /**
-     * The text of the link
-     */
-    children: React.ReactChildren;
-    /**
      * The element that should be rendered. Defaults to "a".
      */
     element?: 'a' | 'span';

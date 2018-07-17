@@ -1,9 +1,8 @@
 import React from 'react';
-import LinkText, {LinkTextProps} from '../LinkText';
+import LinkText, {LinkTextProps} from '../LinkText/LinkText';
 import BreadcrumbLinkContent from '../BreadcrumbLinkContent';
-
-export interface BreadcrumbLinkProps extends LinkTextProps {
-    children: React.ReactChildren;
+import { Omit } from '../globals/js/type-helpers';
+export interface BreadcrumbLinkProps extends Omit<LinkTextProps, 'format'> {
     format: 'lightTheme' | 'darkTheme';
     href: string;
 };
@@ -20,7 +19,6 @@ const BreadcrumbLink = ({
             href={href}
             decoration="silent"
             format={format === 'darkTheme' ? 'primaryDark' : 'primary'}
-            title={children}
             {...filteredProps}
         >
             <BreadcrumbLinkContent>
