@@ -30,30 +30,44 @@ const LabelStyled = styled.label`
     height: 100%;
 `;
 
-const LabelInputStyled = styled<LabelWrapperStyledProps, 'input'>('input')`
+const commonLabelStyles = props => {
+    return `
     width: 100%;
     height: 100%;
     text-align: center;
-    border: ${props =>
+    background: transparent;
+    font-size: ${rem(14)};
+    line-height: ${rem(28)};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    border-radius: ${rem(2)};
+    border: ${
         props.format == 'dark'
             ? `${rem(1)} solid ${rgba(COLORS.White, 0.33)}`
-            : `${rem(1)} solid ${rgba(COLORS.White, 0.66)}`};
-    border-radius: ${rem(2)};
-    color: ${props => getSliderThemeColors(props.format).labelColor};
-    background: transparent;
-    &:not(:disabled) {
-        &:hover {
-            cursor: pointer;
-            background-color: ${props =>
-                getSliderThemeColors(props.format).labelHoverBackground};
-        }
-        &:focus {
-            outline: none;
-            cursor: text;
-            border: ${rem(2)} solid ${COLORS.VimeoBlueDarkened};
-            background: ${COLORS.White};
-            color: ${COLORS.AstroGranite};
-        }
+            : `${rem(1)} solid ${rgba(COLORS.White, 0.66)}`
+    };
+    color: ${getSliderThemeColors(props.format).labelColor};
+`;
+};
+
+const LabelValueStyled = styled<LabelWrapperStyledProps, 'label'>('label')`
+    ${props => commonLabelStyles(props)};
+`;
+
+const LabelInputStyled = styled<LabelWrapperStyledProps, 'input'>('input')`
+    ${commonLabelStyles};
+    &:hover {
+        cursor: pointer;
+        background-color: ${props =>
+            getSliderThemeColors(props.format).labelHoverBackground};
+    }
+    &:focus {
+        outline: none;
+        cursor: text;
+        border: ${rem(2)} solid ${COLORS.VimeoBlueDarkened};
+        background: ${COLORS.White};
+        color: ${COLORS.AstroGranite};
     }
 `;
 
@@ -87,9 +101,13 @@ const SliderLabel: React.SFC<SliderLabelProps> = ({
     };
     return (
         <LabelWrapper {...filteredProps} format={format}>
-            <LabelStyled htmlFor={id} key={value}>
-                <LabelInputStyled {...inputProps} />
-            </LabelStyled>
+            {editable ? (
+                <LabelStyled htmlFor={id} key={value}>
+                    <LabelInputStyled {...inputProps} />
+                </LabelStyled>
+            ) : (
+                <LabelValueStyled format={format}>{value}</LabelValueStyled>
+            )}
         </LabelWrapper>
     );
 };
