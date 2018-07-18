@@ -110,6 +110,8 @@
   
  exports.Lock = require('../../../src/icons/lock.svg');
   
+ exports.Mevo = require('../../../src/icons/mevo.svg');
+  
  exports.MicOff = require('../../../src/icons/mic-off.svg');
   
  exports.Mic = require('../../../src/icons/mic.svg');

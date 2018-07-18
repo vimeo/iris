@@ -14,6 +14,8 @@
   
  exports.StaffPicksBadgeJustSp = require('../../../src/illustrations/staff-picks-badge-just-sp.svg');
   
+ exports.VimeoBusinessBlueBoxLogo = require('../../../src/illustrations/vimeo-business-blue-box-logo.svg');
+  
  exports.VimeoExclusiveLg = require('../../../src/illustrations/vimeo-exclusive-lg.svg');
   
  exports.VimeoExclusiveSm = require('../../../src/illustrations/vimeo-exclusive-sm.svg');
@@ -21,6 +23,8 @@
  exports.VimeoPlusBlueBoxLogo = require('../../../src/illustrations/vimeo-plus-blue-box-logo.svg');
   
  exports.VimeoPlusLogoBlackBlue = require('../../../src/illustrations/vimeo-plus-logo-black-blue.svg');
+  
+ exports.VimeoProBlueBoxLogo = require('../../../src/illustrations/vimeo-pro-blue-box-logo.svg');
   
  exports.VimeostockBlack = require('../../../src/illustrations/vimeostock_black.svg');
   
