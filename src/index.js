@@ -81,14 +81,6 @@ export { default as MenuPanelList } from './MenuPanelList';
 
 export { default as MenuPanelScrollableWithActionArea } from './MenuPanelScrollableWithActionArea';
 
-export { default as Notification } from './Notification';
-
-export { default as NotificationNeutral } from './NotificationNeutral';
-
-export { default as NotificationSuccess } from './NotificationSuccess';
-
-export { default as NotificationWarning } from './NotificationWarning';
-
 export { default as OverflowTruncationWrapper } from './OverflowTruncationWrapper';
 
 export { default as SearchField } from './SearchField';
@@ -207,6 +199,18 @@ export { default as ModalFeatureUpdate } from './ModalFeatureUpdate/ModalFeature
 export { default as ModalFeatureUpdateTemplate } from './ModalFeatureUpdate/ModalFeatureUpdateTemplate';
 
 export { default as ModalWrapper } from './ModalWrapper/ModalWrapper';
+
+export { default as Notification } from './Notification/Notification';
+
+export { default as NotificationProps } from './Notification/NotificationProps';
+
+export { default as NotificationStyled } from './Notification/NotificationStyled';
+
+export { default as NotificationNeutral } from './NotificationNeutral/NotificationNeutral';
+
+export { default as NotificationSuccess } from './NotificationSuccess/NotificationSuccess';
+
+export { default as NotificationWarning } from './NotificationWarning/NotificationWarning';
 
 export { default as ProgressBar } from './ProgressBar/ProgressBar';
 
