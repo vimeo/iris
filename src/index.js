@@ -35,8 +35,6 @@ export { default as CircularButton } from './CircularButton';
 
 export { default as CopyField } from './CopyField';
 
-export { default as CounterIcon } from './CounterIcon';
-
 export { default as FieldSet } from './FieldSet';
 
 export { default as FocusBloop } from './FocusBloop';
@@ -157,6 +155,12 @@ export { default as CategoryCard } from './CategoryCard/CategoryCard';
 export { default as CategoryCardStyled } from './CategoryCard/CategoryCardStyled';
 
 export { default as CategoryCardTypes } from './CategoryCard/CategoryCardTypes';
+
+export { default as CounterIcon } from './CounterIcon/CounterIcon';
+
+export { default as CounterIconStyled } from './CounterIcon/CounterIconStyled';
+
+export { default as CounterIconTypes } from './CounterIcon/CounterIconTypes';
 
 export { default as FauxSelect } from './FauxSelect/FauxSelect';
 

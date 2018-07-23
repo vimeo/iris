@@ -3,6 +3,22 @@ import ExampleSource from 'steadicam/components/styleListings/ExampleSource/Exam
 import { CounterIcon, ParagraphMd } from '../index';
 import PlayIcon from '../icons/play.svg';
 import CollectionIcon from '../icons/collections.svg';
+
+const Example1 = `
+<CounterIcon
+    icon={<PlayIcon />}
+    counterTitle="Download Count (Dark)"
+>
+    2.12K
+</CounterIcon>
+    <CounterIcon
+    icon={<CollectionIcon />}
+    counterTitle="Play Count (Alternative)"
+>
+    100
+</CounterIcon>
+`;
+
 class CounterIconDocs extends React.Component {
     constructor(props) {
         super(props);
@@ -11,14 +27,17 @@ class CounterIconDocs extends React.Component {
     render() {
         return (
             <div className="Pattern__docs">
-            <ParagraphMd>CounterIcons provide stat counts sybolized by an icon</ParagraphMd>
+                <ParagraphMd>CounterIcons provide stat counts sybolized by an icon</ParagraphMd>
+
                 <div data-code>
+
                     <CounterIcon
                         icon = {<PlayIcon />}
                         counterTitle="Download Count (Dark)"
                     >
                         2.12K
                     </CounterIcon>
+
                      <CounterIcon
                         href="http://www.vimeo.com"
                         icon = {<CollectionIcon />}
@@ -26,26 +45,11 @@ class CounterIconDocs extends React.Component {
                     >
                         100
                     </CounterIcon>
+
                 </div>
 
-                <ExampleSource>
-                    {`
-<CounterIcon
-    icon = {<PlayIcon />}
-    counterTitle="Download Count (Dark)"
->
-    2.12K
-</CounterIcon>
-    <CounterIcon
-    icon = {<CollectionIcon />}
-    counterTitle="Play Count (Alternative)"
->
-    100
-</CounterIcon>
-
-                        `}
-                    </ExampleSource>
-                </div>
+                <ExampleSource>{Example1}</ExampleSource>
+            </div>
         );
     }
 }
