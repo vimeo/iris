@@ -160,6 +160,38 @@ import { ParagraphMd, Header1, Header2} from '@vimeo/iris'classnames;
 <ParagraphXs format="white">ParagraphXs</ParagraphXs>
                 `}
             </ExampleSource>
+            <Header4>Success Text Format</Header4>
+            <ParagraphMd>
+                For Success text add <code>format="success"</code> to the element.
+            </ParagraphMd>
+            <div className="Pattern-DarkBlock">
+                <BigStat format="success">27% (BigStat)</BigStat>
+                <Header1 format="success">Header 1</Header1>
+                <Header2 format="success">Header 2</Header2>
+                <Header3 format="success">Header 3</Header3>
+                <Header4 format="success">Header 4</Header4>
+                <Header5 format="success">Header 5</Header5>
+                <Header6 format="success">Header 6</Header6>
+                <ParagraphLg format="success">ParagraphLg</ParagraphLg>
+                <ParagraphMd format="success">ParagraphMd</ParagraphMd>
+                <ParagraphSm format="success">ParagraphSm</ParagraphSm>
+                <ParagraphXs format="success">ParagraphXs</ParagraphXs>
+            </div>
+            <ExampleSource>
+                {`
+<BigStat format="success">27% (BigStat)</BigStat>
+<Header1 format="success">Header 1</Header1>
+<Header2 format="success">Header 2</Header2>
+<Header3 format="success">Header 3</Header3>
+<Header4 format="success">Header 4</Header4>
+<Header5 format="success">Header 5</Header5>
+<Header6 format="success">Header 6</Header6>
+<ParagraphLg format="success">ParagraphLg</ParagraphLg>
+<ParagraphMd format="success">ParagraphMd</ParagraphMd>
+<ParagraphSm format="success">ParagraphSm</ParagraphSm>
+<ParagraphXs format="success">ParagraphXs</ParagraphXs>
+                `}
+            </ExampleSource>
             <Header3>Type Components With Element Overrides</Header3>
             <ParagraphMd>
                 By passing an element name to the <code>element</code> prop of a

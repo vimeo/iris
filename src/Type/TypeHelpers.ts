@@ -13,7 +13,7 @@ interface TypeProps extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
         | 'span'
         | 'label'
         | 'legend';
-    format?: 'white' | 'light' | 'dark' | 'alternative';
+    format?: 'white' | 'light' | 'dark' | 'alternative' | 'success';
     noMargin?: boolean;
 }
 

@@ -75,6 +75,9 @@ export const TypeBaseStyleSettings = {
         white: {
             default: COLORS.White,
         },
+        success: {
+            default: COLORS.Pistachio,
+        }
     },
     letterSpacing: {
         xs: '0.01rem',
