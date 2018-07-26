@@ -13,17 +13,17 @@ class CopyFieldDocs extends React.Component {
                     <CopyField
                         id="copyField1"
                         buttonFormat="strong"
-                        label="Copy Url"
-                        tooltipString="Copy this URL to your Clipboard"
-                        successMessage="Copy Successful!"
+                        label="Copy URL"
+                        tooltipString="Copy this URL to the clipboard"
+                        successMessage="Copied!"
                         stringToCopy="http://www.vimeo.com"
                     />
                     <CopyField
                         id="copyField2"
                         buttonFormat="neutral"
-                        label="Copy Url"
-                        tooltipString="Copy this URL to your Clipboard"
-                        successMessage="Copy Successful!"
+                        label="Copy URL"
+                        tooltipString="Copy this URL to the clipboard"
+                        successMessage="Copied!"
                         stringToCopy="http://www.vimeo.com"
                     />
                 </div>
@@ -33,17 +33,17 @@ class CopyFieldDocs extends React.Component {
 <CopyField
     id="copyField1"
     buttonFormat="strong"
-    label="Copy Url"
-    tooltipString="Copy this URL to your Clipboard"
-    successMessage="Copy Successful!"
+    label="Copy URL"
+    tooltipString="Copy this URL to the clipboard"
+    successMessage="Copied!"
     stringToCopy = "http://www.vimeo.com"
 />
 <CopyField
     id="copyField2"
     buttonFormat="neutral"
-    label="Copy Url"
-    tooltipString="Copy this URL to your Clipboard"
-    successMessage="Copy Successful!"
+    label="Copy URL"
+    tooltipString="Copy this URL to the clipboard"
+    successMessage="Copied!"
     stringToCopy = "http://www.vimeo.com"
 />
                         `}

@@ -1,36 +1,24 @@
-// @flow
 import React from 'react';
+import styled from 'styled-components';
 import { findDOMNode } from 'react-dom';
-import classNames from 'classnames';
-import styles from './CopyField.scss';
+
+import { CopyFieldProps } from './CopyFieldTypes';
+
+// @ts-ignore
 import ClipboardIcon from '../icons/clipboard.svg';
 import withCopyAbility from '../withCopyAbility/withCopyAbility';
-// $FlowFixMe
 import InputText from '../InputText/InputText';
 import ButtonInlineInputText from '../ButtonInlineInputText/ButtonInlineInputText';
 
-const displayName = 'CopyField';
 
-type Props = {
-    buttonFormat?: 'subtle' | 'neutral' | 'strong',
-    className?: string,
-    id: string,
-    label: string,
-    isFluid?: boolean,
-    onCopy?: Function,
-    size: 'md' | 'lg',
-    successMessage: string,
-    stringToCopy: string,
-    tooltipString: string,
-    tooltipPosition: 'top' | 'right' | 'bottom' | 'left',
-};
+const CopyFieldStyled = styled.div`
+    label,
+    input {
+        cursor: pointer;
+    }
+`;
 
-class CopyField extends React.Component {
-    static defaultProps = {
-        buttonFormat: 'strong',
-    };
-
-    props: Props;
+class CopyField extends React.Component<CopyFieldProps> {
 
     _handleFieldClick = () => {
         const el = findDOMNode(this);
@@ -44,20 +32,16 @@ class CopyField extends React.Component {
 
     render() {
         const {
-            buttonFormat,
-            className,
+            buttonFormat = 'strong',
             id,
             onCopy,
-            size,
+            size = 'md',
             successMessage,
             stringToCopy,
             tooltipPosition = 'left',
             tooltipString,
             ...filteredProps
         } = this.props;
-
-        // className builder
-        const componentClass = classNames(styles.CopyField, className);
 
         const CopyButton = withCopyAbility(ButtonInlineInputText);
 
@@ -74,23 +58,22 @@ class CopyField extends React.Component {
                 onCopy={onCopy}
             />
         );
-
+        
         return (
-            <InputText
-                {...filteredProps}
-                id={id}
-                inlineButton={ButtonComponent}
-                isInline
-                size={size}
-                className={componentClass}
-                value={stringToCopy}
-                onClick={this._handleFieldClick}
-                readOnly
-            />
+            <CopyFieldStyled>
+                <InputText
+                    {...filteredProps}
+                    id={id}
+                    inlineButton={ButtonComponent}
+                    isInline
+                    size={size}
+                    value={stringToCopy}
+                    onClick={this._handleFieldClick}
+                    readOnly
+                />
+            </CopyFieldStyled>
         );
     }
 }
-
-CopyField.displayName = displayName;
 
 export default CopyField;

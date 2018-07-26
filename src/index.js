@@ -33,8 +33,6 @@ export { default as ButtonToggleState } from './ButtonToggleState';
 
 export { default as CircularButton } from './CircularButton';
 
-export { default as CopyField } from './CopyField';
-
 export { default as FieldSet } from './FieldSet';
 
 export { default as FocusBloop } from './FocusBloop';
@@ -155,6 +153,10 @@ export { default as CategoryCard } from './CategoryCard/CategoryCard';
 export { default as CategoryCardStyled } from './CategoryCard/CategoryCardStyled';
 
 export { default as CategoryCardTypes } from './CategoryCard/CategoryCardTypes';
+
+export { default as CopyField } from './CopyField/CopyField';
+
+export { default as CopyFieldTypes } from './CopyField/CopyFieldTypes';
 
 export { default as CounterIcon } from './CounterIcon/CounterIcon';
 

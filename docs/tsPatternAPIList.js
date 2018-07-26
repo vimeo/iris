@@ -5,6 +5,7 @@ import ButtonAPI from '../data/tsdocsHTML/interfaces/_button_buttonprops_.button
 import ButtonSplitMenuAPI from '../data/tsdocsHTML/interfaces/_buttonsplitmenu_buttonsplitmenu_.buttonsplitmenuprops.html';
 import CategoryCardAPI from '../data/tsdocsHTML/interfaces/_categorycard_categorycardtypes_.categorycardprops.html';
 import CardAPI from '../data/tsdocsHTML/interfaces/_card_card_.cardprops.html';
+import CopyFieldAPI from '../data/tsdocsHTML/interfaces/_copyfield_copyfieldtypes_.copyfieldprops.html';
 import CounterIconAPI from '../data/tsdocsHTML/interfaces/_countericon_countericontypes_.countericonprops';
 import FauxSelectAPI from '../data/tsdocsHTML/interfaces/_fauxselect_fauxselect_.fauxselectprops.html';
 import InputColorPickerAPI from '../data/tsdocsHTML/interfaces/_inputcolorpicker_inputcolorpicker_.inputcolorpickerprops.html';
@@ -39,6 +40,9 @@ const tsPatternAPIList = {
     },
     Card: {
         data: CardAPI,
+    },
+    CopyField: {
+        data: CopyFieldAPI,
     },
     CounterIcon: {
         data: CounterIconAPI
