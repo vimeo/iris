@@ -155,7 +155,7 @@ interface ContentStyledProps {
 
 const ContentStyled = styled<ContentStyledProps, 'div'>('div')`
     max-height: ${MODAL_MAX_HEIGHT};
-    overflow: scroll;
+    overflow: auto;
     padding: ${props => (props.fullBleed ? 0 : rem(20))};
 
     opacity: 1;
