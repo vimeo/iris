@@ -212,7 +212,7 @@ class SteppedContentSlider extends React.Component {
     constructor(props: SteppedContentSliderProps) {
         super(props);
 
-        const childCount = React.Children.count(props.children);
+        const childCount = React.Children.toArray(props.children).length;
 
         this.state = {
             currentSlide: this.props.currentSlide || 0,
