@@ -128,6 +128,8 @@
   
  exports.PersonFilled = require('../../../src/icons/person-filled.svg');
   
+ exports.Person = require('../../../src/icons/person.svg');
+  
  exports.Pin = require('../../../src/icons/pin.svg');
   
  exports.Play = require('../../../src/icons/play.svg');
