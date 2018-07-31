@@ -154,6 +154,10 @@
   
  exports.Stats = require('../../../src/icons/stats.svg');
   
+ exports.TagFilled = require('../../../src/icons/tag-filled.svg');
+  
+ exports.Tag = require('../../../src/icons/tag.svg');
+  
  exports.Television = require('../../../src/icons/television.svg');
   
  exports.Trash = require('../../../src/icons/trash.svg');
