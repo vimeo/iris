@@ -9,8 +9,9 @@ const COLORS = {
     VimeoBlueLightened: '#36C5FC',
     DarkerBlue: '#093AC9',
     Foam: '#e5f7fd',
-    Pistachio: '#7fc400',
-    PistachioDarkened: '#5a9e02',
+    Pistachio: '#4EC437',
+    PistachioDarkened: '#398F29',
+    PistachioLightened: '#7ED46C',
     RumSwizzle: '#f2f9e5',
     SunsetOrange: '#ff4d4d',
     SunsetOrangeDarkened: '#d93636',
@@ -29,6 +30,6 @@ const COLORS = {
     ObsidianState: '#2e2e2e',
     SovereignShadow: '#404040',
     AshenWinter: '#4b4b4b',
-    IronHeart: '#666',
+    IronHeart: '#666'
 };
 export default COLORS;

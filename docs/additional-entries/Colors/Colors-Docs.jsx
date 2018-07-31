@@ -5,16 +5,16 @@ const colorData = {
     Blues: {
         VimeoBlue: COLORS.VimeoBlue,
         Foam: COLORS.Foam,
-        'Darker Blue': COLORS.DarkerBlue,
+        'Darker Blue': COLORS.DarkerBlue
     },
 
     Greens: {
         Pistachio: COLORS.Pistachio,
-        RumSwizzle: COLORS.RumSwizzle,
+        RumSwizzle: COLORS.RumSwizzle
     },
     Reds: {
         SunsetOrange: COLORS.SunsetOrange,
-        PalePink: COLORS.PalePink,
+        PalePink: COLORS.PalePink
     },
     Grayscale: {
         AstroGranite: COLORS.AstroGranite,
@@ -23,29 +23,30 @@ const colorData = {
         Porcelain: COLORS.Porcelain,
         Plaster: COLORS.Plaster,
         Paste: COLORS.Paste,
-        White: COLORS.White,
+        White: COLORS.White
     },
     'Interaction State Colors': {
         'VimeoBlue-Darkened': COLORS.VimeoBlueDarkened,
-		"VimeoBlue-Lightened": COLORS.VimeoBlueLightened,
+        "VimeoBlue-Lightened": COLORS.VimeoBlueLightened,
         'Pistachio-Darkened': COLORS.PistachioDarkened,
+        'Pistachio-Lightened': COLORS.PistachioLightened,
         'SunsetOrange-Darkened': COLORS.SunsetOrangeDarkened,
-        WarningYellow: COLORS.WarningYellow,
+        WarningYellow: COLORS.WarningYellow
     },
     'Dark Theme Colors': {
-		RavenImperial: COLORS.RavenImperial,
-		ObsidianState: COLORS.ObsidianState,
-		"DarkDark (Deprecated)": COLORS.DarkDark,
-		SovereignShadow: COLORS.SovereignShadow,
-		AshenWinter: COLORS.AshenWinter,
-		IronHeart: COLORS.IronHeart,
-	}
+        RavenImperial: COLORS.RavenImperial,
+        ObsidianState: COLORS.ObsidianState,
+        "DarkDark (Deprecated)": COLORS.DarkDark,
+        SovereignShadow: COLORS.SovereignShadow,
+        AshenWinter: COLORS.AshenWinter,
+        IronHeart: COLORS.IronHeart
+    }
 };
 
 export default function ColorsDocs() {
     return (
         <div className="Pattern__docs">
-            <ColorListing colorData={colorData} />
+            <ColorListing colorData={colorData}/>
         </div>
     );
 }
