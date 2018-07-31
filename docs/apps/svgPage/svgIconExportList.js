@@ -126,6 +126,8 @@
   
  exports.Pencil = require('../../../src/icons/pencil.svg');
   
+ exports.PersonFilled = require('../../../src/icons/person-filled.svg');
+  
  exports.Pin = require('../../../src/icons/pin.svg');
   
  exports.Play = require('../../../src/icons/play.svg');
