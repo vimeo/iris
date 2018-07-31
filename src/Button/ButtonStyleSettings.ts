@@ -33,9 +33,9 @@ export const ButtonStyleSettings = {
                 backgroundColor: ButtonColors.Transparent,
             },
             hover: {
-                color: ButtonColors.LightText,
+                color: ButtonColors.AlternativeBackground,
                 borderColor: ButtonColors.AlternativeBackground,
-                backgroundColor: ButtonColors.AlternativeBackground,
+                backgroundColor: ButtonColors.AlternativeOutlineHover,
             },
         },
 
@@ -147,9 +147,9 @@ export const ButtonStyleSettings = {
                 backgroundColor: ButtonColors.Transparent,
             },
             hover: {
-                color: ButtonColors.LightText,
+                color: ButtonColors.PrimaryBackground,
                 borderColor: ButtonColors.PrimaryBackground,
-                backgroundColor: ButtonColors.PrimaryBackground,
+                backgroundColor: ButtonColors.PrimaryOutlineHover,
             },
         },
 
@@ -211,9 +211,9 @@ export const ButtonStyleSettings = {
                 backgroundColor: ButtonColors.Transparent,
             },
             hover: {
-                color: ButtonColors.SecondaryText,
-                borderColor: ButtonColors.SecondaryOutlineBackgroundHover,
-                backgroundColor: ButtonColors.SecondaryOutlineBackgroundHover,
+                color: ButtonColors.AlternativeBackground,
+                borderColor: ButtonColors.AlternativeBackground,
+                backgroundColor: ButtonColors.AlternativeOutlineHover,
             },
         },
 
@@ -243,9 +243,9 @@ export const ButtonStyleSettings = {
                 backgroundColor: ButtonColors.Transparent,
             },
             hover: {
-                color: ButtonColors.LightText,
+                color: ButtonColors.SuccessBackground,
                 borderColor: ButtonColors.SuccessBackground,
-                backgroundColor: ButtonColors.SuccessBackground,
+                backgroundColor: ButtonColors.SuccessOutlineHover,
             },
         },
 
@@ -275,9 +275,9 @@ export const ButtonStyleSettings = {
                 backgroundColor: ButtonColors.Transparent,
             },
             hover: {
-                color: ButtonColors.LightText,
+                color: ButtonColors.WarningBackground,
                 borderColor: ButtonColors.WarningBackground,
-                backgroundColor: ButtonColors.WarningBackground,
+                backgroundColor: ButtonColors.WarningOutlineHover,
             },
         },
 

@@ -224,6 +224,18 @@ export { default as ProgressBarHelpers } from './ProgressBar/ProgressBarHelpers'
 
 export { default as ProgressBarIndicator } from './ProgressBar/ProgressBarIndicator';
 
+export { default as SegmentedButton } from './SegmentedButton/SegmentedButton';
+
+export { default as SegmentedButtonStyled } from './SegmentedButton/SegmentedButtonStyled';
+
+export { default as SegmentedButtonTypes } from './SegmentedButton/SegmentedButtonTypes';
+
+export { default as SegmentedButtonSet } from './SegmentedButtonSet/SegmentedButtonSet';
+
+export { default as SegmentedButtonSetStyled } from './SegmentedButtonSet/SegmentedButtonSetStyled';
+
+export { default as SegmentedButtonSetTypes } from './SegmentedButtonSet/SegmentedButtonSetTypes';
+
 export { default as SelectWrapper } from './SelectWrapper/SelectWrapper';
 
 export { default as SteppedContentSlider } from './SteppedContentSlider/SteppedContentSlider';

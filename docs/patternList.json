@@ -59,6 +59,7 @@
         ["NotificationWarning", "Warning Notification"],
         ["ProgressBar", "Progress Bar"],
         ["SearchField", "Search Field"],
+        ["SegmentedButtonSet", "Segmented Button Set"],
         ["SteppedContentSlider", "Stepped Content Slider"],
         ["TabNavigationHorizontal", "Tab Navigation (Horizontal)"],
         ["Tag", "Tag"],
