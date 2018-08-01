@@ -31,8 +31,6 @@ export { default as ButtonLoadingState } from './ButtonLoadingState';
 
 export { default as ButtonToggleState } from './ButtonToggleState';
 
-export { default as CircularButton } from './CircularButton';
-
 export { default as FieldSet } from './FieldSet';
 
 export { default as FocusBloop } from './FocusBloop';
@@ -149,6 +147,14 @@ export { default as CategoryCard } from './CategoryCard/CategoryCard';
 export { default as CategoryCardStyled } from './CategoryCard/CategoryCardStyled';
 
 export { default as CategoryCardTypes } from './CategoryCard/CategoryCardTypes';
+
+export { default as CircularButton } from './CircularButton/CircularButton';
+
+export { default as CircularButtonElement } from './CircularButton/CircularButtonElement';
+
+export { default as CircularButtonStyled } from './CircularButton/CircularButtonStyled';
+
+export { default as CircularButtonTypes } from './CircularButton/CircularButtonTypes';
 
 export { default as ContentCarousel } from './ContentCarousel/ContentCarousel';
 

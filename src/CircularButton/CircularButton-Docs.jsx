@@ -11,158 +11,51 @@ const CircularButtonDocs = (props) => {
             </ParagraphMd>
             <div data-code>
                 <CircularButton
+                    format="primary"
                     icon={<PlusIcon />}
-                     />
+                />
                 <CircularButton
                     format="secondary"
                     icon={<PlusIcon />}
-                     />
-                <CircularButton
-                    format="alternative"
-                    icon={<PlusIcon />}
-                     />
-                <CircularButton
-                    format="negative"
-                    icon={<PlusIcon />}
-                     />
+                />
             </div>
 
             <ExampleSource>
                 {`
 <CircularButton
+    format="primary"
     icon={<PlusIcon />}
-         />
+/>
 <CircularButton
     format="secondary"
     icon={<PlusIcon />}
-         />
-<CircularButton
-    format="alternative"
-    icon={<PlusIcon />}
-     />
-<CircularButton
-    format="negative"
-    icon={<PlusIcon />}
-     />
+/>
                     `}
             </ExampleSource>
-
-
-            <Header3>Outline Circular Buttons</Header3>
-            <ParagraphMd>In busy UIs sometimes a lighter weight button is necessary. Instances that require a circular button with a less dominant presence are a great use case for outlined
-                circular buttons.
-            </ParagraphMd>
-            <div data-code>
-                <CircularButton
-                    format="primaryOutline"
-                    icon={<PlusIcon />}
-                     />
-                <CircularButton
-                    format="secondaryOutline"
-                    icon={<PlusIcon />}
-                     />
-                <CircularButton
-                    format="alternativeOutline"
-                    icon={<PlusIcon />}
-                     />
-                <CircularButton
-                    format="negativeOutline"
-                    icon={<PlusIcon />}
-                     />
-            </div>
-
-            <ExampleSource>
-                {`
-<CircularButton
-    format="primaryOutline"
-    icon={<PlusIcon />}
-     />
-<CircularButton
-    format="secondaryOutline"
-    icon={<PlusIcon />}
-     />
-<CircularButton
-    format="alternativeOutline"
-    icon={<PlusIcon />}
-     />
-<CircularButton
-    format="negativeOutline"
-    icon={<PlusIcon />}
-     />
-                    `}
-            </ExampleSource>
-
 
             <Header3>Dashed Circular Buttons</Header3>
             <ParagraphMd>Great for empty states for user related actions.
             </ParagraphMd>
             <div data-code>
                 <CircularButton
-                    format="primaryDashed"
-                    size="sm"
-                    icon={<PlusIcon />}
-                     />
-                <CircularButton
                     format="secondaryDashed"
                     icon={<PlusIcon />}
-                     />
+                />
+            </div>
+            <div className="Pattern-DarkBlock">
                 <CircularButton
-                    format="alternativeDashed"
-                    size="lg"
+                    format="lightDashed"
                     icon={<PlusIcon />}
-                     />
-                <CircularButton
-                    format="negativeDashed"
-                    size="lg"
-                    icon={<PlusIcon />}
-                     />
+                />
             </div>
 
             <ExampleSource>
                 {`
-<CircularButton
-    format="primaryDashed"
-    icon={<PlusIcon />}
-     />
 <CircularButton
     format="secondaryDashed"
     icon={<PlusIcon />}
-     />
-<CircularButton
-    format="alternativeDashed"
-    icon={<PlusIcon />}
-     />
-<CircularButton
-    format="negativeDashed"
-    icon={<PlusIcon />}
-     />
-                    `}
-            </ExampleSource>
+/>
 
-            <Header3>White Circular Buttons</Header3>
-            <ParagraphMd>For darker UIs, white circular buttons can be used in place of the default filled in buttons.
-            </ParagraphMd>
-            <div data-code style={{ backgroundColor: '#f6f7f8', padding: '1.25rem' }} >
-                <CircularButton
-                    format="whitePrimary"
-                    icon={<PlusIcon />}
-                     />
-                <CircularButton
-                    format="whiteSecondary"
-                    icon={<PlusIcon />}
-                     />
-            </div>
-
-            <ExampleSource>
-                {`
-<CircularButton
-    format="whitePrimary"
-    icon={<PlusIcon />}
-     />
-<CircularButton
-    format="whiteSecondary"
-    icon={<PlusIcon />}
-     />
                     `}
             </ExampleSource>
 
@@ -173,14 +66,15 @@ const CircularButtonDocs = (props) => {
                 <CircularButton
                     size="sm"
                     icon={<PlusIcon />}
-                     />
+                />
                 <CircularButton
+                    size="md"
                     icon={<PlusIcon />}
-                     />
+                />
                 <CircularButton
                     size="lg"
                     icon={<PlusIcon />}
-                     />
+                />
             </div>
 
             <ExampleSource>
@@ -188,14 +82,17 @@ const CircularButtonDocs = (props) => {
 <CircularButton
     size="sm"
     icon={<PlusIcon />}
-     />
+/>
+
 <CircularButton
+    size="md"
     icon={<PlusIcon />}
-     />
+/>
+
 <CircularButton
     size="lg"
     icon={<PlusIcon />}
-     />
+/>
                     `}
             </ExampleSource>
 

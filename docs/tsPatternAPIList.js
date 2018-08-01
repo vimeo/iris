@@ -7,6 +7,7 @@ import CategoryCardAPI from '../data/tsdocsHTML/interfaces/_categorycard_categor
 import CardAPI from '../data/tsdocsHTML/interfaces/_card_card_.cardprops.html';
 import ContentCarouselAPI from '../data/tsdocsHTML/interfaces/_contentcarousel_contentcarouseltypes_.contentcarouselprops.html';
 import CopyFieldAPI from '../data/tsdocsHTML/interfaces/_copyfield_copyfieldtypes_.copyfieldprops.html';
+import CircularButtonAPI from '../data/tsdocsHTML/interfaces/_circularbutton_circularbuttontypes_.circularbuttonprops.html';
 import CounterIconAPI from '../data/tsdocsHTML/interfaces/_countericon_countericontypes_.countericonprops';
 import FauxSelectAPI from '../data/tsdocsHTML/interfaces/_fauxselect_fauxselect_.fauxselectprops.html';
 import GridAPI from '../data/tsdocsHTML/interfaces/_grid_gridtypes_.gridprops.html';
@@ -47,6 +48,9 @@ const tsPatternAPIList = {
     },
     Card: {
         data: CardAPI,
+    },
+    CircularButton: {
+        data: CircularButtonAPI,
     },
     ContentCarousel: {
         data: ContentCarouselAPI,
