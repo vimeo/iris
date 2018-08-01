@@ -37,12 +37,6 @@ export { default as FieldSet } from './FieldSet';
 
 export { default as FocusBloop } from './FocusBloop';
 
-export { default as Grid } from './Grid';
-
-export { default as GridBlock } from './GridBlock';
-
-export { default as GridCol } from './GridCol';
-
 export { default as InputCheckbox } from './InputCheckbox';
 
 export { default as InputCheckboxSet } from './InputCheckboxSet';
@@ -173,6 +167,26 @@ export { default as FeatureTourPanel } from './FeatureTourPanel/FeatureTourPanel
 export { default as FeatureTourPanelButton } from './FeatureTourPanelButton/FeatureTourPanelButton';
 
 export { default as FeatureTourPanelContent } from './FeatureTourPanelContent/FeatureTourPanelContent';
+
+export { default as Grid } from './Grid/Grid';
+
+export { default as GridStyled } from './Grid/GridStyled';
+
+export { default as GridTypes } from './Grid/GridTypes';
+
+export { default as GridVariableElement } from './Grid/GridVariableElement';
+
+export { default as GridBlock } from './GridBlock/GridBlock';
+
+export { default as GridBlockStyled } from './GridBlock/GridBlockStyled';
+
+export { default as GridCol } from './GridCol/GridCol';
+
+export { default as GridColStyled } from './GridCol/GridColStyled';
+
+export { default as GridColTypes } from './GridCol/GridColTypes';
+
+export { default as GridColVariableElement } from './GridCol/GridColVariableElement';
 
 export { default as InputColorPicker } from './InputColorPicker/InputColorPicker';
 

@@ -8,6 +8,9 @@ import CardAPI from '../data/tsdocsHTML/interfaces/_card_card_.cardprops.html';
 import CopyFieldAPI from '../data/tsdocsHTML/interfaces/_copyfield_copyfieldtypes_.copyfieldprops.html';
 import CounterIconAPI from '../data/tsdocsHTML/interfaces/_countericon_countericontypes_.countericonprops';
 import FauxSelectAPI from '../data/tsdocsHTML/interfaces/_fauxselect_fauxselect_.fauxselectprops.html';
+import GridAPI from '../data/tsdocsHTML/interfaces/_grid_gridtypes_.gridprops.html';
+import GridBlockAPI from '../data/tsdocsHTML/interfaces/_gridblock_gridblock_.gridblockprops.html';
+import GridColAPI from '../data/tsdocsHTML/interfaces/_gridcol_gridcoltypes_.gridcolprops.html';
 import InputColorPickerAPI from '../data/tsdocsHTML/interfaces/_inputcolorpicker_inputcolorpicker_.inputcolorpickerprops.html';
 import InputTextAPI from '../data/tsdocsHTML/interfaces/_inputtext_inputtext_.inputtextprops.html';
 import InputSliderAPI from '../data/tsdocsHTML/interfaces/_inputslider_inputslider_.inputsliderprops.html';
@@ -56,6 +59,15 @@ const tsPatternAPIList = {
     },
     FeatureTourPanel: {
         data: FeatureTourPanelAPI,
+    },
+    Grid: {
+        data: GridAPI
+    },
+    GridBlock: {
+        data: GridBlockAPI
+    },
+    GridCol: {
+        data: GridColAPI
     },
     InputText: {
         data: InputTextAPI,

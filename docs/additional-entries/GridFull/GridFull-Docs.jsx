@@ -14,7 +14,7 @@ export default function GridFullDocs() {
     return (
         <div className="Pattern__docs">
             <ParagraphMd>The Iris Grid system is a 24 column responsive flexbox based grid. The Grid component provides an engineer-friendly re-useable abstraction of the HTML structure required to use this grid.</ParagraphMd>
-            <a style={{marginBottom: '20px', display: 'block'}} href="https://www.dropbox.com/s/2gr5ns35oshxbqy/Iris%20Grid.sketch?dl=0">Grid Sketch Files</a>
+            <LinkText style={{marginBottom: '20px', display: 'block'}} href="https://www.dropbox.com/s/2gr5ns35oshxbqy/Iris%20Grid.sketch?dl=0">Grid Sketch Files</LinkText>
                 <Header3>Grid Components</Header3>
                 <List>
                     <ListItem>Grid: <code>{'<Grid></Grid>'}</code> is the parent container of all elements and establishes: max-width for content, gutter spacing outside the content, and the grid styles for its children. The grid will create a padding around all content by default from the small breakpoint up. If you are using the grid within another layout, this padding can be removed by setting the <code>isNested</code> prop to true. </ListItem>
@@ -34,9 +34,9 @@ export default function GridFullDocs() {
             <ParagraphMd>The Grid component will generate a <code>&lt;main></code> tag by default. An <code>element</code> prop can be passed to override this.</ParagraphMd>
             <div data-code>
                 <Grid className="sg-grid">
-                    <GridBlock>
-                        <GridCol>xs.24</GridCol>
-                        <GridCol>xs.24</GridCol>
+                    <GridBlock className="GridBlockDocs">
+                        <GridCol className="GridColDocs">xs.24</GridCol>
+                        <GridCol className="GridColDocs">xs.24</GridCol>
                     </GridBlock>
                 </Grid>
             </div>
@@ -55,11 +55,11 @@ export default function GridFullDocs() {
             <ParagraphMd>Column widths are controlled by a <code>span</code> prop. Span props accept strings as values that must be between 1-24 or use the keyword <code>half</code>, <code>third</code>, or <code>quarter</code>. To trigger responsive design breakpoints have been set up as props.  <code>xlSpan</code> (105em+), <code>lgSpan</code> (80em+), <code>mdSpan</code> (48em+), and <code>smSpan</code> (30em+). Columns by default are set to span the full 24 column space of its parent.</ParagraphMd>
             <div data-code>
                 <Grid className="sg-grid">
-                    <GridBlock>
-                        <GridCol xsSpan={6}>xs.6</GridCol>
-                        <GridCol xsSpan={6} lgSpan={20} mdSpan={16} smSpan={24}>xs.6 lg.20 md.16 sm.24</GridCol>
-                        <GridCol xsSpan={6}>xs.6</GridCol>
-                        <GridCol xsSpan={6}>xs. 6</GridCol>
+                    <GridBlock className="GridBlockDocs">
+                        <GridCol className="GridColDocs" xsSpan={6}>xs.6</GridCol>
+                        <GridCol className="GridColDocs" xsSpan={6} lgSpan={20} mdSpan={16} smSpan={24}>xs.6 lg.20 md.16 sm.24</GridCol>
+                        <GridCol className="GridColDocs" xsSpan={6}>xs.6</GridCol>
+                        <GridCol className="GridColDocs" xsSpan={6}>xs. 6</GridCol>
                     </GridBlock>
                 </Grid>
             </div>
@@ -80,17 +80,17 @@ export default function GridFullDocs() {
             <ParagraphMd>Nesting Columns can be achieved inside of any <code>{`<GridCol></GridCol>`}</code> component. Simply wrap the children in a <code>{`<GridBlock></GridBlock>`}</code> component. This will create a new 24 column grid bound by the width of its containing column. Note that in the example below the nested children <code>{`<GridCol xsSpan={12}></GridCol>`}</code>  map to half of the parents (24/2 = 12 therefore 12 GridColumns is half the space of the parent container).</ParagraphMd>
             <div data-code>
                 <Grid className="sg-grid">
-                    <GridBlock>
-                        <GridCol xsSpan={6}>xs.6</GridCol>
-                        <GridCol xsSpan={6}>
+                    <GridBlock className="GridBlockDocs">
+                        <GridCol className="GridColDocs" xsSpan={6}>xs.6</GridCol>
+                        <GridCol className="GridColDocs" xsSpan={6}>
                             xs.6
-                            <GridBlock className="sg-block">
-                                <GridCol xsSpan={12}>xs.12</GridCol>
-                                <GridCol xsSpan={12}>xs.12</GridCol>
+                            <GridBlock className="sg-block GridBlockDocs">
+                                <GridCol className="GridColDocs" xsSpan={12}>xs.12</GridCol>
+                                <GridCol className="GridColDocs" xsSpan={12}>xs.12</GridCol>
                             </GridBlock>
                         </GridCol>
-                        <GridCol xsSpan={6}>xs. 6</GridCol>
-                        <GridCol xsSpan={6}>xs. 6</GridCol>
+                        <GridCol className="GridColDocs" xsSpan={6}>xs. 6</GridCol>
+                        <GridCol className="GridColDocs" xsSpan={6}>xs. 6</GridCol>
                     </GridBlock>
                 </Grid>
             </div>
@@ -121,9 +121,9 @@ export default function GridFullDocs() {
 
             <div data-code>
                 <Grid className="sg-grid">
-                    <GridBlock>
-                        <GridCol xsSpan={0} columnElement="main">xs.fluid</GridCol>
-                        <GridCol mdSpan={8} mdFixed lgSpan={6} lgFixed alignment="left" columnElement="aside">md.8 lg.6</GridCol>
+                    <GridBlock className="GridBlockDocs">
+                        <GridCol className="GridColDocs" xsSpan={0} columnElement="main">xs.fluid</GridCol>
+                        <GridCol className="GridColDocs" mdSpan={8} mdFixed lgSpan={6} lgFixed alignment="left" columnElement="aside">md.8 lg.6</GridCol>
                     </GridBlock>
                 </Grid>
             </div>
@@ -142,9 +142,9 @@ export default function GridFullDocs() {
             <ParagraphMd>Authors can push content to the left or right using the <code>offset</code> prop. Positive numbers will push content in the main writing direction (Ex. left for English and Spanish but right for Arabic) and negative numbers will push content in the opposite of a page’s writing direction. Like <code>span</code>, offset also can be set for responsive breakpoints: <code>lgOffset</code>, <code>mdOffset</code>, and <code>smOffset</code>.</ParagraphMd>
             <div data-code>
                 <Grid className="sg-grid">
-                    <GridBlock>
-                        <GridCol xsSpan={4}>xs.4</GridCol>
-                        <GridCol xsSpan={8} offset={4}>xs.8 xsOffset.4</GridCol>
+                    <GridBlock className="GridBlockDocs">
+                        <GridCol className="GridColDocs" xsSpan={4}>xs.4</GridCol>
+                        <GridCol className="GridColDocs" xsSpan={8} offset={4}>xs.8 xsOffset.4</GridCol>
                     </GridBlock>
                 </Grid>
             </div>
@@ -163,8 +163,8 @@ export default function GridFullDocs() {
             <ParagraphMd>Forms have tighter spacing. Add the <code>formColumn</code> property to the GridCol component to use the grid for forms.</ParagraphMd>
             <div data-code>
                 <Grid>
-                    <GridBlock>
-                        <GridCol
+                    <GridBlock className="GridBlockDocs">
+                        <GridCol className="GridColDocs"
                             mdSpan={12}
                             formColumn
                         >
@@ -174,7 +174,7 @@ export default function GridFullDocs() {
                                 label="First Name"
                             />
                         </GridCol>
-                        <GridCol
+                        <GridCol className="GridColDocs"
                             mdSpan={12}
                             formColumn
                         >
@@ -184,7 +184,7 @@ export default function GridFullDocs() {
                                 label="Last Name"
                             />
                         </GridCol>
-                        <GridCol
+                        <GridCol className="GridColDocs"
                             formColumn
                         >
                             <InputText

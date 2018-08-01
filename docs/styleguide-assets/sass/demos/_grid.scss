@@ -2,17 +2,17 @@
     .sg-grid {
         background-color:rgba(3, 169, 244, 0.36);
 
-        [class^="GridBlock"] {
+        .GridBlockDocs {
             height: 100%;
         }
 
-        [class^="GridCol"] {
+        .GridColDocs {
             background-color: rgba(3, 169, 244, 0.36);
             background-clip: content-box;
             height: 30px;
             font-size: 12px;
 
-            [class^="GridCol"] + [class^="GridCol"] {
+            .GridColDocs + .GridColDocs {
                 background-color: rgba(3, 169, 244, 0.36);
                 height: 100%;
             }
