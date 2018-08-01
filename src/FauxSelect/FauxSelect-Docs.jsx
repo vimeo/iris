@@ -52,10 +52,17 @@ class FauxSelectDocs extends React.Component {
         });
     }
 
-    _resetFocusToFauxSelect = () => {
-        const fauxSelectInstance = document.querySelector('[data-fauxSelectDemo]');
+    _resetFocusToFauxSelect1 = () => {
+        const fauxSelectInstance = document.querySelector('[data-fauxSelectDemo1]');
         if (fauxSelectInstance instanceof HTMLButtonElement) {
-            fauxSelectInstance.focus();
+            fauxSelectInstance.focus({ preventScroll: true });
+        }
+    }
+
+    _resetFocusToFauxSelect2 = () => {
+        const fauxSelectInstance = document.querySelector('[data-fauxSelectDemo2]');
+        if (fauxSelectInstance instanceof HTMLButtonElement) {
+            fauxSelectInstance.focus({ preventScroll: true });
         }
     }
 
@@ -86,7 +93,7 @@ class FauxSelectDocs extends React.Component {
                         hideOutline
                         isFluid
                         isShowing={this.state.menuOpen}
-                        onClose={this._resetFocusToFauxSelect}
+                        onClose={this._resetFocusToFauxSelect1}
                         shouldRefocusTriggerOnClose={false}
                         menuContent={(
                             <div>
@@ -117,7 +124,7 @@ class FauxSelectDocs extends React.Component {
                     >
                         <FauxSelect
                             aria-label="Click to see options"
-                            data-fauxSelectDemo
+                            data-fauxSelectDemo1
                             onClick={this._openMenuOnSelectClick}
                         >
                             {this.state.currentValue}
@@ -189,6 +196,122 @@ _handleOptionClick=()=> {
 </SelectWrapper>
                         `}
                 </ExampleSource>
+                <Header3>Dark Theme </Header3>
+                <List>
+                    <ListItem>Set <code>theme="dark"</code> on SelectWrapper (note this one also has <code>showLabel=false"</code>)</ListItem>
+                    <ListItem>Set <code>theme="dark"</code> on MenuPanel</ListItem>
+                    <ListItem>Set <code>theme="dark"</code> on MenuPanelList</ListItem>
+                </List>
+                <div className="Pattern-DarkBlock">
+                    <SelectWrapper
+                        id="FauxSelectExample1"
+                        label="Faux Select Label"
+                        showLabel={false}
+                        theme="dark"
+                    >
+                        <MenuPanel
+                            alignment="left"
+                            theme="dark"
+                            hideOutline
+                            isFluid
+                            isShowing={this.state.menuOpen}
+                            onClose={this._resetFocusToFauxSelect2}
+                            shouldRefocusTriggerOnClose={false}
+                            menuContent={(
+                                <div>
+                                    <TextWrapper>
+                                        <ParagraphMd format="light" noMargin>Here is some arbitrary HTML that is necessitating this.</ParagraphMd>
+                                    </TextWrapper>
+                                    <MenuPanelList
+                                        hasDivider
+                                        menuItems = {[
+                                            {
+                                                'data-label': 'Choice 1',
+                                                label: 'Choice 1',
+                                                href: '#',
+                                                onClick: this._handleOptionClick,
+
+                                            },
+                                            {
+                                                'data-label': 'Choice 2',
+                                                label: 'Choice 2',
+                                                href: '#',
+                                                onClick: this._handleOptionClick,
+                                            },
+                                        ]}
+                                        theme="dark"
+                                    />
+                                </div>
+                            )}
+                            size="lg"
+                        >
+                            <FauxSelect
+                                aria-label="Click to see options"
+                                data-fauxSelectDemo2
+                                theme="dark"
+                                onClick={this._openMenuOnSelectClick}
+                            >
+                                {this.state.currentValue}
+                            </FauxSelect>
+                        </MenuPanel>
+                    </SelectWrapper>
+                </div>
+                <ExampleSource>
+                    {`
+<SelectWrapper
+    id="FauxSelectExample1"
+    label="Faux Select Label"
+    showLabel={false}
+    theme="dark"
+>
+    <MenuPanel
+        alignment="left"
+        theme="dark"
+        hideOutline
+        isFluid
+        isShowing={this.state.menuOpen}
+        onClose={this._resetFocusToFauxSelect2}
+        shouldRefocusTriggerOnClose={false}
+        menuContent={(
+            <div>
+                <TextWrapper>
+                    <ParagraphMd format="light" noMargin>Here is some arbitrary HTML that is necessitating this.</ParagraphMd>
+                </TextWrapper>
+                <MenuPanelList
+                    hasDivider
+                    menuItems = {[
+                        {
+                            'data-label': 'Choice 1',
+                            label: 'Choice 1',
+                            href: '#',
+                            onClick: this._handleOptionClick,
+
+                        },
+                        {
+                            'data-label': 'Choice 2',
+                            label: 'Choice 2',
+                            href: '#',
+                            onClick: this._handleOptionClick,
+                        },
+                    ]}
+                    theme="dark"
+                />
+            </div>
+        )}
+        size="lg"
+    >
+        <FauxSelect
+            aria-label="Click to see options"
+            data-fauxSelectDemo2
+            theme="dark"
+            onClick={this._openMenuOnSelectClick}
+        >
+            {this.state.currentValue}
+        </FauxSelect>
+    </MenuPanel>
+</SelectWrapper>
+                    `}
+            </ExampleSource>
                 <Header3>Putting it all together</Header3>
                 <ParagraphMd>The FauxSelect approach combines three components to provide this effect:</ParagraphMd>
                 <List>

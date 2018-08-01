@@ -3,6 +3,7 @@ import React from 'react';
 import DateTime from 'react-datetime';
 // $FlowFixMe
 import InputText from '../InputText/InputText';
+// $FlowFixMe
 import MenuPanel from '../MenuPanel/MenuPanel';
 import styles from './InputDatePicker.scss';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';

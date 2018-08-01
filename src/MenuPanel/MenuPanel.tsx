@@ -1,53 +1,41 @@
-// @flow
-
 import React from 'react';
 import { findDOMNode } from 'react-dom';
-import classNames from 'classnames';
-import styles from './MenuPanel.scss';
-import TetherComponent from 'react-tether';
-import KEY_CODES from '../globals/js/constants/KEY_CODES';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import {
+    KEY_CODES,
+} from '../globals/js/constants';
+import { Transition } from 'react-transition-group';
+import {
+    MenuPanelProps,
+    MenuPanelState,
+} from './MenuPanelTypes';
+import {
+    MenuPanelStyled,
+    menuPanelTransitionStyles,
+    TetherComponentStyled,
+    TriggerWrapperStyled,
+    WrapperStyled,
+} from './MenuPanelStyled';
+import { Omit } from '../globals/js/type-helpers';
 
-const displayName = 'MenuPanel';
-
-// this is defined in the MenuPanel.scss file
-const menuSpeed = 200;
-
-type Props = {
-    alignment?: 'left' | 'right' | 'center',
-    className?: string,
-    children: React$Element <*>,
-    href?: string,
-    hideOutline?: boolean,
-    isShowing?: boolean,
-    menuContent: React$Element <*>,
-    onClose?: Function,
-    onClick?: Function,
-    onOpen?: Function,
-    panelClassName?: string,
-    size: 'sm' | 'md' | 'lg',
-    options?: Object,
-    isFluid?: boolean,
-    isControlled?: boolean;
-    shouldRefocusTriggerOnClose?: boolean;
-    zIndexOverride?: number,
-};
+export const menuSpeed = 100;
 
 class MenuPanel extends React.Component {
     static defaultProps = {
         alignment: 'center',
         href: '#',
+        format: 'light',
         size: 'md',
         shouldRefocusTriggerOnClose: true,
     };
 
-    constructor(props: Props) {
+    state: MenuPanelState;
+
+    constructor(props: MenuPanelProps & Omit<React.HTMLProps<HTMLAnchorElement>, 'size'>) {
         super(props);
         this.state = {
             isShowing: props.isShowing,
         };
     }
-    state: Object;
 
     componentDidMount() {
         if (this.state.isShowing) {
@@ -55,7 +43,7 @@ class MenuPanel extends React.Component {
         }
     }
 
-    componentWillReceiveProps(nextProps: Object) {
+    componentWillReceiveProps(nextProps: MenuPanelProps) {
         if (nextProps.isShowing !== this.props.isShowing) {
             this.setState({
                 isShowing: nextProps.isShowing,
@@ -63,7 +51,7 @@ class MenuPanel extends React.Component {
         }
     }
 
-    componentDidUpdate(prevProps: Object, prevState: Object) {
+    componentDidUpdate(_, prevState: MenuPanelState) {
         if (!prevState.isShowing && this.state.isShowing) {
             this._openMenu();
         }
@@ -76,7 +64,7 @@ class MenuPanel extends React.Component {
         this._unBindEvents();
     }
 
-    props: Props;
+    props: MenuPanelProps & Omit<React.HTMLProps<HTMLAnchorElement>, 'size'>;
     firstFocusableElement: HTMLElement;
     lastFocusableElement: HTMLElement;
     menu: HTMLElement;
@@ -85,59 +73,59 @@ class MenuPanel extends React.Component {
     tether: any;
 
 
-    _handleClick = (e: Event) => {
+    _handleClick = (event: React.MouseEvent<any>) => {
         this._toggleClick();
         if (this.props.href === '#') {
-            e.preventDefault();
+            event.preventDefault();
         }
 
         if (typeof this.props.onClick === 'function') {
-            this.props.onClick();
+            this.props.onClick(event);
         }
     }
 
-    _handleClickWhileOpen = (e: Event) => {
-        if (this.state.isShowing && e.target instanceof HTMLElement && !this.menu.contains(e.target)) {
+    _handleClickWhileOpen = (event: MouseEvent) => {
+        if (this.state.isShowing && event.target instanceof HTMLElement && !this.menu.contains(event.target)) {
             this.setState({
                 isShowing: false,
             });
         }
     }
 
-    _handleEsc = (e: Event) => {
-        if (this.state.isShowing && e.keyCode === KEY_CODES.esc) {
+    _handleEsc = (event: KeyboardEvent) => {
+        if (this.state.isShowing && event.keyCode === KEY_CODES.esc) {
             this.setState({
                 isShowing: false,
             });
         }
     }
 
-    _handleForwardFocusTab= (e: Event) => {
-        if (e.keyCode === KEY_CODES.tab) {
+    _handleForwardFocusTab= (event: KeyboardEvent) => {
+        if (event.keyCode === KEY_CODES.tab) {
             this.setState({
                 isShowing: false,
             });
-            e.preventDefault();
+            event.preventDefault();
         }
     }
 
     // when the menu is open, a forward tab should go to the first menu item
-    _handleForwardsTriggerTab = (e: Event) => {
-        if (e.keyCode === KEY_CODES.tab && this.state.isShowing && this.firstFocusableElement) {
-            e.preventDefault();
+    _handleForwardsTriggerTab = (event: KeyboardEvent) => {
+        if (event.keyCode === KEY_CODES.tab && this.state.isShowing && this.firstFocusableElement) {
+            event.preventDefault();
             this._unbindTriggerTab();
             this.firstFocusableElement.focus();
         }
     }
 
     // tabbing backwards out of the menu closes it.
-    _handleBackwardFocusTab = (e: Event) => {
+    _handleBackwardFocusTab = (event: KeyboardEvent) => {
         // shift + tab
-        if (e.shiftKey && e.keyCode === KEY_CODES.tab) {
+        if (event.shiftKey && event.keyCode === KEY_CODES.tab) {
             this.setState({
                 isShowing: false,
             });
-            e.preventDefault();
+            event.preventDefault();
         }
     }
 
@@ -224,8 +212,7 @@ class MenuPanel extends React.Component {
 
     _openMenu = () => {
         this._setFocusableElementList(this._bindEvents);
-        this.tether.enable();
-        this.tether.position();
+        //this.tether.position();
         if (typeof this.props.onOpen === 'function') {
             this.props.onOpen();
         }
@@ -261,8 +248,8 @@ class MenuPanel extends React.Component {
         const {
             alignment = 'center',
             children,
-            className,
-            href,
+            theme='light',
+            href = '#',
             hideOutline,
             isControlled, // eslint-disable-line no-unused-vars
             isFluid,
@@ -271,97 +258,74 @@ class MenuPanel extends React.Component {
             onClick, // eslint-disable-line no-unused-vars
             onClose, // eslint-disable-line no-unused-vars
             onOpen, // eslint-disable-line no-unused-vars
-            options,
             panelClassName,
-            shouldRefocusTriggerOnClose, // eslint-disable-line no-unused-vars
-            size,
+            shouldRefocusTriggerOnClose = true, // eslint-disable-line no-unused-vars
+            size = 'md',
             zIndexOverride,
+            ref: _,
             ...filteredProps
         } = this.props;
 
-        // className builder
-        const componentClass = classNames(
-            styles.MenuPanel,
-            styles[size],
-            panelClassName,
-            (this.state.isShowing ? styles.isShowing : null),
-        );
-
-        const triggerClass = classNames(
-            styles.MenuTrigger,
-            (isFluid ? styles.isFluid : null),
-            (hideOutline ? styles.hideOutline : null),
-            className,
-        );
-
-        const wrapperClass = classNames(
-            styles.MenuPanelWrapper,
-            (isFluid ? styles.isFluid : null),
-        );
-
-        const menuElement = (
-            <TransitionGroup appear>
-                    {this.state.isShowing ? (
-                        <CSSTransition
-                            timeout={menuSpeed}
-                            classNames={{
-                                appear: styles.appear,
-                                appearActive: styles.appearActive,
-                            }}
-                        >
-                            <div
-                                className={componentClass}
-                                ref={(menu) => {
-                                    this.menu = menu;
-                                }}
-                                style={zIndexOverride ? { zIndex: zIndexOverride } : null}
-                            >
-                                {menuContent}
-                            </div>
-                        </CSSTransition>
-                    ) : null}
-                </TransitionGroup>
-        );
-
         return (
-            <div className={wrapperClass}>
-                <TetherComponent
+            <WrapperStyled
+                isFluid={isFluid}
+            >
+                <TetherComponentStyled
                     attachment={`top ${alignment}`}
                     targetAttachment={`bottom ${alignment}`}
-                    className={styles.MenuPanelTetherWrapper}
                     constraints={[{
                         to: 'window',
                         attachment: 'together',
                     }]}
-                    enabled={false}
-                    ref={(tether) => {
+                    enabled
+                    innerRef={(tether) => {
                         this.tether = tether;
                     }}
                     offset="-4px 0"
-                    {...options}
                 >
-                    <a
+                    <TriggerWrapperStyled
                         {...filteredProps}
                         aria-haspopup="true"
                         aria-expanded={this.state.isShowing ? 'true' : 'false'}
-                        className={triggerClass}
+                        hideOutline={hideOutline}
                         href={href}
+                        isFluid={isFluid}
                         onFocus={this._bindTriggerTab}
                         onBlur={this._unbindTriggerTab}
                         onClick={this._handleClick}
-                        ref={(menuTriggerEl) => {
+                        innerRef={(menuTriggerEl) => {
                             this.menuTriggerEl = menuTriggerEl;
                         }}
                     >
                         {children}
-                    </a>
-                    {this.state.isShowing && menuElement}
-                </TetherComponent>
-            </div>
+                    </TriggerWrapperStyled>
+                    <Transition
+                            in={this.state.isShowing}
+                            timeout={menuSpeed}
+
+                        >
+                            {state => (
+                                <MenuPanelStyled
+                                    className={panelClassName}
+                                    isShowing={this.state.isShowing}
+                                    innerRef={(menu) => {
+                                        this.menu = menu;
+                                    }}
+                                    size={size}
+                                    style={{
+                                        ...menuPanelTransitionStyles[state],
+                                    }}
+                                    theme={theme}
+                                    zIndexOverride={zIndexOverride}
+                                >
+                                    {menuContent}
+                                </MenuPanelStyled>
+                            )}
+                        </Transition>
+                </TetherComponentStyled>
+            </WrapperStyled>
         );
     }
 }
-
-MenuPanel.displayName = displayName;
 
 export default MenuPanel;

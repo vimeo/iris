@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import styles from './VerticalMenuContextualMenuPanel.scss';
+// $FlowFixMe
 import MenuPanel from '../MenuPanel/MenuPanel';
 // $FlowFixMe
 import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';

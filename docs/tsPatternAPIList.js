@@ -17,6 +17,8 @@ import InputSliderAPI from '../data/tsdocsHTML/interfaces/_inputslider_inputslid
 import FeatureTourPanelAPI from '../data/tsdocsHTML/interfaces/_featuretourpanel_featuretourpanel_.featuretourpanelprops.html';
 import LinkTextAPI from '../data/tsdocsHTML/interfaces/_linktext_linktext_.linktextprops.html';
 import LoaderCircularAPI from '../data/tsdocsHTML/interfaces/_loadercircular_loadercircular_.loadercircularprops.html';
+import MenuPanelAPI from '../data/tsdocsHTML/interfaces/_menupanel_menupaneltypes_.menupanelprops.html';
+import MenuPanelListAPI from '../data/tsdocsHTML/interfaces/_menupanellist_menupanellisttypes_.menupanellistprops.html';
 import ModalAPI from '../data/tsdocsHTML/interfaces/_modal_modal_.modalprops.html';
 import ModalFeatureUpdateAPI from '../data/tsdocsHTML/interfaces/_modalfeatureupdate_modalfeatureupdate_.modalfeatureupdateprops.html';
 import ProgressBarAPI from '../data/tsdocsHTML/interfaces/_progressbar_progressbar_.progressbarprops.html';
@@ -80,6 +82,12 @@ const tsPatternAPIList = {
     },
     LoaderCircular: {
         data: LoaderCircularAPI,
+    },
+    MenuPanel: {
+        data: MenuPanelAPI,
+    },
+    MenuPanelList: {
+        data: MenuPanelListAPI,
     },
     Modal: {
         data: ModalAPI,

@@ -65,10 +65,6 @@ export { default as List } from './List';
 
 export { default as ListItem } from './ListItem';
 
-export { default as MenuPanel } from './MenuPanel';
-
-export { default as MenuPanelList } from './MenuPanelList';
-
 export { default as MenuPanelScrollableWithActionArea } from './MenuPanelScrollableWithActionArea';
 
 export { default as OverflowTruncationWrapper } from './OverflowTruncationWrapper';
@@ -210,7 +206,23 @@ export { default as LinkText } from './LinkText/LinkText';
 
 export { default as LoaderCircular } from './LoaderCircular/LoaderCircular';
 
+export { default as MenuPanel } from './MenuPanel/MenuPanel';
+
+export { default as MenuPanelStyled } from './MenuPanel/MenuPanelStyled';
+
+export { default as MenuPanelTypes } from './MenuPanel/MenuPanelTypes';
+
+export { default as MenuPanelList } from './MenuPanelList/MenuPanelList';
+
+export { default as MenuPanelListStyled } from './MenuPanelList/MenuPanelListStyled';
+
+export { default as MenuPanelListTypes } from './MenuPanelList/MenuPanelListTypes';
+
 export { default as MenuPanelListItem } from './MenuPanelListItem/MenuPanelListItem';
+
+export { default as MenuPanelListItemStyled } from './MenuPanelListItem/MenuPanelListItemStyled';
+
+export { default as MenuPanelListItemTypes } from './MenuPanelListItem/MenuPanelListItemTypes';
 
 export { default as Modal } from './Modal/Modal';
 

@@ -80,6 +80,41 @@ class MenuPanelDocs extends React.Component {
             </div>
         );
 
+        const MenuListDark = (
+            <div>
+                <MenuPanelList
+                    header="Section 1"
+                    menuItems = {[
+                        {
+                            label: 'Item 1',
+                            href: '#',
+                        },
+                        {
+                            label: 'Selected Item',
+                            href: '#',
+                            isSelected: true,
+                            'data-foo': 'bar',
+                        },
+                    ]}
+                    theme="dark"
+                />
+                <MenuPanelList
+                    hasDivider
+                    menuItems = {[
+                        {
+                            label: 'Item 3',
+                            icon: <SettingsIcon />,
+                            href: '#',
+                        },
+                        {
+                            label: 'Item 4',
+                            href: '#',
+                        },
+                    ]}
+                    theme="dark"
+                />
+            </div>
+        );
         const MenuWithActionArea = (
             <MenuPanelScrollableWithActionArea
                 maxHeight = {200}
@@ -166,6 +201,27 @@ class MenuPanelDocs extends React.Component {
                         >
                             Click for Small Center Menu
                         </LinkText>
+                    </MenuPanel>
+                </div>
+
+                    <Header3>Dark Theme</Header3>
+                    <ParagraphMd>To get a dark theme apply <code>theme="dark</code> to the MenuPanel component, and also to the MenuPanelList component if you are using it.</ParagraphMd>
+
+                    <div className="Pattern-DarkBlock">
+                    <MenuPanel
+                        alignment="left"
+                        menuContent={MenuListDark}
+                        size="lg"
+                        theme="dark"
+                    >
+                        <Button
+                            isInline
+                            isButtonElement={false}
+                            autoWidth="md"
+                            format="primaryDark"
+                        >
+                            Click for Dark Large Left Menu
+                        </Button>
                     </MenuPanel>
                 </div>
                 <Header3>MenuPanel with "Action Area"</Header3>

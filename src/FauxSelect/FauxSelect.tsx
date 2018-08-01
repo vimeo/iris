@@ -51,6 +51,8 @@ const FauxSelectStyled = styled<FauxSelectStyledProps, 'button'>('button')`
     display: inline-flex;
     text-align: left;
 
+    width: 100%;
+
 `;
 
 const FauxSelect = ({
