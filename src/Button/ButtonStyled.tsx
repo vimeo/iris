@@ -72,10 +72,6 @@ export const ButtonStyled = styled<ButtonProps, any>(ButtonVariableElement)`
             : getHoverCSSByFormat}
     }
 
-    &:focus {
-        outline: none;
-    }
-
     &:active {
         outline: none;
         transform: scale(0.98);
