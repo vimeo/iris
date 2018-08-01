@@ -93,6 +93,7 @@
         "react-css-transition-replace": "^3.0.2",
         "react-datetime": "^2.11.1",
         "react-popper": "0.9.5",
+        "react-swipe": "^5.1.1",
         "react-swipeable": "^4.2.0",
         "react-tether": "^0.6.1",
         "react-transition-group": "^2.3.0",

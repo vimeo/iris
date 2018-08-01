@@ -29,6 +29,7 @@
         ["ButtonToggleState", "Buttons: ToggleState"],
         ["CategoryCard", "Category Cards"],
         ["Card", "Card"],
+        ["ContentCarousel", "Content Carousel"],
         ["CircularButton", "Circular Button"],
         ["CopyField", "Copy Field"],
         ["CounterIcon", "Counter Icons"],

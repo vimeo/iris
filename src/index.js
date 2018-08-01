@@ -138,11 +138,21 @@ export { default as Card } from './Card/Card';
 
 export { default as CardSettings } from './Card/CardSettings';
 
+export { default as CarouselDotNav } from './CarouselDotNav/CarouselDotNav';
+
+export { default as CarouselDotNavStyled } from './CarouselDotNav/CarouselDotNavStyled';
+
+export { default as CarouselDotNavTypes } from './CarouselDotNav/CarouselDotNavTypes';
+
 export { default as CategoryCard } from './CategoryCard/CategoryCard';
 
 export { default as CategoryCardStyled } from './CategoryCard/CategoryCardStyled';
 
 export { default as CategoryCardTypes } from './CategoryCard/CategoryCardTypes';
+
+export { default as ContentCarousel } from './ContentCarousel/ContentCarousel';
+
+export { default as ContentCarouselTypes } from './ContentCarousel/ContentCarouselTypes';
 
 export { default as CopyField } from './CopyField/CopyField';
 
