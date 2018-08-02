@@ -96,7 +96,7 @@ const ProgressBarIndicator: React.SFC<ProgressBarIndicatorProps> = props => {
     
     const {
         format,
-        ...filteredProps,
+        ...filteredProps
     } = props;
 
     return (
