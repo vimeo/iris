@@ -5,7 +5,7 @@ import  { TypeProps } from './TypeHelpers';
 const ParagraphMd = ({
     element='p',
     format="dark",
-    ...filteredProps,
+    ...filteredProps
 }: TypeProps) => {
 
     return(
