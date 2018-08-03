@@ -14,6 +14,7 @@ export interface SliderLabelProps {
 
 interface LabelWrapperStyledProps {
     format: 'dark' | 'light';
+    isDisabled: boolean;
 }
 
 const LabelWrapper = styled<LabelWrapperStyledProps, 'div'>('div')`
@@ -22,8 +23,9 @@ const LabelWrapper = styled<LabelWrapperStyledProps, 'div'>('div')`
     height: ${rem(34)};
     color: ${props => getSliderThemeColors(props.format).labelColor};
     text-align: center;
-    padding: ${rem(2)};
-    border-radius: ${rem(2)};
+    padding: ${props => (props.isDisabled ? 0 : rem(2))};
+    border-radius: ${rem(3)};
+    margin-top: ${props => (props.isDisabled ? rem(2) : 0)};
 `;
 const LabelStyled = styled.label`
     width: 100%;
@@ -41,22 +43,26 @@ const commonLabelStyles = props => {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     display: inline-block;
-    border-radius: ${rem(2)};
-    border: ${
-        props.format == 'dark'
-            ? `${rem(1)} solid ${rgba(COLORS.White, 0.33)}`
-            : `${rem(1)} solid ${rgba(COLORS.White, 0.66)}`
-    };
+    border-radius: ${rem(3)};
     color: ${getSliderThemeColors(props.format).labelColor};
 `;
 };
 
 const LabelValueStyled = styled<LabelWrapperStyledProps, 'label'>('label')`
     ${props => commonLabelStyles(props)};
+    border: ${rem(1)} solid
+        ${props =>
+            props.format === 'dark'
+                ? rgba(COLORS.Black, 0.8)
+                : COLORS.Porcelain};
 `;
 
 const LabelInputStyled = styled<LabelWrapperStyledProps, 'input'>('input')`
     ${commonLabelStyles};
+    border: ${props =>
+        props.format == 'dark'
+            ? `${rem(1)} solid ${rgba(COLORS.White, 0.33)}`
+            : `${rem(1)} solid ${rgba(COLORS.White, 0.66)}`};
     &:hover {
         cursor: pointer;
         background-color: ${props =>
@@ -98,15 +104,25 @@ const SliderLabel: React.SFC<SliderLabelProps> = ({
         onChange: () => {},
         defaultValue: String(value),
         format: format,
+        isDisabled: editable ? false : true,
     };
     return (
-        <LabelWrapper {...filteredProps} format={format}>
+        <LabelWrapper
+            {...filteredProps}
+            format={format}
+            isDisabled={inputProps.disabled}
+        >
             {editable ? (
                 <LabelStyled htmlFor={id} key={value}>
                     <LabelInputStyled {...inputProps} />
                 </LabelStyled>
             ) : (
-                <LabelValueStyled format={format}>{value}</LabelValueStyled>
+                <LabelValueStyled
+                    format={format}
+                    isDisabled={inputProps.disabled}
+                >
+                    {value}
+                </LabelValueStyled>
             )}
         </LabelWrapper>
     );
