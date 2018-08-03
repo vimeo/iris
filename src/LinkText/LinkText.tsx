@@ -4,7 +4,7 @@ import { rem } from 'polished';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import COLORS from '../globals/js/constants/COLORS';
 
-export interface LinkTextProps extends React.HTMLProps<HTMLAnchorElement>{
+export interface LinkTextProps extends React.HTMLProps<HTMLAnchorElement> {
     /**
      * The element that should be rendered. Defaults to "a".
      */
@@ -12,7 +12,7 @@ export interface LinkTextProps extends React.HTMLProps<HTMLAnchorElement>{
     /**
      * Choose the link format (coloring), defaults to "primary".
      */
-    format?: 'primary'|  'primaryDark' | 'warning' | 'light';
+    format?: 'primary' | 'primaryDark' | 'warning' | 'light';
     /**
      * Choose the link decoration if it shoudld be non-standard.
      */
@@ -92,20 +92,22 @@ const formats = {
     },
 };
 
+const getDefaultColor = props => props.format && formats[props.format] ? formats[props.format].defaultColor : '';
+
+const getHoverColor = props => props.format && formats[props.format] ? formats[props.format].hoverColor : '';
+
 const AnchorStyled = styled.a`
+    text-decoration: none;
+    color: inherit;
     &:hover {
         text-decoration: none;
     }
 `;
 
-const getDefaultColor = props => props.format && formats[props.format] ? formats[props.format].defaultColor : '';
-
-const getHoverColor = props => props.format && formats[props.format] ? formats[props.format].hoverColor : '';
-
 const LinkTextStyled = styled<LinkTextProps, 'span'>('span')`
     display: inline;
     position: relative;
-
+    
     padding: 0;
 
     color: ${getDefaultColor};
@@ -117,8 +119,7 @@ const LinkTextStyled = styled<LinkTextProps, 'span'>('span')`
     background-color: transparent;
 
     transition: all 0.1s ease-in-out;
-    text-decoration: none;
-
+    
     appearance: none;
 
     &::-moz-focus-inner {
@@ -150,7 +151,7 @@ const LinkText = ({
     element = 'a',
     format = 'primary',
     href,
-    ref:_,
+    ref: _,
     ...filteredProps
 }: LinkTextProps) => {
 
@@ -168,15 +169,15 @@ const LinkText = ({
             </LinkTextStyled>
         </AnchorStyled>
     ) : (
-        <LinkTextStyled
-            decoration={decoration}
-            format={format}
-            {...filteredProps}
+            <LinkTextStyled
+                decoration={decoration}
+                format={format}
+                {...filteredProps}
 
-        >
+            >
                 {children}
-        </LinkTextStyled>
-    );
+            </LinkTextStyled>
+        );
 
     return maybeAnchorTag
 
