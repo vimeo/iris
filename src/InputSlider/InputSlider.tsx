@@ -59,17 +59,27 @@ export interface InputSliderProps {
      * gets called on slider value change and can be used to read start and end values.
      */
     rangeValues?: (start: number, end: number) => {};
+    /**
+     * Disables the slider
+     */
+    disabled?: boolean;
 }
+
+const focusIdentifier = {
+    start: 'startRange',
+    end: 'endRnage',
+};
 
 export interface InputSliderState {
     startValueLeft: string; // left pos of start value bubble
     endValueLeft: string; // left pos of end value bubble
     sliderBgStyle: {};
+    focusedInput: string;
 }
 
 export interface InputSliderStyledProps
     extends React.HTMLProps<HTMLDivElement> {
-    format: 'dark' | 'light';
+    format: 'dark' | 'light' | 'disabled';
     zIndexOverride: number;
 }
 
@@ -89,7 +99,7 @@ const firstSliderThumbStyles = zIndex => {
 
 const sliderThumbStyles = props => {
     return `
-        cursor: pointer;
+        cursor: ${props.disabled ? 'not-allowed' : 'pointer'};
         border-radius: 50%;
         appearance: none;
         width: ${getSliderDimension('handleDiameter')};
@@ -114,6 +124,7 @@ const focusedSliderThumbStyles = props => {
             getSliderThemeColors(props.format).handleFocusBackground
         };`;
 };
+
 const InputSliderStyled = styled<InputSliderStyledProps, 'div'>('div')`
     position: relative;
     z-index: ${props => props.zIndexOverride};
@@ -132,6 +143,7 @@ const InputSliderStyled = styled<InputSliderStyledProps, 'div'>('div')`
         }
         &::-moz-range-thumb {
             ${sliderThumbStyles};
+            border: none;
         }
         &::-ms-thumb {
             ${sliderThumbStyles};
@@ -220,6 +232,7 @@ class InputSlider extends React.Component<any, any> {
         zIndexOverride: Z_INDEX.inputSlider,
         step: 1,
         editable: false,
+        disabled: false,
     };
 
     private startRange: HTMLInputElement;
@@ -238,13 +251,14 @@ class InputSlider extends React.Component<any, any> {
             startValueLeft: '0%',
             endValueLeft: '100%',
             sliderBgStyle: {},
+            focusedInput: focusIdentifier.start,
         };
         this.totalRange = this.props.maxValue - this.props.minValue;
         this.inRangeColor = getSliderThemeColors(
-            this.props.format
+            this.props.disabled ? 'disabled' : this.props.format
         ).inRangeBgColor;
         this.outRangeColor = getSliderThemeColors(
-            this.props.format
+            this.props.disabled ? 'disabled' : this.props.format
         ).outRangeBgColor;
         this.handleDiameter =
             InputSliderStyleSettings.dimensions.handleDiameter;
@@ -258,7 +272,7 @@ class InputSlider extends React.Component<any, any> {
     public componentDidMount() {
         this.initialMin = this.props.initialMinValue;
         this.initialMax = this.props.initialMaxValue;
-        this.initializeSlider();
+        this.initializeSlider(this.initialMin, this.initialMax);
     }
 
     public render() {
@@ -266,7 +280,7 @@ class InputSlider extends React.Component<any, any> {
         return (
             <InputSliderStyled
                 {...filteredProps}
-                format={this.props.format}
+                format={this.props.disabled ? 'disabled' : this.props.format}
                 zIndexOverride={this.props.zIndexOverride}
             >
                 <input
@@ -280,6 +294,10 @@ class InputSlider extends React.Component<any, any> {
                     step={this.props.step}
                     onInput={() => this.onSliderValueChange(this.startRange)}
                     style={this.state.sliderBgStyle}
+                    disabled={this.props.disabled}
+                    onFocus={() => {
+                        this.identifyFocusedInput(focusIdentifier.start);
+                    }}
                 />
                 <input
                     ref={input => {
@@ -291,11 +309,22 @@ class InputSlider extends React.Component<any, any> {
                     max={this.props.maxValue}
                     step={this.props.step}
                     onInput={() => this.onSliderValueChange(this.endRange)}
+                    onFocus={() => {
+                        this.identifyFocusedInput(focusIdentifier.end);
+                    }}
+                    disabled={this.props.disabled}
                 />
-                {this.startRange ? (
+                {this.startRange && !this.props.disabled ? (
                     <BubbleWrapper zIndexOverride={this.props.zIndexOverride}>
                         <StartRangeValueStyled
-                            style={{ left: this.state.startValueLeft }}
+                            style={{
+                                left: this.state.startValueLeft,
+                                zIndex:
+                                    this.state.focusedInput ==
+                                    focusIdentifier.start
+                                        ? 1
+                                        : 'initial',
+                            }}
                         >
                             <SliderLabel
                                 value={this.showValue(this.startRange.value)}
@@ -306,7 +335,14 @@ class InputSlider extends React.Component<any, any> {
                             />
                         </StartRangeValueStyled>
                         <EndRangeValueStyled
-                            style={{ left: this.state.endValueLeft }}
+                            style={{
+                                left: this.state.endValueLeft,
+                                zIndex:
+                                    this.state.focusedInput ==
+                                    focusIdentifier.end
+                                        ? 1
+                                        : 'initial',
+                            }}
                         >
                             <SliderLabel
                                 value={this.showValue(this.endRange.value)}
@@ -323,7 +359,7 @@ class InputSlider extends React.Component<any, any> {
     }
     // resets values of slider
     public resetSlider = () => {
-        this.initializeSlider();
+        this.initializeSlider(this.props.minValue, this.props.maxValue);
     };
 
     private onSliderValueChange = selectedInput => {
@@ -411,16 +447,13 @@ class InputSlider extends React.Component<any, any> {
     };
 
     // initializes the slider with the props value or defaultProps
-    private initializeSlider = () => {
-        this.startRange.value = String(this.initialMin);
-        this.endRange.value = String(this.initialMax);
+    private initializeSlider = (min, max) => {
+        this.startRange.value = String(min);
+        this.endRange.value = String(max);
 
-        this.positionRangeValues(this.startRange, this.initialMin);
-        this.positionRangeValues(this.endRange, this.initialMax);
-        this.setSliderBackground(
-            this.props.initialMinValue,
-            this.props.initialMaxValue
-        );
+        this.positionRangeValues(this.startRange, min);
+        this.positionRangeValues(this.endRange, max);
+        this.setSliderBackground(min, max);
     };
 
     private readStartRangeInput = userInput => {
@@ -445,6 +478,12 @@ class InputSlider extends React.Component<any, any> {
         if (this.props.rangeValues) {
             this.props.rangeValues(startVal, endVal);
         }
+    };
+
+    private identifyFocusedInput = focused => {
+        this.setState({
+            focusedInput: focused,
+        });
     };
 }
 

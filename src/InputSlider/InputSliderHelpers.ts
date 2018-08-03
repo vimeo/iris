@@ -57,6 +57,19 @@ const InputSliderStyleSettings = {
             labelHoverBackground: COLORS.Plaster,
             labelBackground: COLORS.Plaster,
         },
+        disabled: {
+            inRangeColor: COLORS.AshenWinter,
+            outRangeColor: COLORS.AshenWinter,
+            handleColor: COLORS.AshenWinter,
+            handleBorder: COLORS.AshenWinter,
+            handleBackground: `radial-gradient(
+                ellipse at center,
+                ${COLORS.AshenWinter} 50%,
+                ${rgba(COLORS.RavenImperial, 0.25)} 54%,
+                ${rgba(COLORS.RavenImperial, 0)} 59%,
+                ${rgba(COLORS.RavenImperial, 0)} 100%
+            )`,
+        },
     },
     dimensions: {
         handleDiameter: 32,
@@ -83,7 +96,6 @@ const getSliderThemeColors = format => {
         dark: {
             inRangeBgColor: sliderColors.dark.inRangeColor,
             outRangeBgColor: sliderColors.dark.outRangeColor,
-            handleBgColor: sliderColors.dark.handleColor,
             handleBackground: sliderColors.dark.handleBackground,
             handleFocusBackground: sliderColors.dark.handleFocusBackground,
             handleBorder: sliderColors.dark.handleBorder,
@@ -95,7 +107,6 @@ const getSliderThemeColors = format => {
         light: {
             inRangeBgColor: sliderColors.light.inRangeColor,
             outRangeBgColor: sliderColors.light.outRangeColor,
-            handleBgColor: sliderColors.light.handleColor,
             handleBackground: sliderColors.light.handleBackground,
             handleFocusBackground: sliderColors.light.handleFocusBackground,
             handleBorder: sliderColors.light.handleBorder,
@@ -103,6 +114,12 @@ const getSliderThemeColors = format => {
             labelFocusedColor: sliderColors.light.labelFocusedColor,
             labelHoverBackground: sliderColors.light.labelHoverBackground,
             labelBackground: sliderColors.light.labelBackground,
+        },
+        disabled: {
+            inRangeBgColor: sliderColors.disabled.inRangeColor,
+            outRangeBgColor: sliderColors.disabled.outRangeColor,
+            handleBackground: sliderColors.disabled.handleBackground,
+            handleBorder: sliderColors.disabled.handleBorder,
         },
     };
     return sliderColorMap[format] || sliderColorMap[themeOptions[0]];

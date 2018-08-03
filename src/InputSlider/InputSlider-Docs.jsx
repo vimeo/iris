@@ -51,6 +51,25 @@ class InputSliderDocs extends React.Component {
                         />
                     </div>
                 </div>
+                <ParagraphMd>
+                    Slider can be disabled on passing disabled props as true
+                </ParagraphMd>
+                <div className="Pattern-DarkBlock">
+                    <div data-code>
+                        <InputSlider disabled={true} />
+                    </div>
+                </div>
+
+                <ExampleSource>
+                    {`
+    <InputSlider disabled={true}/>
+                    `}
+                </ExampleSource>
+                <div className="Pattern-DarkBlock">
+                    <div data-code>
+                    <InputSlider minValue={60} maxValue={200} initialMinValue={130} initialMaxValue={195} gap={10} />
+                    </div>
+                </div>
                 <ExampleSource>
                     {`
     <InputSlider minValue={60} maxValue={200} initialMinValue={130} initialMaxValue={195} gap={10} />
