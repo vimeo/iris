@@ -17,7 +17,7 @@ const COLORS = {
     SunsetOrangeDarkened: '#d93636',
     PalePink: '#ffeded',
     AstroGranite: '#1a2e3b',
-    RegentGray: '#8699a6',
+    RegentGray: '#8498A4',
     SoutherlySky: '#b3bfc8',
     Porcelain: '#e3e8e9',
     Plaster: '#eef1f2',
