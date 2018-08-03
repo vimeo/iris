@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import NotificationWarning from '../../../src/NotificationWarning/NotificationWarning';
 import {
     ParagraphLg,
     ParagraphSm,
@@ -18,7 +17,8 @@ import {
     Header6,
     HeaderAltSm,
     BigStat,
-} from '../../../src/Type';
+    NotificationWarning,
+} from '../../../src/index.js';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 
 import styles from './Typography.scss';
@@ -53,6 +53,9 @@ import { ParagraphMd, Header1, Header2} from '@vimeo/iris'classnames;
                 The most common use is calling the component by name and having
                 it generate the element that matches its name.
             </ParagraphMd>
+            <NotificationWarning headerText="A11y Notes">
+                <ParagraphMd>The "alternative" text types (e.g. ParagraphAltMd) should only be used on a fully white <span style={{background: '#fff'}}>#fff</span> background.</ParagraphMd>
+            </NotificationWarning>
             <BigStat>12.2k (BigStat)</BigStat>
             <Header1>Header 1</Header1>
             <Header2>Header 2</Header2>
