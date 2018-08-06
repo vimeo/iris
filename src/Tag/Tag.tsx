@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 // @ts-ignore
 import DeleteIcon from '../icons/dismiss-x.svg';
+import { ButtonFocusBloop } from '../Button/ButtonFocusBloop';
 
 export interface TagProps {
     autoMargins?: boolean,
@@ -22,6 +23,10 @@ export interface TagProps {
 
 const ButtonStyledAsTag = styled(Button)`
     border-radius: ${rem(66)};
+
+    ${ButtonFocusBloop} {
+        border-radius: ${rem(66)};
+    }
 `;
 
 const Tag = ({

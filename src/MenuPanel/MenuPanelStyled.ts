@@ -55,8 +55,8 @@ export const MenuPanelStyled = styled<MenuPanelStyledProps, 'div'>('div')`
 
 export const TriggerWrapperStyled = styled<TriggerWrapperStyledProps, 'a'>('a')`
     display: ${maybeFluid}; // this ensures proper menu placement;
-
-    ${props => props.hideOutline && 'outline: none;'}
+    outline: none;
+    position: relative;
 
 `;
 

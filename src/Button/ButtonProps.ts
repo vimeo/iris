@@ -61,6 +61,7 @@ export type buttonFormats =
     | 'primaryOutline'
     | 'primaryTextOnly'
     | 'secondary'
+    | 'secondaryDark'
     | 'secondaryOutline'
     | 'secondaryTextOnly'
     | 'alternative'

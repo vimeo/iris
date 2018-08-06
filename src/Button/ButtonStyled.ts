@@ -1,10 +1,11 @@
+// @ts-ignore
 import React from 'react';
-import { rem } from 'polished';
 import styled, { 
     css,
     // @ts-ignore
     StyledComponentClass
  } from 'styled-components';
+ import { rem } from 'polished';
 
 import {
     ButtonCoreCSS,
@@ -17,8 +18,9 @@ import {
     getVerticalAutoMarginCSS,
 } from './ButtonHelpers';
 
-import { ButtonStyleSettings } from './ButtonStyleSettings';
 import { ButtonProps } from './ButtonProps';
+import { ButtonStyleSettings } from './ButtonStyleSettings';
+import { ButtonVariableElement } from './ButtonVariableElement';
 
 
 const maybeGetFeaturedIconCSS = props => {
@@ -32,24 +34,6 @@ const maybeGetFeaturedIconCSS = props => {
     } 
 };
 
-const ButtonVariableElement = ({
-    //@ts-ignore
-    autoMargins, // filter out prop
-    //@ts-ignore
-    autoWidth, // filter out prop
-    //@ts-ignore
-    customFormat, // filter out prop
-     //@ts-ignore
-    hasFeaturedIcon, // filter out prop
-    isButtonElement, // filter out prop
-    //@ts-ignore
-    isInline, // filter out prop
-    ...rest
-}: ButtonProps) => isButtonElement
-    ? <button {...rest} />
-    : <span {...rest} />;
-
-
 export const ButtonStyled = styled<ButtonProps, any>(ButtonVariableElement)`
     ${ButtonCoreCSS}
     ${getSizeCSS}
@@ -57,9 +41,9 @@ export const ButtonStyled = styled<ButtonProps, any>(ButtonVariableElement)`
     ${getVerticalAutoMarginCSS}
     ${getAutoWidthCSS};
 
-    border-radius: ${props => (props.size === 'xs'
+    border-radius: ${props => props.size === 'xs'
         ? rem(2)
-        : rem(3))};
+        : rem(3)};
 
     ${props => props.customFormat
         ? customDefault(props)
@@ -69,22 +53,20 @@ export const ButtonStyled = styled<ButtonProps, any>(ButtonVariableElement)`
         cursor: pointer;
         ${props => props.customFormat
             ? customHoverActive(props)
-            : getHoverCSSByFormat}
+            : getHoverCSSByFormat};
     }
 
     &:active {
-        outline: none;
         transform: scale(0.98);
         ${props => props.customFormat
             ? customHoverActive(props)
-            :getActiveCSSByFormat};
+            : getActiveCSSByFormat};
     }
 
     &:disabled,
     &:disabled:hover,
     &:disabled:active {
         cursor: not-allowed;
-        outline: none;
         transform: scale(1);
         pointer-events: none;
         ${getDisabledCSSByFormat}

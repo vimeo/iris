@@ -16,6 +16,7 @@ import { ButtonStyleSettings } from './ButtonStyleSettings';
 const ButtonCoreCSS = css`
     display: inline-flex;
     position: relative;
+    outline: 0;
 
     width: 100%;
     margin: 0;
@@ -140,9 +141,7 @@ const getSizeCSS = props => {
 const getVerticalAutoMarginCSS = props =>
     props.isInline || !props.autoMargins
         ? ''
-        : `
-        margin-bottom: ${rem(8)};
-`;
+        : `margin-bottom: ${rem(8)};`;
 
 export {
     ButtonCoreCSS,

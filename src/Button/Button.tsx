@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ButtonProps } from './ButtonProps';
 import { ButtonStyled, ButtonLabelStyled } from './ButtonStyled';
+import { ButtonFocusBloop } from './ButtonFocusBloop';
 import ButtonIconElement from './ButtonIconElement';
 
 
@@ -18,9 +19,6 @@ const Button: React.SFC<ButtonProps> = ({
     ref: _,
     ...filteredProps
 }) => {
-    const hasIconBefore = icon && iconLocation === 'beforeLabel';
-    const hasIconAfter = icon && iconLocation === 'afterLabel';
-    const hasFeaturedIcon = icon && iconLocation === 'featuredLeft';
 
     const iconElement = (
         <ButtonIconElement
@@ -29,6 +27,11 @@ const Button: React.SFC<ButtonProps> = ({
             {icon}
         </ButtonIconElement>
     );
+
+    const hasIcon = (position) =>
+        icon && iconLocation === position
+            ? iconElement
+            : null;
 
     return (
         <ButtonStyled
@@ -40,17 +43,20 @@ const Button: React.SFC<ButtonProps> = ({
             size={size}
             {...filteredProps}>
 
-            {hasFeaturedIcon && iconElement}
+            {hasIcon('featuredLeft')}
 
             <ButtonLabelStyled>
-                {hasIconBefore && iconElement}
+                {hasIcon('beforeLabel')}
                 {children}
-                {hasIconAfter && iconElement}
+                {hasIcon('afterLabel')}
             </ButtonLabelStyled>
 
+            <ButtonFocusBloop
+                format={format}
+                size={size}
+            />
         </ButtonStyled>
     );
 }
-
 
 export default Button;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ParagraphMd, Header3, Header4 } from '../index';
+import { Button, ButtonFocusWrapper, ParagraphMd, Header3, Header4, NotificationNeutral } from '../index';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import ShareIcon from '../icons/paper-plane.svg';
 import HeartIcon from '../icons/heart.svg';
@@ -297,17 +297,45 @@ class ButtonDocs extends React.Component {
                 </ExampleSource>
 
                     <Header3>Button as Links</Header3>
-                    <ParagraphMd>When buttons should actually be links that look like buttons and not button elements, we set the <code>isButtonElement</code> prop to "false". This will render the button as a span tag which can be nested in an anchor tag or React Router {'<Link>'} tag</ParagraphMd>
+                    <NotificationNeutral>
+                        <ParagraphMd>When buttons should actually be links that look like buttons and not button elements, we set the <code>isButtonElement</code> prop to "false". This will render the button as a span tag which can be nested in an <code>{'<a>'}</code> tag or React Router <code>{'<Link>'}</code> tag. The <code>{'<a>'}</code> or <code>{'<Link>'}</code> tag must be wrapped in <code>{'<ButtonFocusWrapper></ButtonFocusWrapper>'}</code> to preserve focus styles.</ParagraphMd>
+                    </NotificationNeutral>
                     <ParagraphMd><strong>Note:</strong> These buttons do not have the automatic margins that the button elements have. Be sure to include spacing around your links</ParagraphMd>
                     <div data-code>
-                        <a href="#"><Button isButtonElement={false}>Primary Outline</Button></a>
-                        <a href="#"><Button isButtonElement={false} format="secondaryOutline">Secondary Outline</Button></a>
+                        <ButtonFocusWrapper>
+                            <a href="#">
+                                <Button
+                                    isButtonElement={false}>
+                                    Primary Outline
+                                </Button>
+                            </a>
+                        </ButtonFocusWrapper>
+                        <ButtonFocusWrapper>
+                            <a href="#">
+                                <Button
+                                    isButtonElement={false}
+                                    format="secondaryOutline">
+                                    Secondary Outline
+                                </Button>
+                            </a>
+                        </ButtonFocusWrapper>
                     </div>
-
                     <ExampleSource>
                         {`
-<a href="#"><Button isButtonElement={false}>Primary Outline</Button></a>
-<a href="#"><Button isButtonElement={false} format="secondaryOutline">Secondary Outline</Button></a>
+<ButtonFocusWrapper>
+    <a href="#">
+        <Button isButtonElement={false}>
+            Primary Outline
+        </Button>
+    </a>
+</ButtonFocusWrapper>
+<ButtonFocusWrapper>
+    <a href="#">
+        <Button isButtonElement={false} format="secondaryOutline">
+            Secondary Outline
+        </Button>
+    </a>
+</ButtonFocusWrapper>
                         `}
                     </ExampleSource>
 
