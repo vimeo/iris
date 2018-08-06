@@ -10,12 +10,14 @@ import CopyFieldAPI from '../data/tsdocsHTML/interfaces/_copyfield_copyfieldtype
 import CircularButtonAPI from '../data/tsdocsHTML/interfaces/_circularbutton_circularbuttontypes_.circularbuttonprops.html';
 import CounterIconAPI from '../data/tsdocsHTML/interfaces/_countericon_countericontypes_.countericonprops';
 import FauxSelectAPI from '../data/tsdocsHTML/interfaces/_fauxselect_fauxselect_.fauxselectprops.html';
+import FieldSetAPI from '../data/tsdocsHTML/interfaces/_fieldset_fieldsettypes_.fieldsetprops.html';
 import GridAPI from '../data/tsdocsHTML/interfaces/_grid_gridtypes_.gridprops.html';
 import GridBlockAPI from '../data/tsdocsHTML/interfaces/_gridblock_gridblock_.gridblockprops.html';
 import GridColAPI from '../data/tsdocsHTML/interfaces/_gridcol_gridcoltypes_.gridcolprops.html';
 import InputColorPickerAPI from '../data/tsdocsHTML/interfaces/_inputcolorpicker_inputcolorpicker_.inputcolorpickerprops.html';
-import InputTextAPI from '../data/tsdocsHTML/interfaces/_inputtext_inputtext_.inputtextprops.html';
+import InputRadioSetAPI from '../data/tsdocsHTML/interfaces/_inputradioset_inputradiosettypes_.inputradiosetprops.html';
 import InputSliderAPI from '../data/tsdocsHTML/interfaces/_inputslider_inputslider_.inputsliderprops.html';
+import InputTextAPI from '../data/tsdocsHTML/interfaces/_inputtext_inputtext_.inputtextprops.html';
 import FeatureTourPanelAPI from '../data/tsdocsHTML/interfaces/_featuretourpanel_featuretourpanel_.featuretourpanelprops.html';
 import LinkTextAPI from '../data/tsdocsHTML/interfaces/_linktext_linktext_.linktextprops.html';
 import LoaderCircularAPI from '../data/tsdocsHTML/interfaces/_loadercircular_loadercircular_.loadercircularprops.html';
@@ -70,6 +72,9 @@ const tsPatternAPIList = {
     FeatureTourPanel: {
         data: FeatureTourPanelAPI,
     },
+    FieldSet: {
+        data: FieldSetAPI,
+    },
     Grid: {
         data: GridAPI
     },
@@ -81,6 +86,9 @@ const tsPatternAPIList = {
     },
     InputText: {
         data: InputTextAPI,
+    },
+    InputRadioSet: {
+        data: InputRadioSetAPI,
     },
     InputSlider: {
         data: InputSliderAPI,

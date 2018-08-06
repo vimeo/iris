@@ -31,8 +31,6 @@ export { default as ButtonLoadingState } from './ButtonLoadingState';
 
 export { default as ButtonToggleState } from './ButtonToggleState';
 
-export { default as FieldSet } from './FieldSet';
-
 export { default as FocusBloop } from './FocusBloop';
 
 export { default as InputCheckbox } from './InputCheckbox';
@@ -50,8 +48,6 @@ export { default as InputMessage } from './InputMessage';
 export { default as InputMessageArea } from './InputMessageArea';
 
 export { default as InputRadio } from './InputRadio';
-
-export { default as InputRadioSet } from './InputRadioSet';
 
 export { default as InputTextFloatingLabel } from './InputTextFloatingLabel';
 
@@ -186,6 +182,12 @@ export { default as FeatureTourPanelButton } from './FeatureTourPanelButton/Feat
 
 export { default as FeatureTourPanelContent } from './FeatureTourPanelContent/FeatureTourPanelContent';
 
+export { default as FieldSet } from './FieldSet/FieldSet';
+
+export { default as FieldSetStyled } from './FieldSet/FieldSetStyled';
+
+export { default as FieldSetTypes } from './FieldSet/FieldSetTypes';
+
 export { default as Grid } from './Grid/Grid';
 
 export { default as GridStyled } from './Grid/GridStyled';
@@ -209,6 +211,10 @@ export { default as GridColVariableElement } from './GridCol/GridColVariableElem
 export { default as InputColorPicker } from './InputColorPicker/InputColorPicker';
 
 export { default as InputLabel } from './InputLabel/InputLabel';
+
+export { default as InputRadioSet } from './InputRadioSet/InputRadioSet';
+
+export { default as InputRadioSetTypes } from './InputRadioSet/InputRadioSetTypes';
 
 export { default as InputSelect } from './InputSelect/InputSelect';
 
