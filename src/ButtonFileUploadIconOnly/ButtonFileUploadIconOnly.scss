@@ -1,3 +1,150 @@
 /* @description Generates styles for the ButtonFileUploadIconOnly component */
 @import '../globals/sass/helpers-all';
-@import '../ButtonIconOnly/ButtonIconOnly';
+$ButtonIconOnly_button-size-medium: rem-calc(40);
+$ButtonIconOnly_button-size-small: rem-calc(32);
+$ButtonIconOnly_icon-size: rem-calc(20);
+
+
+.ButtonIconOnly {
+    display: inline-flex;
+
+    position: relative;
+
+    width: auto;
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    border-radius: rem-calc(3);
+    background: transparent;
+
+    transition: all #{$iris_transition-base};
+    text-align: center;
+    vertical-align: middle;
+
+    appearance: none;
+    align-items: center;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:active {
+        outline: 0;
+
+        transform: scale(0.92);
+    }
+}
+
+// spacing
+.autoSpacingHorizontal {
+    margin-left: rem-calc(2);
+
+    &:first-of-type {
+        margin-left: 0;
+    }
+}
+
+// formats
+
+.dark {
+    color: $AstroGranite;
+
+    &:hover {
+        background-color: rgba(162, 175, 184, 0.16);
+    }
+}
+
+.midDark {
+    color: $RegentGray;
+
+    &:hover {
+        color: $AstroGranite;
+        background-color: rgba(162, 175, 184, 0.16);
+    }
+}
+
+.warning {
+    color: $SunsetOrange;
+
+    &:hover {
+        color: $White;
+        background-color: $SunsetOrange;
+    }
+}
+
+.light {
+    color: $AstroGranite;
+    background-color: $White;
+
+    &:hover {
+        color: $VimeoBlue;
+    }
+}
+
+.lightWarning {
+    color: $AstroGranite;
+    background-color: $White;
+
+    :hover {
+        color: $SunsetOrange;
+    }
+}
+.lightTransparent {
+    color: $White;
+    &:hover {
+        background-color: rgba(255,255,255,0.3);
+    }
+}
+
+.alternative {
+    color: $RegentGray;
+
+    &:hover {
+        background-color: $LightGreyHoverBgColor;
+    }
+}
+
+// sizing
+.sm {
+    width: $ButtonIconOnly_button-size-small;
+    height: $ButtonIconOnly_button-size-small;
+}
+
+.md {
+    width: $ButtonIconOnly_button-size-medium;
+    height: $ButtonIconOnly_button-size-medium;
+}
+
+// icon style
+.Icon {
+    display: inline-flex;
+
+    align-items: center;
+    flex: 1;
+
+    svg {
+        width: $ButtonIconOnly_icon-size;
+        height: $ButtonIconOnly_icon-size;
+
+        flex: 1;
+    }
+
+    svg * {
+        fill: currentColor;
+    }
+}
+
+.ButtonIconOnly:disabled,
+.isDisabled {
+    color: $Porcelain;
+
+    &:hover {
+        color: $Porcelain;
+        background: inherit;
+
+        cursor: not-allowed;
+    }
+}

@@ -2,6 +2,7 @@
 import AvatarAPI from '../data/tsdocsHTML/interfaces/_avatar_avatarprops_.avatarprops.html';
 import BreadcrumbAPI from '../data/tsdocsHTML/interfaces/_breadcrumb_breadcrumb_.breadcrumbprops.html';
 import ButtonAPI from '../data/tsdocsHTML/interfaces/_button_buttonprops_.buttonprops.html';
+import ButtonIconOnlyAPI from '../data/tsdocsHTML/interfaces/_buttonicononly_buttonicononlytypes_.buttonicononlyprops.html';
 import ButtonSplitMenuAPI from '../data/tsdocsHTML/interfaces/_buttonsplitmenu_buttonsplitmenu_.buttonsplitmenuprops.html';
 import CategoryCardAPI from '../data/tsdocsHTML/interfaces/_categorycard_categorycardtypes_.categorycardprops.html';
 import CardAPI from '../data/tsdocsHTML/interfaces/_card_card_.cardprops.html';
@@ -42,6 +43,9 @@ const tsPatternAPIList = {
     },
     Button: {
         data: ButtonAPI,
+    },
+    ButtonIconOnly: {
+        data: ButtonIconOnlyAPI,
     },
     ButtonSplitMenu: {
         data: ButtonSplitMenuAPI,
@@ -102,8 +106,8 @@ const tsPatternAPIList = {
     },
     LoaderCircular: {
         data: LoaderCircularAPI,
-    },
     MenuPanel: {
+    },
         data: MenuPanelAPI,
     },
     MenuPanelList: {

@@ -25,19 +25,13 @@ const ButtonIconOnlyDocs = (props) => {
                 />
                 <ButtonIconOnly
                     icon={<DownloadIcon title="Download" />}
-                    format="dark"
+                    format="primary"
                     size="sm"
                     onClick={clickHandler}
                 />
 
                 <ButtonIconOnly
                     icon={<SettingsIcon />}
-                    format="midDark"
-                    size="md"
-                    onClick={clickHandler}
-                />
-                <ButtonIconOnly
-                    icon={<DownloadIcon title="Download" />}
                     format="midDark"
                     size="md"
                     onClick={clickHandler}
@@ -187,6 +181,14 @@ const ButtonIconOnlyDocs = (props) => {
     size="sm"
     onClick={clickHandler}
  />
+
+ // Primary
+ <ButtonIconOnly
+    icon={<DownloadIcon title="Download" />}
+    format="primary"
+    size="sm"
+    onClick={clickHandler}
+/>
 
  // MidDark
  <ButtonIconOnly

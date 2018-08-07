@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import DeleteIcon from '../icons/dismiss-x.svg';
+// $FlowFixMe
 import ButtonIconOnly from '../ButtonIconOnly';
 
 const displayName = 'ButtonDialogClose';

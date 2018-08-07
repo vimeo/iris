@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+// $FlowFixMe
 import ButtonIconOnly from '../ButtonIconOnly';
 import TooltipOverlay from '../TooltipOverlay';
 

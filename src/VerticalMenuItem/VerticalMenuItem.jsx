@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './VerticalMenuItem.scss';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';
+// $FlowFixMe
 import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
 import VerticalMenuContextualMenuPanel from '../VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel';
 import DotsMenuIcon from '../icons/dots-menu.svg';
