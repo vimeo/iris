@@ -55,10 +55,6 @@ export { default as InputToggle } from './InputToggle';
 
 export { default as InputWrapperInline } from './InputWrapperInline';
 
-export { default as List } from './List';
-
-export { default as ListItem } from './ListItem';
-
 export { default as MenuPanelScrollableWithActionArea } from './MenuPanelScrollableWithActionArea';
 
 export { default as OverflowTruncationWrapper } from './OverflowTruncationWrapper';
@@ -231,6 +227,16 @@ export { default as InputText } from './InputText/InputText';
 export { default as InputWrapper } from './InputWrapper/InputWrapper';
 
 export { default as LinkText } from './LinkText/LinkText';
+
+export { default as List } from './List/List';
+
+export { default as ListStyled } from './List/ListStyled';
+
+export { default as ListTypes } from './List/ListTypes';
+
+export { default as ListItem } from './ListItem/ListItem';
+
+export { default as ListItemStyled } from './ListItem/ListItemStyled';
 
 export { default as LoaderCircular } from './LoaderCircular/LoaderCircular';
 

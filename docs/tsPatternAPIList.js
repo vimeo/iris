@@ -14,6 +14,7 @@ import FieldSetAPI from '../data/tsdocsHTML/interfaces/_fieldset_fieldsettypes_.
 import GridAPI from '../data/tsdocsHTML/interfaces/_grid_gridtypes_.gridprops.html';
 import GridBlockAPI from '../data/tsdocsHTML/interfaces/_gridblock_gridblock_.gridblockprops.html';
 import GridColAPI from '../data/tsdocsHTML/interfaces/_gridcol_gridcoltypes_.gridcolprops.html';
+import ListAPI from '../data/tsdocsHTML/interfaces/_list_listtypes_.listprops.html';
 import InputColorPickerAPI from '../data/tsdocsHTML/interfaces/_inputcolorpicker_inputcolorpicker_.inputcolorpickerprops.html';
 import InputRadioSetAPI from '../data/tsdocsHTML/interfaces/_inputradioset_inputradiosettypes_.inputradiosetprops.html';
 import InputSliderAPI from '../data/tsdocsHTML/interfaces/_inputslider_inputslider_.inputsliderprops.html';
@@ -65,6 +66,9 @@ const tsPatternAPIList = {
     },
     FauxSelect: {
         data: FauxSelectAPI,
+    },
+    List: {
+        data: ListAPI
     },
     InputColorPicker: {
         data: InputColorPickerAPI,
