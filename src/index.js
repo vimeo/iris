@@ -238,6 +238,8 @@ export { default as ListStyled } from './List/ListStyled';
 
 export { default as ListTypes } from './List/ListTypes';
 
+export { default as ListVariableElement } from './List/ListVariableElement';
+
 export { default as ListItem } from './ListItem/ListItem';
 
 export { default as ListItemStyled } from './ListItem/ListItemStyled';

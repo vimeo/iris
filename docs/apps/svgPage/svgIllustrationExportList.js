@@ -12,6 +12,8 @@
   
  exports.AlbumsEmptystate = require('../../../src/illustrations/albums-emptystate.svg');
   
+ exports.SearchEmptystate = require('../../../src/illustrations/search-emptystate.svg');
+  
  exports.StaffPicksBadgeJustSp = require('../../../src/illustrations/staff-picks-badge-just-sp.svg');
   
  exports.VimeoBusinessBlueBoxLogo = require('../../../src/illustrations/vimeo-business-blue-box-logo.svg');
