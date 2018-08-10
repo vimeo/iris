@@ -38,6 +38,7 @@ const Button: React.SFC<ButtonProps> = ({
             autoMargins={autoMargins}
             autoWidth={autoWidth}
             format={format}
+            hasFeaturedIcon={ iconLocation === 'featuredLeft' }
             isButtonElement={isButtonElement}
             isInline={isInline}
             size={size}

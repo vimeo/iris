@@ -1,12 +1,13 @@
 import React from 'react';
 import TypeBase from './TypeBase';
-import { TypeProps } from './TypeHelpers';
+import { TypeProps } from './TypeTypes';
+import { Omit } from '../globals/js/type-helpers';
 
 const ParagraphAltXs = ({
     element='p',
     format = 'alternative',
     ...filteredProps
-}: TypeProps) => {
+}: TypeProps & Omit<React.HTMLProps< HTMLParagraphElement >, 'size' > ) => {
 
     return (
         <TypeBase

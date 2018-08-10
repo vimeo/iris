@@ -6,7 +6,7 @@ import {
     InputStyleSettings,
 } from '../InputText/InputHelpers';
 
-export interface InputLabelProps extends React.HTMLProps<HTMLLabelElement> {
+export interface InputLabelProps {
     disabled?: boolean,
     element?: 'label' | 'legend',
     format?: 'negative' | 'positive' | 'neutral',
@@ -30,7 +30,7 @@ const LabelStyled = styled(Label)`
 `
 
 
-const InputLabel = (props: InputLabelProps) => {
+const InputLabel = (props: InputLabelProps & React.HTMLProps<HTMLLabelElement> & React.HTMLProps<HTMLHeadingElement>) => {
 
     // filter out props that are not meant to be passed in as an attribute from props and store the rest as "filteredProps" to be printed into the component as attrubutes in the tag (e.g. HTML attribute pass-through, event handlers)
     const {

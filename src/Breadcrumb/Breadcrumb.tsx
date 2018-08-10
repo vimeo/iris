@@ -6,6 +6,7 @@ import mediaQuery from '../globals/js/style-helpers/mediaQuery';
 //@ts-ignore
 import ChevronRight from '../icons/chevron-right.svg';
 import { ParagraphMd } from '../Type';
+import { TypeProps } from '../Type/TypeTypes';
 import COLORS from '../globals/js/constants/COLORS';
 
 export interface BreadcrumbProps {
@@ -53,7 +54,7 @@ interface CrumbWrapperProps extends React.HTMLProps<HTMLDivElement>{
 }
 
 const CrumbWrapper = styled<CrumbWrapperProps,'div'>('div')`
-    color: ${props => props.format === 'darkTheme' ? COLORS.IronHeart : COLORS.AstroGranite}
+    color: ${props => props.format === 'darkTheme' ? COLORS.IronHeart : COLORS.AstroGranite};
     display: ${props => props.showOnSmall ? 'inline-block' : 'none'};
 
     position: relative;
@@ -74,7 +75,7 @@ const CrumbWrapper = styled<CrumbWrapperProps,'div'>('div')`
     ` : ''}
 `;
 
-const CrumbLabel = styled(ParagraphMd)`
+const CrumbLabel = styled<TypeProps, any>(ParagraphMd)`
     ${truncatewithEllipsisCSS}
 `;
 
@@ -96,7 +97,7 @@ const CrumbArrowIcon = styled(ChevronRight)`
     `}
 `;
 
-const CurrentPageCrumb = styled(ParagraphMd)`
+const CurrentPageCrumb = styled<TypeProps, any>(ParagraphMd)`
     ${truncatewithEllipsisCSS}
     width: calc(50%);
     ${mediaQuery.md`

@@ -46,6 +46,10 @@ export interface ButtonProps
     size?: 'xs' | 'sm' | 'md' | 'lg' |'xl';
 }
 
+export interface ButtonStyledProps {
+    hasFeaturedIcon?: boolean;
+}
+
 export interface customFormatButton {
     defaultBackgroundColor: string,
     defaultBorderColor?: string,

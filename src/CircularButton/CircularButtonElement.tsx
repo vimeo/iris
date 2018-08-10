@@ -1,11 +1,10 @@
 import React from 'react';
-import { CircularButtonStyledProps } from './CircularButtonTypes';
-import { Omit } from '../globals/js/type-helpers';
+import { CircularButtonProps } from './CircularButtonTypes';
 
 const  CircularButtonElement = ({
     element,
     ...filteredProps
-}: CircularButtonStyledProps & Omit<React.HTMLProps<HTMLButtonElement>, 'size'>) => element === 'button'
+}: CircularButtonProps & React.HTMLProps<HTMLElement>) => element === 'button'
     ? <button {...filteredProps} />
     : <span {...filteredProps} />;
 

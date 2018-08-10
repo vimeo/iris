@@ -1,5 +1,8 @@
 import React from 'react';
-import { ButtonProps } from './ButtonProps';
+import {
+    ButtonProps,
+    ButtonStyledProps,
+} from './ButtonProps';
 
 export const ButtonVariableElement = ({
     //@ts-ignore
@@ -14,6 +17,6 @@ export const ButtonVariableElement = ({
     //@ts-ignore
     isInline, // filter out prop
     ...rest
-}: ButtonProps) => isButtonElement
+}: ButtonProps & ButtonStyledProps) => isButtonElement
     ? <button {...rest} />
     : <span {...rest} />;

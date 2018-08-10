@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { ParagraphSm } from '../Type';
-import { TypeProps } from '../Type/TypeHelpers';
+import { TypeProps } from '../Type/TypeTypes';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 import TruncatedTextWrapper from '../TruncatedTextWrapper';
 

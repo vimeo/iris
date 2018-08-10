@@ -44,7 +44,7 @@ class {{pascalCase name}} extends React.Component<any, any> {
 
         const {
             sampleProp,
-            ...filteredProps,
+            ...filteredProps
         } = this.props;
 
         return (

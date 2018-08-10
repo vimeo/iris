@@ -1,11 +1,11 @@
 import React from 'react';
 import TypeBase from './TypeBase';
-import  { TypeProps } from './TypeHelpers';
+import  { TypeProps } from './TypeTypes';
 
 const ParagraphLg = ({
     element="p",
     format="dark",
-    ...filteredProps,
+    ...filteredProps
 }: TypeProps) => {
 
     return(

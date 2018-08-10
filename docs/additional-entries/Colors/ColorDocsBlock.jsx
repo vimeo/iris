@@ -9,7 +9,7 @@ type Props = {
 const ColorDocsBlock = ({
                 colorValue,
                 colorName,
-                ...filteredProps,
+                ...filteredProps
                 }: Props): React$Element<*> => {
 
             return (

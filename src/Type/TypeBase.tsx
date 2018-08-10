@@ -3,25 +3,14 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import COLORS from '../globals/js/constants/COLORS';
-import { getUnitlessLineHeight, TypeProps } from './TypeHelpers';
+import {
+    TypeProps,
+    StyledTypeElementProps,
+} from './TypeTypes';
+import { getUnitlessLineHeight} from './TypeHelpers';
+import { Omit } from '../globals/js/type-helpers';
+import { TypeVariableElement } from './TypeVariableElement';
 
-export interface StyledTypeElementProps extends TypeProps {
-    fontStack?: 'regular' | 'light';
-    noMargin?: boolean;
-    size:
-        | 'xs'
-        | 'sm'
-        | 'md'
-        | 'lg'
-        | 'stat'
-        | 'h1'
-        | 'h2'
-        | 'h3'
-        | 'h4'
-        | 'h5'
-        | 'h6'
-        | 'headerSm';
-}
 
 export const TypeBaseStyleSettings = {
     fontFamily: {
@@ -123,21 +112,7 @@ export const TypeBaseStyleSettings = {
     },
 };
 
-const TypeElement = ({
-    element, // filter out from styled component
-    //@ts-ignore
-    fontStack, // filter out from styled component
-    //@ts-ignore
-    noMargin,
-    ref: _, // filter out ref from styled component
-    ...filteredProps
-}: StyledTypeElementProps) => {
-    const Element = element || 'p';
-
-    return <Element {...filteredProps} />;
-};
-
-const StyledElement = styled(TypeElement)`
+const StyledElement = styled< StyledTypeElementProps & TypeProps , any >(TypeVariableElement)`
     font-size: ${props => rem(TypeBaseStyleSettings.fontSize[props.size])};
     font-family: ${props =>
         props.fontStack
@@ -168,7 +143,7 @@ const StyledElement = styled(TypeElement)`
     }
 `;
 
-const TypeBase = ({ ref: _, ...filteredProps }: StyledTypeElementProps) => {
+const TypeBase = ({ ref: _, ...filteredProps }: StyledTypeElementProps & TypeProps & Omit< React.HTMLProps<HTMLElement> , 'size'>) => {
     return <StyledElement {...filteredProps} />;
 };
 export default TypeBase;

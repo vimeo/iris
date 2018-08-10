@@ -87,7 +87,7 @@ const ColorButtonStyled = styled<HTMLButtonElement, any>('button')`
     }
 `;
 
-const InputStyled = styled(InputText)`
+const InputStyled = styled<InputTextProps, any>(InputText)`
     padding-left: ${rem(37)};
 `;
 

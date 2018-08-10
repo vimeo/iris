@@ -42,7 +42,7 @@ const HeaderWrapperStyled = styled.div`
     padding-right: ${rem(24)};
 `;
 
-const FeatureTourPanelContentStyled = styled('div')`
+const FeatureTourPanelContentStyled = styled<React.HTMLProps< HTMLDivElement >, 'div'>('div')`
     padding: ${rem(24) + ' ' + rem(24) + ' ' + rem(16)};
     border-radius: ${rem(5)};
     background: ${COLORS.DarkerBlue};
@@ -70,8 +70,9 @@ const FeatureTourPanelContent = ({
     headerText,
     onDismissClick,
     dismissButtonProps,
+    ref:_,
     ...filteredProps
-}: FeatureTourPanelContentProps) => {
+}: FeatureTourPanelContentProps & React.HTMLProps< HTMLDivElement >) => {
 
     const handleClick = event => {
         if(typeof onDismissClick === 'function') {

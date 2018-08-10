@@ -88,7 +88,7 @@ const maybeAutoMargins = (props: CircularButtonStyledProps) => props.autoMargins
 
 
 
-export const CircularButtonStyled =  styled( CircularButtonElement)`
+export const CircularButtonStyled =  styled<CircularButtonStyledProps, any>(CircularButtonElement)`
     display: inline-block;
     overflow: hidden;
 

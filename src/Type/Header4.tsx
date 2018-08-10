@@ -1,12 +1,13 @@
 import React from 'react';
 import TypeBase from './TypeBase';
-import { TypeProps } from './TypeHelpers';
+import { TypeProps } from './TypeTypes';
+import { Omit } from '../globals/js/type-helpers';
 
 const Header4 = ({
     element = 'h4',
     format = 'dark',
     ...filteredProps
-}: TypeProps) => {
+}: TypeProps & Omit<React.HTMLProps< HTMLHeadingElement >, 'size' >) => {
 
     return (
         <TypeBase

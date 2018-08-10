@@ -350,6 +350,10 @@ export { default as TypeBase } from './Type/TypeBase';
 
 export { default as TypeHelpers } from './Type/TypeHelpers';
 
+export { default as TypeTypes } from './Type/TypeTypes';
+
+export { default as TypeVariableElement } from './Type/TypeVariableElement';
+
 export { default as VideoCard } from './VideoCard/VideoCard';
 
 export { default as VideoCardDecorationArea } from './VideoCard/VideoCardDecorationArea';

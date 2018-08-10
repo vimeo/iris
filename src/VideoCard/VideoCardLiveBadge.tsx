@@ -23,7 +23,7 @@ const VideoCardLiveBadgeStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
     background: ${VimeoStyleSettings.colors.uiColors.liveColor};
     border-radius: ${rem(2)};
     display: inline-flex;
-    padding: ${rem(4)} ${rem(12)};
+    padding: ${rem(4) + ' ' + rem(12)};
     position: absolute;
     bottom: ${rem(VideoCardStyleSettings.padding)};
     right: ${rem(VideoCardStyleSettings.padding)};
@@ -61,7 +61,6 @@ const LiveIconStyled = styled<React.HTMLProps<HTMLSpanElement>, 'span'>('span')`
 // ==================== VideoCardLiveBadge
 
 const VideoCardLiveBadge: React.SFC<VideoCardLiveBadge> = ({
-    ref: _,
     liveLabelString,
 }) => {
     return (

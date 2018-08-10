@@ -13,6 +13,7 @@ import {
     getHoverCSSByFormat,
     getSizeCSS,
 } from '../Button/ButtonHelpers';
+import { ButtonProps } from '../Button/ButtonProps';
 import { ButtonStyleSettings } from '../Button/ButtonStyleSettings';
 import { Omit } from '../globals/js/type-helpers';
 
@@ -69,7 +70,7 @@ const WrapperStyled = styled<ButtonStylingProps, 'div'>('div')`
 
 `;
 
-const MainButtonStyled = styled(Button)`
+const MainButtonStyled = styled<ButtonProps, any>(Button)`
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     margin-right: 0;

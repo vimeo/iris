@@ -8,7 +8,7 @@ type Props = {
 
 const ColorListing = ({
                 colorData,
-                ...filteredProps,
+                ...filteredProps
                 }: Props): React$Element<*> => {
 
         return (

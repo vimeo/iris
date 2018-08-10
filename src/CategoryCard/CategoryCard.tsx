@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ParagraphLg } from '../Type/';
+import { ParagraphLg } from '../Type';
 import { CategoryCardProps } from './CategoryCardTypes';
 import {
     CategoryCardStyled,

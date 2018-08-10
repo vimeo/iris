@@ -9,7 +9,7 @@ import {
     ProgressBarStyleSettings,
     getBarHeight,
     getBarRadius,
-} from '../ProgressBar/ProgressBarHelpers';
+} from './ProgressBarHelpers';
 
 export interface ProgressBarIndicatorProps {
     currentValue: number,
