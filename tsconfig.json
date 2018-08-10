@@ -29,5 +29,6 @@
 
     "exclude" : [
         "dist",
+        "build-styleguide",
     ]
 }
