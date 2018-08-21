@@ -1,5 +1,14 @@
 import React from 'react';
-import { Button, ButtonFocusWrapper, ParagraphMd, Header3, Header4, NotificationNeutral } from '../index';
+import {
+    Button,
+    ButtonFocusWrapper,
+    ParagraphMd,
+    Header3,
+    Header4,
+    LinkText,
+    NotificationNeutral,
+    NotificationWarning,
+} from '../index';
 import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
 import ShareIcon from '../icons/paper-plane.svg';
 import HeartIcon from '../icons/heart.svg';
@@ -123,11 +132,15 @@ class ButtonDocs extends React.Component {
                 </ExampleSource>
 
                 <Header3>Custom Format</Header3>
+                <NotificationWarning headerText="A11y Notes">
+                    <ParagraphMd>Make sure that your color choice maintains at least a <strong>3:1 contrast ratio</strong> betwen the label text and its background.</ParagraphMd>
+                    <ParagraphMd>See the <LinkText href="https://webaim.org/resources/contrastchecker/" target="_blank">WebAIM color checker</LinkText>.</ParagraphMd>
+                </NotificationWarning>
                 <ParagraphMd>For custom button color themes.</ParagraphMd>
                 <div data-code>
                     <Button
                         customFormat={{
-                            defaultBackgroundColor: '#f59753',
+                            defaultBackgroundColor: '#F16D0E',
                             defaultTextColor: '#fff',
                             hoverBackgroundColor: '#fbf1e9',
                             hoverBorderColor: '#f59753',
@@ -152,7 +165,7 @@ class ButtonDocs extends React.Component {
                     {`
 <Button
     customFormat={{
-        defaultBackgroundColor: '#f59753',
+        defaultBackgroundColor: '#F16D0E',
         defaultTextColor: '#fff',
         hoverBackgroundColor: '#fbf1e9',
         hoverBorderColor: '#f59753',
