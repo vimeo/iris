@@ -3,13 +3,13 @@ import { GridProps } from './GridTypes';
 import { GridStyled } from './GridStyled';
 
 
-const Grid = ({
+const Grid: React.SFC<GridProps> = ({
     centered = false,
     element = 'main',
     hasMaxWidth = true,
     ...filteredProps
-}: GridProps) => (
-    <GridStyled 
+}) => (
+    <GridStyled
         centered={centered}
         element={element}
         hasMaxWidth={hasMaxWidth}

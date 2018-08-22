@@ -9,11 +9,11 @@ export interface GridBlockProps {
     nowrap?: boolean;
 };
 
-const GridBlock = ({
+const GridBlock: React.SFC<GridBlockProps> = ({
     nowrap = false,
     ...filteredProps
-}: GridBlockProps) => (
-    <GridBlockStyled 
+}) => (
+    <GridBlockStyled
         nowrap={nowrap}
         {...filteredProps} />
 );

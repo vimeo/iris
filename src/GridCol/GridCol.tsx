@@ -3,11 +3,11 @@ import { GridColProps } from './GridColTypes';
 import { GridColStyled } from './GridColStyled';
 
 
-const GridCol = ({
+const GridCol: React.SFC<GridColProps> = ({
     columnElement = 'div',
-    xsSpan = 24, 
+    xsSpan = 24,
     ...filteredProps
-}: GridColProps) => (
+}) => (
     <GridColStyled
         columnElement={columnElement}
         xsSpan={xsSpan}
