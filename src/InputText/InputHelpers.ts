@@ -177,6 +177,7 @@ const getMaybeIconPadding = props => {
 
 // @ts-ignore
 export const getInputBaseStyles = props => props && css`
+    appearance: none;
     display: inline-block;
     width: 100%;
 

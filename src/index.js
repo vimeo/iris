@@ -51,8 +51,6 @@ export { default as MenuPanelScrollableWithActionArea } from './MenuPanelScrolla
 
 export { default as OverflowTruncationWrapper } from './OverflowTruncationWrapper';
 
-export { default as SearchField } from './SearchField';
-
 export { default as SlideUpDown } from './SlideUpDown';
 
 export { default as TabContentPanel } from './TabContentPanel';
@@ -309,6 +307,10 @@ export { default as ProgressBar } from './ProgressBar/ProgressBar';
 export { default as ProgressBarHelpers } from './ProgressBar/ProgressBarHelpers';
 
 export { default as ProgressBarIndicator } from './ProgressBar/ProgressBarIndicator';
+
+export { default as SearchField } from './SearchField/SearchField';
+
+export { default as SearchFieldTypes } from './SearchField/SearchFieldTypes';
 
 export { default as SegmentedButton } from './SegmentedButton/SegmentedButton';
 

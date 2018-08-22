@@ -19,9 +19,7 @@ class SearchFieldDocs extends React.Component {
                         <SearchField
                             buttonFormat="neutral"
                             buttonLabel="submit"
-                            buttonProps= {{
-                                'data-foo': 'bar',
-                            }}
+                            buttonProps={{ 'data-foo': 'bar' }}
                             fieldLabel="Search"
                             id="exampleSearchField1"
                             placeholder="Search our videos"
@@ -41,9 +39,7 @@ class SearchFieldDocs extends React.Component {
                     <div style={{ marginBottom: '1.25em' }}>
                         <SearchField
                             buttonLabel="submit"
-                            buttonProps= {{
-                                'data-foo': 'bar',
-                            }}
+                            buttonProps={{ 'data-foo': 'bar' }}
                             fieldLabel="Search"
                             id="exampleSearchField3"
                             placeholder="Search our videos"
@@ -63,9 +59,7 @@ class SearchFieldDocs extends React.Component {
                         <SearchField
                             buttonFormat="strong"
                             buttonLabel="submit"
-                            buttonProps= {{
-                                'data-foo': 'bar',
-                            }}
+                            buttonProps={{ 'data-foo': 'bar' }}
                             fieldLabel="Search"
                             id="exampleSearchField5"
                             placeholder="Search our videos"
@@ -89,15 +83,14 @@ class SearchFieldDocs extends React.Component {
 <SearchField
     buttonFormat="neutral"
     buttonLabel="submit"
-    buttonProps= {{
-        'data-foo': 'bar',
-    }}
+    buttonProps={{'data-foo': 'bar'}}
     fieldLabel="Search"
     id="exampleSearchField1"
     placeholder="Search our videos"
     size="md"
 />
-    <SearchField
+
+<SearchField
     buttonFormat="neutral"
     buttonLabel="submit"
     fieldLabel="Search"
@@ -105,35 +98,35 @@ class SearchFieldDocs extends React.Component {
     placeholder="Search our videos"
     size="lg"
 />
+
 <SearchField
     buttonLabel="submit"
-    buttonProps= {{
-        'data-foo': 'bar',
-    }}
+    buttonProps={{'data-foo': 'bar'}}
     fieldLabel="Search"
     id="exampleSearchField3"
     placeholder="Search our videos"
     size="md"
 />
-    <SearchField
+
+<SearchField
     buttonLabel="submit"
     fieldLabel="Search"
     id="exampleSearchField4"
     placeholder="Search our videos"
     size="lg"
 />
-    <SearchField
+
+<SearchField
     buttonFormat="strong"
     buttonLabel="submit"
-    buttonProps= {{
-        'data-foo': 'bar',
-    }}
+    buttonProps={{'data-foo': 'bar'}}
     fieldLabel="Search"
     id="exampleSearchField5"
     placeholder="Search our videos"
     size="md"
 />
-    <SearchField
+
+<SearchField
     buttonFormat="strong"
     buttonLabel="submit"
     fieldLabel="Search"

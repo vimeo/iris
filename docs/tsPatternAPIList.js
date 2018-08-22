@@ -31,6 +31,7 @@ import MenuPanelListAPI from '../data/tsdocsHTML/interfaces/_menupanellist_menup
 import ModalAPI from '../data/tsdocsHTML/interfaces/_modal_modal_.modalprops.html';
 import ModalFeatureUpdateAPI from '../data/tsdocsHTML/interfaces/_modalfeatureupdate_modalfeatureupdate_.modalfeatureupdateprops.html';
 import ProgressBarAPI from '../data/tsdocsHTML/interfaces/_progressbar_progressbar_.progressbarprops.html';
+import SearchFieldAPI from '../data/tsdocsHTML/interfaces/_searchfield_searchfieldtypes_.searchfieldprops.html';
 import SegmentedButtonSetAPI from '../data/tsdocsHTML/interfaces/_segmentedbuttonset_segmentedbuttonsettypes_.segmentedbuttonsetprops.html';
 import SteppedContentSliderAPI from '../data/tsdocsHTML/interfaces/_steppedcontentslider_steppedcontentslider_.steppedcontentsliderprops.html';
 import TagAPI from '../data/tsdocsHTML/interfaces/_tag_tag_.tagprops.html';
@@ -133,6 +134,9 @@ const tsPatternAPIList = {
     },
     ProgressBar: {
         data: ProgressBarAPI,
+    },
+    SearchField: {
+        data: SearchFieldAPI
     },
     SegmentedButtonSet: {
         data: SegmentedButtonSetAPI,
