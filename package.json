@@ -71,7 +71,7 @@
         "require-dir": "^0.3.1",
         "run-sequence": "^1.2.2",
         "sass-loader": "^6.0.6",
-        "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#3.0.7",
+        "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#3.1.0",
         "style-loader": "^0.13.1",
         "styled-components": "3.2.5",
         "ts-loader": "^3.5.0",
