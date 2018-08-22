@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC, HTMLProps } from 'react';
 import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
 
 import { Header5 } from '../Type';
@@ -27,18 +27,24 @@ const dismissElement =
             />
         </div>;
 
-const Notification: React.SFC<NotificationBaseProps> = ({
+const Notification: SFC <
+    NotificationBaseProps &
+    HTMLProps<HTMLDivElement>
+> = ({
     children,
     dismissButtonClassName,
     headerText,
     icon,
     onDismiss,
     variant,
-}) => 
+    ref: _,
+    ...filteredProps
+}) => (
     <NotificationStyled
         icon={icon}
         headerText={headerText}
         variant={variant}
+        {...filteredProps}
     >
         {iconElement(icon)}
         {headerTextElement(headerText)}
@@ -46,6 +52,7 @@ const Notification: React.SFC<NotificationBaseProps> = ({
         {children}
 
         {dismissElement(dismissButtonClassName, onDismiss)}
-    </NotificationStyled>;
+    </NotificationStyled>
+);
 
 export default Notification;

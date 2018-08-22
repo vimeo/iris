@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { SFC, HTMLProps } from 'react';
 import Notification from '../Notification/Notification';
 import { NotificationProps } from '../Notification/NotificationProps';
 // @ts-ignore
 import SuccessIcon from '../icons/checkmark.svg';
 
 
-const NotificationSuccess: React.SFC<NotificationProps> = ({
+const NotificationSuccess: SFC <
+    NotificationProps &
+    HTMLProps<HTMLDivElement>
+> = ({
     children,
     hasIcon = true,
     ...filteredProps

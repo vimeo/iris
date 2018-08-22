@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { SFC, HTMLProps } from 'react';
 import Notification from '../Notification/Notification';
 import { NotificationProps } from '../Notification/NotificationProps';
 // @ts-ignore
 import InfoIcon from '../icons/circle-info.svg';
 
 
-const NotificationNeutral: React.SFC<NotificationProps> = ({
+const NotificationNeutral: SFC <
+    NotificationProps &
+    HTMLProps<HTMLDivElement>
+> = ({
     children,
     hasIcon = true,
     ...filteredProps

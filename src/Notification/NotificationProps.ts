@@ -1,20 +1,18 @@
 import React from 'react';
 
 
-export interface NotificationSharedProps extends
-    React.HTMLProps<HTMLDivElement> {
-        headerText?: string
-        dismissButtonClassName?: string,
-        onDismiss?: () => void
-}
-
-export interface NotificationBaseProps extends
-    NotificationSharedProps {
-        icon?: React.ReactNode,
-        variant: "neutral" | "success" | "warning";
+export interface NotificationBaseProps {
+    hasIcon?: boolean;
+    headerText?: string;
+    dismissButtonClassName?: string;
+    onDismiss?: () => void;
+    icon?: React.ReactNode;
+    variant: "neutral" | "success" | "warning";
 };
 
-export interface NotificationProps extends
-    NotificationSharedProps {
-        hasIcon?: boolean
+export interface NotificationProps {
+    hasIcon?: boolean;
+    headerText?: string;
+    dismissButtonClassName?: string;
+    onDismiss?: () => void;
 };
