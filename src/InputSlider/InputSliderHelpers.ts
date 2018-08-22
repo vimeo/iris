@@ -27,8 +27,8 @@ const InputSliderStyleSettings = {
             )`,
             labelColor: COLORS.White,
             labelFocusedColor: COLORS.AstroGranite,
-            labelHoverBackground: COLORS.AshenWinter,
-            labelBackground: COLORS.ObsidianState,
+            labelHoverBackground: COLORS.IronHeart,
+            labelBackground: COLORS.SovereignShadow,
         },
         light: {
             inRangeColor: COLORS.VimeoBlue,

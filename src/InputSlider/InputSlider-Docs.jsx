@@ -29,7 +29,7 @@ class InputSliderDocs extends React.Component {
                     Range Slider helps in selecting two values as start and end
                     values from a given range.
                 </ParagraphMd>
-                <div className="Pattern-DarkBlock">
+                <div className="Pattern-DarkBlock" style={{ background: '#1f1f1f' }}>
                     <div data-code>
                         <InputSlider />
                     </div>
@@ -40,7 +40,7 @@ class InputSliderDocs extends React.Component {
     <InputSlider/>
                     `}
                 </ExampleSource>
-                <div className="Pattern-DarkBlock">
+                <div className="Pattern-DarkBlock" style={{ background: '#1f1f1f' }}>
                     <div data-code>
                         <InputSlider
                             minValue={60}
@@ -54,7 +54,7 @@ class InputSliderDocs extends React.Component {
                 <ParagraphMd>
                     Slider can be disabled on passing disabled props as true
                 </ParagraphMd>
-                <div className="Pattern-DarkBlock">
+                <div className="Pattern-DarkBlock" style={{ background: '#1f1f1f' }}>
                     <div data-code>
                         <InputSlider disabled={true} />
                     </div>
@@ -65,7 +65,7 @@ class InputSliderDocs extends React.Component {
     <InputSlider disabled={true}/>
                     `}
                 </ExampleSource>
-                <div className="Pattern-DarkBlock">
+                <div className="Pattern-DarkBlock" style={{ background: '#1f1f1f' }}>
                     <div data-code>
                     <InputSlider minValue={60} maxValue={200} initialMinValue={130} initialMaxValue={195} gap={10} />
                     </div>
@@ -81,7 +81,7 @@ class InputSliderDocs extends React.Component {
                     <code>valueFormatter</code> in case values displayed needs
                     to be formatted.
                 </ParagraphMd>
-                <div className="Pattern-DarkBlock">
+                <div className="Pattern-DarkBlock" style={{ background: '#1f1f1f' }}>
                     <div data-code>
                         <InputSlider
                             minValue={this.minValue}
@@ -107,7 +107,7 @@ class InputSliderDocs extends React.Component {
                     Passing <code>editableLabel</code> as true, allows editing
                     the labels
                 </ParagraphMd>
-                <div className="Pattern-DarkBlock">
+                <div className="Pattern-DarkBlock" style={{ background: '#1f1f1f' }}>
                     <div data-code>
                         <InputSlider
                             minValue={0}

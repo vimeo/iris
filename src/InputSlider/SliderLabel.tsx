@@ -26,6 +26,10 @@ const LabelWrapper = styled<LabelWrapperStyledProps, 'div'>('div')`
     padding: ${props => (props.isDisabled ? 0 : rem(2))};
     border-radius: ${rem(3)};
     margin-top: ${props => (props.isDisabled ? rem(2) : 0)};
+
+    box-shadow: ${props => props.format === 'dark'
+        ? `0 0 ${rem(10)} 0 rgba(0, 0, 0, 0.3334);`
+        : `0 0 ${rem(4)} 0 rgba(0, 0, 0, 0.1667);`}
 `;
 const LabelStyled = styled.label`
     width: 100%;
@@ -50,11 +54,6 @@ const commonLabelStyles = props => {
 
 const LabelValueStyled = styled<LabelWrapperStyledProps, 'label'>('label')`
     ${props => commonLabelStyles(props)};
-    border: ${rem(1)} solid
-        ${props =>
-            props.format === 'dark'
-                ? rgba(COLORS.Black, 0.8)
-                : COLORS.Porcelain};
 `;
 
 const LabelInputStyled = styled<LabelWrapperStyledProps, 'input'>('input')`
