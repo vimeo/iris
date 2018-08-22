@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { rem } from 'polished';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
@@ -118,7 +118,7 @@ const HoverOverlayStyled = styled('div')`
 
 // ==================== VideoCardThumbnailArea
 
-const VideoCardThumbnailArea: React.SFC<VideoCardThumbnailAreaProps> = ({
+const VideoCardThumbnailArea: SFC<VideoCardThumbnailAreaProps> = ({
     checkboxA11yLabel,
     isGroup,
     isHovered,

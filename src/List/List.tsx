@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { SFC, HTMLProps } from 'react';
 import { ListProps } from './ListTypes';
 import { ListStyled } from './ListStyled';
 import { ParagraphMd } from '../Type';
 
 
-const List: React.SFC<ListProps & React.HTMLProps< HTMLOListElement > > = ({
+const List: SFC <
+    ListProps &
+    HTMLProps<HTMLOListElement>
+> = ({
     format = 'unordered',
     children,
     ref:_,
     ...filteredProps
-}) =>  (
+}) => (
     <ListStyled
         {...filteredProps}
         format={format}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
@@ -38,11 +38,11 @@ const IconStyled = styled('div')`
 
 // ==================== VideoCardContextArea
 
-const VideoCardContextInfoArea = ({
+const VideoCardContextInfoArea: SFC<VideoCardContextInfoAreaProps> = ({
     contextAttributionHeader,
     contextSubHeaderIcon,
     ...filteredProps
-}: VideoCardContextInfoAreaProps) => {
+}) => {
     const suppressClickPropagation = e => {
         e.stopPropagation();
     };

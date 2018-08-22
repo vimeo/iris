@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import Card from '../Card';
@@ -8,6 +8,7 @@ import VideoCardLoadingState from './VideoCardLoadingState';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 import LoaderCircular from '../LoaderCircular';
 import { Omit } from '../globals/js/type-helpers';
+
 export interface VideoCardThumbnailData {
     /**
      * Alt Text for Thumbnail, probably the video title. **Required** for single video cards, can be excluded for group cards.
@@ -208,15 +209,19 @@ const ProcessingOverlayStyled = styled('div')`
 `;
 
 // ==================== VideoCard
-class VideoCard extends React.Component<VideoCardProps, any> {
+class VideoCard extends Component <
+    VideoCardProps, 
+    VideoCardState
+> {
+    props: VideoCardProps;
+    state: VideoCardState;
+    
     constructor(props: VideoCardProps) {
         super(props);
         this.state = {
             isHovered: false,
         };
     }
-    state: VideoCardState;
-    props: VideoCardProps;
 
     _handleClick = e => {
         if (typeof this.props.onCardClick === 'function') {

@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { ChromePicker } from 'react-color';
-import InputText, {InputTextProps} from '../InputText/InputText';
+import InputText, { InputTextProps } from '../InputText/InputText';
+import { InputProps } from '../InputText/InputHelpers'
 import MenuPanel from '../MenuPanel/MenuPanel';
 import { COLORS, KEY_CODES } from '../globals/js/constants';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
@@ -41,7 +42,10 @@ export interface InputColorPickerProps {
     id: string;
 };
 
-export interface InputColorPickerCombinedProps extends InputColorPickerProps,Omit<InputTextProps, 'label'>{};
+export type InputColorPickerCombinedProps =
+    InputColorPickerProps &
+    InputProps &
+    Omit<React.HTMLProps<HTMLInputElement>, 'label' | 'size' | 'id'>;
 
 export interface InputColorPickerState {
     currentColor?: string;
@@ -115,7 +119,10 @@ const ResetButtonStyled = styled<ResetButtonStyledStyledProps, any>('a')`
     }
 `;
 
-class InputColorPicker extends React.Component {
+class InputColorPicker extends React.Component <
+    InputColorPickerCombinedProps,
+    InputColorPickerState
+> {
     static defaultProps = {
         defaultColor: defaultColorValue,
     };

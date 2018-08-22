@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { getSliderThemeColors } from './InputSliderHelpers';
 import { rem, rgba } from 'polished';
@@ -76,7 +76,7 @@ const LabelInputStyled = styled<LabelWrapperStyledProps, 'input'>('input')`
     }
 `;
 
-const SliderLabel: React.SFC<SliderLabelProps> = ({
+const SliderLabel: SFC<SliderLabelProps> = ({
     editable,
     value,
     id,

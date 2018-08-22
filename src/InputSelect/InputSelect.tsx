@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { Omit } from '../globals/js/type-helpers';
@@ -42,7 +42,7 @@ const StyledSelect = styled<StyledSelectProps, 'select'>('select')`
     }
 `;
 
-const InputSelect = ({
+const InputSelect: SFC<InputSelectProps> = ({
     children,
     disabled,
     errorMsg,
@@ -58,7 +58,7 @@ const InputSelect = ({
     theme = 'default',
     ref: _,
     ...filteredProps
-}: InputSelectProps) => {
+}) => {
 
     const isNegative = format === 'negative';
     const ariaInvalid = isNegative;
@@ -80,33 +80,33 @@ const InputSelect = ({
     }): [];
 
     return (
-            <SelectWrapper
+        <SelectWrapper
+            disabled={disabled}
+            errorMsg= {errorMsg}
+            format={format}
+            helperMsg={helperMsg}
+            icon={icon}
+            id={id}
+            isInline={isInline}
+            label={label}
+            showLabel={showLabel}
+            size={size}
+            theme={theme}
+        >
+            <StyledSelect
+                {...filteredProps}
+                aria-label={ariaLabel}
+                aria-invalid={ariaInvalid}
+                children={optionList.length ? optionList : children}
                 disabled={disabled}
-                errorMsg= {errorMsg}
-                format={format}
-                helperMsg={helperMsg}
-                icon={icon}
+                hasIcon={hasStateIcon}
+                hasInlineIcon={icon ? true : false}
                 id={id}
-                isInline={isInline}
-                label={label}
-                showLabel={showLabel}
-                size={size}
-                theme={theme}
-            >
-                    <StyledSelect
-                        {...filteredProps}
-                        aria-label={ariaLabel}
-                        aria-invalid={ariaInvalid}
-                        children={optionList.length ? optionList : children}
-                        disabled={disabled}
-                        hasIcon={hasStateIcon}
-                        hasInlineIcon={icon ? true : false}
-                        id={id}
-                        format={format}
-                        inputSize={size}
-                        theme={theme === 'dark' ? theme : 'light'}
-                    />
-            </SelectWrapper>
+                format={format}
+                inputSize={size}
+                theme={theme === 'dark' ? theme : 'light'}
+            />
+        </SelectWrapper>
     );
 };
 

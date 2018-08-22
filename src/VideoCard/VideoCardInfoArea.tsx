@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import COLORS from '../globals/js/constants/COLORS';
 import { rem } from 'polished';
@@ -98,7 +98,7 @@ export interface TitleHeaderStyledProps
 
 // ==================== VideoCardInfoArea
 
-const VideoCardInfoArea: React.SFC<VideoCardInfoAreaProps> = ({
+const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
     isPrivate,
     privacyDescription,
     size,

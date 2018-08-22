@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { GridColProps } from './GridColTypes';
 import { GridColStyled } from './GridColStyled';
 
 
-const GridCol: React.SFC<GridColProps> = ({
+const GridCol: SFC<GridColProps> = ({
     columnElement = 'div',
     xsSpan = 24,
     ...filteredProps
@@ -11,7 +11,8 @@ const GridCol: React.SFC<GridColProps> = ({
     <GridColStyled
         columnElement={columnElement}
         xsSpan={xsSpan}
-        {...filteredProps} />
+        {...filteredProps}
+    />
 );
 
 export default GridCol;

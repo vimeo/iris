@@ -12,12 +12,13 @@ const NotificationWarning: SFC <
     children,
     hasIcon = true,
     ...filteredProps
-}) =>
+}) => (
     <Notification
         icon={hasIcon ? <WarningIcon /> : null}
         variant="warning"
         {...filteredProps}>
         {children}
-    </Notification>;
+    </Notification>
+);
 
 export default NotificationWarning;

@@ -12,12 +12,13 @@ const NotificationSuccess: SFC <
     children,
     hasIcon = true,
     ...filteredProps
-}) =>
+}) => (
     <Notification
         icon={hasIcon ? <SuccessIcon /> : null}
         variant="success"
         {...filteredProps}>
         {children}
-    </Notification>;
+    </Notification>
+);
 
 export default NotificationSuccess;

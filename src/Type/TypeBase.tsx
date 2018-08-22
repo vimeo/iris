@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
@@ -143,7 +143,15 @@ const StyledElement = styled< StyledTypeElementProps & TypeProps , any >(TypeVar
     }
 `;
 
-const TypeBase = ({ ref: _, ...filteredProps }: StyledTypeElementProps & TypeProps & Omit< React.HTMLProps<HTMLElement> , 'size'>) => {
-    return <StyledElement {...filteredProps} />;
-};
+const TypeBase: SFC <
+    StyledTypeElementProps &
+    TypeProps & 
+    Omit<React.HTMLProps<HTMLElement>, 'size'>
+> = ({
+    ref: _,
+    ...filteredProps
+}) => (
+    <StyledElement {...filteredProps} />
+);
+
 export default TypeBase;

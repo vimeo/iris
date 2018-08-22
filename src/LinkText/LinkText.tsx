@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import COLORS from '../globals/js/constants/COLORS';
 
-export interface LinkTextProps extends React.HTMLProps<HTMLAnchorElement> {
+export interface LinkTextProps {
     /**
      * The element that should be rendered. Defaults to "a".
      */
@@ -145,7 +145,10 @@ const LinkTextStyled = styled<LinkTextProps, 'span'>('span')`
     `;
 
 
-const LinkText = ({
+const LinkText: SFC <
+    LinkTextProps &
+    React.HTMLProps<HTMLAnchorElement>
+> = ({
     children,
     decoration,
     element = 'a',
@@ -153,7 +156,7 @@ const LinkText = ({
     href,
     ref: _,
     ...filteredProps
-}: LinkTextProps) => {
+}) => {
 
     const maybeAnchorTag = element === 'a' ? (
         <AnchorStyled

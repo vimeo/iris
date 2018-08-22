@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import {VideoCardStyleSettings} from './VideoCardHelpers';
@@ -30,7 +30,7 @@ const PropertyCellStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')
 
 // ==================== VideoCardPropertiesArea
 
-const VideoCardPropertiesArea: React.SFC<VideoCardPropertiesAreaProps> = ({
+const VideoCardPropertiesArea: SFC<VideoCardPropertiesAreaProps> = ({
     isHovered,
     properties,
     ref: _, // filter out ref from styled component

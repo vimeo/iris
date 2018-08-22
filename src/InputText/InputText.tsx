@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC, HTMLProps } from 'react';
 import styled  from 'styled-components';
 import InputWrapper from '../InputWrapper/InputWrapper';
 import {
@@ -10,7 +10,7 @@ import {
 import { Omit } from '../globals/js/type-helpers';
 
 
-export interface InputTextProps extends InputProps, Omit<React.HTMLProps<HTMLInputElement>, 'label' | 'size' | 'id'> {
+export interface InputTextProps {
     inlineButton?: React.ReactNode,
     type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' |'url',
 };
@@ -27,7 +27,11 @@ const InputStyled = styled<InputTextStyledProps, 'input'>('input')`
     }
 `
 
-const InputText:React.SFC<InputTextProps>  = ({
+const InputText: SFC <
+    InputTextProps & 
+    InputProps &
+    Omit<HTMLProps<HTMLInputElement>, 'label' | 'size' | 'id'>
+>  = ({
     disabled,
     errorMsg,
     format = 'neutral',

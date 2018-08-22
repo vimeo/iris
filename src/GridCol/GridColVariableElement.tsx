@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { GridColProps } from './GridColTypes';
 
 
-export const GridColVariableElement = ({
+export const GridColVariableElement: SFC <
+    GridColProps &
+    React.HTMLProps<HTMLElement>
+> = ({
     columnElement,
     ...rest
-}
-    : GridColProps
-    & React.HTMLProps<HTMLElement>
-) => ({
+}) => ({
     'div': <div {...rest} />,
     'main': <main {...rest} />,
     'aside': <aside {...rest} />,

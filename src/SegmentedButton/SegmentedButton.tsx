@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC, HTMLProps } from 'react';
 import { SegmentedButtonProps } from './SegmentedButtonTypes';
 import { SegmentedButtonSetOptionProps } from '../SegmentedButtonSet/SegmentedButtonSetTypes';
 import {
@@ -7,7 +7,11 @@ import {
     OptionStyled,
 } from './SegmentedButtonStyled';
 
-const SegmentedButtonSetButton: React.SFC<SegmentedButtonProps & SegmentedButtonSetOptionProps & React.HTMLProps<HTMLDivElement> > = ({
+const SegmentedButtonSetButton: SFC <
+    SegmentedButtonProps & 
+    SegmentedButtonSetOptionProps & 
+    HTMLProps<HTMLDivElement>
+> = ({
     //@ts-ignore
     children,
     disabled,

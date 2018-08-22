@@ -12,12 +12,13 @@ const NotificationNeutral: SFC <
     children,
     hasIcon = true,
     ...filteredProps
-}) =>
+}) => (
     <Notification
         icon={hasIcon ? <InfoIcon /> : null}
         variant="neutral"
         {...filteredProps}>
         {children}
-    </Notification>;
+    </Notification>
+);
 
 export default NotificationNeutral;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { ParagraphSm } from '../Type';
@@ -79,9 +79,7 @@ const BadgeAreaStyled = styled('span')`
 `;
 // ==================== VideoCardFooterAttribution
 
-const VideoCardFooterAttribution: React.SFC<
-    VideoCardFooterAttributionProps
-> = ({
+const VideoCardFooterAttribution: SFC<VideoCardFooterAttributionProps> = ({
     attributionActionArea,
     userAvatar,
     userBadge,

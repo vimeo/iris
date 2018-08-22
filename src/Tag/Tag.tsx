@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import Button from '../Button';
 import styled from 'styled-components';
 import { rem } from 'polished';
@@ -29,16 +29,16 @@ const ButtonStyledAsTag = styled(Button)`
     }
 `;
 
-const Tag = ({
-		autoMargins,
-		autoWidth = 'xs',
-		children,
-		format = 'light',
-		isButtonElement,
-		onDismiss,
-		size = 'md',
-		...filteredProps
-	}: TagProps)=> {
+const Tag: SFC<TagProps> = ({
+    autoMargins,
+    autoWidth = 'xs',
+    children,
+    format = 'light',
+    isButtonElement,
+    onDismiss,
+    size = 'md',
+    ...filteredProps
+}) => {
 
     const handleDismiss = (e) => {
         e.preventDefault();

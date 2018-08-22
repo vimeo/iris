@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { ParagraphSm } from '../Type';
@@ -60,7 +60,7 @@ const LiveIconStyled = styled<React.HTMLProps<HTMLSpanElement>, 'span'>('span')`
 
 // ==================== VideoCardLiveBadge
 
-const VideoCardLiveBadge: React.SFC<VideoCardLiveBadge> = ({
+const VideoCardLiveBadge: SFC<VideoCardLiveBadge> = ({
     liveLabelString,
 }) => {
     return (

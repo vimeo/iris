@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { SFC } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { rem } from 'polished';
 import {
@@ -116,7 +116,7 @@ const InputFieldWrapperStyled = styled('div')`
 `;
 
 
-const InputWrapper = ({
+const InputWrapper: SFC<InputWrapperProps> = ({
     children,
     disabled,
     format = 'neutral',
@@ -131,7 +131,7 @@ const InputWrapper = ({
     size = 'md',
     theme = 'light',
     ...filteredProps
-}: InputWrapperProps) => {
+}) => {
 
     // support deprecated 'default' theme as 'light'
     const themeDefaultSupport = theme === 'default' ? 'light' : theme;

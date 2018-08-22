@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { SFC } from 'react';
 import {rem} from 'polished';
 import styled, {keyframes} from 'styled-components';
 import {Omit} from '../globals/js/type-helpers';
@@ -61,20 +61,17 @@ const LoaderCircularStyled= styled<LoaderCircularProps, 'div'>('div')`
 `;
 
 
-const LoaderCircular = ({
+const LoaderCircular: SFC<LoaderCircularProps> = ({
     format = 'dark',
     size = 'md',
     ref: _, // filter out ref from styled component
     ...filteredProps
-}: LoaderCircularProps) => {
-
-    return (
-        <LoaderCircularStyled
-            {...filteredProps}
-            format={format}
-            size={size}
-        />
-    );
-};
+}) => (
+    <LoaderCircularStyled
+        {...filteredProps}
+        format={format}
+        size={size}
+    />
+);
 
 export default LoaderCircular;

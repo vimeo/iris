@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { SFC, HTMLProps } from 'react';
 import { GridProps } from './GridTypes';
 
 
-export const GridVariableElement = ({
+export const GridVariableElement: SFC <
+    GridProps &
+    HTMLProps<HTMLElement>
+> = ({
     element,
     ...filteredProps
-}
-    : GridProps
-    & React.HTMLProps<HTMLElement>
-) => ({
+}) => ({
     'div': <div {...filteredProps} />,
     'main': <main {...filteredProps} />,
     'aside': <aside {...filteredProps} />,

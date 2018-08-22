@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import {VideoCardStyleSettings} from './VideoCardHelpers';
@@ -30,7 +30,7 @@ const BadgeCellStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
 
 // ==================== VideoCardSocialBadgeArea
 
-const VideoCardSocialBadgeArea: React.SFC<VideoCardSocialBadgeAreaProps> = ({
+const VideoCardSocialBadgeArea: SFC<VideoCardSocialBadgeAreaProps> = ({
     socialBadges,
     ref: _, // filter out ref from styled component
     ...filteredProps

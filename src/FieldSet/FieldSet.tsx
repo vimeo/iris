@@ -1,11 +1,13 @@
-// @flow
-import React from 'react';
+import React, { SFC, HTMLProps } from 'react';
 import { FieldSetProps } from './FieldSetTypes';
 import { FieldSetStyled } from './FieldSetStyled';
 import InputLabel from '../InputLabel/InputLabel';
 import InputMessageArea from '../InputMessageArea/InputMessageArea';
 
-const FieldSet: React.SFC< FieldSetProps & React.HTMLProps< HTMLFieldSetElement > >  = ({
+const FieldSet: SFC <
+    FieldSetProps &
+    HTMLProps<HTMLFieldSetElement>
+>  = ({
     children,
     errorMsg,
     format = 'neutral',
@@ -14,26 +16,24 @@ const FieldSet: React.SFC< FieldSetProps & React.HTMLProps< HTMLFieldSetElement 
     theme = 'default',
     ref:_,
     ...filteredProps
-}) => {
-    return (
-            <FieldSetStyled
-                {...filteredProps}
-            >
-                <InputLabel
-                    format={format}
-                    element="legend"
-                    theme={theme}
-                >
-                    {label}
-                </InputLabel>
-                <InputMessageArea
-                    errorMsg={errorMsg}
-                    format="sublabel"
-                    helperMsg={helperMsg}
-                />
-                {children}
-            </FieldSetStyled>
-    );
-};
+}) => (
+    <FieldSetStyled
+        {...filteredProps}
+    >
+        <InputLabel
+            format={format}
+            element="legend"
+            theme={theme}
+        >
+            {label}
+        </InputLabel>
+        <InputMessageArea
+            errorMsg={errorMsg}
+            format="sublabel"
+            helperMsg={helperMsg}
+        />
+        {children}
+    </FieldSetStyled>
+);
 
 export default FieldSet;

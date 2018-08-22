@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC, HTMLProps } from 'react';
 import styled from 'styled-components';
 import COLORS from '../globals/js/constants/COLORS';
 //@ts-ignore
@@ -17,15 +17,13 @@ const VideoCardLikeIconStyled = styled<
 
 // ==================== VideoCardDecorationArea
 
-const VideoCardLikeIcon: React.SFC<React.HTMLProps<HTMLSpanElement>> = ({
+const VideoCardLikeIcon: SFC<HTMLProps<HTMLSpanElement>> = ({
     ref: _, // filter out ref from styled component
     ...filteredProps
-}) => {
-    return (
-        <VideoCardLikeIconStyled {...filteredProps}>
-            <HeartIcon />
-        </VideoCardLikeIconStyled>
-    );
-};
+}) => (
+    <VideoCardLikeIconStyled {...filteredProps}>
+        <HeartIcon />
+    </VideoCardLikeIconStyled>
+);
 
 export default VideoCardLikeIcon;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 
 import { ButtonProps } from './ButtonProps';
 import { ButtonStyled, ButtonLabelStyled } from './ButtonStyled';
@@ -6,7 +6,7 @@ import { ButtonFocusBloop } from './ButtonFocusBloop';
 import ButtonIconElement from './ButtonIconElement';
 
 
-const Button: React.SFC<ButtonProps> = ({
+const Button: SFC<ButtonProps> = ({
     autoMargins = true,
     autoWidth = 'sm',
     children,

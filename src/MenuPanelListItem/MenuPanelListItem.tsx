@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { MenuPanelListItemProps } from './MenuPanelListItemTypes';
 import {
     LabelStyled,
@@ -9,15 +9,15 @@ import {
 } from './MenuPanelListItemStyled';
 import {ParagraphMd} from '../Type';
 
-const MenuPanelListItem = ({
-        theme = 'light',
-        label,
-        href = '#',
-        linkElement,
-        icon,
-        isSelected,
-        ...menuItemProps
-    }: MenuPanelListItemProps) => {
+const MenuPanelListItem: SFC<MenuPanelListItemProps> = ({
+    theme = 'light',
+    label,
+    href = '#',
+    linkElement,
+    icon,
+    isSelected,
+    ...menuItemProps
+}) => {
 
     const linkIconElement = icon ? (
         <LinkIconWrapperStyled

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { GridBlockStyled } from './GridBlockStyled';
 
 
@@ -9,13 +9,14 @@ export interface GridBlockProps {
     nowrap?: boolean;
 };
 
-const GridBlock: React.SFC<GridBlockProps> = ({
+const GridBlock: SFC<GridBlockProps> = ({
     nowrap = false,
     ...filteredProps
 }) => (
     <GridBlockStyled
         nowrap={nowrap}
-        {...filteredProps} />
+        {...filteredProps}
+    />
 );
 
 export default GridBlock;

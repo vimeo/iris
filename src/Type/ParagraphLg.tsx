@@ -1,21 +1,18 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import TypeBase from './TypeBase';
 import  { TypeProps } from './TypeTypes';
 
-const ParagraphLg = ({
-    element="p",
+const ParagraphLg: SFC<TypeProps> = ({
+    element='p',
     format="dark",
     ...filteredProps
-}: TypeProps) => {
-
-    return(
-        <TypeBase
-            element={element}
-            size='lg'
-            format={format}
-            {...filteredProps}
-        />
-    )
-}
+}) => (
+    <TypeBase
+        element={element}
+        size='lg'
+        format={format}
+        {...filteredProps}
+    />
+);
 
 export default ParagraphLg;

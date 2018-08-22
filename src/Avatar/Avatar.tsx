@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { SFC, HTMLProps } from 'react';
+import { Omit } from '../globals/js/type-helpers';
 
 import { AvatarProps } from './AvatarProps';
 import { AvatarStyled } from './AvatarStyled';
 
 
-const Avatar = ({
+const Avatar: SFC <
+    AvatarProps &
+    Omit<HTMLProps<HTMLImageElement>, 'size'>
+> = ({
     alt,
     isInline = true,
     ref: _,
@@ -12,7 +16,7 @@ const Avatar = ({
     src,
     srcSet,
     ...filteredProps
-}: AvatarProps) =>
+}) => (
     <AvatarStyled
         alt={alt}
         isInline={isInline}
@@ -21,6 +25,7 @@ const Avatar = ({
         srcSet={srcSet}
         {...filteredProps} 
     />
+);
 
 export default Avatar;
 

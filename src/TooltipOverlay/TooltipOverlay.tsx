@@ -113,7 +113,10 @@ const transitionStyles = {
         opacity: 0,
     },
 };
-class TooltipOverlay extends React.Component {
+class TooltipOverlay extends React.Component <
+    TooltipOverlayProps,
+    TooltipOverlayState
+> {
     static defaultProps = {
         attachment: 'top',
     };
@@ -127,7 +130,6 @@ class TooltipOverlay extends React.Component {
     }
 
     state: TooltipOverlayState;
-
     props: TooltipOverlayProps;
     overlay: any;
     menu: any;

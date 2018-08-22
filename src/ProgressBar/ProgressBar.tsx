@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC, HTMLProps } from 'react';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings'
 import styled from 'styled-components';
 import {
@@ -9,7 +9,7 @@ import {
 import ProgressBarIndicator from './ProgressBarIndicator';
 import {Omit} from '../globals/js/type-helpers';
 
-export interface ProgressBarProps extends Omit<React.HTMLProps<HTMLDivElement>, 'size'>  {
+export interface ProgressBarProps {
     /**
      * Determines if the progress bar should be animated.
      */
@@ -60,29 +60,29 @@ const ProgressBarContainer = styled<ProgressBarContainerProps, 'div'>('div')`
 
 // ==================== ProgressBar
 
-const ProgressBar: React.SFC<ProgressBarProps> = ({
+const ProgressBar: SFC <
+    ProgressBarProps &
+    Omit<HTMLProps<HTMLDivElement>, 'size'>
+> = ({
     currentValue,
     format = 'neutral',
     animated,
     size = 'md',
     ref: _, // filter out ref from styled component
     ...filteredProps
-}) => {
-
-    return (
-        <ProgressBarContainer
-            formatProp={format}
+}) => (
+    <ProgressBarContainer
+        formatProp={format}
+        size={size}
+        {...filteredProps}
+    >
+        <ProgressBarIndicator
+            animated={animated}
+            currentValue={currentValue}
+            format={format}
             size={size}
-            {...filteredProps}
-        >
-            <ProgressBarIndicator
-                animated={animated}
-                currentValue={currentValue}
-                format={format}
-                size={size}
-            />
-        </ProgressBarContainer>
-    );
-};
+        />
+    </ProgressBarContainer>
+);
 
 export default ProgressBar;

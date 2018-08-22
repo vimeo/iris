@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { GridProps } from './GridTypes';
 import { GridStyled } from './GridStyled';
 
 
-const Grid: React.SFC<GridProps> = ({
+const Grid: SFC<GridProps> = ({
     centered = false,
     element = 'main',
     hasMaxWidth = true,

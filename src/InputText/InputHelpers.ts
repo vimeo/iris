@@ -15,6 +15,7 @@ import {
     rgba
 } from 'polished';
 import COLORS from '../globals/js/constants/COLORS';
+
 export interface InputProps {
     errorMsg?: React.ReactNode,
     format?: 'negative' | 'positive' | 'neutral',

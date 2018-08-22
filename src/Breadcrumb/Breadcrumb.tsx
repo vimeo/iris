@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { SFC, HTMLProps } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import mediaQuery from '../globals/js/style-helpers/mediaQuery';
@@ -27,8 +27,6 @@ export interface BreadcrumbProps {
      */
     noMargin?: boolean;
 };
-
-export interface BreadcrumbPropsCombined extends React.HTMLProps<HTMLDivElement>, BreadcrumbProps{};
 
 const BreadCrumbSetWrapper = styled.div `width: 100%;`;
 
@@ -105,14 +103,17 @@ const CurrentPageCrumb = styled<TypeProps, any>(ParagraphMd)`
     `}
 `;
 
-const Breadcrumb = ({
+const Breadcrumb: SFC <
+    BreadcrumbProps &
+    HTMLProps<HTMLDivElement>
+> = ({
     crumbs,
     currentPageLabel,
     format="lightTheme",
     noMargin,
     ref:_,
     ...filteredProps
-}: BreadcrumbPropsCombined) => {
+}) => {
 
     const crumbWidth = crumbs ? `${100 / (crumbs.length + 1)}%` : '100%';
 

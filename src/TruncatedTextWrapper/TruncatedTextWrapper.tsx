@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 
 export interface TruncatedTextWrapperProps extends React.HTMLProps<HTMLSpanElement> {
@@ -17,15 +17,13 @@ const TruncatedTextWrapperStyled = styled<TruncatedTextWrapperProps, 'span'>('sp
 
 // ==================== TruncatedTextWrapper
 
-const TruncatedTextWrapper = ({
+const TruncatedTextWrapper: SFC<TruncatedTextWrapperProps> = ({
     ref: _,
     ...props
-}: TruncatedTextWrapperProps) => {
-    return (
-        <TruncatedTextWrapperStyled
-            {...props}
-        />
-    );
-};
+}) => (
+    <TruncatedTextWrapperStyled
+        {...props}
+    />
+);
 
 export default TruncatedTextWrapper;

@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { SFC } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import Button from '../Button';
@@ -107,7 +107,7 @@ const MenuButtonStyled = styled<ButtonStylingProps, 'button'>('button') `
     ${activeAnimation}
 `;
 
-export interface ButtonSplitMenuProps extends Omit<React.HTMLProps<HTMLElement>, 'size'>  {
+export interface ButtonSplitMenuProps {
     /**
      * Text of button
     */
@@ -150,7 +150,10 @@ export interface ButtonSplitMenuProps extends Omit<React.HTMLProps<HTMLElement>,
     size?: 'sm' | 'md' | 'lg',
 };
 
-const ButtonSplitMenu = ({
+const ButtonSplitMenu: SFC <
+    ButtonSplitMenuProps &
+    Omit<React.HTMLProps<HTMLElement>, 'size'>
+> = ({
     buttonLabel,
     format = 'primary',
     menuButtonA11yLabel,
@@ -162,7 +165,7 @@ const ButtonSplitMenu = ({
     size = 'md',
     ref: _,
     ...filteredProps
-}: ButtonSplitMenuProps) => {
+}) => {
 
     return (
             <WrapperStyled

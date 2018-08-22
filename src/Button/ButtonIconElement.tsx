@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { SFC, HTMLProps } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { ButtonStyleSettings } from './ButtonStyleSettings';
 import { Omit } from '../globals/js/type-helpers';
+
 export interface ButtonIconElementStyledProps
-    extends Omit<React.HTMLProps<HTMLSpanElement>, 'size'> {
+    extends Omit<HTMLProps<HTMLSpanElement>, 'size'> {
     iconLocation?: 'beforeLabel' | 'afterLabel' |'featuredLeft';
     size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
@@ -64,7 +65,7 @@ const FeaturedIconElement = styled<FeaturedIconElementProps, 'span'>('span')`
     ${iconStyle}
 `;
 
-const ButtonIconElement: React.SFC<ButtonIconElementStyledProps> = ({
+const ButtonIconElement: SFC<ButtonIconElementStyledProps> = ({
     iconLocation,
     ref: _,// filter out ref from styled component
     ...filteredProps

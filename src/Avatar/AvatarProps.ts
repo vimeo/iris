@@ -1,8 +1,4 @@
-import React from 'react';
-import { Omit } from '../globals/js/type-helpers';
-
-
-export interface AvatarProps extends Omit<React.HTMLProps<HTMLImageElement>, 'size'> {
+export interface AvatarProps {
     /**
      * alternative text description of the avatar
      */

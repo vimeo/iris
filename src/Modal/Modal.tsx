@@ -206,7 +206,10 @@ const ModalTitleTruncationStyled = styled('span')`
     text-overflow: ellipsis;
 `;
 
-class Modal extends React.Component {
+class Modal extends React.Component <
+    ModalProps,
+    ModalState
+> {
     static defaultProps = {
         size: 'md',
         dismissButtonFormat: 'dark',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem, rgba } from 'polished';
 import {ParagraphSm} from '../Type';
@@ -32,18 +32,15 @@ const VideoCardPropertyBadgeTextStyled = styled<React.HTMLProps<HTMLDivElement>,
 
 // ==================== VideoCardPropertyBadge
 
-const VideoCardPropertyBadge: React.SFC<VideoCardPropertyBadge> = ({
+const VideoCardPropertyBadge: SFC<VideoCardPropertyBadge> = ({
     label,
     ref: _,
-}) => {
-    
-    return (
-        <VideoCardPropertyBadgeStyled>
-            <VideoCardPropertyBadgeTextStyled>
-                {label}
-            </VideoCardPropertyBadgeTextStyled>
-        </VideoCardPropertyBadgeStyled>
-    );
-};
+}) => (
+    <VideoCardPropertyBadgeStyled>
+        <VideoCardPropertyBadgeTextStyled>
+            {label}
+        </VideoCardPropertyBadgeTextStyled>
+    </VideoCardPropertyBadgeStyled>
+);
 
 export default VideoCardPropertyBadge;

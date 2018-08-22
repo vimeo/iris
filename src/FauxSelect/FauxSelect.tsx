@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { Omit } from '../globals/js/type-helpers';
@@ -55,7 +55,7 @@ const FauxSelectStyled = styled<FauxSelectStyledProps, 'button'>('button')`
 
 `;
 
-const FauxSelect = ({
+const FauxSelect: SFC<FauxSelectProps> = ({
     a11yLabel,
     children,
     disabled,
@@ -66,7 +66,7 @@ const FauxSelect = ({
     theme = 'default',
     ref: _,
     ...filteredProps
-}: FauxSelectProps) => {
+}) => {
 
     const hasStateIcon = format === 'negative' || format === 'positive';
 

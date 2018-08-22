@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import { rem, rgba } from 'polished';
 import COLORS from '../globals/js/constants/COLORS';
@@ -117,12 +117,12 @@ const HaloStyled = styled<HaloStyledProps, 'span'>('span')`
             : ''};
 `;
 
-const FeatureTourDot = ({
+const FeatureTourDot: SFC<FeatureDotProps> = ({
     beaconA11yText,
     mode = 'inactive',
     ref: _,
     ...filteredProps
-}: FeatureDotProps) => {
+}) => {
     return (
         <WrapperStyled {...filteredProps} mode={mode}>
             <HaloStyled isActive={mode === 'active'}>

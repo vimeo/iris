@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC, HTMLProps } from 'react';
 import styled from 'styled-components';
 import InputLabelStateIcon from '../InputLabelStateIcon/InputLabelStateIcon';
 import { Header6 } from '../Type';
@@ -13,14 +13,20 @@ export interface InputLabelProps {
     theme?: 'default' | 'light' | 'dark',
 };
 
-export interface LabelStyledProps  extends React.HTMLProps<HTMLSpanElement> {
+export interface LabelStyledProps {
     disabled?: boolean,
     labelTheme?: 'light' | 'dark',
 };
 
-const Label: React.SFC<LabelStyledProps> = ({ 
+const Label: SFC <
+    LabelStyledProps &
+    HTMLProps<HTMLSpanElement>
+> = ({ 
     labelTheme: _,
-    ...props }) => <span {...props} />;
+    ...props
+}) => (
+    <span {...props} />
+);
 
 const LabelStyled = styled(Label)`
     display: inline-block;
@@ -30,7 +36,11 @@ const LabelStyled = styled(Label)`
 `
 
 
-const InputLabel = (props: InputLabelProps & React.HTMLProps<HTMLLabelElement> & React.HTMLProps<HTMLHeadingElement>) => {
+const InputLabel: SFC <
+    InputLabelProps &
+    HTMLProps<HTMLLabelElement> &
+    HTMLProps<HTMLHeadingElement>
+> = (props) => {
 
     // filter out props that are not meant to be passed in as an attribute from props and store the rest as "filteredProps" to be printed into the component as attrubutes in the tag (e.g. HTML attribute pass-through, event handlers)
     const {
@@ -44,7 +54,9 @@ const InputLabel = (props: InputLabelProps & React.HTMLProps<HTMLLabelElement> &
     } = props;
 
     // support deprecated 'default' theme as 'light'
-    const themeDefaultSupport = theme === 'default' ? 'light' : theme;
+    const themeDefaultSupport = theme === 'default'
+        ? 'light'
+        : theme;
 
     const Icon = (
         <InputLabelStateIcon

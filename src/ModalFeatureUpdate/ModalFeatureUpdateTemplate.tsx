@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { Header3, ParagraphMd, ParagraphSm } from '../Type';
 import { ModalFeatureUpdateStyleSettings } from './ModalFeatureUpdate';
+
 export interface ModalFeatureUpdateTemplateProps {
     /**
      * Headline as string or ReactNode
@@ -66,9 +67,7 @@ const SecondaryAreaStyled = styled<React.HTMLProps<HTMLDivElement>, any>(
 `;
 
 // ==================== ModalFeatureUpdateTemplate
-const ModalFeatureUpdateTemplate: React.SFC<
-    ModalFeatureUpdateTemplateProps
-> = ({
+const ModalFeatureUpdateTemplate: SFC<ModalFeatureUpdateTemplateProps> = ({
     children,
     headline,
     heroImageArea,

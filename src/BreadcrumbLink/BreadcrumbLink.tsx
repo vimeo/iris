@@ -1,31 +1,34 @@
-import React from 'react';
+import React, { SFC, HTMLProps } from 'react';
+
 import LinkText, {LinkTextProps} from '../LinkText/LinkText';
 import BreadcrumbLinkContent from '../BreadcrumbLinkContent';
 import { Omit } from '../globals/js/type-helpers';
-export interface BreadcrumbLinkProps extends Omit<LinkTextProps, 'format'> {
+
+export interface BreadcrumbLinkProps {
     format: 'lightTheme' | 'darkTheme';
     href: string;
 };
 
-const BreadcrumbLink = ({
+const BreadcrumbLink: SFC <
+    BreadcrumbLinkProps &
+    Omit<LinkTextProps, 'format'> & 
+    HTMLProps<HTMLAnchorElement>
+> = ({
     children,
-    format="lightTheme",
+    format = 'lightTheme',
     href,
     ...filteredProps
-    }: BreadcrumbLinkProps) => {
-
-    return (
-        <LinkText
-            href={href}
-            decoration="silent"
-            format={format === 'darkTheme' ? 'primaryDark' : 'primary'}
-            {...filteredProps}
-        >
-            <BreadcrumbLinkContent>
-                {children}
-            </BreadcrumbLinkContent>
-        </LinkText>
-    );
-};
+}) => (
+    <LinkText
+        href={href}
+        decoration="silent"
+        format={format === 'darkTheme' ? 'primaryDark' : 'primary'}
+        {...filteredProps}
+    >
+        <BreadcrumbLinkContent>
+            {children}
+        </BreadcrumbLinkContent>
+    </LinkText>
+);
 
 export default BreadcrumbLink;

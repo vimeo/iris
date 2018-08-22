@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { rem } from 'polished';
@@ -142,7 +142,7 @@ interface ViewTrackProps {
     setRef: (HTMLDivElement) => void;
 };
 
-const ViewTrack: React.SFC<ViewTrackProps> = ({
+const ViewTrack: SFC<ViewTrackProps> = ({
     trackOffset: _0,
     speed: _1,
     animate: _2,

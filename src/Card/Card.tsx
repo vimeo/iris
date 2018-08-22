@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC, HTMLProps } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import COLORS from '../globals/js/constants/COLORS';
@@ -18,8 +18,6 @@ export interface CardProps {
      */
     noHoverState?: boolean;
 };
-
-export interface CardPropsCombined extends CardProps, React.HTMLProps<HTMLDivElement>{};
 
 const boxShadow = {
     inactive: `0 0 ${rem(10)} 0 rgba(0,0,0,0.15)`,
@@ -63,7 +61,10 @@ const CardStyled = styled<CardProps, 'div'>('div')`
 
 // ==================== Card
 
-const Card: React.SFC<CardPropsCombined> = ({
+const Card: SFC <
+    CardProps &
+    HTMLProps<HTMLDivElement>
+> = ({
     ref:_,
     ...props
 }) => (

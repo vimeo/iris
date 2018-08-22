@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import {CarouselDotNavProps} from './CarouselDotNavTypes';
 import {DotStyled, WrapperStyled, VisuallyHiddenContent} from './CarouselDotNavStyled';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';
 
 // ==================== CarouselDotNav
 
-const CarouselDotNav : React.SFC < CarouselDotNavProps > = ({
+const CarouselDotNav : SFC<CarouselDotNavProps> = ({
     a11yGoToSlideText,
     a11yNextSlideText,
     a11yPrevSlideText,

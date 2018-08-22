@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import InputCheckbox from '../InputCheckbox';
@@ -26,7 +26,7 @@ const WrapperStyled= styled<WrapperStyledProps, 'div'>('div')`
 
 // ==================== VideoCardSelectionCheckbox
 
-const VideoCardSelectionCheckbox: React.SFC<VideoCardSelectionCheckboxProps> = ({
+const VideoCardSelectionCheckbox: SFC<VideoCardSelectionCheckboxProps> = ({
     isShowing,
     label,
     onCheckBoxClick,

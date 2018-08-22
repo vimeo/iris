@@ -6,7 +6,7 @@ export interface CounterIconStyledProps {
     autoMargins?: boolean
 }
 
-export interface CounterIconProps extends React.HTMLProps<HTMLDivElement> {
+export interface CounterIconProps {
     /**
     * Determines if there should be margins automatically. Set to false to suppress.
     */

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import {VideoCardStyleSettings} from './VideoCardHelpers';
@@ -10,11 +10,11 @@ export interface VideoCardThumbnailGroupProps extends React.HTMLProps<HTMLDivEle
 };
 // ==================== VideoCardThumbnailGroup Styled
 
-const WrapperStyled = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
+const WrapperStyled = styled<SFC<HTMLDivElement>, 'div'>('div')`
     padding-bottom: 56.25%; // this is forces this area into a thumbnail aspcect ratio
 `;
 
-const ThumbnailsStyled  = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
+const ThumbnailsStyled  = styled<SFC<HTMLDivElement>, 'div'>('div')`
     display: flex;
     padding: ${rem(VideoCardStyleSettings.padding)} ${rem(VideoCardStyleSettings.padding)} 0;
     position: absolute;
@@ -22,7 +22,7 @@ const ThumbnailsStyled  = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
     height: 100%;
 `;
 
-const MinorThumbnailsWrapper = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
+const MinorThumbnailsWrapper = styled<SFC<HTMLDivElement>, 'div'>('div')`
     display: flex;
     flex: 0 1 40%;
     flex-direction: column;
@@ -30,12 +30,12 @@ const MinorThumbnailsWrapper = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
     height: 100%;
 `;
 
-const MajorThumbnail = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
+const MajorThumbnail = styled<SFC<HTMLDivElement>, 'div'>('div')`
     display: flex;
     flex: 0 1 60%;
 `;
 
-const MinorThumbnail = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
+const MinorThumbnail = styled<SFC<HTMLDivElement>, 'div'>('div')`
     display: flex;
     height: 50%;
     flex-basis: 50%;
@@ -46,7 +46,7 @@ const MinorThumbnail = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
     }
 `;
 
-const GroupThumbnailImage = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
+const GroupThumbnailImage = styled<SFC<HTMLDivElement>, 'div'>('div')`
     width: 100%;
     height: auto;
     border-radius: ${rem(2)};
@@ -56,7 +56,7 @@ const GroupThumbnailImage = styled<React.SFC<HTMLDivElement>, 'div'>('div')`
 `;
 // ==================== VideoCardThumbnailGroup
 
-const VideoCardThumbnailGroup: React.SFC<VideoCardThumbnailGroupProps> = ({
+const VideoCardThumbnailGroup: SFC<VideoCardThumbnailGroupProps> = ({
     thumbnailData,
     ref: _, // filter out ref from styled component
 }) => {

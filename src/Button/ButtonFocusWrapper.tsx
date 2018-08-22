@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 
 import styled, {
         // @ts-ignore
@@ -12,7 +12,9 @@ export const LinkElementStyled = styled('span')`
     }
 `;
 
-const ButtonFocusWrapper = (props: React.HTMLProps<HTMLSpanElement>) => (
+const ButtonFocusWrapper: SFC<React.HTMLProps<HTMLSpanElement>> = (
+    props
+) => (
     <LinkElementStyled>
         {props.children}
     </LinkElementStyled>

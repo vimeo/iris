@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {SFC, HTMLProps } from 'react';
 import { ListItemStyled } from './ListItemStyled';
 
-const ListItem: React.SFC< React.HTMLProps< HTMLElement> > = ({
+const ListItem: SFC<HTMLProps<HTMLElement>> = ({
     children,
     ref:_,
     ...filteredProps

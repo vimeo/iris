@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem, rgba } from 'polished';
 import { ParagraphSm } from '../Type';
 import COLORS from '../globals/js/constants/COLORS';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 
-export interface VideoCardTimestamp extends React.HTMLProps<HTMLInputElement> {
+export interface VideoCardTimestamp {
     timestamp: string;
 }
 
@@ -25,7 +25,10 @@ const VideoCardTimestampStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
 
 // ==================== VideoCardTimestamp
 
-const VideoCardTimestamp: React.SFC<VideoCardTimestamp> = ({
+const VideoCardTimestamp: SFC <
+    VideoCardTimestamp &
+    React.HTMLProps<HTMLInputElement>
+> = ({
     ref: _,
     timestamp,
 }) => {

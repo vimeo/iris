@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import {VideoCardStyleSettings} from './VideoCardHelpers';
@@ -37,7 +37,7 @@ const Wrapper= styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
 
 // ==================== VideoCardFooterActionsGrid
 
-const VideoCardFooterActionsGrid: React.SFC<VideoCardFooterActionsGridProps> = ({
+const VideoCardFooterActionsGrid: SFC<VideoCardFooterActionsGridProps> = ({
     actionItems,
     ref: _, // filter out ref from styled component
     ...filteredProps

@@ -1,7 +1,5 @@
-import React from 'react';
-import {
-    ButtonIconOnlyProps,
-} from './ButtonIconOnlyTypes';
+import React, { SFC, HTMLProps } from 'react';
+import { ButtonIconOnlyProps } from './ButtonIconOnlyTypes';
 import {
     ButtonStyled,
     IconWrapperStyled,
@@ -9,8 +7,10 @@ import {
 } from './ButtonIconOnlyStyled';
 import {Omit} from '../globals/js/type-helpers';
 
-const ButtonIconOnly: React.SFC< ButtonIconOnlyProps & Omit < React.HTMLProps<HTMLElement>,
-'size' > > = ({
+const ButtonIconOnly: SFC <
+    ButtonIconOnlyProps &
+    Omit<HTMLProps<HTMLElement>, 'size'>
+> = ({
     autoSpacingHorizontal = true,
     format = 'dark',
     icon,

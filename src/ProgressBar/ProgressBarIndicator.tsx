@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled, { keyframes} from 'styled-components';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import {
@@ -75,7 +75,7 @@ const ProgressBarStyled = styled<BarProps, 'div'>('div')`
     `;
 
 
-const ProgressBarIndicator: React.SFC<ProgressBarIndicatorProps> = props => {
+const ProgressBarIndicator: SFC<ProgressBarIndicatorProps> = props => {
 
     let progressValue;
 

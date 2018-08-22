@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import {
     HeaderWrapperStyled,
     MenuListStyled,
@@ -8,14 +8,17 @@ import { MenuPanelListProps } from './MenuPanelListTypes';
 import MenuPanelListItem from '../MenuPanelListItem';
 import { Header6 } from '../Type';
 
-const MenuPanelList = ({
+const MenuPanelList: SFC <
+    MenuPanelListProps &
+    React.HTMLProps<HTMLDivElement>
+> = ({
     hasDivider,
     header,
     menuItems,
     theme="light",
     ref: _,
     ...filteredProps
-}: MenuPanelListProps & React.HTMLProps<HTMLDivElement>) => {
+}) => {
 
     const menuList = menuItems.length && menuItems.map((item, i) => (
         <MenuPanelListItem
@@ -25,11 +28,11 @@ const MenuPanelList = ({
         />
     ));
 
-const menuHeader = (
-    <HeaderWrapperStyled>
-        <Header6 format={ theme === 'dark' ? 'white' : 'dark'}noMargin>{header}</Header6>
-    </HeaderWrapperStyled>
-);
+    const menuHeader = (
+        <HeaderWrapperStyled>
+            <Header6 format={ theme === 'dark' ? 'white' : 'dark'}noMargin>{header}</Header6>
+        </HeaderWrapperStyled>
+    );
 
     return (
         <WrapperStyled
