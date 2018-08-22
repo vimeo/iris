@@ -1,56 +1,46 @@
 // @flow
 import React from 'react';
+import {
+    InputDatePickerProps,
+    InputDatePickerState,
+} from './InputDatePickerTypes';
+import {
+    DateTriggerStyled,
+    DateTriggerWrapperStyled,
+    DatePickerWrapperStyled,
+} from './InputDatePickerStyled'
 import DateTime from 'react-datetime';
-// $FlowFixMe
 import InputText from '../InputText/InputText';
-// $FlowFixMe
+import { InputTextProps } from '../InputText/InputText';
 import MenuPanel from '../MenuPanel/MenuPanel';
-import styles from './InputDatePicker.scss';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';
-
-type Props = {
-    dateFormatting?: (dateObject: Date) => string,
-    initialDate?: Date,
-    onBlur?: Function,
-    onChangeDate?: (dateObject: Object) => void,
-    label: string,
-    id: string,
-    datePickerOptions?: Object,
-};
-
-type State = {
-    currentDateObject: Date,
-    focusShouldOpenMenu: boolean,
-    formattedDate: string,
-    menuHovered: boolean,
-    showDatePicker: boolean,
-}
+import { Moment } from '../../node_modules/moment';
 
 const inputDataAttribute = 'data-input-field';
 
-class InputDatePicker extends React.Component {
-
+class InputDatePicker extends React.Component< InputDatePickerProps & InputTextProps & React.HTMLProps< HTMLInputElement >,  InputDatePickerState > {
 
     static defaultProps = {
         initialDate: new Date(),
     };
 
-    constructor(props: Props) {
+    constructor(props) {
         super(props);
         const initialDateChecked = props.initialDate instanceof Date ? props.initialDate : new Date();
 
         this.state = {
             currentDateObject: initialDateChecked,
             showDatePicker: false,
+            focusShouldOpenMenu: true,
             formattedDate: this._getFormattedDate(initialDateChecked),
             menuHovered: false,
-            focusShouldOpenMenu: true,
+            shouldFocusNextUpdate: false,
         };
     }
 
-    state: State;
+    state: InputDatePickerState;
 
-    componentDidUpdate = () => {
+    componentDidUpdate() {
         // refocus the field on menu close, but don't open the menu again
         if (!this.state.showDatePicker && this.state.shouldFocusNextUpdate) {
             setTimeout(() => {
@@ -59,7 +49,7 @@ class InputDatePicker extends React.Component {
         }
     }
 
-    props: Props;
+    props:  InputDatePickerProps & InputTextProps & React.HTMLProps< HTMLInputElement >;
     InputWrapper: HTMLElement;
 
     _bindCloseMenuListeners = () => {
@@ -113,9 +103,11 @@ class InputDatePicker extends React.Component {
         return formattedDate;
     }
 
-    _handleBlur = (e: Event) => {
-        if (e.target && e.target.value) {
-            const value = e.target.value;
+    _handleBlur = (event: React.FormEvent<HTMLInputElement> ) => {
+        const eventTarget = event.target as HTMLInputElement;
+
+        if (eventTarget && eventTarget.value) {
+            const value = eventTarget.value;
 
             if (typeof value === 'string') {
                 this.setState({
@@ -129,7 +121,7 @@ class InputDatePicker extends React.Component {
         }
 
         if (typeof this.props.onBlur === 'function') {
-            this.props.onBlur(e);
+            this.props.onBlur(event);
         }
     };
 
@@ -139,7 +131,7 @@ class InputDatePicker extends React.Component {
         }
     }
 
-    _handleDatePickerUpdate = (momentObject: Object) => {
+    _handleDatePickerUpdate = (momentObject: Moment) => {
         // momentObject is a MomentJS object here
         const dateObject = momentObject.toDate();
 
@@ -151,18 +143,18 @@ class InputDatePicker extends React.Component {
         this._handleDateChange(dateObject);
     }
 
-    _handleDocumentClick = (e: Event) => {
+    _handleDocumentClick = (event: MouseEvent) => {
         // only close if the click wasn't the inpu
 
-        const targetWasInput = e.target instanceof HTMLInputElement && e.target.attributes.getNamedItem(inputDataAttribute);
+        const targetWasInput = event.target instanceof HTMLInputElement && event.target.attributes.getNamedItem(inputDataAttribute);
 
         if (!this.state.menuHovered && !targetWasInput) {
             this._closeMenu();
         }
     }
 
-    _handleDocumentKeyDown = (e: Event) => {
-        if (e.keyCode === KEY_CODES.esc || e.keyCode === KEY_CODES.tab) {
+    _handleDocumentKeyDown = (event: KeyboardEvent) => {
+        if (event.keyCode === KEY_CODES.esc || event.keyCode === KEY_CODES.tab) {
             this._closeMenu();
         }
     }
@@ -180,9 +172,11 @@ class InputDatePicker extends React.Component {
         }
     }
 
-    _handleInputChange = (e: Event) => {
-        if (e.target && e.target.value) {
-            const value = e.target.value;
+    _handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
+        const eventTarget = event.target as HTMLInputElement;
+
+        if (eventTarget && eventTarget.value) {
+            const value = eventTarget.value;
 
             if (typeof value === 'string') {
                 this._updateDateData(value);
@@ -229,44 +223,46 @@ class InputDatePicker extends React.Component {
 
     render() {
         const {
-            dateFormatting, // eslint-disable-line no-unused-vars
+            children, //@ts-ignore filtering our children
+            dateFormatting, 
             datePickerOptions,
             id,
-            onBlur, // eslint-disable-line no-unused-vars
-            initialDate, // eslint-disable-line no-unused-vars
-            onChangeDate, // eslint-disable-line no-unused-vars
+            onBlur, 
+            initialDate, 
+            onChangeDate,
             label,
             ...filteredProps
         } = this.props;
 
         const DatePickerPanelContent = (
-            <div className={styles.DatePicker}
+            <div
                 onMouseEnter={this._handleHoverOnMenu}
                 onMouseLeave={this._handleHoverOutMenu}
             >
-            <DateTime
-                {...datePickerOptions}
-                input={false}
-                onChange={this._handleDatePickerUpdate}
-                timeFormat={false}
-                value={this.state.currentDateObject}
-                open={this.state.showDatePicker}
-            />
-        </div>
+                <DatePickerWrapperStyled>
+                    <DateTime
+                        {...datePickerOptions}
+                        input={false}
+                        onChange={this._handleDatePickerUpdate}
+                        timeFormat={false}
+                        value={this.state.currentDateObject}
+                        open={this.state.showDatePicker}
+                    />
+                </DatePickerWrapperStyled>
+            </div>
         );
         const DateButton = (
-            <div className={styles.DateTriggerWrapper}>
+            <DateTriggerWrapperStyled>
                 <MenuPanel
-                    className={styles.ButtonMenu}
                     alignment="left"
                     menuContent={DatePickerPanelContent}
                     size="lg"
                     isShowing={this.state.showDatePicker}
                     isControlled
                 >
-                    <span className={styles.DateTrigger}/>
+                    <DateTriggerStyled />
                 </MenuPanel>
-            </div>
+            </DateTriggerWrapperStyled>
         );
 
         return (
@@ -280,7 +276,6 @@ class InputDatePicker extends React.Component {
                     {...filteredProps}
                     id={id}
                     label={label}
-                    className={styles.Input}
                     value={this.state.formattedDate}
                     isInline
                     onChange={this._handleInputChange}
@@ -295,5 +290,4 @@ class InputDatePicker extends React.Component {
     }
 }
 
-InputDatePicker.displayName = 'InputDatePicker';
 export default InputDatePicker;

@@ -1,9 +1,16 @@
 import React, { SFC } from 'react';
-import styled from 'styled-components';
+import styled, {
+    css,
+    // @ts-ignore fixes "cannot be named" error
+    Styles, 
+    // @ts-ignore fixes "cannot be named" error
+    StyledComponentClass,
+} from 'styled-components';
 import { rem } from 'polished';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import COLORS from '../globals/js/constants/COLORS';
 import {
+    typeByCSSInterface,
     TypeProps,
     StyledTypeElementProps,
 } from './TypeTypes';
@@ -112,31 +119,44 @@ export const TypeBaseStyleSettings = {
     },
 };
 
+// This function serves as an interface to generate type styles in the same way the old SCSS type mixins work
+// it is used when a type component cannot be used in a component for some reason. (e.g. styling a third-party plugin)
+// it also creates our basic type styles.
+
+export const typeCSSByProps = (settings: typeByCSSInterface) => {
+        return css`
+        font-size: ${rem(TypeBaseStyleSettings.fontSize[settings.size])};
+        font-family: ${
+        settings.fontStack
+                ? TypeBaseStyleSettings.fontFamily[settings.fontStack]
+                : TypeBaseStyleSettings.fontFamily.regular};
+        font-weight: ${TypeBaseStyleSettings.fontWeight[settings.size]};
+        letter-spacing: ${TypeBaseStyleSettings.letterSpacing[settings.size]};
+        line-height: ${getUnitlessLineHeight(
+                TypeBaseStyleSettings.fontSize[settings.size],
+                TypeBaseStyleSettings.lineHeight[settings.size]
+            )};
+
+        color: ${TypeBaseStyleSettings.format[settings.format][settings.size] ||
+            TypeBaseStyleSettings.format[settings.format].default};
+
+        max-width: 44rem;
+
+        margin-bottom: ${
+            settings.noMargin
+                ? '0'
+                : rem(TypeBaseStyleSettings.marginBottom[settings.size])};
+    `
+};
+
 const StyledElement = styled< StyledTypeElementProps & TypeProps , any >(TypeVariableElement)`
-    font-size: ${props => rem(TypeBaseStyleSettings.fontSize[props.size])};
-    font-family: ${props =>
-        props.fontStack
-            ? TypeBaseStyleSettings.fontFamily[props.fontStack]
-            : TypeBaseStyleSettings.fontFamily.regular};
-    font-weight: ${props => TypeBaseStyleSettings.fontWeight[props.size]};
-    letter-spacing: ${props => TypeBaseStyleSettings.letterSpacing[props.size]};
-    line-height: ${props =>
-        getUnitlessLineHeight(
-            TypeBaseStyleSettings.fontSize[props.size],
-            TypeBaseStyleSettings.lineHeight[props.size]
-        )};
-
-    color: ${props =>
-        TypeBaseStyleSettings.format[props.format][props.size] ||
-        TypeBaseStyleSettings.format[props.format].default};
-
-    max-width: 44rem;
-
-    margin-bottom: ${props =>
-        props.noMargin
-            ? '0'
-            : rem(TypeBaseStyleSettings.marginBottom[props.size])};
-
+    ${props => typeCSSByProps({
+        fontStack: props.fontStack,
+        format: props.format,
+        noMargin: props.noMargin,
+        size:props.size
+    })}
+    
     strong {
         // handle bold styling within paragaphs.
         font-weight: ${VimeoStyleSettings.type.weights.medium};

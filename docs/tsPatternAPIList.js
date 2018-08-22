@@ -18,7 +18,8 @@ import GridColAPI from '../data/tsdocsHTML/interfaces/_gridcol_gridcoltypes_.gri
 import ListAPI from '../data/tsdocsHTML/interfaces/_list_listtypes_.listprops.html';
 import InputCheckboxAPI from '../data/tsdocsHTML/interfaces/_inputcheckbox_inputcheckboxtypes_.inputcheckboxprops.html';
 import InputCheckboxSetAPI from '../data/tsdocsHTML/interfaces/_inputcheckboxset_inputcheckboxsettypes_.inputcheckboxsetprops.html';
-import InputColorPickerAPI from '../data/tsdocsHTML/interfaces/_inputcolorpicker_inputcolorpicker_.inputcolorpickerprops.html';
+import InputColorPickerAPI from '../data/tsdocsHTML/interfaces/_inputcolorpicker_inputcolorpicker_.inputcolorpickerprops.html'
+import InputDatePickerAPI from '../data/tsdocsHTML/interfaces/_inputdatepicker_inputdatepickertypes_.inputdatepickerprops.html';
 import InputRadioSetAPI from '../data/tsdocsHTML/interfaces/_inputradioset_inputradiosettypes_.inputradiosetprops.html';
 import InputSliderAPI from '../data/tsdocsHTML/interfaces/_inputslider_inputslider_.inputsliderprops.html';
 import InputTextAPI from '../data/tsdocsHTML/interfaces/_inputtext_inputtext_.inputtextprops.html';
@@ -78,6 +79,9 @@ const tsPatternAPIList = {
     },
     InputColorPicker: {
         data: InputColorPickerAPI,
+    },
+    InputDatePicker: {
+        data: InputDatePickerAPI,
     },
     FeatureTourPanel: {
         data: FeatureTourPanelAPI,

@@ -31,8 +31,6 @@ export { default as ButtonToggleState } from './ButtonToggleState';
 
 export { default as FocusBloop } from './FocusBloop';
 
-export { default as InputDatePicker } from './InputDatePicker';
-
 export { default as InputLabelInline } from './InputLabelInline';
 
 export { default as InputLabelStateIcon } from './InputLabelStateIcon';
@@ -225,6 +223,12 @@ export { default as InputCheckboxSetSubStyled } from './InputCheckboxSet/InputCh
 export { default as InputCheckboxSetTypes } from './InputCheckboxSet/InputCheckboxSetTypes';
 
 export { default as InputColorPicker } from './InputColorPicker/InputColorPicker';
+
+export { default as InputDatePicker } from './InputDatePicker/InputDatePicker';
+
+export { default as InputDatePickerStyled } from './InputDatePicker/InputDatePickerStyled';
+
+export { default as InputDatePickerTypes } from './InputDatePicker/InputDatePickerTypes';
 
 export { default as InputLabel } from './InputLabel/InputLabel';
 
