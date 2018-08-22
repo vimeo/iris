@@ -62,7 +62,7 @@ $InputToggle_bloopSize-lg: 38;
     }
 
     &.darkTheme {
-        background: $inputs_background-color-dark-inline-elements;
+        background: rgba($White, 0.2);
     }
 }
 

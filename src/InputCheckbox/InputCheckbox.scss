@@ -55,7 +55,7 @@ $InputCheck_fill-size: 1rem;
 
     &.darkTheme {
         border-color: $inputs_border-color-dark;
-        background-color: $inputs_background-color-dark-inline-elements;
+        background-color: transparent;
 
         &:hover {
             border-color: $White;
@@ -91,6 +91,10 @@ $InputCheck_fill-size: 1rem;
     border: 0;
     background: $inputs_inlineInputs_element-background-color;
 
+    &.darkTheme {
+        background-color: $inputs_inlineInputs_element-background-color-hover;
+    }
+
     &:after {
         @include sharedInlineInputActivatedFillStyles();
     }
@@ -98,6 +102,10 @@ $InputCheck_fill-size: 1rem;
 .InputCheckboxLabel:hover .InputCheckbox:checked + .InputCheckboxOverlay ,
 .InputCheckboxLabel:hover .InputCheckbox:checked + .InputCheckboxOverlay {
     background-color: $inputs_inlineInputs_element-background-color-hover;
+
+    &.darkTheme {
+        background-color: $inputs_inlineInputs_element-background-color;
+    }
 }
 
 
