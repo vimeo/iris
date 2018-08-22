@@ -75,24 +75,36 @@ class InputCheckboxDocs extends React.Component {
 
                 <ExampleSource>
                     {`
-  <InputCheckbox
+<InputCheckbox
     label="Checkbox 1 (Medium)"
     name="demoCheckbox1"
     id="Checkbox1"
     value="1"
 />
+
 <InputCheckbox
     label="Checkbox 2 (Medium)"
     name="demoCheckbox2"
     id="Checkbox2"
     value="2"
 />
-    <InputCheckbox
+
+<InputCheckbox
     label="Checkbox 3 has a very long label. Sometimes we need to tell people that they must agree to terms and conditions before they submit a form."
     name="demoCheckbox3"
     id="Checkbox3"
     value="3"
 />
+
+<InputCheckbox
+    label="Errored Field"
+    name="demoCheckbox4"
+    format="negative"
+    id="Checkbox4"
+    value="4"
+    required
+/>
+
 <InputCheckbox
     label="DisabledField"
     name="demoCheckboxDisabled"
@@ -100,15 +112,17 @@ class InputCheckboxDocs extends React.Component {
     value="disabled"
     disabled
 />
+
 <InputCheckbox
-    label="Errored Checkbox"
-    name="demoCheckbox4"
+    label="Checkbox has a very long label. Sometimes we need to tell people that they must agree to terms and conditions before they submit a form."
+    name="demoCheckbox5"
     errorMsg="This field is required!"
     format="negative"
-    id="Checkbox4"
-    value="4"
+    id="Checkbox5"
+    value="5"
     required
 />
+
 <InputCheckbox
     label="Hidden Label"
     hideLabel
@@ -116,12 +130,13 @@ class InputCheckboxDocs extends React.Component {
     id="Checkbox6"
     value="6"
 />
+
 <InputCheckbox
-label="Checkbox 1 (Medium)"
-name="demoCheckbox1"
-id="Checkbox1Dark"
-value="1"
-theme="dark"
+    label="Checkbox 1 (Medium)"
+    name="demoCheckbox1"
+    id="Checkbox1Dark"
+    value="1"
+    theme="dark"
 />
                         `}
                     </ExampleSource>

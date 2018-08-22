@@ -31,10 +31,6 @@ export { default as ButtonToggleState } from './ButtonToggleState';
 
 export { default as FocusBloop } from './FocusBloop';
 
-export { default as InputCheckbox } from './InputCheckbox';
-
-export { default as InputCheckboxSet } from './InputCheckboxSet';
-
 export { default as InputDatePicker } from './InputDatePicker';
 
 export { default as InputLabelInline } from './InputLabelInline';
@@ -188,6 +184,10 @@ export { default as FieldSetStyled } from './FieldSet/FieldSetStyled';
 
 export { default as FieldSetTypes } from './FieldSet/FieldSetTypes';
 
+export { default as FocusBloopNew } from './FocusBloopNew/FocusBloopNew';
+
+export { default as FocusBloopNewTypes } from './FocusBloopNew/FocusBloopNewTypes';
+
 export { default as Grid } from './Grid/Grid';
 
 export { default as GridStyled } from './Grid/GridStyled';
@@ -207,6 +207,22 @@ export { default as GridColStyled } from './GridCol/GridColStyled';
 export { default as GridColTypes } from './GridCol/GridColTypes';
 
 export { default as GridColVariableElement } from './GridCol/GridColVariableElement';
+
+export { default as InputCheckbox } from './InputCheckbox/InputCheckbox';
+
+export { default as InputCheckboxFocusBloop } from './InputCheckbox/InputCheckboxFocusBloop';
+
+export { default as InputCheckboxHelpers } from './InputCheckbox/InputCheckboxHelpers';
+
+export { default as InputCheckboxStyled } from './InputCheckbox/InputCheckboxStyled';
+
+export { default as InputCheckboxTypes } from './InputCheckbox/InputCheckboxTypes';
+
+export { default as InputCheckboxSet } from './InputCheckboxSet/InputCheckboxSet';
+
+export { default as InputCheckboxSetSubStyled } from './InputCheckboxSet/InputCheckboxSetSubStyled';
+
+export { default as InputCheckboxSetTypes } from './InputCheckboxSet/InputCheckboxSetTypes';
 
 export { default as InputColorPicker } from './InputColorPicker/InputColorPicker';
 

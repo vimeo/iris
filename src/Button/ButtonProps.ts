@@ -43,7 +43,7 @@ export interface ButtonProps
     /**
      * Choose the button size
      */
-    size?: 'xs' | 'sm' | 'md' | 'lg' |'xl';
+    size?: buttonSizes;
 }
 
 export interface ButtonStyledProps {
@@ -58,6 +58,13 @@ export interface customFormatButton {
     hoverBorderColor?: string,
     hoverTextColor?: string,
 }
+
+export type buttonSizes = 
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl';
 
 export type buttonFormats =
     | 'primary'
