@@ -1,5 +1,5 @@
 import React from 'react';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 import { List, ListItem, ParagraphMd, Header3, Header6 } from '../index';
 
 class ListDocs extends React.Component {

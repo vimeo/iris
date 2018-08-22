@@ -1,5 +1,5 @@
 import React from 'react';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../layout/ExampleSource';
 import NotificationSuccess from '../../../src/NotificationSuccess/NotificationSuccess';
 import Button from '../../../src/Button/Button';
 import SlideUpDown from '../../../src/SlideUpDown/SlideUpDown';

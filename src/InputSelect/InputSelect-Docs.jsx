@@ -1,5 +1,5 @@
 import React from 'react';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 import VisaLogo from '../icons/third-party/cc-visa.svg';
 import { Button, InputSelect, ParagraphMd, Header3 } from '../index';
 

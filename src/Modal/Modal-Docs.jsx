@@ -13,7 +13,7 @@ import {
     ParagraphMd,
 } from '../index';
 import styles from './Modal-Docs.scss';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 import SettingsIcon from '../icons/gear.svg';
 class ModalDocs extends React.Component {
     constructor(props) {

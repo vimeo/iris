@@ -1,5 +1,5 @@
 import React from 'react';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 import PopOutIcon from '../icons/pop-out.svg';
 import HomeIcon from '../icons/home.svg';
 import LockIcon from '../icons/lock.svg';

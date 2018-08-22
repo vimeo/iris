@@ -26,7 +26,7 @@ import {
     Header4,
     Header5,
 } from '../index';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 import VideoCardFooterAttributionAPI from '../../data/tsdocsHTML/interfaces/_videocard_videocardfooterattribution_.videocardfooterattributionprops.html';
 import VideoCardThumbnailDataAPI from '../../data/tsdocsHTML/interfaces/_videocard_videocard_.videocardthumbnaildata.html';
 import VideoContextInfoAreaAPI from '../../data/tsdocsHTML/interfaces/_videocard_videocontextinfoarea_.videocardcontextinfoareaprops.html';

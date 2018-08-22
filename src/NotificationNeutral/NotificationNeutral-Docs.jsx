@@ -5,7 +5,7 @@ import {
     ParagraphMd,
     SlideUpDown,
 } from '../index';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 
 class NotificationNeutralDocs extends React.Component {
     // test handler for onDismiss event

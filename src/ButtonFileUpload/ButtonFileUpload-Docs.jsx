@@ -1,5 +1,5 @@
 import React from 'react';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 import { ButtonFileUpload, ParagraphMd } from '../index';
 
 class ButtonFileUploadDocs extends React.Component {

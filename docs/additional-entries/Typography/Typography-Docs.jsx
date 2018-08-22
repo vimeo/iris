@@ -19,7 +19,7 @@ import {
     BigStat,
     NotificationWarning,
 } from '../../../src/index.js';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../layout/ExampleSource';
 
 import styles from './Typography.scss';
 

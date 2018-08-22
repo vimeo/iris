@@ -1,5 +1,5 @@
 import React from 'react';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../layout/ExampleSource';
 import { Header3, Header4, ParagraphMd } from '../../../src/Type';
 import Button from '../../../src/Button';
 import Grid from '../../../src/Grid';

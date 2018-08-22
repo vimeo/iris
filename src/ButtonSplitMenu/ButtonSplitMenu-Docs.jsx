@@ -1,5 +1,5 @@
 import React from 'react';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 import { ButtonSplitMenu, List, ListItem, MenuPanelList, ParagraphMd, Header3 } from '../index';
 
 class ButtonSplitMenuDocs extends React.Component {

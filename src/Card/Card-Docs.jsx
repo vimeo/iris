@@ -6,7 +6,7 @@ import {
     GridCol,
     ParagraphMd,
 } from '../index.js';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 
 class CardDocs extends React.Component {
     render() {

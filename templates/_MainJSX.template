@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Redirect, Route} from 'react-router-dom';
-import MainLayout from 'steadicam/components/layouts/MainLayout/MainLayout';
-import StyleListing from 'steadicam/components/styleListings/StyleListing/StyleListing';
-import SingleStyleListing from 'steadicam/components/styleListings/SingleStyleListing/SingleStyleListing';
-import PageLayout from 'steadicam/components/layouts/PageLayout/PageLayout';
+
+import MainLayout from '../docs/layout/MainLayout';
+import StyleListing from '../docs/layout/StyleListing';
+import SingleStyleListing from '../docs/layout/SingleStyleListing';
+import PageLayout from '../docs/layout/PageLayout';
+
 import ProjectDependencies from './ProjectDependencies';
 import styles from './styleguide-assets/sass/styleguide.scss';
 

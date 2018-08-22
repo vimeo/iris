@@ -1,6 +1,6 @@
 import React from 'react';
 import { InputRadioSet } from '../index';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 
 
 class InputRadioSetDocs extends React.Component {

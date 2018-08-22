@@ -1,5 +1,5 @@
 import React from 'react';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../layout/ExampleSource';
 import LinkText from '../../../src/LinkText';
 import Button from '../../../src/Button/Button';
 import {ParagraphMd} from '../../../src/Type';

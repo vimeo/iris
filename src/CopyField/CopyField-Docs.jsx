@@ -1,5 +1,5 @@
 import React from 'react';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 import { CopyField, ParagraphMd } from '../index';
 
 class CopyFieldDocs extends React.Component {

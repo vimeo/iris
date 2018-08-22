@@ -1,6 +1,6 @@
 import React from 'react';
 import { FieldSet, InputCheckbox } from '../index';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 
 class FieldSetDocs extends React.Component {
     constructor(props) {

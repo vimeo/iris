@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, ContentCarousel, Header3, ParagraphMd, NotificationWarning } from '../index';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 
 const testImage = (index, bgColor) => (
     <div key={`slide${index}`}>

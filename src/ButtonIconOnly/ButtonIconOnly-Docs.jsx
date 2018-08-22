@@ -1,5 +1,5 @@
 import React from 'react';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 import SettingsIcon from '../icons/gear.svg';
 import DownloadIcon from '../icons/download-arrow.svg';
 import DeleteIcon from '../icons/trash.svg';

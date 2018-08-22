@@ -3,7 +3,7 @@ import {
     Button,
     TextArea,
  } from '../index';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 
 const initialState = {
     errorProp: null,

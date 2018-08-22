@@ -13,7 +13,7 @@ import {
 
 import DeleteIcon from '../icons/trash.svg';
 
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 class TooltipOverlayDocs extends React.Component {
     constructor(props) {
         super(props);

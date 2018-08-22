@@ -3,7 +3,7 @@ import {
     {{pascalCase name}},
     ParagraphMd,
 } from '../index';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 
 class {{pascalCase name}}Docs extends React.Component {
     render() {

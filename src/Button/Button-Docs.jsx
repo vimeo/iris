@@ -9,7 +9,7 @@ import {
     NotificationNeutral,
     NotificationWarning,
 } from '../index';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 import ShareIcon from '../icons/paper-plane.svg';
 import HeartIcon from '../icons/heart.svg';
 import DownloadIcon from '../icons/download-arrow.svg';

@@ -1,7 +1,7 @@
 import React from 'react';
 import BellIris from '../../../src/icons/bell.svg';
 import { ParagraphMd, Header3, Header4, ParagraphAltMd } from '../../../src/Type';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../layout/ExampleSource';
 import LinkText from '../../../src/LinkText/LinkText';
 
 const SvgsDocs = (props) => {

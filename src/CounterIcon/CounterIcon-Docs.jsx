@@ -1,5 +1,5 @@
 import React from 'react';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../docs/layout/ExampleSource';
 import { CounterIcon, ParagraphMd } from '../index';
 import PlayIcon from '../icons/play.svg';
 import CollectionIcon from '../icons/collections.svg';

@@ -1,7 +1,7 @@
 import React from 'react';
 import AddressFormDemo from '../../demoComponents/AddressFormDemo/AddressFormDemo';
 import { ParagraphMd, Header3 } from '../../../src/Type';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../layout/ExampleSource';
 
 
 const FormsDocs = (props) => {

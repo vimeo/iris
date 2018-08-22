@@ -1,5 +1,5 @@
 import React from 'react';
-import ExampleSource from 'steadicam/components/styleListings/ExampleSource/ExampleSource';
+import ExampleSource from '../../layout/ExampleSource';
 import InputText from '../../../src/InputText';
 import TextArea from '../../../src/TextArea';
 import { Header4, ParagraphMd } from '../../../src/Type';
