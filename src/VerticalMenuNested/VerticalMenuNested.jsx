@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import styles from './VerticalMenuNested.scss';
 import SlideUpDown from '../SlideUpDown/SlideUpDown';
 import VerticalMenuToggleButton from '../VerticalMenuToggleButton';
+// $FlowFixMe
 import VerticalMenuItemContent from '../VerticalMenuItemContent';
 import VerticalMenuItem from '../VerticalMenuItem';
 import VerticalMenuNestedSubMenu from '../VerticalMenuNestedSubMenu/VerticalMenuNestedSubMenu';

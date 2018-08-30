@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import styles from './VerticalMenuItemContent.scss';
 // $FlowFixMe
 import { ParagraphMd } from '../Type';
+// $FlowFixMe
+import TooltipOverlay from '../TooltipOverlay';
 
 const displayName = 'VerticalMenuItemContent';
 
@@ -21,6 +23,7 @@ type Props = {
     label: React$Element<*> | string,
     onClick?: Function,
     truncateLabel?: boolean,
+    showTooltipOnHover: boolean,
 };
 
 const VerticalMenuItemContent = ({
@@ -35,6 +38,7 @@ const VerticalMenuItemContent = ({
     id,
     isActive,
     truncateLabel,
+    showTooltipOnHover,
     ...filteredProps
 }: Props): React$Element<*> => {
 
@@ -58,8 +62,7 @@ const VerticalMenuItemContent = ({
         (truncateLabel ? styles.isTruncated : null),
     );
 
-    return (
-
+    const menuItemContent = (
         <ParagraphMd
             element="span"
             className={componentClass}
@@ -83,8 +86,26 @@ const VerticalMenuItemContent = ({
                     {actionButton}
                 </span>
             )}
-
         </ParagraphMd>
+    );
+
+    if (!showTooltipOnHover) {
+        return (
+            <span>
+                {menuItemContent}
+            </span>
+        );
+    }
+
+    return (
+        <TooltipOverlay
+            size="sm"
+            tooltipText={label}
+            className={styles.TooltipOverlay}
+            makeWrapperBlock
+        >
+            {menuItemContent}
+        </TooltipOverlay>
     );
 };
 

@@ -34,6 +34,10 @@ export interface TooltipOverlayProps extends Omit<React.HTMLProps<HTMLSpanElemen
      */
     onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
     /**
+     * Toggle display block on span wrapping the tooltip, centers tooltip to parent container
+     */
+    makeWrapperBlock?: boolean;
+    /**
      * Event Callback
      */
     onMouseEnter?: (event: React.MouseEvent<HTMLSpanElement>) => void;
@@ -95,6 +99,10 @@ const PopperStyled = styled(PopperFiltered)`
 
 const TargetStyled = styled(Target)`
     display: inline;
+`;
+
+const SpanWrapper = styled<TooltipOverlayProps, any>('span')`
+    display: ${props => props.makeWrapperBlock ? 'block' : null};
 `;
 
 const TooltipWrapperStyled = styled('div')`
@@ -279,7 +287,7 @@ class TooltipOverlay extends React.Component <
         return (
             <ManagerStyled zIndexOverride={zIndexOverride}>
                 <TargetStyled>
-                    <span
+                    <SpanWrapper
                         {...filteredProps}
                         onClick={this.handleClick}
                         onMouseEnter={this.handleMouseEnter}
@@ -289,7 +297,7 @@ class TooltipOverlay extends React.Component <
                         className={className}
                     >
                         {children}
-                    </span>
+                    </SpanWrapper>
                 </TargetStyled>
                 <PopperStyled
                     //@ts-ignore  eventsEnabled is a Popper prop

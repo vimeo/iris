@@ -78,6 +78,7 @@ const VerticalMenuItemDocs = (props) => {
                         onClick={onClickHandler}
                     >
                         <VerticalMenuItemContent
+                            showTooltipOnHover
                             label="Stand Alone Link With Link Icon"
                             linkActionIcon={(<PopOutIcon />)}
                         />
@@ -89,6 +90,7 @@ const VerticalMenuItemDocs = (props) => {
                     onClick={onClickHandler}
                 >
                     <VerticalMenuItemContent
+                        showTooltipOnHover
                         label="Stand Alone Link With Label Icon"
                         labelIcon={(<HomeIcon />)}
                         labelIconActive={(<HomeFilledIcon />)}
@@ -103,6 +105,7 @@ const VerticalMenuItemDocs = (props) => {
                         onClick={onClickHandler}
                     >
                         <VerticalMenuItemContent
+                            showTooltipOnHover
                             isActive
                             label="Active Stand Alone Link With Label Icon"
                             labelIcon={(<HomeIcon />)}
@@ -116,6 +119,7 @@ const VerticalMenuItemDocs = (props) => {
                         onClick={onClickHandler}
                     >
                         <VerticalMenuItemContent
+                            showTooltipOnHover
                             label="Stand Alone Link, subtle icon"
                             labelIcon={(<LockIcon />)}
                             labelIconTheme="subtle"
@@ -132,6 +136,7 @@ const VerticalMenuItemDocs = (props) => {
                         onClick={onClickHandler}
                     >
                         <VerticalMenuItemContent
+                            showTooltipOnHover
                             label="Menu With Nested Menu on Hover"
                         />
                     </a>
@@ -142,6 +147,7 @@ const VerticalMenuItemDocs = (props) => {
                         onClick={onClickHandler}
                     >
                         <VerticalMenuItemContent
+                            showTooltipOnHover
                             label="Truncated Long Label Name 12345678910"
                             truncateLabel
                         />
@@ -174,6 +180,7 @@ import { VerticalMenuItem, VerticalMenuItemContent } from '@vimeo/iris';
     onClick={onClickHandler}
 >
     <VerticalMenuItemContent
+        showTooltipOnHover
         label="Stand Alone Link With Link Icon"
         linkActionIcon={(<PopOutIcon />)}
     />
@@ -185,6 +192,7 @@ to="#"
 onClick={onClickHandler}
 >
 <VerticalMenuItemContent
+    showTooltipOnHover
     label="Stand Alone Link With Label Icon"
     labelIcon={(<HomeIcon />)}
     labelIconActive={(<HomeFilledIcon />)}
@@ -199,6 +207,7 @@ onClick={onClickHandler}
     onClick={onClickHandler}
 >
     <VerticalMenuItemContent
+        showTooltipOnHover
         isActive
         label="Active Stand Alone Link With Label Icon"
         labelIcon={(<HomeIcon />)}
@@ -212,6 +221,7 @@ onClick={onClickHandler}
     onClick={onClickHandler}
 >
     <VerticalMenuItemContent
+        showTooltipOnHover
         label="Stand Alone Link, subtle icon"
         labelIcon={(<LockIcon />)}
         labelIconTheme="subtle"
@@ -224,6 +234,7 @@ onClick={onClickHandler}
     onClick={onClickHandler}
 >
     <VerticalMenuItemContent
+        showTooltipOnHover
         label="Truncated Long Label Name 12345678910"
         truncateLabel
     />
@@ -239,6 +250,7 @@ onClick={onClickHandler}
     onClick={onClickHandler}
 >
     <VerticalMenuItemContent
+        showTooltipOnHover
         label="Menu With Nested Menu on Hover"
     />
 </a>

@@ -2,6 +2,7 @@
 .*/templates/.*
 .*/node_modules/styled-components/src/.*
 .*/node_modules/polished/lib/.*
+.*/src/VerticalMenuItemContent/.*
 [include]
 
 [libs]
