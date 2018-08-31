@@ -97,7 +97,7 @@ export const TypeBaseStyleSettings = {
         stat: 32,
         h1: 40,
         h2: 32,
-        h3: 38,
+        h3: 30.8,
         h4: 24,
         h5: 20,
         h6: 20,
