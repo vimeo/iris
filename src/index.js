@@ -39,8 +39,6 @@ export { default as InputMessage } from './InputMessage';
 
 export { default as InputMessageArea } from './InputMessageArea';
 
-export { default as InputRadio } from './InputRadio';
-
 export { default as InputTextFloatingLabel } from './InputTextFloatingLabel';
 
 export { default as InputToggle } from './InputToggle';
@@ -182,8 +180,6 @@ export { default as FieldSetTypes } from './FieldSet/FieldSetTypes';
 
 export { default as FocusBloopNew } from './FocusBloopNew/FocusBloopNew';
 
-export { default as FocusBloopNewTypes } from './FocusBloopNew/FocusBloopNewTypes';
-
 export { default as Grid } from './Grid/Grid';
 
 export { default as GridStyled } from './Grid/GridStyled';
@@ -229,6 +225,14 @@ export { default as InputDatePickerStyled } from './InputDatePicker/InputDatePic
 export { default as InputDatePickerTypes } from './InputDatePicker/InputDatePickerTypes';
 
 export { default as InputLabel } from './InputLabel/InputLabel';
+
+export { default as InputRadio } from './InputRadio/InputRadio';
+
+export { default as InputRadioFocusBloop } from './InputRadio/InputRadioFocusBloop';
+
+export { default as InputRadioStyled } from './InputRadio/InputRadioStyled';
+
+export { default as InputRadioTypes } from './InputRadio/InputRadioTypes';
 
 export { default as InputRadioSet } from './InputRadioSet/InputRadioSet';
 

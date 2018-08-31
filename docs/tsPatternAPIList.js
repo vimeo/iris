@@ -20,6 +20,7 @@ import InputCheckboxAPI from '../data/tsdocsHTML/interfaces/_inputcheckbox_input
 import InputCheckboxSetAPI from '../data/tsdocsHTML/interfaces/_inputcheckboxset_inputcheckboxsettypes_.inputcheckboxsetprops.html';
 import InputColorPickerAPI from '../data/tsdocsHTML/interfaces/_inputcolorpicker_inputcolorpicker_.inputcolorpickerprops.html'
 import InputDatePickerAPI from '../data/tsdocsHTML/interfaces/_inputdatepicker_inputdatepickertypes_.inputdatepickerprops.html';
+import InputRadioAPI from '../data/tsdocsHTML/interfaces/_inputradio_inputradiotypes_.inputradioprops.html';
 import InputRadioSetAPI from '../data/tsdocsHTML/interfaces/_inputradioset_inputradiosettypes_.inputradiosetprops.html';
 import InputSliderAPI from '../data/tsdocsHTML/interfaces/_inputslider_inputslider_.inputsliderprops.html';
 import InputTextAPI from '../data/tsdocsHTML/interfaces/_inputtext_inputtext_.inputtextprops.html';
@@ -107,6 +108,9 @@ const tsPatternAPIList = {
     },
     InputText: {
         data: InputTextAPI,
+    },
+    InputRadio: {
+        data: InputRadioAPI
     },
     InputRadioSet: {
         data: InputRadioSetAPI,

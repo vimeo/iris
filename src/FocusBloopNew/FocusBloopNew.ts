@@ -13,53 +13,41 @@ import {
  } from 'styled-components';
 import { rgba, rem } from 'polished';
 import COLORS from '../globals/js/constants/COLORS';
-import { FocusBloopNewProps } from './FocusBloopNewTypes';
 
+
+const transitionSpeed = '150ms';
+
+export type FocusBloopProps = {
+    theme?: 'dark' | 'default';
+}
 
 export const FocusBloop = ({
-    size = 'xs',
-    format = null,
-    // @ts-ignore
-    ...rest
-}: FocusBloopNewProps) => css`
+    theme = null
+}: FocusBloopProps) => css`
     z-index: 1;
     top: ${rem(-4)};
     left: ${rem(-4)};
     position: absolute;
     width: calc(100% + ${rem(8)});
     height: calc(100% + ${rem(8)});
-    border-radius: ${size === 'xs'
-        ? rem(4)
-        : rem(6)};
-
-    transition: 
-        border 150ms,
-        transform 150ms;
     pointer-events: none;
     transform: scale(0.94);
-    border: ${rem(1)} solid ${borderColor(format, 0)};
+    border-radius: ${rem(6)};
+    border: ${rem(1)} solid ${borderColor(theme, 0)};
+
+    transition: 
+        border ${transitionSpeed},
+        transform ${transitionSpeed};
 `;
 
 export const FocusBloopFocused = ({
-    format = null,
-    // @ts-ignore
-    ...rest
-}: FocusBloopNewProps) => css`
+    theme = null
+}: FocusBloopProps) => css`
     transform: scale(1);
-    border: ${rem(2)} solid ${borderColor(format, 0.5)};
+    border: ${rem(2)} solid ${borderColor(theme, 0.5)};
 `;
 
-const conflictColors = [
-    'primary',
-    'primaryDark',
-    'secondaryDark'
-];
 
-const isDark = format => 
-    conflictColors.indexOf(format) !== -1;
-
-const borderColor =
-    (format, opacity) =>
-        isDark(format)
-            ? rgba(COLORS.VimeoBlueLightened, (opacity * 1.334))
-            : rgba(COLORS.VimeoBlue, opacity);
+const borderColor = (theme, opacity) => theme === 'dark'
+    ? rgba(COLORS.VimeoBlueLightened, (opacity * 1.334))
+    : rgba(COLORS.VimeoBlue, opacity);

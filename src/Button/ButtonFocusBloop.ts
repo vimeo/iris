@@ -6,26 +6,36 @@ import styled, {
     // @ts-ignore
     StyledComponentClass
 } from "styled-components";
+import { rem } from 'polished';
 
-import { ButtonProps } from './ButtonProps';
 import { ButtonStyled as Button } from './ButtonStyled';
 import { LinkElementStyled as ButtonFocusWrapper } from './ButtonFocusWrapper';
 import { TriggerWrapperStyled } from '../MenuPanel/MenuPanelStyled';
-import { FocusBloop, FocusBloopFocused} from '../FocusBloopNew/FocusBloopNew';
+import { FocusBloop, FocusBloopFocused } from '../FocusBloopNew/FocusBloopNew';
 
 
-export const ButtonFocusBloop = styled<ButtonProps, any>('div')`
-    ${props => FocusBloop({
-        size: props.size,
-        format: props.format
-    })}
+const darkThemeFormats = [
+    'primary',
+    'primaryDark',
+    'secondaryDark'
+];
+
+const convertTheme = format => darkThemeFormats.indexOf(format) !== -1
+    ? 'default'
+    : 'dark';
+
+export const ButtonFocusBloop = styled<any, 'div'>('div').attrs({
+    theme: props => convertTheme(props.format)
+})`
+    ${FocusBloop}
 
     ${Button}:focus &,
     ${TriggerWrapperStyled}:focus &,
     ${ButtonFocusWrapper} a:focus &,
     ${ButtonFocusWrapper}:focus-within & {
-        ${props => FocusBloopFocused({
-            format: props.format
-        })}
+        ${FocusBloopFocused}
     }
+
+    ${props => props.size === 'xs' && `
+        border-radius: ${rem(4)}`}
 `;

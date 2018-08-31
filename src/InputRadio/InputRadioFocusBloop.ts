@@ -4,14 +4,16 @@ import styled, {
     // @ts-ignore
     StyledComponentClass
  } from 'styled-components';
-import { InputCheckboxStyled, OverlayStyled } from './InputCheckboxStyled';
+import { InputRadioStyled, InputRadioOverlayStyled } from './InputRadioStyled';
 import { FocusBloop, FocusBloopFocused, FocusBloopProps } from '../FocusBloopNew/FocusBloopNew';
 
 
-export const CheckboxFocusBloop = styled<FocusBloopProps, 'div'>('div')`
+export const RadioFocusBloop = styled<FocusBloopProps, 'div'>('div')`
     ${FocusBloop}
 
-    ${InputCheckboxStyled}:focus ~ ${OverlayStyled} & {
+    ${InputRadioStyled}:focus ~ ${InputRadioOverlayStyled} & {
         ${FocusBloopFocused}
     }
+
+    border-radius: 50%;
 `;
