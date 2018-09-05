@@ -35,13 +35,20 @@
                                  `.` 
 ```
 
-[Iris](http://docs.vimeows.com/vimeo/iris/master/pattern/Iris/Home) is the design system that powers Vimeo's web apps.
+### [Iris](http://docs.vimeows.com/vimeo/iris/master/pattern/Iris/Home) is the design system that powers Vimeo's web apps.
+
 
 ## Installation
+Install [Yarn](https://github.com/yarnpkg/yarn): `npm install -g yarn`
+
+**For use in your project:**
 ```bash
 $ yarn add @vimeo/iris
 ```
-For local development:
+**For local development:**
+
+Install [Gulp](https://github.com/gulpjs/gulp): `npm install -g gulp`
+
 ```bash
 $ git clone git@github.vimeows.com:Vimeo/steadicam.git
 $ git clone git@github.vimeows.com:Vimeo/iris.git
@@ -54,12 +61,30 @@ $ gulp
 Import components into your React app.
 ```jsx
 import { Button, ButtonIconOnly, ParagraphMd } from '@vimeo/iris';
+
+
+<div>
+    <ParagraphMd>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ParagraphMd>
+    <Button format="primary" size="xl">xl Button</Button>
+    <ButtonIconOnly
+        icon={<SettingsIcon title="Settings" />}
+        format="dark"
+        size="sm"
+        onClick={clickHandler}
+     />
+</div>
+
 ```
 
 ## Need Help?
-Try the [#web-iris](https://vimeo.slack.com/messages/C2UF8PH0A) channel in Slack.
 
-Or ask [Sean](https://github.vimeows.com/sean-mcintyre).
+🆕 [Request a new component](https://github.vimeows.com/Vimeo/iris/issues/new?labels=type%3A+new+component&milestone=4&title=Component+Request%3A&assignee=sean-mcintyre&template=new_component_request.md)
+
+🛠 [Request updates to an existing component](https://github.vimeows.com/Vimeo/iris/issues/new?labels=type%3A+update+component&milestone=4&title=Component+Update%3A&template=update_component_request.md)
+
+🐛 [Report a bug](https://github.vimeows.com/Vimeo/iris/issues/new?labels=p2,type%3A+bug&milestone=4&title=Bug%3A&template=bug_report.md)
+
+💬 [#web-iris](https://vimeo.slack.com/messages/C2UF8PH0A) Slack
 
 ## Release Schedule
 
@@ -69,7 +94,6 @@ Upcoming
 
 | Date  | Version |
 | ------------- | ------------- |
-| 9/5/18  | 5.9.0  |
 | 9/19/18  | 5.10.0  |
 | 10/3/18  | 5.11.0  |
 | 10/17/18  | 5.12.0  |
