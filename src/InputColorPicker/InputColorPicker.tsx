@@ -141,7 +141,7 @@ class InputColorPicker extends React.Component <
             fieldValue: props.defaultColor,
             focusShouldOpenMenu: true,
             menuHovered: false,
-            showReset: false,
+            showReset: (props.resetColor ? initialColor !== props.resetColor : false),
             showColorPicker: false,
             shouldFocusNextUpdate: false,
         };
@@ -207,7 +207,7 @@ class InputColorPicker extends React.Component <
 
             if (typeof value === 'string' && this._isHexValid(value)) {
                 this.setState({
-                    showReset: value !== this.props.defaultColor,
+                    showReset: (this.props.resetColor ? value !== this.props.resetColor : value !== this.props.defaultColor),
                     currentColor: value,
                     showColorPicker: this.state.menuHovered,
                 });
@@ -242,7 +242,7 @@ class InputColorPicker extends React.Component <
         hsl: Object,
     }) => {
         this.setState({
-            showReset: color.hex !== this.props.defaultColor,
+            showReset: (this.props.resetColor ? color.hex !== this.props.resetColor : color.hex !== this.props.defaultColor),
             currentColor: color.hex,
             fieldValue: color.hex,
         });
@@ -278,7 +278,7 @@ class InputColorPicker extends React.Component <
                 if (this._isHexValid(value)) {
                     this._handleColorChange(value);
                     this.setState({
-                        showReset: value !== this.props.defaultColor,
+                        showReset: (this.props.resetColor ? value !== this.props.resetColor : value !== this.props.defaultColor),
                         currentColor: value,
                         fieldValue: value,
                     });
