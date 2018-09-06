@@ -21,73 +21,74 @@ const MODAL_MAX_HEIGHT = '86vh';
 const MODAL_HEIGHT_SM_SCREEN = 134;
 const MODAL_HEIGHT_LG_SCREEN = 80;
 
-export interface ModalProps extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
+export interface ModalProps
+    extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
     /**
      * The Content of the modal
      */
-    children: React.ReactNode,
-    className?: string,
+    children: React.ReactNode;
+    className?: string;
     /**
      * Defaults to "dark". Choose "light" to get a white dismiss button for overlaying over an dark background
      */
-    dismissButtonFormat: 'light' | 'dark',
+    dismissButtonFormat: 'light' | 'dark';
     /**
      * Pass a CSS selector to force which element get focus when the modal opens
      */
-    firstFocusSelector: string,
+    firstFocusSelector: string;
     /**
      * Remove default content padding
      */
-    fullBleed?: boolean,
+    fullBleed?: boolean;
     /**
      * Controls if modal is showing or closed
      */
-    isShowing?: boolean,
+    isShowing?: boolean;
     /**
      *  Assign a unique ID to the Title or pass the ID of the element that labels the modal.
      */
-    modalLabelId: string,
+    modalLabelId: string;
     /**
      *  Pass the ID of an element that describes the modal (may be hidden)
      */
-    modalDescriptionId: string,
+    modalDescriptionId: string;
     /**
      *  Pass a translated string representing "dismiss" or "close"
      */
-    modalCloseLabel: string,
-   /**
+    modalCloseLabel: string;
+    /**
      * Set a modal title in the default format
      */
-    modalTitle?: string,
+    modalTitle?: string;
     /**
      * Fires when modal dismisses, should change the state that is controlling `isShowing`
      */
-    onDismiss?: (e?:Event)=> void,
-     /**
+    onDismiss?: (e?: Event) => void;
+    /**
      * Pass an object of Button Props to get an Action Area
      */
-    primaryButtonProps?: ButtonProps,
-     /**
+    primaryButtonProps?: ButtonProps;
+    /**
      * Pass an object of Button Props to get a secondary button in the ActionArea
      */
-    secondaryButtonProps?: ButtonProps,
+    secondaryButtonProps?: ButtonProps;
     /**
      * Hides the dismiss button (Use with Caution!)
      */
-    hideDismissButton?: boolean,
+    hideDismissButton?: boolean;
     /**
      * Choose Modal width mode (Default: md)
      */
-    size?: 'sm' | 'md' | 'lg' | 'fluid',
-     /**
+    size?: 'sm' | 'md' | 'lg' | 'fluid';
+    /**
      * Override the z-index of the modal
      */
-    zIndexStartingPoint?: number,
-};
+    zIndexStartingPoint?: number;
+}
 
-export interface  ModalState {
-    isTruncated: boolean,
-};
+export interface ModalState {
+    isTruncated: boolean;
+}
 
 const modalTransitionStyles = {
     entering: {
@@ -108,7 +109,7 @@ const modalWidths = {
 };
 
 interface ModalStyledProps {
-    modalSize?: 'sm' | 'md' | 'lg' | 'fluid',
+    modalSize?: 'sm' | 'md' | 'lg' | 'fluid';
 }
 
 const ModalStyled = styled<ModalStyledProps, 'div'>('div')`
@@ -134,7 +135,7 @@ const ModalStyled = styled<ModalStyledProps, 'div'>('div')`
                 width: ${rem(modalWidths.sm)};
             `;
         } else if (props.modalSize === 'fluid') {
-            return`
+            return `
                 width: auto;
                 overflow: auto;
             `;
@@ -143,14 +144,12 @@ const ModalStyled = styled<ModalStyledProps, 'div'>('div')`
                 width: ${props => rem(modalWidths[props.modalSize])} 
             `;
         }
-
-        
-    }}
+    }};
 `;
 
 interface ContentStyledProps {
-    fullBleed? : boolean;
-    hasActionArea? : boolean;
+    fullBleed?: boolean;
+    hasActionArea?: boolean;
 }
 
 const ContentStyled = styled<ContentStyledProps, 'div'>('div')`
@@ -166,12 +165,13 @@ const ContentStyled = styled<ContentStyledProps, 'div'>('div')`
             ? css`
         ${mediaQuery.sm`
             max-height: calc(${MODAL_MAX_HEIGHT} - ${rem(
-            MODAL_HEIGHT_LG_SCREEN
+            MODAL_HEIGHT_LG_SCREEN,
         )});
         `}
         
         max-height: calc(${MODAL_MAX_HEIGHT} - ${rem(MODAL_HEIGHT_SM_SCREEN)});
-    `: ''};
+    `
+            : ''};
 `;
 
 const ModalCloseButtonWrapperStyled = styled('div')`
@@ -206,10 +206,7 @@ const ModalTitleTruncationStyled = styled('span')`
     text-overflow: ellipsis;
 `;
 
-class Modal extends React.Component <
-    ModalProps,
-    ModalState
-> {
+class Modal extends React.Component<ModalProps, ModalState> {
     static defaultProps = {
         size: 'md',
         dismissButtonFormat: 'dark',
@@ -234,11 +231,9 @@ class Modal extends React.Component <
     componentDidUpdate(prevProps: ModalProps) {
         if (this.props.isShowing && !prevProps.isShowing) {
             this._openModal();
-        }
-        else if (!this.props.isShowing && prevProps.isShowing) {
+        } else if (!this.props.isShowing && prevProps.isShowing) {
             this._closeModal();
-        }
-        else if (this.props.isShowing && prevProps.isShowing) {
+        } else if (this.props.isShowing && prevProps.isShowing) {
             this._resetModal();
         }
     }
@@ -314,7 +309,7 @@ class Modal extends React.Component <
             secondaryButtonProps,
             size,
             zIndexStartingPoint,
-            ref:_,
+            ref: _,
             ...filteredProps
         } = this.props;
 
@@ -347,12 +342,10 @@ class Modal extends React.Component <
 
         const ModalTitleElement = (
             <ModalTitleStyled>
-                <Header4
-                    id={modalLabelId}
-                    element="h2"
-                    noMargin
-                >
-                    <ModalTitleTruncationStyled>{modalTitle}</ModalTitleTruncationStyled>
+                <Header4 id={modalLabelId} element="h2" noMargin>
+                    <ModalTitleTruncationStyled>
+                        {modalTitle}
+                    </ModalTitleTruncationStyled>
                 </Header4>
             </ModalTitleStyled>
         );
@@ -372,48 +365,44 @@ class Modal extends React.Component <
         );
 
         const ModalComponent = (
-                <Transition
-                    in={isShowing}
-                    timeout={MODAL_SPEED}
-                    mountOnEnter
-                    unmountOnExit
-                >
-                    {state => (
-                        <ModalStyled
-                            {...filteredProps}
-                            role="dialog"
-                            aria-labelledby={modalLabelId}
-                            aria-describedby={modalDescriptionId}
-                            modalSize={size}
-                            style={{
-                                ...modalTransitionStyles[state],
+            <Transition
+                in={isShowing}
+                timeout={MODAL_SPEED}
+                mountOnEnter
+                unmountOnExit
+            >
+                {state => (
+                    <ModalStyled
+                        {...filteredProps}
+                        role="dialog"
+                        aria-labelledby={modalLabelId}
+                        aria-describedby={modalDescriptionId}
+                        modalSize={size}
+                        style={{
+                            ...modalTransitionStyles[state],
+                        }}
+                    >
+                        <ContentStyled
+                            ref={div => {
+                                this.ContentOuterDiv = div;
                             }}
+                            hasActionArea={primaryButtonProps ? true : false}
+                            fullBleed={fullBleed}
                         >
-                            <ContentStyled
+                            <div
                                 ref={div => {
-                                    this.ContentOuterDiv = div;
+                                    this.ContentInnerDiv = div;
                                 }}
-                                hasActionArea={
-                                    primaryButtonProps ? true : false
-                                }
-                                fullBleed={fullBleed}
                             >
-                                <div
-                                    ref={div => {
-                                        this.ContentInnerDiv = div;
-                                    }}
-                                >
-                                    {modalTitle ? ModalTitleElement : null}
-                                    {children}
-                                </div>
-                            </ContentStyled>
-                            {primaryButtonProps ? actionAreaElement : null}
-                            {onDismiss && !hideDismissButton
-                                ? CloseButton
-                                : null}
-                        </ModalStyled>
-                    )}
-                </Transition>
+                                {modalTitle ? ModalTitleElement : null}
+                                {children}
+                            </div>
+                        </ContentStyled>
+                        {primaryButtonProps ? actionAreaElement : null}
+                        {onDismiss && !hideDismissButton ? CloseButton : null}
+                    </ModalStyled>
+                )}
+            </Transition>
         );
 
         return (

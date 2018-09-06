@@ -23,7 +23,8 @@ const ContextIconSize = 14;
 const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
     display: flex;
     height: ${rem(VideoCardStyleSettings.contextAreaHeight)};
-    padding: ${rem(VideoCardStyleSettings.padding / 2)} ${rem(VideoCardStyleSettings.padding)};
+    padding: ${rem(VideoCardStyleSettings.padding / 2)}
+        ${rem(VideoCardStyleSettings.padding)};
     align-items: center;
 `;
 

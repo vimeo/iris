@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled, { css } from 'styled-components';
-import {rem} from 'polished';
+import { rem } from 'polished';
 import { Transition } from 'react-transition-group';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';
 import Z_INDEX from '../globals/js/constants/Z_INDEXES';
@@ -14,8 +14,8 @@ export interface ModalWrapperProps extends React.HTMLProps<HTMLDivElement> {
     onCloseEvent?: (e?: Event) => void;
     modalPosition?: 'center';
     modalSpeed?: number;
-    mountOnEnter?: boolean,
-    unmountOnExit?: boolean,
+    mountOnEnter?: boolean;
+    unmountOnExit?: boolean;
     zIndexStartingPoint?: number;
 }
 // ==================== ModalWrapper Styled Thing
@@ -68,11 +68,11 @@ const overlayTransitionStyles = {
 };
 
 interface ContentWrapperProps extends React.HTMLProps<HTMLDivElement> {
-    modalPosition? : 'center';
+    modalPosition?: 'center';
     zIndexStartingPoint: number;
 }
 
-const getModalPositionCSS = (props) => {
+const getModalPositionCSS = props => {
     if (props.modalPosition === 'center') {
         return css`
             top: 50%;
@@ -81,14 +81,14 @@ const getModalPositionCSS = (props) => {
             max-width: calc(100% - ${rem(40)});
         `;
     }
-}
+};
 
 const ContentWrapperStyled = styled<ContentWrapperProps, 'div'>('div')`
     cursor: default;
     z-index: ${props => props.zIndexStartingPoint + 1};
     position: absolute;
 
-    ${props => getModalPositionCSS(props)}
+    ${props => getModalPositionCSS(props)};
 `;
 
 // ==================== ModalWrapper
@@ -119,12 +119,12 @@ class ModalWrapper extends React.Component<any, any> {
         if (this.lastFocusableElement && this.firstFocusableElement) {
             this.lastFocusableElement.addEventListener(
                 'keydown',
-                this._handleForwardFocusLooping
+                this._handleForwardFocusLooping,
             );
 
             this.firstFocusableElement.addEventListener(
                 'keydown',
-                this._handleBackwardFocusLooping
+                this._handleBackwardFocusLooping,
             );
         }
     }
@@ -233,17 +233,17 @@ class ModalWrapper extends React.Component<any, any> {
     _setFocusableElementList(callback: any, shouldSetFocus: boolean) {
         if (this.thisEl instanceof Element) {
             const focusableList = this.thisEl.querySelectorAll(
-                'a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled])'
+                'a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled])',
             );
             if (focusableList.length) {
                 this.focusableElementList = focusableList;
 
                 this.firstFocusableElement = Array.prototype.slice.call(
-                    focusableList
+                    focusableList,
                 )[0];
 
                 this.lastFocusableElement = Array.prototype.slice.call(
-                    focusableList
+                    focusableList,
                 )[focusableList.length - 1];
             }
         }

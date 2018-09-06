@@ -34,7 +34,7 @@ const ModalFeatureUpdateTemplateStyled = styled<
 `;
 
 const HeroImageAreaStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
-    'div'
+    'div',
 )`
     border-radius: ${rem(ModalFeatureUpdateStyleSettings.borderRadius)}
         ${rem(ModalFeatureUpdateStyleSettings.borderRadius)} 0 0;
@@ -61,7 +61,7 @@ const FooterAreaStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
 `;
 
 const SecondaryAreaStyled = styled<React.HTMLProps<HTMLDivElement>, any>(
-    ParagraphSm
+    ParagraphSm,
 )`
     margin-top: ${rem(4)};
 `;

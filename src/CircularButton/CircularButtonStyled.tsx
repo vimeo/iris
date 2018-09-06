@@ -1,9 +1,6 @@
 import React from 'react';
-import styled, {
-    //@ts-ignore fixs 'cannot be named'
-    StyledComponentClass,
-    css
-} from 'styled-components';
+//@ts-ignore
+import styled, { StyledComponentClass, css } from 'styled-components';
 import { CircularButtonStyledProps } from './CircularButtonTypes';
 import CircularButtonElement from './CircularButtonElement';
 import { rem } from 'polished';
@@ -18,14 +15,16 @@ const buttonSizes = {
     lg: 40,
 };
 
-const getFormatCss = (props: CircularButtonStyledProps & Omit<React.HTMLProps<HTMLButtonElement>, 'size'>) => {
+const getFormatCss = (
+    props: CircularButtonStyledProps &
+        Omit<React.HTMLProps<HTMLButtonElement>, 'size'>,
+) => {
     switch (props.format) {
         case 'lightDashed':
             return css`
                 color: ${COLORS.SoutherlySky};
                 background-color: transparent;
                 border: ${rem(1)} dashed ${COLORS.SoutherlySky};
-
 
                 &:hover {
                     color: ${COLORS.White};
@@ -53,7 +52,7 @@ const getFormatCss = (props: CircularButtonStyledProps & Omit<React.HTMLProps<HT
                 color: ${COLORS.RegentGray};
                 background-color: transparent;
                 border: ${rem(1)} dashed ${COLORS.RegentGray};
-        
+
                 &:hover {
                     color: ${COLORS.AstroGranite};
                     background-color: transparent;
@@ -62,7 +61,7 @@ const getFormatCss = (props: CircularButtonStyledProps & Omit<React.HTMLProps<HT
             `;
 
         default:
-        // default is primary
+            // default is primary
             return css`
                 color: ${COLORS.White};
                 background-color: ${ButtonColors.PrimaryBackground};
@@ -78,17 +77,20 @@ const getFormatCss = (props: CircularButtonStyledProps & Omit<React.HTMLProps<HT
     }
 };
 
-const maybeAutoMargins = (props: CircularButtonStyledProps) => props.autoMarginsHorizontal ? css`
-    margin-right: .5rem;
+const maybeAutoMargins = (props: CircularButtonStyledProps) =>
+    props.autoMarginsHorizontal
+        ? css`
+              margin-right: 0.5rem;
 
-    &:last-of-type {
-        margin-left: 0;
-    }
-` : '';
+              &:last-of-type {
+                  margin-left: 0;
+              }
+          `
+        : '';
 
-
-
-export const CircularButtonStyled =  styled<CircularButtonStyledProps, any>(CircularButtonElement)`
+export const CircularButtonStyled = styled<CircularButtonStyledProps, any>(
+    CircularButtonElement,
+)`
     display: inline-block;
     overflow: hidden;
 
@@ -103,19 +105,14 @@ export const CircularButtonStyled =  styled<CircularButtonStyledProps, any>(Circ
     width: ${props => rem(buttonSizes[props.size])};
     height: ${props => rem(buttonSizes[props.size])};
 
-
     &:hover {
         cursor: pointer;
     }
 
     svg {
         display: block;
-        width: ${props => props.size === 'sm'
-            ? '.75rem'
-            : '1rem'};
-        height: ${props => props.size === 'sm'
-            ? '.75rem'
-            : '1rem'};
+        width: ${props => (props.size === 'sm' ? '.75rem' : '1rem')};
+        height: ${props => (props.size === 'sm' ? '.75rem' : '1rem')};
 
         position: absolute;
         top: 50%;
@@ -128,6 +125,5 @@ export const CircularButtonStyled =  styled<CircularButtonStyledProps, any>(Circ
         fill: currentColor;
     }
 
-    ${maybeAutoMargins}
-    ${getFormatCss}
+    ${maybeAutoMargins} ${getFormatCss};
 `;

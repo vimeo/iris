@@ -1,11 +1,15 @@
 import React, { SFC } from 'react';
-import {CarouselDotNavProps} from './CarouselDotNavTypes';
-import {DotStyled, WrapperStyled, VisuallyHiddenContent} from './CarouselDotNavStyled';
+import { CarouselDotNavProps } from './CarouselDotNavTypes';
+import {
+    DotStyled,
+    WrapperStyled,
+    VisuallyHiddenContent,
+} from './CarouselDotNavStyled';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';
 
 // ==================== CarouselDotNav
 
-const CarouselDotNav : SFC<CarouselDotNavProps> = ({
+const CarouselDotNav: SFC<CarouselDotNavProps> = ({
     a11yGoToSlideText,
     a11yNextSlideText,
     a11yPrevSlideText,
@@ -19,15 +23,14 @@ const CarouselDotNav : SFC<CarouselDotNavProps> = ({
     ref: _, // filter out ref from styled component
     ...filteredProps
 }) => {
-
-    const handleDotClick = (event) => {
+    const handleDotClick = event => {
         if (typeof onDotClick === 'function') {
             const index = parseInt(event.target.getAttribute('data-index'), 10);
             onDotClick(index);
         }
-    }
+    };
 
-    const handleKeyUp = (event : React.KeyboardEvent<HTMLButtonElement>) => {
+    const handleKeyUp = (event: React.KeyboardEvent<HTMLButtonElement>) => {
         const keyCode = event.keyCode;
 
         if (keyCode === KEY_CODES.arrowLeft) {
@@ -45,13 +48,13 @@ const CarouselDotNav : SFC<CarouselDotNavProps> = ({
         if (typeof onNextClick === 'function') {
             onNextClick();
         }
-    }
+    };
 
     const handlePrevClick = () => {
         if (typeof onPrevClick === 'function') {
             onPrevClick();
         }
-    }
+    };
 
     let dots = [];
 
@@ -68,8 +71,8 @@ const CarouselDotNav : SFC<CarouselDotNavProps> = ({
                 <VisuallyHiddenContent>
                     {`${a11yGoToSlideText} ${i + 1}`}
                 </VisuallyHiddenContent>
-            </DotStyled>
-        )
+            </DotStyled>,
+        );
     }
 
     return (

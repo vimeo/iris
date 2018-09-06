@@ -12,7 +12,7 @@ import TooltipOverlay from '../TooltipOverlay';
 import { Omit } from '../globals/js/type-helpers';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 export interface VideoCardInfoAreaProps
-extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
+    extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
     footer?: React.Component<any>;
     isPrivate?: boolean;
     privacyDescription?: string;
@@ -26,7 +26,7 @@ extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
 // ==================== VideoCardInfoArea Styled
 
 const VideoCardInfoAreaStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
-    'div'
+    'div',
 )`
     position: relative;
     padding: ${rem(VideoCardStyleSettings.padding / 2)}
@@ -34,18 +34,17 @@ const VideoCardInfoAreaStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
         ${rem(VideoCardStyleSettings.footerHeight)};
 `;
 
-interface PrivacyIconStyledProps extends Omit<React.HTMLProps<HTMLSpanElement>, 'size'> {
+interface PrivacyIconStyledProps
+    extends Omit<React.HTMLProps<HTMLSpanElement>, 'size'> {
     size: 'sm' | 'md';
 }
 
 const PrivacyIconSize = {
     sm: '.75rem',
     md: '1rem',
-}
+};
 
-const PrivacyIconStyled = styled<PrivacyIconStyledProps, 'span'>(
-    'span'
-)`
+const PrivacyIconStyled = styled<PrivacyIconStyledProps, 'span'>('span')`
     float: left;
     display: inline-block;
     margin-right: ${rem(4)};
@@ -57,8 +56,8 @@ const PrivacyIconStyled = styled<PrivacyIconStyledProps, 'span'>(
         cursor: default;
     }
     svg {
-        width: ${props => PrivacyIconSize[props.size] || PrivacyIconSize.md };
-        height:  ${props => PrivacyIconSize[props.size] || PrivacyIconSize.md };
+        width: ${props => PrivacyIconSize[props.size] || PrivacyIconSize.md};
+        height: ${props => PrivacyIconSize[props.size] || PrivacyIconSize.md};
 
         * {
             fill: ${COLORS.AstroGranite};
@@ -76,13 +75,16 @@ interface TitleWrapperProps extends React.HTMLProps<HTMLDivElement> {
 }
 
 const TitleWrapper = styled<TitleWrapperProps, 'div'>('div')`
-    ${props => props.isPrivate ? `
-    padding-left: ${PrivacyIconSize[props.cardSize] || PrivacyIconSize.md }
-    ` : ''}
+    ${props =>
+        props.isPrivate
+            ? `
+    padding-left: ${PrivacyIconSize[props.cardSize] || PrivacyIconSize.md}
+    `
+            : ''};
 `;
 
 const HeaderSmStyled = styled(ParagraphSm)`
-    font-weight: ${VimeoStyleSettings.type.weights.bold}
+    font-weight: ${VimeoStyleSettings.type.weights.bold};
 `;
 
 const LinkTextStyled = styled(LinkText)`
@@ -118,17 +120,12 @@ const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
 
     const LinkTextElement = (
         <span>
-            <LinkTextStyled
-                decoration="inherit"
-                element="span"
-            >
-                <TruncatedTextWrapper
-                    displayCSSType="block"
-                >
+            <LinkTextStyled decoration="inherit" element="span">
+                <TruncatedTextWrapper displayCSSType="block">
                     {title}
                 </TruncatedTextWrapper>
             </LinkTextStyled>
-    </span>
+        </span>
     );
 
     const defaultLinkElement = (
@@ -147,31 +144,28 @@ const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
     return (
         <VideoCardInfoAreaStyled>
             {isPrivate && (
-                    <PrivacyIconStyled size={size}>
-                        <TooltipOverlay
-                            tooltipText={privacyDescription}
-                            onClick={stopClickPropagation}
-                        >
-                            <LockFilled />
-                        </TooltipOverlay>
-                    </PrivacyIconStyled>
-                )}
-            <TitleWrapper
-                cardSize={size}
-                isPrivate={isPrivate}
-            >
-            <TypeElement element="h4" noMargin>
-                {LinkElement ? (
-                    <LinkElement
-                        onClick={_defaultLinkClickHandler}
-                        {...titleLinkProps}
+                <PrivacyIconStyled size={size}>
+                    <TooltipOverlay
+                        tooltipText={privacyDescription}
+                        onClick={stopClickPropagation}
                     >
-                        {LinkTextElement}
-                    </LinkElement>
-                ) : (
-                    defaultLinkElement
-                )}
-            </TypeElement>
+                        <LockFilled />
+                    </TooltipOverlay>
+                </PrivacyIconStyled>
+            )}
+            <TitleWrapper cardSize={size} isPrivate={isPrivate}>
+                <TypeElement element="h4" noMargin>
+                    {LinkElement ? (
+                        <LinkElement
+                            onClick={_defaultLinkClickHandler}
+                            {...titleLinkProps}
+                        >
+                            {LinkTextElement}
+                        </LinkElement>
+                    ) : (
+                        defaultLinkElement
+                    )}
+                </TypeElement>
             </TitleWrapper>
             {titleSubheader && (
                 <ParagraphAltMd element="span" noMargin>

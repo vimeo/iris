@@ -12,11 +12,7 @@ import { CheckboxFocusBloop } from './InputCheckboxFocusBloop';
 
 import InputWrapperInline from '../InputWrapperInline/InputWrapperInline';
 
-
-const InputCheckbox: SFC <
-    InputCheckboxProps & 
-    HTMLProps<HTMLDivElement>
-> = ({
+const InputCheckbox: SFC<InputCheckboxProps & HTMLProps<HTMLDivElement>> = ({
     checkedStyle = 'default',
     disabled,
     errorMsg,
@@ -29,11 +25,7 @@ const InputCheckbox: SFC <
     ref: _,
     ...filteredProps
 }) => (
-    <InputWrapperInline
-        errorMsg={errorMsg}
-        helperMsg={helperMsg}
-        theme={theme}
-    >
+    <InputWrapperInline errorMsg={errorMsg} helperMsg={helperMsg} theme={theme}>
         <InputCheckboxWrapperStyled>
             <InputCheckboxLabelStyled
                 htmlFor={id}
@@ -52,20 +44,13 @@ const InputCheckbox: SFC <
                     theme={theme}
                 />
 
-                <OverlayStyled
-                    theme={theme}
-                    checkedStyle={checkedStyle}
-                >
-                    <CheckboxFocusBloop
-                        theme={theme}
-                    />
+                <OverlayStyled theme={theme} checkedStyle={checkedStyle}>
+                    <CheckboxFocusBloop theme={theme} />
                 </OverlayStyled>
-                
-                <HiddenLabelStyled
-                    hideLabel={hideLabel}>
+
+                <HiddenLabelStyled hideLabel={hideLabel}>
                     {label}
                 </HiddenLabelStyled>
-
             </InputCheckboxLabelStyled>
         </InputCheckboxWrapperStyled>
     </InputWrapperInline>

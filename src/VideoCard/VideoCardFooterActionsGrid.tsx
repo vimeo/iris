@@ -1,25 +1,33 @@
 import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import {VideoCardStyleSettings} from './VideoCardHelpers';
+import { VideoCardStyleSettings } from './VideoCardHelpers';
 
-export interface VideoCardFooterActionsGridProps extends React.HTMLProps<HTMLDivElement>  {
-    actionItems: Array<React.Component<any>>,
-};
+export interface VideoCardFooterActionsGridProps
+    extends React.HTMLProps<HTMLDivElement> {
+    actionItems: Array<React.Component<any>>;
+}
 
-export interface VideoCardFooterActionsGridStyledProps extends React.HTMLProps<HTMLDivElement>  {
-    fillSpace: boolean,
-};
+export interface VideoCardFooterActionsGridStyledProps
+    extends React.HTMLProps<HTMLDivElement> {
+    fillSpace: boolean;
+}
 
 // ==================== VideoCardFooterActionsGrid Styled
-const VideoCardFooterActionsGridStyled = styled<VideoCardFooterActionsGridStyledProps, 'div'>('div')`
+const VideoCardFooterActionsGridStyled = styled<
+    VideoCardFooterActionsGridStyledProps,
+    'div'
+>('div')`
     display: inline-flex;
-    justify-content: space-evenly; 
-    justify-self: ${props => props.fillSpace ? 'center' : 'end'};
-    width: ${props => props.fillSpace ? '100%' : 'auto'};
+    justify-content: space-evenly;
+    justify-self: ${props => (props.fillSpace ? 'center' : 'end')};
+    width: ${props => (props.fillSpace ? '100%' : 'auto')};
 `;
 
-const VideoCardFooterActionsCell= styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
+const VideoCardFooterActionsCell = styled<
+    React.HTMLProps<HTMLDivElement>,
+    'div'
+>('div')`
     padding-right: ${rem(VideoCardStyleSettings.padding)};
     min-width: ${rem(VideoCardStyleSettings.actionButtonSize)};
 
@@ -28,7 +36,7 @@ const VideoCardFooterActionsCell= styled<React.HTMLProps<HTMLDivElement>, 'div'>
     }
 `;
 
-const Wrapper= styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
+const Wrapper = styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -42,18 +50,17 @@ const VideoCardFooterActionsGrid: SFC<VideoCardFooterActionsGridProps> = ({
     ref: _, // filter out ref from styled component
     ...filteredProps
 }) => {
-
-    const suppressClickPropagation = (e) => {
+    const suppressClickPropagation = e => {
         // clicks in the footer area should not trigger the onClick for the entireCard.
         e.stopPropagation();
-    }
+    };
 
     let gridCells = [];
     const targetCellsCount = 5;
     const countDifference = targetCellsCount - actionItems.length;
 
     // make five cells. If there are not 5 buttons, front-load the empty ones.
-    for (let i = 0; i < targetCellsCount; i++) { 
+    for (let i = 0; i < targetCellsCount; i++) {
         const isEmpty = i + 1 <= countDifference;
 
         gridCells.push(
@@ -62,7 +69,7 @@ const VideoCardFooterActionsGrid: SFC<VideoCardFooterActionsGridProps> = ({
                 key={`VideoCardFooterActionsCell-${i}`}
             >
                 {!isEmpty && actionItems[i - countDifference]}
-            </VideoCardFooterActionsCell>
+            </VideoCardFooterActionsCell>,
         );
     }
 

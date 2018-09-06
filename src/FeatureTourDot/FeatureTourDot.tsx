@@ -28,8 +28,16 @@ const WrapperStyled = styled<DotStyledProps, 'span'>('span')`
     height: ${rem(FeatureDotStyleSettings.wrapperSize)};
     padding: ${props =>
         props.mode === 'active'
-            ? rem((FeatureDotStyleSettings.wrapperSize - FeatureDotStyleSettings.haloSize) / 2)
-            : rem((FeatureDotStyleSettings.wrapperSize - FeatureDotStyleSettings.beaconSize) / 2)};
+            ? rem(
+                  (FeatureDotStyleSettings.wrapperSize -
+                      FeatureDotStyleSettings.haloSize) /
+                      2,
+              )
+            : rem(
+                  (FeatureDotStyleSettings.wrapperSize -
+                      FeatureDotStyleSettings.beaconSize) /
+                      2,
+              )};
 
     &:hover {
         transform: scale(1.14);
@@ -51,7 +59,9 @@ const DotStyled = styled<DotStyledProps, 'span'>('span')`
 
     box-shadow: ${props =>
         props.mode === 'open'
-            ? `0 0 0 ${rem(2)} ${COLORS.DarkerBlue}, 0 ${rem(1)} ${rem(4)}  ${rem(2)}  rgba(60,90,153,0.66)`
+            ? `0 0 0 ${rem(2)} ${COLORS.DarkerBlue}, 0 ${rem(1)} ${rem(
+                  4,
+              )}  ${rem(2)}  rgba(60,90,153,0.66)`
             : 'none'};
 `;
 
@@ -98,7 +108,11 @@ const HaloStyled = styled<HaloStyledProps, 'span'>('span')`
             ? `
         width: ${rem(FeatureDotStyleSettings.haloSize)};
         height: ${rem(FeatureDotStyleSettings.haloSize)};
-        padding: ${rem((FeatureDotStyleSettings.haloSize - FeatureDotStyleSettings.beaconSize) / 2)};
+        padding: ${rem(
+            (FeatureDotStyleSettings.haloSize -
+                FeatureDotStyleSettings.beaconSize) /
+                2,
+        )};
 
         border-radius: ${rem(FeatureDotStyleSettings.haloSize / 2)};
         background-image: radial-gradient(

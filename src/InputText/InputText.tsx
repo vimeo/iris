@@ -1,37 +1,41 @@
 import React, { SFC, HTMLProps } from 'react';
-import styled  from 'styled-components';
+import styled from 'styled-components';
 import InputWrapper from '../InputWrapper/InputWrapper';
 import {
-    getInputBaseStyles, 
+    getInputBaseStyles,
     InputProps,
     InputStyledProps,
     InputStyleSettings,
 } from './InputHelpers';
 import { Omit } from '../globals/js/type-helpers';
 
-
 export interface InputTextProps {
-    inlineButton?: React.ReactNode,
-    type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' |'url',
-};
+    inlineButton?: React.ReactNode;
+    type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
+}
 
 export interface InputTextStyledProps extends InputStyledProps {
-    inlineButton?: React.ReactNode,
-};
+    inlineButton?: React.ReactNode;
+}
 
 const InputStyled = styled<InputTextStyledProps, 'input'>('input')`
-    ${getInputBaseStyles}
-    &:read-only {
-        color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].text.disabled : InputStyleSettings.color.light.text.disabled };
-        background-color: ${props => InputStyleSettings.color[props.theme] ? InputStyleSettings.color[props.theme].background.disabled : InputStyleSettings.color.light.background.disabled};
+    ${getInputBaseStyles} &:read-only {
+        color: ${props =>
+            InputStyleSettings.color[props.theme]
+                ? InputStyleSettings.color[props.theme].text.disabled
+                : InputStyleSettings.color.light.text.disabled};
+        background-color: ${props =>
+            InputStyleSettings.color[props.theme]
+                ? InputStyleSettings.color[props.theme].background.disabled
+                : InputStyleSettings.color.light.background.disabled};
     }
-`
+`;
 
-const InputText: SFC <
-    InputTextProps & 
-    InputProps &
-    Omit<HTMLProps<HTMLInputElement>, 'label' | 'size' | 'id'>
->  = ({
+const InputText: SFC<
+    InputTextProps &
+        InputProps &
+        Omit<HTMLProps<HTMLInputElement>, 'label' | 'size' | 'id'>
+> = ({
     disabled,
     errorMsg,
     format = 'neutral',
@@ -48,7 +52,6 @@ const InputText: SFC <
     ref: _,
     ...filteredProps
 }) => {
-
     const isNegative = format === 'negative';
     const ariaInvalid = isNegative;
     const hasIcon = isNegative || format === 'positive';
@@ -57,35 +60,34 @@ const InputText: SFC <
     // Protect against invalid props that are needed for style look up.
 
     return (
-            <InputWrapper
-                showLabel={showLabel}
+        <InputWrapper
+            showLabel={showLabel}
+            disabled={disabled}
+            errorMsg={errorMsg}
+            format={format}
+            helperMsg={helperMsg}
+            label={label}
+            labelForId={id}
+            isInline={isInline}
+            preMessage={preMessage}
+            size={size}
+            theme={themeDefaultSupport}
+        >
+            <InputStyled
+                {...filteredProps}
+                aria-invalid={ariaInvalid}
                 disabled={disabled}
-                errorMsg={errorMsg}
                 format={format}
-                helperMsg = {helperMsg}
-                label = {label}
-                labelForId = {id}
-                isInline = {isInline}
-                preMessage={preMessage}
-                size={size}
-                theme={themeDefaultSupport}
-            >
-                <InputStyled
-                    {...filteredProps}
-                    aria-invalid={ariaInvalid}
-                    disabled={disabled}
-                    format={format}
-                    hasIcon={hasIcon}
-                    id={id}
-                    inlineButton={inlineButton}
-                    isInline={isInline}
-                    inputSize={size}
-                    theme={theme}
-                    type={type}
-                />
-                    {inlineButton}
-            </InputWrapper>
-
+                hasIcon={hasIcon}
+                id={id}
+                inlineButton={inlineButton}
+                isInline={isInline}
+                inputSize={size}
+                theme={theme}
+                type={type}
+            />
+            {inlineButton}
+        </InputWrapper>
     );
 };
 

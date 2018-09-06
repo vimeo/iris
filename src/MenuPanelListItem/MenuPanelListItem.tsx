@@ -7,7 +7,7 @@ import {
     ListItemStyled,
     SelectedIconElementStyled,
 } from './MenuPanelListItemStyled';
-import {ParagraphMd} from '../Type';
+import { ParagraphMd } from '../Type';
 
 const MenuPanelListItem: SFC<MenuPanelListItemProps> = ({
     theme = 'light',
@@ -18,38 +18,25 @@ const MenuPanelListItem: SFC<MenuPanelListItemProps> = ({
     isSelected,
     ...menuItemProps
 }) => {
-
     const linkIconElement = icon ? (
-        <LinkIconWrapperStyled
-            theme={theme}
-        >
-            {icon}
-        </LinkIconWrapperStyled>
+        <LinkIconWrapperStyled theme={theme}>{icon}</LinkIconWrapperStyled>
     ) : null;
 
-    const AnchorTag = (props) => {
-        return (
-            <a {...props} />
-        );
+    const AnchorTag = props => {
+        return <a {...props} />;
     };
 
     const Element = linkElement || AnchorTag;
 
-
     return (
         <ListItemStyled>
-            <Element
-                href={href}
-                {...menuItemProps}
-            >
+            <Element href={href} {...menuItemProps}>
                 <LinkStyled theme={theme}>
                     {isSelected && <SelectedIconElementStyled />}
                     <LabelStyled>
                         {linkIconElement}
                         <ParagraphMd
-                            format={theme === 'dark'
-                            ? 'light'
-                            : 'dark'}
+                            format={theme === 'dark' ? 'light' : 'dark'}
                             element="span"
                         >
                             {label}

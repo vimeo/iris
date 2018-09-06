@@ -28,25 +28,25 @@ export interface FeatureTourPanelProps {
 
 export interface FeatureTourPanelState {
     beaconMode?: 'inactive' | 'open' | 'active' | 'hidden';
-    beaconDelayIndex?: number,
-    beaconA11yText: string,
-    children: React.ReactChildren,
-    className?: string,
-    dismissButtonA11yLabel: string,
-    dismissButtonProps?: Object,
-    dotZIndex?: number,
-    headerText?: string,
-    shouldHideOnClose?: boolean,
-    isOpen?: boolean,
-    onClose: () => void,
-    onDismissClick?: (e: Event) => void,
-    onOpen?: () => void,
-    shouldRefocusTriggerOnClose?: boolean,
-    wrapperClass?: string,
+    beaconDelayIndex?: number;
+    beaconA11yText: string;
+    children: React.ReactChildren;
+    className?: string;
+    dismissButtonA11yLabel: string;
+    dismissButtonProps?: Object;
+    dotZIndex?: number;
+    headerText?: string;
+    shouldHideOnClose?: boolean;
+    isOpen?: boolean;
+    onClose: () => void;
+    onDismissClick?: (e: Event) => void;
+    onOpen?: () => void;
+    shouldRefocusTriggerOnClose?: boolean;
+    wrapperClass?: string;
 }
 
 interface WrapperStyledProps extends React.HTMLProps<HTMLDivElement> {
-    beaconMode?: 'inactive' | 'open' |'active' | 'hidden';
+    beaconMode?: 'inactive' | 'open' | 'active' | 'hidden';
     isHidden: boolean;
 }
 const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
@@ -96,7 +96,7 @@ class FeatureTourPanel extends React.Component {
 
     componentWillUpdate(
         nextProps: FeatureTourPanelProps,
-        nextState: FeatureTourPanelState
+        nextState: FeatureTourPanelState,
     ) {
         if (nextProps.isOpen !== this.props.isOpen) {
             this.setState({

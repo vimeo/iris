@@ -1,19 +1,19 @@
 import React from 'react';
 export interface ContentCarouselState {
     currentSlideIndex: number;
-};
+}
 
 export interface ContentCarouselProps {
-     /**
-     * a required translated string that will be suffixed with the slide number. Example: "Go to slide" will become"Go to slide 1"  
+    /**
+     * a required translated string that will be suffixed with the slide number. Example: "Go to slide" will become"Go to slide 1"
      */
     a11yGoToSlideText: string;
     /**
-     * a required translated string that means "Next" 
+     * a required translated string that means "Next"
      */
     a11yNextSlideText: string;
     /**
-     * a required translated string that means "Previous 
+     * a required translated string that means "Previous
      */
     a11yPrevSlideText: string;
     /**
@@ -44,6 +44,8 @@ export interface ContentCarouselProps {
      * Set to dark if using a dark theme. Defaults to light.
      */
     theme?: 'light' | 'dark';
-};
+}
 
-export interface ContentCarouselPropsAll extends ContentCarouselProps, React.HTMLProps<HTMLDivElement>{}; 
+export interface ContentCarouselPropsAll
+    extends ContentCarouselProps,
+        React.HTMLProps<HTMLDivElement> {}

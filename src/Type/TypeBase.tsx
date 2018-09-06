@@ -1,9 +1,9 @@
 import React, { SFC } from 'react';
 import styled, {
     css,
-    // @ts-ignore fixes "cannot be named" error
-    Styles, 
-    // @ts-ignore fixes "cannot be named" error
+    // @ts-ignore
+    Styles,
+    // @ts-ignore
     StyledComponentClass,
 } from 'styled-components';
 import { rem } from 'polished';
@@ -14,10 +14,9 @@ import {
     TypeProps,
     StyledTypeElementProps,
 } from './TypeTypes';
-import { getUnitlessLineHeight} from './TypeHelpers';
+import { getUnitlessLineHeight } from './TypeHelpers';
 import { Omit } from '../globals/js/type-helpers';
 import { TypeVariableElement } from './TypeVariableElement';
-
 
 export const TypeBaseStyleSettings = {
     fontFamily: {
@@ -73,7 +72,7 @@ export const TypeBaseStyleSettings = {
         },
         success: {
             default: COLORS.Pistachio,
-        }
+        },
     },
     letterSpacing: {
         xs: '0.01rem',
@@ -122,56 +121,46 @@ export const TypeBaseStyleSettings = {
 // This function serves as an interface to generate type styles in the same way the old SCSS type mixins work
 // it is used when a type component cannot be used in a component for some reason. (e.g. styling a third-party plugin)
 // it also creates our basic type styles.
-
 export const typeCSSByProps = (settings: typeByCSSInterface) => {
-        return css`
+    return css`
         font-size: ${rem(TypeBaseStyleSettings.fontSize[settings.size])};
-        font-family: ${
-        settings.fontStack
-                ? TypeBaseStyleSettings.fontFamily[settings.fontStack]
-                : TypeBaseStyleSettings.fontFamily.regular};
+        font-family: ${settings.fontStack
+            ? TypeBaseStyleSettings.fontFamily[settings.fontStack]
+            : TypeBaseStyleSettings.fontFamily.regular};
         font-weight: ${TypeBaseStyleSettings.fontWeight[settings.size]};
         letter-spacing: ${TypeBaseStyleSettings.letterSpacing[settings.size]};
         line-height: ${getUnitlessLineHeight(
-                TypeBaseStyleSettings.fontSize[settings.size],
-                TypeBaseStyleSettings.lineHeight[settings.size]
-            )};
-
+            TypeBaseStyleSettings.fontSize[settings.size],
+            TypeBaseStyleSettings.lineHeight[settings.size],
+        )};
         color: ${TypeBaseStyleSettings.format[settings.format][settings.size] ||
             TypeBaseStyleSettings.format[settings.format].default};
-
         max-width: 44rem;
-
-        margin-bottom: ${
-            settings.noMargin
-                ? '0'
-                : rem(TypeBaseStyleSettings.marginBottom[settings.size])};
-    `
+        margin-bottom: ${settings.noMargin
+            ? '0'
+            : rem(TypeBaseStyleSettings.marginBottom[settings.size])};
+    `;
 };
 
-const StyledElement = styled< StyledTypeElementProps & TypeProps , any >(TypeVariableElement)`
-    ${props => typeCSSByProps({
-        fontStack: props.fontStack,
-        format: props.format,
-        noMargin: props.noMargin,
-        size:props.size
-    })}
-    
-    strong {
+const StyledElement = styled<StyledTypeElementProps & TypeProps, any>(
+    TypeVariableElement,
+)`
+    ${props =>
+        typeCSSByProps({
+            fontStack: props.fontStack,
+            format: props.format,
+            noMargin: props.noMargin,
+            size: props.size,
+        })} strong {
         // handle bold styling within paragaphs.
         font-weight: ${VimeoStyleSettings.type.weights.medium};
     }
 `;
 
-const TypeBase: SFC <
+const TypeBase: SFC<
     StyledTypeElementProps &
-    TypeProps & 
-    Omit<React.HTMLProps<HTMLElement>, 'size'>
-> = ({
-    ref: _,
-    ...filteredProps
-}) => (
-    <StyledElement {...filteredProps} />
-);
+        TypeProps &
+        Omit<React.HTMLProps<HTMLElement>, 'size'>
+> = ({ ref: _, ...filteredProps }) => <StyledElement {...filteredProps} />;
 
 export default TypeBase;

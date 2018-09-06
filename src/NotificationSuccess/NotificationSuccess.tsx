@@ -4,19 +4,14 @@ import { NotificationProps } from '../Notification/NotificationProps';
 // @ts-ignore
 import SuccessIcon from '../icons/checkmark.svg';
 
-
-const NotificationSuccess: SFC <
-    NotificationProps &
-    HTMLProps<HTMLDivElement>
-> = ({
-    children,
-    hasIcon = true,
-    ...filteredProps
-}) => (
+const NotificationSuccess: SFC<
+    NotificationProps & HTMLProps<HTMLDivElement>
+> = ({ children, hasIcon = true, ...filteredProps }) => (
     <Notification
         icon={hasIcon ? <SuccessIcon /> : null}
         variant="success"
-        {...filteredProps}>
+        {...filteredProps}
+    >
         {children}
     </Notification>
 );

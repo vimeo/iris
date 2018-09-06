@@ -17,7 +17,7 @@ export interface VideoCardLiveBadge extends React.HTMLProps<HTMLInputElement> {
 // ==================== VideoCardLiveBadge Styled
 
 const VideoCardLiveBadgeStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
-    'div'
+    'div',
 )`
     align-items: center;
     background: ${VimeoStyleSettings.colors.uiColors.liveColor};
@@ -60,9 +60,7 @@ const LiveIconStyled = styled<React.HTMLProps<HTMLSpanElement>, 'span'>('span')`
 
 // ==================== VideoCardLiveBadge
 
-const VideoCardLiveBadge: SFC<VideoCardLiveBadge> = ({
-    liveLabelString,
-}) => {
+const VideoCardLiveBadge: SFC<VideoCardLiveBadge> = ({ liveLabelString }) => {
     return (
         <VideoCardLiveBadgeStyled>
             <VideoCardLiveBadgeTextStyled format="white">

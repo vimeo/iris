@@ -7,17 +7,13 @@ import { NotificationStyled } from './NotificationStyled';
 
 /* Note: This component is the base component for themed notifications, do not use it by itself */
 
-const iconElement = (icon) =>
-    icon &&
-    <span className="icon">{icon}</span>;
+const iconElement = icon => icon && <span className="icon">{icon}</span>;
 
-const headerTextElement = (headerText) =>
-    headerText &&
-    <Header5>{headerText}</Header5>;
+const headerTextElement = headerText =>
+    headerText && <Header5>{headerText}</Header5>;
 
-const dismissElement = 
-    (dismissButtonClassName, onDismiss) => 
-        onDismiss &&
+const dismissElement = (dismissButtonClassName, onDismiss) =>
+    onDismiss && (
         <div className="dismissButtonWrapper">
             <ButtonDialogClose
                 className={dismissButtonClassName}
@@ -25,12 +21,10 @@ const dismissElement =
                 buttonTitle="Dismiss this notification"
                 format="lightTransparent"
             />
-        </div>;
+        </div>
+    );
 
-const Notification: SFC <
-    NotificationBaseProps &
-    HTMLProps<HTMLDivElement>
-> = ({
+const Notification: SFC<NotificationBaseProps & HTMLProps<HTMLDivElement>> = ({
     children,
     dismissButtonClassName,
     headerText,

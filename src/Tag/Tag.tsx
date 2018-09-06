@@ -7,19 +7,19 @@ import DeleteIcon from '../icons/dismiss-x.svg';
 import { ButtonFocusBloop } from '../Button/ButtonFocusBloop';
 
 export interface TagProps {
-    autoMargins?: boolean,
-    autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid',
-    children: React.ReactChildren | string,
-    className?: string,
+    autoMargins?: boolean;
+    autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid';
+    children: React.ReactChildren | string;
+    className?: string;
     /**
      * default is 'light'
      */
-    format?: 'light' | 'dark',
-    isButtonElement?: boolean,
-    isInline?: boolean,
-    onDismiss?: any,
-    size?: 'xs' | 'sm' | 'md' | 'lg',
-};
+    format?: 'light' | 'dark';
+    isButtonElement?: boolean;
+    isInline?: boolean;
+    onDismiss?: any;
+    size?: 'xs' | 'sm' | 'md' | 'lg';
+}
 
 const ButtonStyledAsTag = styled(Button)`
     border-radius: ${rem(66)};
@@ -39,8 +39,7 @@ const Tag: SFC<TagProps> = ({
     size = 'md',
     ...filteredProps
 }) => {
-
-    const handleDismiss = (e) => {
+    const handleDismiss = e => {
         e.preventDefault();
         if (typeof onDismiss === 'function') {
             onDismiss(e);

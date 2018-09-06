@@ -1,9 +1,7 @@
 import React from 'react';
-import styled , {
-    //@ts-ignore this resolves a "Cannot be named" TS error
-    StyledComponentClass,
-} from 'styled-components';
-import {rem} from 'polished';
+// @ts-ignore
+import styled, { StyledComponentClass } from 'styled-components';
+import { rem } from 'polished';
 import { SegmentedButton_ButtonComponentProps } from './SegmentedButtonTypes';
 import {
     ButtonCoreCSS,
@@ -11,20 +9,24 @@ import {
     getDisabledCSSByFormat,
     getHoverCSSByFormat,
     getSizeCSS,
-
 } from '../Button/ButtonHelpers';
 import COLORS from '../globals/js/constants/COLORS';
 
 const OuterBorderRadius = rem(3);
 
-export const LabelStyled = styled<React.HTMLProps<HTMLLabelElement>, 'label'>('label')`
+export const LabelStyled = styled<React.HTMLProps<HTMLLabelElement>, 'label'>(
+    'label',
+)`
     flex-grow: 1;
 `;
 
-export const OptionStyled = styled<SegmentedButton_ButtonComponentProps, 'span'>('span')`
+export const OptionStyled = styled<
+    SegmentedButton_ButtonComponentProps,
+    'span'
+>('span')`
     ${ButtonCoreCSS}
     ${getSizeCSS}
-    ${getDefaultCSSByFormat({format: 'primaryOutline'})} 
+    ${getDefaultCSSByFormat({ format: 'primaryOutline' })} 
 
     display: flex;
     position: relative;
@@ -33,15 +35,24 @@ export const OptionStyled = styled<SegmentedButton_ButtonComponentProps, 'span'>
     align-items: center;
 
     &:hover {
-        ${getHoverCSSByFormat({format: 'primaryOutline'})};
+        ${getHoverCSSByFormat({
+            format: 'primaryOutline',
+        })};
         cursor: pointer;
     }
 
     input:checked + & {
-        ${props => getDefaultCSSByFormat({format: props.format === 'light' ? 'primary' : 'primaryDark'})};
+        ${props =>
+            getDefaultCSSByFormat({
+                format: props.format === 'light' ? 'primary' : 'primaryDark',
+            })};
 
         &:hover {
-            ${props => getHoverCSSByFormat({format: props.format === 'light' ? 'primary' : 'primaryDark'})};
+            ${props =>
+                getHoverCSSByFormat({
+                    format:
+                        props.format === 'light' ? 'primary' : 'primaryDark',
+                })};
         }
     }
 
@@ -65,17 +76,24 @@ export const OptionStyled = styled<SegmentedButton_ButtonComponentProps, 'span'>
         border-left-width: 0;
     }
 
-    ${props => props.disabled && `
+    ${props =>
+        props.disabled &&
+        `
 
-        ${getDisabledCSSByFormat({format: 'primaryOutline'})}
+        ${getDisabledCSSByFormat({
+            format: 'primaryOutline',
+        })}
         &:hover {
-            ${getDisabledCSSByFormat({format: 'primaryOutline'})}
+            ${getDisabledCSSByFormat({
+                format: 'primaryOutline',
+            })}
             cursor: not-allowed;
-        }`
-    }
+        }`}
 `;
 
-export const InputStyled = styled<React.HTMLProps<HTMLInputElement>, 'input'>('input')`
+export const InputStyled = styled<React.HTMLProps<HTMLInputElement>, 'input'>(
+    'input',
+)`
     position: absolute;
     z-index: 2;
     top: 0;

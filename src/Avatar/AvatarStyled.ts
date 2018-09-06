@@ -1,15 +1,10 @@
 //@ts-ignore
-import React from 'react'; 
-import styled, {
-    //@ts-ignore 
-    StyledComponentClass
-    // StyledComponentClass must be in scope to generate type definitions and
-    // @ts-ignored because it is not used
-    } from 'styled-components';
+import React from 'react';
+//@ts-ignore
+import styled, { StyledComponentClass } from 'styled-components';
 import { rem } from 'polished';
 
 import { AvatarProps } from './AvatarProps';
-
 
 const avatarSizes = {
     auto: '100%',
@@ -17,11 +12,11 @@ const avatarSizes = {
     sm: `${rem(32)}`,
     md: `${rem(40)}`,
     lg: `${rem(64)}`,
-    xl: `${rem(150)}`
+    xl: `${rem(150)}`,
 };
 
 export const AvatarStyled = styled<AvatarProps, 'img'>('img')`
-    display: ${props => props.isInline ? 'inline-block' : 'block'};
+    display: ${props => (props.isInline ? 'inline-block' : 'block')};
     height: ${props => avatarSizes[props.size]};
     width: ${props => avatarSizes[props.size]};
     position: relative;

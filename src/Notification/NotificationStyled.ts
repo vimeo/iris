@@ -1,15 +1,12 @@
 // @ts-ignore
 import React from 'react';
 import { NotificationBaseProps } from './NotificationProps';
-import styled, {
-    // @ts-ignore
-    StyledComponentClass
-} from 'styled-components';
+// @ts-ignore
+import styled, { StyledComponentClass } from 'styled-components';
 import { rgba, rem } from 'polished';
 
 import TRANSITIONS from '../globals/js/constants/TRANSITIONS';
 import COLORS from '../globals/js/constants/COLORS';
-
 
 const notificationPaddingHorizontal = 16;
 const notificationPaddingVertical = 12;
@@ -18,22 +15,24 @@ const notificationIconMargin = 12;
 const notificationDismissIconSize = 20;
 
 const notificationColors = {
-    "neutral": {
+    neutral: {
         bg: COLORS.Foam,
-        color: COLORS.VimeoBlue
+        color: COLORS.VimeoBlue,
     },
-    "success": {
+    success: {
         bg: COLORS.RumSwizzle,
-        color: COLORS.Pistachio
+        color: COLORS.Pistachio,
     },
-    "warning": {
+    warning: {
         bg: COLORS.PalePink,
-        color: COLORS.SunsetOrange
-    }
+        color: COLORS.SunsetOrange,
+    },
 };
 
-const notificationBg = variant =>  notificationColors[variant] && notificationColors[variant]['bg'];
-const notificationColor = variant =>  notificationColors[variant] && notificationColors[variant]['color'];
+const notificationBg = variant =>
+    notificationColors[variant] && notificationColors[variant]['bg'];
+const notificationColor = variant =>
+    notificationColors[variant] && notificationColors[variant]['color'];
 
 export const NotificationStyled = styled<NotificationBaseProps, 'div'>('div')`
     position: relative;
@@ -43,12 +42,12 @@ export const NotificationStyled = styled<NotificationBaseProps, 'div'>('div')`
     padding-top: ${rem(notificationPaddingVertical)};
     padding-right: ${rem(
         notificationDismissIconSize +
-        notificationPaddingHorizontal +
-        notificationIconMargin)};
+            notificationPaddingHorizontal +
+            notificationIconMargin,
+    )};
     padding-bottom: ${rem(notificationPaddingVertical)};
-    padding-left: ${props => props.icon
-        ? rem(48)
-        : rem(notificationPaddingHorizontal) };
+    padding-left: ${props =>
+        props.icon ? rem(48) : rem(notificationPaddingHorizontal)};
 
     border-radius: ${rem(3)};
     background-color: ${props => notificationBg(props.variant)};
@@ -62,15 +61,14 @@ export const NotificationStyled = styled<NotificationBaseProps, 'div'>('div')`
 
     .icon {
         position: absolute;
-        top: ${props => props.headerText
-            ? rem(14)
-            : rem(notificationPaddingVertical) };
+        top: ${props =>
+            props.headerText ? rem(14) : rem(notificationPaddingVertical)};
         left: ${rem(notificationPaddingHorizontal)};
 
         svg {
             width: ${rem(notificationIconSize)};
             height: ${rem(notificationIconSize)};
-            
+
             * {
                 fill: ${props => notificationColor(props.variant)};
             }
@@ -83,11 +81,18 @@ export const NotificationStyled = styled<NotificationBaseProps, 'div'>('div')`
         right: ${rem(4)};
 
         svg * {
-            fill: ${props => notificationColor(props.variant)} !important; // overrides button icon color for special case
+            fill: ${props =>
+                notificationColor(
+                    props.variant,
+                )} !important; // overrides button icon color for special case
         }
 
         &:hover button {
-            background: ${props => rgba(notificationColor(props.variant), 0.1)} !important; // overrides button icon color for special case
+            background: ${props =>
+                rgba(
+                    notificationColor(props.variant),
+                    0.1,
+                )} !important; // overrides button icon color for special case
         }
     }
 `;

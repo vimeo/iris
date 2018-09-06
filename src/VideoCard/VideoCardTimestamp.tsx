@@ -12,7 +12,7 @@ export interface VideoCardTimestamp {
 // ==================== VideoCardTimestamp Styled
 
 const VideoCardTimestampStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
-    'div'
+    'div',
 )`
     background: ${rgba(COLORS.AstroGranite, 0.85)};
     border-radius: ${rem(2)};
@@ -25,13 +25,9 @@ const VideoCardTimestampStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
 
 // ==================== VideoCardTimestamp
 
-const VideoCardTimestamp: SFC <
-    VideoCardTimestamp &
-    React.HTMLProps<HTMLInputElement>
-> = ({
-    ref: _,
-    timestamp,
-}) => {
+const VideoCardTimestamp: SFC<
+    VideoCardTimestamp & React.HTMLProps<HTMLInputElement>
+> = ({ ref: _, timestamp }) => {
     return (
         <VideoCardTimestampStyled>
             <ParagraphSm format="white" noMargin>

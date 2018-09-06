@@ -1,11 +1,8 @@
 // @ts-ignore including React suppresses cannot be named error
 import React from 'react';
-import styled, {
-    // @ts-ignore including suppresses cannot be named error
-    StyledComponentClass,
-    css,
-} from 'styled-components';
-import {rem} from 'polished';
+// @ts-ignore
+import styled, { StyledComponentClass, css } from 'styled-components';
+import { rem } from 'polished';
 import COLORS from '../globals/js/constants/COLORS';
 import { ButtonIconOnlyStyledProps } from './ButtonIconOnlyTypes';
 
@@ -13,60 +10,60 @@ const ICON_SIZE = 20;
 
 const ButtonSizes = {
     md: 40,
-    sm: 32
+    sm: 32,
 };
 
-const maybeAutoSpacingHorizontal = props => props.autoSpacingHorizontal
-    ? css `
-        margin-left: ${rem(2)};
-        &:first-of-type {
-            margin-left: 0;
-        }
-    `
-    : '';
+const maybeAutoSpacingHorizontal = props =>
+    props.autoSpacingHorizontal
+        ? css`
+              margin-left: ${rem(2)};
+              &:first-of-type {
+                  margin-left: 0;
+              }
+          `
+        : '';
 
 const getSizeCSS = props => {
     const ButtonSizeInRem = rem(ButtonSizes[props.size] || ButtonSizes.md);
 
-    return css `
+    return css`
         width: ${ButtonSizeInRem};
         height: ${ButtonSizeInRem};
     `;
 };
 
 const getFormatCSS = props => {
-
     switch (props.format) {
         case 'alternative':
-            return css `
-                    color: ${COLORS.RegentGray};
+            return css`
+                color: ${COLORS.RegentGray};
 
-                    &:hover {
-                        color: rgba(162, 175, 184, 0.16);
-                    }
-                `;
+                &:hover {
+                    color: rgba(162, 175, 184, 0.16);
+                }
+            `;
 
         case 'light':
-            return css `
-                    color: ${COLORS.AstroGranite};
-                    background-color: ${COLORS.White};
+            return css`
+                color: ${COLORS.AstroGranite};
+                background-color: ${COLORS.White};
 
-                    &:hover {
-                        color: ${COLORS.VimeoBlue};
-                    }
-                `;
+                &:hover {
+                    color: ${COLORS.VimeoBlue};
+                }
+            `;
 
         case 'lightTransparent':
-            return css `
+            return css`
                 color: ${COLORS.White};
 
                 &:hover {
-                    color: rgba(255,255,255,0.3);
+                    color: rgba(255, 255, 255, 0.3);
                 }
             `;
 
         case 'lightWarning':
-            return css `
+            return css`
                 color: ${COLORS.AstroGranite};
                 background-color: ${COLORS.White};
 
@@ -76,7 +73,7 @@ const getFormatCSS = props => {
             `;
 
         case 'midDark':
-            return css `
+            return css`
                 color: ${COLORS.RegentGray};
 
                 &:hover {
@@ -86,7 +83,7 @@ const getFormatCSS = props => {
             `;
 
         case 'primary':
-            return css `
+            return css`
                 color: ${COLORS.White};
                 background-color: ${COLORS.VimeoBlue};
 
@@ -96,7 +93,7 @@ const getFormatCSS = props => {
             `;
 
         case 'warning':
-        return css `
+            return css`
                 color: ${COLORS.SunsetOrange};
 
                 &:hover {
@@ -107,14 +104,13 @@ const getFormatCSS = props => {
 
         default:
             // default is the 'dark' format
-            return css `
-            color: ${COLORS.AstroGranite};
+            return css`
+                color: ${COLORS.AstroGranite};
 
-            &:hover {
+                &:hover {
                     background-color: rgba(162, 175, 184, 0.16);
                 }
             `;
-
     }
 };
 
@@ -148,7 +144,7 @@ const ButtonIconOnlySharedCSS = css`
         transform: scale(0.92);
     }
 
-    &:disabled  {
+    &:disabled {
         color: ${COLORS.Porcelain} !important;
 
         &:hover {
@@ -160,13 +156,14 @@ const ButtonIconOnlySharedCSS = css`
     }
 `;
 
-export const ButtonStyled = styled<ButtonIconOnlyStyledProps, 'button' >('button')`
+export const ButtonStyled = styled<ButtonIconOnlyStyledProps, 'button'>(
+    'button',
+)`
     ${ButtonIconOnlySharedCSS}
     ${getFormatCSS}
     ${getSizeCSS}
     ${maybeAutoSpacingHorizontal}
 `;
-
 
 export const SpanStyled = styled<ButtonIconOnlyStyledProps, 'span'>('span')`
     ${ButtonIconOnlySharedCSS}
@@ -175,14 +172,14 @@ export const SpanStyled = styled<ButtonIconOnlyStyledProps, 'span'>('span')`
     ${maybeAutoSpacingHorizontal}
 `;
 
-export const IconWrapperStyled = styled.span `
+export const IconWrapperStyled = styled.span`
     display: inline-flex;
     align-items: center;
     flex: 1;
 
     svg {
         width: ${rem(ICON_SIZE)};
-        height:  ${rem(ICON_SIZE)};
+        height: ${rem(ICON_SIZE)};
         flex: 1;
     }
 

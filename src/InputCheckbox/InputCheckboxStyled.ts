@@ -1,48 +1,45 @@
 // @ts-ignore
 import React from 'react';
-import styled, { 
-    // @ts-ignore
-    StyledComponentClass
- } from 'styled-components';
- import { rem } from 'polished';
+// @ts-ignore
+import styled, { StyledComponentClass } from 'styled-components';
+import { rem } from 'polished';
 import InputLabelInline from '../InputLabelInline/InputLabelInline';
 import COLORS from '../globals/js/constants/COLORS';
-import { 
+import {
     InputCheckboxProps,
     InputCheckboxOverlayStyledProps,
-    InputCheckboxHiddenLabelStyledProps
- } from './InputCheckboxTypes';
+    InputCheckboxHiddenLabelStyledProps,
+} from './InputCheckboxTypes';
 import {
     sharedInlineInputWrapperStyles,
     sharedInlineInputStyles,
     sharedInlineInputFillStyles,
     sharedInlineInputActivatedFillStyles,
-    sharedInlineInputElementReplaceStyles
+    sharedInlineInputElementReplaceStyles,
 } from './InputCheckboxHelpers';
 
-
- export const InputCheckboxWrapperStyled = styled.div`
+export const InputCheckboxWrapperStyled = styled.div`
     ${sharedInlineInputWrapperStyles}
     padding-left: ${rem(32)};
  `;
 
-export const OverlayStyled = styled<InputCheckboxOverlayStyledProps, 'span'>('span')`
+export const OverlayStyled = styled<InputCheckboxOverlayStyledProps, 'span'>(
+    'span',
+)`
     ${sharedInlineInputElementReplaceStyles};
     border-radius: ${rem(2)};
 
-    ${props => props.theme === 'dark' && `
+    ${props =>
+        props.theme === 'dark' &&
+        `
         border-color: ${COLORS.RegentGray};
         background-color: transparent;
 
         &:hover {
             border-color: ${COLORS.White};
         }
-    `}
-
-    &:after {
-        ${sharedInlineInputFillStyles}
-
-        top: 0.16rem;
+    `} &:after {
+        ${sharedInlineInputFillStyles} top: 0.16rem;
         left: 0.155rem;
         width: 1rem;
         height: 1rem;
@@ -51,25 +48,31 @@ export const OverlayStyled = styled<InputCheckboxOverlayStyledProps, 'span'>('sp
         background-position: 2% 2%;
         background-size: 98%;
 
-        ${props => props.checkedStyle === 'default' && `
+        ${props =>
+            props.checkedStyle === 'default' &&
+            `
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%23ffffff' d='M6.667 14.39L1.306 9.22l1.388-1.44 3.973 3.83 8.639-8.33 1.388 1.44z'/%3E%3C/svg%3E");
-        `}
-
-        ${props => props.checkedStyle === 'indeterminate' && `
+        `} ${props =>
+            props.checkedStyle === 'indeterminate' &&
+            `
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23ffffff' d='M4 9h12a1 1 0 0 1 1 1 1 1 0 0 1-1 1H4a1 1 0 0 1-1-1 1 1 0 0 1 1-1z'/%3E%3C/svg%3E");
-        `}
+        `};
     }
- `;
+`;
 
 export const InputCheckboxStyled = styled<any, 'input'>('input')`
     ${sharedInlineInputStyles}
 
     &:focus + ${OverlayStyled} {
-        ${props => props.theme === 'default' && `
+        ${props =>
+            props.theme === 'default' &&
+            `
             border-color: ${COLORS.VimeoBlueDarkened};
         `}
 
-        ${props => props.theme === 'dark' && `
+        ${props =>
+            props.theme === 'dark' &&
+            `
             border-color: ${COLORS.White};
         `}
     }
@@ -90,7 +93,9 @@ export const InputCheckboxStyled = styled<any, 'input'>('input')`
             border: 0;
             background: ${COLORS.VimeoBlue};
 
-            ${props => props.theme === 'dark' && `
+            ${props =>
+                props.theme === 'dark' &&
+                `
                 background-color: ${COLORS.VimeoBlueDarkened};
             `}
 
@@ -101,24 +106,33 @@ export const InputCheckboxStyled = styled<any, 'input'>('input')`
     }
 `;
 
-export const InputCheckboxLabelStyled = styled<InputCheckboxProps, InputLabelInline>(InputLabelInline)`
+export const InputCheckboxLabelStyled = styled<
+    InputCheckboxProps,
+    InputLabelInline
+>(InputLabelInline)`
     min-height: 1.125rem;
 
     &:hover {
         ${InputCheckboxStyled}:checked + ${OverlayStyled} {
-            ${props => props.theme === 'dark'
-                ? `background-color: ${COLORS.VimeoBlue};`
-                : `background-color: ${COLORS.VimeoBlueDarkened};`}
+            ${props =>
+                props.theme === 'dark'
+                    ? `background-color: ${COLORS.VimeoBlue};`
+                    : `background-color: ${COLORS.VimeoBlueDarkened};`};
         }
-        
-        ${props => props.theme === 'default' && `
+
+        ${props =>
+            props.theme === 'default' &&
+            `
             ${InputCheckboxStyled}:focus + ${OverlayStyled} {
                 border-color: ${COLORS.VimeoBlueDarkened};
             }
-        `}
+        `};
     }
 `;
 
-export const HiddenLabelStyled = styled<InputCheckboxHiddenLabelStyledProps, 'span'>('span')`
-    ${props => props.hideLabel && 'display: none;' }
+export const HiddenLabelStyled = styled<
+    InputCheckboxHiddenLabelStyledProps,
+    'span'
+>('span')`
+    ${props => props.hideLabel && 'display: none;'};
 `;

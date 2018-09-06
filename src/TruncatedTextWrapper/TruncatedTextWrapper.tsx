@@ -1,14 +1,17 @@
 import React, { SFC } from 'react';
 import styled from 'styled-components';
 
-export interface TruncatedTextWrapperProps extends React.HTMLProps<HTMLSpanElement> {
+export interface TruncatedTextWrapperProps
+    extends React.HTMLProps<HTMLSpanElement> {
     /**
      * sets a CSS display attribute on the span that creates the truncation
      */
-    displayCSSType?: 'inline-block'| 'inline-flex' | 'flex' | 'block';
+    displayCSSType?: 'inline-block' | 'inline-flex' | 'flex' | 'block';
 }
 
-const TruncatedTextWrapperStyled = styled<TruncatedTextWrapperProps, 'span'>('span')`
+const TruncatedTextWrapperStyled = styled<TruncatedTextWrapperProps, 'span'>(
+    'span',
+)`
     display: ${props => props.displayCSSType};
     white-space: nowrap;
     overflow: hidden;
@@ -20,10 +23,6 @@ const TruncatedTextWrapperStyled = styled<TruncatedTextWrapperProps, 'span'>('sp
 const TruncatedTextWrapper: SFC<TruncatedTextWrapperProps> = ({
     ref: _,
     ...props
-}) => (
-    <TruncatedTextWrapperStyled
-        {...props}
-    />
-);
+}) => <TruncatedTextWrapperStyled {...props} />;
 
 export default TruncatedTextWrapper;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { ChromePicker } from 'react-color';
 import InputText, { InputTextProps } from '../InputText/InputText';
-import { InputProps } from '../InputText/InputHelpers'
+import { InputProps } from '../InputText/InputHelpers';
 import MenuPanel from '../MenuPanel/MenuPanel';
 import { COLORS, KEY_CODES } from '../globals/js/constants';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
@@ -16,11 +16,11 @@ export interface InputColorPickerProps {
      * a string that is a legal hex value, including # (defaults to `"#00adef"`, Vimeo Blue)
      */
     defaultColor?: string;
-     /**
+    /**
      * Callback fires the color value changes
      */
     onChangeColor?: (hex: string) => void;
-     /**
+    /**
      * Field label
      */
     label: string;
@@ -34,16 +34,15 @@ export interface InputColorPickerProps {
     resetColor?: string;
     /**
      * Use a number to override the Z-index on the menu panel that opens with the color picker.
-    */
+     */
     menuPanelZIndexOverride: number;
     /**
      * Add a unique id to the input.
-    */
+     */
     id: string;
-};
+}
 
-export type InputColorPickerCombinedProps =
-    InputColorPickerProps &
+export type InputColorPickerCombinedProps = InputColorPickerProps &
     InputProps &
     Omit<React.HTMLProps<HTMLInputElement>, 'label' | 'size' | 'id'>;
 
@@ -55,9 +54,9 @@ export interface InputColorPickerState {
     showReset?: boolean;
     showColorPicker?: boolean;
     shouldFocusNextUpdate?: boolean;
-};
+}
 
-const ComponentWrapperStyled = styled('div') `
+const ComponentWrapperStyled = styled('div')`
     position: relative;
 `;
 
@@ -96,7 +95,7 @@ const InputStyled = styled<InputTextProps, any>(InputText)`
 `;
 
 interface ResetButtonStyledStyledProps extends HTMLAnchorElement {
-    isShowing: boolean,
+    isShowing: boolean;
 }
 
 const ResetButtonStyled = styled<ResetButtonStyledStyledProps, any>('a')`
@@ -110,8 +109,8 @@ const ResetButtonStyled = styled<ResetButtonStyledStyledProps, any>('a')`
     text-decoration: none;
     background: ${COLORS.White};
 
-    opacity: ${props => props.isShowing ? '1' : '0'};
-    transform: scale(${props => props.isShowing ? 1 : 0.5});
+    opacity: ${props => (props.isShowing ? '1' : '0')};
+    transform: scale(${props => (props.isShowing ? 1 : 0.5)});
     transition: all 150ms ease;
 
     &:hover {
@@ -119,7 +118,7 @@ const ResetButtonStyled = styled<ResetButtonStyledStyledProps, any>('a')`
     }
 `;
 
-class InputColorPicker extends React.Component <
+class InputColorPicker extends React.Component<
     InputColorPickerCombinedProps,
     InputColorPickerState
 > {
@@ -141,7 +140,9 @@ class InputColorPicker extends React.Component <
             fieldValue: props.defaultColor,
             focusShouldOpenMenu: true,
             menuHovered: false,
-            showReset: (props.resetColor ? initialColor !== props.resetColor : false),
+            showReset: props.resetColor
+                ? initialColor !== props.resetColor
+                : false,
             showColorPicker: false,
             shouldFocusNextUpdate: false,
         };
@@ -149,7 +150,7 @@ class InputColorPicker extends React.Component <
 
     state: InputColorPickerState;
 
-    componentDidUpdate(){
+    componentDidUpdate() {
         // refocus the field on menu close, but don't open the menu again
         if (!this.state.showColorPicker && this.state.shouldFocusNextUpdate) {
             setTimeout(() => {
@@ -201,13 +202,15 @@ class InputColorPicker extends React.Component <
         this._unbindCloseMenuListeners();
     };
 
-    _handleBlur = (event) => {
+    _handleBlur = event => {
         if (event.target && event.target.value) {
             const value = event.target.value;
 
             if (typeof value === 'string' && this._isHexValid(value)) {
                 this.setState({
-                    showReset: (this.props.resetColor ? value !== this.props.resetColor : value !== this.props.defaultColor),
+                    showReset: this.props.resetColor
+                        ? value !== this.props.resetColor
+                        : value !== this.props.defaultColor,
                     currentColor: value,
                     showColorPicker: this.state.menuHovered,
                 });
@@ -237,12 +240,14 @@ class InputColorPicker extends React.Component <
     };
 
     _handleColorPickerUpdate = (color: {
-        hex: string,
-        rgb: Object,
-        hsl: Object,
+        hex: string;
+        rgb: Object;
+        hsl: Object;
     }) => {
         this.setState({
-            showReset: (this.props.resetColor ? color.hex !== this.props.resetColor : color.hex !== this.props.defaultColor),
+            showReset: this.props.resetColor
+                ? color.hex !== this.props.resetColor
+                : color.hex !== this.props.defaultColor,
             currentColor: color.hex,
             fieldValue: color.hex,
         });
@@ -278,12 +283,13 @@ class InputColorPicker extends React.Component <
                 if (this._isHexValid(value)) {
                     this._handleColorChange(value);
                     this.setState({
-                        showReset: (this.props.resetColor ? value !== this.props.resetColor : value !== this.props.defaultColor),
+                        showReset: this.props.resetColor
+                            ? value !== this.props.resetColor
+                            : value !== this.props.defaultColor,
                         currentColor: value,
                         fieldValue: value,
                     });
-                }
-                else {
+                } else {
                     this.setState({
                         fieldValue: value,
                     });
@@ -304,12 +310,16 @@ class InputColorPicker extends React.Component <
         });
     };
 
-    _handleResetClick = (e) => {
+    _handleResetClick = e => {
         e.preventDefault();
         this.setState({
             showReset: false,
-            fieldValue: this.props.resetColor ? this.props.resetColor : this.props.defaultColor,
-            currentColor: this.props.resetColor ? this.props.resetColor : this.props.defaultColor,
+            fieldValue: this.props.resetColor
+                ? this.props.resetColor
+                : this.props.defaultColor,
+            currentColor: this.props.resetColor
+                ? this.props.resetColor
+                : this.props.defaultColor,
         });
     };
 
@@ -327,7 +337,7 @@ class InputColorPicker extends React.Component <
             label,
             menuPanelZIndexOverride,
             resetButtonLabel,
-            ref:_,
+            ref: _,
             ...filteredProps
         } = this.props;
 
@@ -391,7 +401,6 @@ class InputColorPicker extends React.Component <
                         {resetButtonLabel}
                     </ResetButtonStyled>
                 )}
-
             </ComponentWrapperStyled>
         );
     }

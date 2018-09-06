@@ -2,18 +2,19 @@ import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { Omit } from '../globals/js/type-helpers';
-import {
-    getInputBaseStyles,
-    InputProps,
-} from '../InputText/InputHelpers';
-import SelectWrapper, {ArrowIconWrapperWidth} from '../SelectWrapper/SelectWrapper';
+import { getInputBaseStyles, InputProps } from '../InputText/InputHelpers';
+import SelectWrapper, {
+    ArrowIconWrapperWidth,
+} from '../SelectWrapper/SelectWrapper';
 //@ts-ignore
 import ChevronIris from '../icons/chevron-down.svg';
 
-export interface InputSelectProps extends InputProps, Omit<React.HTMLProps<HTMLSelectElement>, 'label' | 'size' | 'id'>  {
-    icon?: React.ReactNode,
-    options: Array<{label: string, value: string}>,
-};
+export interface InputSelectProps
+    extends InputProps,
+        Omit<React.HTMLProps<HTMLSelectElement>, 'label' | 'size' | 'id'> {
+    icon?: React.ReactNode;
+    options: Array<{ label: string; value: string }>;
+}
 
 interface StyledSelectProps extends React.HTMLProps<HTMLSelectElement> {
     hasIcon: boolean;
@@ -24,20 +25,18 @@ interface StyledSelectProps extends React.HTMLProps<HTMLSelectElement> {
 }
 
 const StyledSelect = styled<StyledSelectProps, 'select'>('select')`
-    ${getInputBaseStyles}
-
-    -webkit-appearance: none;
+    ${getInputBaseStyles} -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 
-    ${props => props.hasInlineIcon && `padding-left: ${rem(40)};`}
-
-    &:-moz-focusring {
+    ${props =>
+        props.hasInlineIcon && `padding-left: ${rem(40)};`} &:-moz-focusring {
         color: transparent !important;
         text-shadow: 0 0 0 #000000 !important;
     }
 
-    @supports ( -webkit-appearance: none ) or ( -moz-appearance: none ) or ( appearance: none ) {
+    @supports (-webkit-appearance: none) or (-moz-appearance: none) or
+        (appearance: none) {
         padding-right: ${rem(ArrowIconWrapperWidth)};
     }
 `;
@@ -59,7 +58,6 @@ const InputSelect: SFC<InputSelectProps> = ({
     ref: _,
     ...filteredProps
 }) => {
-
     const isNegative = format === 'negative';
     const ariaInvalid = isNegative;
     const hasStateIcon = isNegative || format === 'positive';
@@ -71,18 +69,24 @@ const InputSelect: SFC<InputSelectProps> = ({
     }
 
     // Build options if there are options passed as an array
-    const optionList = options ? options.map((_, i) => {
-        const {
-            label, // eslint-disable-line no-shadow
-            ...optionProps
-        } = _;
-        return (<option {...optionProps} key={i}>{label}</option>);
-    }): [];
+    const optionList = options
+        ? options.map((_, i) => {
+              const {
+                  label, // eslint-disable-line no-shadow
+                  ...optionProps
+              } = _;
+              return (
+                  <option {...optionProps} key={i}>
+                      {label}
+                  </option>
+              );
+          })
+        : [];
 
     return (
         <SelectWrapper
             disabled={disabled}
-            errorMsg= {errorMsg}
+            errorMsg={errorMsg}
             format={format}
             helperMsg={helperMsg}
             icon={icon}

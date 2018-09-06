@@ -1,9 +1,7 @@
-//@ts-ignore this resolves a "Cannot be named" TS error
+// @ts-ignore
 import React from 'react';
-import styled, {
-    //@ts-ignore this resolves a "Cannot be named" TS error
-    StyledComponentClass,
-} from 'styled-components';
+// @ts-ignore
+import styled, { StyledComponentClass } from 'styled-components';
 
 export const WrapperStyled = styled('div')`
     display: flex;

@@ -1,28 +1,35 @@
 import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem, rgba } from 'polished';
-import {ParagraphSm} from '../Type';
+import { ParagraphSm } from '../Type';
 import COLORS from '../globals/js/constants/COLORS';
 
-export interface VideoCardPropertyBadge extends React.HTMLProps<HTMLInputElement>  {
+export interface VideoCardPropertyBadge
+    extends React.HTMLProps<HTMLInputElement> {
     /* 
     * The Property Badge Label
     */
-    label: string,
-};
+    label: string;
+}
 
 // ==================== VideoCardPropertyBadge Styled
 
-const VideoCardPropertyBadgeStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
+const VideoCardPropertyBadgeStyled = styled<
+    React.HTMLProps<HTMLDivElement>,
+    'div'
+>('div')`
     align-items: center;
-    background: ${rgba(COLORS.Paste, .9)};
+    background: ${rgba(COLORS.Paste, 0.9)};
     border-radius: ${rem(2)};
     display: inline-flex;
     padding: ${rem(4)} ${rem(8)};
     text-transform: uppercase;
 `;
 
-const VideoCardPropertyBadgeTextStyled = styled<React.HTMLProps<HTMLDivElement>, any >(ParagraphSm )`
+const VideoCardPropertyBadgeTextStyled = styled<
+    React.HTMLProps<HTMLDivElement>,
+    any
+>(ParagraphSm)`
     align-items: center;
     display: inline-flex;
     font-weight: 600;

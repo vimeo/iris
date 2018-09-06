@@ -1,10 +1,7 @@
-
- //@ts-ignore
+//@ts-ignore
 import React from 'react';
-import styled, {
-    //@ts-ignore
-    StyledComponentClass,
-} from 'styled-components';
+// @ts-ignore
+import styled, { StyledComponentClass } from 'styled-components';
 import { rem } from 'polished';
 import { typeCSSByProps } from '../Type/TypeBase';
 import { InputStyleSettings } from '../InputText/InputHelpers';
@@ -141,7 +138,7 @@ export const DatePickerWrapperStyled = styled.div`
     .rdtSwitch {
         ${typeCSSByProps({
             format: 'dark',
-            size: 'h5',    
+            size: 'h5',
         })}
 
         width: ${rem(100)};

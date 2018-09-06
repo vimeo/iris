@@ -17,9 +17,9 @@ interface TooltipStyledProps {
 }
 
 const TooltipStyled = styled<TooltipStyledProps, 'div'>('div')`
-    min-width: ${props =>  props.multiline ? `${WIDTH_LIMIT / 2}rem` : '0'};
+    min-width: ${props => (props.multiline ? `${WIDTH_LIMIT / 2}rem` : '0')};
     max-width: ${WIDTH_LIMIT}rem;
-    padding: .5rem .5rem;
+    padding: 0.5rem 0.5rem;
     color: ${COLORS.White};
     border-radius: ${rem(3)};
     background-color: ${COLORS.Black};
@@ -27,16 +27,12 @@ const TooltipStyled = styled<TooltipStyledProps, 'div'>('div')`
 
     p {
         color: ${COLORS.White}; //override default paragraph color
-        white-space: ${props =>  props.multiline ? 'normal' : 'nowrap'};
-        word-break: ${props => props.breakWords ? 'break-all' : 'normal'};
+        white-space: ${props => (props.multiline ? 'normal' : 'nowrap')};
+        word-break: ${props => (props.breakWords ? 'break-all' : 'normal')};
     }
 `;
 
-const Tooltip = ({
-    children,
-    ...filteredProps
-}: TooltipProps) => {
-
+const Tooltip = ({ children, ...filteredProps }: TooltipProps) => {
     return (
         <TooltipStyled
             {...filteredProps}

@@ -8,27 +8,22 @@ export interface BreadcrumbLinkReactRouterProps {
     children: React.ReactChildren;
     format: 'lightTheme' | 'darkTheme';
     to: string;
-};
+}
 
 const BreadcrumbLinkReactRouter: SFC<BreadcrumbLinkReactRouterProps> = ({
     children,
-    format="lightTheme",
+    format = 'lightTheme',
     to,
     ...filteredProps
-})=> (
-    <Link
-        to={to}
-        {...filteredProps}
-    >
+}) => (
+    <Link to={to} {...filteredProps}>
         <LinkText
             element="span"
             format={format === 'darkTheme' ? 'primaryDark' : 'primary'}
             decoration="silent"
             title={children}
         >
-            <BreadcrumbLinkContent>
-                {children}
-            </BreadcrumbLinkContent>
+            <BreadcrumbLinkContent>{children}</BreadcrumbLinkContent>
         </LinkText>
     </Link>
 );

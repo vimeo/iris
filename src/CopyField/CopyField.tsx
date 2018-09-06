@@ -10,7 +10,6 @@ import withCopyAbility from '../withCopyAbility/withCopyAbility';
 import InputText from '../InputText/InputText';
 import ButtonInlineInputText from '../ButtonInlineInputText/ButtonInlineInputText';
 
-
 const CopyFieldStyled = styled.div`
     label,
     input {
@@ -19,7 +18,6 @@ const CopyFieldStyled = styled.div`
 `;
 
 class CopyField extends React.Component<CopyFieldProps> {
-
     _handleFieldClick = () => {
         const el = findDOMNode(this);
         const TriggerTarget =
@@ -58,7 +56,7 @@ class CopyField extends React.Component<CopyFieldProps> {
                 onCopy={onCopy}
             />
         );
-        
+
         return (
             <CopyFieldStyled>
                 <InputText

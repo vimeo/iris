@@ -1,16 +1,15 @@
-//@ts-ignore 
+//@ts-ignore
 import React from 'react';
 import styled, {
-    //@ts-ignore 
+//@ts-ignore
     StyledComponentClass,
     // StyledComponentClass must be in scope to generate type definitions and
     // @ts-ignored because it is not used
-    css
+    css,
 } from 'styled-components';
 import { rem, rgba } from 'polished';
 import { CounterIconStyledProps } from './CounterIconTypes';
 import { COLORS, TRANSITIONS } from '../globals/js/constants/';
-
 
 const iconSize = 18;
 
@@ -27,9 +26,7 @@ const autoMarginsCSS = css`
 export const CounterIconStyled = styled<CounterIconStyledProps, 'div'>('div')`
     display: inline-block;
 
-    ${props => props.autoMargins
-        ? autoMarginsCSS
-        : null }
+    ${props => (props.autoMargins ? autoMarginsCSS : null)};
 `;
 
 export const IconWrapperStyled = styled.span`
@@ -76,4 +73,3 @@ export const CounterIconContentStyled = styled.span`
         background-color: ${rgba(162, 175, 184, 0.16)};
     }
 `;
-

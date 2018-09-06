@@ -5,7 +5,6 @@ import { ButtonStyled, ButtonLabelStyled } from './ButtonStyled';
 import { ButtonFocusBloop } from './ButtonFocusBloop';
 import ButtonIconElement from './ButtonIconElement';
 
-
 const Button: SFC<ButtonProps> = ({
     autoMargins = true,
     autoWidth = 'sm',
@@ -19,31 +18,26 @@ const Button: SFC<ButtonProps> = ({
     ref: _,
     ...filteredProps
 }) => {
-
     const iconElement = (
-        <ButtonIconElement
-            size={size}
-            iconLocation={iconLocation}>
+        <ButtonIconElement size={size} iconLocation={iconLocation}>
             {icon}
         </ButtonIconElement>
     );
 
-    const hasIcon = (position) =>
-        icon && iconLocation === position
-            ? iconElement
-            : null;
+    const hasIcon = position =>
+        icon && iconLocation === position ? iconElement : null;
 
     return (
         <ButtonStyled
             autoMargins={autoMargins}
             autoWidth={autoWidth}
             format={format}
-            hasFeaturedIcon={ iconLocation === 'featuredLeft' }
+            hasFeaturedIcon={iconLocation === 'featuredLeft'}
             isButtonElement={isButtonElement}
             isInline={isInline}
             size={size}
-            {...filteredProps}>
-
+            {...filteredProps}
+        >
             {hasIcon('featuredLeft')}
 
             <ButtonLabelStyled>
@@ -52,12 +46,9 @@ const Button: SFC<ButtonProps> = ({
                 {hasIcon('afterLabel')}
             </ButtonLabelStyled>
 
-            <ButtonFocusBloop
-                format={format}
-                size={size}
-            />
+            <ButtonFocusBloop format={format} size={size} />
         </ButtonStyled>
     );
-}
+};
 
 export default Button;

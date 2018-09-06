@@ -6,10 +6,8 @@ import SearchIcon from '../icons/search.svg';
 import { Omit } from '../globals/js/type-helpers';
 import { SearchFieldProps } from './SearchFieldTypes';
 
-
-const SearchField: SFC <
-    SearchFieldProps &
-    Omit<React.HTMLProps<HTMLInputElement>, 'type'>
+const SearchField: SFC<
+    SearchFieldProps & Omit<React.HTMLProps<HTMLInputElement>, 'type'>
 > = ({
     buttonFormat = 'subtle',
     buttonProps,
@@ -20,7 +18,6 @@ const SearchField: SFC <
     size = 'md',
     ...filteredProps
 }) => {
-
     const ButtonComponent = (
         <ButtonInlineInputText
             {...buttonProps}

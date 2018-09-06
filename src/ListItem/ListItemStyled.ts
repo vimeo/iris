@@ -1,9 +1,7 @@
- //@ts-ignore needed for cannot be named warning
+//@ts-ignore
 import React from 'react';
-import styled, {
-    //@ts-ignore needed for cannot be named warning
-    StyledComponentClass,
-} from 'styled-components';
+//@ts-ignore
+import styled, { StyledComponentClass } from 'styled-components';
 import { rem } from 'polished';
 
 export const ListItemStyled = styled.li`

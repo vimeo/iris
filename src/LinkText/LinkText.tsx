@@ -17,7 +17,7 @@ export interface LinkTextProps {
      * Choose the link decoration if it shoudld be non-standard.
      */
     decoration?: 'loud' | 'inherit' | 'silent';
-};
+}
 
 const linkBorderCss = css`
     display: block;
@@ -35,7 +35,7 @@ const linkBorderCss = css`
     content: '';
 `;
 
-const getLinkDecorationCss = (decoration) => {
+const getLinkDecorationCss = decoration => {
     let decorationCSS;
     switch (decoration) {
         case 'loud':
@@ -60,7 +60,7 @@ const getLinkDecorationCss = (decoration) => {
                 }
 
                 &:hover::before {
-                    ${linkBorderCss}
+                    ${linkBorderCss};
                 }
             `;
             break;
@@ -70,7 +70,6 @@ const getLinkDecorationCss = (decoration) => {
     }
 
     return decorationCSS;
-
 };
 
 const formats = {
@@ -80,11 +79,13 @@ const formats = {
     },
     primary: {
         defaultColor: VimeoStyleSettings.colors.typeColors.linkColorLight,
-        hoverColor: VimeoStyleSettings.colors.typeColors.linkColorLightToDarkHover,
+        hoverColor:
+            VimeoStyleSettings.colors.typeColors.linkColorLightToDarkHover,
     },
     primaryDark: {
         defaultColor: VimeoStyleSettings.colors.typeColors.linkColorLight,
-        hoverColor: VimeoStyleSettings.colors.typeColors.linkColorLightToLightHover,
+        hoverColor:
+            VimeoStyleSettings.colors.typeColors.linkColorLightToLightHover,
     },
     warning: {
         defaultColor: VimeoStyleSettings.colors.uiColors.alertColor,
@@ -92,9 +93,15 @@ const formats = {
     },
 };
 
-const getDefaultColor = props => props.format && formats[props.format] ? formats[props.format].defaultColor : '';
+const getDefaultColor = props =>
+    props.format && formats[props.format]
+        ? formats[props.format].defaultColor
+        : '';
 
-const getHoverColor = props => props.format && formats[props.format] ? formats[props.format].hoverColor : '';
+const getHoverColor = props =>
+    props.format && formats[props.format]
+        ? formats[props.format].hoverColor
+        : '';
 
 const AnchorStyled = styled.a`
     text-decoration: none;
@@ -107,7 +114,7 @@ const AnchorStyled = styled.a`
 const LinkTextStyled = styled<LinkTextProps, 'span'>('span')`
     display: inline;
     position: relative;
-    
+
     padding: 0;
 
     color: ${getDefaultColor};
@@ -119,7 +126,7 @@ const LinkTextStyled = styled<LinkTextProps, 'span'>('span')`
     background-color: transparent;
 
     transition: all 0.1s ease-in-out;
-    
+
     appearance: none;
 
     &::-moz-focus-inner {
@@ -138,17 +145,13 @@ const LinkTextStyled = styled<LinkTextProps, 'span'>('span')`
     }
 
     &::after {
-        ${linkBorderCss}
+        ${linkBorderCss};
     }
 
     ${props => getLinkDecorationCss(props.decoration)};
-    `;
+`;
 
-
-const LinkText: SFC <
-    LinkTextProps &
-    React.HTMLProps<HTMLAnchorElement>
-> = ({
+const LinkText: SFC<LinkTextProps & React.HTMLProps<HTMLAnchorElement>> = ({
     children,
     decoration,
     element = 'a',
@@ -157,33 +160,24 @@ const LinkText: SFC <
     ref: _,
     ...filteredProps
 }) => {
-
-    const maybeAnchorTag = element === 'a' ? (
-        <AnchorStyled
-            href={href}
-            {...filteredProps}
-        >
-            <LinkTextStyled
-                decoration={decoration}
-                format={format}
-
-            >
-                {children}
-            </LinkTextStyled>
-        </AnchorStyled>
-    ) : (
+    const maybeAnchorTag =
+        element === 'a' ? (
+            <AnchorStyled href={href} {...filteredProps}>
+                <LinkTextStyled decoration={decoration} format={format}>
+                    {children}
+                </LinkTextStyled>
+            </AnchorStyled>
+        ) : (
             <LinkTextStyled
                 decoration={decoration}
                 format={format}
                 {...filteredProps}
-
             >
                 {children}
             </LinkTextStyled>
         );
 
-    return maybeAnchorTag
-
+    return maybeAnchorTag;
 };
 
 export default LinkText;

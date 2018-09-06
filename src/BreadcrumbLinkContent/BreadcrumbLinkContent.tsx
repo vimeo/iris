@@ -2,48 +2,45 @@ import React, { SFC, HTMLProps } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import mediaQuery from '../globals/js/style-helpers/mediaQuery';
-//@ts-ignore 
+//@ts-ignore
 import ArrowLeft from '../icons/arrow-left.svg';
-import { ARROWLEFT_CLASSNAME} from '../Breadcrumb/Breadcrumb';
+import { ARROWLEFT_CLASSNAME } from '../Breadcrumb/Breadcrumb';
 
 const ArrowLeftWrapper = styled.span`
-        display: inline-block;
-        position: relative;
-        top: ${rem(5)};
+    display: inline-block;
+    position: relative;
+    top: ${rem(5)};
 
-        svg {
-            height: ${rem(24)};
-            width:${rem(24)};
+    svg {
+        height: ${rem(24)};
+        width: ${rem(24)};
 
-            * {
-                fill: currentColor;
-            }
+        * {
+            fill: currentColor;
         }
+    }
 
-        ${mediaQuery.md`
+    ${mediaQuery.md`
             display: none;
-        `}
+        `};
 `;
 
 const LinkLabel = styled.span`
-        display: none;
-        ${mediaQuery.md`
+    display: none;
+    ${mediaQuery.md`
             display: inline;
-        `}
+        `};
 `;
 
-const BreadcrumbLinkContent: SFC<HTMLProps<HTMLElement>> = (props) => {
+const BreadcrumbLinkContent: SFC<HTMLProps<HTMLElement>> = props => {
     return (
         <span>
             <ArrowLeftWrapper className={ARROWLEFT_CLASSNAME}>
                 <ArrowLeft />
             </ArrowLeftWrapper>
-            <LinkLabel>
-                {props.children}
-            </LinkLabel>
+            <LinkLabel>{props.children}</LinkLabel>
         </span>
     );
 };
 
 export default BreadcrumbLinkContent;
-

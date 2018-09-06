@@ -1,16 +1,15 @@
 // @ts-ignore
 import React from 'react';
 import styled, {
-    // @ts-ignore
+// @ts-ignore
     StyledComponentClass,
     // @ts-ignore
     Styles,
-    css
+    css,
 } from 'styled-components';
 import { rem } from 'polished';
 import { InputRadioOverlayStyledProps } from './InputRadioTypes';
 import COLORS from '../globals/js/constants/COLORS';
-
 
 const wrapperSize = 2;
 const inputSize = 20;
@@ -40,35 +39,41 @@ export const InputRadioStyled = styled.input`
     outline: 0;
 `;
 
-const radioHover = css`${InputRadioWrapperStyled}:hover ${InputRadioStyled}:not([disabled]) + &`;
-const radioChecked = css`${InputRadioStyled}:checked + &`;
+const radioHover = css`
+    ${InputRadioWrapperStyled}:hover ${InputRadioStyled}:not([disabled]) + &;
+`;
+const radioChecked = css`
+    ${InputRadioStyled}: checked + &;
+`;
 
-const themeSpecificStyles = ({
-    theme = 'default'
-}) => ({
-    default: css`
-        border-color: ${COLORS.RegentGray};
-        background: ${COLORS.White};
-
-        ${radioHover} {
-            border-color: ${COLORS.AstroGranite};
-        }
-    `,
-    dark: css`
-        border-color: ${COLORS.RegentGray};
-        background: transparent;
-
-        ${radioHover} {
-            border-color: ${COLORS.White};
-        }
-
-        ${radioChecked} {
+const themeSpecificStyles = ({ theme = 'default' }) =>
+    ({
+        default: css`
+            border-color: ${COLORS.RegentGray};
             background: ${COLORS.White};
-        }
-    `
-})[theme];
 
-export const InputRadioOverlayStyled = styled<InputRadioOverlayStyledProps, 'div'>('div')`
+            ${radioHover} {
+                border-color: ${COLORS.AstroGranite};
+            }
+        `,
+        dark: css`
+            border-color: ${COLORS.RegentGray};
+            background: transparent;
+
+            ${radioHover} {
+                border-color: ${COLORS.White};
+            }
+
+            ${radioChecked} {
+                background: ${COLORS.White};
+            }
+        `,
+    }[theme]);
+
+export const InputRadioOverlayStyled = styled<
+    InputRadioOverlayStyledProps,
+    'div'
+>('div')`
     display: block;
     position: absolute;
     z-index: 3;
@@ -79,10 +84,8 @@ export const InputRadioOverlayStyled = styled<InputRadioOverlayStyledProps, 'div
     border-width: ${rem(1)};
     border-style: solid;
     border-radius: ${rem(inputSize / 2)};
-    
-    ${themeSpecificStyles}
 
-    &:after {
+    ${themeSpecificStyles} &:after {
         content: '';
         position: absolute;
         transition: all 200ms ease-out;

@@ -15,8 +15,10 @@ const ProgressBarStyleSettings = {
     stripeSize: 10,
 };
 
-const getBarHeight = (size: string) => rem(ProgressBarStyleSettings.height[`${size}`]);
+const getBarHeight = (size: string) =>
+    rem(ProgressBarStyleSettings.height[`${size}`]);
 
-const getBarRadius = (size: string) => rem(ProgressBarStyleSettings.height[`${size}`] / 2);
+const getBarRadius = (size: string) =>
+    rem(ProgressBarStyleSettings.height[`${size}`] / 2);
 
 export { ProgressBarStyleSettings, getBarHeight, getBarRadius };

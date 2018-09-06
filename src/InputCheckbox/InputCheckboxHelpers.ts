@@ -15,7 +15,6 @@ import {
 import { rem } from 'polished';
 import COLORS from '../globals/js/constants/COLORS';
 
-
 export const sharedInlineInputWrapperStyles = css`
     display: flex;
     position: relative;
@@ -27,7 +26,7 @@ export const sharedInlineInputWrapperStyles = css`
 export const sharedInlineInputStyles = css`
     display: inline-flex;
     position: absolute;
-    z-index: 2; 
+    z-index: 2;
     top: 0.625rem;
     left: 0.625rem;
     width: ${rem(1)};
@@ -65,20 +64,22 @@ export const sharedInlineInputElementReplaceStyles = css`
     border-width: ${rem(1)};
     border-style: solid;
 
-    ${props => props.theme === 'default' && `
+    ${props =>
+        props.theme === 'default' &&
+        `
         border-color: ${COLORS.RegentGray};
         background-color: ${COLORS.White};
 
         &:hover {
             border-color: ${COLORS.AstroGranite};
         }
-    `}
-
-    ${props => props.theme === 'dark' && `
+    `} ${props =>
+        props.theme === 'dark' &&
+        `
         border-color: ${COLORS.SoutherlySky};
 
         &:hover {
             border-color: ${COLORS.White};
         }
-    `}
+    `};
 `;

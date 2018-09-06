@@ -1,11 +1,11 @@
 // @ts-ignore
 import React from 'react';
-import styled, { 
+import styled, {
     css,
     // @ts-ignore
-    StyledComponentClass
- } from 'styled-components';
- import { rem } from 'polished';
+    StyledComponentClass,
+} from 'styled-components';
+import { rem } from 'polished';
 
 import {
     ButtonCoreCSS,
@@ -22,16 +22,16 @@ import { ButtonProps } from './ButtonProps';
 import { ButtonStyleSettings } from './ButtonStyleSettings';
 import { ButtonVariableElement } from './ButtonVariableElement';
 
-
 const maybeGetFeaturedIconCSS = props => {
-    const thisButtonSize = ButtonStyleSettings.Sizes[props.size] || ButtonStyleSettings.Sizes.md;
-    if(props.hasFeaturedIcon && thisButtonSize) {
+    const thisButtonSize =
+        ButtonStyleSettings.Sizes[props.size] || ButtonStyleSettings.Sizes.md;
+    if (props.hasFeaturedIcon && thisButtonSize) {
         const combinedPaddingBySize = `${thisButtonSize.minHeight} + 1rem`;
         return `
             padding-right: calc(${combinedPaddingBySize});
             padding-left: calc(${combinedPaddingBySize});
-        `
-    } 
+        `;
+    }
 };
 
 export const ButtonStyled = styled<ButtonProps, any>(ButtonVariableElement)`
@@ -41,26 +41,25 @@ export const ButtonStyled = styled<ButtonProps, any>(ButtonVariableElement)`
     ${getVerticalAutoMarginCSS}
     ${getAutoWidthCSS};
 
-    border-radius: ${props => props.size === 'xs'
-        ? rem(2)
-        : rem(3)};
+    border-radius: ${props => (props.size === 'xs' ? rem(2) : rem(3))};
 
-    ${props => props.customFormat
-        ? customDefault(props)
-        : getDefaultCSSByFormat}
+    ${props =>
+        props.customFormat ? customDefault(props) : getDefaultCSSByFormat}
 
     &:hover {
         cursor: pointer;
-        ${props => props.customFormat
-            ? customHoverActive(props)
-            : getHoverCSSByFormat};
+        ${props =>
+            props.customFormat
+                ? customHoverActive(props)
+                : getHoverCSSByFormat};
     }
 
     &:active {
         transform: scale(0.98);
-        ${props => props.customFormat
-            ? customHoverActive(props)
-            : getActiveCSSByFormat};
+        ${props =>
+            props.customFormat
+                ? customHoverActive(props)
+                : getActiveCSSByFormat};
     }
 
     &:disabled,
@@ -80,14 +79,17 @@ export const ButtonLabelStyled = styled.span`
     justify-content: center;
 `;
 
-const customDefault = (props) => css`
+const customDefault = props => css`
     background: ${props.customFormat.defaultBackgroundColor};
-    border-color: ${props.customFormat.defaultBorderColor || props.customFormat.defaultBackgroundColor};
+    border-color: ${props.customFormat.defaultBorderColor ||
+        props.customFormat.defaultBackgroundColor};
     color: ${props.customFormat.defaultTextColor};
 `;
 
-const customHoverActive = (props) => css`
+const customHoverActive = props => css`
     background: ${props.customFormat.hoverBackgroundColor};
-    border-color: ${props.customFormat.hoverBorderColor || props.customFormat.hoverBackgroundColor};
-    color: ${props.customFormat.hoverTextColor || props.customFormat.defaultTextColor};
+    border-color: ${props.customFormat.hoverBorderColor ||
+        props.customFormat.hoverBackgroundColor};
+    color: ${props.customFormat.hoverTextColor ||
+        props.customFormat.defaultTextColor};
 `;

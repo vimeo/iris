@@ -7,51 +7,47 @@ import {
     OptionStyled,
 } from './SegmentedButtonStyled';
 
-const SegmentedButtonSetButton: SFC <
-    SegmentedButtonProps & 
-    SegmentedButtonSetOptionProps & 
-    HTMLProps<HTMLDivElement>
+const SegmentedButtonSetButton: SFC<
+    SegmentedButtonProps &
+        SegmentedButtonSetOptionProps &
+        HTMLProps<HTMLDivElement>
 > = ({
     //@ts-ignore
     children,
     disabled,
     id,
     format = 'light',
-    inputProps = {ref:false},
+    inputProps = { ref: false },
     name,
     optionLabel,
     //@ts-ignore
     ref: _, // filter out ref from styled component
     ...filteredProps
 }) => {
-
     const {
         //@ts-ignore
         ref: _,
         ...inputPropsFiltered
     } = inputProps;
-    
-    
+
     return (
-            <LabelStyled
-                htmlFor={id}
+        <LabelStyled htmlFor={id}>
+            <InputStyled
+                {...inputPropsFiltered}
+                name={name}
+                id={id}
+                type="radio"
+                disabled={disabled}
+            />
+            <OptionStyled
+                {...filteredProps}
+                disabled={disabled}
+                format={format}
+                size="md"
             >
-                <InputStyled
-                    {...inputPropsFiltered}
-                    name={name}
-                    id={id}
-                    type="radio" 
-                    disabled={disabled} 
-                />
-                    <OptionStyled
-                        {...filteredProps}
-                        disabled={disabled}
-                        format={format}
-                        size="md"
-                    >
-                        {optionLabel}
-                    </OptionStyled>
-            </LabelStyled>
+                {optionLabel}
+            </OptionStyled>
+        </LabelStyled>
     );
 };
 

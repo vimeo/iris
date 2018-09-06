@@ -2,20 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { Omit } from '../globals/js/type-helpers';
-import {
-    InputProps,
-    InputStyleSettings,
-} from '../InputText/InputHelpers';
+import { InputProps, InputStyleSettings } from '../InputText/InputHelpers';
 import InputWrapper from '../InputWrapper/InputWrapper';
 //@ts-ignore
 import ChevronIris from '../icons/chevron-down.svg';
 
-export interface SelectWrapperProps extends InputProps, Omit<React.HTMLProps<HTMLDivElement>, 'label' | 'size' | 'id'>  {
+export interface SelectWrapperProps
+    extends InputProps,
+        Omit<React.HTMLProps<HTMLDivElement>, 'label' | 'size' | 'id'> {
     /**
      * Use to pass an inline icon over the select, for example a credit card logo
      */
-    icon?: React.ReactNode,
-};
+    icon?: React.ReactNode;
+}
 
 export const ArrowIconSize = 24;
 export const ArrowIconWrapperWidth = 36;
@@ -36,17 +35,10 @@ const IconWrapperStyled = styled.div`
     }
 `;
 
-const getArrowColor = (
-    {
-        disabled,
-        format,
-        theme,
-    }
-) => {
+const getArrowColor = ({ disabled, format, theme }) => {
     let color = InputStyleSettings.color.light.text.default;
 
     if (!disabled) {
-
         if (format === 'neutral' && theme === 'dark') {
             color = InputStyleSettings.color.dark.text.default;
         }
@@ -58,9 +50,7 @@ const getArrowColor = (
         if (format === 'negative') {
             color = InputStyleSettings.color.light.border.negative.default;
         }
-
-    }
-    else {
+    } else {
         color = InputStyleSettings.color.light.text.disabled;
     }
 
@@ -75,7 +65,8 @@ interface ArrowWrapperStyledProps {
 
 const ArrowWrapperStyled = styled<ArrowWrapperStyledProps, 'div'>('div')`
     display: none;
-    @supports ( -webkit-appearance: none ) or ( -moz-appearance: none ) or ( appearance: none ) {
+    @supports (-webkit-appearance: none) or (-moz-appearance: none) or
+        (appearance: none) {
         display: flex;
         position: absolute;
         top: 50%;
@@ -91,18 +82,18 @@ const ArrowWrapperStyled = styled<ArrowWrapperStyledProps, 'div'>('div')`
         pointer-events: none;
 
         svg {
-            transform: translateY(-.25rem);
-            width:  ${rem(ArrowIconSize)};
+            transform: translateY(-0.25rem);
+            width: ${rem(ArrowIconSize)};
             height: ${rem(ArrowIconSize)};
 
-             * {
-                ${getArrowColor}
+            * {
+                ${getArrowColor};
             }
         }
     }
 `;
 
-const SelectWrapper= ({
+const SelectWrapper = ({
     children,
     disabled,
     errorMsg,
@@ -118,37 +109,32 @@ const SelectWrapper= ({
     ref: _,
     ...filteredProps
 }: SelectWrapperProps) => {
-
     return (
-            <InputWrapper
-                {...filteredProps}
-                showLabel={showLabel}
-                disabled={disabled}
-                errorMsg={errorMsg}
-                format={format}
-                helperMsg={helperMsg}
-                label={label}
-                labelForId={id}
-                isInline={isInline}
-                size={size}
-                theme={theme}
-            >
-                <WrapperStyled>
-                    {icon && (
-                        <IconWrapperStyled>
-                            {icon}
-                        </IconWrapperStyled>
-                    )}
-                    {children}
-                    <ArrowWrapperStyled
-                        format={format}
-                        disabled={disabled}
-                        theme={theme}
-                    >
-                        <ChevronIris />
-                    </ArrowWrapperStyled>
-                </WrapperStyled>
-            </InputWrapper>
+        <InputWrapper
+            {...filteredProps}
+            showLabel={showLabel}
+            disabled={disabled}
+            errorMsg={errorMsg}
+            format={format}
+            helperMsg={helperMsg}
+            label={label}
+            labelForId={id}
+            isInline={isInline}
+            size={size}
+            theme={theme}
+        >
+            <WrapperStyled>
+                {icon && <IconWrapperStyled>{icon}</IconWrapperStyled>}
+                {children}
+                <ArrowWrapperStyled
+                    format={format}
+                    disabled={disabled}
+                    theme={theme}
+                >
+                    <ChevronIris />
+                </ArrowWrapperStyled>
+            </WrapperStyled>
+        </InputWrapper>
     );
 };
 

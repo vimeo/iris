@@ -46,7 +46,7 @@ export const ButtonColors = {
     SuccessBackground: VimeoStyleSettings.colors.uiColors.successColor,
     SuccessBackgroundActive: darken(
         0.1,
-        VimeoStyleSettings.colors.uiColors.successColorHover
+        VimeoStyleSettings.colors.uiColors.successColorHover,
     ),
     SuccessBackgroundHover:
         VimeoStyleSettings.colors.uiColors.successColorHover,
@@ -56,7 +56,7 @@ export const ButtonColors = {
     WarningBackground: VimeoStyleSettings.colors.uiColors.alertColor,
     WarningBackgroundActive: darken(
         0.1,
-        VimeoStyleSettings.colors.uiColors.alertColorHover
+        VimeoStyleSettings.colors.uiColors.alertColorHover,
     ),
     WarningBackgroundHover: VimeoStyleSettings.colors.uiColors.alertColorHover,
 

@@ -23,7 +23,8 @@ export interface VideoCardThumbnailData {
      */
     thumbnailSrcSet?: string;
 }
-export interface VideoCardProps extends Omit<React.HTMLProps<HTMLDivElement>, 'size'>{
+export interface VideoCardProps
+    extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
     /**
      * A string to describe what checking the checkbox does. This is for screenreaders. This is **required** if `isSelectable` is chosen.
      */
@@ -149,9 +150,8 @@ export interface VideoCardState extends React.HTMLProps<HTMLDivElement> {
 
 // ==================== VideoCardWrapper
 
-
-
-export interface WrapperStyledProps extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
+export interface WrapperStyledProps
+    extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
     hasContextArea?: boolean;
     isDraggable?: boolean;
     isSelected?: boolean;
@@ -166,7 +166,7 @@ const WrapperStyled = styled<WrapperStyledProps, any>(Card)`
         props.hasContextArea
             ? `calc(100% + ${rem(VideoCardStyleSettings.contextAreaHeight)})`
             : '100%'}; // forces square aspect ratio
-    margin-bottom: ${props => props.noMargin ? 0 : rem(20)};
+    margin-bottom: ${props => (props.noMargin ? 0 : rem(20))};
 `;
 
 export interface ContentPositionWrapperStyledProps
@@ -174,7 +174,10 @@ export interface ContentPositionWrapperStyledProps
     isProcessing?: boolean;
 }
 
-const ContentPositionWrapperStyled = styled<ContentPositionWrapperStyledProps,'div'>('div')`
+const ContentPositionWrapperStyled = styled<
+    ContentPositionWrapperStyledProps,
+    'div'
+>('div')`
     position: absolute;
     top: 0;
     left: 0;
@@ -189,7 +192,12 @@ const SmallActionWrapperStyled = styled('div')`
 `;
 
 const FooterAreaStyled = styled('div')`
-    padding: ${rem((VideoCardStyleSettings.footerHeight - VideoCardStyleSettings.actionButtonSize) / 2)} ${rem(VideoCardStyleSettings.padding)};
+    padding: ${rem(
+            (VideoCardStyleSettings.footerHeight -
+                VideoCardStyleSettings.actionButtonSize) /
+                2,
+        )}
+        ${rem(VideoCardStyleSettings.padding)};
     position: absolute;
     bottom: 0;
     display: flex;
@@ -209,13 +217,10 @@ const ProcessingOverlayStyled = styled('div')`
 `;
 
 // ==================== VideoCard
-class VideoCard extends Component <
-    VideoCardProps, 
-    VideoCardState
-> {
+class VideoCard extends Component<VideoCardProps, VideoCardState> {
     props: VideoCardProps;
     state: VideoCardState;
-    
+
     constructor(props: VideoCardProps) {
         super(props);
         this.state = {
@@ -267,14 +272,14 @@ class VideoCard extends Component <
             isProcessing,
             isSelected,
             isSelectable,
-            loadingStyle="normal",
+            loadingStyle = 'normal',
             noMargin,
             onCheckBoxClick,
             onCardClick,
             onMouseEnter,
             onMouseLeave,
             privacyDescription,
-            size = "md",
+            size = 'md',
             smallActionArea,
             thumbnailBrandDecorationArea,
             thumbnailSocialBadgeArea,
@@ -285,7 +290,7 @@ class VideoCard extends Component <
             titleLinkProps,
             title,
             titleSubheader,
-            ref:_,
+            ref: _,
             ...filteredProps
         } = this.props;
 
@@ -298,7 +303,9 @@ class VideoCard extends Component <
                     <VideoCardThumbnailArea
                         checkboxA11yLabel={checkboxA11yLabel}
                         isGroup={isGroup}
-                        isTopOfCard={contextInfoArea && showAllContent ? false : true}
+                        isTopOfCard={
+                            contextInfoArea && showAllContent ? false : true
+                        }
                         isHovered={this.state.isHovered}
                         isSelectable={isSelectable}
                         isSelected={isSelected}
@@ -306,8 +313,12 @@ class VideoCard extends Component <
                         thumbnailBrandDecorationArea={
                             showAllContent && thumbnailBrandDecorationArea
                         }
-                        thumbnailSocialBadgeArea={showAllContent && thumbnailSocialBadgeArea}
-                        thumbnailTimestampArea={showAllContent && thumbnailTimestampArea}
+                        thumbnailSocialBadgeArea={
+                            showAllContent && thumbnailSocialBadgeArea
+                        }
+                        thumbnailTimestampArea={
+                            showAllContent && thumbnailTimestampArea
+                        }
                         thumbnailVideoCardPropertiesArea={
                             showAllContent && thumbnailVideoCardPropertiesArea
                         }
@@ -324,26 +335,33 @@ class VideoCard extends Component <
                         titleSubheader={showAllContent && titleSubheader}
                     />
                 </ContentPositionWrapperStyled>
-                {!showAllContent && smallActionArea && (
-                    <SmallActionWrapperStyled
-                        onClick={this._suppressEvents}
-                    >
-                        {smallActionArea}
-                    </SmallActionWrapperStyled>
-                    )   
-                }
-                {showAllContent && footer ? <FooterAreaStyled>{footer}</FooterAreaStyled> : null}
+                {!showAllContent &&
+                    smallActionArea && (
+                        <SmallActionWrapperStyled
+                            onClick={this._suppressEvents}
+                        >
+                            {smallActionArea}
+                        </SmallActionWrapperStyled>
+                    )}
+                {showAllContent && footer ? (
+                    <FooterAreaStyled>{footer}</FooterAreaStyled>
+                ) : null}
                 {isProcessing && (
                     <ProcessingOverlayStyled onClick={this._suppressEvents}>
                         <LoaderCircular size="xl" format="light" />
                     </ProcessingOverlayStyled>
                 )}
             </div>
-        )
+        );
 
         return (
             <WrapperStyled
-                hasContextArea={(isLoading && loadingStyle==="tall") || (showAllContent && contextInfoArea) ? true : false}
+                hasContextArea={
+                    (isLoading && loadingStyle === 'tall') ||
+                    (showAllContent && contextInfoArea)
+                        ? true
+                        : false
+                }
                 isDraggable={isDraggable}
                 isLoading={isLoading}
                 isProcessing={isProcessing}

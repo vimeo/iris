@@ -4,10 +4,8 @@ import FieldSet from '../FieldSet/FieldSet';
 import { FieldSetProps } from '../FieldSet/FieldSetTypes';
 import InputRadio from '../InputRadio/InputRadio';
 
-const InputRadioSet: SFC <
-    InputRadioSetProps &
-    FieldSetProps &
-    HTMLProps<HTMLFieldSetElement>
+const InputRadioSet: SFC<
+    InputRadioSetProps & FieldSetProps & HTMLProps<HTMLFieldSetElement>
 > = ({
     format = 'neutral',
     name,
@@ -15,11 +13,7 @@ const InputRadioSet: SFC <
     theme = 'default',
     ...filteredProps
 }) => (
-    <FieldSet
-        {...filteredProps}
-        format={format}
-        theme={theme}
-    >
+    <FieldSet {...filteredProps} format={format} theme={theme}>
         {radios.map((key, i) => (
             <InputRadio
                 name={name}

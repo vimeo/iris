@@ -1,16 +1,10 @@
 import React from 'react';
-import styled, {
-    //@ts-ignore 
-    StyledComponentClass,
-    // StyledComponentClass must be in scope to generate type definitions and
-    // @ts-ignored because it is not used
-    css
-} from 'styled-components';
+// @ts-ignore
+import styled, { StyledComponentClass, css } from 'styled-components';
 import { rem } from 'polished';
 
 import COLORS from '../globals/js/constants/COLORS';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
-
 
 const categoryCardStyleSettings = {
     ICON_SIZE: rem(48),
@@ -30,12 +24,14 @@ const bgOverlay = css`
     left: 0;
     padding-bottom: 100%;
     border-radius: ${categoryCardStyleSettings.BORDER_RADIUS};
-    transition: 
-        transform ${categoryCardStyleSettings.TRANSITION},
+    transition: transform ${categoryCardStyleSettings.TRANSITION},
         opacity ${categoryCardStyleSettings.TRANSITION};
 `;
 
-export const CategoryCardStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
+export const CategoryCardStyled = styled<
+    React.HTMLProps<HTMLDivElement>,
+    'div'
+>('div')`
     margin-bottom: 1rem;
     width: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);

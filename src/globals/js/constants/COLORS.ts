@@ -30,6 +30,6 @@ const COLORS = {
     ObsidianState: '#2e2e2e',
     SovereignShadow: '#404040',
     AshenWinter: '#4b4b4b',
-    IronHeart: '#666'
+    IronHeart: '#666',
 };
 export default COLORS;

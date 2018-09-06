@@ -1,5 +1,5 @@
 import React, { SFC, HTMLProps } from 'react';
-import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings'
+import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import styled from 'styled-components';
 import {
     getBarHeight,
@@ -7,46 +7,50 @@ import {
     ProgressBarStyleSettings,
 } from './ProgressBarHelpers';
 import ProgressBarIndicator from './ProgressBarIndicator';
-import {Omit} from '../globals/js/type-helpers';
+import { Omit } from '../globals/js/type-helpers';
 
 export interface ProgressBarProps {
     /**
      * Determines if the progress bar should be animated.
      */
-    animated?: boolean,
+    animated?: boolean;
     /**
      * Class is added to the outer div of the ProgressBar
      */
-    className?: string,
+    className?: string;
     /**
      * Current value should be between 0-100, inclusive.
      */
-    currentValue: number,
+    currentValue: number;
     /**
      * Determines coloring of the bar.
      */
-    format: 'neutral' | 'alert' | 'warning' | 'empty' | 'disabled',
+    format: 'neutral' | 'alert' | 'warning' | 'empty' | 'disabled';
     /**
      * Determines height of the bar
      */
-    size: 'md' | 'lg' | 'xl',
-};
+    size: 'md' | 'lg' | 'xl';
+}
 
 // ==================== ProgressBarContainer
 
-const getContainerBackgroundColor = (props) => {
+const getContainerBackgroundColor = props => {
     const progressBarColors = ProgressBarStyleSettings.colors;
     const containerBackgroundColorMap = {
-        'alert' : VimeoStyleSettings.colors.uiColors.alertColorLight,
-        'disabled': progressBarColors.disabledTrackBackgroundColor,
-    }
+        alert: VimeoStyleSettings.colors.uiColors.alertColorLight,
+        disabled: progressBarColors.disabledTrackBackgroundColor,
+    };
 
-    return containerBackgroundColorMap[props.format] || progressBarColors.defaultTrackBackgroundColor;
+    return (
+        containerBackgroundColorMap[props.format] ||
+        progressBarColors.defaultTrackBackgroundColor
+    );
 };
 
-export interface ProgressBarContainerProps extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
-    formatProp: 'neutral' | 'alert' | 'warning' | 'empty' | 'disabled',
-    size: 'md' | 'lg' | 'xl',
+export interface ProgressBarContainerProps
+    extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
+    formatProp: 'neutral' | 'alert' | 'warning' | 'empty' | 'disabled';
+    size: 'md' | 'lg' | 'xl';
 }
 
 const ProgressBarContainer = styled<ProgressBarContainerProps, 'div'>('div')`
@@ -60,9 +64,8 @@ const ProgressBarContainer = styled<ProgressBarContainerProps, 'div'>('div')`
 
 // ==================== ProgressBar
 
-const ProgressBar: SFC <
-    ProgressBarProps &
-    Omit<HTMLProps<HTMLDivElement>, 'size'>
+const ProgressBar: SFC<
+    ProgressBarProps & Omit<HTMLProps<HTMLDivElement>, 'size'>
 > = ({
     currentValue,
     format = 'neutral',
@@ -71,11 +74,7 @@ const ProgressBar: SFC <
     ref: _, // filter out ref from styled component
     ...filteredProps
 }) => (
-    <ProgressBarContainer
-        formatProp={format}
-        size={size}
-        {...filteredProps}
-    >
+    <ProgressBarContainer formatProp={format} size={size} {...filteredProps}>
         <ProgressBarIndicator
             animated={animated}
             currentValue={currentValue}

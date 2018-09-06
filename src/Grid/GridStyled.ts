@@ -1,30 +1,26 @@
-import styled, { 
-   // @ts-ignore
-   StyledComponentClass
-} from 'styled-components';
+//@ts-ignore
+import styled, { StyledComponentClass } from 'styled-components';
+// @ts-ignore
 import { rem } from 'polished';
 import { GridProps, GRID } from './GridTypes';
 import { GridVariableElement } from './GridVariableElement';
 import mediaQuery from '../globals/js/style-helpers/mediaQuery';
 
-
 export const GridStyled = styled<GridProps, any>(GridVariableElement)`
-
     ${mediaQuery.sm`
         padding-right: ${rem(GRID.gutterWidth * 4)};
         padding-left: ${rem(GRID.gutterWidth * 4)};
 
-        ${props => props.isNested ? `
+        ${props =>
+            props.isNested
+                ? `
             padding-right: ${rem(GRID.gutterWidth)};
             padding-left: ${rem(GRID.gutterWidth)};
-        ` : null}
-    `}
+        `
+                : null}
+    `} display: flex;
 
-    display: flex;
-
-    max-width: ${props => props.hasMaxWidth
-        ? rem(GRID.maxWidth)
-        : 'none'};
+    max-width: ${props => (props.hasMaxWidth ? rem(GRID.maxWidth) : 'none')};
 
     margin: 0 auto;
 
@@ -33,7 +29,5 @@ export const GridStyled = styled<GridProps, any>(GridVariableElement)`
 
     flex-wrap: wrap;
 
-    ${props => props.centered
-        ? 'justify-content: center;'
-        : null}
+    ${props => (props.centered ? 'justify-content: center;' : null)};
 `;

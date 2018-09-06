@@ -4,19 +4,14 @@ import { NotificationProps } from '../Notification/NotificationProps';
 // @ts-ignore
 import WarningIcon from '../icons/circle-warning.svg';
 
-
-const NotificationWarning: SFC <
-    NotificationProps &
-    HTMLProps<HTMLDivElement>
-> = ({
-    children,
-    hasIcon = true,
-    ...filteredProps
-}) => (
+const NotificationWarning: SFC<
+    NotificationProps & HTMLProps<HTMLDivElement>
+> = ({ children, hasIcon = true, ...filteredProps }) => (
     <Notification
         icon={hasIcon ? <WarningIcon /> : null}
         variant="warning"
-        {...filteredProps}>
+        {...filteredProps}
+    >
         {children}
     </Notification>
 );

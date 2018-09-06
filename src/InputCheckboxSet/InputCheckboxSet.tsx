@@ -1,10 +1,13 @@
 import React from 'react';
 import InputCheckbox from '../InputCheckbox/InputCheckbox';
 import SlideUpDown from '../SlideUpDown/SlideUpDown';
-import { InputCheckboxSetProps, InputCheckboxSetState } from './InputCheckboxSetTypes';
+import {
+    InputCheckboxSetProps,
+    InputCheckboxSetState,
+} from './InputCheckboxSetTypes';
 import { InputCheckboxSetSubStyled } from './InputCheckboxSetSubStyled';
 
-class InputCheckboxSet extends React.Component <
+class InputCheckboxSet extends React.Component<
     InputCheckboxSetProps,
     InputCheckboxSetState
 > {
@@ -14,21 +17,22 @@ class InputCheckboxSet extends React.Component <
     constructor(props: InputCheckboxSetProps) {
         super(props);
         this.setState({
-            isHovered: false
+            isHovered: false,
         });
     }
 
     componentWillMount() {
         const showSubOptions =
-            !this.props.showDisabledOptions &&
-            !this.props.topLevel.checked
+            !this.props.showDisabledOptions && !this.props.topLevel.checked
                 ? false
                 : true;
 
         this.setState({
             topLevelChecked: this.props.topLevel.checked,
             topLevelStyle: this.props.topLevelCheckedStyle,
-            checkboxState: this.props.subOptions.map(key => key.checked || false),
+            checkboxState: this.props.subOptions.map(
+                key => key.checked || false,
+            ),
             showSubOptions,
         });
     }
@@ -39,20 +43,25 @@ class InputCheckboxSet extends React.Component <
 
         this.setState({
             topLevelChecked: !checkboxesState.every(isAllFalse),
-            topLevelStyle: (
+            topLevelStyle:
                 !checkboxesState.every(isAllTrue) &&
-                !checkboxesState.every(isAllFalse) )
+                !checkboxesState.every(isAllFalse)
                     ? 'indeterminate'
-                    : 'default'
-        })
+                    : 'default',
+        });
     }
 
     _handleSubChange = (event: any) => {
         if (event.target instanceof HTMLElement) {
-            const targetIndex = parseInt(event.target.getAttribute('data-index'), 10);
+            const targetIndex = parseInt(
+                event.target.getAttribute('data-index'),
+                10,
+            );
 
             const newCheckboxState = this.state.checkboxState;
-            newCheckboxState[targetIndex] = !this.state.checkboxState[targetIndex];
+            newCheckboxState[targetIndex] = !this.state.checkboxState[
+                targetIndex
+            ];
 
             this._checkForUnifiedState(newCheckboxState);
 
@@ -60,14 +69,15 @@ class InputCheckboxSet extends React.Component <
                 checkboxState: newCheckboxState,
             });
         }
-    }
+    };
 
     _handleTopLevelChange = (event: any) => {
         if (event.target.hasOwnProperty('checked')) {
             const newState = this.props.subOptions.map(
-                () => event.target.checked && this.props.checkAllOnTopLevelCheck
-                    ? true 
-                    : false
+                () =>
+                    event.target.checked && this.props.checkAllOnTopLevelCheck
+                        ? true
+                        : false,
             );
 
             this.setState({
@@ -103,7 +113,6 @@ class InputCheckboxSet extends React.Component <
                 />
                 <SlideUpDown isHidden={!this.state.showSubOptions}>
                     <InputCheckboxSetSubStyled>
-
                         {subOptions.map((key, i) => (
                             <InputCheckbox
                                 {...key}
@@ -113,12 +122,11 @@ class InputCheckboxSet extends React.Component <
                                 onChange={this._handleSubChange}
                             />
                         ))}
-
                     </InputCheckboxSetSubStyled>
                 </SlideUpDown>
             </div>
         );
-  }
+    }
 }
 
 export default InputCheckboxSet;

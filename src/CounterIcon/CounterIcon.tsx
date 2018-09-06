@@ -3,17 +3,13 @@ import { ParagraphLg } from '../Type';
 import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';
 
 import { CounterIconProps } from './CounterIconTypes';
-import { 
+import {
     IconWrapperStyled,
     CounterIconContentStyled,
-    CounterIconStyled
+    CounterIconStyled,
 } from './CounterIconStyled';
 
-
-const CounterIcon: SFC <
-    CounterIconProps &
-    HTMLProps<HTMLDivElement>
-> = ({
+const CounterIcon: SFC<CounterIconProps & HTMLProps<HTMLDivElement>> = ({
     autoMargins = true,
     children,
     href,
@@ -24,15 +20,10 @@ const CounterIcon: SFC <
     ref: _,
     ...filteredProps
 }) => {
-
     const CounterIconContent = (
         <CounterIconContentStyled {...filteredProps}>
-            <IconWrapperStyled>
-                {icon}
-            </IconWrapperStyled>
-            <ParagraphLg element="span">
-                {children}
-            </ParagraphLg>
+            <IconWrapperStyled>{icon}</IconWrapperStyled>
+            <ParagraphLg element="span">{children}</ParagraphLg>
         </CounterIconContentStyled>
     );
 
@@ -40,12 +31,12 @@ const CounterIcon: SFC <
         <a href={href} onClick={onClick}>
             {CounterIconContent}
         </a>
-    ) : CounterIconContent;
+    ) : (
+        CounterIconContent
+    );
 
     return (
-        <CounterIconStyled
-            autoMargins={autoMargins}>
-
+        <CounterIconStyled autoMargins={autoMargins}>
             <TooltipOverlay
                 href={href}
                 tooltipText={counterTitle}

@@ -8,7 +8,7 @@ import {
     DateTriggerStyled,
     DateTriggerWrapperStyled,
     DatePickerWrapperStyled,
-} from './InputDatePickerStyled'
+} from './InputDatePickerStyled';
 import DateTime from 'react-datetime';
 import InputText from '../InputText/InputText';
 import { InputTextProps } from '../InputText/InputText';
@@ -18,15 +18,18 @@ import { Moment } from '../../node_modules/moment';
 
 const inputDataAttribute = 'data-input-field';
 
-class InputDatePicker extends React.Component< InputDatePickerProps & InputTextProps & React.HTMLProps< HTMLInputElement >,  InputDatePickerState > {
-
+class InputDatePicker extends React.Component<
+    InputDatePickerProps & InputTextProps & React.HTMLProps<HTMLInputElement>,
+    InputDatePickerState
+> {
     static defaultProps = {
         initialDate: new Date(),
     };
 
     constructor(props) {
         super(props);
-        const initialDateChecked = props.initialDate instanceof Date ? props.initialDate : new Date();
+        const initialDateChecked =
+            props.initialDate instanceof Date ? props.initialDate : new Date();
 
         this.state = {
             currentDateObject: initialDateChecked,
@@ -49,21 +52,25 @@ class InputDatePicker extends React.Component< InputDatePickerProps & InputTextP
         }
     }
 
-    props:  InputDatePickerProps & InputTextProps & React.HTMLProps< HTMLInputElement >;
+    props: InputDatePickerProps &
+        InputTextProps &
+        React.HTMLProps<HTMLInputElement>;
     InputWrapper: HTMLElement;
 
     _bindCloseMenuListeners = () => {
         document.addEventListener('mousedown', this._handleDocumentClick);
         document.addEventListener('keydown', this._handleDocumentKeyDown);
-    }
+    };
 
     _unbindCloseMenuListeners = () => {
         document.removeEventListener('mousedown', this._handleDocumentClick);
         document.removeEventListener('keydown', this._handleDocumentKeyDown);
-    }
+    };
 
     _setFocus = () => {
-        const thisInput = this.InputWrapper.querySelector('[' + inputDataAttribute + ']');
+        const thisInput = this.InputWrapper.querySelector(
+            '[' + inputDataAttribute + ']',
+        );
 
         if (thisInput instanceof HTMLInputElement) {
             thisInput.focus();
@@ -72,7 +79,7 @@ class InputDatePicker extends React.Component< InputDatePickerProps & InputTextP
         this.setState({
             focusShouldOpenMenu: true,
         });
-    }
+    };
 
     _openMenu = () => {
         this.setState({
@@ -81,7 +88,7 @@ class InputDatePicker extends React.Component< InputDatePickerProps & InputTextP
         });
 
         this._bindCloseMenuListeners();
-    }
+    };
 
     _closeMenu = () => {
         this.setState({
@@ -90,20 +97,20 @@ class InputDatePicker extends React.Component< InputDatePickerProps & InputTextP
         });
 
         this._unbindCloseMenuListeners();
-    }
+    };
 
     _getFormattedDate = (dateObject: Date) => {
-
         if (typeof this.props.dateFormatting === 'function') {
             return this.props.dateFormatting(dateObject);
         }
 
-        const formattedDate = `${dateObject.getMonth() + 1}/${dateObject.getDate()}/${dateObject.getFullYear()}`;
+        const formattedDate = `${dateObject.getMonth() +
+            1}/${dateObject.getDate()}/${dateObject.getFullYear()}`;
 
         return formattedDate;
-    }
+    };
 
-    _handleBlur = (event: React.FormEvent<HTMLInputElement> ) => {
+    _handleBlur = (event: React.FormEvent<HTMLInputElement>) => {
         const eventTarget = event.target as HTMLInputElement;
 
         if (eventTarget && eventTarget.value) {
@@ -117,7 +124,6 @@ class InputDatePicker extends React.Component< InputDatePickerProps & InputTextP
 
                 this._updateDateData(value);
             }
-
         }
 
         if (typeof this.props.onBlur === 'function') {
@@ -129,7 +135,7 @@ class InputDatePicker extends React.Component< InputDatePickerProps & InputTextP
         if (this.props.onChangeDate instanceof Function) {
             this.props.onChangeDate(dateObject);
         }
-    }
+    };
 
     _handleDatePickerUpdate = (momentObject: Moment) => {
         // momentObject is a MomentJS object here
@@ -141,36 +147,40 @@ class InputDatePicker extends React.Component< InputDatePickerProps & InputTextP
         });
 
         this._handleDateChange(dateObject);
-    }
+    };
 
     _handleDocumentClick = (event: MouseEvent) => {
         // only close if the click wasn't the inpu
 
-        const targetWasInput = event.target instanceof HTMLInputElement && event.target.attributes.getNamedItem(inputDataAttribute);
+        const targetWasInput =
+            event.target instanceof HTMLInputElement &&
+            event.target.attributes.getNamedItem(inputDataAttribute);
 
         if (!this.state.menuHovered && !targetWasInput) {
             this._closeMenu();
         }
-    }
+    };
 
     _handleDocumentKeyDown = (event: KeyboardEvent) => {
-        if (event.keyCode === KEY_CODES.esc || event.keyCode === KEY_CODES.tab) {
+        if (
+            event.keyCode === KEY_CODES.esc ||
+            event.keyCode === KEY_CODES.tab
+        ) {
             this._closeMenu();
         }
-    }
+    };
 
     _handleFocus = () => {
         if (!this.state.showDatePicker && this.state.focusShouldOpenMenu) {
-
             this._openMenu();
         }
-    }
+    };
 
     _openIfClosed = () => {
         if (!this.state.showDatePicker) {
             this._openMenu();
         }
-    }
+    };
 
     _handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
         const eventTarget = event.target as HTMLInputElement;
@@ -184,19 +194,19 @@ class InputDatePicker extends React.Component< InputDatePickerProps & InputTextP
         }
 
         this._openIfClosed();
-    }
+    };
 
     _handleHoverOnMenu = () => {
         this.setState({
             menuHovered: true,
         });
-    }
+    };
 
     _handleHoverOutMenu = () => {
         this.setState({
             menuHovered: false,
         });
-    }
+    };
 
     _isDateValid = (date: string) => {
         const d = new Date(date);
@@ -213,22 +223,21 @@ class InputDatePicker extends React.Component< InputDatePickerProps & InputTextP
                 currentDateObject: dateObject,
                 formattedDate: value,
             });
-        }
-        else {
+        } else {
             this.setState({
                 formattedDate: value,
             });
         }
-    }
+    };
 
     render() {
         const {
             children, //@ts-ignore filtering our children
-            dateFormatting, 
+            dateFormatting,
             datePickerOptions,
             id,
-            onBlur, 
-            initialDate, 
+            onBlur,
+            initialDate,
             onChangeDate,
             label,
             ...filteredProps
@@ -267,9 +276,8 @@ class InputDatePicker extends React.Component< InputDatePickerProps & InputTextP
 
         return (
             <div
-                ref={(div)=>{
-                    this.InputWrapper = div
-    ;
+                ref={div => {
+                    this.InputWrapper = div;
                 }}
             >
                 <InputText

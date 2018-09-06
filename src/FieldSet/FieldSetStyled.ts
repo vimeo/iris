@@ -1,9 +1,7 @@
-// @ts-ignore fixes cannot be named
+//@ts-ignore
 import React from 'react';
-import styled, {
-    // @ts-ignore fixes cannot be named
-    StyledComponentClass,
-} from 'styled-components';
+//@ts-ignore
+import styled, { StyledComponentClass } from 'styled-components';
 
 export const FieldSetStyled = styled.fieldset`
     margin-bottom: 1rem;

@@ -1,4 +1,4 @@
-import { ButtonProps } from "../Button/ButtonProps";
+import { ButtonProps } from '../Button/ButtonProps';
 
 export interface SearchFieldProps {
     buttonFormat?: 'subtle' | 'neutral' | 'strong';
@@ -9,4 +9,4 @@ export interface SearchFieldProps {
     isInline?: boolean;
     showLabel?: boolean;
     size?: 'md' | 'lg';
-};
+}

@@ -21,22 +21,23 @@ const menuButtonWidths = {
     sm: 28,
     md: 30,
     lg: 38,
-}
+};
 
 const buttonBackgrounds = {
-    'alternative': ButtonStyleSettings.Formats.alternative.hover.backgroundColor,
-    'lightTransparent': 'rgba(255,255,255,0.5)',
-    'primary': ButtonStyleSettings.Formats.primary.hover.backgroundColor,
-    'secondary': ButtonStyleSettings.Formats.secondary.hover.backgroundColor,
-}
+    alternative: ButtonStyleSettings.Formats.alternative.hover.backgroundColor,
+    lightTransparent: 'rgba(255,255,255,0.5)',
+    primary: ButtonStyleSettings.Formats.primary.hover.backgroundColor,
+    secondary: ButtonStyleSettings.Formats.secondary.hover.backgroundColor,
+};
 
-interface ButtonStylingProps extends  Omit<React.HTMLProps<HTMLDivElement>, 'size'>  {
+interface ButtonStylingProps
+    extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
     size: 'sm' | 'md' | 'lg';
-    format?: 'primary' | 'secondary' | 'alternative' | 'lightTransparent',
+    format?: 'primary' | 'secondary' | 'alternative' | 'lightTransparent';
 }
 
 const activeAnimation = css`
-     * {
+    * {
         transition: transform 150ms ease;
     }
 
@@ -44,7 +45,7 @@ const activeAnimation = css`
         transform: scale(1);
 
         * {
-            transform: scale(.95);
+            transform: scale(0.95);
         }
     }
 `;
@@ -56,18 +57,18 @@ const WrapperStyled = styled<ButtonStylingProps, 'div'>('div')`
     &::after {
         position: absolute;
         top: 50%;
-        right: ${props =>rem(menuButtonWidths[props.size]) || 0  };
+        right: ${props => rem(menuButtonWidths[props.size]) || 0};
         transform: translateY(-50%);
         content: '';
         width: ${rem(1)};
         height: calc(100% - 1rem);
-        background-color: ${props => buttonBackgrounds[props.format] || buttonBackgrounds.primary}
+        background-color: ${props =>
+            buttonBackgrounds[props.format] || buttonBackgrounds.primary};
     }
 
     &:hover::after {
-        background-color: rgba(0,0,0,0);
+        background-color: rgba(0, 0, 0, 0);
     }
-
 `;
 
 const MainButtonStyled = styled<ButtonProps, any>(Button)`
@@ -75,16 +76,18 @@ const MainButtonStyled = styled<ButtonProps, any>(Button)`
     border-bottom-right-radius: 0;
     margin-right: 0;
     border-right-width: 0;
-    width: calc(100% - ${props => rem(menuButtonWidths[props.size]) || 0  });
-    ${activeAnimation}
+    width: calc(100% - ${props => rem(menuButtonWidths[props.size]) || 0});
+    ${activeAnimation};
 `;
 
 const MenuButtonWrapperStyled = styled('div')`
     display: inline-flex;
-    margin-bottom: ${rem(-1)}; // fixes bug where menu button falls out of alignment with main button
-`;  
+    margin-bottom: ${rem(
+        -1,
+    )}; // fixes bug where menu button falls out of alignment with main button
+`;
 
-const MenuButtonStyled = styled<ButtonStylingProps, 'button'>('button') `
+const MenuButtonStyled = styled<ButtonStylingProps, 'button'>('button')`
     ${ButtonCoreCSS}
     ${getDefaultCSSByFormat}
     
@@ -102,7 +105,7 @@ const MenuButtonStyled = styled<ButtonStylingProps, 'button'>('button') `
     min-width: 0;
     padding-left: 0;
     padding-right: 0;
-    width: ${props => rem(menuButtonWidths[props.size]) || 0  };
+    width: ${props => rem(menuButtonWidths[props.size]) || 0};
 
     ${activeAnimation}
 `;
@@ -110,49 +113,48 @@ const MenuButtonStyled = styled<ButtonStylingProps, 'button'>('button') `
 export interface ButtonSplitMenuProps {
     /**
      * Text of button
-    */
-    buttonLabel: string,
+     */
+    buttonLabel: string;
     /**
      * Color Format (See Button Component)
-    */
-    format?: 'primary' | 'secondary' | 'alternative' | 'lightTransparent',
+     */
+    format?: 'primary' | 'secondary' | 'alternative' | 'lightTransparent';
     /**
      * Translated string describing menu button action
-    */
-    menuButtonA11yLabel: string,
+     */
+    menuButtonA11yLabel: string;
     /**
      * onClick callback for the menu button
-    */
-    menuButtonOnClick?: (event: React.MouseEvent<HTMLElement>) => void,
+     */
+    menuButtonOnClick?: (event: React.MouseEvent<HTMLElement>) => void;
     /**
      * Menu Direction (see MenuPanel)
-    */
-    menuAlignment?: 'left' | 'right' | 'center',
+     */
+    menuAlignment?: 'left' | 'right' | 'center';
     /**
      * Content of MenuPanel
-    */
-    menuContent: React.ReactNode,
+     */
+    menuContent: React.ReactNode;
     /**
      * Object of any additional props to send to MenuPanel
-    */
-    menuProps?: Object,
+     */
+    menuProps?: Object;
     /**
      * Menu Size (see MenuPanel)
-    */
-    menuSize: 'sm' | 'md' | 'lg',
+     */
+    menuSize: 'sm' | 'md' | 'lg';
     /**
      * regular on click event passes to "main" button.
      */
-    onClick?: (event: React.MouseEvent<HTMLElement>) => void, 
+    onClick?: (event: React.MouseEvent<HTMLElement>) => void;
     /**
      * Button Size
-    */
-    size?: 'sm' | 'md' | 'lg',
-};
+     */
+    size?: 'sm' | 'md' | 'lg';
+}
 
-const ButtonSplitMenu: SFC <
-    ButtonSplitMenuProps &
-    Omit<React.HTMLProps<HTMLElement>, 'size'>
+const ButtonSplitMenu: SFC<
+    ButtonSplitMenuProps & Omit<React.HTMLProps<HTMLElement>, 'size'>
 > = ({
     buttonLabel,
     format = 'primary',
@@ -166,39 +168,35 @@ const ButtonSplitMenu: SFC <
     ref: _,
     ...filteredProps
 }) => {
-
     return (
-            <WrapperStyled
-                size={size}
+        <WrapperStyled size={size} format={format}>
+            <MainButtonStyled
+                {...filteredProps}
                 format={format}
+                size={size}
+                isInline
             >
-                <MainButtonStyled
-                    {...filteredProps}
-                    format={format}
-                    size={size}
-                    isInline
+                {buttonLabel}
+            </MainButtonStyled>
+            <MenuButtonWrapperStyled>
+                <MenuPanel
+                    alignment={menuAlignment}
+                    menuContent={menuContent}
+                    size={menuSize}
+                    {...menuProps}
                 >
-                    {buttonLabel}
-                </MainButtonStyled>
-                <MenuButtonWrapperStyled>
-                    <MenuPanel
-                        alignment={menuAlignment}
-                        menuContent={menuContent}
-                        size={menuSize}
-                        {...menuProps}
+                    <MenuButtonStyled
+                        size={size}
+                        format={format}
+                        onClick={menuButtonOnClick}
                     >
-                        <MenuButtonStyled
-                            size={size}
-                            format={format}
-                            onClick={menuButtonOnClick}
-                        >
-                            <ButtonIconElement size={size}>
-                                <ChevronDown title={menuButtonA11yLabel} />
-                            </ButtonIconElement>
-                        </MenuButtonStyled>
-                    </MenuPanel>
-                </MenuButtonWrapperStyled>
-            </WrapperStyled>
+                        <ButtonIconElement size={size}>
+                            <ChevronDown title={menuButtonA11yLabel} />
+                        </ButtonIconElement>
+                    </MenuButtonStyled>
+                </MenuPanel>
+            </MenuButtonWrapperStyled>
+        </WrapperStyled>
     );
 };
 

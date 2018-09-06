@@ -4,7 +4,6 @@ import calculateLineHeightTarget from '../globals/js/style-helpers/calculateLine
 
 import { ButtonColors } from './ButtonColors';
 
-
 export const ButtonStyleSettings = {
     Formats: {
         alternative: {

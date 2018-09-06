@@ -57,6 +57,8 @@ $ yarn
 $ gulp
 ```
 
+🚨 All code in Iris must be formatted with [Prettier](https://github.com/prettier/prettier/) for acceptance. We reccomend using an extension to format on save for your code editor (ie. [vscode-prettier](https://github.com/prettier/prettier-vscode)).
+
 ## Usage
 Import components into your React app:
 ```jsx

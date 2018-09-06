@@ -1,14 +1,12 @@
-//@ts-ignore fixes "cannot be named"
+// @ts-ignore
 import React from 'react';
-import styled, {
-    //@ts-ignore suppresses "Cannot be named" 
-    StyledComponentClass,
-} from 'styled-components';
+// @ts-ignore
+import styled, { StyledComponentClass } from 'styled-components';
 import { rem } from 'polished';
 // @ts-ignore
 import SelectedIcon from '../icons/checkmark.svg';
 import COLORS from '../globals/js/constants/COLORS';
-import {MenuPanelListItemThemes} from './MenuPanelListItemTypes';
+import { MenuPanelListItemThemes } from './MenuPanelListItemTypes';
 
 const LinkIconSize = rem(18);
 
@@ -25,10 +23,9 @@ export const LabelStyled = styled.span`
     display: inline-block;
     border-radius: ${rem(2)};
     a:focus & {
-            box-shadow: 0 0 0 ${rem(2)} ${COLORS.VimeoBlue};
+        box-shadow: 0 0 0 ${rem(2)} ${COLORS.VimeoBlue};
     }
 `;
-
 
 export const SelectedIconElementStyled = styled(SelectedIcon)`
     position: absolute;
@@ -43,7 +40,9 @@ export const SelectedIconElementStyled = styled(SelectedIcon)`
     }
 `;
 
-export const LinkIconWrapperStyled = styled<MenuPanelListItemThemes, 'span'>('span')`
+export const LinkIconWrapperStyled = styled<MenuPanelListItemThemes, 'span'>(
+    'span',
+)`
     display: inline-block;
 
     position: relative;
@@ -54,9 +53,8 @@ export const LinkIconWrapperStyled = styled<MenuPanelListItemThemes, 'span'>('sp
     margin-right: ${rem(8)};
 
     * {
-        fill: ${props => props.theme === 'dark'
-            ? COLORS.SoutherlySky
-            : COLORS.AstroGranite};
+        fill: ${props =>
+            props.theme === 'dark' ? COLORS.SoutherlySky : COLORS.AstroGranite};
     }
 `;
 
@@ -67,20 +65,24 @@ export const LinkStyled = styled<MenuPanelListItemThemes, 'span'>('span')`
     width: 100%;
     padding: ${rem(6) + ' ' + rem(20)};
 
-    color: ${props => props.theme === 'dark' ? COLORS.White : COLORS.AstroGranite};
+    color: ${props =>
+        props.theme === 'dark' ? COLORS.White : COLORS.AstroGranite};
 
     cursor: pointer;
     text-decoration: none;
 
     &:hover {
-        background-color: ${props => props.theme === 'dark' ? COLORS.AshenWinter : COLORS.Paste};
+        background-color: ${props =>
+            props.theme === 'dark' ? COLORS.AshenWinter : COLORS.Paste};
 
         & * {
-            color: ${props => props.theme === 'dark' ? COLORS.White : COLORS.AstroGranite};
+            color: ${props =>
+                props.theme === 'dark' ? COLORS.White : COLORS.AstroGranite};
         }
 
-        & svg *  {
-            fill: ${props => props.theme === 'dark' ? COLORS.White : COLORS.AstroGranite};
+        & svg * {
+            fill: ${props =>
+                props.theme === 'dark' ? COLORS.White : COLORS.AstroGranite};
         }
     }
 `;

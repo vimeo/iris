@@ -71,7 +71,6 @@ const AttributionStyled = styled<AttributionStyledProps, any>('div')`
     align-items: center;
 `;
 
-
 const BadgeAreaStyled = styled('span')`
     display: inline-flex;
     justify-content: center;

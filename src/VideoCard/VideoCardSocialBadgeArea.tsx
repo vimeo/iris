@@ -1,14 +1,18 @@
 import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import {VideoCardStyleSettings} from './VideoCardHelpers';
+import { VideoCardStyleSettings } from './VideoCardHelpers';
 
-export interface VideoCardSocialBadgeAreaProps extends React.HTMLProps<HTMLDivElement>{
-    socialBadges: Array<any>,
+export interface VideoCardSocialBadgeAreaProps
+    extends React.HTMLProps<HTMLDivElement> {
+    socialBadges: Array<any>;
 }
 
 // ==================== VideoCardSocialBadgeArea Styled
-const VideoCardSocialBadgeWrapperStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
+const VideoCardSocialBadgeWrapperStyled = styled<
+    React.HTMLProps<HTMLDivElement>,
+    'div'
+>('div')`
     display: flex;
     position: absolute;
     bottom: ${rem(VideoCardStyleSettings.padding)};
@@ -35,19 +39,12 @@ const VideoCardSocialBadgeArea: SFC<VideoCardSocialBadgeAreaProps> = ({
     ref: _, // filter out ref from styled component
     ...filteredProps
 }) => {
-
     const Badges = socialBadges.map((thisBadge, i) => (
-        <BadgeCellStyled
-            key={`socialBadge${i}`}
-        > 
-            {thisBadge}
-        </BadgeCellStyled>
+        <BadgeCellStyled key={`socialBadge${i}`}>{thisBadge}</BadgeCellStyled>
     ));
-    
+
     return (
-        <VideoCardSocialBadgeWrapperStyled
-            {...filteredProps}
-        >
+        <VideoCardSocialBadgeWrapperStyled {...filteredProps}>
             {Badges}
         </VideoCardSocialBadgeWrapperStyled>
     );

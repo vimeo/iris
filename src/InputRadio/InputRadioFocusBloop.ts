@@ -1,12 +1,13 @@
 // @ts-ignore
 import React from 'react';
-import styled, { 
-    // @ts-ignore
-    StyledComponentClass
- } from 'styled-components';
+// @ts-ignore
+import styled, { StyledComponentClass } from 'styled-components';
 import { InputRadioStyled, InputRadioOverlayStyled } from './InputRadioStyled';
-import { FocusBloop, FocusBloopFocused, FocusBloopProps } from '../FocusBloopNew/FocusBloopNew';
-
+import {
+    FocusBloop,
+    FocusBloopFocused,
+    FocusBloopProps,
+} from '../FocusBloopNew/FocusBloopNew';
 
 export const RadioFocusBloop = styled<FocusBloopProps, 'div'>('div')`
     ${FocusBloop}

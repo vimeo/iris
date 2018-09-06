@@ -2,9 +2,7 @@
 import React, { SFC } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { rem } from 'polished';
-import {
-    InputStyleSettings,
-} from '../InputText/InputHelpers';
+import { InputStyleSettings } from '../InputText/InputHelpers';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import InputLabel from '../InputLabel/InputLabel';
 import InputMessageArea from '../InputMessageArea/InputMessageArea';
@@ -12,29 +10,31 @@ import InputMessageArea from '../InputMessageArea/InputMessageArea';
 import SuccessIcon from '../icons/checkmark.svg';
 // @ts-ignore
 import AlertIcon from '../icons/circle-warning.svg';
-import {Omit} from '../globals/js/type-helpers';
+import { Omit } from '../globals/js/type-helpers';
 
-export interface InputWrapperProps extends Omit<React.HTMLProps<HTMLDivElement>, 'label' | 'size'> {
-    disabled?: boolean,
-    errorMsg?: React.ReactNode,
-    format?: 'negative' | 'positive' | 'neutral',
-    helperMsg?: React.ReactNode,
-    isInline?: boolean,
-    label?: React.ReactNode,
-    labelForId?: string,
-    preMessage?: React.ReactNode,
-    showLabel: boolean,
-    size?: 'sm' |'md' | 'lg' | 'xl',
-    theme?: 'light' | 'dark' | 'default',
-};
+export interface InputWrapperProps
+    extends Omit<React.HTMLProps<HTMLDivElement>, 'label' | 'size'> {
+    disabled?: boolean;
+    errorMsg?: React.ReactNode;
+    format?: 'negative' | 'positive' | 'neutral';
+    helperMsg?: React.ReactNode;
+    isInline?: boolean;
+    label?: React.ReactNode;
+    labelForId?: string;
+    preMessage?: React.ReactNode;
+    showLabel: boolean;
+    size?: 'sm' | 'md' | 'lg' | 'xl';
+    theme?: 'light' | 'dark' | 'default';
+}
 
 export interface WrapperStyledProps {
-    isInline?: boolean,
-    theme?: 'light' | 'dark',
+    isInline?: boolean;
+    theme?: 'light' | 'dark';
 }
 
 const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
-    margin-bottom: ${props => props.isInline ? '0' : rem(InputStyleSettings.marginBottom)};
+    margin-bottom: ${props =>
+        props.isInline ? '0' : rem(InputStyleSettings.marginBottom)};
     color: ${props => InputStyleSettings.color[props.theme].text.default};
 `;
 
@@ -74,9 +74,9 @@ const getIconColor = props => {
 };
 
 export interface IconStyledProps {
-    iconSize?: 'sm' | 'md' | 'lg' | 'xl',
-    format?: 'negative' | 'positive' | 'neutral',
-    theme?: 'light' | 'dark',
+    iconSize?: 'sm' | 'md' | 'lg' | 'xl';
+    format?: 'negative' | 'positive' | 'neutral';
+    theme?: 'light' | 'dark';
 }
 
 const IconStyled = styled<IconStyledProps, 'div'>('div')`
@@ -86,13 +86,22 @@ const IconStyled = styled<IconStyledProps, 'div'>('div')`
     left: 0;
 
     height: ${props => rem(InputStyleSettings.size[props.iconSize].height)};
-    padding: ${props => `${rem(InputStyleSettings.size[props.iconSize].iconWrapperPaddingVertical)} ${rem(InputStyleSettings.size[props.iconSize].iconWrapperPaddingHorizontal)}`};
+    padding: ${props =>
+        `${rem(
+            InputStyleSettings.size[props.iconSize].iconWrapperPaddingVertical,
+        )} ${rem(
+            InputStyleSettings.size[props.iconSize]
+                .iconWrapperPaddingHorizontal,
+        )}`};
 
     svg {
-        width: ${props => rem(InputStyleSettings.size[props.iconSize].iconSize)};
-        height: ${props => rem(InputStyleSettings.size[props.iconSize].iconSize)};
+        width: ${props =>
+            rem(InputStyleSettings.size[props.iconSize].iconSize)};
+        height: ${props =>
+            rem(InputStyleSettings.size[props.iconSize].iconSize)};
 
-        animation-name: ${props => props.iconSize === 'xl' ? iconSlideKeyframesXL : iconSlideKeyframes}
+        animation-name: ${props =>
+            props.iconSize === 'xl' ? iconSlideKeyframesXL : iconSlideKeyframes}
         animation-duration: ${InputStyleSettings.animationSpeed}ms;
         animation-timing-function: ease-out;
 
@@ -115,7 +124,6 @@ const InputFieldWrapperStyled = styled('div')`
     padding: 0;
 `;
 
-
 const InputWrapper: SFC<InputWrapperProps> = ({
     children,
     disabled,
@@ -126,13 +134,12 @@ const InputWrapper: SFC<InputWrapperProps> = ({
     isInline,
     label,
     preMessage,
-    ref:_,
+    ref: _,
     showLabel = true,
     size = 'md',
     theme = 'light',
     ...filteredProps
 }) => {
-
     // support deprecated 'default' theme as 'light'
     const themeDefaultSupport = theme === 'default' ? 'light' : theme;
 
@@ -142,7 +149,7 @@ const InputWrapper: SFC<InputWrapperProps> = ({
         case 'negative':
             fieldIcon = <AlertIcon />;
             break;
-        case 'positive' :
+        case 'positive':
             fieldIcon = <SuccessIcon />;
             break;
         default:
@@ -160,15 +167,10 @@ const InputWrapper: SFC<InputWrapperProps> = ({
     );
 
     const inputIcon = fieldIcon && (
-            <IconStyled
-                format={format}
-                theme={themeDefaultSupport}
-                iconSize={size}
-            >
-                {fieldIcon}
-            </IconStyled>
+        <IconStyled format={format} theme={themeDefaultSupport} iconSize={size}>
+            {fieldIcon}
+        </IconStyled>
     );
-
 
     return (
         <WrapperStyled
@@ -176,7 +178,6 @@ const InputWrapper: SFC<InputWrapperProps> = ({
             theme={themeDefaultSupport}
             isInline={isInline}
         >
-
             {showLabel ? labelElement : null}
             <PositioningWrapperStyled>
                 <InputFieldWrapperStyled>

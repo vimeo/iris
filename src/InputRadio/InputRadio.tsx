@@ -9,9 +9,7 @@ import {
 } from './InputRadioStyled';
 import { RadioFocusBloop } from './InputRadioFocusBloop';
 
-
-export type Props = 
-    InputRadioProps &
+export type Props = InputRadioProps &
     Omit<HTMLProps<HTMLInputElement>, 'label'>;
 
 const InputRadio: SFC<Props> = ({
@@ -41,11 +39,8 @@ const InputRadio: SFC<Props> = ({
                 <RadioFocusBloop theme={theme} />
             </InputRadioOverlayStyled>
             {label}
-
         </InputLabelInline>
     </InputRadioWrapperStyled>
 );
 
 export default InputRadio;
-
-

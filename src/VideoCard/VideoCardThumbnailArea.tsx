@@ -25,7 +25,8 @@ export interface VideoCardThumbnailAreaProps {
     thumbnailData: Array<VideoCardThumbnailData>;
 }
 
-export interface VideoCardThumbnailWrapperProps extends React.HTMLProps<HTMLDivElement> {
+export interface VideoCardThumbnailWrapperProps
+    extends React.HTMLProps<HTMLDivElement> {
     isHovered?: boolean;
 }
 
@@ -35,7 +36,8 @@ const WrapperStyled = styled('div')`
     position: relative;
 `;
 
-export interface ThumbnailStyledProps extends React.HTMLProps<HTMLImageElement> {
+export interface ThumbnailStyledProps
+    extends React.HTMLProps<HTMLImageElement> {
     isTopOfCard: boolean;
 }
 
@@ -48,7 +50,7 @@ const ThumbnailShadowStyled = styled<ThumbnailStyledProps, 'div'>('div')`
     position: absolute;
     top: 0;
     left: 0;
-    box-shadow: inset 0 ${rem(-1)} 0 0 rgba(0,0,0,0.075);
+    box-shadow: inset 0 ${rem(-1)} 0 0 rgba(0, 0, 0, 0.075);
     width: 100%;
     padding-bottom: 56.15%;
 `;
@@ -67,17 +69,16 @@ const ThumbnailStyled = styled<ThumbnailStyledProps, 'img'>('img')`
 `;
 
 const ThumbnailContainerStyled = styled<VideoCardThumbnailWrapperProps, 'div'>(
-    'div'
+    'div',
 )`
     border-radius: ${rem(VideoCardStyleSettings.borderRadius)}
         ${rem(VideoCardStyleSettings.borderRadius)} 0 0;
-    ${props => props.isHovered && 'opacity: .66;'}
-    box-shadow: inset 1px 1px 0px 0px rgba(0,0,0,0.10);
+    ${props =>
+        props.isHovered &&
+        'opacity: .66;'} box-shadow: inset 1px 1px 0px 0px rgba(0,0,0,0.10);
 `;
 
-const ThumbnailPreloadWrapperStyled = styled(
-    'div'
-)`
+const ThumbnailPreloadWrapperStyled = styled('div')`
     background-color: ${COLORS.Plaster};
     width: 100%;
     padding-bottom: 56.15%;
@@ -92,9 +93,7 @@ const hoverOverlayKeyframes = keyframes`
         }
 `;
 
-const HoverOverlayWrapperStyled = styled(
-    'div'
-)`
+const HoverOverlayWrapperStyled = styled('div')`
     width: 100%;
     height: 100%;
     position: absolute;
@@ -150,9 +149,7 @@ const VideoCardThumbnailArea: SFC<VideoCardThumbnailAreaProps> = ({
                             srcSet={thumbnailData[0].thumbnailSrcSet}
                             isTopOfCard={isTopOfCard}
                         />
-                        <ThumbnailShadowStyled
-                            isTopOfCard={isTopOfCard}
-                        />
+                        <ThumbnailShadowStyled isTopOfCard={isTopOfCard} />
                     </ThumbnailPreloadWrapperStyled>
                 )}
             </ThumbnailContainerStyled>

@@ -17,11 +17,11 @@ export interface MenuPanelProps {
      * Suppress Outline on wrapping anchor focus
      */
     hideOutline?: boolean;
-     /**
+    /**
      * Control open/close with props
      */
     isShowing?: boolean;
-     /**
+    /**
      * Internal content of menu panel
      */
     menuContent: React.ReactNode;
@@ -37,7 +37,7 @@ export interface MenuPanelProps {
      * Used to add a class to the panel element
      */
     panelClassName?: string;
-     /**
+    /**
      * Size of the panel
      */
     size: 'sm' | 'md' | 'lg';
@@ -53,11 +53,11 @@ export interface MenuPanelProps {
      * Normally we want to refocus on the element that opened the menu panel when the panel closes. Set to false if that is not desired. Defaults to true.
      */
     shouldRefocusTriggerOnClose?: boolean;
-     /**
+    /**
      * Manually set zIndex of the component
      */
     zIndexOverride?: number;
-};
+}
 
 export interface MenuPanelState {
     isShowing: boolean;
@@ -65,14 +65,15 @@ export interface MenuPanelState {
 
 export interface MenuPanelStyledProps {
     theme?: 'light' | 'dark';
-    hideOutline?: boolean,
-    isShowing?: boolean,
-    size: 'sm' | 'md' | 'lg',
-    isFluid?: boolean,
-    zIndexOverride?: number,
-};
+    hideOutline?: boolean;
+    isShowing?: boolean;
+    size: 'sm' | 'md' | 'lg';
+    isFluid?: boolean;
+    zIndexOverride?: number;
+}
 
-export interface TriggerWrapperStyledProps extends React.HTMLProps<HTMLAnchorElement> {
+export interface TriggerWrapperStyledProps
+    extends React.HTMLProps<HTMLAnchorElement> {
     hideOutline?: boolean;
     isFluid?: boolean;
 }
@@ -88,5 +89,3 @@ export interface TetherComponentProps {
     enabled?: boolean;
     offset?: string;
 }
-
-

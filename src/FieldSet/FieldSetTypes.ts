@@ -6,4 +6,4 @@ export interface FieldSetProps {
     helperMsg?: React.ReactNode;
     label: string | React.ReactNode;
     theme?: 'default' | 'dark';
-};
+}

@@ -2,7 +2,6 @@ import React, { SFC } from 'react';
 import { GridProps } from './GridTypes';
 import { GridStyled } from './GridStyled';
 
-
 const Grid: SFC<GridProps> = ({
     centered = false,
     element = 'main',
@@ -13,8 +12,8 @@ const Grid: SFC<GridProps> = ({
         centered={centered}
         element={element}
         hasMaxWidth={hasMaxWidth}
-        {...filteredProps}>
-    </GridStyled>
+        {...filteredProps}
+    />
 );
 
 export default Grid;

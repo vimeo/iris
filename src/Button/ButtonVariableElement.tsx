@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-    ButtonProps,
-    ButtonStyledProps,
-} from './ButtonProps';
+import { ButtonProps, ButtonStyledProps } from './ButtonProps';
 
 export const ButtonVariableElement = ({
     //@ts-ignore
@@ -11,12 +8,11 @@ export const ButtonVariableElement = ({
     autoWidth, // filter out prop
     //@ts-ignore
     customFormat, // filter out prop
-     //@ts-ignore
+    //@ts-ignore
     hasFeaturedIcon, // filter out prop
     isButtonElement, // filter out prop
     //@ts-ignore
     isInline, // filter out prop
     ...rest
-}: ButtonProps & ButtonStyledProps) => isButtonElement
-    ? <button {...rest} />
-    : <span {...rest} />;
+}: ButtonProps & ButtonStyledProps) =>
+    isButtonElement ? <button {...rest} /> : <span {...rest} />;

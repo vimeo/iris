@@ -16,9 +16,9 @@ class ContentCarousel extends React.Component<any, any> {
         theme: 'light',
     };
 
-    constructor(props: ContentCarouselPropsAll){
+    constructor(props: ContentCarouselPropsAll) {
         super(props);
-        this.state = { 
+        this.state = {
             currentSlideIndex: this.props.initialSlide || 0,
         };
     }
@@ -35,30 +35,29 @@ class ContentCarousel extends React.Component<any, any> {
     * see:  https://www.w3.org/WAI/tutorials/carousels/
     */
 
-    _addA11yAttributesToLiveSlide = (item) => {
+    _addA11yAttributesToLiveSlide = item => {
         /* clear existing attribute if any */
         const el = findDOMNode(this);
         const previousSlide = el && el.querySelector('[aria-live]');
 
-        if(previousSlide instanceof HTMLElement) {
+        if (previousSlide instanceof HTMLElement) {
             previousSlide.removeAttribute('aria-live');
             previousSlide.removeAttribute('aria-atomic');
         }
 
         /* set new aria attributes on live slide*/
-        if(item instanceof HTMLElement){
-            
+        if (item instanceof HTMLElement) {
             item.setAttribute('aria-live', 'polite');
             item.setAttribute('aria-atomic', 'true');
         }
-    }
+    };
 
-    _onChangeStart = (index) => {
+    _onChangeStart = index => {
         this.setState({
             currentSlideIndex: index,
-        })
+        });
     };
-    
+
     _onChangeEnd = (index, item) => {
         this._addA11yAttributesToLiveSlide(item);
         if (typeof this.props.onSlideChange === 'function') {
@@ -67,23 +66,22 @@ class ContentCarousel extends React.Component<any, any> {
     };
 
     _onNavDotClick = (index: number) => {
-        this.carouselInstance.slide(index, this.props.speed)
+        this.carouselInstance.slide(index, this.props.speed);
     };
 
-    _onNextClick = () =>{
+    _onNextClick = () => {
         this.carouselInstance.next();
-    }
+    };
 
-    _onPrevClick = () =>{
+    _onPrevClick = () => {
         this.carouselInstance.prev();
-    }
+    };
 
     public initialize = () => {
         this.carouselInstance.swipe.setup();
-    }
+    };
 
     public render() {
-
         const {
             a11yGoToSlideText,
             a11yNextSlideText,
@@ -102,7 +100,7 @@ class ContentCarousel extends React.Component<any, any> {
             startSlide: initialSlide,
             speed,
             auto: autoplayInterval,
-            continuous:  infinite,
+            continuous: infinite,
             callback: this._onChangeStart,
             transitionEnd: this._onChangeEnd,
         };
@@ -110,12 +108,10 @@ class ContentCarousel extends React.Component<any, any> {
         const slideCount = React.Children.toArray(children).length;
 
         return (
-            <div
-                {...filteredProps}
-            >
+            <div {...filteredProps}>
                 <ReactSwipe
                     key={slideCount}
-                    ref={thisCarousel => this.carouselInstance = thisCarousel}
+                    ref={thisCarousel => (this.carouselInstance = thisCarousel)}
                     swipeOptions={sliderSettings}
                 >
                     {children}

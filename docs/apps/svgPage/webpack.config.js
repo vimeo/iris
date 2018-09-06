@@ -44,6 +44,8 @@ module.exports = {
         extensions: ['.js', '.jsx', '.json'],
     },
 
+    stats: 'errors-only',
+
     plugins: [
         new webpack.LoaderOptionsPlugin({
             minimize: true,

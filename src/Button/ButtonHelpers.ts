@@ -1,10 +1,10 @@
-import { 
+import {
     css,
     // @ts-ignore
     Styles,
     // @ts-ignore
-    StyledComponentClass
- } from 'styled-components';
+    StyledComponentClass,
+} from 'styled-components';
 import { rem } from 'polished';
 
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
@@ -61,11 +61,12 @@ const getAutoWidthCSS = props => {
     `;
 };
 
-
 const getDefaultCSSByFormat = props => {
-    const thisButtonFormat = ButtonStyleSettings.Formats[props.format] && ButtonStyleSettings.Formats[props.format].default;
+    const thisButtonFormat =
+        ButtonStyleSettings.Formats[props.format] &&
+        ButtonStyleSettings.Formats[props.format].default;
 
-    if(thisButtonFormat) {
+    if (thisButtonFormat) {
         return `
             background-color: ${thisButtonFormat.backgroundColor};
             border-color: ${thisButtonFormat.borderColor};
@@ -74,7 +75,6 @@ const getDefaultCSSByFormat = props => {
     }
 
     return '';
-    
 };
 
 const getDisabledCSSByFormat = props => {
@@ -100,7 +100,9 @@ const getDisabledCSSByFormat = props => {
 };
 
 const getHoverCSSByFormat = props => {
-    const thisButtonFormat = ButtonStyleSettings.Formats[props.format] &&ButtonStyleSettings.Formats[props.format].hover;
+    const thisButtonFormat =
+        ButtonStyleSettings.Formats[props.format] &&
+        ButtonStyleSettings.Formats[props.format].hover;
 
     if (thisButtonFormat) {
         return `
@@ -114,7 +116,9 @@ const getHoverCSSByFormat = props => {
 };
 
 const getActiveCSSByFormat = props => {
-    const thisButtonFormat = ButtonStyleSettings.Formats[props.format] &&ButtonStyleSettings.Formats[props.format].active;
+    const thisButtonFormat =
+        ButtonStyleSettings.Formats[props.format] &&
+        ButtonStyleSettings.Formats[props.format].active;
     if (thisButtonFormat) {
         return `
             background-color: ${thisButtonFormat.backgroundColor};
@@ -139,9 +143,7 @@ const getSizeCSS = props => {
 };
 
 const getVerticalAutoMarginCSS = props =>
-    props.isInline || !props.autoMargins
-        ? ''
-        : `margin-bottom: ${rem(8)};`;
+    props.isInline || !props.autoMargins ? '' : `margin-bottom: ${rem(8)};`;
 
 export {
     ButtonCoreCSS,

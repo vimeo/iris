@@ -4,27 +4,18 @@ import { FieldSetStyled } from './FieldSetStyled';
 import InputLabel from '../InputLabel/InputLabel';
 import InputMessageArea from '../InputMessageArea/InputMessageArea';
 
-const FieldSet: SFC <
-    FieldSetProps &
-    HTMLProps<HTMLFieldSetElement>
->  = ({
+const FieldSet: SFC<FieldSetProps & HTMLProps<HTMLFieldSetElement>> = ({
     children,
     errorMsg,
     format = 'neutral',
     helperMsg,
     label,
     theme = 'default',
-    ref:_,
+    ref: _,
     ...filteredProps
 }) => (
-    <FieldSetStyled
-        {...filteredProps}
-    >
-        <InputLabel
-            format={format}
-            element="legend"
-            theme={theme}
-        >
+    <FieldSetStyled {...filteredProps}>
+        <InputLabel format={format} element="legend" theme={theme}>
             {label}
         </InputLabel>
         <InputMessageArea

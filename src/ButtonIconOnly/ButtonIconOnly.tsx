@@ -5,11 +5,10 @@ import {
     IconWrapperStyled,
     SpanStyled,
 } from './ButtonIconOnlyStyled';
-import {Omit} from '../globals/js/type-helpers';
+import { Omit } from '../globals/js/type-helpers';
 
-const ButtonIconOnly: SFC <
-    ButtonIconOnlyProps &
-    Omit<HTMLProps<HTMLElement>, 'size'>
+const ButtonIconOnly: SFC<
+    ButtonIconOnlyProps & Omit<HTMLProps<HTMLElement>, 'size'>
 > = ({
     autoSpacingHorizontal = true,
     format = 'dark',
@@ -19,17 +18,15 @@ const ButtonIconOnly: SFC <
     ref: _,
     ...filteredProps
 }) => {
-
-    const ButtonElement = isButtonElement
-        ? ButtonStyled
-        : SpanStyled;
+    const ButtonElement = isButtonElement ? ButtonStyled : SpanStyled;
 
     return (
         <ButtonElement
             {...filteredProps}
             autoSpacingHorizontal={autoSpacingHorizontal}
             format={format}
-            size={size}>
+            size={size}
+        >
             <IconWrapperStyled>{icon}</IconWrapperStyled>
         </ButtonElement>
     );

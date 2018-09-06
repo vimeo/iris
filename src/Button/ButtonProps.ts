@@ -1,7 +1,6 @@
 import React from 'react';
 import { Omit } from '../globals/js/type-helpers';
 
-
 export interface ButtonProps
     extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
     /**
@@ -31,7 +30,7 @@ export interface ButtonProps
     /**
      * Choose icon location (default: beforeLabel)
      */
-    iconLocation?: 'beforeLabel' | 'afterLabel' |'featuredLeft';
+    iconLocation?: 'beforeLabel' | 'afterLabel' | 'featuredLeft';
     /**
      * If `false` the button will be rendered as a span tag
      */
@@ -51,20 +50,15 @@ export interface ButtonStyledProps {
 }
 
 export interface customFormatButton {
-    defaultBackgroundColor: string,
-    defaultBorderColor?: string,
-    defaultTextColor: string,
-    hoverBackgroundColor: string,
-    hoverBorderColor?: string,
-    hoverTextColor?: string,
+    defaultBackgroundColor: string;
+    defaultBorderColor?: string;
+    defaultTextColor: string;
+    hoverBackgroundColor: string;
+    hoverBorderColor?: string;
+    hoverTextColor?: string;
 }
 
-export type buttonSizes = 
-    | 'xs'
-    | 'sm'
-    | 'md'
-    | 'lg'
-    | 'xl';
+export type buttonSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type buttonFormats =
     | 'primary'

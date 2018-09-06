@@ -92,7 +92,7 @@ const firstSliderThumbStyles = zIndex => {
         z-index: ${zIndex + sliderZindex.startHandle};
         position: relative;
         transform: translateX(-${rem(
-            InputSliderStyleSettings.dimensions.gradientOffset
+            InputSliderStyleSettings.dimensions.gradientOffset,
         )});
     `;
 };
@@ -255,10 +255,10 @@ class InputSlider extends React.Component<any, any> {
         };
         this.totalRange = this.props.maxValue - this.props.minValue;
         this.inRangeColor = getSliderThemeColors(
-            this.props.disabled ? 'disabled' : this.props.format
+            this.props.disabled ? 'disabled' : this.props.format,
         ).inRangeBgColor;
         this.outRangeColor = getSliderThemeColors(
-            this.props.disabled ? 'disabled' : this.props.format
+            this.props.disabled ? 'disabled' : this.props.format,
         ).outRangeBgColor;
         this.handleDiameter =
             InputSliderStyleSettings.dimensions.handleDiameter;
@@ -371,7 +371,7 @@ class InputSlider extends React.Component<any, any> {
                 parseInt(this.endRange.value, 10) - gap
         ) {
             this.startRange.value = String(
-                parseInt(this.endRange.value, 10) - gap
+                parseInt(this.endRange.value, 10) - gap,
             );
         } else if (
             selectedInput == this.endRange &&
@@ -379,7 +379,7 @@ class InputSlider extends React.Component<any, any> {
                 parseInt(this.startRange.value, 10) + gap
         ) {
             this.endRange.value = String(
-                parseInt(this.startRange.value, 10) + gap
+                parseInt(this.startRange.value, 10) + gap,
             );
         }
         // position the corresponding value bubble below slider handle
@@ -391,7 +391,7 @@ class InputSlider extends React.Component<any, any> {
         if (this.props.rangeValues) {
             this.props.rangeValues(
                 parseInt(this.startRange.value, 10),
-                parseInt(this.endRange.value, 10)
+                parseInt(this.endRange.value, 10),
             );
         }
     };

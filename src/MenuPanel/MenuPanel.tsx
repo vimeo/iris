@@ -1,13 +1,8 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
-import {
-    KEY_CODES,
-} from '../globals/js/constants';
+import { KEY_CODES } from '../globals/js/constants';
 import { Transition } from 'react-transition-group';
-import {
-    MenuPanelProps,
-    MenuPanelState,
-} from './MenuPanelTypes';
+import { MenuPanelProps, MenuPanelState } from './MenuPanelTypes';
 import {
     MenuPanelStyled,
     menuPanelTransitionStyles,
@@ -30,7 +25,10 @@ class MenuPanel extends React.Component {
 
     state: MenuPanelState;
 
-    constructor(props: MenuPanelProps & Omit<React.HTMLProps<HTMLAnchorElement>, 'size'>) {
+    constructor(
+        props: MenuPanelProps &
+            Omit<React.HTMLProps<HTMLAnchorElement>, 'size'>,
+    ) {
         super(props);
         this.state = {
             isShowing: props.isShowing,
@@ -54,8 +52,7 @@ class MenuPanel extends React.Component {
     componentDidUpdate(_, prevState: MenuPanelState) {
         if (!prevState.isShowing && this.state.isShowing) {
             this._openMenu();
-        }
-        else if (prevState.isShowing && !this.state.isShowing) {
+        } else if (prevState.isShowing && !this.state.isShowing) {
             this._closeMenu();
         }
     }
@@ -72,7 +69,6 @@ class MenuPanel extends React.Component {
     menuTriggerEl: HTMLElement;
     tether: any;
 
-
     _handleClick = (event: React.MouseEvent<any>) => {
         this._toggleClick();
         if (this.props.href === '#') {
@@ -82,15 +78,19 @@ class MenuPanel extends React.Component {
         if (typeof this.props.onClick === 'function') {
             this.props.onClick(event);
         }
-    }
+    };
 
     _handleClickWhileOpen = (event: MouseEvent) => {
-        if (this.state.isShowing && event.target instanceof HTMLElement && !this.menu.contains(event.target)) {
+        if (
+            this.state.isShowing &&
+            event.target instanceof HTMLElement &&
+            !this.menu.contains(event.target)
+        ) {
             this.setState({
                 isShowing: false,
             });
         }
-    }
+    };
 
     _handleEsc = (event: KeyboardEvent) => {
         if (this.state.isShowing && event.keyCode === KEY_CODES.esc) {
@@ -98,25 +98,29 @@ class MenuPanel extends React.Component {
                 isShowing: false,
             });
         }
-    }
+    };
 
-    _handleForwardFocusTab= (event: KeyboardEvent) => {
+    _handleForwardFocusTab = (event: KeyboardEvent) => {
         if (event.keyCode === KEY_CODES.tab) {
             this.setState({
                 isShowing: false,
             });
             event.preventDefault();
         }
-    }
+    };
 
     // when the menu is open, a forward tab should go to the first menu item
     _handleForwardsTriggerTab = (event: KeyboardEvent) => {
-        if (event.keyCode === KEY_CODES.tab && this.state.isShowing && this.firstFocusableElement) {
+        if (
+            event.keyCode === KEY_CODES.tab &&
+            this.state.isShowing &&
+            this.firstFocusableElement
+        ) {
             event.preventDefault();
             this._unbindTriggerTab();
             this.firstFocusableElement.focus();
         }
-    }
+    };
 
     // tabbing backwards out of the menu closes it.
     _handleBackwardFocusTab = (event: KeyboardEvent) => {
@@ -127,74 +131,55 @@ class MenuPanel extends React.Component {
             });
             event.preventDefault();
         }
-    }
-
+    };
 
     _bindEvents = () => {
         if (!this.props.isControlled) {
-            document.addEventListener(
-                'click',
-                this._handleClickWhileOpen
-            );
+            document.addEventListener('click', this._handleClickWhileOpen);
 
-            document.addEventListener(
-                'keydown',
-                this._handleEsc
-            );
+            document.addEventListener('keydown', this._handleEsc);
 
             if (this.lastFocusableElement && this.firstFocusableElement) {
                 this.lastFocusableElement.addEventListener(
                     'keydown',
-                    this._handleForwardFocusTab
+                    this._handleForwardFocusTab,
                 );
 
                 this.firstFocusableElement.addEventListener(
                     'keydown',
-                    this._handleBackwardFocusTab
+                    this._handleBackwardFocusTab,
                 );
             }
         }
-    }
+    };
 
     _unBindEvents = () => {
         if (!this.props.isControlled) {
-            document.removeEventListener(
-                'click',
-                this._handleClickWhileOpen
-            );
+            document.removeEventListener('click', this._handleClickWhileOpen);
 
-            document.removeEventListener(
-                'keydown',
-                this._handleEsc
-            );
+            document.removeEventListener('keydown', this._handleEsc);
 
             if (this.lastFocusableElement && this.firstFocusableElement) {
                 this.lastFocusableElement.removeEventListener(
                     'keydown',
-                    this._handleForwardFocusTab
+                    this._handleForwardFocusTab,
                 );
 
                 this.firstFocusableElement.removeEventListener(
                     'keydown',
-                    this._handleBackwardFocusTab
+                    this._handleBackwardFocusTab,
                 );
             }
         }
-    }
+    };
 
     _bindTriggerTab = () => {
-        document.addEventListener(
-            'keydown',
-            this._handleForwardsTriggerTab
-        );
-    }
+        document.addEventListener('keydown', this._handleForwardsTriggerTab);
+    };
 
     _unbindTriggerTab = () => {
-        document.removeEventListener(
-            'keydown',
-            this._handleForwardsTriggerTab
-        );
-    }
+        document.removeEventListener('keydown', this._handleForwardsTriggerTab);
+    };
 
     _closeMenu = () => {
         if (!this.props.isControlled) {
@@ -208,7 +193,7 @@ class MenuPanel extends React.Component {
         if (typeof this.props.onClose === 'function') {
             this.props.onClose();
         }
-    }
+    };
 
     _openMenu = () => {
         this._setFocusableElementList(this._bindEvents);
@@ -216,39 +201,44 @@ class MenuPanel extends React.Component {
         if (typeof this.props.onOpen === 'function') {
             this.props.onOpen();
         }
-    }
+    };
 
     _toggleClick = () => {
         if (!this.props.isControlled) {
-            this.setState({ isShowing: !this.state.isShowing });
+            this.setState({
+                isShowing: !this.state.isShowing,
+            });
         }
-    }
+    };
 
     _setFocusableElementList(callback: any) {
         const thisMenu = findDOMNode(this.menu);
 
         if (thisMenu instanceof Element) {
             const focusableList = thisMenu.querySelectorAll(
-                'a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]'
+                'a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]',
             );
 
             if (focusableList.length) {
-                this.firstFocusableElement = Array.prototype.slice.call(focusableList)[0];
+                this.firstFocusableElement = Array.prototype.slice.call(
+                    focusableList,
+                )[0];
 
-                this.lastFocusableElement = Array.prototype.slice.call(focusableList)[focusableList.length - 1];
+                this.lastFocusableElement = Array.prototype.slice.call(
+                    focusableList,
+                )[focusableList.length - 1];
             }
         }
         if (typeof callback === 'function') {
             callback();
         }
-
     }
 
     render() {
         const {
             alignment = 'center',
             children,
-            theme='light',
+            theme = 'light',
             href = '#',
             hideOutline,
             isControlled, // eslint-disable-line no-unused-vars
@@ -267,18 +257,18 @@ class MenuPanel extends React.Component {
         } = this.props;
 
         return (
-            <WrapperStyled
-                isFluid={isFluid}
-            >
+            <WrapperStyled isFluid={isFluid}>
                 <TetherComponentStyled
                     attachment={`top ${alignment}`}
                     targetAttachment={`bottom ${alignment}`}
-                    constraints={[{
-                        to: 'window',
-                        attachment: 'together',
-                    }]}
+                    constraints={[
+                        {
+                            to: 'window',
+                            attachment: 'together',
+                        },
+                    ]}
                     enabled
-                    innerRef={(tether) => {
+                    innerRef={tether => {
                         this.tether = tether;
                     }}
                     offset="-4px 0"
@@ -293,35 +283,31 @@ class MenuPanel extends React.Component {
                         onFocus={this._bindTriggerTab}
                         onBlur={this._unbindTriggerTab}
                         onClick={this._handleClick}
-                        innerRef={(menuTriggerEl) => {
+                        innerRef={menuTriggerEl => {
                             this.menuTriggerEl = menuTriggerEl;
                         }}
                     >
                         {children}
                     </TriggerWrapperStyled>
-                    <Transition
-                            in={this.state.isShowing}
-                            timeout={menuSpeed}
-
-                        >
-                            {state => (
-                                <MenuPanelStyled
-                                    className={panelClassName}
-                                    isShowing={this.state.isShowing}
-                                    innerRef={(menu) => {
-                                        this.menu = menu;
-                                    }}
-                                    size={size}
-                                    style={{
-                                        ...menuPanelTransitionStyles[state],
-                                    }}
-                                    theme={theme}
-                                    zIndexOverride={zIndexOverride}
-                                >
-                                    {menuContent}
-                                </MenuPanelStyled>
-                            )}
-                        </Transition>
+                    <Transition in={this.state.isShowing} timeout={menuSpeed}>
+                        {state => (
+                            <MenuPanelStyled
+                                className={panelClassName}
+                                isShowing={this.state.isShowing}
+                                innerRef={menu => {
+                                    this.menu = menu;
+                                }}
+                                size={size}
+                                style={{
+                                    ...menuPanelTransitionStyles[state],
+                                }}
+                                theme={theme}
+                                zIndexOverride={zIndexOverride}
+                            >
+                                {menuContent}
+                            </MenuPanelStyled>
+                        )}
+                    </Transition>
                 </TetherComponentStyled>
             </WrapperStyled>
         );

@@ -1,9 +1,6 @@
 import React, { SFC } from 'react';
-
-import styled, {
-        // @ts-ignore
-        StyledComponentClass
-} from 'styled-components';
+// @ts-ignore
+import styled, { StyledComponentClass } from 'styled-components';
 
 export const LinkElementStyled = styled('span')`
     &:focus,
@@ -12,12 +9,8 @@ export const LinkElementStyled = styled('span')`
     }
 `;
 
-const ButtonFocusWrapper: SFC<React.HTMLProps<HTMLSpanElement>> = (
-    props
-) => (
-    <LinkElementStyled>
-        {props.children}
-    </LinkElementStyled>
+const ButtonFocusWrapper: SFC<React.HTMLProps<HTMLSpanElement>> = props => (
+    <LinkElementStyled>{props.children}</LinkElementStyled>
 );
 
 export default ButtonFocusWrapper;

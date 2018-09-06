@@ -24,7 +24,7 @@ export interface FeatureTourPanelContentProps {
      * Translated label explaining what the close button does.
      */
     dismissButtonA11yLabel: string;
-     /**
+    /**
      * Object of props that will be spread across the dismiss button
      */
     dismissButtonProps?: Object;
@@ -42,7 +42,10 @@ const HeaderWrapperStyled = styled.div`
     padding-right: ${rem(24)};
 `;
 
-const FeatureTourPanelContentStyled = styled<React.HTMLProps< HTMLDivElement >, 'div'>('div')`
+const FeatureTourPanelContentStyled = styled<
+    React.HTMLProps<HTMLDivElement>,
+    'div'
+>('div')`
     padding: ${rem(24) + ' ' + rem(24) + ' ' + rem(16)};
     border-radius: ${rem(5)};
     background: ${COLORS.DarkerBlue};
@@ -70,15 +73,14 @@ const FeatureTourPanelContent = ({
     headerText,
     onDismissClick,
     dismissButtonProps,
-    ref:_,
+    ref: _,
     ...filteredProps
-}: FeatureTourPanelContentProps & React.HTMLProps< HTMLDivElement >) => {
-
+}: FeatureTourPanelContentProps & React.HTMLProps<HTMLDivElement>) => {
     const handleClick = event => {
-        if(typeof onDismissClick === 'function') {
-            onDismissClick(event)
+        if (typeof onDismissClick === 'function') {
+            onDismissClick(event);
         }
-    }
+    };
 
     return (
         <FeatureTourPanelContentStyled {...filteredProps}>
@@ -89,7 +91,11 @@ const FeatureTourPanelContent = ({
                 size="sm"
                 onClick={handleClick}
             />
-            {headerText && <HeaderWrapperStyled><Header5 format="white">{headerText}</Header5></HeaderWrapperStyled>}
+            {headerText && (
+                <HeaderWrapperStyled>
+                    <Header5 format="white">{headerText}</Header5>
+                </HeaderWrapperStyled>
+            )}
             <ParagraphMd element="div" format="white">
                 {children}
             </ParagraphMd>

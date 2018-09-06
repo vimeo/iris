@@ -8,23 +8,21 @@ import {
     OverlayStyled,
     CardContentWrapStyled,
     CardContentStyled,
-    IconWrapperStyled
- } from './CategoryCardStyled';
+    IconWrapperStyled,
+} from './CategoryCardStyled';
 
- 
-const CategoryCard: SFC <
-    CategoryCardProps &
-    HTMLProps<HTMLDivElement>
-> = ({
+const CategoryCard: SFC<CategoryCardProps & HTMLProps<HTMLDivElement>> = ({
     backgroundImageURL,
     children,
     icon,
-    ref:_,
+    ref: _,
     ...filteredProps
 }) => (
     <CategoryCardStyled {...filteredProps}>
         <BackgroundStyled
-            style={{ backgroundImage: `url(${backgroundImageURL})` }}
+            style={{
+                backgroundImage: `url(${backgroundImageURL})`,
+            }}
         />
         <OverlayStyled />
         <CardContentWrapStyled>

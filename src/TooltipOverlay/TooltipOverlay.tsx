@@ -8,7 +8,8 @@ import Tooltip from '../Tooltip/Tooltip';
 
 const TOOLTIP_SPEED = 50;
 
-export interface TooltipOverlayProps extends Omit<React.HTMLProps<HTMLSpanElement>, 'size'>{
+export interface TooltipOverlayProps
+    extends Omit<React.HTMLProps<HTMLSpanElement>, 'size'> {
     /**
      * Sets word-break: break-all on tooltip text.
      */
@@ -102,7 +103,7 @@ const TargetStyled = styled(Target)`
 `;
 
 const SpanWrapper = styled<TooltipOverlayProps, any>('span')`
-    display: ${props => props.makeWrapperBlock ? 'block' : null};
+    display: ${props => (props.makeWrapperBlock ? 'block' : null)};
 `;
 
 const TooltipWrapperStyled = styled('div')`
@@ -121,7 +122,7 @@ const transitionStyles = {
         opacity: 0,
     },
 };
-class TooltipOverlay extends React.Component <
+class TooltipOverlay extends React.Component<
     TooltipOverlayProps,
     TooltipOverlayState
 > {
@@ -145,7 +146,6 @@ class TooltipOverlay extends React.Component <
     // Functions
 
     showTooltip = () => {
-
         if (!this.props.isDisabled) {
             // iOS won't bubble clicks to the body unless it has cursor pointer
             // we listen for a body click to close the tooltip
@@ -247,7 +247,7 @@ class TooltipOverlay extends React.Component <
             tooltipText,
             triggerOnClick, // eslint-disable-line no-unused-vars
             zIndexOverride,
-            ref:_,
+            ref: _,
             ...filteredProps
         } = this.props;
 
@@ -274,11 +274,7 @@ class TooltipOverlay extends React.Component <
                             this.overlay = overlay;
                         }}
                     >
-                        <Tooltip
-                            breakWords={breakWords}
-                        >
-                            {tooltipText}
-                        </Tooltip>
+                        <Tooltip breakWords={breakWords}>{tooltipText}</Tooltip>
                     </TooltipWrapperStyled>
                 )}
             </Transition>
