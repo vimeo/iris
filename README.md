@@ -58,7 +58,7 @@ $ gulp
 ```
 
 ## Usage
-Import components into your React app.
+Import components into your React app:
 ```jsx
 import { Button, ButtonIconOnly, ParagraphMd } from '@vimeo/iris';
 
@@ -73,6 +73,14 @@ import { Button, ButtonIconOnly, ParagraphMd } from '@vimeo/iris';
         onClick={clickHandler}
      />
 </div>
+
+```
+
+Import SVG icons into your React app:
+```jsx
+import GearIcon from 'iris/icons/gear';
+
+<GearIcon />
 
 ```
 
