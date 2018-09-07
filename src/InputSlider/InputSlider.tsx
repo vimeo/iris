@@ -244,6 +244,7 @@ class InputSlider extends React.Component<any, any> {
     private initialMin: number;
     private initialMax: number;
     private valueOffset: number;
+    private UID: string;
 
     constructor(props: InputSliderProps) {
         super(props);
@@ -263,6 +264,13 @@ class InputSlider extends React.Component<any, any> {
         this.handleDiameter =
             InputSliderStyleSettings.dimensions.handleDiameter;
         this.valueOffset = this.props.minValue;
+        this.UID =
+            Math.random()
+                .toString(36)
+                .substring(2, 6) +
+            Math.random()
+                .toString(36)
+                .substring(2, 6);
     }
 
     state: InputSliderState;
@@ -329,7 +337,7 @@ class InputSlider extends React.Component<any, any> {
                             <SliderLabel
                                 value={this.showValue(this.startRange.value)}
                                 editable={this.props.editableLabel}
-                                id="testing"
+                                id={`start-${this.UID}`}
                                 onUserInput={this.readStartRangeInput}
                                 format={this.props.format}
                             />
@@ -347,7 +355,7 @@ class InputSlider extends React.Component<any, any> {
                             <SliderLabel
                                 value={this.showValue(this.endRange.value)}
                                 editable={this.props.editableLabel}
-                                id="testing1"
+                                id={`end-${this.UID}`}
                                 onUserInput={this.readEndRangeInput}
                                 format={this.props.format}
                             />
