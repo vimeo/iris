@@ -6,6 +6,7 @@ import {
     SpanStyled,
 } from './ButtonIconOnlyStyled';
 import { Omit } from '../globals/js/type-helpers';
+import { ButtonIconOnlyFocusBloop } from './ButtonIconOnlyFocusBloop';
 
 const ButtonIconOnly: SFC<
     ButtonIconOnlyProps & Omit<HTMLProps<HTMLElement>, 'size'>
@@ -28,6 +29,7 @@ const ButtonIconOnly: SFC<
             size={size}
         >
             <IconWrapperStyled>{icon}</IconWrapperStyled>
+            <ButtonIconOnlyFocusBloop />
         </ButtonElement>
     );
 };

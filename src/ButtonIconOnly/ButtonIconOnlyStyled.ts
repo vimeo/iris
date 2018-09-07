@@ -122,6 +122,7 @@ const ButtonIconOnlySharedCSS = css`
     margin: 0;
     padding: 0;
 
+    outline: 0;
     border: 0;
     border-radius: ${rem(3)};
     background: transparent;

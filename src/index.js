@@ -118,6 +118,8 @@ export { default as ButtonVariableElement } from './Button/ButtonVariableElement
 
 export { default as ButtonIconOnly } from './ButtonIconOnly/ButtonIconOnly';
 
+export { default as ButtonIconOnlyFocusBloop } from './ButtonIconOnly/ButtonIconOnlyFocusBloop';
+
 export { default as ButtonIconOnlyStyled } from './ButtonIconOnly/ButtonIconOnlyStyled';
 
 export { default as ButtonIconOnlyTypes } from './ButtonIconOnly/ButtonIconOnlyTypes';
