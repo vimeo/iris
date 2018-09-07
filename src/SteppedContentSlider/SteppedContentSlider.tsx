@@ -151,8 +151,9 @@ const ViewTrack: SFC<ViewTrackProps> = ({
     trackOffset: _0,
     speed: _1,
     animate: _2,
+    setRef,
     ...props
-}) => <div ref={props.setRef} {...props} />;
+}) => <div ref={setRef} {...props} />;
 
 const ViewTrackStyled = styled(ViewTrack)`
     display: flex;

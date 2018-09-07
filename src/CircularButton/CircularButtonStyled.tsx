@@ -89,7 +89,12 @@ const maybeAutoMargins = (props: CircularButtonStyledProps) =>
         : '';
 
 export const CircularButtonStyled = styled<CircularButtonStyledProps, any>(
-    CircularButtonElement,
+    ({
+        icon,
+        // @ts-ignore
+        autoMarginsHorizontal,
+        ...rest
+    }) => <CircularButtonElement icon={icon} {...rest} />,
 )`
     display: inline-block;
     overflow: hidden;
@@ -125,5 +130,6 @@ export const CircularButtonStyled = styled<CircularButtonStyledProps, any>(
         fill: currentColor;
     }
 
-    ${maybeAutoMargins} ${getFormatCss};
+    ${maybeAutoMargins};
+    ${getFormatCss};
 `;

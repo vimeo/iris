@@ -3,6 +3,12 @@ import { GridProps } from './GridTypes';
 
 export const GridVariableElement: SFC<GridProps & HTMLProps<HTMLElement>> = ({
     element,
+    // @ts-ignore
+    centered,
+    // @ts-ignore
+    hasMaxWidth,
+    // @ts-ignore
+    isNested,
     ...filteredProps
 }) =>
     ({

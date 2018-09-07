@@ -46,9 +46,14 @@ const Button: SFC<ButtonProps> = ({
                 {hasIcon('afterLabel')}
             </ButtonLabelStyled>
 
-            <ButtonFocusBloop format={format} size={size} />
+            <ButtonFocusBloop theme={convertTheme(format)} size={size} />
         </ButtonStyled>
     );
 };
+
+const darkThemeFormats = ['primary', 'primaryDark', 'secondaryDark'];
+
+const convertTheme = format =>
+    darkThemeFormats.indexOf(format) !== -1 ? 'default' : 'dark';
 
 export default Button;

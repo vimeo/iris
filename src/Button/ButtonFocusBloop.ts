@@ -13,14 +13,7 @@ import { LinkElementStyled as ButtonFocusWrapper } from './ButtonFocusWrapper';
 import { TriggerWrapperStyled } from '../MenuPanel/MenuPanelStyled';
 import { FocusBloop, FocusBloopFocused } from '../FocusBloopNew/FocusBloopNew';
 
-const darkThemeFormats = ['primary', 'primaryDark', 'secondaryDark'];
-
-const convertTheme = format =>
-    darkThemeFormats.indexOf(format) !== -1 ? 'default' : 'dark';
-
-export const ButtonFocusBloop = styled<any, 'div'>('div').attrs({
-    theme: props => convertTheme(props.format),
-})`
+export const ButtonFocusBloop = styled<any, 'div'>('div')`
     ${FocusBloop}
 
     ${Button}:focus &,
