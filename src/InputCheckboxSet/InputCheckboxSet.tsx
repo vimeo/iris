@@ -16,9 +16,6 @@ class InputCheckboxSet extends React.Component<
 
     constructor(props: InputCheckboxSetProps) {
         super(props);
-        this.setState({
-            isHovered: false,
-        });
     }
 
     componentWillMount() {
@@ -28,6 +25,7 @@ class InputCheckboxSet extends React.Component<
                 : true;
 
         this.setState({
+            isHovered: false,
             topLevelChecked: this.props.topLevel.checked,
             topLevelStyle: this.props.topLevelCheckedStyle,
             checkboxState: this.props.subOptions.map(
