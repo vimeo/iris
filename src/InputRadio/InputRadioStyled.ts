@@ -39,11 +39,14 @@ export const InputRadioStyled = styled.input`
     outline: 0;
 `;
 
+// prettier-ignore
 const radioHover = css`
-    ${InputRadioWrapperStyled}:hover ${InputRadioStyled}:not([disabled]) + &;
+    ${InputRadioWrapperStyled}:hover ${InputRadioStyled}:not([disabled]) + &
 `;
+
+// prettier-ignore
 const radioChecked = css`
-    ${InputRadioStyled}: checked + &;
+    ${InputRadioStyled}:checked + &
 `;
 
 const themeSpecificStyles = ({ theme = 'default' }) =>
@@ -85,7 +88,9 @@ export const InputRadioOverlayStyled = styled<
     border-style: solid;
     border-radius: ${rem(inputSize / 2)};
 
-    ${themeSpecificStyles} &:after {
+    ${themeSpecificStyles};
+
+    &:after {
         content: '';
         position: absolute;
         transition: all 200ms ease-out;
@@ -100,5 +105,6 @@ export const InputRadioOverlayStyled = styled<
 
     ${radioChecked}:after {
         transform: scale(1);
+        test: ${radioChecked};
     }
 `;
