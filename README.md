@@ -45,18 +45,26 @@ Install [Yarn](https://github.com/yarnpkg/yarn): `npm install -g yarn`
 ```bash
 $ yarn add @vimeo/iris
 ```
+
+[styled-components](https://github.com/styled-components/styled-components) and [polished](https://github.com/styled-components/polished) are also required
+```bash
+$ yarn add styled-components@^3.2.5
+$ yarn add polished@^1.9.2
+
+```
+***
 **For local development:**
 
 Install [Gulp](https://github.com/gulpjs/gulp): `npm install -g gulp`
 
 ```bash
-$ git clone git@github.vimeows.com:Vimeo/steadicam.git
 $ git clone git@github.vimeows.com:Vimeo/iris.git
 $ cd iris
 $ yarn
 $ gulp
 ```
-
+This will open the Iris docs at http://localhost:3000/pattern/Iris/Home
+***
 🚨 All code in Iris must be formatted with [Prettier](https://github.com/prettier/prettier/) for acceptance. We reccomend using an extension to format on save for your code editor (ie. [vscode-prettier](https://github.com/prettier/prettier-vscode)).
 
 ## Usage
