@@ -31,7 +31,7 @@ type Props = {
 class VerticalMenuItem extends React.Component {
     static defaultProps = {
         nestedInteractionMenuSize: 'md',
-    };;
+    };
 
     constructor(props: Props) {
         super(props);
@@ -199,13 +199,13 @@ class VerticalMenuItem extends React.Component {
                 <div
                     {...filteredProps}
                     className={componentClass}
-                    onMouseOver={this._handleWrapperMouseOver}
-                    onMouseOut={this._handleWrapperMouseOut}
+                    onMouseEnter={this._handleWrapperMouseOver}
+                    onMouseLeave={this._handleWrapperMouseOut}
                 >
                     <div
                         className={linkWrapperClass}
-                        onMouseOver={this._handleLinkMouseOver}
-                        onMouseOut={this._handleLinkMouseOut}
+                        onMouseEnter={this._handleLinkMouseOver}
+                        onMouseLeave={this._handleLinkMouseOut}
                     >
                         {children}
                     </div>

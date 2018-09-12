@@ -47,6 +47,10 @@ export interface TooltipOverlayProps
      */
     onMouseLeave?: (event: React.MouseEvent<HTMLSpanElement>) => void;
     /**
+     * Pointer events toggles the CSS pointer events property
+     */
+    pointerEvents?: boolean;
+    /**
      * Toggle popper events enabled (default is false). See [React Popper docs](https://github.com/FezVrasta/react-popper)
      */
     popperEventsEnabled?: boolean;
@@ -96,6 +100,7 @@ const PopperFiltered = ({
 
 const PopperStyled = styled(PopperFiltered)`
     z-index: ${props => props.zIndexOverride || Z_INDEX.tooltip};
+    pointer-events: ${props => props.pointerEvents ? 'none': 'auto'};
 `;
 
 const TargetStyled = styled(Target)`
@@ -194,7 +199,7 @@ class TooltipOverlay extends React.Component<
         this.setState({
             isHovered: true,
         });
-
+        
         if (typeof this.props.onMouseEnter === 'function') {
             this.props.onMouseEnter(event);
         }
@@ -241,6 +246,7 @@ class TooltipOverlay extends React.Component<
             onClick,
             onMouseEnter,
             onMouseLeave,
+            pointerEvents,
             popperEventsEnabled = false,
             //@ts-ignore deprecated prop will remove
             size,
@@ -305,6 +311,7 @@ class TooltipOverlay extends React.Component<
                         },
                         positionFixed: true,
                     }}
+                    pointerEvents={pointerEvents}
                     placement={attachment}
                     zIndexOverride={zIndexOverride}
                 >

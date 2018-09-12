@@ -103,6 +103,7 @@ const VerticalMenuItemContent = ({
             tooltipText={label}
             className={styles.TooltipOverlay}
             makeWrapperBlock
+            pointerEvents={true}
         >
             {menuItemContent}
         </TooltipOverlay>
