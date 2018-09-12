@@ -41,6 +41,7 @@ const VideoCardPropertyBadgeTextStyled = styled<
 
 const VideoCardPropertyBadge: SFC<VideoCardPropertyBadge> = ({
     label,
+    // @ts-ignore
     ref: _,
 }) => (
     <VideoCardPropertyBadgeStyled>

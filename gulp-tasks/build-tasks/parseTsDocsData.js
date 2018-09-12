@@ -1,12 +1,10 @@
-
-
-parseTsDocsData= () => {  
+parseTsDocsData = () => {
     const patternData = require('../../data/tsDocs.json');
     let patternArray = [];
     patternData.children.map((item) => {
-        const filePath = item.name.replace(/"/g,"");
+        const filePath = item.name.replace(/"/g, "");
 
-        if(filePath.indexOf('globals/') < 0) {
+        if (filePath.indexOf('globals/') < 0) {
 
             const componentName = filePath.split('/')[1];
 
@@ -15,10 +13,10 @@ parseTsDocsData= () => {
             ];
 
             // exclude typed index files and any Docs files made with TS
-            if(excludedNames.indexOf(componentName) && componentName.indexOf('-Docs') < 0) {
+            if (componentName && excludedNames.indexOf(componentName) && componentName.indexOf('-Docs') < 0) {
                 patternArray.push({
-                        name: componentName,
-                        path: `./${filePath}`
+                    name: componentName,
+                    path: `./${filePath}`
                 });
             }
         }
@@ -27,4 +25,4 @@ parseTsDocsData= () => {
     return patternArray;
 }
 
-module.exports =  parseTsDocsData;
+module.exports = parseTsDocsData;

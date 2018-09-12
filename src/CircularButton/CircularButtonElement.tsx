@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { CircularButtonProps } from './CircularButtonTypes';
 
-const CircularButtonElement = ({
+const CircularButtonElement: SFC<CircularButtonProps> = ({
     element,
     ...filteredProps
-}: CircularButtonProps & React.HTMLProps<HTMLElement>) =>
+}) =>
     element === 'button' ? (
         <button {...filteredProps} />
     ) : (

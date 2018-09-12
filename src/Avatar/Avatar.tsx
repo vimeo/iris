@@ -8,6 +8,8 @@ const Avatar: SFC<AvatarProps & Omit<HTMLProps<HTMLImageElement>, 'size'>> = ({
     alt,
     isInline = true,
     ref: _,
+    // ???
+    crossOrigin,
     size = 'auto',
     src,
     srcSet,

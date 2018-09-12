@@ -3,6 +3,11 @@
     "version": "5.9.3",
     "description": "Iris UI Pattern Framework",
     "main": "dist/index.js",
+    "types": "index.d.ts",
+    "engines": {
+        "node": ">=8",
+        "yarn": ">=1"
+    },
     "scripts": {
         "flow": "flow",
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -26,7 +31,8 @@
     "license": "ISC",
     "devDependencies": {
         "@types/lodash": "^4.14.102",
-        "@types/react": "16.0.34",
+        "@types/react": "^16.0.34",
+        "@types/styled-components": "^3.0.1",
         "autoprefixer": "^6.5.3",
         "babel-cli": "^6.24.1",
         "babel-core": "^6.18.2",
@@ -57,13 +63,13 @@
         "gulp-eslint": "^3.0.1",
         "gulp-param": "^1.0.3",
         "gulp-rename": "^1.2.2",
-        "gulp-sass": "^3.1.0",
+        "gulp-sass": "^4.0.1",
         "gulp-shell": "^0.5.2",
         "gulp-template": "^4.0.0",
         "gulp-typedoc": "^2.2.0",
         "html-loader": "^0.5.5",
         "json-loader": "^0.5.7",
-        "node-sass": "^4.5.3",
+        "node-sass": "^4.9.3",
         "plop": "^1.7.1",
         "polished": "^1.9.2",
         "postcss-loader": "^2.0.9",
@@ -72,11 +78,11 @@
         "require-dir": "^0.3.1",
         "run-sequence": "^1.2.2",
         "sass-loader": "^6.0.6",
-        "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#3.1.0",
+        "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#3.2.0",
         "style-loader": "^0.13.1",
-        "styled-components": "3.2.5",
+        "styled-components": "^3.2.6",
         "ts-loader": "^3.5.0",
-        "typescript": "2.7.2",
+        "typescript": "3.0.3",
         "uppercamelcase": "^1.1.0",
         "walk": "^2.3.9",
         "webpack": "3.*",
@@ -98,16 +104,17 @@
         "react-swipeable": "^4.2.0",
         "react-tether": "^0.6.1",
         "react-transition-group": "^2.3.0",
-        "svg-react-loader": "^0.4.5"
+        "svg-react-loader": "^0.4.5",
+        "typedoc": "^0.12.0"
     },
     "peerDependencies": {
         "polished": "^1.9.2",
         "react": "^15.4.1",
         "react-dom": "^15.3.2",
-        "styled-components": "^3.2.5"
+        "styled-components": "^3.2.6"
     },
     "resolutions": {
         "@types/lodash": "^4.14.102",
-        "@types/react": "16.0.34"
+        "@types/react": "^16.0.34"
     }
 }

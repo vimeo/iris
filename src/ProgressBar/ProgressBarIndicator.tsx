@@ -103,9 +103,9 @@ const ProgressBarIndicator: SFC<ProgressBarIndicatorProps> = props => {
             {...filteredProps}
             formatProp={format}
             role="progressbar"
-            aria-valuenow={`${progressValue}`}
-            aria-valuemin="0"
-            aria-valuemax="100"
+            aria-valuenow={progressValue}
+            aria-valuemin={0}
+            aria-valuemax={100}
             style={{ width: `${progressWidth}%` }}
         />
     );

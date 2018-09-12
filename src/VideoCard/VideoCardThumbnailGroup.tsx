@@ -60,6 +60,7 @@ const GroupThumbnailImage = styled<SFC<HTMLDivElement>, 'div'>('div')`
 
 const VideoCardThumbnailGroup: SFC<VideoCardThumbnailGroupProps> = ({
     thumbnailData,
+    // @ts-ignore
     ref: _, // filter out ref from styled component
 }) => {
     return (

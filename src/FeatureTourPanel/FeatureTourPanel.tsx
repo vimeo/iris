@@ -79,9 +79,10 @@ class FeatureTourPanel extends React.Component {
         } else if (props.beaconDelayIndex && props.beaconDelayIndex > 0) {
             initialBeaconMode = 'inactive';
         }
-        //@ts-ignore
+        // @ts-ignore
         this.state = {
             isOpen: props.isOpen ? true : false,
+            // @ts-ignore
             beaconMode: initialBeaconMode,
         };
     }

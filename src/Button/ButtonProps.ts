@@ -2,7 +2,7 @@ import React from 'react';
 import { Omit } from '../globals/js/type-helpers';
 
 export interface ButtonProps
-    extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
+    extends Omit<React.HTMLProps<HTMLButtonElement>, 'size'> {
     /**
      * Determines if there should be margins automatically, set to false to suppress.
      */

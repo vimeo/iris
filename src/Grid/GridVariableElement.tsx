@@ -1,7 +1,7 @@
-import React, { SFC, HTMLProps } from 'react';
+import React, { SFC } from 'react';
 import { GridProps } from './GridTypes';
 
-export const GridVariableElement: SFC<GridProps & HTMLProps<HTMLElement>> = ({
+export const GridVariableElement: SFC<GridProps> = ({
     element,
     // @ts-ignore
     centered,

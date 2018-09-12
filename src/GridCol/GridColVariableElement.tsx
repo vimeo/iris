@@ -1,9 +1,7 @@
 import React, { SFC } from 'react';
 import { GridColProps } from './GridColTypes';
 
-export const GridColVariableElement: SFC<
-    GridColProps & React.HTMLProps<HTMLElement>
-> = ({
+export const GridColVariableElement: SFC<GridColProps> = ({
     columnElement,
     // @ts-ignore
     xsSpan,

@@ -27,7 +27,11 @@ const VideoCardTimestampStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
 
 const VideoCardTimestamp: SFC<
     VideoCardTimestamp & React.HTMLProps<HTMLInputElement>
-> = ({ ref: _, timestamp }) => {
+> = ({
+    // @ts-ignore
+    ref: _,
+    timestamp,
+}) => {
     return (
         <VideoCardTimestampStyled>
             <ParagraphSm format="white" noMargin>
