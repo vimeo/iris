@@ -39,7 +39,7 @@ const getFormatCSS = props => {
                 color: ${COLORS.RegentGray};
 
                 &:hover {
-                    color: rgba(162, 175, 184, 0.16);
+                    color: ${COLORS.SoutherlySky};
                 }
             `;
 
@@ -58,7 +58,7 @@ const getFormatCSS = props => {
                 color: ${COLORS.White};
 
                 &:hover {
-                    color: rgba(255, 255, 255, 0.3);
+                    background-color: ${COLORS.AshenWinter};
                 }
             `;
 
@@ -79,6 +79,16 @@ const getFormatCSS = props => {
                 &:hover {
                     color: ${COLORS.AstroGranite};
                     background-color: rgba(162, 175, 184, 0.16);
+                }
+            `;
+
+        case 'secondaryDark':
+            return css`
+                color: ${COLORS.White};
+                background-color: ${COLORS.AshenWinter};
+
+                &:hover {
+                    background-color: ${COLORS.IronHeart};
                 }
             `;
 

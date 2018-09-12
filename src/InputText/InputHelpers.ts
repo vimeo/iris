@@ -58,7 +58,7 @@ export const InputStyleSettings = {
                     hover: VimeoStyleSettings.colors.uiColors.alertColorHover,
                 },
                 neutral: {
-                    default: COLORS.SoutherlySky,
+                    default: COLORS.IronHeart,
                     hover: COLORS.White,
                 },
                 positive: {
