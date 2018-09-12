@@ -312,15 +312,16 @@ class InputColorPicker extends React.Component<
 
     _handleResetClick = e => {
         e.preventDefault();
+        const newColor = this.props.resetColor
+            ? this.props.resetColor
+            : this.props.defaultColor;
         this.setState({
             showReset: false,
-            fieldValue: this.props.resetColor
-                ? this.props.resetColor
-                : this.props.defaultColor,
-            currentColor: this.props.resetColor
-                ? this.props.resetColor
-                : this.props.defaultColor,
+            fieldValue: newColor,
+            currentColor: newColor,
         });
+
+        this._handleColorChange(newColor);
     };
 
     _isHexValid = (color: string) => {

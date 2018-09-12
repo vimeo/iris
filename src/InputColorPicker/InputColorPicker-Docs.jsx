@@ -28,6 +28,7 @@ const InputColorPickerDocs = (props) => {
                     id="SampleColorPickerReset"
                     resetButtonLabel="Reset me to #000"
                     resetColor="#000"
+                    onChangeColor={color => console.log(color)}
                 />
             </div>
 
@@ -52,6 +53,7 @@ const InputColorPickerDocs = (props) => {
     id="SampleColorPickerReset"
     resetButtonLabel="Reset me to #000"
     resetColor="#000"
+    onChangeColor={color => console.log(color)}
 />
                     `}
             </ExampleSource>
