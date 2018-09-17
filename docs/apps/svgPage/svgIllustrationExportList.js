@@ -22,6 +22,8 @@
   
  exports.VimeoExclusiveSm = require('../../../src/illustrations/vimeo-exclusive-sm.svg');
   
+ exports.VimeoLivestreamLogo = require('../../../src/illustrations/vimeo-livestream-logo.svg');
+  
  exports.VimeoPlusBlueBoxLogo = require('../../../src/illustrations/vimeo-plus-blue-box-logo.svg');
   
  exports.VimeoPlusLogoBlackBlue = require('../../../src/illustrations/vimeo-plus-logo-black-blue.svg');
