@@ -1,6 +1,6 @@
 // @ts-ignore
 import React from 'react';
-import { NotificationBaseProps } from './NotificationProps';
+import { NotificationProps } from './NotificationProps';
 // @ts-ignore
 import styled, { StyledComponentClass } from 'styled-components';
 import { rgba, rem } from 'polished';
@@ -34,11 +34,11 @@ const notificationBg = variant =>
 const notificationColor = variant =>
     notificationColors[variant] && notificationColors[variant]['color'];
 
-export const NotificationStyled = styled<NotificationBaseProps, 'div'>('div')`
+export const NotificationStyled = styled<NotificationProps, 'div'>('div')`
     position: relative;
 
     width: 100%;
-    margin-bottom: ${rem(16)}; //spacingUnit(4);
+    margin-bottom: ${rem(16)};
     padding-top: ${rem(notificationPaddingVertical)};
     padding-right: ${rem(
         notificationDismissIconSize +
@@ -47,7 +47,7 @@ export const NotificationStyled = styled<NotificationBaseProps, 'div'>('div')`
     )};
     padding-bottom: ${rem(notificationPaddingVertical)};
     padding-left: ${props =>
-        props.icon ? rem(48) : rem(notificationPaddingHorizontal)};
+        props.hasIcon ? rem(48) : rem(notificationPaddingHorizontal)};
 
     border-radius: ${rem(3)};
     background-color: ${props => notificationBg(props.variant)};
@@ -56,7 +56,7 @@ export const NotificationStyled = styled<NotificationBaseProps, 'div'>('div')`
 
     p:last-of-type {
         max-width: 44rem;
-        margin-bottom: 0 !important; // remove global last paragraph margin
+        margin-bottom: 0 !important;
     }
 
     .icon {

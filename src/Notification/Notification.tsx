@@ -2,29 +2,10 @@ import React, { SFC, HTMLProps } from 'react';
 import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
 
 import { Header5 } from '../Type';
-import { NotificationBaseProps } from './NotificationProps';
+import { NotificationProps } from './NotificationProps';
 import { NotificationStyled } from './NotificationStyled';
 
-/* Note: This component is the base component for themed notifications, do not use it by itself */
-
-const iconElement = icon => icon && <span className="icon">{icon}</span>;
-
-const headerTextElement = headerText =>
-    headerText && <Header5>{headerText}</Header5>;
-
-const dismissElement = (dismissButtonClassName, onDismiss) =>
-    onDismiss && (
-        <div className="dismissButtonWrapper">
-            <ButtonDialogClose
-                className={dismissButtonClassName}
-                onClick={onDismiss}
-                buttonTitle="Dismiss this notification"
-                format="lightTransparent"
-            />
-        </div>
-    );
-
-const Notification: SFC<NotificationBaseProps & HTMLProps<HTMLDivElement>> = ({
+const Notification: SFC<NotificationProps & HTMLProps<HTMLDivElement>> = ({
     children,
     dismissButtonClassName,
     headerText,
@@ -32,20 +13,29 @@ const Notification: SFC<NotificationBaseProps & HTMLProps<HTMLDivElement>> = ({
     onDismiss,
     variant,
     ref: _,
+    // @ts-ignore
     ...filteredProps
 }) => (
     <NotificationStyled
-        icon={icon}
+        hasIcon={icon ? true : false}
         headerText={headerText}
         variant={variant}
-        {...filteredProps}
     >
-        {iconElement(icon)}
-        {headerTextElement(headerText)}
+        {icon && <span className="icon">{icon}</span>}
+        {headerText && <Header5>{headerText}</Header5>}
 
         {children}
 
-        {dismissElement(dismissButtonClassName, onDismiss)}
+        {onDismiss && (
+            <div className="dismissButtonWrapper">
+                <ButtonDialogClose
+                    className={dismissButtonClassName}
+                    onClick={onDismiss}
+                    buttonTitle="Dismiss this notification"
+                    format="lightTransparent"
+                />
+            </div>
+        )}
     </NotificationStyled>
 );
 

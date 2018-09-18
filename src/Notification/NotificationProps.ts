@@ -1,17 +1,10 @@
-import React from 'react';
-
-export interface NotificationBaseProps {
-    hasIcon?: boolean;
-    headerText?: string;
-    dismissButtonClassName?: string;
-    onDismiss?: () => void;
-    icon?: React.ReactNode;
-    variant: 'neutral' | 'success' | 'warning';
-}
+import { ReactNode } from 'react';
 
 export interface NotificationProps {
     hasIcon?: boolean;
     headerText?: string;
     dismissButtonClassName?: string;
     onDismiss?: () => void;
+    icon?: ReactNode;
+    variant: 'neutral' | 'success' | 'warning';
 }
