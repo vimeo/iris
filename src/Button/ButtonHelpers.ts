@@ -33,7 +33,10 @@ const ButtonCoreCSS = css`
     letter-spacing: 0.1px;
     align-items: center;
     justify-content: center;
+    font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizelegibility;
 `;
 
 const getAutoWidthCSS = props => {

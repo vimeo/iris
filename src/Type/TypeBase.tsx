@@ -118,29 +118,53 @@ export const TypeBaseStyleSettings = {
     },
 };
 
+const darkFontSmoothing = props =>
+    (props.format === 'light' || props.format === 'white') &&
+    css`
+        font-smoothing: antialiased;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizelegibility;
+    `;
+
+const getColor = ({ size, format }) =>
+    TypeBaseStyleSettings.format[format][size] ||
+    TypeBaseStyleSettings.format[format].default;
+const getFontSize = size => TypeBaseStyleSettings.fontSize[size];
+const getFontWeight = size => TypeBaseStyleSettings.fontWeight[size];
+const getLetterSpacing = size => TypeBaseStyleSettings.letterSpacing[size];
+const getLineHeight = size => TypeBaseStyleSettings.lineHeight[size];
+const getFontFamily = fontStack =>
+    fontStack
+        ? TypeBaseStyleSettings.fontFamily[fontStack]
+        : TypeBaseStyleSettings.fontFamily.regular;
+const getMarginBotton = ({ size, noMargin }) =>
+    noMargin ? '0' : rem(TypeBaseStyleSettings.marginBottom[size]);
 // This function serves as an interface to generate type styles in the same way the old SCSS type mixins work
 // it is used when a type component cannot be used in a component for some reason. (e.g. styling a third-party plugin)
 // it also creates our basic type styles.
-export const typeCSSByProps = (settings: typeByCSSInterface) => {
-    return css`
-        font-size: ${rem(TypeBaseStyleSettings.fontSize[settings.size])};
-        font-family: ${settings.fontStack
-            ? TypeBaseStyleSettings.fontFamily[settings.fontStack]
-            : TypeBaseStyleSettings.fontFamily.regular};
-        font-weight: ${TypeBaseStyleSettings.fontWeight[settings.size]};
-        letter-spacing: ${TypeBaseStyleSettings.letterSpacing[settings.size]};
-        line-height: ${getUnitlessLineHeight(
-            TypeBaseStyleSettings.fontSize[settings.size],
-            TypeBaseStyleSettings.lineHeight[settings.size],
-        )};
-        color: ${TypeBaseStyleSettings.format[settings.format][settings.size] ||
-            TypeBaseStyleSettings.format[settings.format].default};
-        max-width: 44rem;
-        margin-bottom: ${settings.noMargin
-            ? '0'
-            : rem(TypeBaseStyleSettings.marginBottom[settings.size])};
-    `;
-};
+export const typeCSSByProps = ({
+    size,
+    fontStack,
+    format,
+    noMargin,
+}: typeByCSSInterface) => css`
+    color: ${getColor({ size, format })};
+
+    font-size: ${rem(getFontSize(size))};
+    font-family: ${getFontFamily(fontStack)};
+    font-weight: ${getFontWeight(size)};
+
+    letter-spacing: ${getLetterSpacing(size)};
+    line-height: ${getUnitlessLineHeight(
+        getFontSize(size),
+        getLineHeight(size),
+    )};
+    margin-bottom: ${getMarginBotton({ size, noMargin })};
+    max-width: 44rem;
+
+    ${darkFontSmoothing};
+`;
 
 const StyledElement = styled<StyledTypeElementProps & TypeProps, any>(
     TypeVariableElement,
