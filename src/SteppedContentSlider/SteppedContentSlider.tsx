@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { SFC, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { rem } from 'polished';
@@ -16,7 +16,7 @@ export interface SteppedContentSliderProps
     /**
      * adds an area to the left of the navigation controls for things like a "view all" link
      */
-    additionalControlArea?: React.ReactNode;
+    additionalControlArea?: ReactNode;
     /**
      * takes a hex value as a string to generate the gradient overlay to show truncated items. This should match the background color behind the component.
      */
@@ -34,7 +34,7 @@ export interface SteppedContentSliderProps
     /**
      * The content that should be served as slides. SHould be sibling nodes.
      */
-    children: React.ReactChildren;
+    children: ReactNode;
     /**
      * takes an integer index and sets which slide should be selected. (see below)
      * */
@@ -42,11 +42,11 @@ export interface SteppedContentSliderProps
     /**
      * Content to show if there are no slides. Toggled by `showEmptyState` prop.
      */
-    emptyState?: React.ReactNode;
+    emptyState?: ReactNode;
     /**
      * Pass in content for the header. This will be Wrapped in a Header4 Type Component.
      */
-    header?: React.ReactNode;
+    header?: ReactNode;
     /**
      * What Element should the Header4 Component render?
      */
@@ -91,7 +91,7 @@ export interface SteppedContentSliderState {
     initialPositionSet: boolean;
     showNext?: boolean;
     showPrevious?: boolean;
-    slides?: React.ReactNode;
+    slides?: ReactNode;
     slideCount: number;
     slideCountPerStep: number;
     slideContainerHeight: number;

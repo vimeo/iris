@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import FeatureTourPanelContent from '../FeatureTourPanelContent';
@@ -6,13 +6,13 @@ import FeatureTourDot from '../FeatureTourDot';
 import MenuPanel from '../MenuPanel';
 
 export interface FeatureTourPanelProps {
-    actionArea?: React.ReactNode;
+    actionArea?: ReactNode;
     attachment?: 'top' | 'left' | 'right' | 'bottom';
     beaconDelayIndex?: number;
     beaconA11yText: string;
-    children: React.ReactNode;
+    children: ReactNode;
     className?: string;
-    contextualInfo?: React.ReactNode;
+    contextualInfo?: ReactNode;
     dismissButtonA11yLabel: string;
     dismissButtonProps?: Object;
     dotZIndex?: number;
@@ -30,7 +30,7 @@ export interface FeatureTourPanelState {
     beaconMode?: 'inactive' | 'open' | 'active' | 'hidden';
     beaconDelayIndex?: number;
     beaconA11yText: string;
-    children: React.ReactChildren;
+    children: ReactNode;
     className?: string;
     dismissButtonA11yLabel: string;
     dismissButtonProps?: Object;

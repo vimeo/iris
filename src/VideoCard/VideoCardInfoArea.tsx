@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { SFC, ReactNode } from 'react';
 import styled from 'styled-components';
 import COLORS from '../globals/js/constants/COLORS';
 import { rem } from 'polished';
@@ -11,16 +11,17 @@ import { VideoCardStyleSettings } from './VideoCardHelpers';
 import TooltipOverlay from '../TooltipOverlay';
 import { Omit } from '../globals/js/type-helpers';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
+
 export interface VideoCardInfoAreaProps
     extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
-    footer?: React.Component<any>;
+    footer?: ReactNode;
     isPrivate?: boolean;
     privacyDescription?: string;
     size?: 'sm' | 'md';
     title: string;
     titleLinkElement?: any;
     titleLinkProps?: any;
-    titleSubheader?: React.Component<any>;
+    titleSubheader?: ReactNode;
 }
 
 // ==================== VideoCardInfoArea Styled

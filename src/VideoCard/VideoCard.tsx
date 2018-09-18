@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import Card from '../Card';
@@ -32,7 +32,7 @@ export interface VideoCardProps
     /**
      * Pass a VideoContextInfoArea component to provide context for a video's inclusion.
      */
-    contextInfoArea?: React.ReactNode;
+    contextInfoArea?: ReactNode;
     /**
      * Class is added to the outer div of the VideoCard.
      */
@@ -40,7 +40,7 @@ export interface VideoCardProps
     /**
      * Pass ths content to the bottom of the card. This should be either a `VideoCardFooterActionsGrid or `VideoCardFooterAttribution` component.
      */
-    footer?: React.Component<any>;
+    footer?: ReactNode;
     /**
      * Set to true if the card is being used in a drag n'drop interfavce
      */
@@ -104,11 +104,11 @@ export interface VideoCardProps
     /**
      * Action area specifically for small size. Usually an iconOnly button wraped in a menuPanel
      */
-    smallActionArea?: React.ReactNode;
+    smallActionArea?: ReactNode;
     /**
      * Top-left area of thumbnail for branding like SP Badge or VOD. This should receive an SVG component.
      */
-    thumbnailBrandDecorationArea?: React.Component<any>;
+    thumbnailBrandDecorationArea?: ReactNode;
     /**
      * For one or more social badges. Pass an array of React Components, usually an social badge SVG wrapped in a `MenuPanel`
      */
@@ -116,11 +116,11 @@ export interface VideoCardProps
     /**
      * Pass a Timestamp (`VideoCardTimestamp` component) or LiveBadge (`VideoCardLiveBadge` component)
      */
-    thumbnailTimestampArea?: React.Component<any>;
+    thumbnailTimestampArea?: ReactNode;
     /**
      * Takes an array of `VideoCardPropertyBadge` components (e.g. 'HDR')
      */
-    thumbnailVideoCardPropertiesArea?: Array<React.Component<any>>;
+    thumbnailVideoCardPropertiesArea?: ReactNode;
     /**
      * An array of thumbnail data objects, Only one is required for a standard card. Use 3 for a group. See props above.
      */
@@ -141,7 +141,7 @@ export interface VideoCardProps
     /**
      * Pass the video or album subheader, usually used for stats accepts HTML.
      */
-    titleSubheader?: React.Component<any>;
+    titleSubheader?: ReactNode;
 }
 
 export interface VideoCardState extends React.HTMLProps<HTMLDivElement> {

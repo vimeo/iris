@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { SFC, ReactNode } from 'react';
 import Button from '../Button';
 import styled from 'styled-components';
 import { rem } from 'polished';
@@ -9,7 +9,7 @@ import { ButtonFocusBloop } from '../Button/ButtonFocusBloop';
 export interface TagProps {
     autoMargins?: boolean;
     autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid';
-    children: React.ReactChildren | string;
+    children: ReactNode;
     className?: string;
     /**
      * default is 'light'

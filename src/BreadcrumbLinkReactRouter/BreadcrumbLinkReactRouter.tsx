@@ -1,11 +1,11 @@
-import React, { SFC } from 'react';
+import React, { SFC, ReactNode } from 'react';
 
 import LinkText from '../LinkText';
 import BreadcrumbLinkContent from '../BreadcrumbLinkContent';
 import { Link } from 'react-router-dom';
 
 export interface BreadcrumbLinkReactRouterProps {
-    children: React.ReactChildren;
+    children: ReactNode;
     format: 'lightTheme' | 'darkTheme';
     to: string;
 }
