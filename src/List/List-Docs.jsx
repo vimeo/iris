@@ -68,6 +68,24 @@ import { List, ListItem } from '@vimeo/iris';
 </List>
                         `}
                     </ExampleSource>
+
+                    <Header6>Bare Lists</Header6>
+                    <List format="bare">
+                        <ListItem>Gorgeous, high-quality video sharing on desktop, mobile, tablet, and TV</ListItem>
+                        <ListItem>PRO support</ListItem>
+                        <ListItem>Advanced privacy settings</ListItem>
+                        <ListItem>Private link sharing</ListItem>
+                    </List>
+                    <ExampleSource>
+                        {`
+<List format="bare">
+    <ListItem>Gorgeous, high-quality video sharing on desktop, mobile, tablet, and TV</ListItem>
+    <ListItem>PRO support</ListItem>
+    <ListItem>Advanced privacy settings</ListItem>
+    <ListItem>Private link sharing</ListItem>
+</List>
+                        `}
+                    </ExampleSource>
                 </div>
             </div>
         );

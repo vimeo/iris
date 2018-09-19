@@ -9,6 +9,7 @@ const LIST_TYPES = {
     alphabet: 'lower-alpha',
     ordered: 'decimal',
     unordered: 'disc',
+    bare: 'none',
 };
 
 export const ListStyled = styled<
