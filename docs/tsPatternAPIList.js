@@ -1,6 +1,7 @@
 // This file tells Steadicam which files have TypeScript driven props interfaces that have been converted to HTML.
 import AvatarAPI from '../data/tsdocsHTML/interfaces/_avatar_avatarprops_.avatarprops.html';
 import BreadcrumbAPI from '../data/tsdocsHTML/interfaces/_breadcrumb_breadcrumb_.breadcrumbprops.html';
+import BadgeAPI from '../data/tsdocsHTML/interfaces/_badge_badgetypes_.badgeprops.html';
 import ButtonAPI from '../data/tsdocsHTML/interfaces/_button_buttonprops_.buttonprops.html';
 import ButtonIconOnlyAPI from '../data/tsdocsHTML/interfaces/_buttonicononly_buttonicononlytypes_.buttonicononlyprops.html';
 import ButtonSplitMenuAPI from '../data/tsdocsHTML/interfaces/_buttonsplitmenu_buttonsplitmenu_.buttonsplitmenuprops.html';
@@ -45,6 +46,9 @@ const tsPatternAPIList = {
     },
     Breadcrumb: {
         data: BreadcrumbAPI,
+    },
+    Badge: {
+        data: BadgeAPI,
     },
     Button: {
         data: ButtonAPI,

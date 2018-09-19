@@ -13,8 +13,6 @@
 /* Flow-typed Components */
 
 
-export { default as Badge } from './Badge';
-
 export { default as ButtonDialogClose } from './ButtonDialogClose';
 
 export { default as ButtonFileUpload } from './ButtonFileUpload';
@@ -87,6 +85,14 @@ export { default as Avatar } from './Avatar/Avatar';
 export { default as AvatarProps } from './Avatar/AvatarProps';
 
 export { default as AvatarStyled } from './Avatar/AvatarStyled';
+
+export { default as Badge } from './Badge/Badge';
+
+export { default as BadgeStyleSettings } from './Badge/BadgeStyleSettings';
+
+export { default as BadgeStyled } from './Badge/BadgeStyled';
+
+export { default as BadgeTypes } from './Badge/BadgeTypes';
 
 export { default as Breadcrumb } from './Breadcrumb/Breadcrumb';
 
