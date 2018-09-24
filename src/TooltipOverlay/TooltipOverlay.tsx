@@ -100,7 +100,7 @@ const PopperFiltered = ({
 
 const PopperStyled = styled(PopperFiltered)`
     z-index: ${props => props.zIndexOverride || Z_INDEX.tooltip};
-    pointer-events: ${props => props.pointerEvents ? 'none': 'auto'};
+    pointer-events: ${props => (props.pointerEvents ? 'none' : 'auto')};
 `;
 
 const TargetStyled = styled(Target)`
@@ -199,7 +199,7 @@ class TooltipOverlay extends React.Component<
         this.setState({
             isHovered: true,
         });
-        
+
         if (typeof this.props.onMouseEnter === 'function') {
             this.props.onMouseEnter(event);
         }

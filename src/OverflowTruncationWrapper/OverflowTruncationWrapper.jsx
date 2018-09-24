@@ -69,7 +69,7 @@ class OverflowTruncationWrapper extends React.Component {
         const {
             children,
             className,
-            maxHeight,  // eslint-disable-line no-unused-vars
+            maxHeight, // eslint-disable-line no-unused-vars
             ...filteredProps
         } = this.props;
 

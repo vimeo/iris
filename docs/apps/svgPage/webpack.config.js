@@ -15,28 +15,17 @@ module.exports = {
     },
 
     module: {
-        rules: [
-            {
+        rules: [{
                 test: [/\.jsx?$/],
                 exclude: '/node_modules/',
-                use: [
-                    {
-                        loader: 'babel-loader',
-                    },
-                ],
+                use: [{
+                    loader: 'babel-loader',
+                }, ],
             },
             {
                 test: /\.svg$/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['react'],
-                        },
-                    },
-                    'svg-react-loader',
-                ],
-            },
+                use: ['@svgr/webpack'],
+            }
         ],
     },
 
@@ -50,8 +39,7 @@ module.exports = {
         new webpack.LoaderOptionsPlugin({
             minimize: true,
         }),
-        new webpack.optimize.UglifyJsPlugin({
-        }),
+        new webpack.optimize.UglifyJsPlugin({}),
 
     ],
 };

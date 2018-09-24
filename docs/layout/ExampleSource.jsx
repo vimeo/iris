@@ -7,7 +7,7 @@ type Props = {
     children: React$Element<*>,
     language: string,
 };
-class ExampleSource extends React.Component {
+class ExampleSource extends React.Component<Props> {
      static defaultProps = {
         language: 'markup',
     };

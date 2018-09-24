@@ -22,7 +22,11 @@
         "flowtype": {
             "onlyFilesWithFlowAnnotation": true
         },
-        "import/extensions" : {"js": "always", "json": "always", "jsx": "always" },
+        "import/extensions": {
+            "js": "always",
+            "json": "always",
+            "jsx": "always"
+        },
         "jsx": true
     },
     "globals": {
@@ -110,16 +114,25 @@
         "no-underscore-dangle": 0,
         "no-unreachable": 2,
         "no-unused-expressions": 2,
-        "no-unused-vars": [2, { "vars": "all", "args": "none" }],
+        "no-unused-vars": [2, {
+            "vars": "all",
+            "args": "none"
+        }],
         "no-use-before-define": 2,
         // "no-var": 2,
-        "no-warning-comments": [1, { "terms": ["@todo", "todo", "fixme", "@fixme"] }],
+        "no-warning-comments": [1, {
+            "terms": ["@todo", "todo", "fixme", "@fixme"]
+        }],
         "no-with": 2,
         "no-extra-parens": 0,
 
-        "accessor-pairs": [2, { "setWithoutGet": true }],
+        "accessor-pairs": [2, {
+            "setWithoutGet": true
+        }],
         "array-bracket-spacing": [2, "never"],
-        "brace-style": [2, "stroustrup", { "allowSingleLine": false }],
+        "brace-style": [2, "stroustrup", {
+            "allowSingleLine": false
+        }],
         "camelcase": 1,
         "comma-dangle": [1, "always-multiline"],
         "comma-spacing": 2,
@@ -129,11 +142,17 @@
         "consistent-return": 2,
         "constructor-super": 2,
         "curly": [2, "all"],
-        "dot-notation": [2, { "allowKeywords": true }],
+        "dot-notation": [2, {
+            "allowKeywords": true
+        }],
         "eol-last": 2,
         "eqeqeq": 2,
-        "indent": [2, 4, { "SwitchCase": 1 }],
-        "key-spacing": [2, { "beforeColon": false, "afterColon": true }],
+        "indent": 0,
+        //"indent": [2, 4, { "SwitchCase": 1 }],
+        "key-spacing": [2, {
+            "beforeColon": false,
+            "afterColon": true
+        }],
         "max-nested-callbacks": [1, 2],
         "max-params": [2, 4],
         "max-statements": [0, 10],
@@ -146,14 +165,22 @@
         "quotes": [2, "single", "avoid-escape"],
         "radix": 2,
         "semi": 2,
-        "semi-spacing": [2, {"before": false, "after": true}],
+        "semi-spacing": [2, {
+            "before": false,
+            "after": true
+        }],
         "keyword-spacing": 2,
         "space-before-blocks": [2, "always"],
         "space-before-function-paren": [1, "never"],
         "space-in-parens": [2, "never"],
         "space-infix-ops": 2,
-        "space-unary-ops": [2, { "words": true, "nonwords": false }],
-        "spaced-comment": [1, "always", { "exceptions": ["/"] }],
+        "space-unary-ops": [2, {
+            "words": true,
+            "nonwords": false
+        }],
+        "spaced-comment": [1, "always", {
+            "exceptions": ["/"]
+        }],
         "strict": [2, "function"],
         "use-isnan": 2,
         "valid-jsdoc": [1, {
@@ -185,7 +212,9 @@
         "react/no-danger": 1,
         "react/no-did-mount-set-state": 1,
         "react/no-did-update-set-state": 1,
-        "react/no-multi-comp": [2, { "ignoreStateless": true }],
+        "react/no-multi-comp": [2, {
+            "ignoreStateless": true
+        }],
         "react/no-unknown-property": 1,
         "react/prop-types": 1,
         "react/react-in-jsx-scope": 1,

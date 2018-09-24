@@ -27,7 +27,6 @@ class TabNavigationHorizontal extends React.Component {
 
     constructor(props: Props) {
         super(props);
-        this.tabWidth = this._getTabWidth();
         this.state = {
             activeTabIndex: props.activeTabIndex < props.panels.length
             ? props.activeTabIndex : 0,
@@ -39,6 +38,7 @@ class TabNavigationHorizontal extends React.Component {
 
     componentDidMount() {
         this._setTabIndicatorPosition(0, true);
+        this.tabWidth = this._getTabWidth();
     }
 
     componentDidUpdate(prevProps: Object, prevState: Object) {

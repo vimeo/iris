@@ -28,6 +28,7 @@ gulp.task('serve', function() {
     setTimeout(function() {
         browserSync.init({
             server: STYLEGUIDE_DIST,
+            browser: "google chrome",
             middleware: [historyApiFallback()],
         });
     }, 2000);

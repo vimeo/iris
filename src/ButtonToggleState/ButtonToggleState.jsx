@@ -158,7 +158,7 @@ class ButtonToggleState extends React.Component {
         const {
             autoMargins,
             autoWidth,
-            offStateText,  // eslint-disable-line no-unused-vars
+            offStateText, // eslint-disable-line no-unused-vars
             offIcon,
             onStateText, // eslint-disable-line no-unused-vars
             onIcon,

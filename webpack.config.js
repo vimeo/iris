@@ -5,6 +5,9 @@ var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 var path = require('path');
 var STYLEGUIDE_DIR = 'node_modules/steadicam';
 
+const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
+const styledComponentsTransformer = createStyledComponentsTransformer();
+
 
 // Webpack settings for React Docs
 
@@ -17,8 +20,7 @@ module.exports = {
     },
 
     module: {
-        rules: [
-            {
+        rules: [{
                 test: [/\.jsx?$/],
                 exclude: '/node_modules/',
                 include: [
@@ -28,21 +30,18 @@ module.exports = {
                     path.resolve(__dirname, 'index.jsx'),
                     path.resolve(__dirname, STYLEGUIDE_DIR),
                 ],
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            cacheDirectory: true,
-                        },
+                use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        cacheDirectory: true,
                     },
-                ],
+                }],
             },
 
             {
                 test: /\.s(c|a)ss$/,
                 use: ExtractTextPlugin.extract({
-                    use: [
-                        {
+                    use: [{
                             loader: 'css-loader',
                             options: {
                                 modules: true,
@@ -64,23 +63,16 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['react'],
-                        },
-                    },
-                    'svg-react-loader',
-                ],
+                use: ['@svgr/webpack']
             },
             {
                 test: [/\.tsx?$/],
-                use: [
-                    {
-                        loader: 'ts-loader',
-                    },
-                ],
+                use: [{
+                    loader: 'ts-loader',
+                    options: {
+                        getCustomTransformers: () => ({ before: [styledComponentsTransformer] })
+                    }
+                }],
             },
             {
                 test: /\.(html)$/,
@@ -94,6 +86,8 @@ module.exports = {
     node: {
         fs: 'empty',
     },
+
+    stats: 'errors-only',
 
     resolve: {
         extensions: [
@@ -109,7 +103,9 @@ module.exports = {
     },
 
     plugins: [
-        new ExtractTextPlugin('css/modules.css', { allChunks: true }),
+        new ExtractTextPlugin('css/modules.css', {
+            allChunks: true
+        }),
         new CaseSensitivePathsPlugin(),
         new webpack.LoaderOptionsPlugin({
             minimize: true,

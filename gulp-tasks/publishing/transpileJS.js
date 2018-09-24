@@ -7,8 +7,14 @@ gulp.task('transpileJS', () =>
         '!src/**/*-Docs.jsx'
         ])
         .pipe(babel({
-            presets: [['env', {modules: false}]],
-            plugins: ["transform-class-properties"],
+            presets: [
+              [
+                "@babel/env",
+                {
+                  modules: false
+                }
+              ]
+            ],
         }))
         .pipe(gulp.dest('dist'))
 );
