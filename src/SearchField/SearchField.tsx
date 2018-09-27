@@ -10,11 +10,12 @@ const SearchField: SFC<
     SearchFieldProps & Omit<React.HTMLProps<HTMLInputElement>, 'type'>
 > = ({
     buttonFormat = 'subtle',
-    buttonProps,
     buttonLabel,
+    buttonProps,
     fieldLabel,
-    showLabel = false,
+    icon = <SearchIcon />,
     isInline = true,
+    showLabel = false,
     size = 'md',
     ...filteredProps
 }) => {
@@ -22,7 +23,7 @@ const SearchField: SFC<
         <ButtonInlineInputText
             {...buttonProps}
             title={buttonLabel}
-            icon={<SearchIcon />}
+            icon={icon}
             format={buttonFormat}
             size={size}
         />

@@ -1,6 +1,7 @@
 import React from 'react';
 import ExampleSource from '../../docs/layout/ExampleSource';
 import { ParagraphMd, SearchField } from '../index';
+import DismissIcon from '../icons/dismiss-x.svg';
 
 class SearchFieldDocs extends React.Component {
     constructor(props) {
@@ -76,6 +77,17 @@ class SearchFieldDocs extends React.Component {
                             size="lg"
                         />
                     </div>
+                    <div style={{ marginBottom: '1.25em' }}>
+                        <SearchField
+                            buttonFormat="strong"
+                            buttonLabel="submit"
+                            fieldLabel="Search"
+                            icon={<DismissIcon />}
+                            id="exampleSearchField7"
+                            placeholder="Search our videos"
+                            size="lg"
+                        />
+                    </div>
                 </div>
 
                 <ExampleSource>
@@ -131,6 +143,16 @@ class SearchFieldDocs extends React.Component {
     buttonLabel="submit"
     fieldLabel="Search"
     id="exampleSearchField6"
+    placeholder="Search our videos"
+    size="lg"
+/>
+
+<SearchField
+    buttonFormat="strong"
+    buttonLabel="submit"
+    fieldLabel="Search"
+    icon={<DismissIcon />}
+    id="exampleSearchField7"
     placeholder="Search our videos"
     size="lg"
 />
