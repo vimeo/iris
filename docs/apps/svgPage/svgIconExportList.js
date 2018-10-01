@@ -105,6 +105,8 @@ export LifePreserver from '../../../src/icons/life-preserver.svg';
 
 export Link from '../../../src/icons/link.svg';
 
+export Linkedin from '../../../src/icons/linkedin.svg';
+
 export List from '../../../src/icons/list.svg';
 
 export LockChecked from '../../../src/icons/lock-checked.svg';
@@ -178,3 +180,4 @@ export VideoStack from '../../../src/icons/video-stack.svg';
 export Video from '../../../src/icons/video.svg';
 
 export Youtube from '../../../src/icons/youtube.svg';
+

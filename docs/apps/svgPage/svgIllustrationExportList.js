@@ -38,3 +38,4 @@ export VimeostockDark from '../../../src/illustrations/vimeostock_dark.svg';
 export VimeostockLight from '../../../src/illustrations/vimeostock_light.svg';
 
 export VodThumbnailBadge from '../../../src/illustrations/vod_thumbnail_badge.svg';
+

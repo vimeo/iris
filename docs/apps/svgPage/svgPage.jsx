@@ -51,8 +51,7 @@ const SvgEntry = ({
                     <strong>ComponentName:</strong> {iconName}
                 </p>
                 <p>
-                    <strong>File Name:</strong> {fileName}
-                    .svg
+                    <strong>File Name:</strong> {fileName}.svg
                 </p>
             </div>
         </div>
