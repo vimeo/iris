@@ -10,10 +10,11 @@ parseTsDocsData = () => {
 
             const excludedNames = [
                 'index',
+                'withCopyAbility'
             ];
 
             // exclude typed index files and any Docs files made with TS
-            if (componentName && excludedNames.indexOf(componentName) && componentName.indexOf('-Docs') < 0) {
+            if (componentName && excludedNames.indexOf(componentName) < 0 && componentName.indexOf('-Docs') < 0) {
                 patternArray.push({
                     name: componentName,
                     path: `./${filePath}`

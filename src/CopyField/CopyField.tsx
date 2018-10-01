@@ -41,7 +41,7 @@ class CopyField extends React.Component<CopyFieldProps> {
             ...filteredProps
         } = this.props;
 
-        const CopyButton = withCopyAbility(ButtonInlineInputText);
+        const CopyButton = withCopyAbility(ButtonInlineInputText) as any;
 
         const ButtonComponent = (
             <CopyButton
