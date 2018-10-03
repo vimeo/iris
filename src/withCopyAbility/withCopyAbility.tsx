@@ -1,4 +1,4 @@
-import React, { Component, ComponentType } from 'react';
+import React, { Component, ComponentType, ReactNode } from 'react';
 import { findDOMNode } from 'react-dom';
 import Toastification from '../Toastification/Toastification';
 
@@ -7,11 +7,7 @@ import Clipboard from 'clipboard';
 interface Props {
     onCopy?: () => void;
     stringToCopy: string;
-    successMessage: string;
-}
-
-export interface InjectedProps {
-    onClick?: () => void;
+    successMessage: string | ReactNode;
 }
 
 const initialState = {
@@ -21,10 +17,9 @@ const initialState = {
 type State = Readonly<typeof initialState>;
 
 const withCopyAbility = <P extends {}>(
-    WrappedComponent: ComponentType<P & InjectedProps>,
+    WrappedComponent: ComponentType<P & { onClick?: () => void }>,
 ) =>
     class extends Component<P & Props> {
-        readonly props: P & Props;
         readonly state: State = initialState;
 
         clipboard: Clipboard;
@@ -85,7 +80,7 @@ const withCopyAbility = <P extends {}>(
                 successMessage,
                 stringToCopy,
                 ...filteredProps
-            } = this.props as any;
+            } = this.props as Props;
 
             return (
                 <div>

@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface CopyFieldProps {
     buttonFormat?: 'subtle' | 'neutral' | 'strong';
     /**
@@ -20,4 +22,12 @@ export interface CopyFieldProps {
      * Tooltip text, appears when hovering over copy icon
      */
     tooltipString: string;
+}
+
+export interface CopyButtonProps {
+    icon: ReactNode;
+    format: 'subtle' | 'neutral' | 'strong';
+    size: 'md' | 'lg';
+    tooltipText: string;
+    tooltipPosition: 'top' | 'right' | 'bottom' | 'left';
 }

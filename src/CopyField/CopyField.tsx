@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { findDOMNode } from 'react-dom';
 
-import { CopyFieldProps } from './CopyFieldTypes';
+import { CopyFieldProps, CopyButtonProps } from './CopyFieldTypes';
 
 // @ts-ignore
 import ClipboardIcon from '../icons/clipboard.svg';
@@ -41,7 +41,9 @@ class CopyField extends React.Component<CopyFieldProps> {
             ...filteredProps
         } = this.props;
 
-        const CopyButton = withCopyAbility(ButtonInlineInputText) as any;
+        const CopyButton = withCopyAbility<CopyButtonProps>(
+            ButtonInlineInputText,
+        );
 
         const ButtonComponent = (
             <CopyButton
