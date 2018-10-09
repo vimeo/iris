@@ -5,7 +5,7 @@ import { ButtonStyled, ButtonLabelStyled } from './ButtonStyled';
 import { ButtonFocusBloop } from './ButtonFocusBloop';
 import ButtonIconElement from './ButtonIconElement';
 
-export const Button: SFC<ButtonProps> = ({
+const Button: SFC<ButtonProps> = ({
     autoMargins = true,
     autoWidth = 'sm',
     children,
