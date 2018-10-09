@@ -1,4 +1,3 @@
-
 {
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
@@ -21,13 +20,13 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "outDir": "dist",
-        "rootDir": "src",
+        "rootDirs": ["src", "stories"],
         "strict": false,
         "suppressImplicitAnyIndexErrors": true,
         "target": "es5"
     },
 
-    "exclude" : [
+    "exclude": [
         "dist",
         "build-styleguide",
     ]
