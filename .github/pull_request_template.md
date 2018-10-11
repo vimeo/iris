@@ -8,7 +8,7 @@
   - https://github.vimeows.com/Vimeo/iris/ ...
   - 
 - **Preview**
-  - http://docs.vimeows.com/vimeo/iris/<PR-branchname>/pattern/Components/<YourUpdatedComponent>
+  - https://github.vimeows.com/pages/vimeo/iris/<PR-branchname>/#/pages/vimeo/iris/<PR-branchname>/pattern/Components/<YourUpdatedComponent>
   -
 
 ***
