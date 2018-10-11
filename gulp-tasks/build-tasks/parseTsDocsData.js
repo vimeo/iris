@@ -19,10 +19,7 @@ const parseTsDocsData = () => {
     return patternArray;
 };
 
-const validComponent = name =>
-    name &&
-    !name.includes("index") &&
-    !name.includes("-Docs") &&
-    !name.includes(".story");
+const blackList = ["index", "withCopyAbility", "-Docs", ".story"];
+const validComponent = name => name && blackList.every(bad => !name.includes(bad));
 
 module.exports = parseTsDocsData;

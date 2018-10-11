@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
-import { findDOMNode } from 'react-dom';
-
-import { CopyFieldProps } from './CopyFieldTypes';
+import { CopyFieldProps, CopyButtonProps } from './CopyFieldTypes';
 
 // @ts-ignore
 import ClipboardIcon from '../icons/clipboard.svg';
@@ -17,61 +15,45 @@ const CopyFieldStyled = styled.div`
     }
 `;
 
-class CopyField extends React.Component<CopyFieldProps> {
-    _handleFieldClick = () => {
-        const el = findDOMNode(this);
-        const TriggerTarget =
-            el instanceof HTMLElement &&
-            el.querySelector('[data-button-trigger]');
-        if (TriggerTarget instanceof HTMLElement) {
-            TriggerTarget.click();
-        }
-    };
+const CopyButton = withCopyAbility<CopyButtonProps>(ButtonInlineInputText);
+const CopyInput = withCopyAbility<any>(InputText);
 
-    render() {
-        const {
-            buttonFormat = 'strong',
-            id,
-            onCopy,
-            size = 'md',
-            successMessage,
-            stringToCopy,
-            tooltipPosition = 'left',
-            tooltipString,
-            ...filteredProps
-        } = this.props;
-
-        const CopyButton = withCopyAbility(ButtonInlineInputText);
-
-        const ButtonComponent = (
-            <CopyButton
-                data-button-trigger
-                icon={<ClipboardIcon />}
-                format={buttonFormat}
-                size={size}
-                successMessage={successMessage}
-                stringToCopy={stringToCopy}
-                tooltipText={tooltipString}
-                tooltipPosition={tooltipPosition}
-                onCopy={onCopy}
-            />
-        );
-
-        return (
-            <CopyFieldStyled>
-                <InputText
-                    {...filteredProps}
-                    id={id}
-                    inlineButton={ButtonComponent}
-                    isInline
+const CopyField: SFC<CopyFieldProps> = ({
+    buttonFormat = 'strong',
+    id,
+    onCopy,
+    size = 'md',
+    successMessage,
+    stringToCopy,
+    tooltipPosition = 'left',
+    tooltipString,
+    ...filteredProps
+}) => (
+    <CopyFieldStyled>
+        <CopyInput
+            {...filteredProps}
+            id={id}
+            inlineButton={
+                <CopyButton
+                    data-button-trigger
+                    icon={<ClipboardIcon />}
+                    format={buttonFormat}
                     size={size}
-                    value={stringToCopy}
-                    onClick={this._handleFieldClick}
-                    readOnly
+                    successMessage={successMessage}
+                    stringToCopy={stringToCopy}
+                    tooltipText={tooltipString}
+                    tooltipPosition={tooltipPosition}
+                    onCopy={onCopy}
                 />
-            </CopyFieldStyled>
-        );
-    }
-}
+            }
+            isInline
+            size={size}
+            value={stringToCopy}
+            successMessage={successMessage}
+            stringToCopy={stringToCopy}
+            readOnly
+        />
+    </CopyFieldStyled>
+);
 
 export default CopyField;

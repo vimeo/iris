@@ -1,34 +1,32 @@
-// @flow
-/* global ReactClass*/
-import React from 'react';
+import React, { Component, ComponentType, ReactNode } from 'react';
 import { findDOMNode } from 'react-dom';
 import Toastification from '../Toastification/Toastification';
 
 import Clipboard from 'clipboard';
 
+interface Props {
+    onCopy?: () => void;
+    stringToCopy: string;
+    successMessage: string | ReactNode;
+}
 
-type Props = {
-    onCopy?: Function,
-    stringToCopy: string,
-    successMessage: string,
+const initialState = {
+    showNotice: false,
 };
 
-function withCopyAbility(WrappedComponent: ReactClass<any>) {
+type State = Readonly<typeof initialState>;
 
-    return class extends React.Component {
+const withCopyAbility = <P extends {}>(
+    WrappedComponent: ComponentType<P & { onClick?: () => void }>,
+) =>
+    class extends Component<P & Props> {
+        readonly state: State = initialState;
 
-        state: Object;
-
-        componentWillMount() {
-            this.state = {
-                showNotice: false,
-            };
-        }
+        clipboard: Clipboard;
 
         componentDidMount() {
             this._initializeClipBoard();
         }
-
 
         componentDidUpdate() {
             this._destroyClipBoard();
@@ -39,24 +37,22 @@ function withCopyAbility(WrappedComponent: ReactClass<any>) {
             this._destroyClipBoard();
         }
 
-        ClipBoardInstance: Object;
-        props: Props;
-
         _destroyClipBoard = () => {
-            this.ClipBoardInstance.destroy();
-        }
+            this.clipboard.destroy();
+        };
 
         _initializeClipBoard = () => {
             const el = findDOMNode(this);
-            const triggerEl = el instanceof HTMLElement && el.querySelector('[data-clipboard-trigger]');
+            const triggerEl =
+                el instanceof HTMLElement &&
+                el.querySelector('[data-clipboard-trigger]');
 
             if (triggerEl) {
-                this.ClipBoardInstance = new Clipboard(triggerEl);
+                this.clipboard = new Clipboard(triggerEl);
 
-                this.ClipBoardInstance.on('success', (e) => this._showNotice());
+                this.clipboard.on('success', () => this._showNotice());
             }
-
-        }
+        };
 
         _showNotice = () => {
             if (!this.state.showNotice) {
@@ -64,26 +60,27 @@ function withCopyAbility(WrappedComponent: ReactClass<any>) {
                     showNotice: true,
                 });
             }
-        }
+        };
 
         _resetNotice = () => {
             this.setState({
                 showNotice: false,
             });
-        }
+        };
 
-        _handleClick = (e: Event) =>{
+        _handleClick = () => {
             if (typeof this.props.onCopy === 'function') {
                 this.props.onCopy();
             }
-        }
+        };
+
         render() {
             const {
-                onCopy, // eslint-disable-line no-unused-vars
+                onCopy,
                 successMessage,
                 stringToCopy,
                 ...filteredProps
-            } = this.props;
+            } = this.props as Props;
 
             return (
                 <div>
@@ -103,7 +100,5 @@ function withCopyAbility(WrappedComponent: ReactClass<any>) {
             );
         }
     };
-}
-
 
 export default withCopyAbility;
