@@ -35,7 +35,7 @@
                                  `.` 
 ```
 
-### [Iris](http://docs.vimeows.com/vimeo/iris/master/pattern/Iris/Home) is the design system that powers Vimeo's web apps.
+### [Iris](https://github.vimeows.com/pages/vimeo/iris/master) is the design system that powers Vimeo's web apps.
 
 
 ## Installation
