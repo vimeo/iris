@@ -17,7 +17,7 @@ export interface CopyFieldProps {
      * Displayed on the bottom of screen after successful copy
      */
     successMessage: string;
-    tooltipPosition: 'top' | 'right' | 'bottom' | 'left';
+    tooltipPosition?: 'top' | 'right' | 'bottom' | 'left';
     /**
      * Tooltip text, appears when hovering over copy icon
      */
