@@ -289,7 +289,13 @@ class MenuPanel extends React.Component {
                     >
                         {children}
                     </TriggerWrapperStyled>
-                    <Transition in={this.state.isShowing} timeout={menuSpeed}>
+                    <Transition
+                        in={this.state.isShowing}
+                        exit={!this.state.isShowing}
+                        timeout={menuSpeed}
+                        mountOnEnter={true}
+                        unmountOnExit={true}
+                    >
                         {state => (
                             <MenuPanelStyled
                                 className={panelClassName}

@@ -22,6 +22,7 @@ export const InputRadioWrapperStyled = styled.div`
     min-height: ${rem(wrapperSize)};
     margin-bottom: 0.5rem;
     padding-left: 2rem;
+    min-height: 1.25rem;
 `;
 
 export const InputRadioStyled = styled.input`

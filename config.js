@@ -1,7 +1,7 @@
 /* eslint-env node*/
 const path = require('path');
-const DOCS_SERVER_ROOT = 'http://docs.vimeows.com';
-const DOCS_PROJECT_SUFFIX = '/vimeo/iris/';
+const DOCS_SERVER_ROOT = 'https://github.vimeows.com';
+const DOCS_PROJECT_SUFFIX = '/pages/vimeo/iris/';
 const LOCAL_PATH = path.resolve(__dirname);
 const LOCAL_DATA = LOCAL_PATH + '/data/';
 const COMPONENT_DATA = LOCAL_DATA + 'componentAPI.json';

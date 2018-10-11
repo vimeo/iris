@@ -14,8 +14,11 @@
         ["WithCharacterCount", "Inputs wth Character Count", true]
     ],
 
-    "Animation": [["SlideUpDownAnimation", "Slide Up/ Slide Down", true]],
+    "Animation": [
+        ["SlideUpDownAnimation", "Slide Up/ Slide Down", true]
+    ],
     "Components": [
+        ["AddNewItemCard", "Add New Item Card"],
         ["Avatar", "Avatars"],
         ["Badge", "Badges"],
         ["Breadcrumb", "Breadcrumbs"],
@@ -72,7 +75,7 @@
         ["VerticalMenuItem", "Vertical Menu Item"],
         [
             "VerticalMenuContextualMenuPanel",
-            "Vertical Menu  Contextual Menu Panel"
+            "Vertical Menu Contextual Menu Panel"
         ],
         ["VerticalMenuNested", "Vertical Menu Nested"],
         ["VideoCard", "Video Card"]

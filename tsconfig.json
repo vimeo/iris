@@ -1,4 +1,3 @@
-
 {
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
@@ -26,8 +25,8 @@
         "suppressImplicitAnyIndexErrors": true,
         "target": "es5"
     },
-
-    "exclude" : [
+    "exclude": [
+        ".storybook",
         "dist",
         "build-styleguide",
     ]

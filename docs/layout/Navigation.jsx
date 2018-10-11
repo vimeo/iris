@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Link, browserHistory, IndexRoute } from 'react-router-dom';
+import {HashRouter, Route, Link } from 'react-router-dom';
 import VimeoLogo from './VimeoLogo';
 import styled from 'styled-components';
 import { NavigationLinkEl, filteredNavigationLinkEl, NavigationLink } from './NavigationLink';

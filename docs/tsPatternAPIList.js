@@ -1,4 +1,5 @@
 // This file tells Steadicam which files have TypeScript driven props interfaces that have been converted to HTML.
+import AddNewItemCardAPI from '../data/tsdocsHTML/interfaces/_addnewitemcard_addnewitemcardtypes_.addnewitemcardprops.html';
 import AvatarAPI from '../data/tsdocsHTML/interfaces/_avatar_avatarprops_.avatarprops.html';
 import BreadcrumbAPI from '../data/tsdocsHTML/interfaces/_breadcrumb_breadcrumb_.breadcrumbprops.html';
 import BadgeAPI from '../data/tsdocsHTML/interfaces/_badge_badgetypes_.badgeprops.html';
@@ -41,6 +42,9 @@ import TooltipOverlayAPI from '../data/tsdocsHTML/interfaces/_tooltipoverlay_too
 import VideoCardAPI from '../data/tsdocsHTML/interfaces/_videocard_videocard_.videocardprops.html';
 
 const tsPatternAPIList = {
+    AddNewItemCard: {
+        data: AddNewItemCardAPI
+    },
     Avatar: {
         data: AvatarAPI,
     },
