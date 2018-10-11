@@ -11,33 +11,34 @@ const AddNewItemCardDocs = props => {
                     <GridCol mdSpan={12} lgSpan={6}>
                         <AddNewItemCard
                             text="Add New Item"
-                            anchor={<a href="#" />}
+                            anchorProps={{ href: '#' }}
                         />
                     </GridCol>
                     <GridCol mdSpan={12} lgSpan={6}>
                         <AddNewItemCard
                             text="Add Another New Item"
-                            anchor={
-                                <a
-                                    href="#"
-                                    target="_blank"
-                                    data-some-new-attr="false"
-                                />
-                            }
+                            anchorProps={{
+                                onClick: () => console.log('click!'),
+                                href: '#',
+                                target: '_blank',
+                            }}
                         />
                     </GridCol>
                     <GridCol mdSpan={12} lgSpan={6}>
                         <AddNewItemCard
                             text="Add Some Other Item"
-                            anchor={
-                                <a href="#" data-some-fruit-attr="banana" />
-                            }
+                            anchorProps={{
+                                onClick: () => console.log('click!'),
+                                href: '#',
+                            }}
                         />
                     </GridCol>
                     <GridCol mdSpan={12} lgSpan={6}>
                         <AddNewItemCard
                             text="Add All the Item"
-                            anchor={<a href="#" data-some-attr="true" />}
+                            anchorProps={{
+                                onClick: () => console.log('click!'),
+                            }}
                         />
                     </GridCol>
                 </GridBlock>
@@ -49,31 +50,34 @@ const AddNewItemCardDocs = props => {
         <GridCol mdSpan={12} lgSpan={6}>
             <AddNewItemCard
                 text="Add New Item"
-                anchor={<a href="#" />}
+                anchorProps={{ href: '#' }}
             />
         </GridCol>
         <GridCol mdSpan={12} lgSpan={6}>
             <AddNewItemCard
                 text="Add Another New Item"
-                anchor={
-                    <a
-                        href="#"
-                        target="_blank"
-                        data-some-new-attr="false"
-                    />
-                }
+                anchorProps={{
+                    onClick: () => console.log('click!'),
+                    href: '#',
+                    target: '_blank',
+                }}
             />
         </GridCol>
         <GridCol mdSpan={12} lgSpan={6}>
             <AddNewItemCard
                 text="Add Some Other Item"
-                anchor={<a href="#" data-some-fruit-attr="banana" />}
+                anchorProps={{
+                    onClick: () => console.log('click!'),
+                    href: '#',
+                }}
             />
         </GridCol>
         <GridCol mdSpan={12} lgSpan={6}>
             <AddNewItemCard
                 text="Add All the Item"
-                anchor={<a href="#" data-some-attr="true" />}
+                anchorProps={{
+                    onClick: () => console.log('click!'),
+                }}
             />
         </GridCol>
     </GridBlock>
