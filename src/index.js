@@ -80,6 +80,14 @@ export { default as VerticalMenuToggleButton } from './VerticalMenuToggleButton'
 
 /* TypeScript Components */
 
+export { default as AddNewItemCard } from './AddNewItemCard/AddNewItemCard';
+
+export { default as AddNewItemCardFocusStyled } from './AddNewItemCard/AddNewItemCardFocusStyled';
+
+export { default as AddNewItemCardTypes } from './AddNewItemCard/AddNewItemCardTypes';
+
+export { default as AddNewItemStyled } from './AddNewItemCard/AddNewItemStyled';
+
 export { default as Avatar } from './Avatar/Avatar';
 
 export { default as AvatarProps } from './Avatar/AvatarProps';

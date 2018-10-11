@@ -22,7 +22,10 @@ module.exports = {
     module: {
         rules: [{
                 test: [/\.jsx?$/],
-                exclude: '/node_modules/',
+                exclude: [
+                    '/node_modules/',
+                    '/\.story\.jsx?$/',
+                ],
                 include: [
                     path.resolve(__dirname, 'docs'),
                     path.resolve(__dirname, 'data'),

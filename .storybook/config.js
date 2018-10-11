@@ -14,8 +14,8 @@ injectGlobal`
 `;
 
 function loadStories() {
-    require('../stories/index');
-    // You can require as many stories as you need.
+    require('../src/Button/Button.story');
+    require('../src/AddNewItemCard/AddNewItemCard.story');
 }
 
 configure(loadStories, module);
