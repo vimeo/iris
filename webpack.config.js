@@ -25,6 +25,7 @@ module.exports = {
                 exclude: [
                     '/node_modules/',
                     '/\.story\.jsx?$/',
+                    '/\.story\.tsx?$/',
                 ],
                 include: [
                     path.resolve(__dirname, 'docs'),
