@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Switch, Redirect, Route} from 'react-router-dom';
+import { HashRouter, Switch, Redirect, Route} from 'react-router-dom';
 
 import MainLayout from '../docs/layout/MainLayout';
 import StyleListing from '../docs/layout/StyleListing';
@@ -16,7 +16,7 @@ const targetNode = typeof window !== 'undefined' && document.getElementById('app
 let App = function App() {
     return (
             <div>
-                <BrowserRouter <% if(rootPath) {%> basename="<%- rootPath %>" <% } %>>
+                <HashRouter <% if(rootPath) {%> basename="<%- rootPath %>" <% } %>>
                     <Switch>
                         <Route
                             path="/pattern/:category/:componentName" component={SingleStyleListing}
@@ -34,7 +34,7 @@ let App = function App() {
                             to="/pattern/Iris/Home" 
                         />
                     </Switch>
-                </BrowserRouter>
+                </HashRouter>
                 <ProjectDependencies />
             </div>
 )

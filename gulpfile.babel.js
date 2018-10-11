@@ -78,6 +78,61 @@ gulp.task('deploy', function(cb) {
         'cleanStyleguideDistFile',
         'build-Prod',
         'svgProcessing',
+        'gh-pages',
         cb
     );
+});
+
+gulp.task('gh-pages', function(cb){
+  // allows us to get the command-line params (folderPath)
+  var argv = require('yargs').argv;
+  const git = require('gulp-git');
+  // get the git url
+  git.exec({args: 'remote show -n origin'}, function(err, stdout){
+    if (err) throw err;
+    // should return something like "  Fetch URL: git@github.vimeows.com:Vimeo/iris.git..."
+    var git_remote = stdout.match(/Fetch URL:\s([A-Za-z0-9@.:/]+?)\n/)[1];
+    console.log('got git remote: ' + git_remote);
+    // clone the repo into a separate clone
+    git.clone(git_remote, {args: '.gh-pages'}, function(err){
+      if (err) throw err;
+      // checkout the gh-pages branch
+      git.checkout('gh-pages', {cwd: '.gh-pages'}, function(err){
+        if (err) throw err;
+        // recursively copy the artifacts into the new clone
+        console.log('copying build-styleguide to .gh-pages');
+        gulp.src('build-styleguide/**/*')
+          .pipe(gulp.dest('.gh-pages/' + argv.folderPath + '/'))
+          .on('end', function(err){
+            if (err) throw err;
+            // check if there were changes to the clone
+            console.log('checking if .gh-pages has changes to commit');
+            git.status({cwd: '.gh-pages', args: '--porcelain ' + argv.folderPath }, function(err, stdout1){
+              if (err) throw err;
+              if (stdout1.trim().length > 0 ){
+                // run git-add if there are changes
+                console.log('adding and commiting .gh-pages changes');
+                git.exec({cwd: '.gh-pages', args: 'add ' + argv.folderPath}, function(err){
+                  if (err) throw err;
+                  // commit any changes
+                  git.exec({cwd: '.gh-pages', args: 'commit -m "updated ' + argv.folderPath + '"'}, function(err){
+                    if (err) throw err;
+                    // push the changes up
+                    console.log('pushing .gh-pages changes');
+                    git.push('origin', 'gh-pages', {cwd: '.gh-pages'}, function(err){
+                      if (err) throw err;
+                      // return control to Gulp
+                      cb();
+                    });
+                  });
+                });
+              } else {
+                console.log('saw no changes in git status: ' + stdout1);
+                cb();
+              }
+            });
+          });
+      });
+    });
+  });
 });

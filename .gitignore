@@ -57,3 +57,8 @@ data
 docs/main.jsx
 dist
 tsdocsHTML
+
+########################
+# Github Pages
+########################
+.gh-pages/*
