@@ -104,7 +104,7 @@ import GearIcon from 'iris/icons/gear';
 
 💬 [#web-iris](https://vimeo.slack.com/messages/C2UF8PH0A) Slack
 
-🚨 [Active issues (minus stale issues and typescript conversions)[https://github.vimeows.com/Vimeo/iris/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+-milestone%3A%226.0.0%22+-project%3A%22vimeo%2Firis%2F2%22+-label%3A%22flag%3A+stale%22+]
+📝 [Active issues (minus stale issues and typescript conversions)](https://github.vimeows.com/Vimeo/iris/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+-milestone%3A%226.0.0%22+-project%3A%22vimeo%2Firis%2F2%22+-label%3A%22flag%3A+stale%22+)
 
 ## Release Schedule
 
