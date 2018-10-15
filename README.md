@@ -104,21 +104,11 @@ import GearIcon from 'iris/icons/gear';
 
 💬 [#web-iris](https://vimeo.slack.com/messages/C2UF8PH0A) Slack
 
+🚨 [Active issues (minus stale issues and typescript conversions)[https://github.vimeows.com/Vimeo/iris/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+-milestone%3A%226.0.0%22+-project%3A%22vimeo%2Firis%2F2%22+-label%3A%22flag%3A+stale%22+]
+
 ## Release Schedule
 
 During the conversion of Iris to TypeScript and styled-components, minor versions of Iris will be released biweekly on Wednesdays. If you have an urgent need for a release, please reach out in [#web-iris](https://vimeo.slack.com/messages/C2UF8PH0A) for an accelerated release.
-
-Upcoming 
-
-| Date  | Version |
-| ------------- | ------------- |
-| 10/3/18  | 5.12.0  |
-| 10/17/18  | 5.13.0  |
-| 10/31/18  | 5.14.0  |
-| 11/14/18  | 5.15.0  |
-| 11/28/18  | 5.16.0  |
-| 12/12/18  | 5.17.0  |
-| 1/9/19 | 6.0.0 |
 
 ## Releasing
 
