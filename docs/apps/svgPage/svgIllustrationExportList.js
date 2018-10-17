@@ -13,6 +13,10 @@ export AlbumsAddFeature from '../../../src/illustrations/albums-add-feature.svg'
 
 export AlbumsEmptystate from '../../../src/illustrations/albums-emptystate.svg';
 
+export AlbumsPlaybackEmptystateDark from '../../../src/illustrations/albums-playback-emptystate-dark.svg';
+
+export AlbumsPlaybackEmptystateLight from '../../../src/illustrations/albums-playback-emptystate-light.svg';
+
 export SearchEmptystate from '../../../src/illustrations/search-emptystate.svg';
 
 export StaffPicksBadgeJustSp from '../../../src/illustrations/staff-picks-badge-just-sp.svg';
