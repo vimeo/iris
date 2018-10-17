@@ -1,4 +1,7 @@
-export interface TypeProps {
+import { HTMLProps } from 'react';
+import { Omit } from '../globals/js/type-helpers';
+
+export interface TypeProps extends Omit<HTMLProps<HTMLElement>, 'size'> {
     element?:
         | 'h1'
         | 'h2'

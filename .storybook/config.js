@@ -15,6 +15,10 @@ injectGlobal `
         box-sizing: inherit
     }
 
+
+    #storybook-preview-iframe {
+        padding: 2rem;
+    }
 `;
 
 const requireAll = (requireContext) => requireContext.keys().map(requireContext);

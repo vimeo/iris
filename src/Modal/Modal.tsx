@@ -77,6 +77,10 @@ export interface ModalProps
      */
     hideDismissButton?: boolean;
     /**
+     * Allows buttons to stretch to 50% width (Use with Caution!)
+     */
+    fluidButtons?: boolean;
+    /**
      * Choose Modal width mode (Default: md)
      */
     size?: 'sm' | 'md' | 'lg' | 'fluid';
@@ -307,27 +311,35 @@ class Modal extends React.Component<ModalProps, ModalState> {
             onDismiss,
             primaryButtonProps,
             secondaryButtonProps,
+            fluidButtons,
             size,
             zIndexStartingPoint,
             ref: _,
             ...filteredProps
         } = this.props;
 
+        const buttonWidth = fluidButtons ? 12 : 8;
+        const buttonOffset = fluidButtons ? false : 8;
+
         const actionAreaElement = (
             <ActionAreaStyled>
                 <Grid isNested>
                     <GridBlock>
-                        <GridCol smOffset={8} smSpan={8} formColumn>
-                            {secondaryButtonProps ? (
+                        <GridCol
+                            smOffset={buttonOffset}
+                            smSpan={buttonWidth}
+                            formColumn
+                        >
+                            {secondaryButtonProps && (
                                 <Button
                                     {...secondaryButtonProps}
                                     autoWidth="fluid"
                                     format="secondary"
                                     size="md"
                                 />
-                            ) : null}
+                            )}
                         </GridCol>
-                        <GridCol smSpan={8} formColumn>
+                        <GridCol smSpan={buttonWidth} formColumn>
                             <Button
                                 {...primaryButtonProps}
                                 autoWidth="fluid"
