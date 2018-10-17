@@ -67,14 +67,27 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                use: ['@svgr/webpack']
+                use: [{
+                    loader: '@svgr/webpack',
+                    options: {
+                        svgoConfig: {
+                            plugins: [{
+                                cleanupIDs: {
+                                    minify: false,
+                                }
+                            }],
+                        }
+                    },
+                }],
             },
             {
                 test: [/\.tsx?$/],
                 use: [{
                     loader: 'ts-loader',
                     options: {
-                        getCustomTransformers: () => ({ before: [styledComponentsTransformer] })
+                        getCustomTransformers: () => ({
+                            before: [styledComponentsTransformer]
+                        })
                     }
                 }],
             },

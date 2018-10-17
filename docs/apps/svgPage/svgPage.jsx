@@ -23,10 +23,7 @@ const SvgList = () => (
     </div>
 );
 
-const SvgEntry = ({
-    iconName,
-    fileName
-}) => {
+const SvgEntry = ({ iconName, fileName }) => {
     const IconTag = Icons[iconName];
     return (
         <div className="sg-svgEntry">
@@ -51,17 +48,14 @@ const SvgEntry = ({
                     <strong>ComponentName:</strong> {iconName}
                 </p>
                 <p>
-                    <strong>File Name:</strong> {fileName}.svg
+                    <strong>File Name:</strong> {`${fileName}.svg`}
                 </p>
             </div>
         </div>
     );
 };
 
-const IllustrationEntry = ({
-    iconName,
-    fileName
-}) => {
+const IllustrationEntry = ({ iconName, fileName }) => {
     let IconTag = Illustrations[iconName];
     return (
         <div className="sg-svgEntry">
@@ -74,7 +68,7 @@ const IllustrationEntry = ({
                     <strong>ComponentName:</strong> {iconName}
                 </p>
                 <p>
-                    <strong>File Name:</strong> {fileName}.svg
+                    <strong>File Name:</strong> {`${fileName}.svg`}
                 </p>
             </div>
         </div>

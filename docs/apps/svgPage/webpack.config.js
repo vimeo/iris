@@ -3,9 +3,6 @@ var webpack = require('webpack');
 var path = require('path');
 var STYLEGUIDE_DIR = 'node_modules/steadicam';
 
-
-// Webpack settings for React Docs
-
 module.exports = {
     entry: './docs/apps/svgPage/svgPage.jsx',
 
@@ -24,8 +21,19 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                use: ['@svgr/webpack'],
-            }
+                use: [{
+                    loader: '@svgr/webpack',
+                    options: {
+                        svgoConfig: {
+                            plugins: [
+                                { cleanupIDs: { 
+                                    minify: false
+                                } },
+                            ],
+                        }
+                    },
+                }],
+            }   
         ],
     },
 

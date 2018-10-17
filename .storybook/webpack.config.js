@@ -22,8 +22,19 @@ module.exports = (baseConfig, env, config) => {
         ]
     }, {
         test: /\.svg$/,
-        use: ['@svgr/webpack']
-    }, {
+        use: [{
+            loader: '@svgr/webpack',
+            options: {
+                svgoConfig: {
+                    plugins: [
+                        { cleanupIDs: { 
+                            minify: false
+                        } },
+                    ],
+                }
+            },
+        }],
+    }   , {
         test: /\.s(c|a)ss$/,
         include: path.resolve(__dirname, '../src'),
         exclude: /node_modules/,
