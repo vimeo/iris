@@ -10,10 +10,7 @@ interface Props {
     successMessage: string | ReactNode;
 }
 
-const initialState = {
-    showNotice: false,
-};
-
+const initialState = { showNotice: false };
 type State = Readonly<typeof initialState>;
 
 const withCopyAbility = <P extends {}>(
@@ -50,7 +47,9 @@ const withCopyAbility = <P extends {}>(
             if (triggerEl) {
                 this.clipboard = new Clipboard(triggerEl);
 
-                this.clipboard.on('success', () => this._showNotice());
+                this.clipboard.on('success', () => {
+                    this._showNotice();
+                });
             }
         };
 

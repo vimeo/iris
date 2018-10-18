@@ -5,7 +5,6 @@ import {
     getInputBaseStyles,
     InputProps,
     InputStyledProps,
-    InputStyleSettings,
 } from './InputHelpers';
 import { Omit } from '../globals/js/type-helpers';
 
@@ -19,16 +18,7 @@ export interface InputTextStyledProps extends InputStyledProps {
 }
 
 const InputStyled = styled<InputTextStyledProps, 'input'>('input')`
-    ${getInputBaseStyles} &:read-only {
-        color: ${props =>
-            InputStyleSettings.color[props.theme]
-                ? InputStyleSettings.color[props.theme].text.disabled
-                : InputStyleSettings.color.light.text.disabled};
-        background-color: ${props =>
-            InputStyleSettings.color[props.theme]
-                ? InputStyleSettings.color[props.theme].background.disabled
-                : InputStyleSettings.color.light.background.disabled};
-    }
+    ${getInputBaseStyles};
 `;
 
 const InputText: SFC<
