@@ -1,4 +1,9 @@
-import React, { Component, ComponentType, ReactNode } from 'react';
+import React, {
+    Component,
+    ComponentType,
+    ReactNode,
+    MouseEventHandler,
+} from 'react';
 import { findDOMNode } from 'react-dom';
 import Toastification from '../Toastification/Toastification';
 
@@ -14,7 +19,9 @@ const initialState = { showNotice: false };
 type State = Readonly<typeof initialState>;
 
 const withCopyAbility = <P extends {}>(
-    WrappedComponent: ComponentType<P & { onClick?: () => void }>,
+    WrappedComponent: ComponentType<
+        P & { onClick?: MouseEventHandler<HTMLElement> }
+    >,
 ) =>
     class extends Component<P & Props> {
         readonly state: State = initialState;

@@ -26,8 +26,8 @@ export interface CopyFieldProps {
 
 export interface CopyButtonProps {
     icon: ReactNode;
-    format: 'subtle' | 'neutral' | 'strong';
+    format?: 'subtle' | 'neutral' | 'strong';
     size: 'md' | 'lg';
-    tooltipText: string;
-    tooltipPosition: 'top' | 'right' | 'bottom' | 'left';
+    tooltipText?: string;
+    tooltipPosition?: 'top' | 'right' | 'bottom' | 'left';
 }

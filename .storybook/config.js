@@ -27,6 +27,11 @@ injectGlobal`
     *, *:before, *:after {
         box-sizing: inherit
     }
+
+    blockquote, dl, dd, h1, h2, h3, h4, h5, h6, figure, p, pre {
+        margin: 0;
+    }
+
 `;
 
 addDecorator(withInfo);

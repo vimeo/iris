@@ -21,8 +21,6 @@ export { default as ButtonFileUploadIconOnly } from './ButtonFileUploadIconOnly'
 
 export { default as ButtonFileUploadWrapper } from './ButtonFileUploadWrapper';
 
-export { default as ButtonInlineInputText } from './ButtonInlineInputText';
-
 export { default as ButtonLoadingState } from './ButtonLoadingState';
 
 export { default as ButtonToggleState } from './ButtonToggleState';
@@ -137,6 +135,12 @@ export { default as ButtonIconOnlyFocusBloop } from './ButtonIconOnly/ButtonIcon
 export { default as ButtonIconOnlyStyled } from './ButtonIconOnly/ButtonIconOnlyStyled';
 
 export { default as ButtonIconOnlyTypes } from './ButtonIconOnly/ButtonIconOnlyTypes';
+
+export { default as ButtonInlineInputText } from './ButtonInlineInputText/ButtonInlineInputText';
+
+export { default as ButtonInlineInputTextStyled } from './ButtonInlineInputText/ButtonInlineInputTextStyled';
+
+export { default as ButtonInlineInputTextTypes } from './ButtonInlineInputText/ButtonInlineInputTextTypes';
 
 export { default as ButtonSplitMenu } from './ButtonSplitMenu/ButtonSplitMenu';
 
