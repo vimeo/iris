@@ -15,7 +15,8 @@
         "precommit": "gulp precommit",
         "prepublishOnly": "gulp prepublish",
         "format": "prettier --list-different \"src/**/*.{ts,tsx}\"",
-        "storybook": "start-storybook -p 9001 -c .storybook"
+        "storybook": "start-storybook -p 9001 -c .storybook",
+        "build-storybook": "build-storybook -c .storybook -o build-styleguide/stories"
     },
     "publishConfig": {
         "registry": "https://artifactory.vimeows.com/artifactory/api/npm/npm/"

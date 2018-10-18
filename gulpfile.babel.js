@@ -78,10 +78,18 @@ gulp.task('deploy', function(cb) {
         'cleanStyleguideDistFile',
         'build-Prod',
         'svgProcessing',
+        'storybook',
         'gh-pages',
         cb
     );
 });
+
+const shell = require('gulp-shell');
+
+gulp.task('storybook', shell.task([
+	'yarn build-storybook'
+]));
+
 
 gulp.task('gh-pages', function(cb){
   // allows us to get the command-line params (folderPath)
