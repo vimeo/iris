@@ -2,7 +2,6 @@ import React, { SFC, HTMLProps } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import mediaQuery from '../globals/js/style-helpers/mediaQuery';
-//@ts-ignore
 import ArrowLeft from '../icons/arrow-left.svg';
 import { ARROWLEFT_CLASSNAME } from '../Breadcrumb/Breadcrumb';
 

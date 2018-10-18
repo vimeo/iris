@@ -1,4 +1,3 @@
-// @flow
 import React, { SFC } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { rem } from 'polished';
@@ -6,9 +5,7 @@ import { InputStyleSettings } from '../InputText/InputHelpers';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import InputLabel from '../InputLabel/InputLabel';
 import InputMessageArea from '../InputMessageArea/InputMessageArea';
-// @ts-ignore
 import SuccessIcon from '../icons/checkmark.svg';
-// @ts-ignore
 import AlertIcon from '../icons/circle-warning.svg';
 import { Omit } from '../globals/js/type-helpers';
 

@@ -2,7 +2,6 @@ import React, { SFC, HTMLProps } from 'react';
 import { AddNewItemCardProps as Props } from './AddNewItemCardTypes';
 import { Wrapper, Card, Anchor } from './AddNewItemStyled';
 import { ParagraphAltMd } from '../Type';
-// @ts-ignore
 import CirclePlusIcon from '../icons/circle-plus.svg';
 import { FocusOutline } from './AddNewItemCardFocusStyled';
 

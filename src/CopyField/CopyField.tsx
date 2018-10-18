@@ -1,8 +1,6 @@
 import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { CopyFieldProps, CopyButtonProps } from './CopyFieldTypes';
-
-// @ts-ignore
 import ClipboardIcon from '../icons/clipboard.svg';
 import withCopyAbility from '../withCopyAbility/withCopyAbility';
 import InputText from '../InputText/InputText';

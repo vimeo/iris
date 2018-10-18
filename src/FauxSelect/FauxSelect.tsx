@@ -6,8 +6,6 @@ import { getInputBaseStyles, InputProps } from '../InputText/InputHelpers';
 import TruncatedTextWrapper from '../TruncatedTextWrapper';
 import { ArrowIconWrapperWidth } from '../SelectWrapper/SelectWrapper';
 
-//@ts-ignore
-import ChevronIris from '../icons/chevron-down.svg';
 export interface FauxSelectProps
     extends InputProps,
         Omit<React.HTMLProps<HTMLButtonElement>, 'label' | 'size' | 'id'> {

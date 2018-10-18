@@ -108,11 +108,11 @@
         "require-dir": "^1.1.0",
         "run-sequence": "^2.2.1",
         "sass-loader": "^7.1.0",
-        "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#3.2.0",
+        "steadicam": "git+ssh://git@github.vimeows.com/Vimeo/steadicam.git#3.2.1",
         "style-loader": "^0.23.1",
         "styled-components": "^3.4.9",
         "ts-loader": "^3.5.0",
-        "typescript": "^3.1.1",
+        "typescript": "^3.1.3",
         "typescript-plugin-styled-components": "^1.0.0",
         "uppercamelcase": "^3.0.0",
         "walk": "^2.3.14",
@@ -135,7 +135,7 @@
         "react-swipeable": "^4.3.0",
         "react-tether": "^1.0.2",
         "react-transition-group": "^2.5.0",
-        "typedoc": "^0.12.0"
+        "typedoc": "^0.13.0"
     },
     "peerDependencies": {
         "polished": "^2.0.3",

@@ -2,8 +2,7 @@ import React from 'react';
 import Navigation from './Navigation';
 import NavigationToggle from './NavigationToggle';
 
-
-const MainLayout = (props) => (
+const MainLayout = props => (
     <div>
         <Navigation />
         <NavigationToggle />

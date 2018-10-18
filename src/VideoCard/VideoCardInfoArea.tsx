@@ -5,7 +5,6 @@ import { rem } from 'polished';
 import LinkText from '../LinkText';
 import TruncatedTextWrapper from '../TruncatedTextWrapper';
 import { Header6, ParagraphSm, ParagraphAltMd } from '../Type';
-// @ts-ignore
 import LockFilled from '../icons/lock-filled.svg';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 import TooltipOverlay from '../TooltipOverlay';

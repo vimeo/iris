@@ -2,7 +2,6 @@ import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { ParagraphSm } from '../Type';
-// @ts-ignore
 import CircleIcon from '../icons/circle-filled.svg';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import { VideoCardStyleSettings } from './VideoCardHelpers';

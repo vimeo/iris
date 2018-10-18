@@ -3,7 +3,6 @@ import React from 'react';
 // @ts-ignore
 import styled, { StyledComponentClass } from 'styled-components';
 import { rem } from 'polished';
-// @ts-ignore
 import SelectedIcon from '../icons/checkmark.svg';
 import COLORS from '../globals/js/constants/COLORS';
 import { MenuPanelListItemThemes } from './MenuPanelListItemTypes';

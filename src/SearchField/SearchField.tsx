@@ -1,7 +1,6 @@
 import React, { SFC } from 'react';
 import InputText from '../InputText/InputText';
 import ButtonInlineInputText from '../ButtonInlineInputText/ButtonInlineInputText';
-// @ts-ignore
 import SearchIcon from '../icons/search.svg';
 import { Omit } from '../globals/js/type-helpers';
 import { SearchFieldProps } from './SearchFieldTypes';

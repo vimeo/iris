@@ -1,7 +1,6 @@
 import React, { SFC, HTMLProps } from 'react';
 import styled from 'styled-components';
 import COLORS from '../globals/js/constants/COLORS';
-//@ts-ignore
 import HeartIcon from '../icons/heart-filled.svg';
 
 // ==================== VideoCardDecorationArea Styled

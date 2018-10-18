@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { HeaderAltSm, Header5, ParagraphMd } from '../Type';
 import ButtonIconOnly from '../ButtonIconOnly';
-//@ts-ignore
 import DismissIcon from '../icons/dismiss-x.svg';
 import COLORS from '../globals/js/constants/COLORS';
 

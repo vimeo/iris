@@ -1,7 +1,6 @@
 import React, { SFC, HTMLProps } from 'react';
 import Notification from '../Notification/Notification';
 import { NotificationProps } from '../Notification/NotificationProps';
-// @ts-ignore
 import WarningIcon from '../icons/circle-warning.svg';
 
 const NotificationWarning: SFC<

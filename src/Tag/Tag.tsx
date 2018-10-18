@@ -2,7 +2,6 @@ import React, { SFC, ReactNode } from 'react';
 import Button from '../Button';
 import styled from 'styled-components';
 import { rem } from 'polished';
-// @ts-ignore
 import DeleteIcon from '../icons/dismiss-x.svg';
 import { ButtonFocusBloop } from '../Button/ButtonFocusBloop';
 
