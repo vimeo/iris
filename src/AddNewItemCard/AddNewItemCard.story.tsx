@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import AddNewItemCard from './AddNewItemCard';
 import Grid from '../Grid/Grid';
 import GridBlock from '../GridBlock/GridBlock';
@@ -8,10 +7,7 @@ import GridCol from '../GridCol/GridCol';
 
 storiesOf('AddNewItemCard', module).add(
     'default',
-    withInfo({
-        inline: true,
-        propTables: [AddNewItemCard],
-    })(() => (
+    () => (
         <Grid isNested>
             <GridBlock>
                 <GridCol mdSpan={12} lgSpan={6}>
@@ -49,5 +45,15 @@ storiesOf('AddNewItemCard', module).add(
                 </GridCol>
             </GridBlock>
         </Grid>
-    )),
+    ),
+    {
+        info: {
+            inline: true,
+            propTables: [AddNewItemCard],
+        },
+        options: {
+            name: 'Iris',
+            url: '#',
+        },
+    },
 );

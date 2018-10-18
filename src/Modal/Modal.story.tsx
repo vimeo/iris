@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import Button from '../Button';
 import Modal from './Modal';
 import { ParagraphMd } from '../Type';
 
-storiesOf('Modal', module).add(
-    'basic modal',
-    withInfo({
+storiesOf('Modal', module).add('basic modal', () => <ModalDocs />, {
+    info: {
         inline: true,
         propTables: [Modal],
-    })(() => <ModalDocs />),
-);
+    },
+});
 
 const initialState = { showModal: false };
 type State = Readonly<typeof initialState>;

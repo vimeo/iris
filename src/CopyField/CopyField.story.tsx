@@ -1,14 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import CopyField from './CopyField';
 
 storiesOf('CopyField', module).add(
     'default',
-    withInfo({
-        inline: true,
-        propTables: [CopyField],
-    })(() => (
+    () => (
         <div>
             <CopyField
                 id="copyField1"
@@ -27,5 +23,11 @@ storiesOf('CopyField', module).add(
                 stringToCopy="http://www.vimeo.com"
             />
         </div>
-    )),
+    ),
+    {
+        info: {
+            inline: true,
+            propTables: [CopyField],
+        },
+    },
 );
