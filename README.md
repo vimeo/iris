@@ -67,7 +67,29 @@ This will open the Iris docs at http://localhost:3000/pattern/Iris/Home
 ***
 🚨 All code in Iris must be formatted with [Prettier](https://github.com/prettier/prettier/) for acceptance. We reccomend using an extension to format on save for your code editor (ie. [vscode-prettier](https://github.com/prettier/prettier-vscode)).
 
-## Usage
+***
+**[Working with Iris in Vimeo via yarn link:](https://github.vimeows.com/Vimeo/iris/wiki/Working-with-Iris-in-Vimeo-via-yarn-link)**
+
+#### Linking
+
+In order to work with Iris changes in a Vimeo frontend project you need to symlink your Iris package to a local Iris repo. This is accomplished via `yarn link`.
+
+Assuming you have already cloned Iris in an adjacent directory:
+1. `cd iris` and run `yarn link`
+2. `cd ../vimeo` and run `yarn link "@vimeo/iris"`
+
+Once Iris is linked, you can make changes that will be reflected in your local environment.
+
+⚠️ Note that the `make webpack/[project-name]` watch will not detect changes in Iris. Only changes in the current project will trigger webpack to rebuild.
+
+#### Unlinking
+
+In order to unlink Iris:
+1. `cd vimeo` and run `yarn unlink "@vimeo/iris"`
+2. then run `make yarn`
+
+
+## Using Components
 Import components into your React app:
 ```jsx
 import { Button, ButtonIconOnly, ParagraphMd } from '@vimeo/iris';
