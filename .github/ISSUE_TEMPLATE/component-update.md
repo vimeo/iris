@@ -1,5 +1,5 @@
 ---
-name: Component Update
+name: 🚧 Component Update
 about: Request changes for an existing Iris component
 
 ---
