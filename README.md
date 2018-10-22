@@ -118,11 +118,11 @@ import GearIcon from 'iris/icons/gear';
 
 ## Need Help?
 
-🆕 [Request a new component](https://github.vimeows.com/Vimeo/iris/issues/new?labels=type%3A+new+component&milestone=4&title=Component+Request%3A&assignee=sean-mcintyre&template=new_component_request.md)
+🆕 [Request a new component](https://github.vimeows.com/Vimeo/iris/issues/new?labels=type%3A+new+component&milestone=4&title=Component+Request%3A&assignee=sean-mcintyre&template=new-component.md)
 
-🛠 [Request updates to an existing component](https://github.vimeows.com/Vimeo/iris/issues/new?labels=type%3A+update+component&milestone=4&title=Component+Update%3A&template=update_component_request.md)
+🛠 [Request updates to an existing component](https://github.vimeows.com/Vimeo/iris/issues/new?labels=type%3A+update+component&milestone=4&title=Component+Update%3A&template=component-update.md)
 
-🐛 [Report a bug](https://github.vimeows.com/Vimeo/iris/issues/new?labels=p2,type%3A+bug&milestone=4&title=Bug%3A&template=bug_report.md)
+🐛 [Report a bug](https://github.vimeows.com/Vimeo/iris/issues/new?labels=p2,type%3A+bug&milestone=4&title=Bug%3A&template=bug-report.md)
 
 💬 [#web-iris](https://vimeo.slack.com/messages/C2UF8PH0A) Slack
 
