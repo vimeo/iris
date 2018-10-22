@@ -1,5 +1,5 @@
 ---
-name: New Component
+name: 🆕 New Component
 about: Request a new component to be added to Iris
 
 ---
