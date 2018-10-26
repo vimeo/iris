@@ -4,7 +4,6 @@ import { ButtonLoadingState, ParagraphMd } from '../index';
 import SettingsIcon from '../icons/gear.svg';
 
 class ButtonLoadingStateDocs extends React.Component {
-
     constructor() {
         super();
         this.state = {
@@ -20,7 +19,12 @@ class ButtonLoadingStateDocs extends React.Component {
     render() {
         return (
             <div className="Pattern__docs">
-                <ParagraphMd>The ButonLoadingState component adds the ability to toggle a loading state with the <code>isLoading</code> prop. All other props are sent to the Iris Button so the same API can be used.</ParagraphMd>
+                <ParagraphMd>
+                    The ButonLoadingState component adds the ability to toggle a
+                    loading state with the <code>isLoading</code> prop. All
+                    other props are sent to the Iris Button so the same API can
+                    be used.
+                </ParagraphMd>
                 <div data-code>
                     <ButtonLoadingState
                         isLoading={!this.state.isLoading}
@@ -93,8 +97,8 @@ class ButtonLoadingStateDocs extends React.Component {
     Click Me
 </ButtonLoadingState>
                         `}
-                    </ExampleSource>
-                </div>
+                </ExampleSource>
+            </div>
         );
     }
 }
