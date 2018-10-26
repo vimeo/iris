@@ -27,7 +27,9 @@ interface CounterStyledProps {
     isWarning: boolean;
 }
 
-const CounterStyled = styled<CounterStyledProps, any>(ParagraphAltSm)`
+const CounterStyled = styled<CounterStyledProps, any>(
+    ({ isWarning, isErrored, ...props }) => <ParagraphAltSm {...props} />,
+)`
     margin-bottom: ${rem(1)};
 
     ${props =>
