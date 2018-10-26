@@ -13,13 +13,13 @@ const Notification: SFC<NotificationProps & HTMLProps<HTMLDivElement>> = ({
     onDismiss,
     variant,
     ref: _,
-    // @ts-ignore
     ...filteredProps
 }) => (
     <NotificationStyled
         hasIcon={icon ? true : false}
         headerText={headerText}
         variant={variant}
+        {...filteredProps}
     >
         {icon && <span className="icon">{icon}</span>}
         {headerText && <Header5>{headerText}</Header5>}
