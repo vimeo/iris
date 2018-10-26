@@ -73,10 +73,10 @@ export const ButtonStyled = styled<ButtonProps, any>(ButtonVariableElement)`
 `;
 
 export const ButtonLabelStyled = styled.span`
-    display: inline-flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
 `;
 
 const customDefault = props => css`

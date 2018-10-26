@@ -32,6 +32,7 @@ const Button: SFC<ButtonProps> = ({
             autoMargins={autoMargins}
             autoWidth={autoWidth}
             format={format}
+            title={children}
             hasFeaturedIcon={iconLocation === 'featuredLeft'}
             isButtonElement={isButtonElement}
             isInline={isInline}
