@@ -43,6 +43,7 @@ export const TypeBaseStyleSettings = {
         md: 'normal',
         lg: 'normal',
         stat: VimeoStyleSettings.type.weights.light,
+        plusUltra: '800',
         h1: VimeoStyleSettings.type.weights.medium,
         h2: VimeoStyleSettings.type.weights.medium,
         h3: VimeoStyleSettings.type.weights.medium,
@@ -150,17 +151,21 @@ export const typeCSSByProps = ({
     noMargin,
 }: typeByCSSInterface) => css`
     color: ${getColor({ size, format })};
-
-    font-size: ${rem(getFontSize(size))};
+    font-size: ${size !== 'plusUltra'
+        ? rem(getFontSize(size))
+        : 'calc(2rem + 3.5vw)'};
     font-family: ${getFontFamily(fontStack)};
     font-weight: ${getFontWeight(size)};
 
-    letter-spacing: ${getLetterSpacing(size)};
-    line-height: ${getUnitlessLineHeight(
-        getFontSize(size),
-        getLineHeight(size),
-    )};
-    margin-bottom: ${getMarginBotton({ size, noMargin })};
+    letter-spacing: ${size !== 'plusUltra'
+        ? getLetterSpacing(size)
+        : 'calc(-0.125rem - 0.0025vw)'};
+    line-height: ${size !== 'plusUltra'
+        ? getUnitlessLineHeight(getFontSize(size), getLineHeight(size))
+        : 'calc(2.0625rem + 3.5125vw)'};
+    margin-bottom: ${size !== 'plusUltra'
+        ? getMarginBotton({ size, noMargin })
+        : 'calc(1rem + 0.875vw)'};
     max-width: 44rem;
 
     ${darkFontSmoothing};

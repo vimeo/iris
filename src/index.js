@@ -378,6 +378,8 @@ export { default as Header6 } from './Type/Header6';
 
 export { default as HeaderAltSm } from './Type/HeaderAltSm';
 
+export { default as HeaderPlusUltra } from './Type/HeaderPlusUltra';
+
 export { default as ParagraphAltLg } from './Type/ParagraphAltLg';
 
 export { default as ParagraphAltMd } from './Type/ParagraphAltMd';

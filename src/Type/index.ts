@@ -7,6 +7,7 @@ import ParagraphAltSm from './ParagraphAltSm';
 import ParagraphAltMd from './ParagraphAltMd';
 import ParagraphAltLg from './ParagraphAltLg';
 
+import HeaderPlusUltra from './HeaderPlusUltra';
 import Header1 from './Header1';
 import Header2 from './Header2';
 import Header3 from './Header3';
@@ -26,6 +27,7 @@ export {
     ParagraphAltMd,
     ParagraphAltSm,
     ParagraphAltXs,
+    HeaderPlusUltra,
     Header1,
     Header2,
     Header3,
