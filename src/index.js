@@ -13,8 +13,6 @@
 /* Flow-typed Components */
 
 
-export { default as ButtonDialogClose } from './ButtonDialogClose';
-
 export { default as ButtonFileUpload } from './ButtonFileUpload';
 
 export { default as ButtonFileUploadIconOnly } from './ButtonFileUploadIconOnly';
@@ -127,6 +125,10 @@ export { default as ButtonStyleSettings } from './Button/ButtonStyleSettings';
 export { default as ButtonStyled } from './Button/ButtonStyled';
 
 export { default as ButtonVariableElement } from './Button/ButtonVariableElement';
+
+export { default as ButtonDialogClose } from './ButtonDialogClose/ButtonDialogClose';
+
+export { default as ButtonDialogCloseTypes } from './ButtonDialogClose/ButtonDialogCloseTypes';
 
 export { default as ButtonIconOnly } from './ButtonIconOnly/ButtonIconOnly';
 

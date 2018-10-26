@@ -5,6 +5,7 @@ import BreadcrumbAPI from '../data/tsdocsHTML/interfaces/_breadcrumb_breadcrumb_
 import BadgeAPI from '../data/tsdocsHTML/interfaces/_badge_badgetypes_.badgeprops.html';
 import ButtonAPI from '../data/tsdocsHTML/interfaces/_button_buttonprops_.buttonprops.html';
 import ButtonIconOnlyAPI from '../data/tsdocsHTML/interfaces/_buttonicononly_buttonicononlytypes_.buttonicononlyprops.html';
+import ButtonDialogCloseAPI from '../data/tsdocsHTML/interfaces/_buttondialogclose_buttondialogclosetypes_.buttondialogcloseprops.html';
 import ButtonInlineInputTextAPI from '../data/tsdocsHTML/interfaces/_buttoninlineinputtext_buttoninlineinputtexttypes_.buttoninlineinputtextprops.html';
 import ButtonSplitMenuAPI from '../data/tsdocsHTML/interfaces/_buttonsplitmenu_buttonsplitmenu_.buttonsplitmenuprops.html';
 import CategoryCardAPI from '../data/tsdocsHTML/interfaces/_categorycard_categorycardtypes_.categorycardprops.html';
@@ -57,6 +58,9 @@ const tsPatternAPIList = {
     },
     Button: {
         data: ButtonAPI,
+    },
+    ButtonDialogClose: {
+        data: ButtonDialogCloseAPI,
     },
     ButtonIconOnly: {
         data: ButtonIconOnlyAPI,
