@@ -25,12 +25,12 @@ export interface SteppedContentSliderProps
      * controls the format passed to the ButtonIconOnly components that underly the previous and next buttons. See ButtonIconOnly docs for example
      */
     buttonFormat?:
-        | 'dark'
         | 'alternative'
-        | 'light'
-        | 'warning'
+        | 'dark'
+        | 'lightTransparent'
         | 'lightWarning'
-        | 'lightTransparent';
+        | 'transparent'
+        | 'warning';
     /**
      * The content that should be served as slides. SHould be sibling nodes.
      */

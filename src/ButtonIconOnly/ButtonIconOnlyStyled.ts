@@ -2,7 +2,7 @@
 import React from 'react';
 // @ts-ignore
 import styled, { StyledComponentClass, css } from 'styled-components';
-import { rem } from 'polished';
+import { rgba, rem } from 'polished';
 import COLORS from '../globals/js/constants/COLORS';
 import { ButtonIconOnlyStyledProps } from './ButtonIconOnlyTypes';
 
@@ -43,13 +43,13 @@ const getFormatCSS = props => {
                 }
             `;
 
-        case 'light':
+        case 'transparent':
             return css`
-                color: ${COLORS.AstroGranite};
-                background-color: ${COLORS.White};
+                color: ${COLORS.White};
+                background-color: ${rgba(COLORS.Black, 0.25)};
 
                 &:hover {
-                    color: ${COLORS.VimeoBlue};
+                    background-color: ${rgba(COLORS.Black, 0.5)};
                 }
             `;
 

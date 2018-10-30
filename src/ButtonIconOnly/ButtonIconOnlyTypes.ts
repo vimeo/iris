@@ -3,14 +3,14 @@ import React from 'react';
 export interface ButtonIconOnlyStyledProps {
     autoSpacingHorizontal?: boolean;
     format?:
-        | 'dark'
-        | 'midDark'
         | 'alternative'
-        | 'light'
-        | 'primary'
-        | 'warning'
+        | 'dark'
+        | 'lightTransparent'
         | 'lightWarning'
-        | 'lightTransparent';
+        | 'midDark'
+        | 'primary'
+        | 'transparent'
+        | 'warning';
     size?: 'sm' | 'md';
 }
 
