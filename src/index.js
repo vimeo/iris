@@ -61,13 +61,9 @@ export { default as VerticalMenuHeaderGroup } from './VerticalMenuHeaderGroup';
 
 export { default as VerticalMenuItem } from './VerticalMenuItem';
 
-export { default as VerticalMenuItemContent } from './VerticalMenuItemContent';
-
 export { default as VerticalMenuNested } from './VerticalMenuNested';
 
 export { default as VerticalMenuNestedSubMenu } from './VerticalMenuNestedSubMenu';
-
-export { default as VerticalMenuToggleButton } from './VerticalMenuToggleButton';
 
 
 /* TypeScript Components */
@@ -407,6 +403,14 @@ export { default as TypeTypes } from './Type/TypeTypes';
 export { default as TypeVariableElement } from './Type/TypeVariableElement';
 
 export { default as VerticalMenuActionButton } from './VerticalMenuActionButton/VerticalMenuActionButton';
+
+export { default as VerticalMenuItemContent } from './VerticalMenuItemContent/VerticalMenuItemContent';
+
+export { default as VerticalMenuItemContentStyled } from './VerticalMenuItemContent/VerticalMenuItemContentStyled';
+
+export { default as VerticalMenuItemContentTypes } from './VerticalMenuItemContent/VerticalMenuItemContentTypes';
+
+export { default as VerticalMenuToggleButton } from './VerticalMenuToggleButton/VerticalMenuToggleButton';
 
 export { default as VideoCard } from './VideoCard/VideoCard';
 
