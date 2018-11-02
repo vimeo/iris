@@ -55,8 +55,6 @@ export { default as Toastification } from './Toastification';
 
 export { default as TooltipAnnotationIcon } from './TooltipAnnotationIcon';
 
-export { default as VerticalMenuActionButton } from './VerticalMenuActionButton';
-
 export { default as VerticalMenuContextualMenuPanel } from './VerticalMenuContextualMenuPanel';
 
 export { default as VerticalMenuHeaderGroup } from './VerticalMenuHeaderGroup';
@@ -407,6 +405,8 @@ export { default as TypeHelpers } from './Type/TypeHelpers';
 export { default as TypeTypes } from './Type/TypeTypes';
 
 export { default as TypeVariableElement } from './Type/TypeVariableElement';
+
+export { default as VerticalMenuActionButton } from './VerticalMenuActionButton/VerticalMenuActionButton';
 
 export { default as VideoCard } from './VideoCard/VideoCard';
 
