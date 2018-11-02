@@ -3,12 +3,12 @@ export interface ButtonDialogCloseProps {
     autoSpacingHorizontal?: boolean;
     className?: string;
     format?:
-        | 'dark'
         | 'alternative'
-        | 'light'
-        | 'warning'
+        | 'dark'
+        | 'lightTransparent'
         | 'lightWarning'
-        | 'lightTransparent';
+        | 'transparent'
+        | 'warning';
     isButtonElement?: boolean;
     size?: 'sm' | 'md';
 }
