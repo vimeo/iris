@@ -6,7 +6,7 @@ import SlideUpDown from '../SlideUpDown/SlideUpDown';
 import { VerticalMenuToggleButton } from '../VerticalMenuToggleButton';
 // $FlowFixMe
 import { VerticalMenuItemContent } from '../VerticalMenuItemContent';
-import VerticalMenuItem from '../VerticalMenuItem';
+import { VerticalMenuItem } from '../VerticalMenuItem';
 import VerticalMenuNestedSubMenu from '../VerticalMenuNestedSubMenu/VerticalMenuNestedSubMenu';
 
 type Props = {

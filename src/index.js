@@ -57,8 +57,6 @@ export { default as TooltipAnnotationIcon } from './TooltipAnnotationIcon';
 
 export { default as VerticalMenuContextualMenuPanel } from './VerticalMenuContextualMenuPanel';
 
-export { default as VerticalMenuItem } from './VerticalMenuItem';
-
 export { default as VerticalMenuNested } from './VerticalMenuNested';
 
 
@@ -403,6 +401,14 @@ export { default as VerticalMenuActionButton } from './VerticalMenuActionButton/
 export { default as VerticalMenuHeaderGroup } from './VerticalMenuHeaderGroup/VerticalMenuHeaderGroup';
 
 export { default as VerticalMenuHeaderGroupStyled } from './VerticalMenuHeaderGroup/VerticalMenuHeaderGroupStyled';
+
+export { default as VerticalMenuItem } from './VerticalMenuItem/VerticalMenuItem';
+
+export { default as VerticalMenuItemState } from './VerticalMenuItem/VerticalMenuItemState';
+
+export { default as VerticalMenuItemStyled } from './VerticalMenuItem/VerticalMenuItemStyled';
+
+export { default as VerticalMenuItemTypes } from './VerticalMenuItem/VerticalMenuItemTypes';
 
 export { default as VerticalMenuItemContent } from './VerticalMenuItemContent/VerticalMenuItemContent';
 
