@@ -78,6 +78,13 @@ storiesOf('Button', module).add(
                     size="md"
                 />
 
+                <Format>secondary</Format>
+                <ButtonIconOnly
+                    icon={<SettingsIcon />}
+                    format="secondary"
+                    size="md"
+                />
+
                 <Format>warning</Format>
                 <ButtonIconOnly
                     icon={<SettingsIcon />}
@@ -140,6 +147,13 @@ storiesOf('Button', module).add(
                 <ButtonIconOnly
                     icon={<SettingsIcon />}
                     format="primary"
+                    size="md"
+                />
+
+                <Format>secondary</Format>
+                <ButtonIconOnly
+                    icon={<SettingsIcon />}
+                    format="secondary"
                     size="md"
                 />
 
@@ -226,6 +240,13 @@ storiesOf('Button', module).add(
                     size="md"
                 />
 
+                <Format>secondary</Format>
+                <ButtonIconOnly
+                    icon={<SettingsIcon />}
+                    format="secondary"
+                    size="md"
+                />
+
                 <Format>warning</Format>
                 <ButtonIconOnly
                     icon={<SettingsIcon />}
@@ -291,6 +312,13 @@ storiesOf('Button', module).add(
                 <ButtonIconOnly
                     icon={<SettingsIcon />}
                     format="primary"
+                    size="md"
+                />
+
+                <Format>secondary</Format>
+                <ButtonIconOnly
+                    icon={<SettingsIcon />}
+                    format="secondary"
                     size="md"
                 />
 

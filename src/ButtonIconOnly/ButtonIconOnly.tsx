@@ -4,6 +4,7 @@ import {
     ButtonStyled,
     IconWrapperStyled,
     SpanStyled,
+    DEFAULT_BUTTON_FORMAT as DARK,
 } from './ButtonIconOnlyStyled';
 import { Omit } from '../globals/js/type-helpers';
 import { ButtonIconOnlyFocusBloop } from './ButtonIconOnlyFocusBloop';
@@ -12,7 +13,7 @@ const ButtonIconOnly: SFC<
     ButtonIconOnlyProps & Omit<HTMLProps<HTMLElement>, 'size'>
 > = ({
     autoSpacingHorizontal = true,
-    format = 'dark',
+    format = DARK,
     icon,
     isButtonElement = true,
     size = 'sm',

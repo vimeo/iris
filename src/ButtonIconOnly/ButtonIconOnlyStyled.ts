@@ -32,97 +32,90 @@ const getSizeCSS = props => {
     `;
 };
 
-const getFormatCSS = props => {
-    switch (props.format) {
-        case 'alternative':
-            return css`
-                color: ${COLORS.RegentGray};
+export const BUTTON_FORMATS = {
+    alternative: css`
+        color: ${COLORS.RegentGray};
 
-                &:hover {
-                    color: ${COLORS.SoutherlySky};
-                }
-            `;
+        &:hover {
+            color: ${COLORS.SoutherlySky};
+        }
+    `,
+    transparent: css`
+        color: ${COLORS.White};
+        background-color: ${rgba(COLORS.Black, 0.25)};
 
-        case 'transparent':
-            return css`
-                color: ${COLORS.White};
-                background-color: ${rgba(COLORS.Black, 0.25)};
+        &:hover {
+            background-color: ${rgba(COLORS.Black, 0.5)};
+        }
+    `,
+    lightTransparent: css`
+        color: ${COLORS.White};
 
-                &:hover {
-                    background-color: ${rgba(COLORS.Black, 0.5)};
-                }
-            `;
+        &:hover {
+            background-color: ${COLORS.AshenWinter};
+        }
+    `,
+    lightWarning: css`
+        color: ${COLORS.AstroGranite};
+        background-color: ${COLORS.White};
 
-        case 'lightTransparent':
-            return css`
-                color: ${COLORS.White};
+        &:hover {
+            color: ${COLORS.SunsetOrange};
+        }
+    `,
+    warning: css`
+        color: ${COLORS.SunsetOrange};
 
-                &:hover {
-                    background-color: ${COLORS.AshenWinter};
-                }
-            `;
+        &:hover {
+            color: ${COLORS.White};
+            background-color: ${COLORS.SunsetOrange};
+        }
+    `,
+    midDark: css`
+        color: ${COLORS.RegentGray};
 
-        case 'lightWarning':
-            return css`
-                color: ${COLORS.AstroGranite};
-                background-color: ${COLORS.White};
+        &:hover {
+            color: ${COLORS.AstroGranite};
+            background-color: ${COLORS.Plaster};
+        }
+    `,
+    secondary: css`
+        color: ${COLORS.AstroGranite};
+        background-color: ${COLORS.Plaster};
 
-                &:hover {
-                    color: ${COLORS.SunsetOrange};
-                }
-            `;
+        &:hover {
+            background-color: ${COLORS.Porcelain};
+        }
+    `,
+    secondaryDark: css`
+        color: ${COLORS.White};
+        background-color: ${COLORS.AshenWinter};
 
-        case 'midDark':
-            return css`
-                color: ${COLORS.RegentGray};
+        &:hover {
+            background-color: ${COLORS.IronHeart};
+        }
+    `,
+    primary: css`
+        color: ${COLORS.White};
+        background-color: ${COLORS.VimeoBlue};
 
-                &:hover {
-                    color: ${COLORS.AstroGranite};
-                    background-color: rgba(162, 175, 184, 0.16);
-                }
-            `;
+        &:hover {
+            background-color: ${COLORS.VimeoBlueDarkened};
+        }
+    `,
+    dark: css`
+        color: ${COLORS.AstroGranite};
 
-        case 'secondaryDark':
-            return css`
-                color: ${COLORS.White};
-                background-color: ${COLORS.AshenWinter};
-
-                &:hover {
-                    background-color: ${COLORS.IronHeart};
-                }
-            `;
-
-        case 'primary':
-            return css`
-                color: ${COLORS.White};
-                background-color: ${COLORS.VimeoBlue};
-
-                &:hover {
-                    background-color: ${COLORS.VimeoBlueDarkened};
-                }
-            `;
-
-        case 'warning':
-            return css`
-                color: ${COLORS.SunsetOrange};
-
-                &:hover {
-                    color: ${COLORS.White};
-                    background-color: ${COLORS.SunsetOrange};
-                }
-            `;
-
-        default:
-            // default is the 'dark' format
-            return css`
-                color: ${COLORS.AstroGranite};
-
-                &:hover {
-                    background-color: rgba(162, 175, 184, 0.16);
-                }
-            `;
-    }
+        &:hover {
+            background-color: ${COLORS.Plaster};
+        }
+    `,
 };
+
+export const DEFAULT_BUTTON_FORMAT = 'dark';
+
+const getFormatCSS = ({ format = DEFAULT_BUTTON_FORMAT }) =>
+    BUTTON_FORMATS[format];
 
 const ButtonIconOnlySharedCSS = css`
     display: inline-flex;

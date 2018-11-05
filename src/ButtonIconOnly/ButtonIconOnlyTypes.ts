@@ -1,16 +1,11 @@
 import React from 'react';
+import { BUTTON_FORMATS } from './ButtonIconOnlyStyled';
+
+export type ButtonIconOnlyFormats = keyof typeof BUTTON_FORMATS;
 
 export interface ButtonIconOnlyStyledProps {
     autoSpacingHorizontal?: boolean;
-    format?:
-        | 'alternative'
-        | 'dark'
-        | 'lightTransparent'
-        | 'lightWarning'
-        | 'midDark'
-        | 'primary'
-        | 'transparent'
-        | 'warning';
+    format?: ButtonIconOnlyFormats;
     size?: 'sm' | 'md';
 }
 

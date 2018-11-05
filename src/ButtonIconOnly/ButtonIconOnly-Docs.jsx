@@ -51,6 +51,13 @@ const ButtonIconOnlyDocs = props => {
                     size="md"
                     onClick={clickHandler}
                 />
+
+                <ButtonIconOnly
+                    icon={<DeleteIcon />}
+                    format="secondary"
+                    size="md"
+                    onClick={clickHandler}
+                />
             </div>
             <ParagraphMd>
                 For buttons on image backgrounds we use the light formats. The{' '}
@@ -146,6 +153,32 @@ const ButtonIconOnlyDocs = props => {
 
                 <ButtonIconOnly
                     icon={<SettingsIcon title="Settings" />}
+                    format="secondary"
+                    size="sm"
+                    onClick={clickHandler}
+                />
+
+                <ButtonIconOnly
+                    icon={<DownloadIcon title="Download" />}
+                    format="secondary"
+                    size="sm"
+                    onClick={clickHandler}
+                />
+                <ButtonIconOnly
+                    icon={<SettingsIcon title="Settings" />}
+                    format="secondary"
+                    size="md"
+                    onClick={clickHandler}
+                />
+                <ButtonIconOnly
+                    icon={<DownloadIcon title="Download" />}
+                    format="secondary"
+                    size="md"
+                    onClick={clickHandler}
+                />
+
+                <ButtonIconOnly
+                    icon={<SettingsIcon title="Settings" />}
                     format="secondaryDark"
                     size="sm"
                     onClick={clickHandler}
@@ -232,7 +265,13 @@ const ButtonIconOnlyDocs = props => {
     size="md"
     onClick={clickHandler}
 />
-
+ //Secondary
+ <ButtonIconOnly
+    icon={<DeleteIcon title="Delete"/>}
+    format="secondary"
+    size="sm"
+    onClick={clickHandler}
+/>
 // secondaryDark
 <ButtonIconOnly
     icon={<DownloadIcon title="Download" />}
@@ -240,7 +279,6 @@ const ButtonIconOnlyDocs = props => {
     size="md"
     onClick={clickHandler}
 />
-
  //Warning
  <ButtonIconOnly
     icon={<DeleteIcon title="Delete"/>}
@@ -255,7 +293,6 @@ const ButtonIconOnlyDocs = props => {
     size="sm"
     onClick={clickHandler}
 />
-
 // LightTransparent
 <ButtonIconOnly
     icon={<DownloadIcon title="Download" />}
