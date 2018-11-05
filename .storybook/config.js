@@ -14,10 +14,14 @@ import {
 import {
     injectGlobal
 } from 'styled-components';
-import { withViewport } from '@storybook/addon-viewport';
-import { withKnobs } from '@storybook/addon-knobs';
+import {
+    withViewport
+} from '@storybook/addon-viewport';
+import {
+    withKnobs
+} from '@storybook/addon-knobs';
 
-injectGlobal`
+injectGlobal `
     html {
         box-sizing: border-box;
         padding: 2rem;
@@ -28,10 +32,14 @@ injectGlobal`
         box-sizing: inherit
     }
 
-    blockquote, dl, dd, h1, h2, h3, h4, h5, h6, figure, p, pre {
+    blockquote, dl, dd, h1, h2, h3, h4, h5, h6, figure, p, pre, ul, li {
         margin: 0;
+        padding: 0;
     }
-
+    
+    a {
+        text-decoration: none;
+    }
 `;
 
 addDecorator(withInfo);

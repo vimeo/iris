@@ -1,12 +1,11 @@
 import React, { SFC } from 'react';
-import VerticalMenuItem from '../VerticalMenuItem/VerticalMenuItem';
 import styled from 'styled-components';
 import { rem } from 'polished';
 
 interface Props {
     labeledById: string;
     onClick?: () => void;
-    subMenuItems: VerticalMenuItem[];
+    subMenuItems: JSX.Element[];
 }
 
 const VerticalMenuNestedSubMenu: SFC<Props> = ({

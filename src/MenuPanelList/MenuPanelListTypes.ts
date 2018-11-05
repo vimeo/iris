@@ -20,5 +20,5 @@ export interface MenuPanelListProps {
     /**
      * Color Scheme
      */
-    theme: 'dark' | 'light';
+    theme?: 'dark' | 'light';
 }

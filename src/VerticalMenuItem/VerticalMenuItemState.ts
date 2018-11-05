@@ -2,6 +2,8 @@ import { VerticalMenuItemState as State } from './VerticalMenuItemTypes';
 
 export const nestedMenuOpen = (prevState: State) => ({
     showNestedInteraction: prevState.nestedMenuOpen,
+    nestedMenuOpen: prevState.nestedMenuOpen,
+    subMenuOpen: prevState.subMenuOpen,
 });
 
 export const showNestedInteraction = () => ({

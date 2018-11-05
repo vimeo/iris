@@ -55,10 +55,6 @@ export { default as Toastification } from './Toastification';
 
 export { default as TooltipAnnotationIcon } from './TooltipAnnotationIcon';
 
-export { default as VerticalMenuContextualMenuPanel } from './VerticalMenuContextualMenuPanel';
-
-export { default as VerticalMenuNested } from './VerticalMenuNested';
-
 
 /* TypeScript Components */
 
@@ -398,6 +394,8 @@ export { default as TypeVariableElement } from './Type/TypeVariableElement';
 
 export { default as VerticalMenuActionButton } from './VerticalMenuActionButton/VerticalMenuActionButton';
 
+export { default as VerticalMenuContextualMenuPanel } from './VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel';
+
 export { default as VerticalMenuHeaderGroup } from './VerticalMenuHeaderGroup/VerticalMenuHeaderGroup';
 
 export { default as VerticalMenuHeaderGroupStyled } from './VerticalMenuHeaderGroup/VerticalMenuHeaderGroupStyled';
@@ -415,6 +413,12 @@ export { default as VerticalMenuItemContent } from './VerticalMenuItemContent/Ve
 export { default as VerticalMenuItemContentStyled } from './VerticalMenuItemContent/VerticalMenuItemContentStyled';
 
 export { default as VerticalMenuItemContentTypes } from './VerticalMenuItemContent/VerticalMenuItemContentTypes';
+
+export { default as VerticalMenuNested } from './VerticalMenuNested/VerticalMenuNested';
+
+export { default as VerticalMenuNestedStyled } from './VerticalMenuNested/VerticalMenuNestedStyled';
+
+export { default as VerticalMenuNestedTypes } from './VerticalMenuNested/VerticalMenuNestedTypes';
 
 export { default as VerticalMenuNestedSubMenu } from './VerticalMenuNestedSubMenu/VerticalMenuNestedSubMenu';
 

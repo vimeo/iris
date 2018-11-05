@@ -6,7 +6,7 @@ import Grid from '../../../src/Grid';
 import GridBlock from '../../../src/GridBlock';
 import GridCol from '../../../src/GridCol';
 import { VerticalMenuHeaderGroup } from '../../../src/VerticalMenuHeaderGroup';
-import VerticalMenuNested from '../../../src/VerticalMenuNested/VerticalMenuNested';
+import { VerticalMenuNested } from '../../../src/VerticalMenuNested';
 import { VerticalMenuItem } from '../../../src/VerticalMenuItem';
 import { VerticalMenuItemContent } from '../../../src/VerticalMenuItemContent';
 import { VerticalMenuActionButton } from '../../../src/VerticalMenuActionButton';
