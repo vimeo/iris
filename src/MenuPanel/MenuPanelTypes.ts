@@ -33,6 +33,7 @@ export interface MenuPanelProps {
      * Callback when the menu opens
      */
     onOpen?: () => void;
+    onClick?: () => void;
     /**
      * Used to add a class to the panel element
      */
@@ -57,6 +58,14 @@ export interface MenuPanelProps {
      * Manually set zIndex of the component
      */
     zIndexOverride?: number;
+}
+
+export interface MenuPanelDefaultProps {
+    alignment: 'left' | 'right' | 'center';
+    href: string;
+    theme: 'light' | 'dark';
+    size: 'sm' | 'md' | 'lg';
+    shouldRefocusTriggerOnClose: boolean;
 }
 
 export interface MenuPanelState {

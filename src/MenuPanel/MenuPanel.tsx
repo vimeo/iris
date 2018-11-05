@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { Component, HTMLProps } from 'react';
 import { findDOMNode } from 'react-dom';
 import { KEY_CODES } from '../globals/js/constants';
 import { Transition } from 'react-transition-group';
-import { MenuPanelProps, MenuPanelState } from './MenuPanelTypes';
+import {
+    MenuPanelProps as Props,
+    MenuPanelState as State,
+    MenuPanelDefaultProps as DefaultProps,
+} from './MenuPanelTypes';
 import {
     MenuPanelStyled,
     menuPanelTransitionStyles,
@@ -14,26 +18,27 @@ import { Omit } from '../globals/js/type-helpers';
 
 export const menuSpeed = 100;
 
-class MenuPanel extends React.Component {
-    static defaultProps = {
-        alignment: 'center',
-        href: '#',
-        format: 'light',
-        size: 'md',
-        shouldRefocusTriggerOnClose: true,
-    };
+const defaultProps: DefaultProps = {
+    alignment: 'center',
+    href: '#',
+    theme: 'light',
+    size: 'md',
+    shouldRefocusTriggerOnClose: true,
+};
 
-    state: MenuPanelState;
+class MenuPanel extends Component<
+    Props & Omit<HTMLProps<HTMLAnchorElement>, 'size'>,
+    State
+> {
+    firstFocusableElement: HTMLElement;
+    lastFocusableElement: HTMLElement;
+    menu: HTMLElement;
+    menuId: string;
+    menuTriggerEl: HTMLElement;
+    tether: any;
 
-    constructor(
-        props: MenuPanelProps &
-            Omit<React.HTMLProps<HTMLAnchorElement>, 'size'>,
-    ) {
-        super(props);
-        this.state = {
-            isShowing: props.isShowing,
-        };
-    }
+    static defaultProps = defaultProps;
+    public state = { isShowing: this.props.isShowing };
 
     componentDidMount() {
         if (this.state.isShowing) {
@@ -41,7 +46,7 @@ class MenuPanel extends React.Component {
         }
     }
 
-    componentWillReceiveProps(nextProps: MenuPanelProps) {
+    componentWillReceiveProps(nextProps: Props) {
         if (nextProps.isShowing !== this.props.isShowing) {
             this.setState({
                 isShowing: nextProps.isShowing,
@@ -49,7 +54,7 @@ class MenuPanel extends React.Component {
         }
     }
 
-    componentDidUpdate(_, prevState: MenuPanelState) {
+    componentDidUpdate(_, prevState: State) {
         if (!prevState.isShowing && this.state.isShowing) {
             this._openMenu();
         } else if (prevState.isShowing && !this.state.isShowing) {
@@ -60,14 +65,6 @@ class MenuPanel extends React.Component {
     componentWillUnmount() {
         this._unBindEvents();
     }
-
-    props: MenuPanelProps & Omit<React.HTMLProps<HTMLAnchorElement>, 'size'>;
-    firstFocusableElement: HTMLElement;
-    lastFocusableElement: HTMLElement;
-    menu: HTMLElement;
-    menuId: string;
-    menuTriggerEl: HTMLElement;
-    tether: any;
 
     _handleClick = (event: React.MouseEvent<any>) => {
         this._toggleClick();
@@ -319,5 +316,4 @@ class MenuPanel extends React.Component {
         );
     }
 }
-
 export default MenuPanel;
