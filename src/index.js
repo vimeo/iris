@@ -57,13 +57,9 @@ export { default as TooltipAnnotationIcon } from './TooltipAnnotationIcon';
 
 export { default as VerticalMenuContextualMenuPanel } from './VerticalMenuContextualMenuPanel';
 
-export { default as VerticalMenuHeaderGroup } from './VerticalMenuHeaderGroup';
-
 export { default as VerticalMenuItem } from './VerticalMenuItem';
 
 export { default as VerticalMenuNested } from './VerticalMenuNested';
-
-export { default as VerticalMenuNestedSubMenu } from './VerticalMenuNestedSubMenu';
 
 
 /* TypeScript Components */
@@ -404,11 +400,17 @@ export { default as TypeVariableElement } from './Type/TypeVariableElement';
 
 export { default as VerticalMenuActionButton } from './VerticalMenuActionButton/VerticalMenuActionButton';
 
+export { default as VerticalMenuHeaderGroup } from './VerticalMenuHeaderGroup/VerticalMenuHeaderGroup';
+
+export { default as VerticalMenuHeaderGroupStyled } from './VerticalMenuHeaderGroup/VerticalMenuHeaderGroupStyled';
+
 export { default as VerticalMenuItemContent } from './VerticalMenuItemContent/VerticalMenuItemContent';
 
 export { default as VerticalMenuItemContentStyled } from './VerticalMenuItemContent/VerticalMenuItemContentStyled';
 
 export { default as VerticalMenuItemContentTypes } from './VerticalMenuItemContent/VerticalMenuItemContentTypes';
+
+export { default as VerticalMenuNestedSubMenu } from './VerticalMenuNestedSubMenu/VerticalMenuNestedSubMenu';
 
 export { default as VerticalMenuToggleButton } from './VerticalMenuToggleButton/VerticalMenuToggleButton';
 

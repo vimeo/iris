@@ -1,0 +1,36 @@
+import React, { SFC } from 'react';
+import VerticalMenuItem from '../VerticalMenuItem/VerticalMenuItem';
+import styled from 'styled-components';
+import { rem } from 'polished';
+
+interface Props {
+    labeledById: string;
+    onClick?: () => void;
+    subMenuItems: VerticalMenuItem[];
+}
+
+const VerticalMenuNestedSubMenu: SFC<Props> = ({
+    labeledById,
+    onClick,
+    subMenuItems,
+    ...filteredProps
+}) => (
+    <ListStyled {...filteredProps} aria-labelledby={labeledById}>
+        {subMenuItems.map((_, i) => (
+            <ListItemStyled onClick={onClick} key={`submenu${i}`}>
+                {subMenuItems[i]}
+            </ListItemStyled>
+        ))}
+    </ListStyled>
+);
+const ListStyled = styled.ul`
+    width: 100%;
+    margin-bottom: ${rem(4)};
+`;
+const ListItemStyled = styled.li`
+    margin: ${rem(4)} 0 0 0;
+    padding: 0 0 0 ${rem(20)};
+    list-style-type: none;
+`;
+
+export default VerticalMenuNestedSubMenu;
