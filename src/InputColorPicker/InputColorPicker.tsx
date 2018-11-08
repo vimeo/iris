@@ -375,7 +375,7 @@ class InputColorPicker extends React.Component<
 
         return (
             <ComponentWrapperStyled
-                innerRef={div => {
+                ref={div => {
                     this.InputWrapper = div;
                 }}
             >

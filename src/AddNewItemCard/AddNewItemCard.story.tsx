@@ -51,9 +51,5 @@ storiesOf('AddNewItemCard', module).add(
             inline: true,
             propTables: [AddNewItemCard],
         },
-        options: {
-            name: 'Iris',
-            url: '#',
-        },
     },
 );

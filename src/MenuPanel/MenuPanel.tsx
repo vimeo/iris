@@ -280,7 +280,7 @@ class MenuPanel extends Component<
                         onFocus={this._bindTriggerTab}
                         onBlur={this._unbindTriggerTab}
                         onClick={this._handleClick}
-                        innerRef={menuTriggerEl => {
+                        ref={menuTriggerEl => {
                             this.menuTriggerEl = menuTriggerEl;
                         }}
                     >
@@ -297,7 +297,7 @@ class MenuPanel extends Component<
                             <MenuPanelStyled
                                 className={panelClassName}
                                 isShowing={this.state.isShowing}
-                                innerRef={menu => {
+                                ref={menu => {
                                     this.menu = menu;
                                 }}
                                 size={size}

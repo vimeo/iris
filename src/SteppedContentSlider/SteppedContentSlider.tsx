@@ -558,7 +558,7 @@ class SteppedContentSlider extends React.Component {
                         onSwipingRight={this._onSwipingRight}
                     >
                         <ViewContainerStyled
-                            innerRef={div => {
+                            ref={div => {
                                 this.viewContainer = div;
                             }}
                             slideIsBiggerThanViewport={

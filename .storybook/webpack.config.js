@@ -9,32 +9,30 @@ module.exports = (baseConfig, env, config) => {
     config.module.rules.push({
         test: /\.(ts|tsx)$/,
         use: [{
-                loader: 'awesome-typescript-loader',
-                options: {
-                    getCustomTransformers: () => ({
-                        before: [styledComponentsTransformer]
-                    })
-                }
-            },
-            {
-                loader: 'react-docgen-typescript-loader'
+            loader: 'ts-loader',
+            options: {
+                getCustomTransformers: () => ({
+                    before: [styledComponentsTransformer]
+                })
             }
-        ]
+        }, {
+            loader: 'react-docgen-typescript-loader'
+        }],
     }, {
         test: /\.svg$/,
         use: [{
             loader: '@svgr/webpack',
             options: {
                 svgoConfig: {
-                    plugins: [
-                        { cleanupIDs: { 
+                    plugins: [{
+                        cleanupIDs: {
                             minify: false
-                        } },
-                    ],
+                        }
+                    }, ],
                 }
             },
         }],
-    }   , {
+    }, {
         test: /\.s(c|a)ss$/,
         include: path.resolve(__dirname, '../src'),
         exclude: /node_modules/,

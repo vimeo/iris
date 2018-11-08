@@ -7,11 +7,41 @@ import ShareIcon from '../icons/paper-plane.svg';
 import HeartIcon from '../icons/heart.svg';
 import DownloadIcon from '../icons/download-arrow.svg';
 
+import { text, select } from '@storybook/addon-knobs';
+
 const ButtonCropped = styled(Button)`
     max-width: 150px;
 `;
 
+const buttonFormats = {
+    primary: 'primary',
+    primaryDark: 'primaryDark',
+    primaryOutline: 'primaryOutline',
+    primaryTextOnly: 'primaryTextOnly',
+    secondary: 'secondary',
+    secondaryDark: 'secondaryDark',
+    secondaryOutline: 'secondaryOutline',
+    secondaryTextOnly: 'secondaryTextOnly',
+    alternative: 'alternative',
+    alternativeOutline: 'alternativeOutline',
+    darkSecondary: 'darkSecondary',
+    success: 'success',
+    successOutline: 'successOutline',
+    warning: 'warning',
+    warningOutline: 'warningOutline',
+    warningTextOnly: 'warningTextOnly',
+    lightTransparent: 'lightTransparent',
+    lightTextOnly: 'lightTextOnly',
+};
+
 storiesOf('Button', module)
+    .add('playground', () => (
+        <div>
+            <Button format={select('format', buttonFormats, 'primary')}>
+                {text('text', 'Play with me!')}
+            </Button>
+        </div>
+    ))
     .add(
         'basic buttons',
         () => (

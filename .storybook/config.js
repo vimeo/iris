@@ -12,16 +12,19 @@ import {
     withOptions
 } from '@storybook/addon-options';
 import {
-    injectGlobal
-} from 'styled-components';
-import {
     withViewport
 } from '@storybook/addon-viewport';
 import {
     withKnobs
 } from '@storybook/addon-knobs';
 
-injectGlobal `
+import {
+    createGlobalStyle
+} from "styled-components";
+
+import React from 'react';
+
+const GlobalStyles = createGlobalStyle`
     html {
         box-sizing: border-box;
         padding: 2rem;
@@ -36,20 +39,27 @@ injectGlobal `
         margin: 0;
         padding: 0;
     }
-    
+
     a {
         text-decoration: none;
     }
 `;
 
+const withGlobalStyles = (storyFn) => (
+    <>
+        <GlobalStyles />
+        {storyFn()}
+    </>
+);
+
 addDecorator(withInfo);
 addDecorator(withNotes);
 addDecorator(withKnobs);
 addDecorator(withViewport);
+addDecorator(withGlobalStyles);
 addDecorator(
     withOptions({
         name: 'Iris',
-        showAddonPanel: false,
         url: '#',
     })
 );
