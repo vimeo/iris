@@ -44,6 +44,45 @@ storiesOf('AddNewItemCard', module).add(
                     />
                 </GridCol>
             </GridBlock>
+            <GridBlock>
+                <GridCol mdSpan={12} lgSpan={6}>
+                    <AddNewItemCard
+                        fluid
+                        text="Add New Item"
+                        anchorProps={{ href: '#' }}
+                    />
+                </GridCol>
+                <GridCol mdSpan={12} lgSpan={6}>
+                    <div
+                        style={{
+                            border: '1px solid black',
+                            padding: '5rem 1rem',
+                        }}
+                    >
+                        <h3>Lorem, ipsum.</h3>
+                    </div>
+                </GridCol>
+                <GridCol mdSpan={12} lgSpan={6}>
+                    <div
+                        style={{
+                            border: '1px solid black',
+                            padding: '5rem 1rem',
+                        }}
+                    >
+                        <h3>Lorem, ipsum.</h3>
+                    </div>
+                </GridCol>
+                <GridCol mdSpan={12} lgSpan={6}>
+                    <div
+                        style={{
+                            border: '1px solid black',
+                            padding: '5rem 1rem',
+                        }}
+                    >
+                        <h3>Lorem, ipsum.</h3>
+                    </div>
+                </GridCol>
+            </GridBlock>
         </Grid>
     ),
     {
