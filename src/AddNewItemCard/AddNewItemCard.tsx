@@ -7,9 +7,10 @@ import { FocusOutline } from './AddNewItemCardFocusStyled';
 
 const AddNewItemCard: SFC<Props & HTMLProps<HTMLDivElement>> = ({
     anchorProps,
+    fluid,
     text,
 }) => (
-    <Wrapper>
+    <Wrapper fluid={fluid}>
         <Card>
             <Anchor {...anchorProps}>
                 <span>

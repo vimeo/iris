@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { rgba, rem } from 'polished';
 import COLORS from '../globals/js/constants/COLORS';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ fluid: boolean }>`
     cursor: pointer;
     position: relative;
-    padding-bottom: 100%;
+    padding-bottom: ${props => (props.fluid ? '0' : '100%')};
     margin-bottom: ${rem(20)};
-    min-height: ${rem(200)}; // a reasonable fallback minimum height for the cta
+    min-height: ${props => (props.fluid ? '100%' : rem(200))};
     border: 1px dashed rgba(179, 191, 200, 0.4);
     border-radius: ${rem(4)};
     background-color: ${COLORS.Paste};
