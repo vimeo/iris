@@ -15,8 +15,6 @@
 
 export { default as ButtonFileUpload } from './ButtonFileUpload';
 
-export { default as ButtonFileUploadIconOnly } from './ButtonFileUploadIconOnly';
-
 export { default as ButtonFileUploadWrapper } from './ButtonFileUploadWrapper';
 
 export { default as ButtonToggleState } from './ButtonToggleState';
@@ -52,8 +50,6 @@ export { default as TabNavigationHorizontalItem } from './TabNavigationHorizonta
 export { default as TextArea } from './TextArea';
 
 export { default as Toastification } from './Toastification';
-
-export { default as TooltipAnnotationIcon } from './TooltipAnnotationIcon';
 
 
 /* TypeScript Components */
@@ -111,6 +107,8 @@ export { default as ButtonVariableElement } from './Button/ButtonVariableElement
 export { default as ButtonDialogClose } from './ButtonDialogClose/ButtonDialogClose';
 
 export { default as ButtonDialogCloseTypes } from './ButtonDialogClose/ButtonDialogCloseTypes';
+
+export { default as ButtonFileUploadIconOnly } from './ButtonFileUploadIconOnly/ButtonFileUploadIconOnly';
 
 export { default as ButtonIconOnly } from './ButtonIconOnly/ButtonIconOnly';
 
@@ -345,6 +343,10 @@ export { default as SteppedContentSlider } from './SteppedContentSlider/SteppedC
 export { default as Tag } from './Tag/Tag';
 
 export { default as Tooltip } from './Tooltip/Tooltip';
+
+export { default as TooltipAnnotationIcon } from './TooltipAnnotationIcon/TooltipAnnotationIcon';
+
+export { default as TooltipAnnotationIconStyled } from './TooltipAnnotationIcon/TooltipAnnotationIconStyled';
 
 export { default as TooltipOverlay } from './TooltipOverlay/TooltipOverlay';
 
