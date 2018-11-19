@@ -15,8 +15,6 @@
 
 export { default as ButtonFileUpload } from './ButtonFileUpload';
 
-export { default as ButtonFileUploadWrapper } from './ButtonFileUploadWrapper';
-
 export { default as ButtonToggleState } from './ButtonToggleState';
 
 export { default as FocusBloop } from './FocusBloop';
@@ -30,8 +28,6 @@ export { default as InputMessage } from './InputMessage';
 export { default as InputMessageArea } from './InputMessageArea';
 
 export { default as InputTextFloatingLabel } from './InputTextFloatingLabel';
-
-export { default as InputToggle } from './InputToggle';
 
 export { default as InputWrapperInline } from './InputWrapperInline';
 
@@ -108,7 +104,13 @@ export { default as ButtonDialogClose } from './ButtonDialogClose/ButtonDialogCl
 
 export { default as ButtonDialogCloseTypes } from './ButtonDialogClose/ButtonDialogCloseTypes';
 
+export { default as ButtonFileIploadIconOnlyFocusOutline } from './ButtonFileUploadIconOnly/ButtonFileIploadIconOnlyFocusOutline';
+
 export { default as ButtonFileUploadIconOnly } from './ButtonFileUploadIconOnly/ButtonFileUploadIconOnly';
+
+export { default as ButtonFileUploadIconOnlyStyled } from './ButtonFileUploadIconOnly/ButtonFileUploadIconOnlyStyled';
+
+export { default as ButtonFileUploadWrapper } from './ButtonFileUploadWrapper/ButtonFileUploadWrapper';
 
 export { default as ButtonIconOnly } from './ButtonIconOnly/ButtonIconOnly';
 
@@ -257,6 +259,10 @@ export { default as SliderLabel } from './InputSlider/SliderLabel';
 export { default as InputHelpers } from './InputText/InputHelpers';
 
 export { default as InputText } from './InputText/InputText';
+
+export { default as InputToggle } from './InputToggle/InputToggle';
+
+export { default as InputToggleStyled } from './InputToggle/InputToggleStyled';
 
 export { default as InputWrapper } from './InputWrapper/InputWrapper';
 
