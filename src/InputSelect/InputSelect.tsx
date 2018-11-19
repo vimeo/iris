@@ -6,8 +6,6 @@ import { getInputBaseStyles, InputProps } from '../InputText/InputHelpers';
 import SelectWrapper, {
     ArrowIconWrapperWidth,
 } from '../SelectWrapper/SelectWrapper';
-//@ts-ignore
-import ChevronIris from '../icons/chevron-down.svg';
 
 export interface InputSelectProps
     extends InputProps,
@@ -25,8 +23,7 @@ interface StyledSelectProps extends React.HTMLProps<HTMLSelectElement> {
 }
 
 const StyledSelect = styled<StyledSelectProps, 'select'>('select')`
-    ${getInputBaseStyles} -webkit-appearance: none;
-    -moz-appearance: none;
+    ${getInputBaseStyles};
     appearance: none;
 
     ${props =>
