@@ -15,8 +15,6 @@
 
 export { default as ButtonFileUpload } from './ButtonFileUpload';
 
-export { default as ButtonToggleState } from './ButtonToggleState';
-
 export { default as FocusBloop } from './FocusBloop';
 
 export { default as InputLabelInline } from './InputLabelInline';
@@ -42,8 +40,6 @@ export { default as TabContentPanel } from './TabContentPanel';
 export { default as TabNavigationHorizontal } from './TabNavigationHorizontal';
 
 export { default as TabNavigationHorizontalItem } from './TabNavigationHorizontalItem';
-
-export { default as TextArea } from './TextArea';
 
 export { default as Toastification } from './Toastification';
 
@@ -133,6 +129,8 @@ export { default as ButtonLoadingStateStyled } from './ButtonLoadingState/Button
 export { default as ButtonLoadingStateTypes } from './ButtonLoadingState/ButtonLoadingStateTypes';
 
 export { default as ButtonSplitMenu } from './ButtonSplitMenu/ButtonSplitMenu';
+
+export { default as ButtonToggleState } from './ButtonToggleState/ButtonToggleState';
 
 export { default as Card } from './Card/Card';
 
@@ -262,6 +260,8 @@ export { default as InputText } from './InputText/InputText';
 
 export { default as InputToggle } from './InputToggle/InputToggle';
 
+export { default as InputToggleFocus } from './InputToggle/InputToggleFocus';
+
 export { default as InputToggleStyled } from './InputToggle/InputToggleStyled';
 
 export { default as InputWrapper } from './InputWrapper/InputWrapper';
@@ -347,6 +347,8 @@ export { default as SelectWrapper } from './SelectWrapper/SelectWrapper';
 export { default as SteppedContentSlider } from './SteppedContentSlider/SteppedContentSlider';
 
 export { default as Tag } from './Tag/Tag';
+
+export { default as TextArea } from './TextArea/TextArea';
 
 export { default as Tooltip } from './Tooltip/Tooltip';
 
