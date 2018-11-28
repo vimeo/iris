@@ -5,7 +5,7 @@ import {
     InfoIconStyled,
     ToastStyled,
     Wrapper,
-} from './Toastification.styled';
+} from './ToastificationStyled';
 
 interface Props {
     actionLabel?: string;

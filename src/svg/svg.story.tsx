@@ -88,14 +88,16 @@ const IconWrapper = styled.div`
 `;
 
 const Icon: SFC<{ size: number; name: string }> = ({ size, name }) =>
-    React.createElement(
-        styled(Icons[name])`
-            width: ${size}rem;
-            height: ${size}rem;
-            display: block;
-            margin: ${size * 1.5}rem auto;
-        `,
-    );
+    Icons[name]
+        ? React.createElement(
+              styled(Icons[name])`
+                  width: ${size}rem;
+                  height: ${size}rem;
+                  display: block;
+                  margin: ${size * 1.5}rem auto;
+              `,
+          )
+        : null;
 
 const IllustrationWrapper = styled.div`
     ${Card};
@@ -105,14 +107,14 @@ const IllustrationWrapper = styled.div`
     })};
 `;
 
-const Illustration: SFC<any> = ({ name }) => {
-    console.log(name, Illustrations[name]);
-    return React.createElement(
-        styled(Illustrations[name])`
-            width: 20rem;
-            height: 20rem;
-            display: block;
-            margin: 3rem auto;
-        `,
-    );
-};
+const Illustration: SFC<any> = ({ name }) =>
+    Illustrations[name]
+        ? React.createElement(
+              styled(Illustrations[name])`
+                  width: 20rem;
+                  height: 20rem;
+                  display: block;
+                  margin: 3rem auto;
+              `,
+          )
+        : null;

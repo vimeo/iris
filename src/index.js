@@ -15,10 +15,6 @@
 
 export { default as ButtonFileUpload } from './ButtonFileUpload';
 
-export { default as FocusBloop } from './FocusBloop';
-
-export { default as Toastification } from './Toastification';
-
 
 /* TypeScript Components */
 
@@ -355,6 +351,10 @@ export { default as TabNavigationHorizontalItem } from './TabNavigationHorizonta
 export { default as Tag } from './Tag/Tag';
 
 export { default as TextArea } from './TextArea/TextArea';
+
+export { default as Toastification } from './Toastification/Toastification';
+
+export { default as ToastificationStyled } from './Toastification/ToastificationStyled';
 
 export { default as Tooltip } from './Tooltip/Tooltip';
 
