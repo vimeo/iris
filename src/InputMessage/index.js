@@ -1,3 +1,1 @@
-import InputMessage from './InputMessage';
-
-export default InputMessage;
+export {default as InputMessage } from './InputMessage';

@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import { CopyFieldProps, CopyButtonProps } from './CopyFieldTypes';
 import ClipboardIcon from '../icons/clipboard.svg';
 import withCopyAbility from '../withCopyAbility/withCopyAbility';
-import InputText from '../InputText/InputText';
+import { InputText } from '../InputText/';
 import ButtonInlineInputText from '../ButtonInlineInputText/ButtonInlineInputText';
 
 const CopyButton = withCopyAbility<CopyButtonProps>(ButtonInlineInputText);

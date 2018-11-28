@@ -35,31 +35,24 @@ const InputLabel: SFC<
     InputLabelProps &
         HTMLProps<HTMLLabelElement> &
         HTMLProps<HTMLHeadingElement>
-> = props => {
-    // filter out props that are not meant to be passed in as an attribute from props and store the rest as "filteredProps" to be printed into the component as attrubutes in the tag (e.g. HTML attribute pass-through, event handlers)
-    const {
-        children,
-        disabled,
-        element = 'label',
-        format = 'neutral',
-        theme = 'light',
-        ref: _,
-        ...filteredProps
-    } = props;
-
-    // support deprecated 'default' theme as 'light'
-    const themeDefaultSupport = theme === 'default' ? 'light' : theme;
-
-    const Icon = <InputLabelStateIcon format={format} />;
-
-    return (
-        <Header6 element={element} {...filteredProps}>
-            <LabelStyled disabled={disabled} labelTheme={themeDefaultSupport}>
-                {children}
-                {format !== 'neutral' ? Icon : null}
-            </LabelStyled>
-        </Header6>
-    );
-};
+> = ({
+    children,
+    disabled,
+    element = 'label',
+    format = 'neutral',
+    theme = 'light',
+    ref: _,
+    ...props
+}) => (
+    <Header6 element={element} {...props}>
+        <LabelStyled
+            disabled={disabled}
+            labelTheme={theme === 'default' ? 'light' : theme}
+        >
+            {children}
+            {format !== 'neutral' && <InputLabelStateIcon format={format} />}
+        </LabelStyled>
+    </Header6>
+);
 
 export default InputLabel;

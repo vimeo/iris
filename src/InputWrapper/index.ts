@@ -1,3 +1,1 @@
-import InputWrapper from './InputWrapper';
-
-export default InputWrapper;
+export { default as InputWrapper } from './InputWrapper';

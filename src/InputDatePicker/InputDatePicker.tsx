@@ -10,7 +10,7 @@ import {
     DatePickerWrapperStyled,
 } from './InputDatePickerStyled';
 import DateTime from 'react-datetime';
-import InputText from '../InputText/InputText';
+import { InputText } from '../InputText/';
 import { InputTextProps } from '../InputText/InputText';
 import MenuPanel from '../MenuPanel/MenuPanel';
 import KEY_CODES from '../globals/js/constants/KEY_CODES';

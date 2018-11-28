@@ -1,3 +1,1 @@
-import InputSlider from './InputSlider';
-
-export default InputSlider;
+export { default as InputSlider } from './InputSlider';

@@ -22,10 +22,8 @@ export const Wrapper = styled.div<{ fluid: boolean }>`
         background: white;
         border: 1px dashed rgba(179, 191, 200, 0);
         transform: scale(0.9975);
-        box-shadow: 0 7px 14px -5px rgba(0, 0, 0, 0.15),
-            0 0 6px -1px rgba(0, 0, 0, 0.2);
-
-        p {
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 10px -8px,
+            rgba(0, 0, 0, 0.3) 0px 0px 4px -1px p {
             color: ${rgba(COLORS.VimeoBlue, 0.6)};
         }
         svg path {
@@ -35,8 +33,8 @@ export const Wrapper = styled.div<{ fluid: boolean }>`
 
     &:hover:not(:active) {
         transform: scale(1);
-        box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.15),
-            0 0 9px -1px rgba(0, 0, 0, 0.3);
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 10px -8px,
+            rgba(0, 0, 0, 0.3) 0px 0px 4px -1px;
     }
 `;
 

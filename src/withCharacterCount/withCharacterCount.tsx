@@ -9,7 +9,9 @@ interface Props {
     characterSingularString: string;
     characterPluralString: string;
     format?: 'negative' | 'positive' | 'neutral';
-    onInput?: (e: Event | FormEvent<HTMLInputElement>) => void;
+    onInput?: (
+        e: Event | FormEvent<HTMLInputElement> | FormEvent<HTMLTextAreaElement>,
+    ) => void;
     onError?: () => void;
     onResolve?: () => void;
     warningThreshold?: number;
@@ -49,7 +51,12 @@ const CounterStyled = styled<CounterStyledProps, any>(
 const withCharacterCounter = <P extends {}>(
     WrappedComponent: ComponentType<
         P & {
-            onInput?: (e: Event | FormEvent<HTMLInputElement>) => void;
+            onInput?: (
+                e:
+                    | Event
+                    | FormEvent<HTMLInputElement>
+                    | FormEvent<HTMLTextAreaElement>,
+            ) => void;
             format?: 'negative' | 'positive' | 'neutral';
             preMessage: ReactNode;
         }

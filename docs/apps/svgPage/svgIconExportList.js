@@ -67,6 +67,8 @@ export DotsMenu from '../../../src/icons/dots-menu.svg';
 
 export DownloadArrow from '../../../src/icons/download-arrow.svg';
 
+export Enterprise from '../../../src/icons/enterprise.svg';
+
 export EyeOff from '../../../src/icons/eye-off.svg';
 
 export Eye from '../../../src/icons/eye.svg';
@@ -144,6 +146,8 @@ export Plus from '../../../src/icons/plus.svg';
 export PopIn from '../../../src/icons/pop-in.svg';
 
 export PopOut from '../../../src/icons/pop-out.svg';
+
+export Publish from '../../../src/icons/publish.svg';
 
 export Replay from '../../../src/icons/replay.svg';
 
