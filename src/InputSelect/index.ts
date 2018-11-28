@@ -1,3 +1,1 @@
-import InputSelect from './InputSelect';
-
-export default InputSelect;
+export { default as InputSelect } from './InputSelect';

@@ -38,7 +38,6 @@ export interface InputStyledProps {
 }
 
 export const InputStyleSettings = {
-    animationSpeed: 300,
     border: {
         borderRadius: 3,
         borderSize: 1,
@@ -203,7 +202,7 @@ export const getInputBaseStyles = ({
     border-radius: ${rem(styles.border.borderRadius)};
     box-shadow: inset 0 0 0 0 #ffffff;
 
-    transition: all ${styles.animationSpeed}ms ease-out;
+    transition: 300ms ease-out;
 
     &:hover {
         border-color: ${color(theme).border[format].hover};

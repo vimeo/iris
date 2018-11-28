@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { ParagraphMd } from '../Type';
 import MenuPanelScrollableWithActionArea from './MenuPanelScrollableWithActionArea';
-import InputText from '../InputText';
+import { InputText } from '../InputText';
 import ButtonIconOnly from '../ButtonIconOnly';
 import MenuPanel from '../MenuPanel/MenuPanel';
 import SettingsIcon from '../icons/gear.svg';

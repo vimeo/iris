@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import withCharacterCount from './withCharacterCount';
-import { TextArea } from '../TextArea';
-import InputText from '../InputText';
-import { ParagraphMd } from '../Type';
+import { TextArea } from '../TextArea/';
+import { InputText } from '../InputText/';
 import styled from 'styled-components';
+import { ParagraphMd } from '../Type';
 
 storiesOf('withCharacterCount', module).add(
     'default',

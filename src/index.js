@@ -21,10 +21,6 @@ export { default as InputLabelInline } from './InputLabelInline';
 
 export { default as InputLabelStateIcon } from './InputLabelStateIcon';
 
-export { default as InputMessage } from './InputMessage';
-
-export { default as InputMessageArea } from './InputMessageArea';
-
 export { default as InputTextFloatingLabel } from './InputTextFloatingLabel';
 
 export { default as InputWrapperInline } from './InputWrapperInline';
@@ -234,6 +230,10 @@ export { default as InputDatePickerTypes } from './InputDatePicker/InputDatePick
 
 export { default as InputLabel } from './InputLabel/InputLabel';
 
+export { default as InputMessage } from './InputMessage/InputMessage';
+
+export { default as InputMessageArea } from './InputMessageArea/InputMessageArea';
+
 export { default as InputRadio } from './InputRadio/InputRadio';
 
 export { default as InputRadioFocusBloop } from './InputRadio/InputRadioFocusBloop';
@@ -265,6 +265,10 @@ export { default as InputToggleFocus } from './InputToggle/InputToggleFocus';
 export { default as InputToggleStyled } from './InputToggle/InputToggleStyled';
 
 export { default as InputWrapper } from './InputWrapper/InputWrapper';
+
+export { default as InputWrapperStyled } from './InputWrapper/InputWrapperStyled';
+
+export { default as InputWrapperInline } from './InputWrapperInline/InputWrapperInline';
 
 export { default as LinkText } from './LinkText/LinkText';
 
