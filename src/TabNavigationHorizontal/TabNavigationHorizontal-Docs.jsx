@@ -70,7 +70,7 @@ class TabNavigationHorizontalDocs extends React.Component {
                 <ParagraphMd>TabNavigationHorizontal provides a set of navigation elements for tabbed interfaces</ParagraphMd>
                 <div data-code>
                     <TabNavigationHorizontal
-                        activeTabIndex={1}
+                        index={1}
                         panels={panels}
                     />
                 </div>
@@ -80,7 +80,7 @@ class TabNavigationHorizontalDocs extends React.Component {
 
 // see below for the shape of the panels prop.
 <TabNavigationHorizontal
-    activeTabIndex={1}
+    index={1}
     panels={panels}
 />
                         `}
@@ -120,7 +120,7 @@ const panels = [
                 <Header3>Implementation Notes</Header3>
                 <List>
                     <ListItem>Additional props passed to the TabNavigationHorizontal component will be spread to the containing div.</ListItem>
-                    <ListItem>The <code>activeTabIndex</code> prop is a <strong>zero-index</strong> indication of which tab you want to be open (in order of the tab's presence in the <code>panels</code> prop).</ListItem>
+                    <ListItem>The <code>index</code> prop is a <strong>zero-index</strong> indication of which tab you want to be open (in order of the tab's presence in the <code>panels</code> prop).</ListItem>
                 </List>
                 <NotificationNeutral
                     headerText="Margins and Height Animation"
