@@ -17,26 +17,6 @@ export { default as ButtonFileUpload } from './ButtonFileUpload';
 
 export { default as FocusBloop } from './FocusBloop';
 
-export { default as InputLabelInline } from './InputLabelInline';
-
-export { default as InputLabelStateIcon } from './InputLabelStateIcon';
-
-export { default as InputTextFloatingLabel } from './InputTextFloatingLabel';
-
-export { default as InputWrapperInline } from './InputWrapperInline';
-
-export { default as MenuPanelScrollableWithActionArea } from './MenuPanelScrollableWithActionArea';
-
-export { default as OverflowTruncationWrapper } from './OverflowTruncationWrapper';
-
-export { default as SlideUpDown } from './SlideUpDown';
-
-export { default as TabContentPanel } from './TabContentPanel';
-
-export { default as TabNavigationHorizontal } from './TabNavigationHorizontal';
-
-export { default as TabNavigationHorizontalItem } from './TabNavigationHorizontalItem';
-
 export { default as Toastification } from './Toastification';
 
 
@@ -230,6 +210,10 @@ export { default as InputDatePickerTypes } from './InputDatePicker/InputDatePick
 
 export { default as InputLabel } from './InputLabel/InputLabel';
 
+export { default as InputLabelInline } from './InputLabelInline/InputLabelInline';
+
+export { default as InputLabelStateIcon } from './InputLabelStateIcon/InputLabelStateIcon';
+
 export { default as InputMessage } from './InputMessage/InputMessage';
 
 export { default as InputMessageArea } from './InputMessageArea/InputMessageArea';
@@ -257,6 +241,12 @@ export { default as SliderLabel } from './InputSlider/SliderLabel';
 export { default as InputHelpers } from './InputText/InputHelpers';
 
 export { default as InputText } from './InputText/InputText';
+
+export { default as InputTextFloatingLabel } from './InputTextFloatingLabel/InputTextFloatingLabel';
+
+export { default as InputTextFloatingLabelStyled } from './InputTextFloatingLabel/InputTextFloatingLabelStyled';
+
+export { default as InputTextFloatingLabelTypes } from './InputTextFloatingLabel/InputTextFloatingLabelTypes';
 
 export { default as InputToggle } from './InputToggle/InputToggle';
 
@@ -304,6 +294,8 @@ export { default as MenuPanelListItemStyled } from './MenuPanelListItem/MenuPane
 
 export { default as MenuPanelListItemTypes } from './MenuPanelListItem/MenuPanelListItemTypes';
 
+export { default as MenuPanelScrollableWithActionArea } from './MenuPanelScrollableWithActionArea/MenuPanelScrollableWithActionArea';
+
 export { default as Modal } from './Modal/Modal';
 
 export { default as ModalFeatureUpdate } from './ModalFeatureUpdate/ModalFeatureUpdate';
@@ -323,6 +315,8 @@ export { default as NotificationNeutral } from './NotificationNeutral/Notificati
 export { default as NotificationSuccess } from './NotificationSuccess/NotificationSuccess';
 
 export { default as NotificationWarning } from './NotificationWarning/NotificationWarning';
+
+export { default as OverflowTruncationWrapper } from './OverflowTruncationWrapper/OverflowTruncationWrapper';
 
 export { default as ProgressBar } from './ProgressBar/ProgressBar';
 
@@ -348,7 +342,15 @@ export { default as SegmentedButtonSetTypes } from './SegmentedButtonSet/Segment
 
 export { default as SelectWrapper } from './SelectWrapper/SelectWrapper';
 
+export { default as SlideUpDown } from './SlideUpDown/SlideUpDown';
+
 export { default as SteppedContentSlider } from './SteppedContentSlider/SteppedContentSlider';
+
+export { default as TabContentPanel } from './TabContentPanel/TabContentPanel';
+
+export { default as TabNavigationHorizontal } from './TabNavigationHorizontal/TabNavigationHorizontal';
+
+export { default as TabNavigationHorizontalItem } from './TabNavigationHorizontalItem/TabNavigationHorizontalItem';
 
 export { default as Tag } from './Tag/Tag';
 

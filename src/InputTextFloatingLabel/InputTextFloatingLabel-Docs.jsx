@@ -6,8 +6,15 @@ class InputTextFloatingLabelDocs extends React.Component {
     render() {
         return (
             <div className="Pattern__docs">
-                <ParagraphMd>The Floating Label input is an alternative way of showing an input/label pairing where the label appears within the field and the placeholder text is only revealed on focus.</ParagraphMd>
-                <ParagraphMd>All props not listed in the API will pass to the underlying input field</ParagraphMd>
+                <ParagraphMd>
+                    The Floating Label input is an alternative way of showing an
+                    input/label pairing where the label appears within the field
+                    and the placeholder text is only revealed on focus.
+                </ParagraphMd>
+                <ParagraphMd>
+                    All props not listed in the API will pass to the underlying
+                    input field
+                </ParagraphMd>
                 <div data-code>
                     <InputTextFloatingLabel
                         name="floatingLabel1"
@@ -40,7 +47,11 @@ class InputTextFloatingLabelDocs extends React.Component {
                         disabled
                     />
                     <Header3>Password Field</Header3>
-                    <ParagraphMd>If the floating label field has the <code>type="password"</code> prop the field will get a password visibility toggle.</ParagraphMd>
+                    <ParagraphMd>
+                        If the floating label field has the{' '}
+                        <code>type="password"</code> prop the field will get a
+                        password visibility toggle.
+                    </ParagraphMd>
                     <div style={{ width: '50%' }}>
                         <InputTextFloatingLabel
                             name="floatingLabelPassword"
@@ -94,37 +105,37 @@ class InputTextFloatingLabelDocs extends React.Component {
     required
 />
                         `}
-                    </ExampleSource>
-                    <Header3>Dark Theme</Header3>
-                    <div className="Pattern-DarkBlock">
-                        <InputTextFloatingLabel
-                            name="floatingLabel1Dark"
-                            id="floatingLabel1Dark"
-                            label="Floating Label Input (dark)"
-                            placeholder="Placeholder Text"
-                            theme="dark"
-                        />
-                        <InputTextFloatingLabel
-                            name="floatingLabel2Dark"
-                            id="floatingLabel2Dark"
-                            label="Floating Label Input (dark + errored)"
-                            placeholder="Placeholder Text"
-                            format="negative"
-                            errorMsg="This is an error"
-                            defaultValue="Incorrect Entry"
-                            theme="dark"
-                        />
-                        <InputTextFloatingLabel
-                            name="floatingLabel3Dark"
-                            id="floatingLabel3Dark"
-                            label="Floating Label Input (dark + positive)"
-                            placeholder="Placeholder Text"
-                            format="positive"
-                            defaultValue="Corrected Entry"
-                            theme="dark"
-                        />
-                    </div>
-                    <ExampleSource>
+                </ExampleSource>
+                <Header3>Dark Theme</Header3>
+                <div className="Pattern-DarkBlock">
+                    <InputTextFloatingLabel
+                        name="floatingLabel1Dark"
+                        id="floatingLabel1Dark"
+                        label="Floating Label Input (dark)"
+                        placeholder="Placeholder Text"
+                        theme="dark"
+                    />
+                    <InputTextFloatingLabel
+                        name="floatingLabel2Dark"
+                        id="floatingLabel2Dark"
+                        label="Floating Label Input (dark + errored)"
+                        placeholder="Placeholder Text"
+                        format="negative"
+                        errorMsg="This is an error"
+                        defaultValue="Incorrect Entry"
+                        theme="dark"
+                    />
+                    <InputTextFloatingLabel
+                        name="floatingLabel3Dark"
+                        id="floatingLabel3Dark"
+                        label="Floating Label Input (dark + positive)"
+                        placeholder="Placeholder Text"
+                        format="positive"
+                        defaultValue="Corrected Entry"
+                        theme="dark"
+                    />
+                </div>
+                <ExampleSource>
                     {`
 <InputTextFloatingLabel
     name="floatingLabel1Dark"
@@ -153,8 +164,8 @@ class InputTextFloatingLabelDocs extends React.Component {
     theme="dark"
 />
                         `}
-                    </ExampleSource>
-                </div>
+                </ExampleSource>
+            </div>
         );
     }
 }

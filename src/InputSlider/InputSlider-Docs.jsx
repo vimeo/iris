@@ -29,7 +29,10 @@ class InputSliderDocs extends React.Component {
                     Range Slider helps in selecting two values as start and end
                     values from a given range.
                 </ParagraphMd>
-                <div className="Pattern-DarkBlock" style={{ background: '#1f1f1f' }}>
+                <div
+                    className="Pattern-DarkBlock"
+                    style={{ background: '#1f1f1f' }}
+                >
                     <div data-code>
                         <InputSlider />
                     </div>
@@ -40,7 +43,10 @@ class InputSliderDocs extends React.Component {
     <InputSlider/>
                     `}
                 </ExampleSource>
-                <div className="Pattern-DarkBlock" style={{ background: '#1f1f1f' }}>
+                <div
+                    className="Pattern-DarkBlock"
+                    style={{ background: '#1f1f1f' }}
+                >
                     <div data-code>
                         <InputSlider
                             minValue={60}
@@ -54,20 +60,32 @@ class InputSliderDocs extends React.Component {
                 <ParagraphMd>
                     Slider can be disabled on passing disabled props as true
                 </ParagraphMd>
-                <div className="Pattern-DarkBlock" style={{ background: '#1f1f1f' }}>
+                <div
+                    className="Pattern-DarkBlock"
+                    style={{ background: '#1f1f1f' }}
+                >
                     <div data-code>
-                        <InputSlider disabled={true} />
+                        <InputSlider disabled />
                     </div>
                 </div>
 
                 <ExampleSource>
                     {`
-    <InputSlider disabled={true}/>
+    <InputSlider disabled/>
                     `}
                 </ExampleSource>
-                <div className="Pattern-DarkBlock" style={{ background: '#1f1f1f' }}>
+                <div
+                    className="Pattern-DarkBlock"
+                    style={{ background: '#1f1f1f' }}
+                >
                     <div data-code>
-                    <InputSlider minValue={60} maxValue={200} initialMinValue={130} initialMaxValue={195} gap={10} />
+                        <InputSlider
+                            minValue={60}
+                            maxValue={200}
+                            initialMinValue={130}
+                            initialMaxValue={195}
+                            gap={10}
+                        />
                     </div>
                 </div>
                 <ExampleSource>
@@ -81,7 +99,10 @@ class InputSliderDocs extends React.Component {
                     <code>valueFormatter</code> in case values displayed needs
                     to be formatted.
                 </ParagraphMd>
-                <div className="Pattern-DarkBlock" style={{ background: '#1f1f1f' }}>
+                <div
+                    className="Pattern-DarkBlock"
+                    style={{ background: '#1f1f1f' }}
+                >
                     <div data-code>
                         <InputSlider
                             minValue={this.minValue}
@@ -107,7 +128,10 @@ class InputSliderDocs extends React.Component {
                     Passing <code>editableLabel</code> as true, allows editing
                     the labels
                 </ParagraphMd>
-                <div className="Pattern-DarkBlock" style={{ background: '#1f1f1f' }}>
+                <div
+                    className="Pattern-DarkBlock"
+                    style={{ background: '#1f1f1f' }}
+                >
                     <div data-code>
                         <InputSlider
                             minValue={0}
@@ -115,13 +139,13 @@ class InputSliderDocs extends React.Component {
                             initialMinValue={15}
                             initialMaxValue={175}
                             gap={10}
-                            editableLabel={true}
+                            editableLabel
                         />
                     </div>
                 </div>
                 <ExampleSource>
                     {`
- <InputSlider minValue={0} maxValue={200} initialMinValue={15} initialMaxValue={175} gap={10} editableLabel={true} />
+ <InputSlider minValue={0} maxValue={200} initialMinValue={15} initialMaxValue={175} gap={10} editableLabel />
                     `}
                 </ExampleSource>
                 <ParagraphMd>
@@ -165,12 +189,12 @@ class InputSliderDocs extends React.Component {
                         initialMinValue={55}
                         initialMaxValue={175}
                         gap={10}
-                        editableLabel={true}
+                        editableLabel
                     />
                 </div>
                 <ExampleSource>
                     {`
- <InputSlider format="light" minValue={0} maxValue={200} initialMinValue={15} initialMaxValue={175} gap={10} editableLabel={true} />
+ <InputSlider format="light" minValue={0} maxValue={200} initialMinValue={15} initialMaxValue={175} gap={10} editableLabel />
                     `}
                 </ExampleSource>
             </div>

@@ -1,9 +1,6 @@
-// @ts-ignore
-import React from 'react';
-// @ts-ignore
-import styled, { StyledComponentClass } from 'styled-components';
+import styled from 'styled-components';
 import { rem } from 'polished';
-import InputLabelInline from '../InputLabelInline/InputLabelInline';
+import { InputLabelInline } from '../InputLabelInline';
 import COLORS from '../globals/js/constants/COLORS';
 import {
     InputCheckboxProps,
@@ -23,9 +20,7 @@ export const InputCheckboxWrapperStyled = styled.div`
     padding-left: ${rem(32)};
  `;
 
-export const OverlayStyled = styled<InputCheckboxOverlayStyledProps, 'span'>(
-    'span',
-)`
+export const OverlayStyled = styled.span<InputCheckboxOverlayStyledProps>`
     ${sharedInlineInputElementReplaceStyles};
     border-radius: ${rem(2)};
 
@@ -106,10 +101,9 @@ export const InputCheckboxStyled = styled<any, 'input'>('input')`
     }
 `;
 
-export const InputCheckboxLabelStyled = styled<
-    InputCheckboxProps,
-    InputLabelInline
->(InputLabelInline)`
+export const InputCheckboxLabelStyled = styled<InputCheckboxProps, any>(
+    InputLabelInline,
+)`
     min-height: 1.125rem;
 
     &:hover {

@@ -27,21 +27,12 @@ import {
     Header5,
 } from '../index';
 import ExampleSource from '../../docs/layout/ExampleSource';
-import VideoCardFooterAttributionAPI from '../../data/tsdocsHTML/interfaces/_videocard_videocardfooterattribution_.videocardfooterattributionprops.html';
-import VideoCardThumbnailDataAPI from '../../data/tsdocsHTML/interfaces/_videocard_videocard_.videocardthumbnaildata.html';
-import VideoContextInfoAreaAPI from '../../data/tsdocsHTML/interfaces/_videocard_videocontextinfoarea_.videocardcontextinfoareaprops.html';
 import SPicon from '../illustrations/staff-picks-badge-just-sp.svg';
 import FBChip from '../icons/third-party/social-chip-facebook.svg';
 import YTChip from '../icons/third-party/social-chip-youtube.svg';
 import SendIcon from '../icons/paper-plane.svg';
 import GearIcon from '../icons/gear.svg';
 import DotsMenuIcon from '../icons/dots-menu.svg';
-
-const getApiHtml = htmlData => {
-    return {
-        __html: htmlData,
-    };
-};
 
 const testClick = e => {
     console.log('clicked', e);
@@ -133,15 +124,17 @@ const contextCard = (
     <VideoContextInfoArea
         contextAttributionHeader={
             <TruncatedTextWrapper>
-                <ParagraphAltMd element="span" noMargin>Added to </ParagraphAltMd>
+                <ParagraphAltMd element="span" noMargin>
+                    Added to{' '}
+                </ParagraphAltMd>
                 <Header6 noMargin element="span">
-                <LinkText
-                    href="https://vimeo.com/channels/staffpicks"
-                    target="_blank"
-                    decoration="inherit"
-                >
-                    Vimeo Staff Picks
-                </LinkText>
+                    <LinkText
+                        href="https://vimeo.com/channels/staffpicks"
+                        target="_blank"
+                        decoration="inherit"
+                    >
+                        Vimeo Staff Picks
+                    </LinkText>
                 </Header6>
             </TruncatedTextWrapper>
         }
@@ -153,13 +146,18 @@ const contextCardWithIcon = (
         contextSubHeaderIcon={<VideoCardLikeIcon />}
         contextAttributionHeader={
             <TruncatedTextWrapper>
-                <ParagraphAltMd element="span" noMargin>Liked by </ParagraphAltMd>
+                <ParagraphAltMd element="span" noMargin>
+                    Liked by{' '}
+                </ParagraphAltMd>
                 <Header6 noMargin element="span">
                     <LinkText
                         href="https://vimeo.com/channels/staffpicks"
                         target="_blank"
                         decoration="inherit"
-                    >Wes Anderson With A Longer Name</LinkText></Header6>
+                    >
+                        Wes Anderson With A Longer Name
+                    </LinkText>
+                </Header6>
             </TruncatedTextWrapper>
         }
     />
@@ -167,7 +165,7 @@ const contextCardWithIcon = (
 
 const exampleAttribution = (
     <VideoCardFooterAttribution
-        userAvatar={(
+        userAvatar={
             <a href="#">
                 <Avatar
                     alt="Killian Vilim"
@@ -176,9 +174,13 @@ const exampleAttribution = (
                     size="xs"
                 />
             </a>
-        )}
+        }
         userBadge={<Badge format="pro">pro</Badge>}
-        userName={<LinkText decoration="inherit" href="#">Killian Vilim</LinkText>}
+        userName={
+            <LinkText decoration="inherit" href="#">
+                Killian Vilim
+            </LinkText>
+        }
     />
 );
 
@@ -187,14 +189,14 @@ const exampleAttributionLongName = (
         attributionActionArea={attributionAction}
         actionMenuDescription="See additional actions"
         actionMenuContent={<ParagraphMd>User Menu Here</ParagraphMd>}
-        userAvatar={(
+        userAvatar={
             <Avatar
                 alt="John Jacob Jingleheimer Schmidt"
                 src="https://i.vimeocdn.com/portrait/23898613_75x75.jpg"
                 srcSet="https://i.vimeocdn.com/portrait/23898613_150x150.jpg 2x"
                 size="xs"
             />
-        )}
+        }
         userBadge={<Badge format="plus">plus</Badge>}
         userName="John Jacob Jingleheimer Schmidt"
     />
@@ -216,7 +218,6 @@ const singleThumbnail2 = [
             'https://i.vimeocdn.com/video/698008491_780x439.jpg 2x',
     },
 ];
-
 
 const albumThumbnails = [
     {
@@ -263,26 +264,22 @@ const videoProperties = [
 
 const smallMenuList = (
     <MenuPanelList
-    menuItems = {[
-        {
-            label: 'Item 1',
-            href: '#',
-        },
-        {
-            label: 'Item 2',
-            href: '#',
-            'data-foo': 'bar',
-        },
-    ]}
+        menuItems={[
+            {
+                label: 'Item 1',
+                href: '#',
+            },
+            {
+                label: 'Item 2',
+                href: '#',
+                'data-foo': 'bar',
+            },
+        ]}
     />
 );
 
 const smallMenu = (
-    <MenuPanel
-        alignment="right"
-        menuContent={smallMenuList}
-        size="sm"
-    >
+    <MenuPanel alignment="right" menuContent={smallMenuList} size="sm">
         <ButtonIconOnly
             icon={<DotsMenuIcon />}
             format="midDark"
@@ -451,10 +448,7 @@ class VideoCardDocs extends React.Component {
                                 />
                             </GridCol>
                             <GridCol mdSpan={12} lgSpan={8}>
-                                <VideoCard
-                                    isLoading
-                                    title="Loading"
-                                />
+                                <VideoCard isLoading title="Loading" />
                             </GridCol>
                             <GridCol mdSpan={12} lgSpan={8}>
                                 <VideoCard
@@ -812,9 +806,23 @@ import {
                     `}
                 </ExampleSource>
                 <Header3>Using VideoContextInfoArea</Header3>
-                <ParagraphMd> We use the <code>VideoContextInfoArea</code> component to add context for the inclusion of a video card in a set.</ParagraphMd>
-                <ParagraphMd>Because of the need for text order flexibility for internationalization, the content of the <code>contextAttributionHeader</code> prop requires some manual formatting.</ParagraphMd>
-                <ParagraphMd>The entire content should be wrapped in a <code>TruncatedTextWrapper</code> component. Then the content itself should be wrapped in Iris type components as below.</ParagraphMd>
+                <ParagraphMd>
+                    {' '}
+                    We use the <code>VideoContextInfoArea</code> component to
+                    add context for the inclusion of a video card in a set.
+                </ParagraphMd>
+                <ParagraphMd>
+                    Because of the need for text order flexibility for
+                    internationalization, the content of the{' '}
+                    <code>contextAttributionHeader</code> prop requires some
+                    manual formatting.
+                </ParagraphMd>
+                <ParagraphMd>
+                    The entire content should be wrapped in a{' '}
+                    <code>TruncatedTextWrapper</code> component. Then the
+                    content itself should be wrapped in Iris type components as
+                    below.
+                </ParagraphMd>
                 <ExampleSource>
                     {`
 <VideoContextInfoArea
@@ -1110,11 +1118,6 @@ const videoProperties = [
                     to show thumnails. Single Video cards should take one object
                     in the Array, Group Video Cards can take up to 3.
                 </ParagraphMd>
-                <div
-                    dangerouslySetInnerHTML={getApiHtml(
-                        VideoCardThumbnailDataAPI
-                    )}
-                />
 
                 <Header4>VideoContextInfoArea Component</Header4>
                 <ParagraphMd>
@@ -1122,11 +1125,6 @@ const videoProperties = [
                     <code>contextInfoArea</code> to explain the context for a
                     card's inclusion in a set.
                 </ParagraphMd>
-                <div
-                    dangerouslySetInnerHTML={getApiHtml(
-                        VideoContextInfoAreaAPI
-                    )}
-                />
 
                 <Header4>VideoCardFooterActionsGrid Component</Header4>
                 <ParagraphMd>
@@ -1141,11 +1139,6 @@ const videoProperties = [
                     an action menu.
                 </ParagraphMd>
                 <Header5>VideoCardFooterAttribution Props</Header5>
-                <div
-                    dangerouslySetInnerHTML={getApiHtml(
-                        VideoCardFooterAttributionAPI
-                    )}
-                />
 
                 <Header4>VideoCardLiveBadge Component</Header4>
                 <ParagraphMd>

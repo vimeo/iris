@@ -8,13 +8,7 @@ import {
     ParagraphMd,
 } from '../index';
 import ModalFeatureUpdateTemplate from './ModalFeatureUpdateTemplate';
-import TemplateAPI from '../../data/tsdocsHTML/interfaces/_modalfeatureupdate_modalfeatureupdatetemplate_.modalfeatureupdatetemplateprops.html';
 
-const getApiHtml = htmlData => {
-    return {
-        __html: htmlData,
-    };
-};
 class ModalFeatureUpdateDocs extends React.Component {
     constructor() {
         super();
@@ -89,8 +83,9 @@ class ModalFeatureUpdateDocs extends React.Component {
                             >
                                 {' '}
                                 brevity is the soul of wit
-                            </LinkText>, And tediousness the limbs and outward
-                            flourishes, I will be brief. Your noble son is mad.
+                            </LinkText>
+                            , And tediousness the limbs and outward flourishes,
+                            I will be brief. Your noble son is mad.
                         </ModalFeatureUpdateTemplate>
                     </ModalFeatureUpdate>
                 </div>
@@ -152,7 +147,6 @@ class ModalFeatureUpdateDocs extends React.Component {
                     The most common layout for the ModalFeatureUpdate is the
                     ModalFeatureUpdateTemplate.
                 </ParagraphMd>
-                <div dangerouslySetInnerHTML={getApiHtml(TemplateAPI)} />
             </div>
         );
     }

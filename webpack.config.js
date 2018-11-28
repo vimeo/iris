@@ -74,9 +74,9 @@ module.exports = {
                             plugins: [{
                                 cleanupIDs: {
                                     minify: false,
-                                }
+                                },
                             }],
-                        }
+                        },
                     },
                 }],
             },
@@ -86,9 +86,9 @@ module.exports = {
                     loader: 'ts-loader',
                     options: {
                         getCustomTransformers: () => ({
-                            before: [styledComponentsTransformer]
-                        })
-                    }
+                            before: [styledComponentsTransformer],
+                        }),
+                    },
                 }],
             },
             {
@@ -121,7 +121,7 @@ module.exports = {
 
     plugins: [
         new ExtractTextPlugin('css/modules.css', {
-            allChunks: true
+            allChunks: true,
         }),
         new CaseSensitivePathsPlugin(),
         new webpack.LoaderOptionsPlugin({
