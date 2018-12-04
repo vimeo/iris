@@ -9,12 +9,12 @@
         "yarn": ">=1"
     },
     "scripts": {
+        "dev": "tsc -w",
         "clean": "rm -rf dist",
+        "storybook": "start-storybook -p 9001 -c .storybook",
+        "format": "prettier --list-different \"src/**/*.{ts,tsx}\"",
         "svg": "cp -r ./src/icons ./dist/icons; cp -r ./src/illustrations ./dist/illustrations;",
         "build": "npm run clean; tsc; npm run svg; cp ./src/componentMap.json ./dist/componentMap.json",
-        "dev": "tsc -w",
-        "format": "prettier --list-different \"src/**/*.{ts,tsx}\"",
-        "storybook": "start-storybook -p 9001 -c .storybook",
         "build-storybook": "build-storybook -c .storybook -o build-styleguide"
     },
     "publishConfig": {
@@ -27,7 +27,7 @@
         "type": "git",
         "url": "https://github.vimeows.com/Vimeo/Iris"
     },
-    "author": "Jory Cunningham (jory@vimeo.com)",
+    "author": "Sean McIntyre (sean.mcintyre@vimeo.com)",
     "license": "ISC",
     "devDependencies": {
         "@babel/plugin-proposal-export-default-from": "^7.2.0",
