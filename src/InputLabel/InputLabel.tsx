@@ -16,12 +16,10 @@ export interface LabelStyledProps {
     labelTheme?: 'light' | 'dark';
 }
 
-const Label: SFC<LabelStyledProps & HTMLProps<HTMLSpanElement>> = ({
-    labelTheme: _,
-    ...props
-}) => <span {...props} />;
-
-const LabelStyled = styled(Label)`
+const LabelStyled = styled<
+    { disabled: boolean; labelTheme: 'default' | 'light' | 'dark' },
+    any
+>(({ disabled, labelTheme, ...props }) => <Header6 {...props} />)`
     display: inline-block;
     position: relative;
     color: ${props =>
@@ -44,15 +42,14 @@ const InputLabel: SFC<
     ref: _,
     ...props
 }) => (
-    <Header6 element={element} {...props}>
-        <LabelStyled
-            disabled={disabled}
-            labelTheme={theme === 'default' ? 'light' : theme}
-        >
-            {children}
-            {format !== 'neutral' && <InputLabelStateIcon format={format} />}
-        </LabelStyled>
-    </Header6>
+    <LabelStyled
+        disabled={disabled}
+        labelTheme={theme === 'default' ? 'light' : theme}
+        {...props}
+    >
+        {children}
+        {format !== 'neutral' && <InputLabelStateIcon format={format} />}
+    </LabelStyled>
 );
 
 export default InputLabel;

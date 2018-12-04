@@ -180,49 +180,56 @@ export const getInputBaseStyles = ({
     hasIcon,
     inputSize = 'md',
     inlineButton,
-}: InputStyledProps) => css`
-    appearance: none;
-    display: inline-block;
-    width: 100%;
-    background-color: ${color(theme).background.default};
-    color: ${color(theme).text.default};
-    height: ${rem(size(inputSize).height)};
-    padding: ${rem(size(inputSize).paddingVertical)};
-    padding-right: ${rem(inlineButtonPadding({ inlineButton, inputSize }))};
-    padding-left: ${rem(iconPadding({ hasIcon, inputSize }))};
-    margin: 0 0 ${isInline ? 0 : rem(styles.marginBottom)} 0;
-
-    font-family: ${VimeoStyleSettings.type.fontFamily.regular};
-    font-size: ${size(inputSize).fontSize};
-    line-height: ${size(inputSize).lineHeight / size(inputSize).fontSize};
-
-    border-color: ${color(theme).border[format].default};
-    border-width: ${rem(styles.border.borderSize)};
-    border-style: ${styles.border.borderStyle};
-    border-radius: ${rem(styles.border.borderRadius)};
-    box-shadow: inset 0 0 0 0 #ffffff;
-
-    transition: 300ms ease-out;
-
-    &:hover {
-        border-color: ${color(theme).border[format].hover};
+}: InputStyledProps) => {
+    // @ts-ignore
+    if (theme !== 'light' || theme !== 'dark') {
+        theme = 'light';
     }
 
-    &:focus {
-        box-shadow: ${getInputBorderBoxShadow(color(theme).border.focus)};
-        border-color: ${color(theme).border.focus};
-        outline: 0;
-    }
+    return css`
+        appearance: none;
+        display: inline-block;
+        width: 100%;
+        background-color: ${color(theme).background.default};
+        color: ${color(theme).text.default};
+        height: ${rem(size(inputSize).height)};
+        padding: ${rem(size(inputSize).paddingVertical)};
+        padding-right: ${rem(inlineButtonPadding({ inlineButton, inputSize }))};
+        padding-left: ${rem(iconPadding({ hasIcon, inputSize }))};
+        margin: 0 0 ${isInline ? 0 : rem(styles.marginBottom)} 0;
 
-    &::placeholder {
-        color: ${color(theme).text.placeholder};
-    }
+        font-family: ${VimeoStyleSettings.type.fontFamily.regular};
+        font-size: ${rem(size(inputSize).fontSize)};
+        line-height: ${size(inputSize).lineHeight / size(inputSize).fontSize};
 
-    &:disabled {
-        color: ${color(theme).text.disabled} !important;
-        background-color: ${color(theme).background.disabled} !important;
-        border-color: ${color(theme).border.disabled} !important;
-    }
-`;
+        border-color: ${color(theme).border[format].default};
+        border-width: ${rem(styles.border.borderSize)};
+        border-style: ${styles.border.borderStyle};
+        border-radius: ${rem(styles.border.borderRadius)};
+        box-shadow: inset 0 0 0 0 #ffffff;
+
+        transition: 300ms ease-out;
+
+        &:hover {
+            border-color: ${color(theme).border[format].hover};
+        }
+
+        &:focus {
+            box-shadow: ${getInputBorderBoxShadow(color(theme).border.focus)};
+            border-color: ${color(theme).border.focus};
+            outline: 0;
+        }
+
+        &::placeholder {
+            color: ${color(theme).text.placeholder};
+        }
+
+        &:disabled {
+            color: ${color(theme).text.disabled} !important;
+            background-color: ${color(theme).background.disabled} !important;
+            border-color: ${color(theme).border.disabled} !important;
+        }
+    `;
+};
 
 export const getInputBorderBoxShadow = color => `0 0 0 ${rem(1)} ${color}`;

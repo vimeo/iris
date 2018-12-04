@@ -2,25 +2,23 @@ import React from 'react';
 
 export const TypeVariableElement = ({
     element,
-    //@ts-ignore filter away from styled component
     fontStack,
-    //@ts-ignore filter away from styled component
     noMargin,
-    ...filteredProps
+    ...props
 }: any) => {
     const elementList = {
-        h1: <h1 {...filteredProps} />,
-        h2: <h2 {...filteredProps} />,
-        h3: <h3 {...filteredProps} />,
-        h4: <h4 {...filteredProps} />,
-        h5: <h5 {...filteredProps} />,
-        h6: <h6 {...filteredProps} />,
-        p: <p {...filteredProps} />,
-        li: <li {...filteredProps} />,
-        div: <div {...filteredProps} />,
-        span: <span {...filteredProps} />,
-        label: <label {...filteredProps} />,
-        legend: <legend {...filteredProps} />,
+        h1: <h1 {...props} />,
+        h2: <h2 {...props} />,
+        h3: <h3 {...props} />,
+        h4: <h4 {...props} />,
+        h5: <h5 {...props} />,
+        h6: <h6 {...props} />,
+        p: <p {...props} />,
+        li: <li {...props} />,
+        div: <div {...props} />,
+        span: <span {...props} />,
+        label: <label {...props} />,
+        legend: <legend {...props} />,
     };
 
     return elementList[element] || elementList.p;

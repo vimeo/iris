@@ -207,6 +207,7 @@ $Button_icon-size-xSmall: rem-calc(10);
 
     letter-spacing: 0.25px;
 }
+
 .secondaryTextOnly {
     color: $Button_secondary-text-color;
     border-color: $Button_transparent_for_animation;
@@ -366,6 +367,7 @@ $Button_icon-size-xSmall: rem-calc(10);
 .isDisabled,
 .isDisabled:hover {
     cursor: not-allowed;
+
     &:active {
         outline: 0;
 

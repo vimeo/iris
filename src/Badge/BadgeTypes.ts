@@ -24,6 +24,6 @@ export interface BadgeProps {
         | 'upgrade'
         | 'vod';
     href: string;
-    label: string;
+    label?: string;
     size?: 'sm' | 'lg';
 }

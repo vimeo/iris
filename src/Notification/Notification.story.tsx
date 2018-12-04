@@ -5,7 +5,7 @@ import NotificationSuccess from '../NotificationSuccess';
 import NotificationWarning from '../NotificationWarning';
 import { ParagraphMd } from '../Type';
 
-storiesOf('Notification', module)
+storiesOf('Notifications', module)
     .add(
         'neutral',
         () => (

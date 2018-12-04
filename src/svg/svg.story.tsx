@@ -1,15 +1,12 @@
 import React, { SFC } from 'react';
 import { storiesOf } from '@storybook/react';
-import * as Icons from '../../docs/apps/svgPage/svgIconExportList.js';
-import * as Illustrations from '../../docs/apps/svgPage/svgIllustrationExportList.js';
+import * as Icons from './iconList.js';
+import * as Illustrations from './illustrationList.js';
 import styled from 'styled-components';
-import { HeaderPlusUltra, Header2, Header4, Header5, Header6 } from '../Type';
+import { HeaderPlusUltra, Header2, Header4 } from '../Type';
 import COLORS from '../globals/js/constants/COLORS';
 import { css } from 'styled-components';
 import { select } from '@storybook/addon-knobs';
-
-const svgData = require('../../data/svgIconList');
-const illustrationData = require('../../data/svgIllustrationsList');
 
 storiesOf('SVG', module)
     .add('icons', () => {
@@ -25,13 +22,13 @@ storiesOf('SVG', module)
                 <HeaderPlusUltra id="icons">Icons</HeaderPlusUltra>
 
                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                    {svgData.map(({ name, filename }) => (
+                    {Object.keys(Icons).map(icon => (
                         <IconWrapper>
                             <Header4 style={{ marginBottom: '0.125rem' }}>
-                                {name}
+                                {icon}
                             </Header4>
-                            <Header6>{filename}.svg</Header6>
-                            <Icon size={size} name={name} />
+
+                            <Icon size={size} name={icon} />
                         </IconWrapper>
                     ))}
                 </div>
@@ -43,13 +40,13 @@ storiesOf('SVG', module)
             <HeaderPlusUltra id="illustrations">Illustrations</HeaderPlusUltra>
 
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {illustrationData.map(({ name, filename }) => (
+                {Object.keys(Illustrations).map(illustration => (
                     <IllustrationWrapper>
                         <Header2 style={{ marginBottom: '0.25rem' }}>
-                            {name}
+                            {illustration}
                         </Header2>
-                        <Header5>{filename}.svg</Header5>
-                        <Illustration name={name} />
+
+                        <Illustration name={illustration} />
                     </IllustrationWrapper>
                 ))}
             </div>
@@ -88,14 +85,16 @@ const IconWrapper = styled.div`
 `;
 
 const Icon: SFC<{ size: number; name: string }> = ({ size, name }) =>
-    React.createElement(
-        styled(Icons[name])`
-            width: ${size}rem;
-            height: ${size}rem;
-            display: block;
-            margin: ${size * 1.5}rem auto;
-        `,
-    );
+    Icons[name]
+        ? React.createElement(
+              styled(Icons[name])`
+                  width: ${size}rem;
+                  height: ${size}rem;
+                  display: block;
+                  margin: ${size * 1.5}rem auto;
+              `,
+          )
+        : null;
 
 const IllustrationWrapper = styled.div`
     ${Card};
@@ -105,14 +104,14 @@ const IllustrationWrapper = styled.div`
     })};
 `;
 
-const Illustration: SFC<any> = ({ name }) => {
-    console.log(name, Illustrations[name]);
-    return React.createElement(
-        styled(Illustrations[name])`
-            width: 20rem;
-            height: 20rem;
-            display: block;
-            margin: 3rem auto;
-        `,
-    );
-};
+const Illustration: SFC<any> = ({ name }) =>
+    Illustrations[name]
+        ? React.createElement(
+              styled(Illustrations[name])`
+                  width: 20rem;
+                  height: 20rem;
+                  display: block;
+                  margin: 3rem auto;
+              `,
+          )
+        : null;

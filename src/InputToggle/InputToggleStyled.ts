@@ -1,4 +1,4 @@
-import InputLabelInline from '../InputLabelInline';
+import { InputLabelInline } from '../InputLabelInline';
 import { rem } from 'polished';
 import styled from 'styled-components';
 import { css } from 'styled-components';

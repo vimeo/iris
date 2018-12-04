@@ -1,6 +1,6 @@
 import React, { HTMLProps, SFC } from 'react';
 import { Omit } from '../globals/js/type-helpers';
-import InputLabelInline from '../InputLabelInline/InputLabelInline';
+import { InputLabelInline } from '../InputLabelInline';
 import { InputRadioProps } from './InputRadioTypes';
 import {
     InputRadioWrapperStyled,

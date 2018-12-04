@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { Omit } from '../globals/js/type-helpers';
@@ -63,10 +63,9 @@ interface ArrowWrapperStyledProps {
     theme: 'default' | 'light' | 'dark';
 }
 
-const ArrowWrapperStyled = styled<ArrowWrapperStyledProps, 'div'>('div')`
+const ArrowWrapperStyled = styled.div<ArrowWrapperStyledProps>`
     display: none;
-    @supports (-webkit-appearance: none) or (-moz-appearance: none) or
-        (appearance: none) {
+    @supports (appearance: none) {
         display: flex;
         position: absolute;
         top: 50%;
@@ -93,7 +92,7 @@ const ArrowWrapperStyled = styled<ArrowWrapperStyledProps, 'div'>('div')`
     }
 `;
 
-const SelectWrapper = ({
+const SelectWrapper: SFC<SelectWrapperProps> = ({
     children,
     disabled,
     errorMsg,
@@ -107,35 +106,33 @@ const SelectWrapper = ({
     size = 'md',
     theme = 'default',
     ref: _,
-    ...filteredProps
-}: SelectWrapperProps) => {
-    return (
-        <InputWrapper
-            {...filteredProps}
-            showLabel={showLabel}
-            disabled={disabled}
-            errorMsg={errorMsg}
-            format={format}
-            helperMsg={helperMsg}
-            label={label}
-            labelForId={id}
-            isInline={isInline}
-            size={size}
-            theme={theme}
-        >
-            <WrapperStyled>
-                {icon && <IconWrapperStyled>{icon}</IconWrapperStyled>}
-                {children}
-                <ArrowWrapperStyled
-                    format={format}
-                    disabled={disabled}
-                    theme={theme}
-                >
-                    <ChevronIris />
-                </ArrowWrapperStyled>
-            </WrapperStyled>
-        </InputWrapper>
-    );
-};
+    ...props
+}) => (
+    <InputWrapper
+        {...props}
+        showLabel={showLabel}
+        disabled={disabled}
+        errorMsg={errorMsg}
+        format={format}
+        helperMsg={helperMsg}
+        label={label}
+        labelForId={id}
+        isInline={isInline}
+        size={size}
+        theme={theme}
+    >
+        <WrapperStyled>
+            {icon && <IconWrapperStyled>{icon}</IconWrapperStyled>}
+            {children}
+            <ArrowWrapperStyled
+                format={format}
+                disabled={disabled}
+                theme={theme}
+            >
+                <ChevronIris />
+            </ArrowWrapperStyled>
+        </WrapperStyled>
+    </InputWrapper>
+);
 
 export default SelectWrapper;
