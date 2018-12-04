@@ -1474,9 +1474,9 @@
   integrity sha512-gJJX9Jjdt3bIAePQRRjYWG20dIhAgEqonguyHxXuqALxsoDsDLimihqrSg8fXgVTJ4KZCzkfglKtwsh/8dLfbA==
 
 "@types/lodash@^4.14.116", "@types/lodash@^4.14.118":
-  version "4.14.118"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.118.tgz#247bab39bfcc6d910d4927c6e06cbc70ec376f27"
-  integrity sha512-iiJbKLZbhSa6FYRip/9ZDX6HXhayXLDGY2Fqws9cOkEQ6XeKfaxB0sC541mowZJueYyMnVUmmG+al5/4fCDrgw==
+  version "4.14.119"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.119.tgz#be847e5f4bc3e35e46d041c394ead8b603ad8b39"
+  integrity sha512-Z3TNyBL8Vd/M9D9Ms2S3LmFq2sSMzahodD6rCS9V2N44HUMINb75jNkSuwAx7eo2ufqTdfOdtGQpNbieUjPQmw==
 
 "@types/node@*":
   version "10.12.12"
@@ -6318,13 +6318,13 @@ react-swipeable@^4.3.0:
     detect-passive-events "^1.0.4"
     prop-types "^15.5.8"
 
-react-tether@^1.0.2:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/react-tether/-/react-tether-1.0.4.tgz#a1f0973391ba4c3c2b5c38d5be16c42f0fd96759"
-  integrity sha512-WQ3Ulj9k6to8We/rUqkX4fB5L4jYGnUEXtAxyth9kcKqf0miVOR6MYS3hJodQbpNIBB5DvA+/ZH8nlUtMupSVA==
+react-tether@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-tether/-/react-tether-1.0.2.tgz#3851d76049a12475204b913469e9fb8377234cf4"
+  integrity sha512-tp+exTal7FjTNaHF+SGUEGTu+NHT0NU7rLkvb86UvWyd8sQtlir12ymAPJR0Sie42JEi1lKfN1q0I1O7o86GBA==
   dependencies:
-    prop-types "^15.6.2"
-    tether "^1.4.5"
+    prop-types "^15.5.8"
+    tether "^1.4.3"
 
 react-textarea-autosize@^7.0.4:
   version "7.1.0"
@@ -7284,7 +7284,7 @@ terser@^3.8.1:
     source-map "~0.6.1"
     source-map-support "~0.5.6"
 
-tether@^1.4.5:
+tether@^1.4.3:
   version "1.4.5"
   resolved "https://registry.yarnpkg.com/tether/-/tether-1.4.5.tgz#8efd7b35572767ba502259ba9b1cc167fcf6f2c1"
   integrity sha512-fysT1Gug2wbRi7a6waeu39yVDwiNtvwj5m9eRD+qZDSHKNghLo6KqP/U3yM2ap6TNUL2skjXGJaJJTJqoC31vw==
