@@ -1,42 +1,15 @@
 import React, { SFC } from 'react';
-import styled from 'styled-components';
-import { rem } from 'polished';
 import { Omit } from '../globals/js/type-helpers';
-import { getInputBaseStyles, InputProps } from '../InputText/InputHelpers';
-import SelectWrapper, {
-    ArrowIconWrapperWidth,
-} from '../SelectWrapper/SelectWrapper';
+import { InputProps } from '../InputText/InputHelpers';
+import SelectWrapper from '../SelectWrapper/SelectWrapper';
+import { StyledSelect } from './InputSelectStyled';
 
 export interface InputSelectProps
     extends InputProps,
         Omit<React.HTMLProps<HTMLSelectElement>, 'label' | 'size' | 'id'> {
     icon?: React.ReactNode;
-    options: Array<{ label: string; value: string }>;
+    options?: Array<{ label: string; value: string }>;
 }
-
-interface StyledSelectProps extends React.HTMLProps<HTMLSelectElement> {
-    hasIcon: boolean;
-    hasInlineIcon: boolean;
-    format?: 'negative' | 'positive' | 'neutral';
-    inputSize: 'sm' | 'md' | 'lg' | 'xl';
-    theme: 'default' | 'light' | 'dark';
-}
-
-const StyledSelect = styled<StyledSelectProps, 'select'>('select')`
-    ${getInputBaseStyles};
-    appearance: none;
-
-    ${props =>
-        props.hasInlineIcon && `padding-left: ${rem(40)};`} &:-moz-focusring {
-        color: transparent !important;
-        text-shadow: 0 0 0 #000000 !important;
-    }
-
-    @supports (-webkit-appearance: none) or (-moz-appearance: none) or
-        (appearance: none) {
-        padding-right: ${rem(ArrowIconWrapperWidth)};
-    }
-`;
 
 const InputSelect: SFC<InputSelectProps> = ({
     children,
@@ -53,62 +26,42 @@ const InputSelect: SFC<InputSelectProps> = ({
     size = 'md',
     theme = 'default',
     ref: _,
-    ...filteredProps
-}) => {
-    const isNegative = format === 'negative';
-    const ariaInvalid = isNegative;
-    const hasStateIcon = isNegative || format === 'positive';
-
-    let ariaLabel;
-
-    if (!showLabel) {
-        ariaLabel = label;
-    }
-
-    // Build options if there are options passed as an array
-    const optionList = options
-        ? options.map((_, i) => {
-              const {
-                  label, // eslint-disable-line no-shadow
-                  ...optionProps
-              } = _;
-              return (
-                  <option {...optionProps} key={i}>
-                      {label}
-                  </option>
-              );
-          })
-        : [];
-
-    return (
-        <SelectWrapper
+    ...props
+}) => (
+    <SelectWrapper
+        disabled={disabled}
+        errorMsg={errorMsg}
+        format={format}
+        helperMsg={helperMsg}
+        icon={icon}
+        id={id}
+        isInline={isInline}
+        label={label}
+        showLabel={showLabel}
+        size={size}
+        theme={theme}
+    >
+        <StyledSelect
+            {...props}
+            aria-label={!showLabel && (label as string)}
+            aria-invalid={format === 'negative'}
             disabled={disabled}
-            errorMsg={errorMsg}
-            format={format}
-            helperMsg={helperMsg}
-            icon={icon}
+            hasIcon={format !== 'neutral'}
+            hasInlineIcon={icon ? true : false}
             id={id}
-            isInline={isInline}
-            label={label}
-            showLabel={showLabel}
-            size={size}
-            theme={theme}
+            format={format}
+            inputSize={size}
+            theme={theme === 'dark' ? theme : 'light'}
         >
-            <StyledSelect
-                {...filteredProps}
-                aria-label={ariaLabel}
-                aria-invalid={ariaInvalid}
-                children={optionList.length ? optionList : children}
-                disabled={disabled}
-                hasIcon={hasStateIcon}
-                hasInlineIcon={icon ? true : false}
-                id={id}
-                format={format}
-                inputSize={size}
-                theme={theme === 'dark' ? theme : 'light'}
-            />
-        </SelectWrapper>
-    );
-};
+            {options
+                ? options.map(({ label, ...optionProps }, i) => (
+                      <option {...optionProps} key={i}>
+                          {label}
+                      </option>
+                  ))
+                : children}
+        </StyledSelect>
+    </SelectWrapper>
+);
 
 export default InputSelect;

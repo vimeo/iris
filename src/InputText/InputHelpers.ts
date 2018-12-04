@@ -199,7 +199,7 @@ export const getInputBaseStyles = ({
         margin: 0 0 ${isInline ? 0 : rem(styles.marginBottom)} 0;
 
         font-family: ${VimeoStyleSettings.type.fontFamily.regular};
-        font-size: ${size(inputSize).fontSize};
+        font-size: ${rem(size(inputSize).fontSize)};
         line-height: ${size(inputSize).lineHeight / size(inputSize).fontSize};
 
         border-color: ${color(theme).border[format].default};

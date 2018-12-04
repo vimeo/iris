@@ -1,5 +1,5 @@
 import React, { SFC } from 'react';
-import InputLabel from '../InputLabel/InputLabel';
+import { InputLabel } from '../InputLabel';
 import InputMessageArea from '../InputMessageArea/InputMessageArea';
 import SuccessIcon from '../icons/checkmark.svg';
 import AlertIcon from '../icons/circle-warning.svg';
