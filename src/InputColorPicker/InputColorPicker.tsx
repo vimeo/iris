@@ -17,6 +17,10 @@ export interface InputColorPickerProps {
      */
     defaultColor?: string;
     /**
+     * Is the input disabled?  Defaults to false
+     */
+    disabled?: boolean;
+    /**
      * Callback fires the color value changes
      */
     onChangeColor?: (hex: string) => void;
@@ -333,7 +337,7 @@ class InputColorPicker extends React.Component<
             id,
             onBlur, // eslint-disable-line no-unused-vars
             defaultColor, // eslint-disable-line no-unused-vars
-            disabled,
+            disabled = false,
             onChangeColor, // eslint-disable-line no-unused-vars
             label,
             menuPanelZIndexOverride,
