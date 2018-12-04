@@ -1,8 +1,0 @@
-// position tota11y toolbar to the right, double class to override the tota11y styles, which have important declared on them
-
-:global {
-    .tota11y-toolbar.tota11y-toolbar {
-        left: auto !important;
-        right: 1rem !important;
-    }
-}

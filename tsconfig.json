@@ -29,5 +29,6 @@
         ".storybook",
         "dist",
         "build-styleguide",
+        "*.story.*"
     ]
 }
