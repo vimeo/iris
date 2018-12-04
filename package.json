@@ -11,7 +11,7 @@
     "scripts": {
         "clean": "rm -rf dist",
         "svg": "cp -r ./src/icons ./dist/icons; cp -r ./src/illustrations ./dist/illustrations;",
-        "build": "npm run clean; tsc; npm run svg",
+        "build": "npm run clean; tsc; npm run svg; cp ./src/componentMap.json ./dist/componentMap.json",
         "dev": "tsc -w",
         "format": "prettier --list-different \"src/**/*.{ts,tsx}\"",
         "storybook": "start-storybook -p 9001 -c .storybook",
