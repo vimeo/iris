@@ -51,10 +51,10 @@ export const LinkWrapper = styled.div<{
         props.isActive &&
         css`
             a {
-                background-color: $VerticalMenuItem_ActiveColor;
+                background-color: ${activeColor};
 
                 &:hover {
-                    background-color: $VerticalMenuItem_HoverColor;
+                    background-color: ${hoverColor};
                 }
             }
         `};
