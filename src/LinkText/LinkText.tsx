@@ -1,8 +1,9 @@
-import React, { SFC } from 'react';
+import React, { SFC, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import COLORS from '../globals/js/constants/COLORS';
+import { Omit } from '../globals/js/type-helpers';
 
 export interface LinkTextProps {
     /**
@@ -17,6 +18,7 @@ export interface LinkTextProps {
      * Choose the link decoration if it shoudld be non-standard.
      */
     decoration?: 'loud' | 'inherit' | 'silent';
+    title?: ReactNode;
 }
 
 const linkBorderCss = css`
@@ -103,7 +105,7 @@ const getHoverColor = props =>
         ? formats[props.format].hoverColor
         : '';
 
-const AnchorStyled = styled.a`
+const AnchorStyled = styled.a<any>`
     text-decoration: none;
     color: inherit;
     &:hover {
@@ -111,7 +113,7 @@ const AnchorStyled = styled.a`
     }
 `;
 
-const LinkTextStyled = styled<LinkTextProps, 'span'>('span')`
+const LinkTextStyled = styled<any, 'span'>('span')`
     display: inline;
     position: relative;
 
@@ -151,7 +153,9 @@ const LinkTextStyled = styled<LinkTextProps, 'span'>('span')`
     ${props => getLinkDecorationCss(props.decoration)};
 `;
 
-const LinkText: SFC<LinkTextProps & React.HTMLProps<HTMLAnchorElement>> = ({
+const LinkText: SFC<
+    LinkTextProps & Omit<React.HTMLProps<HTMLAnchorElement>, 'title'>
+> = ({
     children,
     decoration,
     element = 'a',

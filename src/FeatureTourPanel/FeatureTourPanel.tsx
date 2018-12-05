@@ -58,7 +58,7 @@ const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
     }
 `;
 
-const MenuPanelStyled = styled(MenuPanel)`
+const MenuPanelStyled = styled(MenuPanel)<{ options: any }>`
     border-radius: ${rem(5)};
 `;
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Omit } from '../globals/js/type-helpers';
 import { Transition } from 'react-transition-group';
@@ -61,11 +61,11 @@ export interface TooltipOverlayProps
     /**
      * A translated string of text for the tooltip.
      */
-    tooltipText: string;
+    tooltipText: ReactNode;
     /**
      *  Should the tootlip trigger on click instead of hover?
      */
-    triggerOnClick: boolean;
+    triggerOnClick?: boolean;
     /**
      *  Override the default Z-index
      */
@@ -78,11 +78,9 @@ export interface TooltipOverlayState {
 }
 
 // filter out zIndexOverride prop because styled() is failing to do so
-const ManagerFiltered = ({
-    
-    zIndexOverride,
-    ...filteredProps
-}) => <Manager {...filteredProps} />;
+const ManagerFiltered = ({ zIndexOverride, ...filteredProps }) => (
+    <Manager {...filteredProps} />
+);
 
 interface ManagerStyledProps {
     zIndexOverride?: number;
@@ -92,11 +90,9 @@ const ManagerStyled = styled<ManagerStyledProps, any>(ManagerFiltered)`
     z-index: ${props => props.zIndexOverride || Z_INDEX.tooltip};
 `;
 
-const PopperFiltered = ({
-    
-    zIndexOverride,
-    ...filteredProps
-}) => <Popper {...filteredProps} />;
+const PopperFiltered = ({ zIndexOverride, ...filteredProps }) => (
+    <Popper {...filteredProps} />
+);
 
 const PopperStyled = styled(PopperFiltered)`
     z-index: ${props => props.zIndexOverride || Z_INDEX.tooltip};
@@ -280,7 +276,9 @@ class TooltipOverlay extends React.Component<
                             this.overlay = overlay;
                         }}
                     >
-                        <Tooltip breakWords={breakWords}>{tooltipText}</Tooltip>
+                        <Tooltip breakWords={breakWords}>
+                            {tooltipText as string}
+                        </Tooltip>
                     </TooltipWrapperStyled>
                 )}
             </Transition>

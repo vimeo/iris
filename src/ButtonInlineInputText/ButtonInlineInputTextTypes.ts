@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { TooltipOverlayProps } from '../TooltipOverlay/TooltipOverlay';
 
 export interface ButtonInlineInputTextProps {
     icon: ReactNode;
@@ -7,7 +6,8 @@ export interface ButtonInlineInputTextProps {
     size: 'md' | 'lg';
     tooltipText?: string;
     tooltipPosition?: 'top' | 'right' | 'bottom' | 'left';
-    tooltipProps?: TooltipOverlayProps;
+    // tooltipProps?: TooltipOverlayProps;
+    tooltipProps?: any;
 }
 
 export interface ButtonInlineInputTextStyleProps {
