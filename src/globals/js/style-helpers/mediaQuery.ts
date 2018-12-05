@@ -1,12 +1,6 @@
 import BREAKPOINTS from '../constants/BREAKPOINTS';
-// @ts-ignore
-import {
-    css,
-    // @ts-ignore
-    StyledComponentClass,
-    // @ts-ignore
-    Styles,
-} from 'styled-components';
+
+import { css } from 'styled-components';
 import { em } from 'polished';
 
 const getBreakpoint = (breakpointInPixels: number, cssDeclarations: any) => css`

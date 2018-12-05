@@ -1,10 +1,4 @@
-//@ts-ignore required to prevent "Cannot be Named"
-import React from 'react';
-import styled, {
-    css,
-    //@ts-ignore suppresses "Cannot be named"
-    StyledComponentClass,
-} from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { WrapperStyledProps } from './MenuPanelListTypes';
 import COLORS from '../globals/js/constants/COLORS';

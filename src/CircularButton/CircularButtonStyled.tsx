@@ -1,6 +1,5 @@
 import React from 'react';
-//@ts-ignore
-import styled, { StyledComponentClass, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { CircularButtonStyledProps } from './CircularButtonTypes';
 import CircularButtonElement from './CircularButtonElement';
 import { rem } from 'polished';
@@ -91,7 +90,7 @@ const maybeAutoMargins = (props: CircularButtonStyledProps) =>
 export const CircularButtonStyled = styled<CircularButtonStyledProps, any>(
     ({
         icon,
-        // @ts-ignore
+
         autoMarginsHorizontal,
         ...rest
     }) => <CircularButtonElement icon={icon} {...rest} />,

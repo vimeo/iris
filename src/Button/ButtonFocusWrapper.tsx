@@ -1,6 +1,5 @@
 import React, { SFC } from 'react';
-// @ts-ignore
-import styled, { StyledComponentClass } from 'styled-components';
+import styled from 'styled-components';
 
 export const LinkElementStyled = styled('span')`
     &:focus,

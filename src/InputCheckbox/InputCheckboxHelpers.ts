@@ -1,17 +1,4 @@
-// @ts-ignore
-import React from 'react';
-// @ts-ignore
-import {
-    css,
-    //@ts-ignore
-    InterpolationFunction,
-    //@ts-ignore
-    StyledComponentClass,
-    //@ts-ignore
-    Styles,
-    //@ts-ignore
-    ThemeProps,
-} from 'styled-components';
+import { css } from 'styled-components';
 import { rem } from 'polished';
 import COLORS from '../globals/js/constants/COLORS';
 

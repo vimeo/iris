@@ -1,10 +1,6 @@
-//@ts-ignore fixes "unmaned" issue for React in SC.
-import React from 'react';
-// @ts-ignore
-import styled, { StyledComponentClass } from 'styled-components';
+import styled from 'styled-components';
 import { rem } from 'polished';
 import { COLORS, Z_INDEX } from '../globals/js/constants';
-
 import { menuSpeed } from './MenuPanel';
 import TetherComponent from 'react-tether';
 import {

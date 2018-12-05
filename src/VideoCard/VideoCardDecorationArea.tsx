@@ -29,7 +29,7 @@ const VideoCardDecorationAreaStyled = styled<
 // ==================== VideoCardDecorationArea
 
 const VideoCardDecorationArea: SFC<VideoCardDecorationAreaProps> = ({
-    // @ts-ignore
+    
     ref: _, // filter out ref from styled component
     ...filteredProps
 }) => <VideoCardDecorationAreaStyled {...filteredProps} />;

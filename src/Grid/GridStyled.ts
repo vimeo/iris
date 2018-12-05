@@ -1,6 +1,4 @@
-//@ts-ignore
-import styled, { StyledComponentClass } from 'styled-components';
-// @ts-ignore
+import styled from 'styled-components';
 import { rem } from 'polished';
 import { GridProps, GRID } from './GridTypes';
 import { GridVariableElement } from './GridVariableElement';

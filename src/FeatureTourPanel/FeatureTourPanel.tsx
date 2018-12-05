@@ -29,7 +29,7 @@ export interface FeatureTourPanelProps {
 export interface FeatureTourPanelState {
     beaconMode?: 'inactive' | 'open' | 'active' | 'hidden';
     beaconDelayIndex?: number;
-    beaconA11yText: string;
+    beaconA11yText?: string;
     children: ReactNode;
     className?: string;
     dismissButtonA11yLabel: string;
@@ -72,17 +72,18 @@ class FeatureTourPanel extends React.Component {
     constructor(props: FeatureTourPanelProps) {
         super(props);
 
-        let initialBeaconMode = 'active';
+        let initialBeaconMode: 'inactive' | 'open' | 'active' | 'hidden' =
+            'active';
 
         if (props.isOpen) {
             initialBeaconMode = 'open';
         } else if (props.beaconDelayIndex && props.beaconDelayIndex > 0) {
             initialBeaconMode = 'inactive';
         }
+
         // @ts-ignore
         this.state = {
             isOpen: props.isOpen ? true : false,
-            // @ts-ignore
             beaconMode: initialBeaconMode,
         };
     }

@@ -1,10 +1,4 @@
-import {
-    css,
-    // @ts-ignore
-    Styles,
-    // @ts-ignore
-    StyledComponentClass,
-} from 'styled-components';
+import { css } from 'styled-components';
 import { rem } from 'polished';
 
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';

@@ -1,11 +1,4 @@
-// @ts-ignore
-import {
-    css,
-    // @ts-ignore
-    StyledComponentClass,
-    // @ts-ignore
-    Styles,
-} from 'styled-components';
+import { css } from 'styled-components';
 
 // https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 

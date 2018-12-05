@@ -4,7 +4,6 @@ import { rem } from 'polished';
 import { Omit } from '../globals/js/type-helpers';
 import { InputProps, InputStyleSettings } from '../InputText/InputHelpers';
 import InputWrapper from '../InputWrapper/InputWrapper';
-//@ts-ignore
 import ChevronIris from '../icons/chevron-down.svg';
 
 export interface SelectWrapperProps

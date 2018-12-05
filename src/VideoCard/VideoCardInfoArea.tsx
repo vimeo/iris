@@ -109,7 +109,7 @@ const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
     titleLinkProps,
     titleSubheader,
     // @ts-ignore
-    ref: _, // filter out ref from styled component
+    ref: _,
 }) => {
     const _defaultLinkClickHandler = e => {
         e.preventDefault();

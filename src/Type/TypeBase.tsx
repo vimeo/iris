@@ -1,11 +1,5 @@
 import React, { SFC } from 'react';
-import styled, {
-    css,
-    // @ts-ignore
-    Styles,
-    // @ts-ignore
-    StyledComponentClass,
-} from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import COLORS from '../globals/js/constants/COLORS';

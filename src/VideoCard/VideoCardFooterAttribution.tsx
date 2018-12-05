@@ -38,11 +38,9 @@ const AvatarWrapperStyled = styled('div')`
     margin-right: ${rem(4)};
 `;
 
-const ParagraphSmFiltered = ({
-    //@ts-ignore filtering out styling prop
-    hasActionArea,
-    ...filteredProps
-}) => <ParagraphSm {...filteredProps} />;
+const ParagraphSmFiltered = ({ hasActionArea, ...props }) => (
+    <ParagraphSm {...props} />
+);
 
 interface UserNameStyledProps extends TypeProps {
     hasActionArea: boolean;
@@ -97,7 +95,6 @@ const VideoCardFooterAttribution: SFC<VideoCardFooterAttributionProps> = ({
                 <UserNameStyled
                     element="span"
                     noMargin
-                    //@ts-ignore
                     hasActionArea={attributionActionArea}
                 >
                     <TruncatedTextWrapper>{userName}</TruncatedTextWrapper>

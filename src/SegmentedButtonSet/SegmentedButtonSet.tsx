@@ -19,7 +19,6 @@ const buildOptions = (options, name, format) =>
 const SegmentedButtonSet: SFC<
     SegmentedButtonSetProps & React.HTMLProps<HTMLDivElement>
 > = ({
-    //@ts-ignore
     children,
     format = 'light',
     name,

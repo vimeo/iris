@@ -32,7 +32,7 @@ const VideoCardSelectionCheckbox: SFC<VideoCardSelectionCheckboxProps> = ({
     isShowing,
     label,
     onCheckBoxClick,
-    // @ts-ignore
+    
     ref: _, // filter out ref from styled component
     ...filteredProps
 }) => {

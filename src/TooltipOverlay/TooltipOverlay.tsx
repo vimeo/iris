@@ -79,7 +79,7 @@ export interface TooltipOverlayState {
 
 // filter out zIndexOverride prop because styled() is failing to do so
 const ManagerFiltered = ({
-    // @ts-ignore
+    
     zIndexOverride,
     ...filteredProps
 }) => <Manager {...filteredProps} />;
@@ -93,7 +93,7 @@ const ManagerStyled = styled<ManagerStyledProps, any>(ManagerFiltered)`
 `;
 
 const PopperFiltered = ({
-    // @ts-ignore
+    
     zIndexOverride,
     ...filteredProps
 }) => <Popper {...filteredProps} />;
