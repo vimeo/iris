@@ -1,1 +1,3 @@
-export default from './InputDatePicker';
+import InputDatePicker from './InputDatePicker';
+
+export default InputDatePicker;

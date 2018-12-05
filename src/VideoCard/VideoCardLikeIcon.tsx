@@ -17,7 +17,7 @@ const VideoCardLikeIconStyled = styled<
 // ==================== VideoCardDecorationArea
 
 const VideoCardLikeIcon: SFC<HTMLProps<HTMLSpanElement>> = ({
-    // @ts-ignore
+    
     ref: _, // filter out ref from styled component
     ...filteredProps
 }) => (

@@ -12,7 +12,6 @@ const SegmentedButtonSetButton: SFC<
         SegmentedButtonSetOptionProps &
         HTMLProps<HTMLDivElement>
 > = ({
-    //@ts-ignore
     children,
     disabled,
     id,
@@ -21,7 +20,7 @@ const SegmentedButtonSetButton: SFC<
     name,
     optionLabel,
     //@ts-ignore
-    ref: _, // filter out ref from styled component
+    ref: _,
     ...filteredProps
 }) => {
     const {

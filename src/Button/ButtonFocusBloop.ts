@@ -1,11 +1,4 @@
-// @ts-ignore
-import React from 'react';
-import styled, {
-// @ts-ignore
-    Styles,
-    // @ts-ignore
-    StyledComponentClass,
-} from 'styled-components';
+import styled from 'styled-components';
 import { rem } from 'polished';
 
 import { ButtonStyled as Button } from './ButtonStyled';

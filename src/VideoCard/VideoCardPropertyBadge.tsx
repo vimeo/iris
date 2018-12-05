@@ -6,9 +6,9 @@ import COLORS from '../globals/js/constants/COLORS';
 
 export interface VideoCardPropertyBadge
     extends React.HTMLProps<HTMLInputElement> {
-    /* 
-    * The Property Badge Label
-    */
+    /*
+     * The Property Badge Label
+     */
     label: string;
 }
 

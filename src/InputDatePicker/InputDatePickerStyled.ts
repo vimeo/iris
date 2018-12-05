@@ -1,7 +1,4 @@
-//@ts-ignore
-import React from 'react';
-// @ts-ignore
-import styled, { StyledComponentClass } from 'styled-components';
+import styled from 'styled-components';
 import { rem } from 'polished';
 import { typeCSSByProps } from '../Type/TypeBase';
 import { InputStyleSettings } from '../InputText/InputHelpers';

@@ -1,12 +1,4 @@
-// @ts-ignore
-import React from 'react';
-import styled, {
-// @ts-ignore
-    StyledComponentClass,
-    // @ts-ignore
-    Styles,
-    css,
-} from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { InputRadioOverlayStyledProps } from './InputRadioTypes';
 import COLORS from '../globals/js/constants/COLORS';

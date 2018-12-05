@@ -1,12 +1,12 @@
 import React, { ReactNode, SFC } from 'react';
 import ButtonIconOnly from '../ButtonIconOnly';
 import TooltipOverlay from '../TooltipOverlay';
-import { TooltipOverlayProps } from '../TooltipOverlay/TooltipOverlay';
 
 interface Props {
     icon: ReactNode;
     tooltipText?: string;
-    tooltipProps?: TooltipOverlayProps;
+    // tooltipProps?: TooltipOverlayProps;
+    tooltipProps?: any;
 }
 
 const VerticalMenuActionButton: SFC<Props> = ({

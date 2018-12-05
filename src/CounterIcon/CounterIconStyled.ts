@@ -1,12 +1,4 @@
-//@ts-ignore
-import React from 'react';
-import styled, {
-//@ts-ignore
-    StyledComponentClass,
-    // StyledComponentClass must be in scope to generate type definitions and
-    // @ts-ignored because it is not used
-    css,
-} from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rem, rgba } from 'polished';
 import { CounterIconStyledProps } from './CounterIconTypes';
 import { COLORS, TRANSITIONS } from '../globals/js/constants/';

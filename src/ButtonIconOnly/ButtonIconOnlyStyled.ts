@@ -1,7 +1,4 @@
-// @ts-ignore including React suppresses cannot be named error
-import React from 'react';
-// @ts-ignore
-import styled, { StyledComponentClass, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rgba, rem } from 'polished';
 import COLORS from '../globals/js/constants/COLORS';
 import { ButtonIconOnlyStyledProps } from './ButtonIconOnlyTypes';

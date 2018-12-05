@@ -1,6 +1,5 @@
 import React from 'react';
-// @ts-ignore
-import styled, { StyledComponentClass } from 'styled-components';
+import styled from 'styled-components';
 import { rem } from 'polished';
 import { SegmentedButton_ButtonComponentProps } from './SegmentedButtonTypes';
 import {

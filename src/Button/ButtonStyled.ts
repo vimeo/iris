@@ -1,12 +1,5 @@
-// @ts-ignore
-import React from 'react';
-import styled, {
-    css,
-    // @ts-ignore
-    StyledComponentClass,
-} from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-
 import {
     ButtonCoreCSS,
     getActiveCSSByFormat,
@@ -17,7 +10,6 @@ import {
     getSizeCSS,
     getVerticalAutoMarginCSS,
 } from './ButtonHelpers';
-
 import { ButtonProps } from './ButtonProps';
 import { ButtonStyleSettings } from './ButtonStyleSettings';
 import { ButtonVariableElement } from './ButtonVariableElement';

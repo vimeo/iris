@@ -47,7 +47,7 @@ const Wrapper = styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
 
 const VideoCardFooterActionsGrid: SFC<VideoCardFooterActionsGridProps> = ({
     actionItems,
-    // @ts-ignore
+    
     ref: _, // filter out ref from styled component
     ...filteredProps
 }) => {

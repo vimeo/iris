@@ -1,15 +1,5 @@
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
-import {
-    css,
-    //@ts-ignore
-    InterpolationFunction,
-    //@ts-ignore
-    StyledComponentClass,
-    //@ts-ignore
-    Styles,
-    //@ts-ignore
-    ThemeProps,
-} from 'styled-components';
+import { css } from 'styled-components';
 import { rem, rgba } from 'polished';
 import COLORS from '../globals/js/constants/COLORS';
 import { ReactNode } from 'react';
@@ -181,8 +171,7 @@ export const getInputBaseStyles = ({
     inputSize = 'md',
     inlineButton,
 }: InputStyledProps) => {
-    // @ts-ignore
-    if (theme !== 'light' || theme !== 'dark') {
+    if (theme !== 'light' && theme !== 'dark') {
         theme = 'light';
     }
 

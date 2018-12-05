@@ -232,7 +232,7 @@ class InputDatePicker extends React.Component<
 
     render() {
         const {
-            children, //@ts-ignore filtering our children
+            children,
             dateFormatting,
             datePickerOptions,
             id,

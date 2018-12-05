@@ -11,8 +11,11 @@ import {
 import { CheckboxFocusBloop } from './InputCheckboxFocusBloop';
 
 import InputWrapperInline from '../InputWrapperInline/InputWrapperInline';
+import { Omit } from '../globals/js/type-helpers';
 
-const InputCheckbox: SFC<InputCheckboxProps & HTMLProps<HTMLDivElement>> = ({
+const InputCheckbox: SFC<
+    InputCheckboxProps & Omit<HTMLProps<HTMLDivElement>, 'size'>
+> = ({
     checkedStyle = 'default',
     disabled,
     errorMsg,

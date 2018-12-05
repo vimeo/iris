@@ -1,6 +1,4 @@
-import React from 'react';
-//@ts-ignore
-import styled, { StyledComponentClass } from 'styled-components';
+import styled from 'styled-components';
 import { ListProps } from './ListTypes';
 import { ListItemStyled } from '../ListItem/ListItemStyled';
 import { ListVariableElement } from './ListVariableElement';

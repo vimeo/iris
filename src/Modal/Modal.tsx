@@ -319,7 +319,7 @@ class Modal extends React.Component<ModalProps, ModalState> {
         } = this.props;
 
         const buttonWidth = fluidButtons ? 12 : 8;
-        const buttonOffset = fluidButtons ? false : 8;
+        const buttonOffset = fluidButtons ? 0 : 8;
 
         const actionAreaElement = (
             <ActionAreaStyled>

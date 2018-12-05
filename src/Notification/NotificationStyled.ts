@@ -1,10 +1,6 @@
-// @ts-ignore
-import React from 'react';
 import { NotificationProps } from './NotificationProps';
-// @ts-ignore
-import styled, { StyledComponentClass } from 'styled-components';
+import styled from 'styled-components';
 import { rgba, rem } from 'polished';
-
 import TRANSITIONS from '../globals/js/constants/TRANSITIONS';
 import COLORS from '../globals/js/constants/COLORS';
 
