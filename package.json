@@ -17,7 +17,7 @@
         "svg": "cp -r ./src/icons ./dist/icons; cp -r ./src/illustrations ./dist/illustrations;",
         "build": "npm run clean; tsc; npm run svg; npm run cmap",
         "build-storybook": "build-storybook -c .storybook -o build-styleguide",
-        "prepublishOnly": "npm build"
+        "prepublishOnly": "npm run build"
     },
     "publishConfig": {
         "registry": "https://artifactory.vimeows.com/artifactory/api/npm/npm/"
