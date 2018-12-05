@@ -8,15 +8,17 @@
         "node": ">=8",
         "yarn": ">=1"
     },
-    "scripts": {
-        "dev": "tsc -w",
-        "clean": "rm -rf dist",
-        "storybook": "start-storybook -p 9001 -c .storybook",
-        "format": "prettier --list-different \"src/**/*.{ts,tsx}\"",
-        "svg": "cp -r ./src/icons ./dist/icons; cp -r ./src/illustrations ./dist/illustrations;",
-        "build": "npm run clean; tsc; npm run svg; cp ./src/componentMap.json ./dist/componentMap.json",
-        "build-storybook": "build-storybook -c .storybook -o build-styleguide"
-    },
+"scripts": {
+    "dev": "tsc -w",
+    "clean": "rm -rf dist",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "format": "prettier --list-different \"src/**/*.{ts,tsx}\"",
+    "cmap": "cp ./src/componentMap.json ./dist/componentMap.json",
+    "svg": "cp -r ./src/icons ./dist/icons; cp -r ./src/illustrations ./dist/illustrations;",
+    "build": "npm run clean; tsc; npm run svg; npm run cmap",
+    "build-storybook": "build-storybook -c .storybook -o build-styleguide",
+    "prepublishOnly": "npm build"
+},
     "publishConfig": {
         "registry": "https://artifactory.vimeows.com/artifactory/api/npm/npm/"
     },
