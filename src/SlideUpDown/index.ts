@@ -1,1 +1,1 @@
-export {default as SlideUpDown } from './SlideUpDown';
+export { default as SlideUpDown } from './SlideUpDown';

@@ -178,7 +178,7 @@ class ModalWrapper extends React.Component<any, any> {
         // store the element that was focused when the modal opened
         const previouslyFocusedElement = document.activeElement;
         if (previouslyFocusedElement) {
-            //@ts-ignore
+            // @ts-ignore
             this.previouslyFocusedElement = previouslyFocusedElement;
         }
     }
@@ -313,9 +313,9 @@ class ModalWrapper extends React.Component<any, any> {
             modalPosition,
             modalSpeed = 250,
             mountOnEnter,
-            //@ts-ignore
+            // @ts-ignore
             noDismiss,
-            //@ts-ignore
+            // @ts-ignore
             onCloseEvent,
             unmountOnExit,
             zIndexStartingPoint = Z_INDEX.modalWrapper,

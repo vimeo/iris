@@ -5,7 +5,7 @@ import { VideoCardStyleSettings } from './VideoCardHelpers';
 export interface VideoCardPropertiesAreaProps
     extends React.HTMLProps<HTMLDivElement> {
     isHovered?: boolean;
-    properties: Array<any>;
+    properties: any[];
 }
 
 export interface VideoCardPropertiesAreaStyledProps

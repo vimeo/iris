@@ -3,17 +3,14 @@ import { GridProps } from './GridTypes';
 
 export const GridVariableElement: SFC<GridProps> = ({
     element,
-    
     centered,
-    
     hasMaxWidth,
-    
     isNested,
-    ...filteredProps
+    ...props
 }) =>
     ({
-        div: <div {...filteredProps} />,
-        main: <main {...filteredProps} />,
-        aside: <aside {...filteredProps} />,
-        section: <section {...filteredProps} />,
+        div: <div {...props} />,
+        main: <main {...props} />,
+        aside: <aside {...props} />,
+        section: <section {...props} />,
     }[element]);

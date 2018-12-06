@@ -4,7 +4,7 @@ import styled from 'styled-components';
 interface Props {
     children: ReactNode;
     id: string;
-    inputElementProps?: Object;
+    inputElementProps?: {};
     name?: string;
 }
 

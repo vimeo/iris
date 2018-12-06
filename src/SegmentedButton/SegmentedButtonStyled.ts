@@ -25,7 +25,7 @@ export const OptionStyled = styled<
 >('span')`
     ${ButtonCoreCSS}
     ${getSizeCSS}
-    ${getDefaultCSSByFormat({ format: 'primaryOutline' })} 
+    ${getDefaultCSSByFormat({ format: 'primaryOutline' })}
 
     display: flex;
     position: relative;

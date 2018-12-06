@@ -2,10 +2,10 @@ export interface InputDatePickerProps {
     dateFormatting?: (dateObject: Date) => string;
     initialDate?: Date;
     onBlur?: (event: React.FormEvent<HTMLInputElement>) => void;
-    onChangeDate?: (dateObject: Object) => void;
+    onChangeDate?: (dateObject: any) => void;
     label: string;
     id: string;
-    datePickerOptions?: Object;
+    datePickerOptions?: any;
 }
 
 export interface InputDatePickerState {

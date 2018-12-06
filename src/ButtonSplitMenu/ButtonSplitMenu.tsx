@@ -89,7 +89,7 @@ const MenuButtonWrapperStyled = styled('div')`
 const MenuButtonStyled = styled<ButtonStylingProps, 'button'>('button')`
     ${ButtonCoreCSS}
     ${getDefaultCSSByFormat}
-    
+
     ${getSizeCSS}
 
     &:hover {
@@ -137,7 +137,7 @@ export interface ButtonSplitMenuProps {
     /**
      * Object of any additional props to send to MenuPanel
      */
-    menuProps?: Object;
+    menuProps?: {};
     /**
      * Menu Size (see MenuPanel)
      */

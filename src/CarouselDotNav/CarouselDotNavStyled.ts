@@ -15,7 +15,7 @@ export const WrapperStyled = styled<CarouselWrapperProps, 'div'>('div')`
 `;
 
 const getHoverColor = (props: CarouselDotProps) => {
-    if (props.theme == 'dark') {
+    if (props.theme === 'dark') {
         return props.isSelected ? COLORS.VimeoBlueLightened : COLORS.IronHeart;
     } else {
         return props.isSelected

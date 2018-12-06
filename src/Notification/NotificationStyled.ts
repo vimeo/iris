@@ -26,9 +26,9 @@ const notificationColors = {
 };
 
 const notificationBg = variant =>
-    notificationColors[variant] && notificationColors[variant]['bg'];
+    notificationColors[variant] && notificationColors[variant].bg;
 const notificationColor = variant =>
-    notificationColors[variant] && notificationColors[variant]['color'];
+    notificationColors[variant] && notificationColors[variant].color;
 
 export const NotificationStyled = styled<NotificationProps, 'div'>('div')`
     position: relative;

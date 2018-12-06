@@ -13,21 +13,16 @@ export interface VideoCardFooterActionsGridStyledProps
     fillSpace: boolean;
 }
 
-// ==================== VideoCardFooterActionsGrid Styled
-const VideoCardFooterActionsGridStyled = styled<
-    VideoCardFooterActionsGridStyledProps,
-    'div'
->('div')`
+const VideoCardFooterActionsGridStyled = styled.div<
+    VideoCardFooterActionsGridStyledProps
+>`
     display: inline-flex;
     justify-content: space-evenly;
     justify-self: ${props => (props.fillSpace ? 'center' : 'end')};
     width: ${props => (props.fillSpace ? '100%' : 'auto')};
 `;
 
-const VideoCardFooterActionsCell = styled<
-    React.HTMLProps<HTMLDivElement>,
-    'div'
->('div')`
+const VideoCardFooterActionsCell = styled.div`
     padding-right: ${rem(VideoCardStyleSettings.padding)};
     min-width: ${rem(VideoCardStyleSettings.actionButtonSize)};
 
@@ -36,31 +31,26 @@ const VideoCardFooterActionsCell = styled<
     }
 `;
 
-const Wrapper = styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
+const Wrapper = styled.div`
     width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 `;
 
-// ==================== VideoCardFooterActionsGrid
-
 const VideoCardFooterActionsGrid: SFC<VideoCardFooterActionsGridProps> = ({
     actionItems,
-    
-    ref: _, // filter out ref from styled component
-    ...filteredProps
+    ref: _,
+    ...props
 }) => {
     const suppressClickPropagation = e => {
-        // clicks in the footer area should not trigger the onClick for the entireCard.
         e.stopPropagation();
     };
 
-    let gridCells = [];
+    const gridCells = [];
     const targetCellsCount = 5;
     const countDifference = targetCellsCount - actionItems.length;
 
-    // make five cells. If there are not 5 buttons, front-load the empty ones.
     for (let i = 0; i < targetCellsCount; i++) {
         const isEmpty = i + 1 <= countDifference;
 
@@ -78,7 +68,7 @@ const VideoCardFooterActionsGrid: SFC<VideoCardFooterActionsGridProps> = ({
         <Wrapper>
             <VideoCardFooterActionsGridStyled
                 fillSpace={actionItems.length > 3}
-                {...filteredProps}
+                {...props}
             >
                 {gridCells}
             </VideoCardFooterActionsGridStyled>

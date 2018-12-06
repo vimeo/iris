@@ -13,7 +13,7 @@ const loaderBackgroundAnimation = keyframes`
     from {
         background-position: 100% 0;
     }
-    to { 
+    to {
         background-position: -100% 0;
     }
 `;

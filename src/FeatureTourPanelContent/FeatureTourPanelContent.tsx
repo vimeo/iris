@@ -26,7 +26,7 @@ export interface FeatureTourPanelContentProps {
     /**
      * Object of props that will be spread across the dismiss button
      */
-    dismissButtonProps?: Object;
+    dismissButtonProps?: {};
     /**
      * Feature Panel header
      */

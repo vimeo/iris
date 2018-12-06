@@ -11,7 +11,7 @@ export interface BreadcrumbProps {
     /**
      * An aray of BreadcrumbLink or BreadcrumbLinkReactRouter components
      */
-    crumbs?: Array<React.ReactNode>;
+    crumbs?: React.ReactNode[];
     /**
      * A string describing the current page title
      */
@@ -114,25 +114,23 @@ const Breadcrumb: SFC<BreadcrumbProps & HTMLProps<HTMLDivElement>> = ({
 }) => {
     const crumbWidth = crumbs ? `${100 / (crumbs.length + 1)}%` : '100%';
 
-    const CrumbList = crumbs.map(function(crumb, i) {
-        return (
-            <CrumbWrapper
-                showOnSmall={i === crumbs.length - 1}
-                format={format}
-                key={`crumb-${i}`}
-                style={{ maxWidth: crumbWidth }}
+    const CrumbList = crumbs.map((crumb, i) => (
+        <CrumbWrapper
+            showOnSmall={i === crumbs.length - 1}
+            format={format}
+            key={`crumb-${i}`}
+            style={{ maxWidth: crumbWidth }}
+        >
+            <CrumbLabel
+                element="span"
+                format={format === 'darkTheme' ? 'light' : 'dark'}
+                noMargin={noMargin}
             >
-                <CrumbLabel
-                    element="span"
-                    format={format === 'darkTheme' ? 'light' : 'dark'}
-                    noMargin={noMargin}
-                >
-                    {crumb}
-                </CrumbLabel>
-                <CrumbArrowIcon />
-            </CrumbWrapper>
-        );
-    });
+                {crumb}
+            </CrumbLabel>
+            <CrumbArrowIcon />
+        </CrumbWrapper>
+    ));
 
     return (
         <BreadCrumbSetWrapper {...filteredProps}>

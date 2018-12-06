@@ -11,7 +11,7 @@ interface Props {
         tabId: string;
         label: string;
         content: ReactNode;
-        onClick?: (e: Event) => void;
+        onClick?: (e: React.MouseEvent) => void;
     }>;
 }
 
@@ -38,7 +38,7 @@ class TabNavigationHorizontal extends Component<Props, State> {
                             {...props}
                             key={`TabNavigationHorizontalItem-${i}`}
                             isSelected={this.state.index === i}
-                            handleTabChange={(e: Event) => {
+                            handleTabChange={(e: React.MouseEvent) => {
                                 this.setState({ index: i });
                                 (() => {
                                     onClick && onClick(e);

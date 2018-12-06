@@ -2,10 +2,10 @@ import React, { SFC } from 'react';
 import Button from '../Button/Button';
 
 interface Props {
-    handleTabChange: Function;
+    handleTabChange: (e: React.MouseEvent) => void;
     isSelected: boolean;
     label: string;
-    onClick?: Function;
+    onClick?: () => void;
     tabId: string;
 }
 
@@ -25,7 +25,7 @@ const TabNavigationHorizontalItem: SFC<Props> = ({
             href={`#${tabId}`}
             onClick={(e: React.MouseEvent) => {
                 e.preventDefault();
-                handleTabChange();
+                handleTabChange(e);
                 onClick && onClick();
             }}
         >

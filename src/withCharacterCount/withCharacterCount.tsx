@@ -145,8 +145,8 @@ const withCharacterCounter = <P extends {}>(
             } = this.props as Props;
 
             const charactersString =
-                this.state.remainingCharacters == 1 ||
-                this.state.remainingCharacters == -1
+                this.state.remainingCharacters === 1 ||
+                this.state.remainingCharacters === -1
                     ? characterSingularString
                     : characterPluralString;
 

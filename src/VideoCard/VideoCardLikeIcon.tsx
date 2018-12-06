@@ -3,25 +3,19 @@ import styled from 'styled-components';
 import COLORS from '../globals/js/constants/COLORS';
 import HeartIcon from '../icons/heart-filled.svg';
 
-// ==================== VideoCardDecorationArea Styled
-const VideoCardLikeIconStyled = styled<
-    React.HTMLProps<HTMLSpanElement>,
-    'span'
->('span')`
+const VideoCardLikeIconStyled = styled.span`
     svg {
         * {
             fill: ${COLORS.SunsetOrange};
+        }
     }
 `;
 
-// ==================== VideoCardDecorationArea
-
 const VideoCardLikeIcon: SFC<HTMLProps<HTMLSpanElement>> = ({
-    
-    ref: _, // filter out ref from styled component
-    ...filteredProps
+    ref: _,
+    ...props
 }) => (
-    <VideoCardLikeIconStyled {...filteredProps}>
+    <VideoCardLikeIconStyled {...props}>
         <HeartIcon />
     </VideoCardLikeIconStyled>
 );

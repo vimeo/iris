@@ -243,11 +243,7 @@ class InputColorPicker extends React.Component<
         }
     };
 
-    _handleColorPickerUpdate = (color: {
-        hex: string;
-        rgb: Object;
-        hsl: Object;
-    }) => {
+    _handleColorPickerUpdate = (color: { hex: string; rgb: {}; hsl: {} }) => {
         this.setState({
             showReset: this.props.resetColor
                 ? color.hex !== this.props.resetColor
@@ -278,9 +274,9 @@ class InputColorPicker extends React.Component<
     };
 
     _handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
-        //@ts-ignore TS doesn't know event target has value sometimes, but I'm guarding agains that
+        // @ts-ignore TS doesn't know event target has value sometimes, but I'm guarding agains that
         if (e.target && e.target.value) {
-            //@ts-ignore see above
+            // @ts-ignore see above
             const value = e.target.value;
 
             if (typeof value === 'string') {

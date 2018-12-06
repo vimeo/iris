@@ -36,7 +36,7 @@ export interface SteppedContentSliderProps
     children: ReactNode;
     /**
      * takes an integer index and sets which slide should be selected. (see below)
-     * */
+     */
     currentSlide?: number;
     /**
      * Content to show if there are no slides. Toggled by `showEmptyState` prop.

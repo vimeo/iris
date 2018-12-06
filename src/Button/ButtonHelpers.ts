@@ -47,7 +47,9 @@ const getAutoWidthCSS = props => {
             : ''};
     `;
 
-    if (props.autoWidth === 'fluid') return;
+    if (props.autoWidth === 'fluid') {
+        return;
+    }
 
     if (props.autoWidth === 'xs') {
         return autoWidthCSS;

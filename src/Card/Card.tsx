@@ -25,7 +25,9 @@ const boxShadow = {
 };
 
 const getBoxShadow = props => {
-    if (props.isLoading) return 'none';
+    if (props.isLoading) {
+        return 'none';
+    }
     return props.isSelected ? boxShadow.isSelected : boxShadow.inactive;
 };
 
@@ -53,18 +55,16 @@ const CardStyled = styled<CardProps, 'div'>('div')`
     }
 
     ${props =>
-        !props.isLoading && !props.isSelected
-            ? css`
-                  &:hover:after {
-                      background: rgba(0, 0, 0, 0.1);
-                      opacity: 1;
-                      transform: scale(1.01);
-                  }
-              `
-            : ''};
+        !props.isLoading &&
+        !props.isSelected &&
+        css`
+            &:hover:after {
+                background: rgba(0, 0, 0, 0.1);
+                opacity: 1;
+                transform: scale(1.01);
+            }
+        `};
 `;
-
-// ==================== Card
 
 const Card: SFC<CardProps & HTMLProps<HTMLDivElement>> = ({
     ref: _,

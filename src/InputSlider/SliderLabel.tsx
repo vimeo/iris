@@ -60,7 +60,7 @@ const LabelValueStyled = styled<LabelWrapperStyledProps, 'label'>('label')`
 const LabelInputStyled = styled<LabelWrapperStyledProps, 'input'>('input')`
     ${commonLabelStyles};
     border: ${props =>
-        props.format == 'dark'
+        props.format === 'dark'
             ? `${rem(1)} solid ${rgba(COLORS.White, 0.33)}`
             : `${rem(1)} solid ${rgba(COLORS.White, 0.66)}`};
     &:hover {
@@ -99,11 +99,11 @@ const SliderLabel: SFC<SliderLabelProps> = ({
     const inputProps = {
         type: 'text',
         disabled: editable ? false : true,
-        id: id,
+        id,
         onKeyUp: updateValue,
         onChange: () => {},
         defaultValue: String(value),
-        format: format,
+        format,
         isDisabled: editable ? false : true,
     };
     return (

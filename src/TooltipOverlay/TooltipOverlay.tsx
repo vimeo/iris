@@ -244,7 +244,7 @@ class TooltipOverlay extends React.Component<
             onMouseLeave,
             pointerEvents,
             popperEventsEnabled = false,
-            //@ts-ignore deprecated prop will remove
+            // @ts-ignore deprecated prop will remove
             size,
             tooltipText,
             triggerOnClick, // eslint-disable-line no-unused-vars
@@ -300,9 +300,9 @@ class TooltipOverlay extends React.Component<
                     </SpanWrapper>
                 </TargetStyled>
                 <PopperStyled
-                    //@ts-ignore  eventsEnabled is a Popper prop
+                    // @ts-ignore  eventsEnabled is a Popper prop
                     eventsEnabled={popperEventsEnabled}
-                    //@ts-ignore modifiers is a Popper prop
+                    // @ts-ignore modifiers is a Popper prop
                     modifiers={{
                         offset: {
                             offset: offsetMap[attachment],

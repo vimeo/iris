@@ -53,7 +53,7 @@ export const GridColStyled = styled<GridColProps, any>(GridColVariableElement)`
     padding-right: ${rem(GRID.gutterWidth)};
 
     ${buildSizeCSS}
-    
+
     ${props => (props.alignment === 'left' ? 'order: -1' : null)}
 
     ${props => (props.alignment === 'right' ? 'order: 2' : null)}

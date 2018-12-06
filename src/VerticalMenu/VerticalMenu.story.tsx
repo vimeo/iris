@@ -127,7 +127,7 @@ class VerticalMenuDemoDocs extends React.Component<any, any> {
                             label: 'Selected Item',
                             href: '#',
                             isSelected: true,
-                            //'data-foo': 'bar',
+                            // 'data-foo': 'bar',
                         },
                     ]}
                 />

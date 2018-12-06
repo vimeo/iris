@@ -16,6 +16,10 @@ class ContentCarousel extends React.Component<any, any> {
         theme: 'light',
     };
 
+    carouselInstance: any;
+    state: ContentCarouselState;
+    props: ContentCarouselPropsAll;
+
     constructor(props: ContentCarouselPropsAll) {
         super(props);
         this.state = {
@@ -23,17 +27,10 @@ class ContentCarousel extends React.Component<any, any> {
         };
     }
 
-    // carousel ref instance
-    carouselInstance: any;
-
-    state: ContentCarouselState;
-
-    props: ContentCarouselPropsAll;
-
-    /* 
-    * set attributes that help assitive tech understand the carousel
-    * see:  https://www.w3.org/WAI/tutorials/carousels/
-    */
+    /*
+     * set attributes that help assitive tech understand the carousel
+     * see:  https://www.w3.org/WAI/tutorials/carousels/
+     */
 
     _addA11yAttributesToLiveSlide = item => {
         /* clear existing attribute if any */

@@ -7,7 +7,7 @@ import COLORS from '../globals/js/constants/COLORS';
 
 export interface VideoCardThumbnailGroupProps
     extends React.HTMLProps<HTMLDivElement> {
-    thumbnailData: Array<VideoCardThumbnailData>;
+    thumbnailData: VideoCardThumbnailData[];
 }
 // ==================== VideoCardThumbnailGroup Styled
 

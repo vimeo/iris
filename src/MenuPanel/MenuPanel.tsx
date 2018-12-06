@@ -194,7 +194,7 @@ class MenuPanel extends Component<
 
     _openMenu = () => {
         this._setFocusableElementList(this._bindEvents);
-        //this.tether.position();
+        // this.tether.position();
         if (typeof this.props.onOpen === 'function') {
             this.props.onOpen();
         }

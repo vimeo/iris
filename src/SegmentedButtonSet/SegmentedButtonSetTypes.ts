@@ -27,7 +27,7 @@ export interface SegmentedButtonSetProps {
     /**
      * See SegmentedButtonSetOptionProps
      */
-    options: Array<SegmentedButtonSetOptionProps>;
+    options: SegmentedButtonSetOptionProps[];
     /**
      * Pass false to hide the group label.
      */

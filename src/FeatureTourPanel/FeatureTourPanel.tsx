@@ -14,7 +14,7 @@ export interface FeatureTourPanelProps {
     className?: string;
     contextualInfo?: ReactNode;
     dismissButtonA11yLabel: string;
-    dismissButtonProps?: Object;
+    dismissButtonProps?: {};
     dotZIndex?: number;
     headerText?: string;
     shouldHideOnClose?: boolean;
@@ -33,7 +33,7 @@ export interface FeatureTourPanelState {
     children: ReactNode;
     className?: string;
     dismissButtonA11yLabel: string;
-    dismissButtonProps?: Object;
+    dismissButtonProps?: {};
     dotZIndex?: number;
     headerText?: string;
     shouldHideOnClose?: boolean;
@@ -210,32 +210,6 @@ class FeatureTourPanel extends React.Component {
             />
         );
 
-        const panelOffsetDistance = 16;
-        let panelAttachment, panelTargetAttachment, panelOffset;
-
-        switch (attachment) {
-            case 'top':
-                panelAttachment = 'bottom center';
-                panelOffset = `${panelOffsetDistance * 3}px 0`;
-                panelTargetAttachment = 'bottom center';
-                break;
-            case 'right':
-                panelAttachment = 'top left';
-                panelOffset = '0 0';
-                panelTargetAttachment = 'top right';
-                break;
-            case 'bottom':
-                panelAttachment = 'top center';
-                panelOffset = `${panelOffsetDistance * -3}px 0`;
-                panelTargetAttachment = 'top center';
-                break;
-            case 'left':
-                panelAttachment = 'top right';
-                panelOffset = '0 0';
-                panelTargetAttachment = 'top left';
-                break;
-        }
-
         return (
             <WrapperStyled
                 className={wrapperClass}
@@ -251,11 +225,7 @@ class FeatureTourPanel extends React.Component {
                         shouldHideOnClose ? false : shouldRefocusTriggerOnClose
                     }
                     size="lg"
-                    options={{
-                        offset: panelOffset,
-                        attachment: panelAttachment,
-                        targetAttachment: panelTargetAttachment,
-                    }}
+                    options={attachmentConfig(attachment)}
                 >
                     <FeatureTourDot
                         style={{
@@ -269,5 +239,29 @@ class FeatureTourPanel extends React.Component {
         );
     }
 }
+
+const attachmentConfig = attachment =>
+    ({
+        top: {
+            attachment: 'bottom center',
+            offset: `48px 0`,
+            TargetAttachment: 'bottom center',
+        },
+        right: {
+            attachment: 'top left',
+            offset: '0 0',
+            TargetAttachment: 'top right',
+        },
+        bottom: {
+            attachment: 'top center',
+            offset: `-48px 0`,
+            TargetAttachment: 'top center',
+        },
+        left: {
+            attachment: 'top right',
+            offset: '0 0',
+            TargetAttachment: 'top left',
+        },
+    }[attachment]);
 
 export default FeatureTourPanel;

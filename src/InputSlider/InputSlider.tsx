@@ -328,7 +328,7 @@ class InputSlider extends React.Component<any, any> {
                             style={{
                                 left: this.state.startValueLeft,
                                 zIndex:
-                                    this.state.focusedInput ==
+                                    this.state.focusedInput ===
                                     focusIdentifier.start
                                         ? 1
                                         : 'initial',
@@ -346,7 +346,7 @@ class InputSlider extends React.Component<any, any> {
                             style={{
                                 left: this.state.endValueLeft,
                                 zIndex:
-                                    this.state.focusedInput ==
+                                    this.state.focusedInput ===
                                     focusIdentifier.end
                                         ? 1
                                         : 'initial',
@@ -374,7 +374,7 @@ class InputSlider extends React.Component<any, any> {
         const gap = this.props.gap;
         // making sure the start value should always be smaller than end value with minimum difference of gap value provided
         if (
-            selectedInput == this.startRange &&
+            selectedInput === this.startRange &&
             parseInt(this.startRange.value, 10) >=
                 parseInt(this.endRange.value, 10) - gap
         ) {
@@ -382,7 +382,7 @@ class InputSlider extends React.Component<any, any> {
                 parseInt(this.endRange.value, 10) - gap,
             );
         } else if (
-            selectedInput == this.endRange &&
+            selectedInput === this.endRange &&
             parseInt(this.endRange.value, 10) <=
                 parseInt(this.startRange.value, 10) + gap
         ) {
@@ -427,7 +427,9 @@ class InputSlider extends React.Component<any, any> {
         const gradientOffset =
             InputSliderStyleSettings.dimensions.gradientOffset;
         const gradientOffsetValue =
-            selectedInput == this.startRange ? -gradientOffset : gradientOffset;
+            selectedInput === this.startRange
+                ? -gradientOffset
+                : gradientOffset;
         const bubbleOffset =
             (postOffsetValue / this.totalRange) * this.handleDiameter;
 

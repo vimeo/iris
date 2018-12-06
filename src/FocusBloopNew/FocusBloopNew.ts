@@ -4,9 +4,9 @@ import COLORS from '../globals/js/constants/COLORS';
 
 const transitionSpeed = '150ms';
 
-export type FocusBloopProps = {
+export interface FocusBloopProps {
     theme?: 'dark' | 'default';
-};
+}
 
 export const FocusBloop = ({ theme = null }: FocusBloopProps) => css`
     z-index: 1;

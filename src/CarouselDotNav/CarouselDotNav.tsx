@@ -56,7 +56,7 @@ const CarouselDotNav: SFC<CarouselDotNavProps> = ({
         }
     };
 
-    let dots = [];
+    const dots = [];
 
     for (let i = 0; i < dotCount; i++) {
         dots.push(

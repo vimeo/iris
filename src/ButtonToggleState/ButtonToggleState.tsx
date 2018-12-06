@@ -81,7 +81,7 @@ const on = (_, { format = 'primaryOutline', onStateText }: Props): State => ({
 
 const off = (_, { format = 'primaryOutline', offStateText }: Props): State => ({
     children: offStateText,
-    format: format,
+    format,
     icon: 'off',
 });
 

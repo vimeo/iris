@@ -124,7 +124,7 @@ export interface VideoCardProps
     /**
      * An array of thumbnail data objects, Only one is required for a standard card. Use 3 for a group. See props above.
      */
-    thumbnailData: Array<VideoCardThumbnailData>;
+    thumbnailData: VideoCardThumbnailData[];
     /**
      * The title of the video or album as a string.
      */

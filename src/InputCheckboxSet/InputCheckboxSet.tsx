@@ -35,7 +35,7 @@ class InputCheckboxSet extends React.Component<
         });
     }
 
-    _checkForUnifiedState(checkboxesState: Array<boolean>) {
+    _checkForUnifiedState(checkboxesState: boolean[]) {
         const isAllTrue = element => element;
         const isAllFalse = element => !element;
 
@@ -71,11 +71,10 @@ class InputCheckboxSet extends React.Component<
 
     _handleTopLevelChange = (event: any) => {
         if (event.target.hasOwnProperty('checked')) {
-            const newState = this.props.subOptions.map(
-                () =>
-                    event.target.checked && this.props.checkAllOnTopLevelCheck
-                        ? true
-                        : false,
+            const newState = this.props.subOptions.map(() =>
+                event.target.checked && this.props.checkAllOnTopLevelCheck
+                    ? true
+                    : false,
             );
 
             this.setState({

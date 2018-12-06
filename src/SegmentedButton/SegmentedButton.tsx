@@ -19,12 +19,12 @@ const SegmentedButtonSetButton: SFC<
     inputProps = { ref: false },
     name,
     optionLabel,
-    //@ts-ignore
+    // @ts-ignore
     ref: _,
     ...filteredProps
 }) => {
     const {
-        //@ts-ignore
+        // @ts-ignore
         ref: _,
         ...inputPropsFiltered
     } = inputProps;

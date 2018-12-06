@@ -5,7 +5,7 @@ import { VideoCardStyleSettings } from './VideoCardHelpers';
 
 export interface VideoCardSocialBadgeAreaProps
     extends React.HTMLProps<HTMLDivElement> {
-    socialBadges: Array<any>;
+    socialBadges: any[];
 }
 
 // ==================== VideoCardSocialBadgeArea Styled

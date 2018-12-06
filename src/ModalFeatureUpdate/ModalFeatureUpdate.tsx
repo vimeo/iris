@@ -24,7 +24,7 @@ export interface ModalFeatureUpdateProps {
     /**
      * Pass an object of props to be spread across the dismiss button.
      */
-    dismissButtonProps?: Object;
+    dismissButtonProps?: {};
     /**
      * a querySelectorString passed to `querySelector()` that will find the DOM element that should receive first focus on open, defaults to the dismiss button.
      */

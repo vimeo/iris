@@ -83,7 +83,7 @@ export const InputCheckboxStyled = styled<any, 'input'>('input')`
             background-color: ${COLORS.VimeoBlue};
             box-shadow: none;
         }
-        
+
         + ${OverlayStyled} {
             border: 0;
             background: ${COLORS.VimeoBlue};

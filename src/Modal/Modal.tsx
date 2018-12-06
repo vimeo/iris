@@ -145,7 +145,7 @@ const ModalStyled = styled<ModalStyledProps, 'div'>('div')`
             `;
         } else {
             return mediaQuery.md`
-                width: ${props => rem(modalWidths[props.modalSize])} 
+                width: ${props => rem(modalWidths[props.modalSize])}
             `;
         }
     }};
@@ -172,7 +172,7 @@ const ContentStyled = styled<ContentStyledProps, 'div'>('div')`
             MODAL_HEIGHT_LG_SCREEN,
         )});
         `}
-        
+
         max-height: calc(${MODAL_MAX_HEIGHT} - ${rem(MODAL_HEIGHT_SM_SCREEN)});
     `
             : ''};

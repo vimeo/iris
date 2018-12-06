@@ -16,7 +16,7 @@ export interface MenuPanelListProps {
     /**
      * An array of MenuListItem components
      */
-    menuItems: Array<MenuPanelListItemProps>;
+    menuItems: MenuPanelListItemProps[];
     /**
      * Color Scheme
      */

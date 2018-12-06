@@ -126,7 +126,7 @@ const HaloStyled = styled<HaloStyledProps, 'span'>('span')`
         );
 
         animation: 2500ms infinite ${haloKeyframes};
-    
+
     `
             : ''};
 `;
