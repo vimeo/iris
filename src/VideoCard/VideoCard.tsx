@@ -167,6 +167,7 @@ const WrapperStyled = styled<WrapperStyledProps, any>(Card)`
             ? `calc(100% + ${rem(VideoCardStyleSettings.contextAreaHeight)})`
             : '100%'}; // forces square aspect ratio
     margin-bottom: ${props => (props.noMargin ? 0 : rem(20))};
+    cursor: pointer;
 `;
 
 export interface ContentPositionWrapperStyledProps
@@ -335,14 +336,11 @@ class VideoCard extends Component<VideoCardProps, VideoCardState> {
                         titleSubheader={showAllContent && titleSubheader}
                     />
                 </ContentPositionWrapperStyled>
-                {!showAllContent &&
-                    smallActionArea && (
-                        <SmallActionWrapperStyled
-                            onClick={this._suppressEvents}
-                        >
-                            {smallActionArea}
-                        </SmallActionWrapperStyled>
-                    )}
+                {!showAllContent && smallActionArea && (
+                    <SmallActionWrapperStyled onClick={this._suppressEvents}>
+                        {smallActionArea}
+                    </SmallActionWrapperStyled>
+                )}
                 {showAllContent && footer ? (
                     <FooterAreaStyled>{footer}</FooterAreaStyled>
                 ) : null}
