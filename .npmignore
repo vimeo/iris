@@ -1,32 +1,16 @@
-data
-docs
 build-styleguide
-gulp-tasks
-templates
+svg_src_files
 src
 .babelrc
-.csscomb.json
-.eslintrc
-.eslintignore
-.flowconfig
+.prettierrc
 .gitignore
-config.js
-favicon.png
-gulpfile.babel.js
-plopfile.js
-webpack.config.js
+.storybook
+*.story.tsx
 yarn.lock
 
-
-# node / npm
 node_modules
 *.log
 *.orig
-
-
-########################
-# node.js / npm
-########################
 
 lib-cov
 *.seed
@@ -41,11 +25,7 @@ pids
 results
 
 npm-debug.log
-
-
-########################
-# misc / editors
-########################
+yarn-error.log
 
 *~
 *#
@@ -58,11 +38,3 @@ nbproject
 *.sublime-project
 *.sublime-workspace
 .vscode
-
-
-########################
-# Caches
-########################
-
-.sass-cache
-
