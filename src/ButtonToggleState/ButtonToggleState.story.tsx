@@ -13,7 +13,7 @@ const connectText = 'Connect';
 const disconnectText = 'Disconnect';
 const connectedText = 'Connected';
 
-storiesOf('Button', module).add(
+storiesOf('components/Button', module).add(
     'toggle state',
     () => <ButtonToggleStateDocs />,
     {

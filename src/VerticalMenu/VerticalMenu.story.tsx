@@ -22,7 +22,7 @@ import HomeFilledIcon from '../icons/home-filled.svg';
 import SettingsIcon from '../icons/gear.svg';
 import COLORS from '../globals/js/constants/COLORS';
 
-storiesOf('VerticalMenu', module)
+storiesOf('components/VerticalMenu', module)
     .add(
         'simple',
         () => (

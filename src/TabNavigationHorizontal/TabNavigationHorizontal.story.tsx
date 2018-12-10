@@ -4,7 +4,7 @@ import { Header2, ParagraphMd } from '../Type';
 import LinkText from '../LinkText/LinkText';
 import TabNavigationHorizontal from './TabNavigationHorizontal';
 
-storiesOf('Tabs', module).add(
+storiesOf('components/Tabs', module).add(
     'default',
     () => (
         <TabNavigationHorizontal

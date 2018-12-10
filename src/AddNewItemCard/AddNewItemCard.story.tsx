@@ -5,7 +5,7 @@ import Grid from '../Grid/Grid';
 import GridBlock from '../GridBlock/GridBlock';
 import GridCol from '../GridCol/GridCol';
 
-storiesOf('AddNewItemCard', module).add(
+storiesOf('components/AddNewItemCard', module).add(
     'default',
     () => (
         <Grid isNested>

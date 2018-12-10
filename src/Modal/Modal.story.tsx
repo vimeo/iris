@@ -4,7 +4,7 @@ import Button from '../Button';
 import Modal from './Modal';
 import { ParagraphMd } from '../Type';
 
-storiesOf('Modal', module).add('basic modal', () => <ModalDocs />, {
+storiesOf('components/Modal', module).add('basic modal', () => <ModalDocs />, {
     info: {
         inline: true,
         propTables: [Modal],

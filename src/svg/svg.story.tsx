@@ -8,7 +8,7 @@ import COLORS from '../globals/js/constants/COLORS';
 import { css } from 'styled-components';
 import { select } from '@storybook/addon-knobs';
 
-storiesOf('SVG', module)
+storiesOf('svg', module)
     .add('icons', () => {
         const size = select(
             'Size',

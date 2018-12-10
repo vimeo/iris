@@ -78,6 +78,7 @@ export Stats from '../icons/stats.svg';
 export TagFilled from '../icons/tag-filled.svg';
 export Tag from '../icons/tag.svg';
 export Television from '../icons/television.svg';
+
 export Trash from '../icons/trash.svg';
 export Twitter from '../icons/twitter.svg';
 export UploadCloudFilled from '../icons/upload-cloud-filled.svg';

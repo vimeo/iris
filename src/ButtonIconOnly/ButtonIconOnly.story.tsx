@@ -14,7 +14,7 @@ const Format = styled.h6`
     position: relative;
 `;
 
-storiesOf('Button', module).add(
+storiesOf('components/Button', module).add(
     'icon only',
     () => (
         <div>

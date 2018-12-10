@@ -7,7 +7,7 @@ import ButtonIconOnly from '../ButtonIconOnly';
 import MenuPanel from '../MenuPanel/MenuPanel';
 import SettingsIcon from '../icons/gear.svg';
 
-storiesOf('Menu Panel', module).add(
+storiesOf('components/Menu Panel', module).add(
     'scrollable',
     () => (
         <MenuPanel

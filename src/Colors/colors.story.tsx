@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import COLORS from '../globals/js/constants/COLORS';
 import styled from 'styled-components';
 
-storiesOf('Color Palette', module).add('default', () => (
+storiesOf('colors/Color Palette', module).add('default', () => (
     <ColorGrid>
         {Object.keys(COLORS).map(colorName => (
             <ColorBlock colorName={colorName} colorHex={COLORS[colorName]} />

@@ -10,7 +10,7 @@ import {
     Header6,
 } from './index';
 
-storiesOf('Typography', module).add(
+storiesOf('typography', module).add(
     'headlines',
     () => (
         <div>

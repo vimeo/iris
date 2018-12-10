@@ -11,7 +11,7 @@ const ButtonCropped = styled(Button)`
     max-width: 150px;
 `;
 
-storiesOf('Button', module)
+storiesOf('components/Button', module)
     .add(
         'basic buttons',
         () => (

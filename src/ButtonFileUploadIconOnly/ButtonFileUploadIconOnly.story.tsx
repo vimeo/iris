@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import ButtonFileUploadIconOnly from './ButtonFileUploadIconOnly';
 
-storiesOf('Button', module).add(
+storiesOf('components/Button', module).add(
     'file upload icon only',
     () => (
         <div>

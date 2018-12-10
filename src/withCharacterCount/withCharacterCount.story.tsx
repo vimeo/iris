@@ -6,7 +6,7 @@ import { InputText } from '../InputText/';
 import styled from 'styled-components';
 import { ParagraphMd } from '../Type';
 
-storiesOf('withCharacterCount', module).add(
+storiesOf('utilties/withCharacterCount', module).add(
     'default',
     () => (
         <div>

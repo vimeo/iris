@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import InputToggle from './InputToggle';
 import { Header3 } from '../Type';
 
-storiesOf('Inputs', module).add(
+storiesOf('components/Inputs', module).add(
     'toggle',
     () => (
         <div>

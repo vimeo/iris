@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import Toastification from './Toastification';
 import Button from '../Button';
 
-storiesOf('Notifications', module).add(
+storiesOf('components/Notifications', module).add(
     'Toastification',
     () => <ToastificationDocs />,
     {

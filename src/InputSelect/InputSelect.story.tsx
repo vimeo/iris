@@ -16,7 +16,7 @@ const demoOptions = (
     </optgroup>
 );
 
-storiesOf('Inputs', module).add(
+storiesOf('components/Inputs', module).add(
     'select',
     () => (
         <div>
