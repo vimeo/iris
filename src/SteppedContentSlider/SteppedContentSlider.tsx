@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import Swipeable from 'react-swipeable';
-import throttle from 'lodash/throttle';
+import throttle from 'lodash.throttle';
 import Header4 from '../Type/Header4';
 import ButtonIconOnly from '../ButtonIconOnly';
 import ChevronRight from '../icons/chevron-right.svg';

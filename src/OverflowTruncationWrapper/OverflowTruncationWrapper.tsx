@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from 'react';
-import throttle from 'lodash/throttle';
+import throttle from 'lodash.throttle';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 

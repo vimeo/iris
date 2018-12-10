@@ -2,7 +2,7 @@ import React, { HTMLProps, SFC } from 'react';
 import { ButtonLoadingStateProps as Props } from './ButtonLoadingStateTypes';
 import { ButtonLoadingStateStyled } from './ButtonLoadingStateStyled';
 import LoaderCircular from '../LoaderCircular/LoaderCircular';
-import { Omit } from 'lodash';
+import { Omit } from '../globals/js/type-helpers';
 
 const ButtonLoadingState: SFC<
     Props & Omit<HTMLProps<HTMLButtonElement>, 'size'>

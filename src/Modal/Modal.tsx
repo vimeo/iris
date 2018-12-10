@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { Transition } from 'react-transition-group';
-import throttle from 'lodash/throttle';
+import throttle from 'lodash.throttle';
 import { Omit } from '../globals/js/type-helpers';
 import mediaQuery from '../globals/js/style-helpers/mediaQuery';
 import COLORS from '../globals/js/constants/COLORS';
