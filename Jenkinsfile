@@ -1,5 +1,10 @@
 pipeline {
-    agent { docker { image 'node' } }
+    agent {
+        node  {
+            label 'docker'
+        }
+        docker { image 'node' }
+    }
     stages {
         stage('yarn') {
             steps {
