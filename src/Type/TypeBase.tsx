@@ -4,7 +4,7 @@ import { rem } from 'polished';
 import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
 import COLORS from '../globals/js/constants/COLORS';
 import {
-    typeByCSSInterface,
+    TypeByCSSInterface,
     TypeProps,
     StyledTypeElementProps,
 } from './TypeTypes';
@@ -143,7 +143,7 @@ export const typeCSSByProps = ({
     fontStack,
     format,
     noMargin,
-}: typeByCSSInterface) => css`
+}: TypeByCSSInterface) => css`
     color: ${getColor({ size, format })};
     font-size: ${size !== 'plusUltra'
         ? rem(getFontSize(size))

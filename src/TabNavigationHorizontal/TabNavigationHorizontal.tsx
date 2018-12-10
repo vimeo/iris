@@ -40,9 +40,9 @@ class TabNavigationHorizontal extends Component<Props, State> {
                             isSelected={this.state.index === i}
                             handleTabChange={(e: React.MouseEvent) => {
                                 this.setState({ index: i });
-                                (() => {
-                                    onClick && onClick(e);
-                                })();
+                                if ('function' === typeof onClick) {
+                                    onClick(e);
+                                }
                             }}
                         />
                     ))}

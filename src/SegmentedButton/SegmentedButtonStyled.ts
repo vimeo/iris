@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { SegmentedButton_ButtonComponentProps } from './SegmentedButtonTypes';
+import { SBBCProps } from './SegmentedButtonTypes';
 import {
     ButtonCoreCSS,
     getDefaultCSSByFormat,
@@ -19,10 +19,7 @@ export const LabelStyled = styled<React.HTMLProps<HTMLLabelElement>, 'label'>(
     flex-grow: 1;
 `;
 
-export const OptionStyled = styled<
-    SegmentedButton_ButtonComponentProps,
-    'span'
->('span')`
+export const OptionStyled = styled<SBBCProps, 'span'>('span')`
     ${ButtonCoreCSS}
     ${getSizeCSS}
     ${getDefaultCSSByFormat({ format: 'primaryOutline' })}

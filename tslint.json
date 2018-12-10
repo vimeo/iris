@@ -26,13 +26,9 @@
             ]
         },
 
-        "class-name": false,
         "max-line-length": false,
         "member-access": false,
         "member-ordering": false,
-        "no-bitwise": false,
-        "no-empty": false,
-        "no-unused-expression": false,
         "ordered-imports": false,
         "variable-name": false
     },

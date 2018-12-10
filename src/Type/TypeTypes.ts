@@ -38,7 +38,7 @@ export interface StyledTypeElementProps {
         | 'headerSm';
 }
 
-export interface typeByCSSInterface {
+export interface TypeByCSSInterface {
     fontStack?: 'regular' | 'light';
     format: 'white' | 'light' | 'dark' | 'alternative' | 'success';
     noMargin?: boolean;

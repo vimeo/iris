@@ -18,7 +18,7 @@ export interface ButtonProps
      *  *`hoverTextColor` is optional and falls back to `defaultTextColor`
      *  *`hoverBorderColor`  and `defaultBorderColor` are optional and fall back to background color pairings
      */
-    customFormat?: customFormatButton;
+    customFormat?: CustomFormatButton;
     /**
      * Chooses the color theme
      */
@@ -49,7 +49,7 @@ export interface ButtonStyledProps {
     hasFeaturedIcon?: boolean;
 }
 
-export interface customFormatButton {
+export interface CustomFormatButton {
     defaultBackgroundColor: string;
     defaultBorderColor?: string;
     defaultTextColor: string;

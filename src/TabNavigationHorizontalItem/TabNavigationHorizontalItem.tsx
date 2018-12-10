@@ -1,11 +1,11 @@
-import React, { SFC } from 'react';
+import React, { SFC, MouseEventHandler } from 'react';
 import Button from '../Button/Button';
 
 interface Props {
-    handleTabChange: (e: React.MouseEvent) => void;
+    handleTabChange: MouseEventHandler;
     isSelected: boolean;
     label: string;
-    onClick?: () => void;
+    onClick?: MouseEventHandler;
     tabId: string;
 }
 
@@ -26,7 +26,9 @@ const TabNavigationHorizontalItem: SFC<Props> = ({
             onClick={(e: React.MouseEvent) => {
                 e.preventDefault();
                 handleTabChange(e);
-                onClick && onClick();
+                if ('function' === typeof onClick) {
+                    onClick(e);
+                }
             }}
         >
             <Button

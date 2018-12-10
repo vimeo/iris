@@ -1,7 +1,9 @@
 pipeline {
     agent {
-        label 'docker'
-        docker { image 'node' }
+        docker {
+            label 'docker'
+            image 'node'
+        }
     }
     stages {
         stage('yarn') {

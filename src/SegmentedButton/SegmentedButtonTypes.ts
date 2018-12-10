@@ -6,8 +6,7 @@ export interface SegmentedButtonProps {
     inputProps?: React.HTMLProps<HTMLInputElement>;
 }
 
-export interface SegmentedButton_ButtonComponentProps
-    extends React.HTMLAttributes<HTMLSpanElement> {
+export interface SBBCProps extends React.HTMLAttributes<HTMLSpanElement> {
     disabled: boolean;
     format: 'light' | 'dark';
     size: string;

@@ -83,7 +83,7 @@ const SliderLabel: SFC<SliderLabelProps> = ({
     id,
     format,
     onUserInput,
-    ...filteredProps
+    ...props
 }) => {
     const updateValue = e => {
         const newValue = parseInt(e.target.value, 10);
@@ -101,14 +101,13 @@ const SliderLabel: SFC<SliderLabelProps> = ({
         disabled: editable ? false : true,
         id,
         onKeyUp: updateValue,
-        onChange: () => {},
         defaultValue: String(value),
         format,
         isDisabled: editable ? false : true,
     };
     return (
         <LabelWrapper
-            {...filteredProps}
+            {...props}
             format={format}
             isDisabled={inputProps.disabled}
         >
