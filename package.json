@@ -1,8 +1,8 @@
 {
     "name": "@vimeo/iris",
-    "version": "5.18.0",
+    "version": "5.18.1-alpha.0",
     "description": "Iris UI Pattern Framework",
-    "main": "dist/index.js",
+    "main": "index.js",
     "types": "dist/index.d.ts",
     "engines": {
         "node": ">=8",
@@ -12,7 +12,7 @@
         "dev": "tsc -w",
         "clean": "rm -rf dist",
         "storybook": "start-storybook -p 9001 -c .storybook",
-        "svg": "npm run svg-min; cp -r ./src/icons ./dist/icons; cp -r ./src/illustrations ./dist/illustrations;",
+        "svg": "npm run svg-min; cp -r ./src/icons ./dist/; cp -r ./src/illustrations ./dist/;",
         "svg-min": "node svg",
         "build": "npm run clean; tsc; npm run svg",
         "build-storybook": "build-storybook -c .storybook -o build-styleguide",

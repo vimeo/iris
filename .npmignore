@@ -2,11 +2,14 @@ build-styleguide
 svg_src_files
 src
 .babelrc
-.prettierrc
 .gitignore
+.prettierrc
 .storybook
 *.story.tsx
+Jenkinsfile
+svg.js
 yarn.lock
+
 
 node_modules
 *.log
