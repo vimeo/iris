@@ -1,8 +1,8 @@
 {
     "name": "@vimeo/iris",
-    "version": "5.18.1-alpha.0",
+    "version": "5.18.1-alpha.1",
     "description": "Iris UI Pattern Framework",
-    "main": "index.js",
+    "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "engines": {
         "node": ">=8",
