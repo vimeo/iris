@@ -32,7 +32,7 @@
         ".storybook",
         "dist",
         "build-styleguide",
-        "*.story.*",
+        "src/**/*.story.tsx",
         "node_modules"
     ]
 }
