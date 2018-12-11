@@ -2,13 +2,13 @@ import React, { SFC } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { rem } from 'polished';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
-import VideoCardSelectionCheckbox from './VideoCardSelectionCheckbox';
-import VideoCardDecorationArea from './VideoCardDecorationArea';
-import VideoCardPropertiesArea from './VideoCardPropertiesArea';
-import VideoCardSocialBadgeArea from './VideoCardSocialBadgeArea';
-import VideoCardThumbnailGroup from './VideoCardThumbnailGroup';
+import { VideoCardSelectionCheckbox } from './VideoCardSelectionCheckbox';
+import { VideoCardDecorationArea } from './VideoCardDecorationArea';
+import { VideoCardPropertiesArea } from './VideoCardPropertiesArea';
+import { VideoCardSocialBadgeArea } from './VideoCardSocialBadgeArea';
+import { VideoCardThumbnailGroup } from './VideoCardThumbnailGroup';
 import { VideoCardThumbnailData } from './VideoCard';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 
 export interface VideoCardThumbnailAreaProps {
     checkboxA11yLabel?: string;
@@ -113,7 +113,7 @@ const HoverOverlayStyled = styled('div')`
     );
 `;
 
-const VideoCardThumbnailArea: SFC<VideoCardThumbnailAreaProps> = ({
+export const VideoCardThumbnailArea: SFC<VideoCardThumbnailAreaProps> = ({
     checkboxA11yLabel,
     isGroup,
     isHovered,
@@ -181,5 +181,3 @@ const VideoCardThumbnailArea: SFC<VideoCardThumbnailAreaProps> = ({
         {thumbnailTimestampArea}
     </WrapperStyled>
 );
-
-export default VideoCardThumbnailArea;

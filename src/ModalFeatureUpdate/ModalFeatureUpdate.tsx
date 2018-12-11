@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { Transition } from 'react-transition-group';
-import COLORS from '../globals/js/constants/COLORS';
-import ModalWrapper from '../ModalWrapper/ModalWrapper';
-import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
+import { COLORS } from '../globals/js/constants/COLORS';
+import { ModalWrapper } from '../ModalWrapper/ModalWrapper';
+import { ButtonDialogClose } from '../ButtonDialogClose/ButtonDialogClose';
 
 export const ModalFeatureUpdateStyleSettings = {
     borderRadius: 8,
@@ -107,7 +107,7 @@ const ButtonDialogCloseStyled = styled<ButtonDialogCloseStyledProps, any>(
 
 // ==================== ModalFeatureUpdate
 
-class ModalFeatureUpdate extends React.Component<
+export class ModalFeatureUpdate extends React.Component<
     ModalFeatureUpdatePropsCombined,
     any
 > {
@@ -172,5 +172,3 @@ class ModalFeatureUpdate extends React.Component<
         );
     }
 }
-
-export default ModalFeatureUpdate;

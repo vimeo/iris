@@ -1,5 +1,5 @@
 import React, { ReactNode, SFC } from 'react';
-import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';
+import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 import InfoIcon from '../icons/circle-info.svg';
 import {
     TooltipAnnotationIconStyled,
@@ -14,7 +14,7 @@ interface Props {
     tooltipProps?: {};
 }
 
-const TooltipAnnotationIcon: SFC<Props> = ({
+export const TooltipAnnotationIcon: SFC<Props> = ({
     children,
     labelType = 'inline',
     size = 'md',
@@ -39,5 +39,3 @@ const TooltipAnnotationIcon: SFC<Props> = ({
         </IconWrapper>
     </TooltipAnnotationIconStyled>
 );
-
-export default TooltipAnnotationIcon;

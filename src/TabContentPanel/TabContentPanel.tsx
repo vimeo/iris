@@ -9,7 +9,7 @@ interface Props {
     }>;
 }
 
-const TabContentPanel: SFC<Props> = ({ index, panels, ...props }) => (
+export const TabContentPanel: SFC<Props> = ({ index, panels, ...props }) => (
     <div {...props} style={{ padding: '0.5rem 0' }}>
         <div
             id={panels[index].tabId}
@@ -19,5 +19,3 @@ const TabContentPanel: SFC<Props> = ({ index, panels, ...props }) => (
         </div>
     </div>
 );
-
-export default TabContentPanel;

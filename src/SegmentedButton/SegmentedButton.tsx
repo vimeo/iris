@@ -7,7 +7,7 @@ import {
     OptionStyled,
 } from './SegmentedButtonStyled';
 
-const SegmentedButtonSetButton: SFC<
+export const SegmentedButtonSetButton: SFC<
     SegmentedButtonProps &
         SegmentedButtonSetOptionProps &
         HTMLProps<HTMLDivElement>
@@ -21,7 +21,7 @@ const SegmentedButtonSetButton: SFC<
     optionLabel,
     // @ts-ignore
     ref: _,
-    ...filteredProps
+    ...props
 }) => {
     const {
         // @ts-ignore
@@ -39,7 +39,7 @@ const SegmentedButtonSetButton: SFC<
                 disabled={disabled}
             />
             <OptionStyled
-                {...filteredProps}
+                {...props}
                 disabled={disabled}
                 format={format}
                 size="md"
@@ -49,5 +49,3 @@ const SegmentedButtonSetButton: SFC<
         </LabelStyled>
     );
 };
-
-export default SegmentedButtonSetButton;

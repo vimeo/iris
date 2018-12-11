@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { ChromePicker } from 'react-color';
-import InputText, { InputTextProps } from '../InputText/InputText';
+import { InputText, InputTextProps } from '../InputText/InputText';
 import { InputProps } from '../InputText/InputHelpers';
-import MenuPanel from '../MenuPanel/MenuPanel';
-import { COLORS, KEY_CODES } from '../globals/js/constants';
-import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
+import { MenuPanel } from '../MenuPanel/MenuPanel';
+import { COLORS } from '../globals/js/constants/COLORS';
+import { KEY_CODES } from '../globals/js/constants/KEY_CODES';
+import { VimeoStyleSettings } from '../globals/js/style-settings/VimeoStyleSettings';
 import { Omit } from '../globals/js/type-helpers';
 
 const defaultColorValue = COLORS.VimeoBlue;
@@ -122,7 +123,7 @@ const ResetButtonStyled = styled<ResetButtonStyledStyledProps, any>('a')`
     }
 `;
 
-class InputColorPicker extends React.Component<
+export class InputColorPicker extends Component<
     InputColorPickerCombinedProps,
     InputColorPickerState
 > {
@@ -406,5 +407,3 @@ class InputColorPicker extends React.Component<
         );
     }
 }
-
-export default InputColorPicker;

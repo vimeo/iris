@@ -1,4 +1,4 @@
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 import { css } from 'styled-components';
 import { darken, rgba, rem } from 'polished';
 

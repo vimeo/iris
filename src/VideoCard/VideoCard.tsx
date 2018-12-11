@@ -1,12 +1,12 @@
 import React, { Component, ReactNode } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import Card from '../Card';
-import VideoCardThumbnailArea from './VideoCardThumbnailArea';
-import VideoCardInfoArea from './VideoCardInfoArea';
-import VideoCardLoadingState from './VideoCardLoadingState';
+import { Card } from '../Card/Card';
+import { VideoCardThumbnailArea } from './VideoCardThumbnailArea';
+import { VideoCardInfoArea } from './VideoCardInfoArea';
+import { VideoCardLoadingState } from './VideoCardLoadingState';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
-import LoaderCircular from '../LoaderCircular';
+import { LoaderCircular } from '../LoaderCircular/LoaderCircular';
 import { Omit } from '../globals/js/type-helpers';
 
 export interface VideoCardThumbnailData {
@@ -217,8 +217,7 @@ const ProcessingOverlayStyled = styled('div')`
     filter: none;
 `;
 
-// ==================== VideoCard
-class VideoCard extends Component<VideoCardProps, VideoCardState> {
+export class VideoCard extends Component<VideoCardProps, VideoCardState> {
     props: VideoCardProps;
     state: VideoCardState;
 
@@ -376,5 +375,3 @@ class VideoCard extends Component<VideoCardProps, VideoCardState> {
         );
     }
 }
-
-export default VideoCard;

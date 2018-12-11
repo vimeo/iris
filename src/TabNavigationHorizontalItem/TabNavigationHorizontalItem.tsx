@@ -1,5 +1,5 @@
 import React, { SFC, MouseEventHandler } from 'react';
-import Button from '../Button/Button';
+import { Button } from '../Button/Button';
 
 interface Props {
     handleTabChange: MouseEventHandler;
@@ -9,17 +9,17 @@ interface Props {
     tabId: string;
 }
 
-const TabNavigationHorizontalItem: SFC<Props> = ({
+export const TabNavigationHorizontalItem: SFC<Props> = ({
     handleTabChange,
     isSelected,
     onClick,
     tabId,
     label,
-    ...filteredProps
+    ...props
 }) => (
     <li style={{ flex: '1 0 0' }}>
         <a
-            {...filteredProps}
+            {...props}
             id={`tab-${tabId}`}
             aria-selected={isSelected ? 'true' : 'false'}
             href={`#${tabId}`}
@@ -43,5 +43,3 @@ const TabNavigationHorizontalItem: SFC<Props> = ({
         </a>
     </li>
 );
-
-export default TabNavigationHorizontalItem;

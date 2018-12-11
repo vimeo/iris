@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import Toastification from './Toastification';
-import Button from '../Button';
+import { Toastification } from './Toastification';
+import { Button } from '../Button/Button';
 
 storiesOf('components/Notifications', module).add(
     'Toastification',

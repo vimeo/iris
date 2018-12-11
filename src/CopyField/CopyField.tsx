@@ -1,9 +1,9 @@
 import React, { SFC } from 'react';
 import { CopyFieldProps, CopyButtonProps } from './CopyFieldTypes';
 import ClipboardIcon from '../icons/clipboard.svg';
-import withCopyAbility from '../withCopyAbility/withCopyAbility';
-import { InputText } from '../InputText/';
-import ButtonInlineInputText from '../ButtonInlineInputText/ButtonInlineInputText';
+import { withCopyAbility } from '../withCopyAbility/withCopyAbility';
+import { InputText } from '../InputText/InputText';
+import { ButtonInlineInputText } from '../ButtonInlineInputText/ButtonInlineInputText';
 
 const CopyButton = withCopyAbility<CopyButtonProps>(ButtonInlineInputText);
 
@@ -22,7 +22,7 @@ const copySelect = (id: string, onCopy: () => void) => {
     onCopy();
 };
 
-const CopyField: SFC<CopyFieldProps> = ({
+export const CopyField: SFC<CopyFieldProps> = ({
     buttonFormat = 'strong',
     id,
     onCopy,
@@ -55,5 +55,3 @@ const CopyField: SFC<CopyFieldProps> = ({
         }
     />
 );
-
-export default CopyField;

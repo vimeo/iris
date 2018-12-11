@@ -1,8 +1,8 @@
 import React, { SFC } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
-import COLORS from '../globals/js/constants/COLORS';
+import { VimeoStyleSettings } from '../globals/js/style-settings/VimeoStyleSettings';
+import { COLORS } from '../globals/js/constants/COLORS';
 import {
     TypeByCSSInterface,
     TypeProps,
@@ -180,10 +180,8 @@ const StyledElement = styled<StyledTypeElementProps & TypeProps, any>(
     }
 `;
 
-const TypeBase: SFC<
+export const TypeBase: SFC<
     StyledTypeElementProps &
         TypeProps &
         Omit<React.HTMLProps<HTMLElement>, 'size'>
-> = ({ ref: _, ...filteredProps }) => <StyledElement {...filteredProps} />;
-
-export default TypeBase;
+> = ({ ref: _, ...props }) => <StyledElement {...props} />;

@@ -1,6 +1,6 @@
 import React, { SFC } from 'react';
 import styled, { keyframes } from 'styled-components';
-import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
+import { VimeoStyleSettings } from '../globals/js/style-settings/VimeoStyleSettings';
 import { rem, rgba } from 'polished';
 import {
     ProgressBarStyleSettings,
@@ -76,7 +76,7 @@ const ProgressBarStyled = styled<BarProps, 'div'>('div')`
             : ''};
 `;
 
-const ProgressBarIndicator: SFC<ProgressBarIndicatorProps> = props => {
+export const ProgressBarIndicator: SFC<ProgressBarIndicatorProps> = props => {
     let progressValue;
 
     if (props.currentValue >= 0 && props.currentValue < 101) {
@@ -110,5 +110,3 @@ const ProgressBarIndicator: SFC<ProgressBarIndicatorProps> = props => {
         />
     );
 };
-
-export default ProgressBarIndicator;

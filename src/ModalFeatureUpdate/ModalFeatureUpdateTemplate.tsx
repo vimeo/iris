@@ -66,32 +66,29 @@ const SecondaryAreaStyled = styled<React.HTMLProps<HTMLDivElement>, any>(
     margin-top: ${rem(4)};
 `;
 
-// ==================== ModalFeatureUpdateTemplate
-const ModalFeatureUpdateTemplate: SFC<ModalFeatureUpdateTemplateProps> = ({
+export const ModalFeatureUpdateTemplate: SFC<
+    ModalFeatureUpdateTemplateProps
+> = ({
     children,
     headline,
     heroImageArea,
     primaryActionArea,
     secondaryActionArea,
-    ...filteredProps
-}) => {
-    return (
-        <ModalFeatureUpdateTemplateStyled {...filteredProps}>
-            {heroImageArea && (
-                <HeroImageAreaStyled>{heroImageArea}</HeroImageAreaStyled>
-            )}
-            <BodyAreaStyled>
-                <Header3>{headline}</Header3>
-                <ParagraphMd element="div">{children}</ParagraphMd>
-            </BodyAreaStyled>
-            <FooterAreaStyled>
-                <div>{primaryActionArea}</div>
-                <SecondaryAreaStyled element="div" noMargin>
-                    {secondaryActionArea}
-                </SecondaryAreaStyled>
-            </FooterAreaStyled>
-        </ModalFeatureUpdateTemplateStyled>
-    );
-};
-
-export default ModalFeatureUpdateTemplate;
+    ...props
+}) => (
+    <ModalFeatureUpdateTemplateStyled {...props}>
+        {heroImageArea && (
+            <HeroImageAreaStyled>{heroImageArea}</HeroImageAreaStyled>
+        )}
+        <BodyAreaStyled>
+            <Header3>{headline}</Header3>
+            <ParagraphMd element="div">{children}</ParagraphMd>
+        </BodyAreaStyled>
+        <FooterAreaStyled>
+            <div>{primaryActionArea}</div>
+            <SecondaryAreaStyled element="div" noMargin>
+                {secondaryActionArea}
+            </SecondaryAreaStyled>
+        </FooterAreaStyled>
+    </ModalFeatureUpdateTemplateStyled>
+);

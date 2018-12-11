@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { HeaderAltSm, Header5, ParagraphMd } from '../Type';
-import ButtonIconOnly from '../ButtonIconOnly';
+import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
 import DismissIcon from '../icons/dismiss-x.svg';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 
 export interface FeatureTourPanelContentProps {
     /**
@@ -64,7 +64,7 @@ const ContextAreaStyled = styled('div')`
     text-align: right;
 `;
 
-const FeatureTourPanelContent = ({
+export const FeatureTourPanelContent = ({
     actionArea,
     children,
     contextualInfo,
@@ -73,7 +73,7 @@ const FeatureTourPanelContent = ({
     onDismissClick,
     dismissButtonProps,
     ref: _,
-    ...filteredProps
+    ...props
 }: FeatureTourPanelContentProps & React.HTMLProps<HTMLDivElement>) => {
     const handleClick = event => {
         if (typeof onDismissClick === 'function') {
@@ -82,7 +82,7 @@ const FeatureTourPanelContent = ({
     };
 
     return (
-        <FeatureTourPanelContentStyled {...filteredProps}>
+        <FeatureTourPanelContentStyled {...props}>
             <DismissButtonStyled
                 {...dismissButtonProps}
                 icon={<DismissIcon title={dismissButtonA11yLabel} />}
@@ -109,5 +109,3 @@ const FeatureTourPanelContent = ({
         </FeatureTourPanelContentStyled>
     );
 };
-
-export default FeatureTourPanelContent;

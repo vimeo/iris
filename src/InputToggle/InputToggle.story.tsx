@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import InputToggle from './InputToggle';
+import { InputToggle } from './InputToggle';
 import { Header3 } from '../Type';
 
 storiesOf('components/Inputs', module).add(

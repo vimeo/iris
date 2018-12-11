@@ -1,8 +1,8 @@
 import React, { ReactNode, SFC } from 'react';
-import InputLabelStateIcon from '../InputLabelStateIcon/InputLabelStateIcon';
+import { InputLabelStateIcon } from '../InputLabelStateIcon/InputLabelStateIcon';
 import { ParagraphMd } from '../Type';
 import styled from 'styled-components';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 
 export interface Props {
     children: ReactNode;
@@ -13,7 +13,7 @@ export interface Props {
     theme?: 'default' | 'dark';
 }
 
-const InputLabelInline: SFC<Props & { htmlFor: string }> = ({
+export const InputLabelInline: SFC<Props & { htmlFor: string }> = ({
     children,
     disabled,
     fieldLevelErrors,
@@ -31,8 +31,6 @@ const InputLabelInline: SFC<Props & { htmlFor: string }> = ({
         </span>
     </StyledP>
 );
-
-export default InputLabelInline;
 
 const StyledP = styled<Props, any>(ParagraphMd)`
     display: inline-flex;

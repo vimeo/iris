@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { Wrapper, Anchor } from './AddNewItemStyled';
 import {
-    FocusBloop,
-    FocusBloopFocused,
-    FocusBloopProps,
-} from '../FocusBloopNew/FocusBloopNew';
+    FocusOutline,
+    FocusOutlineFocused,
+    FocusOutlineProps,
+} from '../FocusOutline/FocusOutline';
 
-export const FocusOutline = styled<FocusBloopProps, 'div'>('div')`
-    ${FocusBloop};
+export const ANICFocusOutline = styled.div<FocusOutlineProps>`
+    ${FocusOutline};
     top: -0.5rem;
     left: -0.5rem;
     width: calc(100% + 1rem);
@@ -15,6 +15,6 @@ export const FocusOutline = styled<FocusBloopProps, 'div'>('div')`
 
     ${Wrapper}:focus &,
     ${Anchor}:focus & {
-        ${FocusBloopFocused};
+        ${FocusOutlineFocused};
     }
 `;

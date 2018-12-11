@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import ButtonFileUploadIconOnly from './ButtonFileUploadIconOnly';
+import { ButtonFileUploadIconOnly } from './ButtonFileUploadIconOnly';
 
 storiesOf('components/Button', module).add(
     'file upload icon only',

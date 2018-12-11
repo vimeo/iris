@@ -1,22 +1,14 @@
 import React, { HTMLProps, SFC } from 'react';
 import { ButtonLoadingStateProps as Props } from './ButtonLoadingStateTypes';
 import { ButtonLoadingStateStyled } from './ButtonLoadingStateStyled';
-import LoaderCircular from '../LoaderCircular/LoaderCircular';
+import { LoaderCircular } from '../LoaderCircular/LoaderCircular';
 import { Omit } from '../globals/js/type-helpers';
 
-const ButtonLoadingState: SFC<
+export const ButtonLoadingState: SFC<
     Props & Omit<HTMLProps<HTMLButtonElement>, 'size'>
-> = ({
-    children,
-    icon,
-    isLoading,
-    onClick,
-    ref: _,
-    size = 'md',
-    ...buttonProps
-}) => (
+> = ({ children, icon, isLoading, onClick, ref: _, size = 'md', ...props }) => (
     <ButtonLoadingStateStyled
-        {...buttonProps}
+        {...props}
         size={size}
         onClick={isLoading ? event => event.preventDefault() : onClick}
         icon={isLoading ? null : icon}
@@ -28,5 +20,3 @@ const ButtonLoadingState: SFC<
         )}
     </ButtonLoadingStateStyled>
 );
-
-export default ButtonLoadingState;

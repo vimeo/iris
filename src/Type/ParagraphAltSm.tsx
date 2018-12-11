@@ -1,12 +1,10 @@
 import React, { SFC } from 'react';
-import TypeBase from './TypeBase';
+import { TypeBase } from './TypeBase';
 import { TypeProps } from './TypeTypes';
 import { Omit } from '../globals/js/type-helpers';
 
-const ParagraphAltSm: SFC<
+export const ParagraphAltSm: SFC<
     TypeProps & Omit<React.HTMLProps<HTMLParagraphElement>, 'size'>
-> = ({ element = 'p', format = 'alternative', ...filteredProps }) => (
-    <TypeBase element={element} size="sm" format={format} {...filteredProps} />
+> = ({ element = 'p', format = 'alternative', ...props }) => (
+    <TypeBase element={element} size="sm" format={format} {...props} />
 );
-
-export default ParagraphAltSm;

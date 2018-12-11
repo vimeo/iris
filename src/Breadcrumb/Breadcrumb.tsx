@@ -1,11 +1,11 @@
 import React, { SFC, HTMLProps } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import mediaQuery from '../globals/js/style-helpers/mediaQuery';
+import { mediaQuery } from '../globals/js/style-helpers/mediaQuery';
 import ChevronRight from '../icons/chevron-right.svg';
 import { ParagraphMd } from '../Type';
 import { TypeProps } from '../Type/TypeTypes';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 
 export interface BreadcrumbProps {
     /**
@@ -104,7 +104,7 @@ const CurrentPageCrumb = styled<TypeProps, any>(ParagraphMd)`
     `};
 `;
 
-const Breadcrumb: SFC<BreadcrumbProps & HTMLProps<HTMLDivElement>> = ({
+export const Breadcrumb: SFC<BreadcrumbProps & HTMLProps<HTMLDivElement>> = ({
     crumbs,
     currentPageLabel,
     format = 'lightTheme',
@@ -147,5 +147,3 @@ const Breadcrumb: SFC<BreadcrumbProps & HTMLProps<HTMLDivElement>> = ({
         </BreadCrumbSetWrapper>
     );
 };
-
-export default Breadcrumb;

@@ -1,19 +1,16 @@
-// @flow
 import React, { SFC } from 'react';
-import Button from '../Button/Button';
+import { Button } from '../Button/Button';
 import { ButtonProps } from '../Button/ButtonProps';
 
-const FeatureTourPanelButton: SFC<ButtonProps> = ({
+export const FeatureTourPanelButton: SFC<ButtonProps> = ({
     children,
-    ...filteredProps
+    ...props
 }) => (
     <Button
-        {...filteredProps}
+        {...props}
         format="lightTransparent"
         size="md"
         autoWidth="xs"
         children={children}
     />
 );
-
-export default FeatureTourPanelButton;

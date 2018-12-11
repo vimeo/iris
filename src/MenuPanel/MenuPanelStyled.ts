@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { COLORS, Z_INDEX } from '../globals/js/constants';
+import { COLORS } from '../globals/js/constants/COLORS';
+import { Z_INDEX } from '../globals/js/constants/Z_INDEXES';
 import { menuSpeed } from './MenuPanel';
 import TetherComponent from 'react-tether';
 import {

@@ -1,6 +1,6 @@
 import React, { SFC, HTMLProps } from 'react';
 import styled from 'styled-components';
-import InputLabelStateIcon from '../InputLabelStateIcon/InputLabelStateIcon';
+import { InputLabelStateIcon } from '../InputLabelStateIcon/InputLabelStateIcon';
 import { Header6 } from '../Type';
 import { InputStyleSettings } from '../InputText/InputHelpers';
 
@@ -29,7 +29,7 @@ const LabelStyled = styled<
     ${props => (props.labelTheme === 'dark' ? 'font-weight: normal' : '')};
 `;
 
-const InputLabel: SFC<
+export const InputLabel: SFC<
     InputLabelProps &
         HTMLProps<HTMLLabelElement> &
         HTMLProps<HTMLHeadingElement>
@@ -51,5 +51,3 @@ const InputLabel: SFC<
         {format !== 'neutral' && <InputLabelStateIcon format={format} />}
     </LabelStyled>
 );
-
-export default InputLabel;

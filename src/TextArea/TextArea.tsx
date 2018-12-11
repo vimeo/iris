@@ -1,10 +1,10 @@
 import React, { ReactNode, SFC, HTMLProps } from 'react';
-import InputWrapper from '../InputWrapper/InputWrapper';
+import { InputWrapper } from '../InputWrapper/InputWrapper';
 
 import styled, { css } from 'styled-components';
 import { getInputBaseStyles } from '../InputText/InputHelpers';
 import { rem } from 'polished';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 
 export interface Props {
     disabled?: boolean;
@@ -18,7 +18,7 @@ export interface Props {
     theme?: 'default' | 'light' | 'dark';
 }
 
-const TextArea: SFC<Props & HTMLProps<HTMLTextAreaElement>> = ({
+export const TextArea: SFC<Props & HTMLProps<HTMLTextAreaElement>> = ({
     disabled,
     errorMsg,
     format = 'neutral',
@@ -74,5 +74,3 @@ const TextAreaStyled = styled.textarea<any>`
             padding-left: 2.25rem;
         `};
 `;
-
-export default TextArea;

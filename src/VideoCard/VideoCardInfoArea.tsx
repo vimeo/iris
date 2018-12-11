@@ -1,15 +1,15 @@
 import React, { SFC, ReactNode } from 'react';
 import styled from 'styled-components';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 import { rem } from 'polished';
-import LinkText from '../LinkText';
-import TruncatedTextWrapper from '../TruncatedTextWrapper';
+import { LinkText } from '../LinkText/LinkText';
+import { TruncatedTextWrapper } from '../TruncatedTextWrapper/TruncatedTextWrapper';
 import { Header6, ParagraphSm, ParagraphAltMd } from '../Type';
 import LockFilled from '../icons/lock-filled.svg';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
-import TooltipOverlay from '../TooltipOverlay';
+import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 import { Omit } from '../globals/js/type-helpers';
-import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
+import { VimeoStyleSettings } from '../globals/js/style-settings/VimeoStyleSettings';
 
 export interface VideoCardInfoAreaProps
     extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
@@ -22,8 +22,6 @@ export interface VideoCardInfoAreaProps
     titleLinkProps?: any;
     titleSubheader?: ReactNode;
 }
-
-// ==================== VideoCardInfoArea Styled
 
 const VideoCardInfoAreaStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
     'div',
@@ -98,9 +96,7 @@ export interface TitleHeaderStyledProps
     isPrivate?: boolean;
 }
 
-// ==================== VideoCardInfoArea
-
-const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
+export const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
     isPrivate,
     privacyDescription,
     size,
@@ -176,5 +172,3 @@ const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
         </VideoCardInfoAreaStyled>
     );
 };
-
-export default VideoCardInfoArea;

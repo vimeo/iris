@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import TooltipAnnotationIcon from './TooltipAnnotationIcon';
+import { TooltipAnnotationIcon } from './TooltipAnnotationIcon';
 import { Header4 } from '../Type';
 
 storiesOf('components/TooltipAnnotationIcon', module).add(

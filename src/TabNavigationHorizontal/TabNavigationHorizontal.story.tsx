@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Header2, ParagraphMd } from '../Type';
-import LinkText from '../LinkText/LinkText';
-import TabNavigationHorizontal from './TabNavigationHorizontal';
+import { LinkText } from '../LinkText/LinkText';
+import { TabNavigationHorizontal } from './TabNavigationHorizontal';
 
 storiesOf('components/Tabs', module).add(
     'default',

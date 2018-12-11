@@ -1,16 +1,19 @@
-import BREAKPOINTS from '../constants/BREAKPOINTS';
+import { BREAKPOINTS } from '../constants/BREAKPOINTS';
 
 import { css } from 'styled-components';
 import { em } from 'polished';
 
-const getBreakpoint = (breakpointInPixels: number, cssDeclarations: any) => css`
+export const getBreakpoint = (
+    breakpointInPixels: number,
+    cssDeclarations: any,
+) => css`
     @media screen and (min-width: ${em(breakpointInPixels)}) {
         // @ts-ignore
         ${css(...cssDeclarations)};
     }
 `;
 
-const mediaQuery = {
+export const mediaQuery = {
     xs: (...args) => getBreakpoint(BREAKPOINTS.xs, args),
     sm: (...args) => getBreakpoint(BREAKPOINTS.sm, args),
     md: (...args) => getBreakpoint(BREAKPOINTS.md, args),
@@ -19,6 +22,3 @@ const mediaQuery = {
     xxl: (...args) => getBreakpoint(BREAKPOINTS.xxl, args),
     xxxl: (...args) => getBreakpoint(BREAKPOINTS.xxxl, args),
 };
-
-export default mediaQuery;
-export { getBreakpoint };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Button from './Button';
+import { Button } from './Button';
 import styled from 'styled-components';
 
 import ShareIcon from '../icons/paper-plane.svg';

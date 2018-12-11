@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import CopyField from './CopyField';
+import { CopyField } from './CopyField';
 
 storiesOf('components/CopyField', module).add(
     'default',

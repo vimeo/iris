@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import withCharacterCount from './withCharacterCount';
-import { TextArea } from '../TextArea/';
-import { InputText } from '../InputText/';
+import { withCharacterCounter as withCharacterCount } from './withCharacterCount';
+import { TextArea } from '../TextArea/TextArea';
+import { InputText } from '../InputText/InputText';
 import styled from 'styled-components';
 import { ParagraphMd } from '../Type';
 

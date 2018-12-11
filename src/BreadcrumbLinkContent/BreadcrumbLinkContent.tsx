@@ -1,7 +1,7 @@
 import React, { SFC, HTMLProps } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import mediaQuery from '../globals/js/style-helpers/mediaQuery';
+import { mediaQuery } from '../globals/js/style-helpers/mediaQuery';
 import ArrowLeft from '../icons/arrow-left.svg';
 import { ARROWLEFT_CLASSNAME } from '../Breadcrumb/Breadcrumb';
 
@@ -31,15 +31,11 @@ const LinkLabel = styled.span`
         `};
 `;
 
-const BreadcrumbLinkContent: SFC<HTMLProps<HTMLElement>> = props => {
-    return (
-        <span>
-            <ArrowLeftWrapper className={ARROWLEFT_CLASSNAME}>
-                <ArrowLeft />
-            </ArrowLeftWrapper>
-            <LinkLabel>{props.children}</LinkLabel>
-        </span>
-    );
-};
-
-export default BreadcrumbLinkContent;
+export const BreadcrumbLinkContent: SFC<HTMLProps<HTMLElement>> = props => (
+    <span>
+        <ArrowLeftWrapper className={ARROWLEFT_CLASSNAME}>
+            <ArrowLeft />
+        </ArrowLeftWrapper>
+        <LinkLabel>{props.children}</LinkLabel>
+    </span>
+);

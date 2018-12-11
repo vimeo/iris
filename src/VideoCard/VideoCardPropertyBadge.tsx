@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem, rgba } from 'polished';
 import { ParagraphSm } from '../Type';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 
 export interface VideoCardPropertyBadge
     extends React.HTMLProps<HTMLInputElement> {
@@ -11,8 +11,6 @@ export interface VideoCardPropertyBadge
      */
     label: string;
 }
-
-// ==================== VideoCardPropertyBadge Styled
 
 const VideoCardPropertyBadgeStyled = styled<
     React.HTMLProps<HTMLDivElement>,
@@ -37,9 +35,7 @@ const VideoCardPropertyBadgeTextStyled = styled<
     margin-bottom: 0;
 `;
 
-// ==================== VideoCardPropertyBadge
-
-const VideoCardPropertyBadge: SFC<VideoCardPropertyBadge> = ({
+export const VideoCardPropertyBadge: SFC<VideoCardPropertyBadge> = ({
     label,
     // @ts-ignore
     ref: _,
@@ -50,5 +46,3 @@ const VideoCardPropertyBadge: SFC<VideoCardPropertyBadge> = ({
         </VideoCardPropertyBadgeTextStyled>
     </VideoCardPropertyBadgeStyled>
 );
-
-export default VideoCardPropertyBadge;

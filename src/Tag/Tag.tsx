@@ -1,9 +1,9 @@
 import React, { SFC, ReactNode } from 'react';
-import Button from '../Button';
+import { Button } from '../Button/Button';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import DeleteIcon from '../icons/dismiss-x.svg';
-import { ButtonFocusBloop } from '../Button/ButtonFocusBloop';
+import { ButtonFocus } from '../Button/ButtonFocus';
 
 export interface TagProps {
     autoMargins?: boolean;
@@ -23,12 +23,12 @@ export interface TagProps {
 const ButtonStyledAsTag = styled(Button)`
     border-radius: ${rem(66)};
 
-    ${ButtonFocusBloop} {
+    ${ButtonFocus} {
         border-radius: ${rem(66)};
     }
 `;
 
-const Tag: SFC<TagProps> = ({
+export const Tag: SFC<TagProps> = ({
     autoMargins,
     autoWidth = 'xs',
     children,
@@ -36,7 +36,7 @@ const Tag: SFC<TagProps> = ({
     isButtonElement,
     onDismiss,
     size = 'md',
-    ...filteredProps
+    ...props
 }) => {
     const handleDismiss = e => {
         e.preventDefault();
@@ -58,7 +58,7 @@ const Tag: SFC<TagProps> = ({
 
     return (
         <ButtonStyledAsTag
-            {...filteredProps}
+            {...props}
             {...iconProps}
             autoMargins={autoMargins}
             autoWidth={autoWidth}
@@ -70,5 +70,3 @@ const Tag: SFC<TagProps> = ({
         />
     );
 };
-
-export default Tag;

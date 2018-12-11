@@ -8,7 +8,6 @@ export interface VideoCardSocialBadgeAreaProps
     socialBadges: any[];
 }
 
-// ==================== VideoCardSocialBadgeArea Styled
 const VideoCardSocialBadgeWrapperStyled = styled<
     React.HTMLProps<HTMLDivElement>,
     'div'
@@ -32,22 +31,16 @@ const BadgeCellStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>('div')`
     }
 `;
 
-// ==================== VideoCardSocialBadgeArea
-
-const VideoCardSocialBadgeArea: SFC<VideoCardSocialBadgeAreaProps> = ({
+export const VideoCardSocialBadgeArea: SFC<VideoCardSocialBadgeAreaProps> = ({
     socialBadges,
-    ref: _, // filter out ref from styled component
-    ...filteredProps
-}) => {
-    const Badges = socialBadges.map((thisBadge, i) => (
-        <BadgeCellStyled key={`socialBadge${i}`}>{thisBadge}</BadgeCellStyled>
-    ));
-
-    return (
-        <VideoCardSocialBadgeWrapperStyled {...filteredProps}>
-            {Badges}
-        </VideoCardSocialBadgeWrapperStyled>
-    );
-};
-
-export default VideoCardSocialBadgeArea;
+    ref: _,
+    ...props
+}) => (
+    <VideoCardSocialBadgeWrapperStyled {...props}>
+        {socialBadges.map((thisBadge, i) => (
+            <BadgeCellStyled key={`socialBadge${i}`}>
+                {thisBadge}
+            </BadgeCellStyled>
+        ))}
+    </VideoCardSocialBadgeWrapperStyled>
+);

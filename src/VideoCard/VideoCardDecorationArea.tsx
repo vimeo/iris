@@ -23,9 +23,7 @@ const VideoCardDecorationAreaStyled = styled.div<VideoCardDecorationAreaProps>`
     }
 `;
 
-const VideoCardDecorationArea: SFC<VideoCardDecorationAreaProps> = ({
+export const VideoCardDecorationArea: SFC<VideoCardDecorationAreaProps> = ({
     ref: _,
     ...props
 }) => <VideoCardDecorationAreaStyled {...props} />;
-
-export default VideoCardDecorationArea;

@@ -3,18 +3,16 @@ import AlertIcon from '../icons/circle-warning.svg';
 import SuccessIcon from '../icons/checkmark.svg';
 import styled from 'styled-components';
 import { keyframes } from 'styled-components';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 import { rem } from 'polished';
 
 interface Props {
     format?: 'negative' | 'positive' | 'neutral';
 }
 
-const InputLabelStateIcon: SFC<Props> = ({ format, ...props }) => (
+export const InputLabelStateIcon: SFC<Props> = ({ format, ...props }) => (
     <IconStyled format={format} {...props} />
 );
-
-export default InputLabelStateIcon;
 
 const inputIconFadeIn = keyframes`
     0% { opacity: 0 }

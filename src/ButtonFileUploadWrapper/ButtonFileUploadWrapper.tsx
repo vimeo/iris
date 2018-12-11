@@ -8,7 +8,7 @@ interface Props {
     name?: string;
 }
 
-const ButtonFileUploadWrapper: SFC<Props> = ({
+export const ButtonFileUploadWrapper: SFC<Props> = ({
     children,
     id,
     inputElementProps,
@@ -26,8 +26,6 @@ const ButtonFileUploadWrapper: SFC<Props> = ({
         {children}
     </Wrapper>
 );
-
-export default ButtonFileUploadWrapper;
 
 export const Wrapper = styled.div`
     display: inline-block;

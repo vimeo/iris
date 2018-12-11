@@ -1,11 +1,11 @@
 import React, { SFC } from 'react';
-import { InputText } from '../InputText/';
-import ButtonInlineInputText from '../ButtonInlineInputText/ButtonInlineInputText';
+import { InputText } from '../InputText/InputText';
+import { ButtonInlineInputText } from '../ButtonInlineInputText/ButtonInlineInputText';
 import SearchIcon from '../icons/search.svg';
 import { Omit } from '../globals/js/type-helpers';
 import { SearchFieldProps } from './SearchFieldTypes';
 
-const SearchField: SFC<
+export const SearchField: SFC<
     SearchFieldProps & Omit<React.HTMLProps<HTMLInputElement>, 'type'>
 > = ({
     buttonFormat = 'subtle',
@@ -16,7 +16,7 @@ const SearchField: SFC<
     isInline = true,
     showLabel = false,
     size = 'md',
-    ...filteredProps
+    ...props
 }) => {
     const ButtonComponent = (
         <ButtonInlineInputText
@@ -30,7 +30,7 @@ const SearchField: SFC<
 
     return (
         <InputText
-            {...filteredProps}
+            {...props}
             showLabel={showLabel}
             label={fieldLabel}
             inlineButton={ButtonComponent}
@@ -39,5 +39,3 @@ const SearchField: SFC<
         />
     );
 };
-
-export default SearchField;

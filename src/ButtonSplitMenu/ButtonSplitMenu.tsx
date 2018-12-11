@@ -2,10 +2,10 @@
 import React, { SFC } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import Button from '../Button';
+import { Button } from '../Button/Button';
 import ChevronDown from '../icons/chevron-down.svg';
-import MenuPanel from '../MenuPanel';
-import ButtonIconElement from '../Button/ButtonIconElement';
+import { MenuPanel } from '../MenuPanel/MenuPanel';
+import { ButtonIconElement } from '../Button/ButtonIconElement';
 import {
     ButtonCoreCSS,
     getDefaultCSSByFormat,
@@ -152,7 +152,7 @@ export interface ButtonSplitMenuProps {
     size?: 'sm' | 'md' | 'lg';
 }
 
-const ButtonSplitMenu: SFC<
+export const ButtonSplitMenu: SFC<
     ButtonSplitMenuProps & Omit<React.HTMLProps<HTMLElement>, 'size'>
 > = ({
     buttonLabel,
@@ -165,16 +165,11 @@ const ButtonSplitMenu: SFC<
     menuSize,
     size = 'md',
     ref: _,
-    ...filteredProps
+    ...props
 }) => {
     return (
         <WrapperStyled size={size} format={format}>
-            <MainButtonStyled
-                {...filteredProps}
-                format={format}
-                size={size}
-                isInline
-            >
+            <MainButtonStyled {...props} format={format} size={size} isInline>
                 {buttonLabel}
             </MainButtonStyled>
             <MenuButtonWrapperStyled>
@@ -198,5 +193,3 @@ const ButtonSplitMenu: SFC<
         </WrapperStyled>
     );
 };
-
-export default ButtonSplitMenu;

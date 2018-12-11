@@ -1,9 +1,9 @@
-import React, { ReactNode } from 'react';
+import React, { Component, ReactNode } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import FeatureTourPanelContent from '../FeatureTourPanelContent';
-import FeatureTourDot from '../FeatureTourDot';
-import MenuPanel from '../MenuPanel';
+import { FeatureTourPanelContent } from '../FeatureTourPanelContent/FeatureTourPanelContent';
+import { FeatureTourDot } from '../FeatureTourDot/FeatureTourDot';
+import { MenuPanel } from '../MenuPanel/MenuPanel';
 
 export interface FeatureTourPanelProps {
     actionArea?: ReactNode;
@@ -62,7 +62,10 @@ const MenuPanelStyled = styled(MenuPanel)<{ options: any }>`
     border-radius: ${rem(5)};
 `;
 
-class FeatureTourPanel extends React.Component {
+export class FeatureTourPanel extends Component<
+    FeatureTourPanelProps,
+    FeatureTourPanelState
+> {
     static defaultProps = {
         attachment: 'right',
         beaconDelayIndex: 0,
@@ -263,5 +266,3 @@ const attachmentConfig = attachment =>
             TargetAttachment: 'top left',
         },
     }[attachment]);
-
-export default FeatureTourPanel;

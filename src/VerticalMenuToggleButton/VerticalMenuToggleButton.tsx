@@ -2,18 +2,18 @@ import React, { SFC } from 'react';
 import RightArrow from '../icons/chevron-right.svg';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 
 interface Props {
     nestedButtonLabel: string;
     onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const VerticalMenuToggleButton: SFC<Props> = ({
+export const VerticalMenuToggleButton: SFC<Props> = ({
     nestedButtonLabel,
-    ...filteredProps
+    ...props
 }) => (
-    <ButtonStyled {...filteredProps}>
+    <ButtonStyled {...props}>
         <RightArrowStyled title={nestedButtonLabel} />
     </ButtonStyled>
 );
@@ -40,5 +40,3 @@ const RightArrowStyled = styled(RightArrow)`
     height: ${rem(18)};
     fill: currentColor;
 `;
-
-export default VerticalMenuToggleButton;

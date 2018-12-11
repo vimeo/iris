@@ -5,7 +5,7 @@ import React, {
     MouseEventHandler,
 } from 'react';
 import { findDOMNode } from 'react-dom';
-import Toastification from '../Toastification/Toastification';
+import { Toastification } from '../Toastification/Toastification';
 
 import Clipboard from 'clipboard';
 
@@ -18,7 +18,7 @@ interface Props {
 const initialState = { showNotice: false };
 type State = Readonly<typeof initialState>;
 
-const withCopyAbility = <P extends {}>(
+export const withCopyAbility = <P extends {}>(
     WrappedComponent: ComponentType<
         P & { onClick?: MouseEventHandler<HTMLElement> }
     >,
@@ -106,5 +106,3 @@ const withCopyAbility = <P extends {}>(
             );
         }
     };
-
-export default withCopyAbility;

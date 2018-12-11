@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Button from '../Button/Button';
+import { Button } from '../Button/Button';
 import { ButtonLoadingStateProps as Props } from './ButtonLoadingStateTypes';
 
 const waitCursor = ({ isLoading }) =>

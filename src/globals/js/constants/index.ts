@@ -1,5 +1,5 @@
-export { default as BREAKPOINTS } from './BREAKPOINTS';
-export { default as COLORS } from './COLORS';
-export { default as KEY_CODES } from './KEY_CODES';
-export { default as TRANSITIONS } from './TRANSITIONS';
-export { default as Z_INDEX } from './Z_INDEXES';
+export { BREAKPOINTS } from './BREAKPOINTS';
+export { COLORS } from './COLORS';
+export { KEY_CODES } from './KEY_CODES';
+export { TRANSITIONS } from './TRANSITIONS';
+export { Z_INDEX } from './Z_INDEXES';

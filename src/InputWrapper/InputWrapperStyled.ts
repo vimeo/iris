@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { rem } from 'polished';
 import { InputStyleSettings as styles } from '../InputText/InputHelpers';
-import { default as vimeo } from '../globals/js/style-settings/VimeoStyleSettings';
+import { VimeoStyleSettings as vimeo } from '../globals/js/style-settings/VimeoStyleSettings';
 
 export const WrapperStyled = styled.div<{
     isInline?: boolean;

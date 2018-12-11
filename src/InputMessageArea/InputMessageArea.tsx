@@ -1,6 +1,6 @@
 import React, { ReactNode, SFC } from 'react';
-import InputMessage from '../InputMessage/InputMessage';
-import { SlideUpDown } from '../SlideUpDown';
+import { InputMessage } from '../InputMessage/InputMessage';
+import { SlideUpDown } from '../SlideUpDown/SlideUpDown';
 
 interface Props {
     errorMsg?: ReactNode;
@@ -9,7 +9,7 @@ interface Props {
     theme?: 'default' | 'light' | 'dark';
 }
 
-const InputMessageArea: SFC<Props> = ({
+export const InputMessageArea: SFC<Props> = ({
     errorMsg,
     format = 'bottom',
     helperMsg,
@@ -29,5 +29,3 @@ const InputMessageArea: SFC<Props> = ({
         </SlideUpDown>
     </div>
 );
-
-export default InputMessageArea;

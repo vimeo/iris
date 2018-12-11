@@ -27,7 +27,7 @@ const defaultProps: Props = {
     onComplete: () => null,
 };
 
-class Toastification extends Component<Props, State> {
+export class Toastification extends Component<Props, State> {
     readonly state: Readonly<State>;
     static defaultProps = defaultProps;
     timeout?: ReturnType<typeof window.setTimeout>;
@@ -112,5 +112,3 @@ class Toastification extends Component<Props, State> {
 const show = (): State => ({ showing: true });
 const hide = (): State => ({ showing: false });
 const toggle = ({ isShowing }: Props) => (isShowing ? show : hide);
-
-export default Toastification;

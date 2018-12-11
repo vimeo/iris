@@ -1,6 +1,6 @@
 import React, { SFC, HTMLProps } from 'react';
 import styled from 'styled-components';
-import InputWrapper from '../InputWrapper/InputWrapper';
+import { InputWrapper } from '../InputWrapper/InputWrapper';
 import {
     getInputBaseStyles,
     InputProps,
@@ -21,7 +21,7 @@ const InputStyled = styled<InputTextStyledProps, 'input'>('input')`
     ${getInputBaseStyles};
 `;
 
-const InputText: SFC<
+export const InputText: SFC<
     InputTextProps &
         InputProps &
         Omit<HTMLProps<HTMLInputElement>, 'label' | 'size' | 'id'>
@@ -80,5 +80,3 @@ const InputText: SFC<
         </InputWrapper>
     );
 };
-
-export default InputText;

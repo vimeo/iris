@@ -50,8 +50,6 @@ interface FeaturedIconElementProps {
     size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
-const featuredIconBGColor = 'rgba(255,255,255,.2)';
-
 const FeaturedIconElement = styled<FeaturedIconElementProps, 'span'>('span')`
     display: flex;
     position: absolute;
@@ -59,24 +57,19 @@ const FeaturedIconElement = styled<FeaturedIconElementProps, 'span'>('span')`
     top: ${rem(-1)};
     align-items: center;
     justify-content: center;
-    background: ${featuredIconBGColor};
-    //box-shadow: 0 0 0 ${rem(1)} ${featuredIconBGColor};
+    background: rgba(255,255,255,.2);
+    //box-shadow: 0 0 0 ${rem(1)} rgba(255,255,255,.2);
     ${getFeaturedIconSizeCSS}
     ${iconStyle}
 `;
 
-const ButtonIconElement: SFC<ButtonIconElementStyledProps> = ({
+export const ButtonIconElement: SFC<ButtonIconElementStyledProps> = ({
     iconLocation,
-    ref: _, // filter out ref from styled component
-    ...filteredProps
+    ref: _,
+    ...props
 }) =>
     iconLocation === 'featuredLeft' ? (
-        <FeaturedIconElement {...filteredProps} />
+        <FeaturedIconElement {...props} />
     ) : (
-        <ButtonIconElementStyled
-            iconLocation={iconLocation}
-            {...filteredProps}
-        />
+        <ButtonIconElementStyled iconLocation={iconLocation} {...props} />
     );
-
-export default ButtonIconElement;

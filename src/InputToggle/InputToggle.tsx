@@ -1,5 +1,5 @@
 import React, { ReactNode, SFC } from 'react';
-import InputWrapperInline from '../InputWrapperInline/InputWrapperInline';
+import { InputWrapperInline } from '../InputWrapperInline/InputWrapperInline';
 import {
     ToggleWrapper,
     ToggleLabel,
@@ -23,7 +23,7 @@ interface Props {
     required?: boolean;
 }
 
-const InputToggle: SFC<Props> = ({
+export const InputToggle: SFC<Props> = ({
     disabled,
     errorMsg,
     format = 'neutral',
@@ -54,5 +54,3 @@ const InputToggle: SFC<Props> = ({
         </ToggleWrapper>
     </InputWrapperInline>
 );
-
-export default InputToggle;

@@ -1,4 +1,4 @@
-const KEY_CODES = {
+export const KEY_CODES = {
     arrowRight: 39,
     arrowLeft: 37,
     enter: 13,
@@ -6,4 +6,3 @@ const KEY_CODES = {
     spacebar: 32,
     tab: 9,
 };
-export default KEY_CODES;

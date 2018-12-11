@@ -1,13 +1,13 @@
-import React from 'react';
-import InputCheckbox from '../InputCheckbox/InputCheckbox';
-import SlideUpDown from '../SlideUpDown/SlideUpDown';
+import React, { Component } from 'react';
+import { InputCheckbox } from '../InputCheckbox/InputCheckbox';
+import { SlideUpDown } from '../SlideUpDown/SlideUpDown';
 import {
     InputCheckboxSetProps,
     InputCheckboxSetState,
 } from './InputCheckboxSetTypes';
 import { InputCheckboxSetSubStyled } from './InputCheckboxSetSubStyled';
 
-class InputCheckboxSet extends React.Component<
+export class InputCheckboxSet extends Component<
     InputCheckboxSetProps,
     InputCheckboxSetState
 > {
@@ -125,5 +125,3 @@ class InputCheckboxSet extends React.Component<
         );
     }
 }
-
-export default InputCheckboxSet;

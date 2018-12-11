@@ -1,8 +1,8 @@
 import React, { SFC } from 'react';
 import { WrapperStyled } from './SegmentedButtonSetStyled';
 import { SegmentedButtonSetProps } from './SegmentedButtonSetTypes';
-import SegmentedButton from '../SegmentedButton';
-import { InputLabel } from '../InputLabel';
+import { SegmentedButtonSetButton as SegmentedButton } from '../SegmentedButton/SegmentedButton';
+import { InputLabel } from '../InputLabel/InputLabel';
 
 const buildOptions = (options, name, format) =>
     options.map((option, i) => (
@@ -14,9 +14,7 @@ const buildOptions = (options, name, format) =>
         />
     ));
 
-// ==================== SegmentedButtonSet
-
-const SegmentedButtonSet: SFC<
+export const SegmentedButtonSet: SFC<
     SegmentedButtonSetProps & React.HTMLProps<HTMLDivElement>
 > = ({
     children,
@@ -26,14 +24,12 @@ const SegmentedButtonSet: SFC<
     options,
     showGroupLabel = true,
     ref: _,
-    ...filteredProps
+    ...props
 }) => (
     <fieldset aria-label={!showGroupLabel ? groupLabel : null}>
         {showGroupLabel && groupLabel && <InputLabel>{groupLabel}</InputLabel>}
-        <WrapperStyled {...filteredProps}>
+        <WrapperStyled {...props}>
             {buildOptions(options, name, format)}
         </WrapperStyled>
     </fieldset>
 );
-
-export default SegmentedButtonSet;

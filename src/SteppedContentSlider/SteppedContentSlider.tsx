@@ -1,11 +1,11 @@
-import React, { SFC, ReactNode } from 'react';
+import React, { Component, SFC, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import Swipeable from 'react-swipeable';
 import throttle from 'lodash.throttle';
-import Header4 from '../Type/Header4';
-import ButtonIconOnly from '../ButtonIconOnly';
+import { Header4 } from '../Type/Header4';
+import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
 import ChevronRight from '../icons/chevron-right.svg';
 
 const TRUNCATION_WIDTH = 100;
@@ -208,7 +208,10 @@ const NextTruncationStyled = styled(Truncation)`
     right: 0;
 `;
 
-class SteppedContentSlider extends React.Component {
+export class SteppedContentSlider extends Component<
+    SteppedContentSliderProps,
+    SteppedContentSliderState
+> {
     static defaultProps = {
         backgroundBlendColor: '#fff',
         buttonFormat: 'dark',
@@ -217,6 +220,12 @@ class SteppedContentSlider extends React.Component {
         stepMode: 'group',
         speed: 500,
     };
+
+    state: SteppedContentSliderState;
+    props: SteppedContentSliderProps;
+    viewContainer: HTMLElement;
+    viewTrack: HTMLElement;
+    truncationWidth: number;
 
     constructor(props: SteppedContentSliderProps) {
         super(props);
@@ -238,8 +247,6 @@ class SteppedContentSlider extends React.Component {
         // throttle resize
         this._handleResize = throttle(this._handleResize, 1000);
     }
-
-    state: SteppedContentSliderState;
 
     componentDidMount() {
         // initialize slidier
@@ -290,11 +297,6 @@ class SteppedContentSlider extends React.Component {
         // cleanup
         window.removeEventListener('resize', this._handleResize);
     }
-
-    props: SteppedContentSliderProps;
-    viewContainer: HTMLElement;
-    viewTrack: HTMLElement;
-    truncationWidth: number;
 
     // this is the core slide initialization
     // may be accessed externally by name!
@@ -606,5 +608,3 @@ class SteppedContentSlider extends React.Component {
         );
     }
 }
-
-export default SteppedContentSlider;

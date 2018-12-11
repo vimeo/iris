@@ -13,7 +13,6 @@ export interface VideoCardPropertiesAreaStyledProps
     isHovered?: boolean;
 }
 
-// ==================== VideoCardPropertiesArea Styled
 const VideoCardPropertiesAreaStyled = styled<
     VideoCardPropertiesAreaStyledProps,
     'div'
@@ -35,26 +34,17 @@ const PropertyCellStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
     }
 `;
 
-// ==================== VideoCardPropertiesArea
-
-const VideoCardPropertiesArea: SFC<VideoCardPropertiesAreaProps> = ({
+export const VideoCardPropertiesArea: SFC<VideoCardPropertiesAreaProps> = ({
     isHovered,
     properties,
-    ref: _, // filter out ref from styled component
-    ...filteredProps
-}) => {
-    const propertyList = properties.map((property, i) => {
-        return (
+    ref: _,
+    ...props
+}) => (
+    <VideoCardPropertiesAreaStyled isHovered={isHovered} {...props}>
+        {properties.map((property, i) => (
             <PropertyCellStyled key={`property${i}`}>
                 {property}
             </PropertyCellStyled>
-        );
-    });
-    return (
-        <VideoCardPropertiesAreaStyled isHovered={isHovered} {...filteredProps}>
-            {propertyList}
-        </VideoCardPropertiesAreaStyled>
-    );
-};
-
-export default VideoCardPropertiesArea;
+        ))}
+    </VideoCardPropertiesAreaStyled>
+);

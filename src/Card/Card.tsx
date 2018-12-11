@@ -1,8 +1,8 @@
 import React, { SFC, HTMLProps } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import COLORS from '../globals/js/constants/COLORS';
-import CardSettings from './CardSettings';
+import { COLORS } from '../globals/js/constants/COLORS';
+import { CardSettings } from './CardSettings';
 
 export interface CardProps {
     /**
@@ -66,9 +66,7 @@ const CardStyled = styled<CardProps, 'div'>('div')`
         `};
 `;
 
-const Card: SFC<CardProps & HTMLProps<HTMLDivElement>> = ({
+export const Card: SFC<CardProps & HTMLProps<HTMLDivElement>> = ({
     ref: _,
     ...props
 }) => <CardStyled {...props} />;
-
-export default Card;

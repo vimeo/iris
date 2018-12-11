@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { InputLabelInline } from '../InputLabelInline';
-import COLORS from '../globals/js/constants/COLORS';
+import { InputLabelInline } from '../InputLabelInline/InputLabelInline';
+import { COLORS } from '../globals/js/constants/COLORS';
 import {
     InputCheckboxProps,
     InputCheckboxOverlayStyledProps,

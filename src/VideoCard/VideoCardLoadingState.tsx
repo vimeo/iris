@@ -57,9 +57,7 @@ const SubTitleLoadingStyled = styled('div')`
     ${loadingGradient};
 `;
 
-// ==================== VideoCardContextArea
-
-const VideoCardLoadingState = props => {
+export const VideoCardLoadingState = props => {
     const suppressClickPropagation = e => {
         e.stopPropagation();
     };
@@ -72,5 +70,3 @@ const VideoCardLoadingState = props => {
         </WrapperStyled>
     );
 };
-
-export default VideoCardLoadingState;

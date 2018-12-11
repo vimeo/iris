@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 import { VideoCardThumbnailData } from './VideoCard';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 
 export interface VideoCardThumbnailGroupProps
     extends React.HTMLProps<HTMLDivElement> {
@@ -58,52 +58,48 @@ const GroupThumbnailImage = styled<SFC<HTMLDivElement>, 'div'>('div')`
 `;
 // ==================== VideoCardThumbnailGroup
 
-const VideoCardThumbnailGroup: SFC<VideoCardThumbnailGroupProps> = ({
+export const VideoCardThumbnailGroup: SFC<VideoCardThumbnailGroupProps> = ({
     thumbnailData,
     // @ts-ignore
     ref: _,
-}) => {
-    return (
-        <WrapperStyled>
-            <ThumbnailsStyled>
-                <MajorThumbnail>
+}) => (
+    <WrapperStyled>
+        <ThumbnailsStyled>
+            <MajorThumbnail>
+                <GroupThumbnailImage
+                    style={
+                        thumbnailData[0] && {
+                            backgroundImage: `url(${
+                                thumbnailData[0].thumbnailSrc
+                            })`,
+                        }
+                    }
+                />
+            </MajorThumbnail>
+            <MinorThumbnailsWrapper>
+                <MinorThumbnail>
                     <GroupThumbnailImage
                         style={
-                            thumbnailData[0] && {
+                            thumbnailData[1] && {
                                 backgroundImage: `url(${
-                                    thumbnailData[0].thumbnailSrc
+                                    thumbnailData[1].thumbnailSrc
                                 })`,
                             }
                         }
                     />
-                </MajorThumbnail>
-                <MinorThumbnailsWrapper>
-                    <MinorThumbnail>
-                        <GroupThumbnailImage
-                            style={
-                                thumbnailData[1] && {
-                                    backgroundImage: `url(${
-                                        thumbnailData[1].thumbnailSrc
-                                    })`,
-                                }
+                </MinorThumbnail>
+                <MinorThumbnail>
+                    <GroupThumbnailImage
+                        style={
+                            thumbnailData[2] && {
+                                backgroundImage: `url(${
+                                    thumbnailData[2].thumbnailSrc
+                                })`,
                             }
-                        />
-                    </MinorThumbnail>
-                    <MinorThumbnail>
-                        <GroupThumbnailImage
-                            style={
-                                thumbnailData[2] && {
-                                    backgroundImage: `url(${
-                                        thumbnailData[2].thumbnailSrc
-                                    })`,
-                                }
-                            }
-                        />
-                    </MinorThumbnail>
-                </MinorThumbnailsWrapper>
-            </ThumbnailsStyled>
-        </WrapperStyled>
-    );
-};
-
-export default VideoCardThumbnailGroup;
+                        }
+                    />
+                </MinorThumbnail>
+            </MinorThumbnailsWrapper>
+        </ThumbnailsStyled>
+    </WrapperStyled>
+);

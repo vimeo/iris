@@ -1,7 +1,7 @@
-import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
+import { VimeoStyleSettings } from '../globals/js/style-settings/VimeoStyleSettings';
 import { css } from 'styled-components';
 import { rem, rgba } from 'polished';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 import { ReactNode } from 'react';
 
 export interface InputProps {

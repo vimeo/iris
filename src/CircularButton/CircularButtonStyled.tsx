@@ -1,10 +1,10 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { CircularButtonStyledProps } from './CircularButtonTypes';
-import CircularButtonElement from './CircularButtonElement';
+import { CircularButtonElement } from './CircularButtonElement';
 import { rem } from 'polished';
-import COLORS from '../globals/js/constants/COLORS';
-import TRANSITIONS from '../globals/js/constants/TRANSITIONS';
+import { COLORS } from '../globals/js/constants/COLORS';
+import { TRANSITIONS } from '../globals/js/constants/TRANSITIONS';
 import { ButtonColors } from '../Button/ButtonColors';
 import { Omit } from '../globals/js/type-helpers';
 

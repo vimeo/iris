@@ -11,14 +11,10 @@ import {
     IconWrapperStyled,
 } from './CategoryCardStyled';
 
-const CategoryCard: SFC<CategoryCardProps & HTMLProps<HTMLDivElement>> = ({
-    backgroundImageURL,
-    children,
-    icon,
-    ref: _,
-    ...filteredProps
-}) => (
-    <CategoryCardStyled {...filteredProps}>
+export const CategoryCard: SFC<
+    CategoryCardProps & HTMLProps<HTMLDivElement>
+> = ({ backgroundImageURL, children, icon, ref: _, ...props }) => (
+    <CategoryCardStyled {...props}>
         <BackgroundStyled
             style={{
                 backgroundImage: `url(${backgroundImageURL})`,
@@ -35,5 +31,3 @@ const CategoryCard: SFC<CategoryCardProps & HTMLProps<HTMLDivElement>> = ({
         </CardContentWrapStyled>
     </CategoryCardStyled>
 );
-
-export default CategoryCard;

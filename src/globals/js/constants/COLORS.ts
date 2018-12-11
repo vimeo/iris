@@ -1,4 +1,4 @@
-const COLORS = {
+export const COLORS = {
     VimeoBlue: '#00adef',
     VimeoBlueDarkened: '#0088cc',
     VimeoBlueLightened: '#36C5FC',
@@ -27,5 +27,3 @@ const COLORS = {
     AshenWinter: '#4b4b4b',
     IronHeart: '#666',
 };
-
-export default COLORS;

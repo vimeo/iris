@@ -1,7 +1,7 @@
 import React, { Component, ComponentType, ReactNode, FormEvent } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 import { ParagraphAltSm } from '../Type';
 
 interface Props {
@@ -48,7 +48,7 @@ const CounterStyled = styled<CounterStyledProps, any>(
         `};
 `;
 
-const withCharacterCounter = <P extends {}>(
+export const withCharacterCounter = <P extends {}>(
     WrappedComponent: ComponentType<
         P & {
             onInput?: (
@@ -169,5 +169,3 @@ const withCharacterCounter = <P extends {}>(
             );
         }
     };
-
-export default withCharacterCounter;

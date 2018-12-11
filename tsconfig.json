@@ -25,10 +25,14 @@
         "suppressImplicitAnyIndexErrors": true,
         "target": "es5"
     },
+    "include": [
+        "src/**/*"
+    ],
     "exclude": [
         ".storybook",
         "dist",
         "build-styleguide",
-        "*.story.*"
+        "*.story.*",
+        "node_modules"
     ]
 }

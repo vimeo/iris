@@ -1,7 +1,7 @@
 import { darken, rgba } from 'polished';
 
-import COLORS from '../globals/js/constants/COLORS';
-import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
+import { COLORS } from '../globals/js/constants/COLORS';
+import { VimeoStyleSettings } from '../globals/js/style-settings/VimeoStyleSettings';
 
 export const ButtonColors = {
     AlternativeBackground: '#3A5161',

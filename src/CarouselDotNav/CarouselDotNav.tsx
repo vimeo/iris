@@ -5,11 +5,9 @@ import {
     WrapperStyled,
     VisuallyHiddenContent,
 } from './CarouselDotNavStyled';
-import KEY_CODES from '../globals/js/constants/KEY_CODES';
+import { KEY_CODES } from '../globals/js/constants/KEY_CODES';
 
-// ==================== CarouselDotNav
-
-const CarouselDotNav: SFC<CarouselDotNavProps> = ({
+export const CarouselDotNav: SFC<CarouselDotNavProps> = ({
     a11yGoToSlideText,
     a11yNextSlideText,
     a11yPrevSlideText,
@@ -20,8 +18,8 @@ const CarouselDotNav: SFC<CarouselDotNavProps> = ({
     onPrevClick,
     showIndexedNav,
     theme,
-    ref: _, // filter out ref from styled component
-    ...filteredProps
+    ref: _,
+    ...props
 }) => {
     const handleDotClick = event => {
         if (typeof onDotClick === 'function') {
@@ -76,7 +74,7 @@ const CarouselDotNav: SFC<CarouselDotNavProps> = ({
     }
 
     return (
-        <WrapperStyled showIndexedNav={showIndexedNav} {...filteredProps}>
+        <WrapperStyled showIndexedNav={showIndexedNav} {...props}>
             <VisuallyHiddenContent>
                 <button onClick={handlePrevClick} onKeyUp={handleKeyUp}>
                     {a11yPrevSlideText}
@@ -91,5 +89,3 @@ const CarouselDotNav: SFC<CarouselDotNavProps> = ({
         </WrapperStyled>
     );
 };
-
-export default CarouselDotNav;

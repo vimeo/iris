@@ -2,14 +2,12 @@ import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem, rgba } from 'polished';
 import { ParagraphSm } from '../Type';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 
 export interface VideoCardTimestamp {
     timestamp: string;
 }
-
-// ==================== VideoCardTimestamp Styled
 
 const VideoCardTimestampStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
     'div',
@@ -23,22 +21,16 @@ const VideoCardTimestampStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
     text-transform: uppercase;
 `;
 
-// ==================== VideoCardTimestamp
-
-const VideoCardTimestamp: SFC<
+export const VideoCardTimestamp: SFC<
     VideoCardTimestamp & React.HTMLProps<HTMLInputElement>
 > = ({
     // @ts-ignore
     ref: _,
     timestamp,
-}) => {
-    return (
-        <VideoCardTimestampStyled>
-            <ParagraphSm format="white" noMargin>
-                {timestamp}
-            </ParagraphSm>
-        </VideoCardTimestampStyled>
-    );
-};
-
-export default VideoCardTimestamp;
+}) => (
+    <VideoCardTimestampStyled>
+        <ParagraphSm format="white" noMargin>
+            {timestamp}
+        </ParagraphSm>
+    </VideoCardTimestampStyled>
+);

@@ -1,5 +1,5 @@
 import React, { ReactNode, Component, MouseEventHandler } from 'react';
-import Button from '../Button/Button';
+import { Button } from '../Button/Button';
 import { buttonFormats } from '../Button/ButtonProps';
 
 interface Props {
@@ -22,7 +22,7 @@ interface State {
     icon: 'on' | 'off' | 'turnOff';
 }
 
-class ButtonToggleState extends Component<Props, State> {
+export class ButtonToggleState extends Component<Props, State> {
     static defaultProps = {
         autoMargins: true,
         autoWidth: 'sm',
@@ -90,5 +90,3 @@ const hovering = (_, { turnOffActionText }): State => ({
     format: 'secondary',
     icon: 'turnOff',
 });
-
-export default ButtonToggleState;

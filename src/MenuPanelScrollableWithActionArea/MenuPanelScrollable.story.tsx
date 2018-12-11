@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { ParagraphMd } from '../Type';
-import MenuPanelScrollableWithActionArea from './MenuPanelScrollableWithActionArea';
-import { InputText } from '../InputText';
-import ButtonIconOnly from '../ButtonIconOnly';
-import MenuPanel from '../MenuPanel/MenuPanel';
+import { MenuPanelScrollableWithActionArea } from './MenuPanelScrollableWithActionArea';
+import { InputText } from '../InputText/InputText';
+import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
+import { MenuPanel } from '../MenuPanel/MenuPanel';
 import SettingsIcon from '../icons/gear.svg';
 
 storiesOf('components/Menu Panel', module).add(

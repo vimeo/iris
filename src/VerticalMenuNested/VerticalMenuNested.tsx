@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import SlideUpDown from '../SlideUpDown/SlideUpDown';
-import VerticalMenuToggleButton from '../VerticalMenuToggleButton/VerticalMenuToggleButton';
-import { VerticalMenuItemContent } from '../VerticalMenuItemContent';
-import { VerticalMenuItem } from '../VerticalMenuItem';
-import { VerticalMenuNestedSubMenu } from '../VerticalMenuNestedSubMenu';
+import { SlideUpDown } from '../SlideUpDown/SlideUpDown';
+import { VerticalMenuToggleButton } from '../VerticalMenuToggleButton/VerticalMenuToggleButton';
+import { VerticalMenuItemContent } from '../VerticalMenuItemContent/VerticalMenuItemContent';
+import { VerticalMenuItem } from '../VerticalMenuItem/VerticalMenuItem';
+import { VerticalMenuNestedSubMenu } from '../VerticalMenuNestedSubMenu/VerticalMenuNestedSubMenu';
 import { Props, State } from './VerticalMenuNestedTypes';
 import {
     VerticalMenuNestedStyled,
@@ -12,7 +12,7 @@ import {
     ActionButton,
 } from './VerticalMenuNestedStyled';
 
-class VerticalMenuNested extends Component<Props, State> {
+export class VerticalMenuNested extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
@@ -133,5 +133,3 @@ class VerticalMenuNested extends Component<Props, State> {
         );
     }
 }
-
-export default VerticalMenuNested;

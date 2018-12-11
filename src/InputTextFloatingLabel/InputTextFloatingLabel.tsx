@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { InputWrapper } from '../InputWrapper';
+import { InputWrapper } from '../InputWrapper/InputWrapper';
 import EyeIcon from '../icons/eye.svg';
 import EyeOffIcon from '../icons/eye-off.svg';
-import TooltipOverlay from '../TooltipOverlay';
+import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 import {
     InputTextFloatingLabelProps as Props,
     InputTextFloatingLabelState as State,
@@ -15,7 +15,7 @@ import {
     InputStyled,
 } from './InputTextFloatingLabelStyled';
 
-class InputTextFloatingLabel extends Component<Props, State> {
+export class InputTextFloatingLabel extends Component<Props, State> {
     inputField: HTMLInputElement;
 
     static defaultProps = {
@@ -180,5 +180,3 @@ const newType = (P, S) =>
         : P === 'password' && S === 'text'
         ? 'password'
         : P;
-
-export default InputTextFloatingLabel;

@@ -8,19 +8,19 @@ import {
     VerticalMenuActionButton,
     VerticalMenuHeaderGroup,
 } from '../VerticalMenu';
-import Grid from '../Grid/Grid';
-import GridCol from '../GridCol/GridCol';
-import GridBlock from '../GridBlock/GridBlock';
-import { MenuPanelList } from '../MenuPanelList';
+import { Grid } from '../Grid/Grid';
+import { GridCol } from '../GridCol/GridCol';
+import { GridBlock } from '../GridBlock/GridBlock';
+import { MenuPanelList } from '../MenuPanelList/MenuPanelList';
 import { Header3, Header4, ParagraphMd } from '../Type';
-import Button from '../Button';
+import { Button } from '../Button/Button';
 import PopOutIcon from '../icons/pop-out.svg';
 import CirclePlusIcon from '../icons/circle-plus.svg';
 import FolderIcon from '../icons/folder.svg';
 import HomeIcon from '../icons/home.svg';
 import HomeFilledIcon from '../icons/home-filled.svg';
 import SettingsIcon from '../icons/gear.svg';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 
 storiesOf('components/VerticalMenu', module)
     .add(

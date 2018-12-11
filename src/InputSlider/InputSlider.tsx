@@ -8,8 +8,8 @@ import {
     sliderZindex,
     InputSliderStyleSettings,
 } from './InputSliderHelpers';
-import { Z_INDEX } from '../globals/js/constants';
-import SliderLabel from './SliderLabel';
+import { Z_INDEX } from '../globals/js/constants/Z_INDEXES';
+import { SliderLabel } from './SliderLabel';
 
 export interface InputSliderProps {
     className?: string;
@@ -221,7 +221,7 @@ const BubbleWrapper = styled<BubbleWrapperStyleProps, 'div'>('div')`
 
 // ==================== InputSlider
 
-class InputSlider extends React.Component<any, any> {
+export class InputSlider extends React.Component<any, any> {
     static defaultProps = {
         minValue: 0,
         maxValue: 100,
@@ -496,5 +496,3 @@ class InputSlider extends React.Component<any, any> {
         });
     };
 }
-
-export default InputSlider;

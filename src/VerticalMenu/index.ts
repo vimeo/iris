@@ -1,17 +1,21 @@
-export { VerticalMenuActionButton } from '../VerticalMenuActionButton';
-
+export {
+    VerticalMenuActionButton,
+} from '../VerticalMenuActionButton/VerticalMenuActionButton';
 export {
     VerticalMenuContextualMenuPanel,
-} from '../VerticalMenuContextualMenuPanel';
+} from '../VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel';
+export {
+    VerticalMenuHeaderGroup,
+} from '../VerticalMenuHeaderGroup/VerticalMenuHeaderGroup';
+export { VerticalMenuItem } from '../VerticalMenuItem/VerticalMenuItem';
+export {
+    VerticalMenuItemContent,
+} from '../VerticalMenuItemContent/VerticalMenuItemContent';
 
-export { VerticalMenuHeaderGroup } from '../VerticalMenuHeaderGroup';
-
-export { VerticalMenuItem } from '../VerticalMenuItem';
-
-export { VerticalMenuItemContent } from '../VerticalMenuItemContent';
-
-export { VerticalMenuNested } from '../VerticalMenuNested';
-
-export { VerticalMenuNestedSubMenu } from '../VerticalMenuNestedSubMenu';
-
-export { VerticalMenuToggleButton } from '../VerticalMenuToggleButton';
+export { VerticalMenuNested } from '../VerticalMenuNested/VerticalMenuNested';
+export {
+    VerticalMenuNestedSubMenu,
+} from '../VerticalMenuNestedSubMenu/VerticalMenuNestedSubMenu';
+export {
+    VerticalMenuToggleButton,
+} from '../VerticalMenuToggleButton/VerticalMenuToggleButton';

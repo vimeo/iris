@@ -38,11 +38,9 @@ const Wrapper = styled.div`
     align-items: center;
 `;
 
-const VideoCardFooterActionsGrid: SFC<VideoCardFooterActionsGridProps> = ({
-    actionItems,
-    ref: _,
-    ...props
-}) => {
+export const VideoCardFooterActionsGrid: SFC<
+    VideoCardFooterActionsGridProps
+> = ({ actionItems, ref: _, ...props }) => {
     const suppressClickPropagation = e => {
         e.stopPropagation();
     };
@@ -75,5 +73,3 @@ const VideoCardFooterActionsGrid: SFC<VideoCardFooterActionsGridProps> = ({
         </Wrapper>
     );
 };
-
-export default VideoCardFooterActionsGrid;

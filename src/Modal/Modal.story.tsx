@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import Button from '../Button';
-import Modal from './Modal';
+import { Button } from '../Button/Button';
+import { Modal } from './Modal';
 import { ParagraphMd } from '../Type';
 
 storiesOf('components/Modal', module).add('basic modal', () => <ModalDocs />, {

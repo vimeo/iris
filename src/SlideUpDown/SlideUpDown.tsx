@@ -20,7 +20,7 @@ const WrapperStyled = styled.div<{ isHidden: boolean }>`
 
 const maxHeight = height => () => ({ maxHeight: height });
 
-class SlideUpDown extends Component<Props, State> {
+export class SlideUpDown extends Component<Props, State> {
     static defaultProps = { animateOpenOnMount: false };
     readonly state: Readonly<State> = { maxHeight: 0 };
     private ref: HTMLDivElement;
@@ -63,5 +63,3 @@ class SlideUpDown extends Component<Props, State> {
         </Transition>
     );
 }
-
-export default SlideUpDown;

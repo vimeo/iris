@@ -1,7 +1,7 @@
 import React, { SFC, MouseEventHandler } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import InputCheckbox from '../InputCheckbox';
+import { InputCheckbox } from '../InputCheckbox/InputCheckbox';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 import { uniqid } from 'uniqid';
 
@@ -25,13 +25,9 @@ const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
         ${rem(VideoCardStyleSettings.padding)} 0;
 `;
 
-const VideoCardSelectionCheckbox: SFC<VideoCardSelectionCheckboxProps> = ({
-    isShowing,
-    label,
-    onCheckBoxClick,
-    ref: _,
-    ...props
-}) => {
+export const VideoCardSelectionCheckbox: SFC<
+    VideoCardSelectionCheckboxProps
+> = ({ isShowing, label, onCheckBoxClick, ref: _, ...props }) => {
     const handleCheckboxAreaClick = e => {
         e.stopPropagation();
         if ('function' === typeof onCheckBoxClick) {
@@ -57,5 +53,3 @@ const VideoCardSelectionCheckbox: SFC<VideoCardSelectionCheckboxProps> = ({
         </WrapperStyled>
     );
 };
-
-export default VideoCardSelectionCheckbox;

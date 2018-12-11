@@ -14,7 +14,7 @@ interface State {
     maxHeight: number;
 }
 
-class OverflowTruncationWrapper extends Component<Props, State> {
+export class OverflowTruncationWrapper extends Component<Props, State> {
     wrapperEl: HTMLElement;
     innerEl: HTMLElement;
 
@@ -81,8 +81,6 @@ class OverflowTruncationWrapper extends Component<Props, State> {
         );
     }
 }
-
-export default OverflowTruncationWrapper;
 
 const Position = styled.div<{ isTruncated: boolean }>`
     position: absolute;

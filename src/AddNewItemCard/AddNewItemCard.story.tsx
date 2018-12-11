@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import AddNewItemCard from './AddNewItemCard';
-import Grid from '../Grid/Grid';
-import GridBlock from '../GridBlock/GridBlock';
-import GridCol from '../GridCol/GridCol';
+import { AddNewItemCard } from './AddNewItemCard';
+import { Grid } from '../Grid/Grid';
+import { GridBlock } from '../GridBlock/GridBlock';
+import { GridCol } from '../GridCol/GridCol';
 
 storiesOf('components/AddNewItemCard', module).add(
     'default',

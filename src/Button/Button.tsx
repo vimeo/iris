@@ -1,11 +1,10 @@
 import React, { SFC } from 'react';
-
 import { ButtonProps } from './ButtonProps';
 import { ButtonStyled, ButtonLabelStyled } from './ButtonStyled';
-import { ButtonFocusBloop } from './ButtonFocusBloop';
-import ButtonIconElement from './ButtonIconElement';
+import { ButtonFocus } from './ButtonFocus';
+import { ButtonIconElement } from './ButtonIconElement';
 
-const Button: SFC<ButtonProps> = ({
+export const Button: SFC<ButtonProps> = ({
     autoMargins = true,
     autoWidth = 'sm',
     children,
@@ -16,16 +15,15 @@ const Button: SFC<ButtonProps> = ({
     isInline = false,
     size = 'md',
     ref: _,
-    ...filteredProps
+    ...props
 }) => {
-    const iconElement = (
-        <ButtonIconElement size={size} iconLocation={iconLocation}>
-            {icon}
-        </ButtonIconElement>
-    );
-
     const hasIcon = position =>
-        icon && iconLocation === position ? iconElement : null;
+        icon &&
+        iconLocation === position && (
+            <ButtonIconElement size={size} iconLocation={iconLocation}>
+                {icon}
+            </ButtonIconElement>
+        );
 
     return (
         <ButtonStyled
@@ -37,7 +35,7 @@ const Button: SFC<ButtonProps> = ({
             isButtonElement={isButtonElement}
             isInline={isInline}
             size={size}
-            {...filteredProps}
+            {...props}
         >
             {hasIcon('featuredLeft')}
 
@@ -47,7 +45,7 @@ const Button: SFC<ButtonProps> = ({
                 {hasIcon('afterLabel')}
             </ButtonLabelStyled>
 
-            <ButtonFocusBloop theme={convertTheme(format)} size={size} />
+            <ButtonFocus theme={convertTheme(format)} size={size} />
         </ButtonStyled>
     );
 };
@@ -56,5 +54,3 @@ const darkThemeFormats = ['primary', 'primaryDark', 'secondaryDark'];
 
 const convertTheme = format =>
     darkThemeFormats.indexOf(format) !== -1 ? 'default' : 'dark';
-
-export default Button;

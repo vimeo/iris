@@ -1,12 +1,12 @@
 import React, { SFC, HTMLProps } from 'react';
-import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
+import { VimeoStyleSettings } from '../globals/js/style-settings/VimeoStyleSettings';
 import styled from 'styled-components';
 import {
     getBarHeight,
     getBarRadius,
     ProgressBarStyleSettings,
 } from './ProgressBarHelpers';
-import ProgressBarIndicator from './ProgressBarIndicator';
+import { ProgressBarIndicator } from './ProgressBarIndicator';
 import { Omit } from '../globals/js/type-helpers';
 
 export interface ProgressBarProps {
@@ -64,17 +64,17 @@ const ProgressBarContainer = styled<ProgressBarContainerProps, 'div'>('div')`
 
 // ==================== ProgressBar
 
-const ProgressBar: SFC<
+export const ProgressBar: SFC<
     ProgressBarProps & Omit<HTMLProps<HTMLDivElement>, 'size'>
 > = ({
     currentValue,
     format = 'neutral',
     animated,
     size = 'md',
-    ref: _, // filter out ref from styled component
-    ...filteredProps
+    ref: _,
+    ...props
 }) => (
-    <ProgressBarContainer formatProp={format} size={size} {...filteredProps}>
+    <ProgressBarContainer formatProp={format} size={size} {...props}>
         <ProgressBarIndicator
             animated={animated}
             currentValue={currentValue}
@@ -83,5 +83,3 @@ const ProgressBar: SFC<
         />
     </ProgressBarContainer>
 );
-
-export default ProgressBar;

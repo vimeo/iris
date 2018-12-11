@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { Omit } from '../globals/js/type-helpers';
 import { InputProps, InputStyleSettings } from '../InputText/InputHelpers';
-import InputWrapper from '../InputWrapper/InputWrapper';
+import { InputWrapper } from '../InputWrapper/InputWrapper';
 import ChevronIris from '../icons/chevron-down.svg';
 
 export interface SelectWrapperProps
@@ -91,7 +91,7 @@ const ArrowWrapperStyled = styled.div<ArrowWrapperStyledProps>`
     }
 `;
 
-const SelectWrapper: SFC<SelectWrapperProps> = ({
+export const SelectWrapper: SFC<SelectWrapperProps> = ({
     children,
     disabled,
     errorMsg,
@@ -133,5 +133,3 @@ const SelectWrapper: SFC<SelectWrapperProps> = ({
         </WrapperStyled>
     </InputWrapper>
 );
-
-export default SelectWrapper;

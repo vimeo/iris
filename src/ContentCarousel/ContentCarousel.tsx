@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import ReactSwipe from 'react-swipe';
 import {
     ContentCarouselPropsAll,
     ContentCarouselState,
 } from './ContentCarouselTypes';
-import CarouselDotNav from '../CarouselDotNav';
+import { CarouselDotNav } from '../CarouselDotNav/CarouselDotNav';
 
-class ContentCarousel extends React.Component<any, any> {
+export class ContentCarousel extends Component<
+    ContentCarouselPropsAll,
+    ContentCarouselState
+> {
     static defaultProps = {
         initialSlide: 0,
         infinite: true,
@@ -129,5 +132,3 @@ class ContentCarousel extends React.Component<any, any> {
         );
     }
 }
-
-export default ContentCarousel;

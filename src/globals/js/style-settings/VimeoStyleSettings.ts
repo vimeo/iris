@@ -1,6 +1,6 @@
-import COLORS from '../constants/COLORS';
+import { COLORS } from '../constants/COLORS';
 
-const VimeoStyleSettings = {
+export const VimeoStyleSettings = {
     type: {
         fontFamily: {
             regular: '"Helvetica Neue", Helvetica, Arial, sans-serif',
@@ -46,5 +46,3 @@ const VimeoStyleSettings = {
         },
     },
 };
-
-export default VimeoStyleSettings;

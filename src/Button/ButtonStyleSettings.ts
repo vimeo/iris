@@ -1,7 +1,5 @@
 import { rem } from 'polished';
-
-import calculateLineHeightTarget from '../globals/js/style-helpers/calculateLineHeight';
-
+import { calculateLineHeightTarget } from '../globals/js/style-helpers/calculateLineHeight';
 import { ButtonColors } from './ButtonColors';
 
 export const ButtonStyleSettings = {

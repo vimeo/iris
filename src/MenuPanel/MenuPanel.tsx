@@ -1,6 +1,6 @@
 import React, { Component, HTMLProps } from 'react';
 import { findDOMNode } from 'react-dom';
-import { KEY_CODES } from '../globals/js/constants';
+import { KEY_CODES } from '../globals/js/constants/KEY_CODES';
 import { Transition } from 'react-transition-group';
 import {
     MenuPanelProps as Props,
@@ -26,7 +26,7 @@ const defaultProps: DefaultProps = {
     shouldRefocusTriggerOnClose: true,
 };
 
-class MenuPanel extends Component<
+export class MenuPanel extends Component<
     Props & Omit<HTMLProps<HTMLAnchorElement>, 'size'>,
     State
 > {
@@ -316,4 +316,3 @@ class MenuPanel extends Component<
         );
     }
 }
-export default MenuPanel;

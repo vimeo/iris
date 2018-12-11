@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { Transition } from 'react-transition-group';
-import KEY_CODES from '../globals/js/constants/KEY_CODES';
-import Z_INDEX from '../globals/js/constants/Z_INDEXES';
+import { KEY_CODES } from '../globals/js/constants/KEY_CODES';
+import { Z_INDEX } from '../globals/js/constants/Z_INDEXES';
 
 export interface ModalWrapperProps extends React.HTMLProps<HTMLDivElement> {
     firstFocusSelector?: string;
@@ -91,16 +91,14 @@ const ContentWrapperStyled = styled<ContentWrapperProps, 'div'>('div')`
     ${props => getModalPositionCSS(props)};
 `;
 
-// ==================== ModalWrapper
-
-class ModalWrapper extends React.Component<any, any> {
-    focusableElementList: any;
-    props: ModalWrapperProps;
-    previouslyFocusedElement: HTMLElement;
+export class ModalWrapper extends Component<ModalWrapperProps> {
     firstFocusableElement: HTMLElement;
+    focusableElementList: any;
     lastFocusableElement: HTMLElement;
-    thisEl: any;
+    previouslyFocusedElement: HTMLElement;
+    props: ModalWrapperProps;
     scrollDistance: number;
+    thisEl: any;
 
     componentDidUpdate(prevProps: ModalWrapperProps) {
         if (this.props.isOpen !== prevProps.isOpen) {
@@ -358,5 +356,3 @@ class ModalWrapper extends React.Component<any, any> {
         );
     }
 }
-
-export default ModalWrapper;

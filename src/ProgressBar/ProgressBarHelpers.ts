@@ -1,5 +1,5 @@
 import { rem, rgba } from 'polished';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 
 const ProgressBarStyleSettings = {
     colors: {

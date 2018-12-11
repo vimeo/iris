@@ -1,10 +1,10 @@
-import React, { ReactNode } from 'react';
+import React, { Component, ReactNode } from 'react';
 import styled from 'styled-components';
 import { Omit } from '../globals/js/type-helpers';
 import { Transition } from 'react-transition-group';
 import { Manager, Target, Popper } from 'react-popper';
-import { Z_INDEX } from '../globals/js/constants';
-import Tooltip from '../Tooltip/Tooltip';
+import { Z_INDEX } from '../globals/js/constants/Z_INDEXES';
+import { Tooltip } from '../Tooltip/Tooltip';
 
 const TOOLTIP_SPEED = 50;
 
@@ -123,7 +123,7 @@ const transitionStyles = {
         opacity: 0,
     },
 };
-class TooltipOverlay extends React.Component<
+export class TooltipOverlay extends Component<
     TooltipOverlayProps,
     TooltipOverlayState
 > {
@@ -319,5 +319,3 @@ class TooltipOverlay extends React.Component<
         );
     }
 }
-
-export default TooltipOverlay;

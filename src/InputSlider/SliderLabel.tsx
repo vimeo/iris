@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { getSliderThemeColors } from './InputSliderHelpers';
 import { rem, rgba } from 'polished';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../globals/js/constants/COLORS';
 
 export interface SliderLabelProps {
     editable: boolean;
@@ -77,7 +77,7 @@ const LabelInputStyled = styled<LabelWrapperStyledProps, 'input'>('input')`
     }
 `;
 
-const SliderLabel: SFC<SliderLabelProps> = ({
+export const SliderLabel: SFC<SliderLabelProps> = ({
     editable,
     value,
     id,
@@ -126,5 +126,3 @@ const SliderLabel: SFC<SliderLabelProps> = ({
         </LabelWrapper>
     );
 };
-
-export default SliderLabel;

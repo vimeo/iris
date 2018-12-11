@@ -1,6 +1,6 @@
 import React, { ReactNode, SFC } from 'react';
-import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';
-import HeaderAltSm from '../Type/HeaderAltSm';
+import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
+import { HeaderAltSm } from '../Type/HeaderAltSm';
 import {
     VerticalMenuHeaderGroupStyled,
     HeaderWrapper,
@@ -18,7 +18,7 @@ interface Props {
     labelId: string;
 }
 
-const VerticalMenuHeaderGroup: SFC<Props> = ({
+export const VerticalMenuHeaderGroup: SFC<Props> = ({
     actionButtonIcon,
     actionButtonTooltipText,
     actionButtonOnClick,
@@ -26,7 +26,7 @@ const VerticalMenuHeaderGroup: SFC<Props> = ({
     headerElement = 'h3',
     label,
     labelId,
-    ...filteredProps
+    ...props
 }) => {
     const hasActionButton =
         !!actionButtonIcon &&
@@ -34,7 +34,7 @@ const VerticalMenuHeaderGroup: SFC<Props> = ({
         !!actionButtonOnClick;
 
     return (
-        <VerticalMenuHeaderGroupStyled {...filteredProps}>
+        <VerticalMenuHeaderGroupStyled {...props}>
             <HeaderWrapper hasActionButton={hasActionButton}>
                 <HeaderAltSm element={headerElement} id={labelId}>
                     {label}
@@ -56,5 +56,3 @@ const VerticalMenuHeaderGroup: SFC<Props> = ({
         </VerticalMenuHeaderGroupStyled>
     );
 };
-
-export default VerticalMenuHeaderGroup;

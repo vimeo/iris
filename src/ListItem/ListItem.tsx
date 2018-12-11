@@ -1,14 +1,12 @@
 import React, { SFC, HTMLProps } from 'react';
 import { ListItemStyled } from './ListItemStyled';
 
-const ListItem: SFC<HTMLProps<HTMLElement>> = ({
+export const ListItem: SFC<HTMLProps<HTMLElement>> = ({
     children,
     ref: _,
-    ...filteredProps
+    ...props
 }) => (
-    <ListItemStyled {...filteredProps}>
+    <ListItemStyled {...props}>
         <span>{children}</span>
     </ListItemStyled>
 );
-
-export default ListItem;

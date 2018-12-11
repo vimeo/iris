@@ -37,9 +37,7 @@ const IconStyled = styled('div')`
     }
 `;
 
-// ==================== VideoCardContextArea
-
-const VideoCardContextInfoArea: SFC<VideoCardContextInfoAreaProps> = ({
+export const VideoCardContextInfoArea: SFC<VideoCardContextInfoAreaProps> = ({
     contextAttributionHeader,
     contextSubHeaderIcon,
     ...filteredProps
@@ -61,5 +59,3 @@ const VideoCardContextInfoArea: SFC<VideoCardContextInfoAreaProps> = ({
         </WrapperStyled>
     );
 };
-
-export default VideoCardContextInfoArea;

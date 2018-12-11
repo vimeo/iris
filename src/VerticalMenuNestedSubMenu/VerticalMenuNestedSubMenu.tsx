@@ -8,13 +8,13 @@ interface Props {
     subMenuItems: JSX.Element[];
 }
 
-const VerticalMenuNestedSubMenu: SFC<Props> = ({
+export const VerticalMenuNestedSubMenu: SFC<Props> = ({
     labeledById,
     onClick,
     subMenuItems,
-    ...filteredProps
+    ...props
 }) => (
-    <ListStyled {...filteredProps} aria-labelledby={labeledById}>
+    <ListStyled {...props} aria-labelledby={labeledById}>
         {subMenuItems.map((_, i) => (
             <ListItemStyled onClick={onClick} key={`submenu${i}`}>
                 {subMenuItems[i]}
@@ -31,5 +31,3 @@ const ListItemStyled = styled.li`
     padding: 0 0 0 ${rem(20)};
     list-style-type: none;
 `;
-
-export default VerticalMenuNestedSubMenu;
