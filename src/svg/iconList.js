@@ -44,6 +44,7 @@ export HeartFilled from '../icons/heart-filled.svg';
 export Heart from '../icons/heart.svg';
 export HomeFilled from '../icons/home-filled.svg';
 export Home from '../icons/home.svg';
+
 export Instagram from '../icons/instagram.svg';
 export LifePreserver from '../icons/life-preserver.svg';
 export Link from '../icons/link.svg';

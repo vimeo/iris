@@ -16,7 +16,7 @@
         "svg-min": "node svg",
         "build": "npm run clean; tsc; npm run svg",
         "build-storybook": "build-storybook -c .storybook -o build-styleguide",
-        "prepublishOnly": "npm run format; npm run lint; npm run build",
+        "prepublishOnly": "npm run lint; npm run build",
         "lint": "tslint 'src/**/*.{ts,tsx}' -e '**/*.story.tsx'; prettier --list-different 'src/**/*.{ts,tsx}'",
         "lint-pretty": "tslint 'src/**/*.{ts,tsx}' -e '**/*.story.tsx' -t codeFrame; prettier --list-different 'src/**/*.{ts,tsx}'"
     },
