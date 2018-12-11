@@ -323,6 +323,7 @@ export class VideoCard extends Component<VideoCardProps, VideoCardState> {
                             showAllContent && thumbnailVideoCardPropertiesArea
                         }
                         thumbnailData={thumbnailData}
+                        title={title}
                     />
                     <VideoCardInfoArea
                         footer={showAllContent && footer}

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { InputCheckbox } from '../InputCheckbox/InputCheckbox';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
-import { uniqid } from 'uniqid';
 
 export interface VideoCardSelectionCheckboxProps
     extends React.HTMLProps<HTMLInputElement> {
@@ -27,7 +26,7 @@ const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
 
 export const VideoCardSelectionCheckbox: SFC<
     VideoCardSelectionCheckboxProps
-> = ({ isShowing, label, onCheckBoxClick, ref: _, ...props }) => {
+> = ({ isShowing, label, onCheckBoxClick, title, ref: _, ...props }) => {
     const handleCheckboxAreaClick = e => {
         e.stopPropagation();
         if ('function' === typeof onCheckBoxClick) {
@@ -48,7 +47,7 @@ export const VideoCardSelectionCheckbox: SFC<
                 hideLabel
                 label={label}
                 readOnly
-                id={uniqid.time()}
+                id={title.replace(/[^A-Z0-9]/gi, '_')}
             />
         </WrapperStyled>
     );

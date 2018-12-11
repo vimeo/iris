@@ -1,12 +1,13 @@
-build-styleguide
-svg_src_files
-src
 .babelrc
+.github
 .gitignore
 .prettierrc
 .storybook
 *.story.tsx
+build-styleguide
 Jenkinsfile
+src
+svg_src_files
 svg.js
 yarn.lock
 

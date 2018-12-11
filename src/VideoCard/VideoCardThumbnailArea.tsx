@@ -23,6 +23,7 @@ export interface VideoCardThumbnailAreaProps {
     thumbnailTimestampArea?: any;
     thumbnailVideoCardPropertiesArea?: any;
     thumbnailData: VideoCardThumbnailData[];
+    title: string;
 }
 
 export interface VideoCardThumbnailWrapperProps
@@ -126,6 +127,7 @@ export const VideoCardThumbnailArea: SFC<VideoCardThumbnailAreaProps> = ({
     thumbnailTimestampArea,
     thumbnailVideoCardPropertiesArea,
     thumbnailData,
+    title,
 }) => (
     <WrapperStyled>
         <ThumbnailContainerStyled isHovered={isHovered}>
@@ -162,6 +164,7 @@ export const VideoCardThumbnailArea: SFC<VideoCardThumbnailAreaProps> = ({
                 isShowing={isHovered || isSelected}
                 checked={isSelected}
                 label={checkboxA11yLabel}
+                title={title}
             />
         )}
         {thumbnailVideoCardPropertiesArea && (
