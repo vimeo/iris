@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS } from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/';
 import { darken, rem, rgba } from 'polished';
 import { css } from 'styled-components';
 import DotsMenuIcon from '../icons/dots-menu.svg';

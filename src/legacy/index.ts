@@ -1,7 +1,11 @@
-export const test = () => {
-    console.log('legacy import test');
-};
+import * as BREAKPOINTS from '../Layout/Breakpoints';
+import * as COLORS from '../Color/Color';
+import * as KEY_CODES from '../Utils/KeyCodes';
+import * as TRANSITIONS from '../Motion/Transitions';
+import * as Z_INDEXES from '../Layout/zIndexes';
+export { BREAKPOINTS, COLORS, KEY_CODES, TRANSITIONS, Z_INDEXES };
 
+//
 export { MenuPanel } from '../MenuPanel/MenuPanel';
 export { MenuPanelList } from '../MenuPanelList/MenuPanelList';
 export { MenuPanelListItem } from '../MenuPanelListItem/MenuPanelListItem';
@@ -9,6 +13,7 @@ export {
     MenuPanelScrollableWithActionArea,
 } from '../MenuPanelScrollableWithActionArea/MenuPanelScrollableWithActionArea';
 
+//
 export { Modal } from '../Modal/Modal';
 export { ModalFeatureUpdate } from '../ModalFeatureUpdate/ModalFeatureUpdate';
 export {
@@ -16,6 +21,7 @@ export {
 } from '../ModalFeatureUpdate/ModalFeatureUpdateTemplate';
 export { ModalWrapper } from '../ModalWrapper/ModalWrapper';
 
+//
 export { VideoCard } from '../VideoCard/VideoCard';
 export {
     VideoCardFooterActionsGrid,

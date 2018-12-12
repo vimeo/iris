@@ -1,5 +1,4 @@
 import { rem } from 'polished';
-import { calculateLineHeightTarget } from '../globals/js/style-helpers/calculateLineHeight';
 import { ButtonColors } from './ButtonColors';
 
 export const ButtonStyleSettings = {
@@ -306,14 +305,14 @@ export const ButtonStyleSettings = {
     Sizes: {
         xl: {
             fontSize: rem(16),
-            lineHeight: calculateLineHeightTarget(16, 58),
+            lineHeight: 58 / 16,
             minWidth: rem(112),
             minHeight: rem(60),
             padding: `0 ${rem(24)}`,
         },
         lg: {
             fontSize: rem(16),
-            lineHeight: calculateLineHeightTarget(16, 46),
+            lineHeight: 46 / 16,
             minWidth: rem(112),
             minHeight: rem(48),
             padding: `0 ${rem(24)}`,
@@ -321,7 +320,7 @@ export const ButtonStyleSettings = {
 
         md: {
             fontSize: rem(14),
-            lineHeight: calculateLineHeightTarget(14, 38),
+            lineHeight: 38 / 14,
             minWidth: rem(84),
             minHeight: rem(39),
             padding: `0 ${rem(16)}`,
@@ -329,7 +328,7 @@ export const ButtonStyleSettings = {
 
         sm: {
             fontSize: rem(14),
-            lineHeight: calculateLineHeightTarget(14, 30),
+            lineHeight: 30 / 14,
             minWidth: rem(68),
             minHeight: rem(32),
             padding: `0 ${rem(10)}`,
@@ -337,7 +336,7 @@ export const ButtonStyleSettings = {
 
         xs: {
             fontSize: rem(12),
-            lineHeight: calculateLineHeightTarget(12, 23),
+            lineHeight: 23 / 12,
             minWidth: rem(48),
             minHeight: rem(24),
             padding: `0 ${rem(6)}`,

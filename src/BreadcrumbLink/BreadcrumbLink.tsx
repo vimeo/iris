@@ -2,7 +2,7 @@ import React, { SFC, HTMLProps } from 'react';
 
 import { LinkText, LinkTextProps } from '../LinkText/LinkText';
 import { BreadcrumbLinkContent } from '../BreadcrumbLinkContent/BreadcrumbLinkContent';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 
 export interface BreadcrumbLinkProps {
     format: 'lightTheme' | 'darkTheme';

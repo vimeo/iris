@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { ParagraphSm } from '../Type';
 import CircleIcon from '../icons/circle-filled.svg';
-import { VimeoStyleSettings } from '../globals/js/style-settings/VimeoStyleSettings';
+import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 
 export interface VideoCardLiveBadge extends React.HTMLProps<HTMLInputElement> {

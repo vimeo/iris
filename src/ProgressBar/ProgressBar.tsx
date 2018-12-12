@@ -1,5 +1,5 @@
 import React, { SFC, HTMLProps } from 'react';
-import { VimeoStyleSettings } from '../globals/js/style-settings/VimeoStyleSettings';
+import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
 import styled from 'styled-components';
 import {
     getBarHeight,
@@ -7,7 +7,7 @@ import {
     ProgressBarStyleSettings,
 } from './ProgressBarHelpers';
 import { ProgressBarIndicator } from './ProgressBarIndicator';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 
 export interface ProgressBarProps {
     /**

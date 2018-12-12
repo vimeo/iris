@@ -1,5 +1,5 @@
 import React, { SFC } from 'react';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import { InputProps } from '../InputText/InputHelpers';
 import { SelectWrapper } from '../SelectWrapper/SelectWrapper';
 import { StyledSelect } from './InputSelectStyled';

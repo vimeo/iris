@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { GridProps, GRID } from './GridTypes';
 import { GridVariableElement } from './GridVariableElement';
-import { mediaQuery } from '../globals/js/style-helpers/mediaQuery';
+import { mediaQuery } from '../Layout/MediaQuery';
 
 export const GridStyled = styled<GridProps, any>(GridVariableElement)`
     ${mediaQuery.sm`

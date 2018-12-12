@@ -1,15 +1,15 @@
 import React, { SFC } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import { VimeoStyleSettings } from '../globals/js/style-settings/VimeoStyleSettings';
-import { COLORS } from '../globals/js/constants/COLORS';
+import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
+import { COLORS } from '../Legacy/';
 import {
     TypeByCSSInterface,
     TypeProps,
     StyledTypeElementProps,
 } from './TypeTypes';
 import { getUnitlessLineHeight } from './TypeHelpers';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import { TypeVariableElement } from './TypeVariableElement';
 
 export const TypeBaseStyleSettings = {

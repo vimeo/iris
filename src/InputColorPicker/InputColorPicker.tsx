@@ -5,10 +5,10 @@ import { ChromePicker } from 'react-color';
 import { InputText, InputTextProps } from '../InputText/InputText';
 import { InputProps } from '../InputText/InputHelpers';
 import { MenuPanel } from '../MenuPanel/MenuPanel';
-import { COLORS } from '../globals/js/constants/COLORS';
-import { KEY_CODES } from '../globals/js/constants/KEY_CODES';
-import { VimeoStyleSettings } from '../globals/js/style-settings/VimeoStyleSettings';
-import { Omit } from '../globals/js/type-helpers';
+import { COLORS } from '../Legacy/';
+import { KEY_CODES } from '../Legacy';
+import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
+import { Omit } from '../Utils/Omit';
 
 const defaultColorValue = COLORS.VimeoBlue;
 

@@ -3,7 +3,7 @@ import AlertIcon from '../icons/circle-warning.svg';
 import SuccessIcon from '../icons/checkmark.svg';
 import styled from 'styled-components';
 import { keyframes } from 'styled-components';
-import { COLORS } from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/';
 import { rem } from 'polished';
 
 interface Props {

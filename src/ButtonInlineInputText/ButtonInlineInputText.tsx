@@ -1,7 +1,7 @@
 import React, { SFC, HTMLProps } from 'react';
 import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 import { ButtonInlineInputTextProps as Props } from './ButtonInlineInputTextTypes';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import { ButtonStyled, Wrapper } from './ButtonInlineInputTextStyled';
 
 export const ButtonInlineInputText: SFC<

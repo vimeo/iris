@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { COLORS } from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/';
 import { rem } from 'polished';
 import { css } from 'styled-components';
 import { ParagraphMd } from '../Type';

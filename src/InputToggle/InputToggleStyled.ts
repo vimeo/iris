@@ -2,7 +2,7 @@ import { InputLabelInline } from '../InputLabelInline/InputLabelInline';
 import { rem } from 'polished';
 import styled from 'styled-components';
 import { css } from 'styled-components';
-import { COLORS } from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/';
 import { rgba } from 'polished';
 import {
     sharedInlineInputWrapperStyles,

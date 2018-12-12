@@ -1,5 +1,5 @@
 import React, { HTMLProps, SFC } from 'react';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import { InputLabelInline } from '../InputLabelInline/InputLabelInline';
 import { InputRadioProps } from './InputRadioTypes';
 import {

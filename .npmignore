@@ -6,6 +6,7 @@
 *.story.tsx
 build-styleguide
 Jenkinsfile
+modules
 src
 svg_src_files
 svg.js

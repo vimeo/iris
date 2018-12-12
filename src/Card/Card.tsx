@@ -1,7 +1,7 @@
 import React, { SFC, HTMLProps } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import { COLORS } from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/';
 import { CardSettings } from './CardSettings';
 
 export interface CardProps {

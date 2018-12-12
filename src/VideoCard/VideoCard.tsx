@@ -7,7 +7,7 @@ import { VideoCardInfoArea } from './VideoCardInfoArea';
 import { VideoCardLoadingState } from './VideoCardLoadingState';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 import { LoaderCircular } from '../LoaderCircular/LoaderCircular';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 
 export interface VideoCardThumbnailData {
     /**

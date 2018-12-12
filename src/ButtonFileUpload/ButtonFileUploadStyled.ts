@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { rem, rgba, darken } from 'polished';
-import { COLORS } from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/';
 
 interface LabelStyledProps {
     disabled: boolean;

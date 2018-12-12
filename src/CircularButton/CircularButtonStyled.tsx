@@ -3,10 +3,10 @@ import styled, { css } from 'styled-components';
 import { CircularButtonStyledProps } from './CircularButtonTypes';
 import { CircularButtonElement } from './CircularButtonElement';
 import { rem } from 'polished';
-import { COLORS } from '../globals/js/constants/COLORS';
-import { TRANSITIONS } from '../globals/js/constants/TRANSITIONS';
+import { COLORS } from '../Legacy/';
+import { TRANSITIONS } from '../Legacy';
 import { ButtonColors } from '../Button/ButtonColors';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 
 const buttonSizes = {
     sm: 22,

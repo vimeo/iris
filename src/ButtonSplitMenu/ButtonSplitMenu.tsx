@@ -14,7 +14,7 @@ import {
 } from '../Button/ButtonHelpers';
 import { ButtonProps } from '../Button/ButtonProps';
 import { ButtonStyleSettings } from '../Button/ButtonStyleSettings';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 
 const menuButtonWidths = {
     sm: 28,

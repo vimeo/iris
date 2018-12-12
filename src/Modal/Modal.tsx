@@ -4,10 +4,10 @@ import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { Transition } from 'react-transition-group';
 
-import { Omit } from '../globals/js/type-helpers';
-import { mediaQuery } from '../globals/js/style-helpers/mediaQuery';
-import { COLORS } from '../globals/js/constants/COLORS';
-import { Z_INDEX } from '../globals/js/constants/Z_INDEXES';
+import { Omit } from '../Utils/Omit';
+import { mediaQuery } from '../Layout/MediaQuery';
+import { COLORS } from '../Legacy/';
+import { Z_INDEXES as Z_INDEX } from '../Legacy';
 import { Button } from '../Button/Button';
 import { ButtonProps } from '../Button/ButtonProps';
 import { ButtonDialogClose } from '../ButtonDialogClose/ButtonDialogClose';

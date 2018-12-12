@@ -1,6 +1,6 @@
 import React, { Component, HTMLProps } from 'react';
 import { findDOMNode } from 'react-dom';
-import { KEY_CODES } from '../globals/js/constants/KEY_CODES';
+import { KEY_CODES } from '../Legacy';
 import { Transition } from 'react-transition-group';
 import {
     MenuPanelProps as Props,
@@ -14,7 +14,7 @@ import {
     TriggerWrapperStyled,
     WrapperStyled,
 } from './MenuPanelStyled';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 
 export const menuSpeed = 100;
 

@@ -1,9 +1,9 @@
 import React, { Component, ReactNode } from 'react';
 import styled from 'styled-components';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import { Transition } from 'react-transition-group';
 import { Manager, Target, Popper } from 'react-popper';
-import { Z_INDEX } from '../globals/js/constants/Z_INDEXES';
+import { Z_INDEXES as Z_INDEX } from '../Legacy';
 import { Tooltip } from '../Tooltip/Tooltip';
 
 const TOOLTIP_SPEED = 50;

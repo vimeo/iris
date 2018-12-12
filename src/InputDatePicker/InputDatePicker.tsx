@@ -12,7 +12,7 @@ import DateTime from 'react-datetime';
 import { InputText } from '../InputText/InputText';
 import { InputTextProps } from '../InputText/InputText';
 import { MenuPanel } from '../MenuPanel/MenuPanel';
-import { KEY_CODES } from '../globals/js/constants/KEY_CODES';
+import { KEY_CODES } from '../Legacy';
 import { Moment } from 'moment';
 
 const inputDataAttribute = 'data-input-field';

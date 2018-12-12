@@ -1,7 +1,7 @@
 import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import { InputProps, InputStyleSettings } from '../InputText/InputHelpers';
 import { InputWrapper } from '../InputWrapper/InputWrapper';
 import ChevronIris from '../icons/chevron-down.svg';

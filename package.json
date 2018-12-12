@@ -1,9 +1,9 @@
 {
     "name": "@vimeo/iris",
-    "version": "5.18.1",
+    "version": "5.18.2-alpha.2",
     "description": "Iris UI Pattern Framework",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
+    "main": "index.js",
+    "types": "index.d.ts",
     "engines": {
         "node": ">=8",
         "yarn": ">=1"
@@ -16,7 +16,8 @@
         "svg-min": "node svg",
         "build": "npm run clean; tsc; npm run svg",
         "build-storybook": "build-storybook -c .storybook -o build-styleguide",
-        "prepublishOnly": "npm run lint; npm run build",
+        "prepublishOnly": "npm run lint; npm run build; cp -r ./modules/* ./",
+        "postpublish": "rm color.d.ts color.js components.d.ts components.js icons.d.ts icons.js illustration.d.ts illustration.js index.d.ts index.js layout.d.ts layout.js legacy.d.ts legacy.js motion.d.ts motion.js typography.d.ts typography.js utils.d.ts utils.js",
         "lint": "tslint 'src/**/*.{ts,tsx}' -e '**/*.story.tsx'; prettier --list-different 'src/**/*.{ts,tsx}'",
         "lint-pretty": "tslint 'src/**/*.{ts,tsx}' -e '**/*.story.tsx' -t codeFrame; prettier --list-different 'src/**/*.{ts,tsx}'"
     },
@@ -42,6 +43,7 @@
         "@storybook/addon-viewport": "next",
         "@storybook/addons": "next",
         "@storybook/react": "next",
+        "@svgr/webpack": "^4.1.0",
         "@types/react": "^16.4.16",
         "babel-loader": "^8.0.4",
         "babel-plugin-styled-components": "^1.9.3",
@@ -62,7 +64,6 @@
         "@types/clipboard": "^2.0.1",
         "@types/lodash": "^4.14.116",
         "@types/styled-components": "^3.0.1",
-        "@svgr/webpack": "^4.1.0",
         "clipboard": "^2.0.1",
         "lodash.throttle": "^4.1.1",
         "moment": "^2.22.2",

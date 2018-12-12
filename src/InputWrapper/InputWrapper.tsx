@@ -3,7 +3,7 @@ import { InputLabel } from '../InputLabel/InputLabel';
 import { InputMessageArea } from '../InputMessageArea/InputMessageArea';
 import SuccessIcon from '../icons/checkmark.svg';
 import AlertIcon from '../icons/circle-warning.svg';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import {
     IconStyled,
     WrapperStyled,

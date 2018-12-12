@@ -4,7 +4,7 @@ import { rem } from 'polished';
 import { HeaderAltSm, Header5, ParagraphMd } from '../Type';
 import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
 import DismissIcon from '../icons/dismiss-x.svg';
-import { COLORS } from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/';
 
 export interface FeatureTourPanelContentProps {
     /**

@@ -1,6 +1,6 @@
 import React, { SFC } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { VimeoStyleSettings } from '../globals/js/style-settings/VimeoStyleSettings';
+import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
 import { rem, rgba } from 'polished';
 import {
     ProgressBarStyleSettings,

@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { Transition } from 'react-transition-group';
-import { KEY_CODES } from '../globals/js/constants/KEY_CODES';
-import { Z_INDEX } from '../globals/js/constants/Z_INDEXES';
+import { KEY_CODES } from '../Legacy';
+import { Z_INDEXES as Z_INDEX } from '../Legacy';
 
 export interface ModalWrapperProps extends React.HTMLProps<HTMLDivElement> {
     firstFocusSelector?: string;

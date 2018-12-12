@@ -1,5 +1,5 @@
 import { HTMLProps } from 'react';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 
 export interface TypeProps extends Omit<HTMLProps<HTMLElement>, 'size'> {
     element?:

@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import { rem, rgba } from 'polished';
 import { CounterIconStyledProps } from './CounterIconTypes';
-import { COLORS } from '../globals/js/constants/COLORS';
-import { TRANSITIONS } from '../globals/js/constants/TRANSITIONS';
+import { COLORS } from '../Legacy/';
+import { TRANSITIONS } from '../Legacy';
 
 const iconSize = 18;
 

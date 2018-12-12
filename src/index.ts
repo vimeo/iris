@@ -149,9 +149,6 @@ export {
     VideoCardContextInfoArea as VideoContextInfoArea,
 } from './VideoCard/VideoContextInfoArea';
 
-export { BREAKPOINTS } from './globals/js/constants/BREAKPOINTS';
-export { COLORS } from './globals/js/constants/COLORS';
-export { KEY_CODES } from './globals/js/constants/KEY_CODES';
 export { withCopyAbility } from './withCopyAbility/withCopyAbility';
 export {
     withCharacterCounter as withCharacterCount,

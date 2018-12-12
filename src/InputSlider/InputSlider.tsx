@@ -8,7 +8,7 @@ import {
     sliderZindex,
     InputSliderStyleSettings,
 } from './InputSliderHelpers';
-import { Z_INDEX } from '../globals/js/constants/Z_INDEXES';
+import { Z_INDEXES as Z_INDEX } from '../Legacy';
 import { SliderLabel } from './SliderLabel';
 
 export interface InputSliderProps {

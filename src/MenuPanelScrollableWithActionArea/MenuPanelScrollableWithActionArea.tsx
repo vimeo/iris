@@ -4,7 +4,7 @@ import { OverflowTruncationWrapper } from '../OverflowTruncationWrapper/Overflow
 import { Grid } from '../Grid/Grid';
 import { GridCol } from '../GridCol/GridCol';
 import { GridBlock } from '../GridBlock/GridBlock';
-import { COLORS } from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/';
 
 interface Props {
     children: ReactNode;

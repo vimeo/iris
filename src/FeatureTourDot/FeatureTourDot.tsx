@@ -1,7 +1,7 @@
 import React, { SFC } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import { rem, rgba } from 'polished';
-import { COLORS } from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/';
 
 export interface FeatureDotProps extends React.HTMLProps<HTMLSpanElement> {
     beaconA11yText: string;

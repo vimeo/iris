@@ -1,5 +1,5 @@
 import React from 'react';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 
 export interface ButtonProps
     extends Omit<React.HTMLProps<HTMLButtonElement>, 'size'> {

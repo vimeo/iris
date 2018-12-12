@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { KEY_CODES } from '../globals/js/constants/KEY_CODES';
+import { KEY_CODES } from '../Legacy';
 import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
 import { VerticalMenuContextualMenuPanel } from '../VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel';
 import {

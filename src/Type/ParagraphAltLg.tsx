@@ -1,7 +1,7 @@
 import React, { SFC } from 'react';
 import { TypeBase } from './TypeBase';
 import { TypeProps } from './TypeTypes';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 
 export const ParagraphAltLg: SFC<
     TypeProps & Omit<React.HTMLProps<HTMLParagraphElement>, 'size'>

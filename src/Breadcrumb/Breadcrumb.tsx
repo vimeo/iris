@@ -1,11 +1,11 @@
 import React, { SFC, HTMLProps } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import { mediaQuery } from '../globals/js/style-helpers/mediaQuery';
+import { mediaQuery } from '../Layout/MediaQuery';
 import ChevronRight from '../icons/chevron-right.svg';
 import { ParagraphMd } from '../Type';
 import { TypeProps } from '../Type/TypeTypes';
-import { COLORS } from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy';
 
 export interface BreadcrumbProps {
     /**

@@ -1,6 +1,6 @@
 import React, { SFC, HTMLProps } from 'react';
 import styled from 'styled-components';
-import { COLORS } from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/';
 import HeartIcon from '../icons/heart-filled.svg';
 
 const VideoCardLikeIconStyled = styled.span`

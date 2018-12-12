@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { rem } from 'polished';
-import { VimeoStyleSettings } from '../globals/js/style-settings/VimeoStyleSettings';
-import { mediaQuery } from '../globals/js/style-helpers/mediaQuery';
+import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
+import { mediaQuery } from '../Layout/MediaQuery';
 import { ButtonColors } from './ButtonColors';
 import { ButtonStyleSettings } from './ButtonStyleSettings';
 

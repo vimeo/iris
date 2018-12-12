@@ -1,6 +1,6 @@
 import React, { SFC, ReactNode } from 'react';
 import styled from 'styled-components';
-import { COLORS } from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/';
 import { rem } from 'polished';
 import { LinkText } from '../LinkText/LinkText';
 import { TruncatedTextWrapper } from '../TruncatedTextWrapper/TruncatedTextWrapper';
@@ -8,8 +8,8 @@ import { Header6, ParagraphSm, ParagraphAltMd } from '../Type';
 import LockFilled from '../icons/lock-filled.svg';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
-import { Omit } from '../globals/js/type-helpers';
-import { VimeoStyleSettings } from '../globals/js/style-settings/VimeoStyleSettings';
+import { Omit } from '../Utils/Omit';
+import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
 
 export interface VideoCardInfoAreaProps
     extends Omit<React.HTMLProps<HTMLElement>, 'size'> {

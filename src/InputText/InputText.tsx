@@ -6,7 +6,7 @@ import {
     InputProps,
     InputStyledProps,
 } from './InputHelpers';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 
 export interface InputTextProps {
     inlineButton?: React.ReactNode;

@@ -1,5 +1,5 @@
 import React, { SFC, HTMLProps } from 'react';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import { AvatarProps } from './AvatarProps';
 import { AvatarStyled } from './AvatarStyled';
 

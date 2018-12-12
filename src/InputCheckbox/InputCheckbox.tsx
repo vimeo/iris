@@ -9,7 +9,7 @@ import {
 } from './InputCheckboxStyled';
 import { CheckboxFocusOutline } from './InputCheckboxFocus';
 import { InputWrapperInline } from '../InputWrapperInline/InputWrapperInline';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 
 export const InputCheckbox: SFC<
     InputCheckboxProps & Omit<HTMLProps<HTMLDivElement>, 'size'>

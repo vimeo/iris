@@ -1,9 +1,9 @@
 import React, { SFC, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import { VimeoStyleSettings } from '../globals/js/style-settings/VimeoStyleSettings';
-import { COLORS } from '../globals/js/constants/COLORS';
-import { Omit } from '../globals/js/type-helpers';
+import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
+import { COLORS } from '../Legacy/';
+import { Omit } from '../Utils/Omit';
 
 export interface LinkTextProps {
     /**

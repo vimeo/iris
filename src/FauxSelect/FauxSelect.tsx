@@ -1,7 +1,7 @@
 import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import { getInputBaseStyles, InputProps } from '../InputText/InputHelpers';
 import { TruncatedTextWrapper } from '../TruncatedTextWrapper/TruncatedTextWrapper';
 import { ArrowIconWrapperWidth } from '../SelectWrapper/SelectWrapper';

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { CarouselDotProps, CarouselWrapperProps } from './CarouselDotNavTypes';
-import { COLORS } from '../globals/js/constants/COLORS';
-import { visuallyHiddenCSS } from '../globals/js/style-helpers/visuallyHidden';
+import { COLORS } from '../Legacy/';
+import { visuallyHiddenCSS } from '../Utils/VisuallyHidden';
 
 export const WrapperStyled = styled<CarouselWrapperProps, 'div'>('div')`
     display: flex;

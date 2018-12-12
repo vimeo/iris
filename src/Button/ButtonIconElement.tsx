@@ -2,7 +2,7 @@ import React, { SFC, HTMLProps } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { ButtonStyleSettings } from './ButtonStyleSettings';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 
 export interface ButtonIconElementStyledProps
     extends Omit<HTMLProps<HTMLSpanElement>, 'size'> {

@@ -6,7 +6,7 @@ import {
     SpanStyled,
     DEFAULT_BUTTON_FORMAT as DARK,
 } from './ButtonIconOnlyStyled';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import { ButtonIconOnlyFocus } from './ButtonIconOnlyFocus';
 
 export const ButtonIconOnly: SFC<

@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import { InputText } from '../InputText/InputText';
 import { ButtonInlineInputText } from '../ButtonInlineInputText/ButtonInlineInputText';
 import SearchIcon from '../icons/search.svg';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import { SearchFieldProps } from './SearchFieldTypes';
 
 export const SearchField: SFC<

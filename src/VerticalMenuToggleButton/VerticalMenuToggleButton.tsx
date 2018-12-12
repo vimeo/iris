@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import RightArrow from '../icons/chevron-right.svg';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { COLORS } from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/';
 
 interface Props {
     nestedButtonLabel: string;
