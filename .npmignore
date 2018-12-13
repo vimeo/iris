@@ -1,4 +1,3 @@
-.babelrc
 .github
 .gitignore
 .prettierrc
@@ -7,9 +6,9 @@
 build-styleguide
 Jenkinsfile
 modules
+scripts
 src
 svg_src_files
-svg.js
 yarn.lock
 
 
