@@ -112,7 +112,7 @@ export interface VideoCardProps
     /**
      * For one or more social badges. Pass an array of React Components, usually an social badge SVG wrapped in a `MenuPanel`
      */
-    thumbnailSocialBadgeArea?: Array<React.Component<any>>;
+    thumbnailSocialBadgeArea?: ReactNode;
     /**
      * Pass a Timestamp (`VideoCardTimestamp` component) or LiveBadge (`VideoCardLiveBadge` component)
      */

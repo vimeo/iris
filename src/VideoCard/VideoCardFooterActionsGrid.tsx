@@ -1,11 +1,11 @@
-import React, { SFC } from 'react';
+import React, { SFC, ReactNode } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 
 export interface VideoCardFooterActionsGridProps
     extends React.HTMLProps<HTMLDivElement> {
-    actionItems: Array<React.Component<any>>;
+    actionItems: ReactNode[];
 }
 
 export interface VideoCardFooterActionsGridStyledProps
