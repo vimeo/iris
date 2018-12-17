@@ -21,6 +21,7 @@ import HomeIcon from '../icons/home.svg';
 import HomeFilledIcon from '../icons/home-filled.svg';
 import SettingsIcon from '../icons/gear.svg';
 import { COLORS } from '../Legacy/COLORS';
+import styled from 'styled-components';
 
 storiesOf('components/VerticalMenu', module)
     .add(
@@ -54,6 +55,10 @@ storiesOf('components/VerticalMenu', module)
         },
     )
     .add('complex', () => <VerticalMenuDemoDocs />);
+
+const GridColStyled = styled(GridCol)`
+    background: ${COLORS.Paste};
+`;
 
 const onClickHandler = e => {
     e.preventDefault();
@@ -150,11 +155,7 @@ class VerticalMenuDemoDocs extends React.Component<any, any> {
         return (
             <Grid isNested>
                 <GridBlock>
-                    <GridCol
-                        mdSpan={8}
-                        // @ts-ignore
-                        style={{ backgroundColor: COLORS.Paste }}
-                    >
+                    <GridColStyled mdSpan={8}>
                         <VerticalMenuHeaderGroup
                             actionButtonIcon={<CirclePlusIcon />}
                             actionButtonTooltipText="Tooltip Text"
@@ -239,7 +240,7 @@ class VerticalMenuDemoDocs extends React.Component<any, any> {
                                 />
                             </a>
                         </VerticalMenuItem>
-                    </GridCol>
+                    </GridColStyled>
                     <GridCol mdSpan={16}>
                         <Header3>Building Vertical Menus</Header3>
                         <ParagraphMd>

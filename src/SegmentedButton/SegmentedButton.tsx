@@ -16,7 +16,7 @@ export const SegmentedButtonSetButton: SFC<
     disabled,
     id,
     format = 'light',
-    inputProps = { ref: false },
+    inputProps = { ref: undefined },
     name,
     optionLabel,
     // @ts-ignore

@@ -6,7 +6,7 @@ import { Omit } from '../Utils/Omit';
 import { SearchFieldProps } from './SearchFieldTypes';
 
 export const SearchField: SFC<
-    SearchFieldProps & Omit<React.HTMLProps<HTMLInputElement>, 'type'>
+    SearchFieldProps & Omit<React.HTMLProps<HTMLInputElement>, 'type' | 'size'>
 > = ({
     buttonFormat = 'subtle',
     buttonLabel,
@@ -17,25 +17,21 @@ export const SearchField: SFC<
     showLabel = false,
     size = 'md',
     ...props
-}) => {
-    const ButtonComponent = (
-        <ButtonInlineInputText
-            {...buttonProps}
-            title={buttonLabel}
-            icon={icon}
-            format={buttonFormat}
-            size={size}
-        />
-    );
-
-    return (
-        <InputText
-            {...props}
-            showLabel={showLabel}
-            label={fieldLabel}
-            inlineButton={ButtonComponent}
-            isInline={isInline}
-            size={size}
-        />
-    );
-};
+}) => (
+    <InputText
+        {...props}
+        size={size}
+        label={fieldLabel}
+        isInline={isInline}
+        showLabel={showLabel}
+        inlineButton={
+            <ButtonInlineInputText
+                {...buttonProps}
+                title={buttonLabel}
+                icon={icon}
+                format={buttonFormat}
+                size={size}
+            />
+        }
+    />
+);

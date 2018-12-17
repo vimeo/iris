@@ -2,8 +2,11 @@ import React, { SFC, HTMLProps } from 'react';
 import DeleteIcon from '../icons/dismiss-x.svg';
 import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
 import { ButtonDialogCloseProps as Props } from './ButtonDialogCloseTypes';
+import { Omit } from '../Utils/Omit';
 
-export const ButtonDialogClose: SFC<Props & HTMLProps<HTMLButtonElement>> = ({
+export const ButtonDialogClose: SFC<
+    Props & Omit<HTMLProps<HTMLButtonElement>, 'size'>
+> = ({
     buttonTitle = 'Close',
     autoSpacingHorizontal = true,
     className,

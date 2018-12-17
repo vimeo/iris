@@ -10,7 +10,7 @@ export interface CopyFieldProps {
     /**
      * Callback after successful copy
      */
-    onCopy?: () => void;
+    onCopy?: (...any) => void;
     size?: 'md' | 'lg';
     stringToCopy: string;
     /**

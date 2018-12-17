@@ -5,8 +5,12 @@ import styled from 'styled-components';
 
 storiesOf('colors/Color Palette', module).add('default', () => (
     <ColorGrid>
-        {Object.keys(COLORS).map(colorName => (
-            <ColorBlock colorName={colorName} colorHex={COLORS[colorName]} />
+        {Object.keys(COLORS).map((colorName, i) => (
+            <ColorBlock
+                colorName={colorName}
+                colorHex={COLORS[colorName]}
+                key={i}
+            />
         ))}
     </ColorGrid>
 ));

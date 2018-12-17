@@ -107,14 +107,6 @@ export const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
     // @ts-ignore
     ref: _,
 }) => {
-    const _defaultLinkClickHandler = e => {
-        e.preventDefault();
-    };
-
-    const stopClickPropagation = e => {
-        e.stopPropagation();
-    };
-
     const LinkTextElement = (
         <span>
             <LinkTextStyled decoration="inherit" element="span">
@@ -125,10 +117,22 @@ export const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
         </span>
     );
 
-    const defaultLinkElement = (
+    const TitleLinkElement = titleLinkElement;
+    const LinkElement = titleLinkElement ? (
+        <TitleLinkElement
+            onClick={e => {
+                e.preventDefault();
+            }}
+            {...titleLinkProps}
+        >
+            {LinkTextElement}
+        </TitleLinkElement>
+    ) : (
         <a
             href="#"
-            onClick={_defaultLinkClickHandler}
+            onClick={e => {
+                e.preventDefault();
+            }}
             title={title}
             {...titleLinkProps}
         >
@@ -136,33 +140,30 @@ export const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
         </a>
     );
 
-    const LinkElement = titleLinkElement;
-    const TypeElement = size === 'sm' ? HeaderSmStyled : Header6;
     return (
         <VideoCardInfoAreaStyled>
             {isPrivate && (
                 <PrivacyIconStyled size={size}>
                     <TooltipOverlay
                         tooltipText={privacyDescription}
-                        onClick={stopClickPropagation}
+                        onClick={e => {
+                            e.stopPropagation();
+                        }}
                     >
                         <LockFilled />
                     </TooltipOverlay>
                 </PrivacyIconStyled>
             )}
             <TitleWrapper cardSize={size} isPrivate={isPrivate}>
-                <TypeElement element="h4" noMargin>
-                    {LinkElement ? (
-                        <LinkElement
-                            onClick={_defaultLinkClickHandler}
-                            {...titleLinkProps}
-                        >
-                            {LinkTextElement}
-                        </LinkElement>
-                    ) : (
-                        defaultLinkElement
-                    )}
-                </TypeElement>
+                {size === 'sm' ? (
+                    <HeaderSmStyled element="h4" noMargin>
+                        {LinkElement}
+                    </HeaderSmStyled>
+                ) : (
+                    <Header6 element="h4" noMargin>
+                        {LinkElement}
+                    </Header6>
+                )}
             </TitleWrapper>
             {titleSubheader && (
                 <ParagraphAltMd element="span" noMargin>

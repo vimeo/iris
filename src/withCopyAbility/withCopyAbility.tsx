@@ -4,81 +4,48 @@ import React, {
     ReactNode,
     MouseEventHandler,
 } from 'react';
-import { findDOMNode } from 'react-dom';
+import createRef from 'create-react-ref/lib/createRef';
 import { Toastification } from '../Toastification/Toastification';
-
 import Clipboard from 'clipboard';
+import { fnGuard } from '../Utils/fnGuard';
 
 interface Props {
-    onCopy?: () => void;
+    onCopy?: (...any) => void;
     stringToCopy: string;
     successMessage: string | ReactNode;
+    ref?: HTMLElement;
 }
 
-const initialState = { showNotice: false };
-type State = Readonly<typeof initialState>;
+const newClipboard = (ref, cb) => ref && new Clipboard(ref).on('success', cb);
+const destroy = clipboard => {
+    clipboard.destroy();
+    return true;
+};
 
+interface State {
+    showNotice: boolean;
+}
 export const withCopyAbility = <P extends {}>(
-    WrappedComponent: ComponentType<
-        P & { onClick?: MouseEventHandler<HTMLElement> }
-    >,
+    WrappedComponent: ComponentType<{
+        onClick?: MouseEventHandler<HTMLElement>;
+        innerRef?: (HTMLElement) => HTMLElement;
+    }>,
 ) =>
-    class extends Component<P & Props> {
-        readonly state: State = initialState;
-
+    class extends Component<P & Props, State> {
+        readonly state: State = { showNotice: false };
         clipboard: Clipboard;
+        ref = createRef();
 
-        componentDidMount() {
-            this._initializeClipBoard();
-        }
+        componentDidMount = () => this.init();
+        componentDidUpdate = () => destroy(this.clipboard) && this.init();
+        componentWillUnmount = () => destroy(this.clipboard);
 
-        componentDidUpdate() {
-            this._destroyClipBoard();
-            this._initializeClipBoard();
-        }
+        showNotice = () => this.setState(shown);
+        resetNotice = () => this.setState(hidden);
 
-        componentWillUnmount() {
-            this._destroyClipBoard();
-        }
+        handleClick = () => fnGuard(this.props, 'onCopy');
 
-        _destroyClipBoard = () => {
-            this.clipboard.destroy();
-        };
-
-        _initializeClipBoard = () => {
-            const el = findDOMNode(this);
-            const triggerEl =
-                el instanceof HTMLElement &&
-                el.querySelector('[data-clipboard-trigger]');
-
-            if (triggerEl) {
-                this.clipboard = new Clipboard(triggerEl);
-
-                this.clipboard.on('success', () => {
-                    this._showNotice();
-                });
-            }
-        };
-
-        _showNotice = () => {
-            if (!this.state.showNotice) {
-                this.setState({
-                    showNotice: true,
-                });
-            }
-        };
-
-        _resetNotice = () => {
-            this.setState({
-                showNotice: false,
-            });
-        };
-
-        _handleClick = () => {
-            if (typeof this.props.onCopy === 'function') {
-                this.props.onCopy();
-            }
-        };
+        init = () => (this.clipboard = newClipboard(this.ref, this.showNotice));
 
         render() {
             const {
@@ -92,13 +59,14 @@ export const withCopyAbility = <P extends {}>(
                 <div>
                     <WrappedComponent
                         {...filteredProps}
-                        onClick={this._handleClick}
+                        onClick={this.handleClick}
                         data-clipboard-trigger
                         data-clipboard-text={stringToCopy}
+                        innerRef={(el: HTMLElement) => (this.ref = el)}
                     />
                     <Toastification
                         isShowing={this.state.showNotice}
-                        onComplete={this._resetNotice}
+                        onComplete={this.resetNotice}
                     >
                         {successMessage}
                     </Toastification>
@@ -106,3 +74,6 @@ export const withCopyAbility = <P extends {}>(
             );
         }
     };
+
+const shown = { showNotice: true };
+const hidden = { showNotice: false };

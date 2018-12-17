@@ -181,6 +181,8 @@ export class ModalWrapper extends Component<ModalWrapperProps> {
         }
     }
 
+    ref = React.createRef();
+
     _openModal = () => {
         this._freezeBodyScroll();
         this._bindEvents();
@@ -189,8 +191,7 @@ export class ModalWrapper extends Component<ModalWrapperProps> {
         };
 
         if (!this.thisEl) {
-            const el = ReactDOM.findDOMNode(this);
-            this.thisEl = el;
+            this.thisEl = this.ref;
         }
 
         if (!this.previouslyFocusedElement) {

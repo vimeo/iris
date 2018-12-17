@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { COLORS } from '../Legacy/COLORS';
 import { ParagraphAltSm } from '../Type';
+import { fnGuard } from '../Utils/fnGuard';
 
 interface Props {
     maxCharacters: number;
@@ -58,22 +59,19 @@ export const withCharacterCounter = <P extends {}>(
                     | FormEvent<HTMLTextAreaElement>,
             ) => void;
             format?: 'negative' | 'positive' | 'neutral';
-            preMessage: ReactNode;
+            preMessage?: ReactNode;
         }
     >,
 ) =>
     class extends Component<P & Props, State> {
-        constructor(props: P & Props) {
-            super(props);
-            this.state = {
-                isErrored: false,
-                isWarning: false,
-                remainingCharacters: this.props.maxCharacters,
-                format: this.props.format,
-            };
-        }
+        state: State = {
+            isErrored: false,
+            isWarning: false,
+            remainingCharacters: this.props.maxCharacters,
+            format: this.props.format,
+        };
 
-        _checkIfWarningState = (remainingCharacters: number) => {
+        checkIfWarningState = (remainingCharacters: number) => {
             const isWarning =
                 remainingCharacters <= this.props.warningThreshold &&
                 remainingCharacters > -1;
@@ -81,44 +79,28 @@ export const withCharacterCounter = <P extends {}>(
             this.setState({ isWarning });
         };
 
-        _enterErrorState = () => {
-            this.setState({
-                isErrored: true,
-                isWarning: false,
-            });
+        enterErrorState = () =>
+            this.setState(errored, fnGuard(this.props, 'onError'));
 
-            if (typeof this.props.onError === 'function') {
-                this.props.onError();
-            }
-        };
+        resolveErrorState = () =>
+            this.setState(resolved, fnGuard(this.props, 'onResolve'));
 
-        _resolveErrorState = () => {
-            this.setState({
-                isErrored: false,
-            });
-
-            if (typeof this.props.onResolve === 'function') {
-                this.props.onResolve();
-            }
-        };
-
-        _onInput = (e: Event) => {
+        onInput = (e: Event) => {
             if (
                 e.target instanceof HTMLInputElement ||
                 e.target instanceof HTMLTextAreaElement
             ) {
-                const thisFieldValueCount = e.target.value.length;
                 const newRemainingCharacters =
-                    this.props.maxCharacters - thisFieldValueCount;
+                    this.props.maxCharacters - e.target.value.length;
                 const isErrorState = newRemainingCharacters < 0;
 
                 if (this.state.isErrored && !isErrorState) {
-                    this._resolveErrorState();
+                    this.resolveErrorState();
                 } else if (!this.state.isErrored) {
-                    this._checkIfWarningState(newRemainingCharacters);
+                    this.checkIfWarningState(newRemainingCharacters);
 
                     if (isErrorState) {
-                        this._enterErrorState();
+                        this.enterErrorState();
                     }
                 }
 
@@ -128,7 +110,7 @@ export const withCharacterCounter = <P extends {}>(
                 });
             }
 
-            if (typeof this.props.onInput === 'function') {
+            if (this.props.onInput) {
                 this.props.onInput(e);
             }
         };
@@ -142,7 +124,8 @@ export const withCharacterCounter = <P extends {}>(
                 onInput,
                 warningThreshold = 5,
                 ...filteredProps
-            } = this.props as Props;
+            } = this.props as any;
+            // Storybook oddly has a problem here
 
             const charactersString =
                 this.state.remainingCharacters === 1 ||
@@ -162,10 +145,13 @@ export const withCharacterCounter = <P extends {}>(
             return (
                 <WrappedComponent
                     {...filteredProps}
-                    onInput={this._onInput}
+                    onInput={this.onInput}
                     format={this.state.format}
                     preMessage={CounterElement}
                 />
             );
         }
     };
+
+const resolved = { isErrored: false };
+const errored = { isErrored: true, isWarning: false };
