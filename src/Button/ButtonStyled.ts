@@ -68,7 +68,7 @@ export const ButtonLabelStyled = styled.span`
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    display: inline-block;
+    display: inline-flex;
 `;
 
 const customDefault = props => css`
