@@ -1,4 +1,4 @@
 export const fnGuard: ({}, string?) => any = (obj, fn = null) =>
-    fn
+    'string' === typeof fn
         ? obj[fn] && 'function' === typeof obj[fn] && obj[fn]()
-        : 'function' === typeof fn && fn();
+        : 'function' === typeof obj && obj();
