@@ -5,7 +5,7 @@ import {
     WrapperStyled,
     VisuallyHiddenContent,
 } from './CarouselDotNavStyled';
-import { KEY_CODES } from '../Legacy';
+import { KEY_CODES } from '../Legacy/KEY_CODES';
 
 export const CarouselDotNav: SFC<CarouselDotNavProps> = ({
     a11yGoToSlideText,

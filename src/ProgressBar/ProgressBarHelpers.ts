@@ -1,5 +1,5 @@
 import { rem, rgba } from 'polished';
-import { COLORS } from '../Legacy/';
+import { COLORS } from '../Legacy/COLORS';
 
 const ProgressBarStyleSettings = {
     colors: {

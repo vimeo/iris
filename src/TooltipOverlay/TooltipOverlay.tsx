@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Omit } from '../Utils/Omit';
 import { Transition } from 'react-transition-group';
 import { Manager, Target, Popper } from 'react-popper';
-import { Z_INDEXES as Z_INDEX } from '../Legacy';
+import { Z_INDEXES as Z_INDEX } from '../Legacy/Z_INDEXES';
 import { Tooltip } from '../Tooltip/Tooltip';
 
 const TOOLTIP_SPEED = 50;

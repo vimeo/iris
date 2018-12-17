@@ -6,8 +6,8 @@ import { Transition } from 'react-transition-group';
 
 import { Omit } from '../Utils/Omit';
 import { mediaQuery } from '../Layout/MediaQuery';
-import { COLORS } from '../Legacy/';
-import { Z_INDEXES as Z_INDEX } from '../Legacy';
+import { COLORS } from '../Legacy/COLORS';
+import { Z_INDEXES as Z_INDEX } from '../Legacy/Z_INDEXES';
 import { Button } from '../Button/Button';
 import { ButtonProps } from '../Button/ButtonProps';
 import { ButtonDialogClose } from '../ButtonDialogClose/ButtonDialogClose';

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
-import { COLORS } from '../Legacy/';
+import { COLORS } from '../Legacy/COLORS';
 import { rem } from 'polished';
-import { BREAKPOINTS } from '../Legacy';
+import { BREAKPOINTS } from '../Legacy/BREAKPOINTS';
 
 export const VerticalMenuNestedStyled = styled.div`
     position: relative;

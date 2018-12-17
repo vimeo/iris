@@ -20,7 +20,7 @@ import FolderIcon from '../icons/folder.svg';
 import HomeIcon from '../icons/home.svg';
 import HomeFilledIcon from '../icons/home-filled.svg';
 import SettingsIcon from '../icons/gear.svg';
-import { COLORS } from '../Legacy/';
+import { COLORS } from '../Legacy/COLORS';
 
 storiesOf('components/VerticalMenu', module)
     .add(

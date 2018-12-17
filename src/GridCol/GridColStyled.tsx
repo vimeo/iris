@@ -3,7 +3,7 @@ import { rem } from 'polished';
 import { GridColProps } from './GridColTypes';
 import { GridColVariableElement } from './GridColVariableElement';
 import { GRID } from '../Grid/GridTypes';
-import { BREAKPOINTS } from '../Legacy';
+import { BREAKPOINTS } from '../Legacy/BREAKPOINTS';
 import { mediaQuery } from '../Layout/MediaQuery';
 
 const sizes = ['xs', 'sm', 'md', 'lg', 'xl'];

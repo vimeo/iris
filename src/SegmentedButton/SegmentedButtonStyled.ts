@@ -9,7 +9,7 @@ import {
     getHoverCSSByFormat,
     getSizeCSS,
 } from '../Button/ButtonHelpers';
-import { COLORS } from '../Legacy/';
+import { COLORS } from '../Legacy/COLORS';
 
 const OuterBorderRadius = rem(3);
 

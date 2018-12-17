@@ -1,7 +1,7 @@
 import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
 import { css } from 'styled-components';
 import { rem, rgba } from 'polished';
-import { COLORS } from '../Legacy/';
+import { COLORS } from '../Legacy/COLORS';
 import { ReactNode } from 'react';
 
 export interface InputProps {

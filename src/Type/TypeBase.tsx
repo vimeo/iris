@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
-import { COLORS } from '../Legacy/';
+import { COLORS } from '../Legacy/COLORS';
 import {
     TypeByCSSInterface,
     TypeProps,

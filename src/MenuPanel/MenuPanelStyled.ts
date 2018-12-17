@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { COLORS } from '../Legacy/';
-import { Z_INDEXES as Z_INDEX } from '../Legacy';
+import { COLORS } from '../Legacy/COLORS';
+import { Z_INDEXES } from '../Legacy/Z_INDEXES';
 import { menuSpeed } from './MenuPanel';
 import TetherComponent from 'react-tether';
 import {
@@ -55,5 +55,5 @@ export const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
 export const TetherComponentStyled = styled<TetherComponentProps, any>(
     TetherComponent,
 )`
-    z-index: ${Z_INDEX.menuPanel};
+    z-index: ${Z_INDEXES.menuPanel};
 `;

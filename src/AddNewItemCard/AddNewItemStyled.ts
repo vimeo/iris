@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { rgba, rem } from 'polished';
-import { COLORS } from '../Legacy/';
+import { COLORS } from '../Legacy/COLORS';
 
 export const Wrapper = styled.div<{ fluid: boolean }>`
     cursor: pointer;

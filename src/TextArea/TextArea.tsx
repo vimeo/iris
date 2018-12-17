@@ -4,7 +4,7 @@ import { InputWrapper } from '../InputWrapper/InputWrapper';
 import styled, { css } from 'styled-components';
 import { getInputBaseStyles } from '../InputText/InputHelpers';
 import { rem } from 'polished';
-import { COLORS } from '../Legacy/';
+import { COLORS } from '../Legacy/COLORS';
 
 export interface Props {
     disabled?: boolean;

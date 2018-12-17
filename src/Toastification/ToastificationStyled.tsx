@@ -3,7 +3,7 @@ import { ParagraphMd } from '../Type';
 import InfoIcon from '../icons/circle-info.svg';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import { COLORS } from '../Legacy/';
+import { COLORS } from '../Legacy/COLORS';
 import { keyframes } from 'styled-components';
 
 export const Wrapper = styled.div`

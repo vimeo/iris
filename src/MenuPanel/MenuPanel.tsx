@@ -1,6 +1,6 @@
 import React, { Component, HTMLProps } from 'react';
 import { findDOMNode } from 'react-dom';
-import { KEY_CODES } from '../Legacy';
+import { KEY_CODES } from '../Legacy/KEY_CODES';
 import { Transition } from 'react-transition-group';
 import {
     MenuPanelProps as Props,

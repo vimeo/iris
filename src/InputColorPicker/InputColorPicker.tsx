@@ -5,8 +5,8 @@ import { ChromePicker } from 'react-color';
 import { InputText, InputTextProps } from '../InputText/InputText';
 import { InputProps } from '../InputText/InputHelpers';
 import { MenuPanel } from '../MenuPanel/MenuPanel';
-import { COLORS } from '../Legacy/';
-import { KEY_CODES } from '../Legacy';
+import { COLORS } from '../Legacy/COLORS';
+import { KEY_CODES } from '../Legacy/KEY_CODES';
 import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
 import { Omit } from '../Utils/Omit';
 

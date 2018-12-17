@@ -1,4 +1,4 @@
-import { COLORS } from '../Legacy';
+import { COLORS } from './COLORS';
 
 export const VimeoStyleSettings = {
     type: {

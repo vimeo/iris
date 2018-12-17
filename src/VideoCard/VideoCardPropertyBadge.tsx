@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem, rgba } from 'polished';
 import { ParagraphSm } from '../Type';
-import { COLORS } from '../Legacy/';
+import { COLORS } from '../Legacy/COLORS';
 
 export interface VideoCardPropertyBadge
     extends React.HTMLProps<HTMLInputElement> {

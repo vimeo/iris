@@ -1,8 +1,8 @@
 import { NotificationProps } from './NotificationProps';
 import styled from 'styled-components';
 import { rgba, rem } from 'polished';
-import { TRANSITIONS } from '../Legacy';
-import { COLORS } from '../Legacy/';
+import { TRANSITIONS } from '../Legacy/TRANSITIONS';
+import { COLORS } from '../Legacy/COLORS';
 
 const notificationPaddingHorizontal = 16;
 const notificationPaddingVertical = 12;

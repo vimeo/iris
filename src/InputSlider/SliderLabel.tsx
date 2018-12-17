@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { getSliderThemeColors } from './InputSliderHelpers';
 import { rem, rgba } from 'polished';
-import { COLORS } from '../Legacy/';
+import { COLORS } from '../Legacy/COLORS';
 
 export interface SliderLabelProps {
     editable: boolean;

@@ -8,7 +8,7 @@ import { VideoCardPropertiesArea } from './VideoCardPropertiesArea';
 import { VideoCardSocialBadgeArea } from './VideoCardSocialBadgeArea';
 import { VideoCardThumbnailGroup } from './VideoCardThumbnailGroup';
 import { VideoCardThumbnailData } from './VideoCard';
-import { COLORS } from '../Legacy/';
+import { COLORS } from '../Legacy/COLORS';
 
 export interface VideoCardThumbnailAreaProps {
     checkboxA11yLabel?: string;
