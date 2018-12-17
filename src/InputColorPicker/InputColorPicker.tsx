@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { ChromePicker } from 'react-color';
@@ -28,7 +28,7 @@ export interface InputColorPickerProps {
     /**
      * Field label
      */
-    label: string;
+    label?: ReactNode;
     /**
      * Translated label for "Reset" If not preset there will be no reset button.
      */
