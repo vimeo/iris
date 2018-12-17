@@ -40,7 +40,7 @@ export interface InputColorPickerProps {
     /**
      * Use a number to override the Z-index on the menu panel that opens with the color picker.
      */
-    menuPanelZIndexOverride: number;
+    menuPanelZIndexOverride?: number;
     /**
      * Add a unique id to the input.
      */
