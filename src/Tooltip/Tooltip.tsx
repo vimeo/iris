@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 import { ParagraphMd } from '../Type';
 
 const WIDTH_LIMIT = 17;

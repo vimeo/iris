@@ -1,4 +1,4 @@
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 import { rem, rgba } from 'polished';
 
 const InputSliderStyleSettings = {

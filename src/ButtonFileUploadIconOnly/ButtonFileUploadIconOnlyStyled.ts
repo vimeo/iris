@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 
 const buttonSizes = {
     md: 40,

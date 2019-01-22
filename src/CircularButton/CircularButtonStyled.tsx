@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { CircularButtonStyledProps } from './CircularButtonTypes';
 import { CircularButtonElement } from './CircularButtonElement';
 import { rem } from 'polished';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 import { TRANSITIONS } from '../Legacy/TRANSITIONS';
 import { ButtonColors } from '../Button/ButtonColors';
 import { Omit } from '../Utils/Omit';

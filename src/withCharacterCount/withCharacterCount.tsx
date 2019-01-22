@@ -1,7 +1,7 @@
 import React, { Component, ComponentType, ReactNode, FormEvent } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 import { ParagraphAltSm } from '../Type';
 import { fnGuard } from '../Utils/fnGuard';
 

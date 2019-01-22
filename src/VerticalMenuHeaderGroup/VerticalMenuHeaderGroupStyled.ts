@@ -1,6 +1,6 @@
 import { rem } from 'polished';
 import styled, { css } from 'styled-components';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 
 export const VerticalMenuHeaderGroupStyled = styled.div`
     padding: ${rem(8)};

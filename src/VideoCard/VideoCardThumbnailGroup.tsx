@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 import { VideoCardThumbnailData } from './VideoCard';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 
 export interface VideoCardThumbnailGroupProps
     extends React.HTMLProps<HTMLDivElement> {

@@ -1,6 +1,6 @@
 import React, { SFC, ReactNode } from 'react';
 import styled from 'styled-components';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 import { rem } from 'polished';
 import { LinkText } from '../LinkText/LinkText';
 import { TruncatedTextWrapper } from '../TruncatedTextWrapper/TruncatedTextWrapper';

@@ -3,7 +3,7 @@ import React, { SFC } from 'react';
 import { rem } from 'polished';
 import styled, { keyframes } from 'styled-components';
 import { Omit } from '../Utils/Omit';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 
 export interface LoaderCircularProps
     extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {

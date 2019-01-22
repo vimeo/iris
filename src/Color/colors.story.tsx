@@ -1,6 +1,6 @@
 import React, { SFC } from 'react';
 import { storiesOf } from '@storybook/react';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 import styled from 'styled-components';
 
 storiesOf('colors/Color Palette', module).add('default', () => (

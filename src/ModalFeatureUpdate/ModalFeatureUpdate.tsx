@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { Transition } from 'react-transition-group';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 import { ModalWrapper } from '../ModalWrapper/ModalWrapper';
 import { ButtonDialogClose } from '../ButtonDialogClose/ButtonDialogClose';
 

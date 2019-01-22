@@ -1,4 +1,4 @@
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 import { css } from 'styled-components';
 import { darken, rgba, rem } from 'polished';
 

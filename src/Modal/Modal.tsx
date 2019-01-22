@@ -6,7 +6,7 @@ import { Transition } from 'react-transition-group';
 
 import { Omit } from '../Utils/Omit';
 import { mediaQuery } from '../Layout/MediaQuery';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 import { Z_INDEXES as Z_INDEX } from '../Legacy/Z_INDEXES';
 import { Button } from '../Button/Button';
 import { ButtonProps } from '../Button/ButtonProps';

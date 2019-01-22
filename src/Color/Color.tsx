@@ -26,6 +26,6 @@ export const White = '#fff';
 export const IronHeart = '#666';
 export const AshenWinter = '#4b4b4b';
 export const SovereignShadow = '#404040';
-export const ObsidianState = '#2e2e2e';
+export const ObsidianSlate = '#2e2e2e';
 export const RavenImperial = '#1f1f1f';
 export const Black = '#000';

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { WrapperStyledProps } from './MenuPanelListTypes';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 
 const maybeHasDividerBorder = props =>
     props.hasDivider &&

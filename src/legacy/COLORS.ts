@@ -27,7 +27,7 @@ export const COLORS = {
     IronHeart: '#666',
     AshenWinter: '#4b4b4b',
     SovereignShadow: '#404040',
-    ObsidianState: '#2e2e2e',
+    ObsidianSlate: '#2e2e2e',
     RavenImperial: '#1f1f1f',
     Black: '#000',
 };

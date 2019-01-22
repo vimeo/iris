@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { InputRadioOverlayStyledProps } from './InputRadioTypes';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 
 const wrapperSize = 2;
 const inputSize = 20;

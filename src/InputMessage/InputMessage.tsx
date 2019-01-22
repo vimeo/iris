@@ -1,7 +1,7 @@
 import React, { SFC, ReactNode } from 'react';
 import { ParagraphSm } from '../Type';
 import styled from 'styled-components';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 
 interface Props {
     children: ReactNode;

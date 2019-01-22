@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 import { Z_INDEXES } from '../Legacy/Z_INDEXES';
 import { menuSpeed } from './MenuPanel';
 import TetherComponent from 'react-tether';

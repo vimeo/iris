@@ -3,7 +3,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
 
 const categoryCardStyleSettings = {

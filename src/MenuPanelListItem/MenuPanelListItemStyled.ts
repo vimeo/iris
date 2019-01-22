@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
 import SelectedIcon from '../Icons/checkmark.svg';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 import { MenuPanelListItemThemes } from './MenuPanelListItemTypes';
 
 const LinkIconSize = rem(18);

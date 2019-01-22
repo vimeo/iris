@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { rgba, rem } from 'polished';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 
 const transitionSpeed = '150ms';
 

@@ -5,7 +5,7 @@ import { mediaQuery } from '../Layout/MediaQuery';
 import ChevronRight from '../Icons/chevron-right.svg';
 import { ParagraphMd } from '../Type';
 import { TypeProps } from '../Type/TypeTypes';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 
 export interface BreadcrumbProps {
     /**

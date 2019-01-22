@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { rgba, rem } from 'polished';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 import { ButtonIconOnlyStyledProps } from './ButtonIconOnlyTypes';
 
 const ICON_SIZE = 20;

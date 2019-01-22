@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { rem } from 'polished';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 
 export const sharedInlineInputWrapperStyles = css`
     display: flex;

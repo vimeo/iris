@@ -3,7 +3,7 @@ import { TabNavigationHorizontalItem } from '../TabNavigationHorizontalItem/TabN
 import { TabContentPanel } from '../TabContentPanel/TabContentPanel';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 
 interface Props {
     index: number;

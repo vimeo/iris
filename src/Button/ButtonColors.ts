@@ -1,6 +1,6 @@
 import { darken, rgba } from 'polished';
 
-import { COLORS } from '../Legacy/COLORS';
+import * as COLORS from '../Color/Color';
 import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
 
 export const ButtonColors = {
