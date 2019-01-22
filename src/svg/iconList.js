@@ -44,6 +44,7 @@ export HeartFilled from '../icons/heart-filled.svg';
 export Heart from '../icons/heart.svg';
 export HomeFilled from '../icons/home-filled.svg';
 export Home from '../icons/home.svg';
+
 export Instagram from '../icons/instagram.svg';
 export LifePreserver from '../icons/life-preserver.svg';
 export Link from '../icons/link.svg';
@@ -78,6 +79,7 @@ export Stats from '../icons/stats.svg';
 export TagFilled from '../icons/tag-filled.svg';
 export Tag from '../icons/tag.svg';
 export Television from '../icons/television.svg';
+
 export Trash from '../icons/trash.svg';
 export Twitter from '../icons/twitter.svg';
 export UploadCloudFilled from '../icons/upload-cloud-filled.svg';

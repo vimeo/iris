@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { SegmentedButton_ButtonComponentProps } from './SegmentedButtonTypes';
+import { SBBCProps } from './SegmentedButtonTypes';
 import {
     ButtonCoreCSS,
     getDefaultCSSByFormat,
@@ -9,7 +9,7 @@ import {
     getHoverCSSByFormat,
     getSizeCSS,
 } from '../Button/ButtonHelpers';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/COLORS';
 
 const OuterBorderRadius = rem(3);
 
@@ -19,13 +19,10 @@ export const LabelStyled = styled<React.HTMLProps<HTMLLabelElement>, 'label'>(
     flex-grow: 1;
 `;
 
-export const OptionStyled = styled<
-    SegmentedButton_ButtonComponentProps,
-    'span'
->('span')`
+export const OptionStyled = styled<SBBCProps, 'span'>('span')`
     ${ButtonCoreCSS}
     ${getSizeCSS}
-    ${getDefaultCSSByFormat({ format: 'primaryOutline' })} 
+    ${getDefaultCSSByFormat({ format: 'primaryOutline' })}
 
     display: flex;
     position: relative;

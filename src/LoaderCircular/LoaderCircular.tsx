@@ -2,8 +2,8 @@
 import React, { SFC } from 'react';
 import { rem } from 'polished';
 import styled, { keyframes } from 'styled-components';
-import { Omit } from '../globals/js/type-helpers';
-import COLORS from '../globals/js/constants/COLORS';
+import { Omit } from '../Utils/Omit';
+import { COLORS } from '../Legacy/COLORS';
 
 export interface LoaderCircularProps
     extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
@@ -61,11 +61,9 @@ const LoaderCircularStyled = styled<LoaderCircularProps, 'div'>('div')`
     border-radius: ${getSizeFromProps};
 `;
 
-const LoaderCircular: SFC<LoaderCircularProps> = ({
+export const LoaderCircular: SFC<LoaderCircularProps> = ({
     format = 'dark',
     size = 'md',
-    ref: _, // filter out ref from styled component
-    ...filteredProps
-}) => <LoaderCircularStyled {...filteredProps} format={format} size={size} />;
-
-export default LoaderCircular;
+    ref: _,
+    ...props
+}) => <LoaderCircularStyled {...props} format={format} size={size} />;

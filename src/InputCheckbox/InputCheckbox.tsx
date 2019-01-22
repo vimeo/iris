@@ -1,5 +1,4 @@
 import React, { SFC, HTMLProps } from 'react';
-
 import { InputCheckboxProps } from './InputCheckboxTypes';
 import {
     InputCheckboxWrapperStyled,
@@ -8,12 +7,11 @@ import {
     OverlayStyled,
     HiddenLabelStyled,
 } from './InputCheckboxStyled';
-import { CheckboxFocusBloop } from './InputCheckboxFocusBloop';
+import { CheckboxFocusOutline } from './InputCheckboxFocus';
+import { InputWrapperInline } from '../InputWrapperInline/InputWrapperInline';
+import { Omit } from '../Utils/Omit';
 
-import InputWrapperInline from '../InputWrapperInline/InputWrapperInline';
-import { Omit } from '../globals/js/type-helpers';
-
-const InputCheckbox: SFC<
+export const InputCheckbox: SFC<
     InputCheckboxProps & Omit<HTMLProps<HTMLDivElement>, 'size'>
 > = ({
     checkedStyle = 'default',
@@ -26,7 +24,7 @@ const InputCheckbox: SFC<
     label,
     theme = 'default',
     ref: _,
-    ...filteredProps
+    ...props
 }) => (
     <InputWrapperInline errorMsg={errorMsg} helperMsg={helperMsg} theme={theme}>
         <InputCheckboxWrapperStyled>
@@ -39,7 +37,7 @@ const InputCheckbox: SFC<
                 theme={theme}
             >
                 <InputCheckboxStyled
-                    {...filteredProps}
+                    {...props}
                     aria-label={hideLabel ? label : null}
                     type="checkbox"
                     id={id}
@@ -48,7 +46,7 @@ const InputCheckbox: SFC<
                 />
 
                 <OverlayStyled theme={theme} checkedStyle={checkedStyle}>
-                    <CheckboxFocusBloop theme={theme} />
+                    <CheckboxFocusOutline theme={theme} />
                 </OverlayStyled>
 
                 <HiddenLabelStyled hideLabel={hideLabel}>
@@ -58,5 +56,3 @@ const InputCheckbox: SFC<
         </InputCheckboxWrapperStyled>
     </InputWrapperInline>
 );
-
-export default InputCheckbox;

@@ -4,12 +4,12 @@ export interface InputCheckboxSetProps {
     /**
      * Array of prop objects , each member of the Array will create a sub-level checkbox (see prop API for InputCheckbox)
      */
-    subOptions: any[]; //InputCheckboxProps[],
+    subOptions: any[]; // InputCheckboxProps[],
     topLevelCheckedStyle?: 'default' | 'indeterminate';
     /**
      * Prop object that will be assigned to the topLevel checkbox (see prop API for InputCheckbox)
      */
-    topLevel: any; //InputCheckboxProps,
+    topLevel: any; // InputCheckboxProps,
     showDisabledOptions?: boolean;
     checkAllOnTopLevelCheck: boolean;
 }

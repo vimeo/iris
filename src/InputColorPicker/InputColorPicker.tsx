@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { Component, ReactNode } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { ChromePicker } from 'react-color';
-import InputText, { InputTextProps } from '../InputText/InputText';
+import { InputText, InputTextProps } from '../InputText/InputText';
 import { InputProps } from '../InputText/InputHelpers';
-import MenuPanel from '../MenuPanel/MenuPanel';
-import { COLORS, KEY_CODES } from '../globals/js/constants';
-import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
-import { Omit } from '../globals/js/type-helpers';
+import { MenuPanel } from '../MenuPanel/MenuPanel';
+import { COLORS } from '../Legacy/COLORS';
+import { KEY_CODES } from '../Legacy/KEY_CODES';
+import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
+import { Omit } from '../Utils/Omit';
 
 const defaultColorValue = COLORS.VimeoBlue;
 
@@ -27,7 +28,7 @@ export interface InputColorPickerProps {
     /**
      * Field label
      */
-    label: string;
+    label?: ReactNode;
     /**
      * Translated label for "Reset" If not preset there will be no reset button.
      */
@@ -39,7 +40,7 @@ export interface InputColorPickerProps {
     /**
      * Use a number to override the Z-index on the menu panel that opens with the color picker.
      */
-    menuPanelZIndexOverride: number;
+    menuPanelZIndexOverride?: number;
     /**
      * Add a unique id to the input.
      */
@@ -122,7 +123,7 @@ const ResetButtonStyled = styled<ResetButtonStyledStyledProps, any>('a')`
     }
 `;
 
-class InputColorPicker extends React.Component<
+export class InputColorPicker extends Component<
     InputColorPickerCombinedProps,
     InputColorPickerState
 > {
@@ -243,11 +244,7 @@ class InputColorPicker extends React.Component<
         }
     };
 
-    _handleColorPickerUpdate = (color: {
-        hex: string;
-        rgb: Object;
-        hsl: Object;
-    }) => {
+    _handleColorPickerUpdate = (color: { hex: string; rgb: {}; hsl: {} }) => {
         this.setState({
             showReset: this.props.resetColor
                 ? color.hex !== this.props.resetColor
@@ -278,9 +275,9 @@ class InputColorPicker extends React.Component<
     };
 
     _handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
-        //@ts-ignore TS doesn't know event target has value sometimes, but I'm guarding agains that
+        // @ts-ignore TS doesn't know event target has value sometimes, but I'm guarding agains that
         if (e.target && e.target.value) {
-            //@ts-ignore see above
+            // @ts-ignore see above
             const value = e.target.value;
 
             if (typeof value === 'string') {
@@ -410,5 +407,3 @@ class InputColorPicker extends React.Component<
         );
     }
 }
-
-export default InputColorPicker;

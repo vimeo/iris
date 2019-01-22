@@ -1,11 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Button from './Button';
+import { Button } from './Button';
 import styled from 'styled-components';
 
-import ShareIcon from '../icons/paper-plane.svg';
-import HeartIcon from '../icons/heart.svg';
-import DownloadIcon from '../icons/download-arrow.svg';
+import ShareIcon from '../Icons/paper-plane.svg';
+import HeartIcon from '../Icons/heart.svg';
+import DownloadIcon from '../Icons/download-arrow.svg';
 
 import { text, select } from '@storybook/addon-knobs';
 
@@ -34,7 +34,7 @@ const buttonFormats = {
     lightTextOnly: 'lightTextOnly',
 };
 
-storiesOf('Button', module)
+storiesOf('components/Button', module)
     .add('playground', () => (
         <div>
             <Button format={select('format', buttonFormats, 'primary')}>

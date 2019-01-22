@@ -1,7 +1,7 @@
 import React, { SFC, ReactNode } from 'react';
 
-import LinkText from '../LinkText';
-import BreadcrumbLinkContent from '../BreadcrumbLinkContent';
+import { LinkText } from '../LinkText/LinkText';
+import { BreadcrumbLinkContent } from '../BreadcrumbLinkContent/BreadcrumbLinkContent';
 import { Link } from 'react-router-dom';
 
 export interface BreadcrumbLinkReactRouterProps {
@@ -10,13 +10,13 @@ export interface BreadcrumbLinkReactRouterProps {
     to: string;
 }
 
-const BreadcrumbLinkReactRouter: SFC<BreadcrumbLinkReactRouterProps> = ({
+export const BreadcrumbLinkReactRouter: SFC<BreadcrumbLinkReactRouterProps> = ({
     children,
     format = 'lightTheme',
     to,
-    ...filteredProps
+    ...props
 }) => (
-    <Link to={to} {...filteredProps}>
+    <Link to={to} {...props}>
         <LinkText
             element="span"
             format={format === 'darkTheme' ? 'primaryDark' : 'primary'}
@@ -27,5 +27,3 @@ const BreadcrumbLinkReactRouter: SFC<BreadcrumbLinkReactRouterProps> = ({
         </LinkText>
     </Link>
 );
-
-export default BreadcrumbLinkReactRouter;

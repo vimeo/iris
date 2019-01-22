@@ -3,8 +3,8 @@ import { rem } from 'polished';
 import { GridColProps } from './GridColTypes';
 import { GridColVariableElement } from './GridColVariableElement';
 import { GRID } from '../Grid/GridTypes';
-import BREAKPOINTS from '../globals/js/constants/BREAKPOINTS';
-import mediaQuery from '../globals/js/style-helpers/mediaQuery';
+import { BREAKPOINTS } from '../Legacy/BREAKPOINTS';
+import { mediaQuery } from '../Layout/MediaQuery';
 
 const sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
 
@@ -53,7 +53,7 @@ export const GridColStyled = styled<GridColProps, any>(GridColVariableElement)`
     padding-right: ${rem(GRID.gutterWidth)};
 
     ${buildSizeCSS}
-    
+
     ${props => (props.alignment === 'left' ? 'order: -1' : null)}
 
     ${props => (props.alignment === 'right' ? 'order: 2' : null)}

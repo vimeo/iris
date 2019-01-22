@@ -1,18 +1,16 @@
 import React, { SFC } from 'react';
-import TypeBase from './TypeBase';
+import { TypeBase } from './TypeBase';
 import { TypeProps } from './TypeTypes';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 
-const BigStat: SFC<
+export const BigStat: SFC<
     TypeProps & Omit<React.HTMLProps<HTMLHeadingElement>, 'size'>
-> = ({ element = 'p', format = 'dark', ...filteredProps }) => (
+> = ({ element = 'p', format = 'dark', ...props }) => (
     <TypeBase
         element={element}
         fontStack="light"
         size="stat"
         format={format}
-        {...filteredProps}
+        {...props}
     />
 );
-
-export default BigStat;

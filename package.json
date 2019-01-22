@@ -1,87 +1,101 @@
 {
     "name": "@vimeo/iris",
-    "version": "6.0.0-alpha.5",
+    "author": "Vimeo",
+    "homepage": "https://github.vimeows.com/pages/vimeo/iris/master/",
+    "version": "7.0.0-alpha.0",
+    "license": "ISC",
     "description": "Iris UI Pattern Framework",
-    "main": "dist/index.js",
+    "main": "index.js",
     "types": "index.d.ts",
-    "engines": {
-        "node": ">=8",
-        "yarn": ">=1"
+    "devDependencies": {
+        "@babel/plugin-proposal-export-default-from": "^7.2.0",
+        "@storybook/addon-actions": "^4.1.7",
+        "@storybook/addon-info": "^4.1.7",
+        "@storybook/addon-knobs": "^4.1.7",
+        "@storybook/addon-notes": "^4.1.7",
+        "@storybook/addon-options": "^4.1.7",
+        "@storybook/addon-viewport": "^4.1.7",
+        "@storybook/addons": "^4.1.7",
+        "@storybook/react": "^4.1.7",
+        "@svgr/webpack": "^4.1.0",
+        "@types/react": "^16.7.20",
+        "babel-loader": "^8.0.5",
+        "pascal-case": "^2.0.1",
+        "polished": "^2.3.3",
+        "pre-commit": "^1.2.2",
+        "prettier": "^1.16.1",
+        "react-docgen-typescript-loader": "^3.0.1",
+        "react-router-dom": "^4.3.1",
+        "styled-components": "^4.1.3",
+        "svgo": "^1.1.1",
+        "ts-loader": "^5.3.3",
+        "tslint": "^5.12.1",
+        "typescript": "next",
+        "typescript-plugin-styled-components": "^1.0.0"
+    },
+    "dependencies": {
+        "@types/clipboard": "^2.0.1",
+        "@types/lodash": "^4.14.120",
+        "@types/react": "^16.7.20",
+        "@types/react-dom": "^16.0.11",
+        "@types/styled-components": "^4.1.6",
+        "clipboard": "^2.0.4",
+        "create-react-ref": "^0.1.0",
+        "lodash.throttle": "^4.1.1",
+        "moment": "^2.24.0",
+        "react": "next",
+        "react-color": "^2.17.0",
+        "react-datetime": "^2.16.3",
+        "react-popper": "^1.3.2",
+        "react-swipe": "^6.0.4",
+        "react-swipeable": "^4.3.1",
+        "react-tether": "2.0.0",
+        "react-transition-group": "^2.5.3"
+    },
+    "peerDependencies": {
+        "polished": "^2.0.3",
+        "react": "next",
+        "react-dom": "next",
+        "styled-components": "^4.1.3"
     },
     "scripts": {
         "dev": "tsc -w",
         "clean": "rm -rf dist",
         "storybook": "start-storybook -p 9001 -c .storybook",
-        "format": "prettier --list-different \"src/**/*.{ts,tsx}\"",
-        "cmap": "cp ./src/componentMap.json ./dist/componentMap.json",
-        "svg": "cp -r ./src/icons ./dist/icons; cp -r ./src/illustrations ./dist/illustrations;",
-        "build": "npm run clean; tsc; npm run svg; npm run cmap",
+        "svg": "npm run svg-min; cp -r ./src/icons ./dist/; cp -r ./src/illustrations ./dist/;",
+        "svg-min": "node scripts/svg",
+        "build": "npm run clean; tsc; npm run svg",
         "build-storybook": "build-storybook -c .storybook -o build-styleguide",
-        "prepublishOnly": "npm run build"
+        "prepublishOnly": "npm run lint; npm run build; cp -r ./modules/* ./",
+        "postpublish": "rm color.d.ts color.js components.d.ts components.js icons.d.ts icons.js illustration.d.ts illustration.js index.d.ts index.js layout.d.ts layout.js legacy.d.ts legacy.js motion.d.ts motion.js typography.d.ts typography.js utils.d.ts utils.js",
+        "lint": "tslint 'src/**/*.{ts,tsx}' -e '**/*.story.tsx'; prettier --list-different 'src/**/*.{ts,tsx}'",
+        "lint-pretty": "tslint 'src/**/*.{ts,tsx}' -e '**/*.story.tsx' -t codeFrame; prettier --list-different 'src/**/*.{ts,tsx}'"
     },
+    "pre-commit": [
+        "lint-pretty"
+    ],
     "publishConfig": {
         "registry": "https://artifactory.vimeows.com/artifactory/api/npm/npm/"
     },
-    "pre-commit": [
-        "build"
-    ],
+    "bugs": {
+        "url": "https://github.vimeows.com/Vimeo/iris/issues"
+    },
     "repository": {
         "type": "git",
-        "url": "https://github.vimeows.com/Vimeo/Iris"
+        "url": "https://github.vimeows.com/Vimeo/iris.git"
     },
-    "author": "Sean McIntyre (sean.mcintyre@vimeo.com)",
-    "license": "ISC",
-    "devDependencies": {
-        "@babel/plugin-proposal-export-default-from": "^7.2.0",
-        "@storybook/addon-actions": "next",
-        "@storybook/addon-info": "next",
-        "@storybook/addon-knobs": "next",
-        "@storybook/addon-notes": "next",
-        "@storybook/addon-options": "next",
-        "@storybook/addon-viewport": "next",
-        "@storybook/addons": "next",
-        "@storybook/react": "next",
-        "@types/clipboard": "^2.0.1",
-        "@types/lodash": "^4.14.116",
-        "@types/react": "^16.4.16",
-        "@types/styled-components": "^3.0.1",
-        "babel-loader": "^8.0.4",
-        "babel-plugin-styled-components": "^1.8.0",
-        "connect-history-api-fallback": "^1.5.0",
-        "polished": "^2.2.0",
-        "pre-commit": "^1.2.2",
-        "react-docgen-typescript-loader": "^3.0.0",
-        "react-router-dom": "^4.3.1",
-        "style-loader": "^0.23.1",
-        "styled-components": "^4.0.3",
-        "ts-loader": "^5.3.1",
-        "typescript": "3.1.3",
-        "typescript-plugin-styled-components": "^1.0.0"
+    "engines": {
+        "node": ">=10.0.0",
+        "yarn": ">=1.10.0"
     },
-    "dependencies": {
-        "@svgr/webpack": "^4.1.0",
-        "animejs": "^2.2.0",
-        "classnames": "^2.2.6",
-        "clipboard": "^2.0.1",
-        "lodash": "^4.17.11",
-        "moment": "^2.22.2",
-        "react": "^16.6.1",
-        "react-color": "^2.14.1",
-        "react-datetime": "^2.15.0",
-        "react-popper": "^0.10.4",
-        "react-swipe": "^5.1.1",
-        "react-swipeable": "^4.3.0",
-        "react-tether": "1.0.2",
-        "react-transition-group": "^2.5.0"
-    },
-    "peerDependencies": {
-        "polished": "^2.0.3",
-        "react": "^16.6.1",
-        "react-dom": "^16.6.1",
-        "styled-components": "^4.0.3"
-    },
-    "resolutions": {
-        "@types/lodash": "^4.14.118",
-        "@types/react": "^16.4.18"
-    }
+    "keywords": [
+        "Vimeo",
+        "UI Library",
+        "Component Library",
+        "Design System",
+        "TypeScript",
+        "JavaScript",
+        "React",
+        "styled-components"
+    ]
 }

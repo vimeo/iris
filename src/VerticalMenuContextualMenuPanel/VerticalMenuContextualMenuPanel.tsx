@@ -1,6 +1,6 @@
 import React, { ReactNode, SFC } from 'react';
-import MenuPanel from '../MenuPanel/MenuPanel';
-import TooltipOverlay from '../TooltipOverlay/TooltipOverlay';
+import { MenuPanel } from '../MenuPanel/MenuPanel';
+import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { MenuPanelProps } from '../MenuPanel/MenuPanelTypes';
@@ -22,7 +22,7 @@ const MenuPanelStyled = styled<MenuPanelProps>(MenuPanel)`
     pointer-events: auto;
 `;
 
-const VerticalMenuContextualMenuPanel: SFC<Props> = ({
+export const VerticalMenuContextualMenuPanel: SFC<Props> = ({
     buttonElement,
     children,
     onClick,
@@ -31,10 +31,10 @@ const VerticalMenuContextualMenuPanel: SFC<Props> = ({
     size = 'md',
     tooltipText,
     tooltipProps,
-    ...filteredProps
+    ...props
 }) => (
     <MenuPanelStyled
-        {...filteredProps}
+        {...props}
         alignment="left"
         menuContent={children}
         size={size}
@@ -55,5 +55,3 @@ const VerticalMenuContextualMenuPanel: SFC<Props> = ({
         )}
     </MenuPanelStyled>
 );
-
-export default VerticalMenuContextualMenuPanel;

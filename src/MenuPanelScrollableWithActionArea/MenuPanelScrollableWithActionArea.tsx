@@ -1,10 +1,10 @@
 import React, { SFC, ReactNode } from 'react';
-import Button from '../Button';
-import { OverflowTruncationWrapper } from '../OverflowTruncationWrapper';
-import Grid from '../Grid';
-import GridCol from '../GridCol';
-import GridBlock from '../GridBlock';
-import COLORS from '../globals/js/constants/COLORS';
+import { Button } from '../Button/Button';
+import { OverflowTruncationWrapper } from '../OverflowTruncationWrapper/OverflowTruncationWrapper';
+import { Grid } from '../Grid/Grid';
+import { GridCol } from '../GridCol/GridCol';
+import { GridBlock } from '../GridBlock/GridBlock';
+import { COLORS } from '../Legacy/COLORS';
 
 interface Props {
     children: ReactNode;
@@ -14,15 +14,15 @@ interface Props {
     maxHeight: number;
 }
 
-const MenuPanelScrollableWithActionArea: SFC<Props> = ({
+export const MenuPanelScrollableWithActionArea: SFC<Props> = ({
     children,
     className,
     maxHeight,
     primaryButtonProps,
     secondaryButtonProps,
-    ...filteredProps
+    ...props
 }) => (
-    <div {...filteredProps} style={{ position: 'relative' }}>
+    <div {...props} style={{ position: 'relative' }}>
         <OverflowTruncationWrapper maxHeight={maxHeight}>
             <div style={{ padding: '1rem 1rem 0' }}>{children}</div>
         </OverflowTruncationWrapper>
@@ -62,5 +62,3 @@ const MenuPanelScrollableWithActionArea: SFC<Props> = ({
         </div>
     </div>
 );
-
-export default MenuPanelScrollableWithActionArea;

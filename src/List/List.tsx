@@ -3,17 +3,15 @@ import { ListProps } from './ListTypes';
 import { ListStyled } from './ListStyled';
 import { ParagraphMd } from '../Type';
 
-const List: SFC<ListProps & HTMLProps<HTMLOListElement>> = ({
+export const List: SFC<ListProps & HTMLProps<HTMLOListElement>> = ({
     format = 'unordered',
     children,
     ref: _,
-    ...filteredProps
+    ...props
 }) => (
-    <ListStyled {...filteredProps} format={format}>
+    <ListStyled {...props} format={format}>
         <ParagraphMd element="span" noMargin>
             {children}
         </ParagraphMd>
     </ListStyled>
 );
-
-export default List;

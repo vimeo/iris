@@ -3,6 +3,8 @@
         "allowSyntheticDefaultImports": true,
         "declaration": true,
         "declarationDir": "dist",
+        "outDir": "dist",
+        "rootDir": "src",
         "downlevelIteration": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
@@ -19,16 +21,18 @@
         "noFallthroughCasesInSwitch": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "outDir": "dist",
-        "rootDir": "src",
         "strict": false,
         "suppressImplicitAnyIndexErrors": true,
         "target": "es5"
     },
+    "include": [
+        "src/**/*"
+    ],
     "exclude": [
         ".storybook",
         "dist",
         "build-styleguide",
-        "*.story.*"
+        "src/**/*.story.tsx",
+        "node_modules"
     ]
 }

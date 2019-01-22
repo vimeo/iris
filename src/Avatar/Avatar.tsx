@@ -1,10 +1,11 @@
 import React, { SFC, HTMLProps } from 'react';
-import { Omit } from '../globals/js/type-helpers';
-
+import { Omit } from '../Utils/Omit';
 import { AvatarProps } from './AvatarProps';
 import { AvatarStyled } from './AvatarStyled';
 
-const Avatar: SFC<AvatarProps & Omit<HTMLProps<HTMLImageElement>, 'size'>> = ({
+export const Avatar: SFC<
+    AvatarProps & Omit<HTMLProps<HTMLImageElement>, 'size'>
+> = ({
     alt,
     isInline = true,
     ref: _,
@@ -24,5 +25,3 @@ const Avatar: SFC<AvatarProps & Omit<HTMLProps<HTMLImageElement>, 'size'>> = ({
         {...filteredProps}
     />
 );
-
-export default Avatar;

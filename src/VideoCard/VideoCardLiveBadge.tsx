@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { ParagraphSm } from '../Type';
 import CircleIcon from '../icons/circle-filled.svg';
-import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
+import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 
 export interface VideoCardLiveBadge extends React.HTMLProps<HTMLInputElement> {
@@ -12,8 +12,6 @@ export interface VideoCardLiveBadge extends React.HTMLProps<HTMLInputElement> {
      */
     liveLabelString: string;
 }
-
-// ==================== VideoCardLiveBadge Styled
 
 const VideoCardLiveBadgeStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
     'div',
@@ -57,19 +55,15 @@ const LiveIconStyled = styled<React.HTMLProps<HTMLSpanElement>, 'span'>('span')`
     }
 `;
 
-// ==================== VideoCardLiveBadge
-
-const VideoCardLiveBadge: SFC<VideoCardLiveBadge> = ({ liveLabelString }) => {
-    return (
-        <VideoCardLiveBadgeStyled>
-            <VideoCardLiveBadgeTextStyled format="white">
-                <LiveIconStyled>
-                    <CircleIcon />
-                </LiveIconStyled>
-                {liveLabelString}
-            </VideoCardLiveBadgeTextStyled>
-        </VideoCardLiveBadgeStyled>
-    );
-};
-
-export default VideoCardLiveBadge;
+export const VideoCardLiveBadge: SFC<VideoCardLiveBadge> = ({
+    liveLabelString,
+}) => (
+    <VideoCardLiveBadgeStyled>
+        <VideoCardLiveBadgeTextStyled format="white">
+            <LiveIconStyled>
+                <CircleIcon />
+            </LiveIconStyled>
+            {liveLabelString}
+        </VideoCardLiveBadgeTextStyled>
+    </VideoCardLiveBadgeStyled>
+);

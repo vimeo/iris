@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import InputSelect from './InputSelect';
-import { ParagraphMd } from '../index';
+import { InputSelect } from './InputSelect';
+import { ParagraphMd } from '../Type';
 
 const demoOptions = (
     <optgroup label="Option Group">
@@ -16,7 +16,7 @@ const demoOptions = (
     </optgroup>
 );
 
-storiesOf('Inputs', module).add(
+storiesOf('components/Inputs', module).add(
     'select',
     () => (
         <div>

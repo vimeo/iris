@@ -1,9 +1,9 @@
 import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import { getInputBaseStyles, InputProps } from '../InputText/InputHelpers';
-import TruncatedTextWrapper from '../TruncatedTextWrapper';
+import { TruncatedTextWrapper } from '../TruncatedTextWrapper/TruncatedTextWrapper';
 import { ArrowIconWrapperWidth } from '../SelectWrapper/SelectWrapper';
 
 export interface FauxSelectProps
@@ -45,15 +45,12 @@ const FauxSelectStyled = styled<FauxSelectStyledProps, 'button'>('button')`
     ${getInputBaseStyles}
     ${props => props.hasInlineIcon && `padding-left: ${rem(40)};`}
     padding-right: ${rem(ArrowIconWrapperWidth)};
-
     display: inline-flex;
     text-align: left;
-
     width: 100%;
-
 `;
 
-const FauxSelect: SFC<FauxSelectProps> = ({
+export const FauxSelect: SFC<FauxSelectProps> = ({
     a11yLabel,
     children,
     disabled,
@@ -64,25 +61,19 @@ const FauxSelect: SFC<FauxSelectProps> = ({
     theme = 'default',
     ref: _,
     ...filteredProps
-}) => {
-    const hasStateIcon = format === 'negative' || format === 'positive';
-
-    return (
-        <FauxSelectStyled
-            {...filteredProps}
-            aria-label={a11yLabel}
-            role="listbox"
-            disabled={disabled}
-            hasIcon={hasStateIcon}
-            hasInlineIcon={hasInlineIcon}
-            isInline={isInline}
-            format={format}
-            inputSize={size}
-            theme={theme === 'dark' ? theme : 'light'}
-        >
-            <TruncatedTextWrapper>{children}</TruncatedTextWrapper>
-        </FauxSelectStyled>
-    );
-};
-
-export default FauxSelect;
+}) => (
+    <FauxSelectStyled
+        {...filteredProps}
+        aria-label={a11yLabel}
+        role="listbox"
+        disabled={disabled}
+        hasIcon={format === 'negative' || format === 'positive'}
+        hasInlineIcon={hasInlineIcon}
+        isInline={isInline}
+        format={format}
+        inputSize={size}
+        theme={theme === 'dark' ? theme : 'light'}
+    >
+        <TruncatedTextWrapper>{children}</TruncatedTextWrapper>
+    </FauxSelectStyled>
+);

@@ -1,10 +1,10 @@
 import React, { SFC } from 'react';
 import UploadIcon from '../icons/upload-cloud.svg';
-import ButtonFileUploadWrapper from '../ButtonFileUploadWrapper/ButtonFileUploadWrapper';
+import { ButtonFileUploadWrapper } from '../ButtonFileUploadWrapper/ButtonFileUploadWrapper';
 import { ButtonFileUploadProps as Props } from './ButtonFileUploadTypes';
 import { LabelStyled, IconWrapper } from './ButtonFileUploadStyled';
 
-const ButtonFileUpload: SFC<Props> = ({
+export const ButtonFileUpload: SFC<Props> = ({
     autoMargins = true,
     autoWidth = 'sm',
     disabled,
@@ -35,5 +35,3 @@ const ButtonFileUpload: SFC<Props> = ({
         </LabelStyled>
     </ButtonFileUploadWrapper>
 );
-
-export default ButtonFileUpload;

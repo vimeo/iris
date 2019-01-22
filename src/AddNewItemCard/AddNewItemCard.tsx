@@ -3,9 +3,9 @@ import { AddNewItemCardProps as Props } from './AddNewItemCardTypes';
 import { Wrapper, Card, Anchor } from './AddNewItemStyled';
 import { ParagraphAltMd } from '../Type';
 import CirclePlusIcon from '../icons/circle-plus.svg';
-import { FocusOutline } from './AddNewItemCardFocusStyled';
+import { ANICFocusOutline as FocusOutline } from './AddNewItemCardFocusStyled';
 
-const AddNewItemCard: SFC<Props & HTMLProps<HTMLDivElement>> = ({
+export const AddNewItemCard: SFC<Props & HTMLProps<HTMLDivElement>> = ({
     anchorProps,
     fluid,
     text,
@@ -22,5 +22,3 @@ const AddNewItemCard: SFC<Props & HTMLProps<HTMLDivElement>> = ({
         </Card>
     </Wrapper>
 );
-
-export default AddNewItemCard;

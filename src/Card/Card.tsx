@@ -1,8 +1,8 @@
 import React, { SFC, HTMLProps } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import COLORS from '../globals/js/constants/COLORS';
-import CardSettings from './CardSettings';
+import { COLORS } from '../Legacy/COLORS';
+import { CardSettings } from './CardSettings';
 
 export interface CardProps {
     /**
@@ -25,7 +25,9 @@ const boxShadow = {
 };
 
 const getBoxShadow = props => {
-    if (props.isLoading) return 'none';
+    if (props.isLoading) {
+        return 'none';
+    }
     return props.isSelected ? boxShadow.isSelected : boxShadow.inactive;
 };
 
@@ -53,22 +55,18 @@ const CardStyled = styled<CardProps, 'div'>('div')`
     }
 
     ${props =>
-        !props.isLoading && !props.isSelected
-            ? css`
-                  &:hover:after {
-                      background: rgba(0, 0, 0, 0.1);
-                      opacity: 1;
-                      transform: scale(1.01);
-                  }
-              `
-            : ''};
+        !props.isLoading &&
+        !props.isSelected &&
+        css`
+            &:hover:after {
+                background: rgba(0, 0, 0, 0.1);
+                opacity: 1;
+                transform: scale(1.01);
+            }
+        `};
 `;
 
-// ==================== Card
-
-const Card: SFC<CardProps & HTMLProps<HTMLDivElement>> = ({
+export const Card: SFC<CardProps & HTMLProps<HTMLDivElement>> = ({
     ref: _,
     ...props
 }) => <CardStyled {...props} />;
-
-export default Card;

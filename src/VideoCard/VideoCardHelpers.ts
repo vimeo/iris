@@ -1,6 +1,6 @@
-import CardSettings from '../Card/CardSettings';
+import { CardSettings } from '../Card/CardSettings';
 
-const VideoCardStyleSettings = {
+export const VideoCardStyleSettings = {
     actionButtonSize: 32,
     contextAreaHeight: 44,
     borderRadius: CardSettings.borderRadius,
@@ -8,5 +8,3 @@ const VideoCardStyleSettings = {
     padding: 12,
     hoverTransition: CardSettings.hoverTransition,
 };
-
-export { VideoCardStyleSettings };

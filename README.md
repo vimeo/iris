@@ -48,22 +48,20 @@ $ yarn add @vimeo/iris
 
 [styled-components](https://github.com/styled-components/styled-components) and [polished](https://github.com/styled-components/polished) are also required
 ```bash
-$ yarn add styled-components@^3.2.5
-$ yarn add polished@^1.9.2
+$ yarn add styled-components@^3.4.9
+$ yarn add polished@^2.3.1
 
 ```
 ***
 **For local development:**
 
-Install [Gulp](https://github.com/gulpjs/gulp): `npm install -g gulp`
-
 ```bash
 $ git clone git@github.vimeows.com:Vimeo/iris.git
 $ cd iris
 $ yarn
-$ gulp
+$ yarn storybook
 ```
-This will open the Iris docs at http://localhost:3000/pattern/Iris/Home
+This will open the Iris docs at http://localhost:9001/
 ***
 🚨 All code in Iris must be formatted with [Prettier](https://github.com/prettier/prettier/) for acceptance. We reccomend using an extension to format on save for your code editor (ie. [vscode-prettier](https://github.com/prettier/prettier-vscode)).
 
@@ -110,9 +108,23 @@ import { Button, ButtonIconOnly, ParagraphMd } from '@vimeo/iris';
 
 Import SVG icons into your React app:
 ```jsx
-import GearIcon from 'iris/icons/gear';
+import { GearIcon } from '@vimeo/iris';
 
 <GearIcon />
+
+```
+
+Adding additional styles to a component:
+```jsx
+import { Button } from '@vimeo/iris';
+
+const MyButton = styled(Button)`
+  margin-bottom: 2rem;
+`;
+
+<div>
+    <MyButton format="primary" size="xl">xl Button</MyButton>
+</div>
 
 ```
 
@@ -126,11 +138,9 @@ import GearIcon from 'iris/icons/gear';
 
 💬 [#web-iris](https://vimeo.slack.com/messages/C2UF8PH0A) Slack
 
-📝 [Active issues (minus stale issues and typescript conversions)](https://github.vimeows.com/Vimeo/iris/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+-milestone%3A%226.0.0%22+-project%3A%22vimeo%2Firis%2F2%22+-label%3A%22flag%3A+stale%22+)
-
 ## Release Schedule
 
-During the conversion of Iris to TypeScript and styled-components, minor versions of Iris will be released biweekly on Wednesdays. If you have an urgent need for a release, please reach out in [#web-iris](https://vimeo.slack.com/messages/C2UF8PH0A) for an accelerated release.
+Minor versions of Iris are generally released biweekly on Wednesdays. If you have an urgent need for a release, please reach out in [#web-iris](https://vimeo.slack.com/messages/C2UF8PH0A).
 
 ## Releasing
 

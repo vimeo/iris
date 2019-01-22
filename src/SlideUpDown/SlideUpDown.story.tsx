@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 import { ParagraphMd } from '../Type';
-import SlideUpDown from './SlideUpDown';
-import Button from '../Button';
-import NotificationSuccess from '../NotificationSuccess';
+import { SlideUpDown } from './SlideUpDown';
+import { Button } from '../Button/Button';
+import { NotificationSuccess } from '../NotificationSuccess/NotificationSuccess';
 
-storiesOf('Animation', module).add('Slide Up Down', () => <SlideUpDownDocs />, {
+storiesOf('animation', module).add('Slide Up Down', () => <SlideUpDownDocs />, {
     info: {
         inline: true,
         propTables: [SlideUpDown],

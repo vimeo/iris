@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import {
-    FocusBloop,
-    FocusBloopFocused,
-    FocusBloopProps,
-} from '../FocusBloopNew/FocusBloopNew';
+    FocusOutline,
+    FocusOutlineFocused,
+    FocusOutlineProps,
+} from '../FocusOutline/FocusOutline';
 import {
     ToggleWrapper,
     ToggleLabel,
@@ -12,15 +12,15 @@ import {
 } from './InputToggleStyled';
 import { rem } from 'polished';
 
-export const InputToggleFocusOutline = styled<FocusBloopProps, 'div'>('div')`
-    ${FocusBloop}
+export const InputToggleFocusOutline = styled<FocusOutlineProps, 'div'>('div')`
+    ${FocusOutline}
     border-radius: ${rem(13)};
 
     ${Input}:focus &,
     ${ToggleLabel}:focus &,
     ${ToggleOverlay}:focus &,
     ${ToggleWrapper}:focus-within & {
-        ${FocusBloopFocused}
+        ${FocusOutlineFocused}
         border-radius: ${rem(13)};
     }
 `;

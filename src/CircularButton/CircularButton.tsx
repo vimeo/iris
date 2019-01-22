@@ -2,23 +2,21 @@ import React, { SFC } from 'react';
 import { CircularButtonProps } from './CircularButtonTypes';
 import { CircularButtonStyled } from './CircularButtonStyled';
 
-const CircularButton: SFC<CircularButtonProps> = ({
+export const CircularButton: SFC<CircularButtonProps> = ({
     autoMarginsHorizontal = true,
     element = 'button',
     format = 'primary',
     icon,
     size = 'md',
-    ...filteredProps
+    ...props
 }) => (
     <CircularButtonStyled
         autoMarginsHorizontal={autoMarginsHorizontal}
         element={element}
         format={format}
         size={size}
-        {...filteredProps}
+        {...props}
     >
         {icon}
     </CircularButtonStyled>
 );
-
-export default CircularButton;

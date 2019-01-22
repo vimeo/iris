@@ -8,21 +8,22 @@ import {
     VerticalMenuActionButton,
     VerticalMenuHeaderGroup,
 } from '../VerticalMenu';
-import Grid from '../Grid/Grid';
-import GridCol from '../GridCol/GridCol';
-import GridBlock from '../GridBlock/GridBlock';
-import { MenuPanelList } from '../MenuPanelList';
+import { Grid } from '../Grid/Grid';
+import { GridCol } from '../GridCol/GridCol';
+import { GridBlock } from '../GridBlock/GridBlock';
+import { MenuPanelList } from '../MenuPanelList/MenuPanelList';
 import { Header3, Header4, ParagraphMd } from '../Type';
-import Button from '../Button';
+import { Button } from '../Button/Button';
 import PopOutIcon from '../icons/pop-out.svg';
 import CirclePlusIcon from '../icons/circle-plus.svg';
 import FolderIcon from '../icons/folder.svg';
 import HomeIcon from '../icons/home.svg';
 import HomeFilledIcon from '../icons/home-filled.svg';
 import SettingsIcon from '../icons/gear.svg';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/COLORS';
+import styled from 'styled-components';
 
-storiesOf('VerticalMenu', module)
+storiesOf('components/VerticalMenu', module)
     .add(
         'simple',
         () => (
@@ -54,6 +55,10 @@ storiesOf('VerticalMenu', module)
         },
     )
     .add('complex', () => <VerticalMenuDemoDocs />);
+
+const GridColStyled = styled(GridCol)`
+    background: ${COLORS.Paste};
+`;
 
 const onClickHandler = e => {
     e.preventDefault();
@@ -127,7 +132,7 @@ class VerticalMenuDemoDocs extends React.Component<any, any> {
                             label: 'Selected Item',
                             href: '#',
                             isSelected: true,
-                            //'data-foo': 'bar',
+                            // 'data-foo': 'bar',
                         },
                     ]}
                 />
@@ -150,11 +155,7 @@ class VerticalMenuDemoDocs extends React.Component<any, any> {
         return (
             <Grid isNested>
                 <GridBlock>
-                    <GridCol
-                        mdSpan={8}
-                        // @ts-ignore
-                        style={{ backgroundColor: COLORS.Paste }}
-                    >
+                    <GridColStyled mdSpan={8}>
                         <VerticalMenuHeaderGroup
                             actionButtonIcon={<CirclePlusIcon />}
                             actionButtonTooltipText="Tooltip Text"
@@ -239,7 +240,7 @@ class VerticalMenuDemoDocs extends React.Component<any, any> {
                                 />
                             </a>
                         </VerticalMenuItem>
-                    </GridCol>
+                    </GridColStyled>
                     <GridCol mdSpan={16}>
                         <Header3>Building Vertical Menus</Header3>
                         <ParagraphMd>

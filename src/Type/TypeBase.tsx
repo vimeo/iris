@@ -1,15 +1,15 @@
 import React, { SFC } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
-import COLORS from '../globals/js/constants/COLORS';
+import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
+import { COLORS } from '../Legacy/COLORS';
 import {
-    typeByCSSInterface,
+    TypeByCSSInterface,
     TypeProps,
     StyledTypeElementProps,
 } from './TypeTypes';
 import { getUnitlessLineHeight } from './TypeHelpers';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import { TypeVariableElement } from './TypeVariableElement';
 
 export const TypeBaseStyleSettings = {
@@ -143,7 +143,7 @@ export const typeCSSByProps = ({
     fontStack,
     format,
     noMargin,
-}: typeByCSSInterface) => css`
+}: TypeByCSSInterface) => css`
     color: ${getColor({ size, format })};
     font-size: ${size !== 'plusUltra'
         ? rem(getFontSize(size))
@@ -180,10 +180,8 @@ const StyledElement = styled<StyledTypeElementProps & TypeProps, any>(
     }
 `;
 
-const TypeBase: SFC<
+export const TypeBase: SFC<
     StyledTypeElementProps &
         TypeProps &
         Omit<React.HTMLProps<HTMLElement>, 'size'>
-> = ({ ref: _, ...filteredProps }) => <StyledElement {...filteredProps} />;
-
-export default TypeBase;
+> = ({ ref: _, ...props }) => <StyledElement {...props} />;

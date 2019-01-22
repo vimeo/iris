@@ -4,11 +4,11 @@ import * as Icons from './iconList.js';
 import * as Illustrations from './illustrationList.js';
 import styled from 'styled-components';
 import { HeaderPlusUltra, Header2, Header4 } from '../Type';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/COLORS';
 import { css } from 'styled-components';
 import { select } from '@storybook/addon-knobs';
 
-storiesOf('SVG', module)
+storiesOf('svg', module)
     .add('icons', () => {
         const size = select(
             'Size',

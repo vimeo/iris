@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import KEY_CODES from '../globals/js/constants/KEY_CODES';
-import ButtonIconOnly from '../ButtonIconOnly/ButtonIconOnly';
-import VerticalMenuContextualMenuPanel from '../VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel';
+import { KEY_CODES } from '../Legacy/KEY_CODES';
+import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
+import { VerticalMenuContextualMenuPanel } from '../VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel';
 import {
     VerticalMenuItemProps as Props,
     VerticalMenuItemState as State,
@@ -21,7 +21,7 @@ import {
     Wrapper,
 } from './VerticalMenuItemStyled';
 
-class VerticalMenuItem extends Component<Props, State> {
+export class VerticalMenuItem extends Component<Props, State> {
     static defaultProps = {
         nestedInteractionMenuSize: 'md',
         showNestedByDefault: false,
@@ -127,5 +127,3 @@ class VerticalMenuItem extends Component<Props, State> {
         );
     }
 }
-
-export default VerticalMenuItem;

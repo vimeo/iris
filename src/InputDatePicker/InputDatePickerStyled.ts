@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { typeCSSByProps } from '../Type/TypeBase';
 import { InputStyleSettings } from '../InputText/InputHelpers';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/COLORS';
 
 export const DatePickerWrapperStyled = styled.div`
     padding: .5rem;

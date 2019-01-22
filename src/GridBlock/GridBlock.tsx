@@ -8,9 +8,7 @@ export interface GridBlockProps {
     nowrap?: boolean;
 }
 
-const GridBlock: SFC<GridBlockProps> = ({
+export const GridBlock: SFC<GridBlockProps> = ({
     nowrap = false,
-    ...filteredProps
-}) => <GridBlockStyled nowrap={nowrap} {...filteredProps} />;
-
-export default GridBlock;
+    ...props
+}) => <GridBlockStyled nowrap={nowrap} {...props} />;

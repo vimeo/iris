@@ -1,11 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import NotificationNeutral from '../NotificationNeutral';
-import NotificationSuccess from '../NotificationSuccess';
-import NotificationWarning from '../NotificationWarning';
+import { NotificationNeutral } from '../NotificationNeutral/NotificationNeutral';
+import { NotificationSuccess } from '../NotificationSuccess/NotificationSuccess';
+import { NotificationWarning } from '../NotificationWarning/NotificationWarning';
 import { ParagraphMd } from '../Type';
 
-storiesOf('Notifications', module)
+storiesOf('components/Notifications', module)
     .add(
         'neutral',
         () => (

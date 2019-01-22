@@ -1,9 +1,9 @@
 import React, { SFC, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
-import COLORS from '../globals/js/constants/COLORS';
-import { Omit } from '../globals/js/type-helpers';
+import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
+import { COLORS } from '../Legacy/COLORS';
+import { Omit } from '../Utils/Omit';
 
 export interface LinkTextProps {
     /**
@@ -153,7 +153,7 @@ const LinkTextStyled = styled<any, 'span'>('span')`
     ${props => getLinkDecorationCss(props.decoration)};
 `;
 
-const LinkText: SFC<
+export const LinkText: SFC<
     LinkTextProps & Omit<React.HTMLProps<HTMLAnchorElement>, 'title'>
 > = ({
     children,
@@ -162,26 +162,20 @@ const LinkText: SFC<
     format = 'primary',
     href,
     ref: _,
-    ...filteredProps
+    ...props
 }) => {
     const maybeAnchorTag =
         element === 'a' ? (
-            <AnchorStyled href={href} {...filteredProps}>
+            <AnchorStyled href={href} {...props}>
                 <LinkTextStyled decoration={decoration} format={format}>
                     {children}
                 </LinkTextStyled>
             </AnchorStyled>
         ) : (
-            <LinkTextStyled
-                decoration={decoration}
-                format={format}
-                {...filteredProps}
-            >
+            <LinkTextStyled decoration={decoration} format={format} {...props}>
                 {children}
             </LinkTextStyled>
         );
 
     return maybeAnchorTag;
 };
-
-export default LinkText;

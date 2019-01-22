@@ -2,17 +2,14 @@ import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
+
 export interface VideoCardDecorationAreaProps
     extends React.HTMLProps<HTMLDivElement> {
     isHovered?: boolean;
     isSelected?: boolean;
 }
 
-// ==================== VideoCardDecorationArea Styled
-const VideoCardDecorationAreaStyled = styled<
-    VideoCardDecorationAreaProps,
-    'div'
->('div')`
+const VideoCardDecorationAreaStyled = styled.div<VideoCardDecorationAreaProps>`
     opacity: ${props => (props.isHovered || props.isSelected ? '.5' : '1')};
     position: absolute;
     top: ${rem(VideoCardStyleSettings.padding)};
@@ -26,12 +23,7 @@ const VideoCardDecorationAreaStyled = styled<
     }
 `;
 
-// ==================== VideoCardDecorationArea
-
-const VideoCardDecorationArea: SFC<VideoCardDecorationAreaProps> = ({
-    
-    ref: _, // filter out ref from styled component
-    ...filteredProps
-}) => <VideoCardDecorationAreaStyled {...filteredProps} />;
-
-export default VideoCardDecorationArea;
+export const VideoCardDecorationArea: SFC<VideoCardDecorationAreaProps> = ({
+    ref: _,
+    ...props
+}) => <VideoCardDecorationAreaStyled {...props} />;

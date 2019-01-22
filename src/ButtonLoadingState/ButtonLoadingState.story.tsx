@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import ButtonLoadingState from './ButtonLoadingState';
+import { ButtonLoadingState } from './ButtonLoadingState';
 import SettingsIcon from '../icons/gear.svg';
 
-storiesOf('ButtonLoadingState', module).add(
-    'default',
+storiesOf('components/Button', module).add(
+    'loading state',
     () => <ButtonLoadingStateDocs />,
     {
         info: {

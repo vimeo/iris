@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import ButtonToggleState from './ButtonToggleState';
+import { ButtonToggleState } from './ButtonToggleState';
 import PlusIcon from '../icons/plus.svg';
 import CheckIcon from '../icons/checkmark.svg';
 import DeleteIcon from '../icons/dismiss-x.svg';
@@ -13,7 +13,7 @@ const connectText = 'Connect';
 const disconnectText = 'Disconnect';
 const connectedText = 'Connected';
 
-storiesOf('Button', module).add(
+storiesOf('components/Button', module).add(
     'toggle state',
     () => <ButtonToggleStateDocs />,
     {

@@ -11,7 +11,7 @@ export interface VerticalMenuItemContentProps {
     linkActionIcon?: ReactNode;
     id?: string;
     isActive?: boolean;
-    onClick?: Function;
+    onClick?: () => void;
     truncateLabel?: boolean;
     showTooltipOnHover?: boolean;
 }

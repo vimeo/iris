@@ -1,6 +1,6 @@
 import React, { Component, HTMLProps } from 'react';
 import { findDOMNode } from 'react-dom';
-import { KEY_CODES } from '../globals/js/constants';
+import { KEY_CODES } from '../Legacy/KEY_CODES';
 import { Transition } from 'react-transition-group';
 import {
     MenuPanelProps as Props,
@@ -14,7 +14,7 @@ import {
     TriggerWrapperStyled,
     WrapperStyled,
 } from './MenuPanelStyled';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 
 export const menuSpeed = 100;
 
@@ -26,7 +26,7 @@ const defaultProps: DefaultProps = {
     shouldRefocusTriggerOnClose: true,
 };
 
-class MenuPanel extends Component<
+export class MenuPanel extends Component<
     Props & Omit<HTMLProps<HTMLAnchorElement>, 'size'>,
     State
 > {
@@ -194,7 +194,7 @@ class MenuPanel extends Component<
 
     _openMenu = () => {
         this._setFocusableElementList(this._bindEvents);
-        //this.tether.position();
+        // this.tether.position();
         if (typeof this.props.onOpen === 'function') {
             this.props.onOpen();
         }
@@ -316,4 +316,3 @@ class MenuPanel extends Component<
         );
     }
 }
-export default MenuPanel;

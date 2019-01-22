@@ -1,6 +1,6 @@
 import React, { ReactNode, SFC } from 'react';
-import ButtonIconOnly from '../ButtonIconOnly';
-import TooltipOverlay from '../TooltipOverlay';
+import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
+import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 
 interface Props {
     icon: ReactNode;
@@ -9,7 +9,7 @@ interface Props {
     tooltipProps?: any;
 }
 
-const VerticalMenuActionButton: SFC<Props> = ({
+export const VerticalMenuActionButton: SFC<Props> = ({
     icon,
     tooltipText,
     tooltipProps,
@@ -36,5 +36,3 @@ const VerticalMenuActionButton: SFC<Props> = ({
             size="sm"
         />
     );
-
-export default VerticalMenuActionButton;

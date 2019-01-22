@@ -6,10 +6,10 @@ import {
     SpanStyled,
     DEFAULT_BUTTON_FORMAT as DARK,
 } from './ButtonIconOnlyStyled';
-import { Omit } from '../globals/js/type-helpers';
-import { ButtonIconOnlyFocusBloop } from './ButtonIconOnlyFocusBloop';
+import { Omit } from '../Utils/Omit';
+import { ButtonIconOnlyFocus } from './ButtonIconOnlyFocus';
 
-const ButtonIconOnly: SFC<
+export const ButtonIconOnly: SFC<
     ButtonIconOnlyProps & Omit<HTMLProps<HTMLElement>, 'size'>
 > = ({
     autoSpacingHorizontal = true,
@@ -18,21 +18,19 @@ const ButtonIconOnly: SFC<
     isButtonElement = true,
     size = 'sm',
     ref: _,
-    ...filteredProps
+    ...props
 }) => {
     const ButtonElement = isButtonElement ? ButtonStyled : SpanStyled;
 
     return (
         <ButtonElement
-            {...filteredProps}
+            {...props}
             autoSpacingHorizontal={autoSpacingHorizontal}
             format={format}
             size={size}
         >
             <IconWrapperStyled>{icon}</IconWrapperStyled>
-            <ButtonIconOnlyFocusBloop />
+            <ButtonIconOnlyFocus />
         </ButtonElement>
     );
 };
-
-export default ButtonIconOnly;

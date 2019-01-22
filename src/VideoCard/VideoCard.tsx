@@ -1,13 +1,13 @@
 import React, { Component, ReactNode } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import Card from '../Card';
-import VideoCardThumbnailArea from './VideoCardThumbnailArea';
-import VideoCardInfoArea from './VideoCardInfoArea';
-import VideoCardLoadingState from './VideoCardLoadingState';
+import { Card } from '../Card/Card';
+import { VideoCardThumbnailArea } from './VideoCardThumbnailArea';
+import { VideoCardInfoArea } from './VideoCardInfoArea';
+import { VideoCardLoadingState } from './VideoCardLoadingState';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
-import LoaderCircular from '../LoaderCircular';
-import { Omit } from '../globals/js/type-helpers';
+import { LoaderCircular } from '../LoaderCircular/LoaderCircular';
+import { Omit } from '../Utils/Omit';
 
 export interface VideoCardThumbnailData {
     /**
@@ -112,7 +112,7 @@ export interface VideoCardProps
     /**
      * For one or more social badges. Pass an array of React Components, usually an social badge SVG wrapped in a `MenuPanel`
      */
-    thumbnailSocialBadgeArea?: Array<React.Component<any>>;
+    thumbnailSocialBadgeArea?: ReactNode;
     /**
      * Pass a Timestamp (`VideoCardTimestamp` component) or LiveBadge (`VideoCardLiveBadge` component)
      */
@@ -124,7 +124,7 @@ export interface VideoCardProps
     /**
      * An array of thumbnail data objects, Only one is required for a standard card. Use 3 for a group. See props above.
      */
-    thumbnailData: Array<VideoCardThumbnailData>;
+    thumbnailData: VideoCardThumbnailData[];
     /**
      * The title of the video or album as a string.
      */
@@ -217,8 +217,7 @@ const ProcessingOverlayStyled = styled('div')`
     filter: none;
 `;
 
-// ==================== VideoCard
-class VideoCard extends Component<VideoCardProps, VideoCardState> {
+export class VideoCard extends Component<VideoCardProps, VideoCardState> {
     props: VideoCardProps;
     state: VideoCardState;
 
@@ -324,6 +323,7 @@ class VideoCard extends Component<VideoCardProps, VideoCardState> {
                             showAllContent && thumbnailVideoCardPropertiesArea
                         }
                         thumbnailData={thumbnailData}
+                        title={title}
                     />
                     <VideoCardInfoArea
                         footer={showAllContent && footer}
@@ -376,5 +376,3 @@ class VideoCard extends Component<VideoCardProps, VideoCardState> {
         );
     }
 }
-
-export default VideoCard;

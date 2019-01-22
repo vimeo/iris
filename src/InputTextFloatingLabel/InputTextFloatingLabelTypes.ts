@@ -16,7 +16,7 @@ export interface InputTextFloatingLabelProps {
     passwordShowText?: string;
     preMessage?: any;
     theme?: 'default' | 'dark';
-    tooltipProps?: Object;
+    tooltipProps?: {};
     type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
     value?: string;
 }

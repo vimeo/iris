@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import ButtonFileUpload from './ButtonFileUpload';
+import { ButtonFileUpload } from './ButtonFileUpload';
 
-storiesOf('Button', module).add(
+storiesOf('components/Button', module).add(
     'file upload',
     () => (
         <div>

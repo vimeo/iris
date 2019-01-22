@@ -5,19 +5,12 @@ import {
     WrapperStyled,
 } from './MenuPanelListStyled';
 import { MenuPanelListProps } from './MenuPanelListTypes';
-import MenuPanelListItem from '../MenuPanelListItem';
+import { MenuPanelListItem } from '../MenuPanelListItem/MenuPanelListItem';
 import { Header6 } from '../Type';
 
-const MenuPanelList: SFC<
+export const MenuPanelList: SFC<
     MenuPanelListProps & React.HTMLProps<HTMLDivElement>
-> = ({
-    hasDivider,
-    header,
-    menuItems,
-    theme = 'light',
-    ref: _,
-    ...filteredProps
-}) => {
+> = ({ hasDivider, header, menuItems, theme = 'light', ref: _, ...props }) => {
     const menuList =
         menuItems.length &&
         menuItems.map((item, i) => (
@@ -33,11 +26,9 @@ const MenuPanelList: SFC<
     );
 
     return (
-        <WrapperStyled hasDivider={hasDivider} theme={theme} {...filteredProps}>
+        <WrapperStyled hasDivider={hasDivider} theme={theme} {...props}>
             {header && menuHeader}
             {menuList && <MenuListStyled>{menuList}</MenuListStyled>}
         </WrapperStyled>
     );
 };
-
-export default MenuPanelList;

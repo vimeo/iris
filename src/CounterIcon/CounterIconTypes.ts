@@ -1,5 +1,5 @@
 import React from 'react';
-//import { TooltipOverlayProps } from '../TooltipOverlay/TooltipOverlay';
+// import { TooltipOverlayProps } from '../TooltipOverlay/TooltipOverlay';
 
 export interface CounterIconStyledProps {
     autoMargins?: boolean;
@@ -29,5 +29,5 @@ export interface CounterIconProps {
     /**
      * Props passed to TooltipOverlay.
      */
-    tooltipProps?: Object; // TooltipOverlayProps subset?
+    tooltipProps?: {}; // TooltipOverlayProps subset?
 }

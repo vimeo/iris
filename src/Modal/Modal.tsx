@@ -1,20 +1,21 @@
 import React from 'react';
+import throttle from 'lodash.throttle';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { Transition } from 'react-transition-group';
-import throttle from 'lodash/throttle';
-import { Omit } from '../globals/js/type-helpers';
-import mediaQuery from '../globals/js/style-helpers/mediaQuery';
-import COLORS from '../globals/js/constants/COLORS';
-import Z_INDEX from '../globals/js/constants/Z_INDEXES';
-import Button from '../Button/Button';
+
+import { Omit } from '../Utils/Omit';
+import { mediaQuery } from '../Layout/MediaQuery';
+import { COLORS } from '../Legacy/COLORS';
+import { Z_INDEXES as Z_INDEX } from '../Legacy/Z_INDEXES';
+import { Button } from '../Button/Button';
 import { ButtonProps } from '../Button/ButtonProps';
-import ButtonDialogClose from '../ButtonDialogClose/ButtonDialogClose';
-import Grid from '../Grid';
-import GridBlock from '../GridBlock';
-import GridCol from '../GridCol';
+import { ButtonDialogClose } from '../ButtonDialogClose/ButtonDialogClose';
+import { Grid } from '../Grid/Grid';
+import { GridBlock } from '../GridBlock/GridBlock';
+import { GridCol } from '../GridCol/GridCol';
 import { Header4 } from '../Type';
-import ModalWrapper from '../ModalWrapper';
+import { ModalWrapper } from '../ModalWrapper/ModalWrapper';
 
 const MODAL_SPEED = 300;
 const MODAL_MAX_HEIGHT = '86vh';
@@ -145,7 +146,7 @@ const ModalStyled = styled<ModalStyledProps, 'div'>('div')`
             `;
         } else {
             return mediaQuery.md`
-                width: ${props => rem(modalWidths[props.modalSize])} 
+                width: ${props => rem(modalWidths[props.modalSize])}
             `;
         }
     }};
@@ -172,7 +173,7 @@ const ContentStyled = styled<ContentStyledProps, 'div'>('div')`
             MODAL_HEIGHT_LG_SCREEN,
         )});
         `}
-        
+
         max-height: calc(${MODAL_MAX_HEIGHT} - ${rem(MODAL_HEIGHT_SM_SCREEN)});
     `
             : ''};
@@ -210,7 +211,7 @@ const ModalTitleTruncationStyled = styled('span')`
     text-overflow: ellipsis;
 `;
 
-class Modal extends React.Component<ModalProps, ModalState> {
+export class Modal extends React.Component<ModalProps, ModalState> {
     static defaultProps = {
         size: 'md',
         dismissButtonFormat: 'dark',
@@ -433,5 +434,3 @@ class Modal extends React.Component<ModalProps, ModalState> {
         );
     }
 }
-
-export default Modal;

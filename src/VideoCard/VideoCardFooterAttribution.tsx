@@ -4,7 +4,7 @@ import { rem } from 'polished';
 import { ParagraphSm } from '../Type';
 import { TypeProps } from '../Type/TypeTypes';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
-import TruncatedTextWrapper from '../TruncatedTextWrapper';
+import { TruncatedTextWrapper } from '../TruncatedTextWrapper/TruncatedTextWrapper';
 
 export interface VideoCardFooterAttributionProps {
     /**
@@ -24,8 +24,6 @@ export interface VideoCardFooterAttributionProps {
      */
     userName: React.ReactNode;
 }
-
-// ==================== VideoCardFooterAttribution Styled
 
 const Wrapper = styled('div')`
     width: 100%;
@@ -74,38 +72,22 @@ const BadgeAreaStyled = styled('span')`
     justify-content: center;
     align-items: center;
 `;
-// ==================== VideoCardFooterAttribution
 
-const VideoCardFooterAttribution: SFC<VideoCardFooterAttributionProps> = ({
-    attributionActionArea,
-    userAvatar,
-    userBadge,
-    userName,
-    ...filteredProps
-}) => {
-    const suppressClickPropagation = e => {
-        // clicks in the footer area should not trigger the onClick for the entireCard.
-        e.stopPropagation();
-    };
-
-    return (
-        <Wrapper onClick={suppressClickPropagation} {...filteredProps}>
-            <AttributionStyled hasActionArea={attributionActionArea}>
-                <AvatarWrapperStyled>{userAvatar}</AvatarWrapperStyled>
-                <UserNameStyled
-                    element="span"
-                    noMargin
-                    hasActionArea={attributionActionArea}
-                >
-                    <TruncatedTextWrapper>{userName}</TruncatedTextWrapper>
-                    {userBadge && (
-                        <BadgeAreaStyled>{userBadge}</BadgeAreaStyled>
-                    )}
-                </UserNameStyled>
-            </AttributionStyled>
-            {attributionActionArea}
-        </Wrapper>
-    );
-};
-
-export default VideoCardFooterAttribution;
+export const VideoCardFooterAttribution: SFC<
+    VideoCardFooterAttributionProps
+> = ({ attributionActionArea, userAvatar, userBadge, userName, ...props }) => (
+    <Wrapper onClick={e => e.stopPropagation()} {...props}>
+        <AttributionStyled hasActionArea={attributionActionArea}>
+            <AvatarWrapperStyled>{userAvatar}</AvatarWrapperStyled>
+            <UserNameStyled
+                element="span"
+                noMargin
+                hasActionArea={attributionActionArea}
+            >
+                <TruncatedTextWrapper>{userName}</TruncatedTextWrapper>
+                {userBadge && <BadgeAreaStyled>{userBadge}</BadgeAreaStyled>}
+            </UserNameStyled>
+        </AttributionStyled>
+        {attributionActionArea}
+    </Wrapper>
+);

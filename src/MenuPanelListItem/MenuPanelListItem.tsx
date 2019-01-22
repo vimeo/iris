@@ -9,7 +9,7 @@ import {
 } from './MenuPanelListItemStyled';
 import { ParagraphMd } from '../Type';
 
-const MenuPanelListItem: SFC<MenuPanelListItemProps> = ({
+export const MenuPanelListItem: SFC<MenuPanelListItemProps> = ({
     theme = 'light',
     label,
     href = '#',
@@ -47,5 +47,3 @@ const MenuPanelListItem: SFC<MenuPanelListItemProps> = ({
         </ListItemStyled>
     );
 };
-
-export default MenuPanelListItem;

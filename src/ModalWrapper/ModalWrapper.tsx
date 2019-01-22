@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { Transition } from 'react-transition-group';
-import KEY_CODES from '../globals/js/constants/KEY_CODES';
-import Z_INDEX from '../globals/js/constants/Z_INDEXES';
+import { KEY_CODES } from '../Legacy/KEY_CODES';
+import { Z_INDEXES as Z_INDEX } from '../Legacy/Z_INDEXES';
 
 export interface ModalWrapperProps extends React.HTMLProps<HTMLDivElement> {
     firstFocusSelector?: string;
@@ -91,16 +91,14 @@ const ContentWrapperStyled = styled<ContentWrapperProps, 'div'>('div')`
     ${props => getModalPositionCSS(props)};
 `;
 
-// ==================== ModalWrapper
-
-class ModalWrapper extends React.Component<any, any> {
-    focusableElementList: any;
-    props: ModalWrapperProps;
-    previouslyFocusedElement: HTMLElement;
+export class ModalWrapper extends Component<ModalWrapperProps> {
     firstFocusableElement: HTMLElement;
+    focusableElementList: any;
     lastFocusableElement: HTMLElement;
-    thisEl: any;
+    previouslyFocusedElement: HTMLElement;
+    props: ModalWrapperProps;
     scrollDistance: number;
+    thisEl: any;
 
     componentDidUpdate(prevProps: ModalWrapperProps) {
         if (this.props.isOpen !== prevProps.isOpen) {
@@ -178,10 +176,12 @@ class ModalWrapper extends React.Component<any, any> {
         // store the element that was focused when the modal opened
         const previouslyFocusedElement = document.activeElement;
         if (previouslyFocusedElement) {
-            //@ts-ignore
+            // @ts-ignore
             this.previouslyFocusedElement = previouslyFocusedElement;
         }
     }
+
+    ref = React.createRef();
 
     _openModal = () => {
         this._freezeBodyScroll();
@@ -191,8 +191,7 @@ class ModalWrapper extends React.Component<any, any> {
         };
 
         if (!this.thisEl) {
-            const el = ReactDOM.findDOMNode(this);
-            this.thisEl = el;
+            this.thisEl = this.ref;
         }
 
         if (!this.previouslyFocusedElement) {
@@ -313,9 +312,9 @@ class ModalWrapper extends React.Component<any, any> {
             modalPosition,
             modalSpeed = 250,
             mountOnEnter,
-            //@ts-ignore
+            // @ts-ignore
             noDismiss,
-            //@ts-ignore
+            // @ts-ignore
             onCloseEvent,
             unmountOnExit,
             zIndexStartingPoint = Z_INDEX.modalWrapper,
@@ -358,5 +357,3 @@ class ModalWrapper extends React.Component<any, any> {
         );
     }
 }
-
-export default ModalWrapper;

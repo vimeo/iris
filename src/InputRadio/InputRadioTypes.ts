@@ -8,6 +8,6 @@ export interface InputRadioProps {
     theme?: 'default' | 'dark';
 }
 
-export type InputRadioOverlayStyledProps = {
+export interface InputRadioOverlayStyledProps {
     theme?: 'default' | 'dark';
-};
+}

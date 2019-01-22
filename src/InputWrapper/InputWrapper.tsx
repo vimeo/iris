@@ -1,9 +1,9 @@
 import React, { SFC } from 'react';
-import { InputLabel } from '../InputLabel';
-import InputMessageArea from '../InputMessageArea/InputMessageArea';
+import { InputLabel } from '../InputLabel/InputLabel';
+import { InputMessageArea } from '../InputMessageArea/InputMessageArea';
 import SuccessIcon from '../icons/checkmark.svg';
 import AlertIcon from '../icons/circle-warning.svg';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import {
     IconStyled,
     WrapperStyled,
@@ -26,7 +26,7 @@ export interface InputWrapperProps
     theme?: 'light' | 'dark' | 'default';
 }
 
-const InputWrapper: SFC<InputWrapperProps> = ({
+export const InputWrapper: SFC<InputWrapperProps> = ({
     children,
     disabled,
     format = 'neutral',
@@ -81,5 +81,3 @@ const InputWrapper: SFC<InputWrapperProps> = ({
         </PositioningWrapperStyled>
     </WrapperStyled>
 );
-
-export default InputWrapper;

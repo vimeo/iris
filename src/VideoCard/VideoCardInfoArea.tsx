@@ -1,15 +1,15 @@
 import React, { SFC, ReactNode } from 'react';
 import styled from 'styled-components';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/COLORS';
 import { rem } from 'polished';
-import LinkText from '../LinkText';
-import TruncatedTextWrapper from '../TruncatedTextWrapper';
+import { LinkText } from '../LinkText/LinkText';
+import { TruncatedTextWrapper } from '../TruncatedTextWrapper/TruncatedTextWrapper';
 import { Header6, ParagraphSm, ParagraphAltMd } from '../Type';
 import LockFilled from '../icons/lock-filled.svg';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
-import TooltipOverlay from '../TooltipOverlay';
-import { Omit } from '../globals/js/type-helpers';
-import VimeoStyleSettings from '../globals/js/style-settings/VimeoStyleSettings';
+import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
+import { Omit } from '../Utils/Omit';
+import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
 
 export interface VideoCardInfoAreaProps
     extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
@@ -22,8 +22,6 @@ export interface VideoCardInfoAreaProps
     titleLinkProps?: any;
     titleSubheader?: ReactNode;
 }
-
-// ==================== VideoCardInfoArea Styled
 
 const VideoCardInfoAreaStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
     'div',
@@ -98,9 +96,7 @@ export interface TitleHeaderStyledProps
     isPrivate?: boolean;
 }
 
-// ==================== VideoCardInfoArea
-
-const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
+export const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
     isPrivate,
     privacyDescription,
     size,
@@ -111,14 +107,6 @@ const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
     // @ts-ignore
     ref: _,
 }) => {
-    const _defaultLinkClickHandler = e => {
-        e.preventDefault();
-    };
-
-    const stopClickPropagation = e => {
-        e.stopPropagation();
-    };
-
     const LinkTextElement = (
         <span>
             <LinkTextStyled decoration="inherit" element="span">
@@ -129,10 +117,22 @@ const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
         </span>
     );
 
-    const defaultLinkElement = (
+    const TitleLinkElement = titleLinkElement;
+    const LinkElement = titleLinkElement ? (
+        <TitleLinkElement
+            onClick={e => {
+                e.preventDefault();
+            }}
+            {...titleLinkProps}
+        >
+            {LinkTextElement}
+        </TitleLinkElement>
+    ) : (
         <a
             href="#"
-            onClick={_defaultLinkClickHandler}
+            onClick={e => {
+                e.preventDefault();
+            }}
             title={title}
             {...titleLinkProps}
         >
@@ -140,33 +140,30 @@ const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
         </a>
     );
 
-    const LinkElement = titleLinkElement;
-    const TypeElement = size === 'sm' ? HeaderSmStyled : Header6;
     return (
         <VideoCardInfoAreaStyled>
             {isPrivate && (
                 <PrivacyIconStyled size={size}>
                     <TooltipOverlay
                         tooltipText={privacyDescription}
-                        onClick={stopClickPropagation}
+                        onClick={e => {
+                            e.stopPropagation();
+                        }}
                     >
                         <LockFilled />
                     </TooltipOverlay>
                 </PrivacyIconStyled>
             )}
             <TitleWrapper cardSize={size} isPrivate={isPrivate}>
-                <TypeElement element="h4" noMargin>
-                    {LinkElement ? (
-                        <LinkElement
-                            onClick={_defaultLinkClickHandler}
-                            {...titleLinkProps}
-                        >
-                            {LinkTextElement}
-                        </LinkElement>
-                    ) : (
-                        defaultLinkElement
-                    )}
-                </TypeElement>
+                {size === 'sm' ? (
+                    <HeaderSmStyled element="h4" noMargin>
+                        {LinkElement}
+                    </HeaderSmStyled>
+                ) : (
+                    <Header6 element="h4" noMargin>
+                        {LinkElement}
+                    </Header6>
+                )}
             </TitleWrapper>
             {titleSubheader && (
                 <ParagraphAltMd element="span" noMargin>
@@ -176,5 +173,3 @@ const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
         </VideoCardInfoAreaStyled>
     );
 };
-
-export default VideoCardInfoArea;

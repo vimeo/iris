@@ -2,13 +2,13 @@ import React, { SFC } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { rem } from 'polished';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
-import VideoCardSelectionCheckbox from './VideoCardSelectionCheckbox';
-import VideoCardDecorationArea from './VideoCardDecorationArea';
-import VideoCardPropertiesArea from './VideoCardPropertiesArea';
-import VideoCardSocialBadgeArea from './VideoCardSocialBadgeArea';
-import VideoCardThumbnailGroup from './VideoCardThumbnailGroup';
+import { VideoCardSelectionCheckbox } from './VideoCardSelectionCheckbox';
+import { VideoCardDecorationArea } from './VideoCardDecorationArea';
+import { VideoCardPropertiesArea } from './VideoCardPropertiesArea';
+import { VideoCardSocialBadgeArea } from './VideoCardSocialBadgeArea';
+import { VideoCardThumbnailGroup } from './VideoCardThumbnailGroup';
 import { VideoCardThumbnailData } from './VideoCard';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/COLORS';
 
 export interface VideoCardThumbnailAreaProps {
     checkboxA11yLabel?: string;
@@ -22,15 +22,14 @@ export interface VideoCardThumbnailAreaProps {
     thumbnailSocialBadgeArea?: any;
     thumbnailTimestampArea?: any;
     thumbnailVideoCardPropertiesArea?: any;
-    thumbnailData: Array<VideoCardThumbnailData>;
+    thumbnailData: VideoCardThumbnailData[];
+    title: string;
 }
 
 export interface VideoCardThumbnailWrapperProps
     extends React.HTMLProps<HTMLDivElement> {
     isHovered?: boolean;
 }
-
-// ==================== VideoCardThumbnailArea Styled
 
 const WrapperStyled = styled('div')`
     position: relative;
@@ -115,9 +114,7 @@ const HoverOverlayStyled = styled('div')`
     );
 `;
 
-// ==================== VideoCardThumbnailArea
-
-const VideoCardThumbnailArea: SFC<VideoCardThumbnailAreaProps> = ({
+export const VideoCardThumbnailArea: SFC<VideoCardThumbnailAreaProps> = ({
     checkboxA11yLabel,
     isGroup,
     isHovered,
@@ -130,66 +127,60 @@ const VideoCardThumbnailArea: SFC<VideoCardThumbnailAreaProps> = ({
     thumbnailTimestampArea,
     thumbnailVideoCardPropertiesArea,
     thumbnailData,
-}) => {
-    const catchClick = e => {
-        // clicks in the footer area should not trigger the onClick for the entireCard.
-        e.stopPropagation();
-    };
-
-    return (
-        <WrapperStyled>
-            <ThumbnailContainerStyled isHovered={isHovered}>
-                {isGroup ? (
-                    <VideoCardThumbnailGroup thumbnailData={thumbnailData} />
-                ) : (
-                    <ThumbnailPreloadWrapperStyled>
-                        <ThumbnailStyled
-                            alt={thumbnailData[0].thumbnailAltText}
-                            src={thumbnailData[0].thumbnailSrc}
-                            srcSet={thumbnailData[0].thumbnailSrcSet}
-                            isTopOfCard={isTopOfCard}
-                        />
-                        <ThumbnailShadowStyled isTopOfCard={isTopOfCard} />
-                    </ThumbnailPreloadWrapperStyled>
-                )}
-            </ThumbnailContainerStyled>
-            {isHovered &&
-                !isGroup && (
-                    <HoverOverlayWrapperStyled>
-                        <HoverOverlayStyled />
-                    </HoverOverlayWrapperStyled>
-                )}
-            {thumbnailBrandDecorationArea && (
-                <VideoCardDecorationArea
-                    isHovered={isHovered}
-                    isSelected={isSelected}
-                >
-                    {thumbnailBrandDecorationArea}
-                </VideoCardDecorationArea>
+    title,
+}) => (
+    <WrapperStyled>
+        <ThumbnailContainerStyled isHovered={isHovered}>
+            {isGroup ? (
+                <VideoCardThumbnailGroup thumbnailData={thumbnailData} />
+            ) : (
+                <ThumbnailPreloadWrapperStyled>
+                    <ThumbnailStyled
+                        alt={thumbnailData[0].thumbnailAltText}
+                        src={thumbnailData[0].thumbnailSrc}
+                        srcSet={thumbnailData[0].thumbnailSrcSet}
+                        isTopOfCard={isTopOfCard}
+                    />
+                    <ThumbnailShadowStyled isTopOfCard={isTopOfCard} />
+                </ThumbnailPreloadWrapperStyled>
             )}
-            {isSelectable && (
-                <VideoCardSelectionCheckbox
-                    onCheckBoxClick={onCheckBoxClick}
-                    isShowing={isHovered || isSelected}
-                    checked={isSelected}
-                    label={checkboxA11yLabel}
-                />
-            )}
-            {thumbnailVideoCardPropertiesArea && (
-                <VideoCardPropertiesArea
-                    isHovered={isHovered}
-                    properties={thumbnailVideoCardPropertiesArea}
-                />
-            )}
-            {thumbnailSocialBadgeArea && (
-                <VideoCardSocialBadgeArea
-                    onClick={catchClick}
-                    socialBadges={thumbnailSocialBadgeArea}
-                />
-            )}
-            {thumbnailTimestampArea}
-        </WrapperStyled>
-    );
-};
-
-export default VideoCardThumbnailArea;
+        </ThumbnailContainerStyled>
+        {isHovered && !isGroup && (
+            <HoverOverlayWrapperStyled>
+                <HoverOverlayStyled />
+            </HoverOverlayWrapperStyled>
+        )}
+        {thumbnailBrandDecorationArea && (
+            <VideoCardDecorationArea
+                isHovered={isHovered}
+                isSelected={isSelected}
+            >
+                {thumbnailBrandDecorationArea}
+            </VideoCardDecorationArea>
+        )}
+        {isSelectable && (
+            <VideoCardSelectionCheckbox
+                onCheckBoxClick={onCheckBoxClick}
+                isShowing={isHovered || isSelected}
+                checked={isSelected}
+                label={checkboxA11yLabel}
+                title={title}
+            />
+        )}
+        {thumbnailVideoCardPropertiesArea && (
+            <VideoCardPropertiesArea
+                isHovered={isHovered}
+                properties={thumbnailVideoCardPropertiesArea}
+            />
+        )}
+        {thumbnailSocialBadgeArea && (
+            <VideoCardSocialBadgeArea
+                onClick={e => {
+                    e.stopPropagation();
+                }}
+                socialBadges={thumbnailSocialBadgeArea}
+            />
+        )}
+        {thumbnailTimestampArea}
+    </WrapperStyled>
+);

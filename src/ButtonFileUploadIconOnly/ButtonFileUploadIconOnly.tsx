@@ -1,8 +1,8 @@
 import React, { SFC } from 'react';
 import UploadIcon from '../icons/upload-cloud.svg';
-import { ButtonFileUploadWrapper } from '../ButtonFileUploadWrapper';
+import { ButtonFileUploadWrapper } from '../ButtonFileUploadWrapper/ButtonFileUploadWrapper';
 import { LabelStyled, SpanStyled } from './ButtonFileUploadIconOnlyStyled';
-import { ButtonFileUploadIconOnlyFocusOutline as FocusOutline } from './ButtonFileIploadIconOnlyFocusOutline';
+import { BFUIOFocus as FocusOutline } from './ButtonFileIploadIconOnlyFocus';
 
 interface Props {
     autoSpacingHorizontal?: boolean;
@@ -13,7 +13,7 @@ interface Props {
     size?: 'sm' | 'md';
 }
 
-const ButtonFileUploadIconOnly: SFC<Props> = ({
+export const ButtonFileUploadIconOnly: SFC<Props> = ({
     autoSpacingHorizontal = true,
     format = 'dark',
     id,
@@ -31,5 +31,3 @@ const ButtonFileUploadIconOnly: SFC<Props> = ({
         <FocusOutline />
     </ButtonFileUploadWrapper>
 );
-
-export default ButtonFileUploadIconOnly;

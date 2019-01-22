@@ -2,6 +2,7 @@ export AlbumsAddFeature from '../illustrations/albums-add-feature.svg';
 export AlbumsEmptystate from '../illustrations/albums-emptystate.svg';
 export AlbumsPlaybackEmptystateDark from '../illustrations/albums-playback-emptystate-dark.svg';
 export AlbumsPlaybackEmptystateLight from '../illustrations/albums-playback-emptystate-light.svg';
+
 export SearchEmptystate from '../illustrations/search-emptystate.svg';
 export StaffPicksBadgeJustSp from '../illustrations/staff-picks-badge-just-sp.svg';
 export VimeoBusinessBlueBoxLogo from '../illustrations/vimeo-business-blue-box-logo.svg';

@@ -4,11 +4,11 @@ import styled from 'styled-components';
 interface Props {
     children: ReactNode;
     id: string;
-    inputElementProps?: Object;
+    inputElementProps?: {};
     name?: string;
 }
 
-const ButtonFileUploadWrapper: SFC<Props> = ({
+export const ButtonFileUploadWrapper: SFC<Props> = ({
     children,
     id,
     inputElementProps,
@@ -26,8 +26,6 @@ const ButtonFileUploadWrapper: SFC<Props> = ({
         {children}
     </Wrapper>
 );
-
-export default ButtonFileUploadWrapper;
 
 export const Wrapper = styled.div`
     display: inline-block;

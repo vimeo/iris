@@ -8,8 +8,6 @@ export const LinkElementStyled = styled('span')`
     }
 `;
 
-const ButtonFocusWrapper: SFC<React.HTMLProps<HTMLSpanElement>> = props => (
-    <LinkElementStyled>{props.children}</LinkElementStyled>
-);
-
-export default ButtonFocusWrapper;
+export const ButtonFocusWrapper: SFC<
+    React.HTMLProps<HTMLSpanElement>
+> = props => <LinkElementStyled>{props.children}</LinkElementStyled>;

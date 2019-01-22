@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import ReactSwipe from 'react-swipe';
 import {
     ContentCarouselPropsAll,
     ContentCarouselState,
 } from './ContentCarouselTypes';
-import CarouselDotNav from '../CarouselDotNav';
+import { CarouselDotNav } from '../CarouselDotNav/CarouselDotNav';
 
-class ContentCarousel extends React.Component<any, any> {
+export class ContentCarousel extends Component<
+    ContentCarouselPropsAll,
+    ContentCarouselState
+> {
     static defaultProps = {
         initialSlide: 0,
         infinite: true,
@@ -16,6 +19,10 @@ class ContentCarousel extends React.Component<any, any> {
         theme: 'light',
     };
 
+    carouselInstance: any;
+    state: ContentCarouselState;
+    props: ContentCarouselPropsAll;
+
     constructor(props: ContentCarouselPropsAll) {
         super(props);
         this.state = {
@@ -23,17 +30,10 @@ class ContentCarousel extends React.Component<any, any> {
         };
     }
 
-    // carousel ref instance
-    carouselInstance: any;
-
-    state: ContentCarouselState;
-
-    props: ContentCarouselPropsAll;
-
-    /* 
-    * set attributes that help assitive tech understand the carousel
-    * see:  https://www.w3.org/WAI/tutorials/carousels/
-    */
+    /*
+     * set attributes that help assitive tech understand the carousel
+     * see:  https://www.w3.org/WAI/tutorials/carousels/
+     */
 
     _addA11yAttributesToLiveSlide = item => {
         /* clear existing attribute if any */
@@ -132,5 +132,3 @@ class ContentCarousel extends React.Component<any, any> {
         );
     }
 }
-
-export default ContentCarousel;

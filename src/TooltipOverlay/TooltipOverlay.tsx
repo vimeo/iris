@@ -1,10 +1,10 @@
-import React, { ReactNode } from 'react';
+import React, { Component, ReactNode } from 'react';
 import styled from 'styled-components';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import { Transition } from 'react-transition-group';
 import { Manager, Target, Popper } from 'react-popper';
-import { Z_INDEX } from '../globals/js/constants';
-import Tooltip from '../Tooltip/Tooltip';
+import { Z_INDEXES as Z_INDEX } from '../Legacy/Z_INDEXES';
+import { Tooltip } from '../Tooltip/Tooltip';
 
 const TOOLTIP_SPEED = 50;
 
@@ -123,7 +123,7 @@ const transitionStyles = {
         opacity: 0,
     },
 };
-class TooltipOverlay extends React.Component<
+export class TooltipOverlay extends Component<
     TooltipOverlayProps,
     TooltipOverlayState
 > {
@@ -244,7 +244,7 @@ class TooltipOverlay extends React.Component<
             onMouseLeave,
             pointerEvents,
             popperEventsEnabled = false,
-            //@ts-ignore deprecated prop will remove
+            // @ts-ignore deprecated prop will remove
             size,
             tooltipText,
             triggerOnClick, // eslint-disable-line no-unused-vars
@@ -300,9 +300,9 @@ class TooltipOverlay extends React.Component<
                     </SpanWrapper>
                 </TargetStyled>
                 <PopperStyled
-                    //@ts-ignore  eventsEnabled is a Popper prop
+                    // @ts-ignore  eventsEnabled is a Popper prop
                     eventsEnabled={popperEventsEnabled}
-                    //@ts-ignore modifiers is a Popper prop
+                    // @ts-ignore modifiers is a Popper prop
                     modifiers={{
                         offset: {
                             offset: offsetMap[attachment],
@@ -319,5 +319,3 @@ class TooltipOverlay extends React.Component<
         );
     }
 }
-
-export default TooltipOverlay;

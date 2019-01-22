@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import { rem, size } from 'polished';
 import { ButtonInlineInputTextStyleProps as Props } from './ButtonInlineInputTextTypes';
-import COLORS from '../globals/js/constants/COLORS';
-import TRANSITIONS from '../globals/js/constants/TRANSITIONS';
+import { COLORS } from '../Legacy/COLORS';
+import { TRANSITIONS } from '../Legacy/TRANSITIONS';
 import { ButtonColors } from '../Button/ButtonColors';
 
 const sizes = (size, format) => {

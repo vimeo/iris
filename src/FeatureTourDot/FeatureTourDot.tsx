@@ -1,7 +1,7 @@
 import React, { SFC } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import { rem, rgba } from 'polished';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/COLORS';
 
 export interface FeatureDotProps extends React.HTMLProps<HTMLSpanElement> {
     beaconA11yText: string;
@@ -126,24 +126,20 @@ const HaloStyled = styled<HaloStyledProps, 'span'>('span')`
         );
 
         animation: 2500ms infinite ${haloKeyframes};
-    
+
     `
             : ''};
 `;
 
-const FeatureTourDot: SFC<FeatureDotProps> = ({
+export const FeatureTourDot: SFC<FeatureDotProps> = ({
     beaconA11yText,
     mode = 'inactive',
     ref: _,
-    ...filteredProps
-}) => {
-    return (
-        <WrapperStyled {...filteredProps} mode={mode}>
-            <HaloStyled isActive={mode === 'active'}>
-                <DotStyled mode={mode}>{beaconA11yText}</DotStyled>
-            </HaloStyled>
-        </WrapperStyled>
-    );
-};
-
-export default FeatureTourDot;
+    ...props
+}) => (
+    <WrapperStyled {...props} mode={mode}>
+        <HaloStyled isActive={mode === 'active'}>
+            <DotStyled mode={mode}>{beaconA11yText}</DotStyled>
+        </HaloStyled>
+    </WrapperStyled>
+);

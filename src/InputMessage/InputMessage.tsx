@@ -1,7 +1,7 @@
 import React, { SFC, ReactNode } from 'react';
 import { ParagraphSm } from '../Type';
 import styled from 'styled-components';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/COLORS';
 
 interface Props {
     children: ReactNode;
@@ -9,7 +9,7 @@ interface Props {
     theme?: 'default' | 'light' | 'dark';
 }
 
-const InputMessage: SFC<Props> = ({
+export const InputMessage: SFC<Props> = ({
     format = 'helper',
     children,
     theme = 'default',
@@ -29,5 +29,3 @@ const ParagraphStyled = styled(ParagraphSm)`
     ${props => props.format === 'dark' && `color: ${COLORS.Porcelain}`};
     ${props => props.theme === 'negative' && `color: ${COLORS.SunsetOrange}`};
 `;
-
-export default InputMessage;

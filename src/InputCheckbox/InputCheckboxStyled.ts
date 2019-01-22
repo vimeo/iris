@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { InputLabelInline } from '../InputLabelInline';
-import COLORS from '../globals/js/constants/COLORS';
+import { InputLabelInline } from '../InputLabelInline/InputLabelInline';
+import { COLORS } from '../Legacy/COLORS';
 import {
     InputCheckboxProps,
     InputCheckboxOverlayStyledProps,
@@ -83,7 +83,7 @@ export const InputCheckboxStyled = styled<any, 'input'>('input')`
             background-color: ${COLORS.VimeoBlue};
             box-shadow: none;
         }
-        
+
         + ${OverlayStyled} {
             border: 0;
             background: ${COLORS.VimeoBlue};

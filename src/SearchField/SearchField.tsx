@@ -1,12 +1,12 @@
 import React, { SFC } from 'react';
-import { InputText } from '../InputText/';
-import ButtonInlineInputText from '../ButtonInlineInputText/ButtonInlineInputText';
+import { InputText } from '../InputText/InputText';
+import { ButtonInlineInputText } from '../ButtonInlineInputText/ButtonInlineInputText';
 import SearchIcon from '../icons/search.svg';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import { SearchFieldProps } from './SearchFieldTypes';
 
-const SearchField: SFC<
-    SearchFieldProps & Omit<React.HTMLProps<HTMLInputElement>, 'type'>
+export const SearchField: SFC<
+    SearchFieldProps & Omit<React.HTMLProps<HTMLInputElement>, 'type' | 'size'>
 > = ({
     buttonFormat = 'subtle',
     buttonLabel,
@@ -16,28 +16,22 @@ const SearchField: SFC<
     isInline = true,
     showLabel = false,
     size = 'md',
-    ...filteredProps
-}) => {
-    const ButtonComponent = (
-        <ButtonInlineInputText
-            {...buttonProps}
-            title={buttonLabel}
-            icon={icon}
-            format={buttonFormat}
-            size={size}
-        />
-    );
-
-    return (
-        <InputText
-            {...filteredProps}
-            showLabel={showLabel}
-            label={fieldLabel}
-            inlineButton={ButtonComponent}
-            isInline={isInline}
-            size={size}
-        />
-    );
-};
-
-export default SearchField;
+    ...props
+}) => (
+    <InputText
+        {...props}
+        size={size}
+        label={fieldLabel}
+        isInline={isInline}
+        showLabel={showLabel}
+        inlineButton={
+            <ButtonInlineInputText
+                {...buttonProps}
+                title={buttonLabel}
+                icon={icon}
+                format={buttonFormat}
+                size={size}
+            />
+        }
+    />
+);

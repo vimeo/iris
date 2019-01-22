@@ -1,5 +1,5 @@
 import { HTMLProps } from 'react';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 
 export interface TypeProps extends Omit<HTMLProps<HTMLElement>, 'size'> {
     element?:
@@ -38,7 +38,7 @@ export interface StyledTypeElementProps {
         | 'headerSm';
 }
 
-export interface typeByCSSInterface {
+export interface TypeByCSSInterface {
     fontStack?: 'regular' | 'light';
     format: 'white' | 'light' | 'dark' | 'alternative' | 'success';
     noMargin?: boolean;

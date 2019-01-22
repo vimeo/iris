@@ -1,17 +1,10 @@
 import React, { SFC } from 'react';
-import TypeBase from './TypeBase';
+import { TypeBase } from './TypeBase';
 import { TypeProps } from './TypeTypes';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 
-const HeaderAltSm: SFC<
+export const HeaderAltSm: SFC<
     TypeProps & Omit<React.HTMLProps<HTMLHeadingElement>, 'size'>
-> = ({ element = 'h3', format = 'alternative', ...filteredProps }) => (
-    <TypeBase
-        element={element}
-        size="headerSm"
-        format={format}
-        {...filteredProps}
-    />
+> = ({ element = 'h3', format = 'alternative', ...props }) => (
+    <TypeBase element={element} size="headerSm" format={format} {...props} />
 );
-
-export default HeaderAltSm;

@@ -1,9 +1,9 @@
 import React, { ReactNode, Component } from 'react';
-import { TabNavigationHorizontalItem } from '../TabNavigationHorizontalItem/';
-import TabContentPanel from '../TabContentPanel/TabContentPanel';
+import { TabNavigationHorizontalItem } from '../TabNavigationHorizontalItem/TabNavigationHorizontalItem';
+import { TabContentPanel } from '../TabContentPanel/TabContentPanel';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/COLORS';
 
 interface Props {
     index: number;
@@ -11,7 +11,7 @@ interface Props {
         tabId: string;
         label: string;
         content: ReactNode;
-        onClick?: (e: Event) => void;
+        onClick?: (e: React.MouseEvent) => void;
     }>;
 }
 
@@ -19,7 +19,7 @@ interface State {
     index: number;
 }
 
-class TabNavigationHorizontal extends Component<Props, State> {
+export class TabNavigationHorizontal extends Component<Props, State> {
     readonly state: Readonly<State> = {
         index: this.props.index,
     };
@@ -38,11 +38,11 @@ class TabNavigationHorizontal extends Component<Props, State> {
                             {...props}
                             key={`TabNavigationHorizontalItem-${i}`}
                             isSelected={this.state.index === i}
-                            handleTabChange={(e: Event) => {
+                            handleTabChange={(e: React.MouseEvent) => {
                                 this.setState({ index: i });
-                                (() => {
-                                    onClick && onClick(e);
-                                })();
+                                if ('function' === typeof onClick) {
+                                    onClick(e);
+                                }
                             }}
                         />
                     ))}
@@ -92,5 +92,3 @@ const NavIndicator = styled.div<{ width: number; position: number }>`
     background-color: ${COLORS.VimeoBlue};
     transition: 150ms ease-in-out;
 `;
-
-export default TabNavigationHorizontal;

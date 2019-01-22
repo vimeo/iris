@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { COLORS } from '../globals/js/constants';
+import { COLORS } from '../Legacy/COLORS';
 import { ParagraphMd } from '../Type';
 
 const WIDTH_LIMIT = 17;
+
 export interface TooltipProps {
     breakWords?: boolean;
     className?: string;
@@ -32,17 +33,10 @@ const TooltipStyled = styled<TooltipStyledProps, 'div'>('div')`
     }
 `;
 
-const Tooltip = ({ children, ...filteredProps }: TooltipProps) => {
-    return (
-        <TooltipStyled
-            {...filteredProps}
-            multiline={children.length > WIDTH_LIMIT - 2}
-        >
-            <div>
-                <ParagraphMd noMargin>{children}</ParagraphMd>
-            </div>
-        </TooltipStyled>
-    );
-};
-
-export default Tooltip;
+export const Tooltip = ({ children, ...props }: TooltipProps) => (
+    <TooltipStyled {...props} multiline={children.length > WIDTH_LIMIT - 2}>
+        <div>
+            <ParagraphMd noMargin>{children}</ParagraphMd>
+        </div>
+    </TooltipStyled>
+);

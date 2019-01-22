@@ -1,10 +1,10 @@
 import React, { SFC, HTMLProps } from 'react';
-import TooltipOverlay from '../TooltipOverlay';
+import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 import { ButtonInlineInputTextProps as Props } from './ButtonInlineInputTextTypes';
-import { Omit } from '../globals/js/type-helpers';
+import { Omit } from '../Utils/Omit';
 import { ButtonStyled, Wrapper } from './ButtonInlineInputTextStyled';
 
-const ButtonInlineInputText: SFC<
+export const ButtonInlineInputText: SFC<
     Props & Omit<HTMLProps<HTMLButtonElement>, 'size'>
 > = ({
     className,
@@ -35,5 +35,3 @@ const ButtonInlineInputText: SFC<
         )}
     </Wrapper>
 );
-
-export default ButtonInlineInputText;

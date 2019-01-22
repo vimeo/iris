@@ -1,8 +1,8 @@
 import { NotificationProps } from './NotificationProps';
 import styled from 'styled-components';
 import { rgba, rem } from 'polished';
-import TRANSITIONS from '../globals/js/constants/TRANSITIONS';
-import COLORS from '../globals/js/constants/COLORS';
+import { TRANSITIONS } from '../Legacy/TRANSITIONS';
+import { COLORS } from '../Legacy/COLORS';
 
 const notificationPaddingHorizontal = 16;
 const notificationPaddingVertical = 12;
@@ -26,9 +26,9 @@ const notificationColors = {
 };
 
 const notificationBg = variant =>
-    notificationColors[variant] && notificationColors[variant]['bg'];
+    notificationColors[variant] && notificationColors[variant].bg;
 const notificationColor = variant =>
-    notificationColors[variant] && notificationColors[variant]['color'];
+    notificationColors[variant] && notificationColors[variant].color;
 
 export const NotificationStyled = styled<NotificationProps, 'div'>('div')`
     position: relative;

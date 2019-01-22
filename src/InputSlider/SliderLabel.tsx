@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { getSliderThemeColors } from './InputSliderHelpers';
 import { rem, rgba } from 'polished';
-import COLORS from '../globals/js/constants/COLORS';
+import { COLORS } from '../Legacy/COLORS';
 
 export interface SliderLabelProps {
     editable: boolean;
@@ -60,7 +60,7 @@ const LabelValueStyled = styled<LabelWrapperStyledProps, 'label'>('label')`
 const LabelInputStyled = styled<LabelWrapperStyledProps, 'input'>('input')`
     ${commonLabelStyles};
     border: ${props =>
-        props.format == 'dark'
+        props.format === 'dark'
             ? `${rem(1)} solid ${rgba(COLORS.White, 0.33)}`
             : `${rem(1)} solid ${rgba(COLORS.White, 0.66)}`};
     &:hover {
@@ -77,13 +77,13 @@ const LabelInputStyled = styled<LabelWrapperStyledProps, 'input'>('input')`
     }
 `;
 
-const SliderLabel: SFC<SliderLabelProps> = ({
+export const SliderLabel: SFC<SliderLabelProps> = ({
     editable,
     value,
     id,
     format,
     onUserInput,
-    ...filteredProps
+    ...props
 }) => {
     const updateValue = e => {
         const newValue = parseInt(e.target.value, 10);
@@ -99,16 +99,15 @@ const SliderLabel: SFC<SliderLabelProps> = ({
     const inputProps = {
         type: 'text',
         disabled: editable ? false : true,
-        id: id,
+        id,
         onKeyUp: updateValue,
-        onChange: () => {},
         defaultValue: String(value),
-        format: format,
+        format,
         isDisabled: editable ? false : true,
     };
     return (
         <LabelWrapper
-            {...filteredProps}
+            {...props}
             format={format}
             isDisabled={inputProps.disabled}
         >
@@ -127,5 +126,3 @@ const SliderLabel: SFC<SliderLabelProps> = ({
         </LabelWrapper>
     );
 };
-
-export default SliderLabel;

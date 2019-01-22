@@ -18,11 +18,7 @@ const TruncatedTextWrapperStyled = styled<TruncatedTextWrapperProps, 'span'>(
     text-overflow: ellipsis;
 `;
 
-// ==================== TruncatedTextWrapper
-
-const TruncatedTextWrapper: SFC<TruncatedTextWrapperProps> = ({
+export const TruncatedTextWrapper: SFC<TruncatedTextWrapperProps> = ({
     ref: _,
     ...props
 }) => <TruncatedTextWrapperStyled {...props} />;
-
-export default TruncatedTextWrapper;

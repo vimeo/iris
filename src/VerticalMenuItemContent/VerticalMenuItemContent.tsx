@@ -8,9 +8,9 @@ import {
     ActionButtonStyled,
 } from './VerticalMenuItemContentStyled';
 
-import TooltipOverlay from '../TooltipOverlay';
+import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 
-const VerticalMenuItemContent: SFC<Props> = ({
+export const VerticalMenuItemContent: SFC<Props> = ({
     hasSubMenu,
     label,
     labelIconTheme,
@@ -81,5 +81,3 @@ const MenuItemContent: SFC<Props> = ({
         )}
     </MenuItemContentStyled>
 );
-
-export default VerticalMenuItemContent;
