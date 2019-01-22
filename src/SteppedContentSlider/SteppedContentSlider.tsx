@@ -6,7 +6,7 @@ import Swipeable from 'react-swipeable';
 import throttle from 'lodash.throttle';
 import { Header4 } from '../Type/Header4';
 import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
-import ChevronRight from '../icons/chevron-right.svg';
+import ChevronRight from '../Icons/chevron-right.svg';
 
 const TRUNCATION_WIDTH = 100;
 

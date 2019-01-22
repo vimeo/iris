@@ -4,7 +4,7 @@ import { rem } from 'polished';
 import { Omit } from '../Utils/Omit';
 import { InputProps, InputStyleSettings } from '../InputText/InputHelpers';
 import { InputWrapper } from '../InputWrapper/InputWrapper';
-import ChevronIris from '../icons/chevron-down.svg';
+import ChevronIris from '../Icons/chevron-down.svg';
 
 export interface SelectWrapperProps
     extends InputProps,

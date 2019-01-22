@@ -1,6 +1,6 @@
 import React, { SFC, HTMLProps } from 'react';
 import { Notification } from '../Notification/Notification';
-import InfoIcon from '../icons/circle-info.svg';
+import InfoIcon from '../Icons/circle-info.svg';
 
 export const NotificationNeutral: SFC<
     { hasIcon?: boolean } & HTMLProps<HTMLDivElement>

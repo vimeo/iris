@@ -1,5 +1,5 @@
 import React, { SFC, HTMLProps } from 'react';
-import DeleteIcon from '../icons/dismiss-x.svg';
+import DeleteIcon from '../Icons/dismiss-x.svg';
 import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
 import { ButtonDialogCloseProps as Props } from './ButtonDialogCloseTypes';
 import { Omit } from '../Utils/Omit';

@@ -1,6 +1,6 @@
 import React, { ReactNode, SFC } from 'react';
 import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
-import InfoIcon from '../icons/circle-info.svg';
+import InfoIcon from '../Icons/circle-info.svg';
 import {
     TooltipAnnotationIconStyled,
     IconWrapper,

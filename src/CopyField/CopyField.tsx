@@ -1,6 +1,6 @@
 import React, { SFC } from 'react';
 import { CopyFieldProps, CopyButtonProps } from './CopyFieldTypes';
-import ClipboardIcon from '../icons/clipboard.svg';
+import ClipboardIcon from '../Icons/clipboard.svg';
 import { withCopyAbility } from '../withCopyAbility/withCopyAbility';
 import { InputText } from '../InputText/InputText';
 import { ButtonInlineInputText } from '../ButtonInlineInputText/ButtonInlineInputText';

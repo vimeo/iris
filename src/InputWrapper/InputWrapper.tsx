@@ -1,8 +1,8 @@
 import React, { SFC } from 'react';
 import { InputLabel } from '../InputLabel/InputLabel';
 import { InputMessageArea } from '../InputMessageArea/InputMessageArea';
-import SuccessIcon from '../icons/checkmark.svg';
-import AlertIcon from '../icons/circle-warning.svg';
+import SuccessIcon from '../Icons/checkmark.svg';
+import AlertIcon from '../Icons/circle-warning.svg';
 import { Omit } from '../Utils/Omit';
 import {
     IconStyled,

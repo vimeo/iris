@@ -2,7 +2,7 @@ import React, { SFC, ReactNode } from 'react';
 import { Button } from '../Button/Button';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import DeleteIcon from '../icons/dismiss-x.svg';
+import DeleteIcon from '../Icons/dismiss-x.svg';
 import { ButtonFocus } from '../Button/ButtonFocus';
 
 export interface TagProps {

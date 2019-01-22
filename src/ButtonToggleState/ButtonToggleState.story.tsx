@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 import { ButtonToggleState } from './ButtonToggleState';
-import PlusIcon from '../icons/plus.svg';
-import CheckIcon from '../icons/checkmark.svg';
-import DeleteIcon from '../icons/dismiss-x.svg';
+import PlusIcon from '../Icons/plus.svg';
+import CheckIcon from '../Icons/checkmark.svg';
+import DeleteIcon from '../Icons/dismiss-x.svg';
 
 const followText = 'Follow';
 const unfollowText = 'Unfollow';

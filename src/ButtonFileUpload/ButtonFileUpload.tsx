@@ -1,5 +1,5 @@
 import React, { SFC } from 'react';
-import UploadIcon from '../icons/upload-cloud.svg';
+import UploadIcon from '../Icons/upload-cloud.svg';
 import { ButtonFileUploadWrapper } from '../ButtonFileUploadWrapper/ButtonFileUploadWrapper';
 import { ButtonFileUploadProps as Props } from './ButtonFileUploadTypes';
 import { LabelStyled, IconWrapper } from './ButtonFileUploadStyled';

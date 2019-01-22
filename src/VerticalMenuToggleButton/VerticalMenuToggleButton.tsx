@@ -1,5 +1,5 @@
 import React, { SFC } from 'react';
-import RightArrow from '../icons/chevron-right.svg';
+import RightArrow from '../Icons/chevron-right.svg';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { COLORS } from '../Legacy/COLORS';

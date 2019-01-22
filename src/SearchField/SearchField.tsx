@@ -1,7 +1,7 @@
 import React, { SFC } from 'react';
 import { InputText } from '../InputText/InputText';
 import { ButtonInlineInputText } from '../ButtonInlineInputText/ButtonInlineInputText';
-import SearchIcon from '../icons/search.svg';
+import SearchIcon from '../Icons/search.svg';
 import { Omit } from '../Utils/Omit';
 import { SearchFieldProps } from './SearchFieldTypes';
 

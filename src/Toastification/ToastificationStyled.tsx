@@ -1,6 +1,6 @@
 import React from 'react';
 import { ParagraphMd } from '../Type';
-import InfoIcon from '../icons/circle-info.svg';
+import InfoIcon from '../Icons/circle-info.svg';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { COLORS } from '../Legacy/COLORS';

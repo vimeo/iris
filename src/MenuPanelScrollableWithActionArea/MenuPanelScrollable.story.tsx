@@ -5,7 +5,7 @@ import { MenuPanelScrollableWithActionArea } from './MenuPanelScrollableWithActi
 import { InputText } from '../InputText/InputText';
 import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
 import { MenuPanel } from '../MenuPanel/MenuPanel';
-import SettingsIcon from '../icons/gear.svg';
+import SettingsIcon from '../Icons/gear.svg';
 
 storiesOf('components/Menu Panel', module).add(
     'scrollable',

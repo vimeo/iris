@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
-import SelectedIcon from '../icons/checkmark.svg';
+import SelectedIcon from '../Icons/checkmark.svg';
 import { COLORS } from '../Legacy/COLORS';
 import { MenuPanelListItemThemes } from './MenuPanelListItemTypes';
 

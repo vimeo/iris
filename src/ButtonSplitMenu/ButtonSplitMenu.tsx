@@ -3,7 +3,7 @@ import React, { SFC } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { Button } from '../Button/Button';
-import ChevronDown from '../icons/chevron-down.svg';
+import ChevronDown from '../Icons/chevron-down.svg';
 import { MenuPanel } from '../MenuPanel/MenuPanel';
 import { ButtonIconElement } from '../Button/ButtonIconElement';
 import {

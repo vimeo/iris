@@ -1,6 +1,6 @@
 import React, { SFC } from 'react';
-import AlertIcon from '../icons/circle-warning.svg';
-import SuccessIcon from '../icons/checkmark.svg';
+import AlertIcon from '../Icons/circle-warning.svg';
+import SuccessIcon from '../Icons/checkmark.svg';
 import styled from 'styled-components';
 import { keyframes } from 'styled-components';
 import { COLORS } from '../Legacy/COLORS';

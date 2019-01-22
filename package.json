@@ -2,7 +2,7 @@
     "name": "@vimeo/iris",
     "author": "Vimeo",
     "homepage": "https://github.vimeows.com/pages/vimeo/iris/master/",
-    "version": "7.0.0-alpha.1",
+    "version": "7.0.0-alpha.2",
     "license": "ISC",
     "description": "Iris UI Pattern Framework",
     "main": "index.js",
@@ -64,7 +64,7 @@
 
         "storybook": "start-storybook -p 9001 -c .storybook",
 
-        "svg": "npm run svg-min; cp -r ./src/icons ./dist/; cp -r ./src/illustrations ./dist/;",
+        "svg": "npm run svg-min; cp -r ./src/Icons ./dist/; cp -r ./src/Illustrations ./dist/;",
         "svg-min": "node scripts/svg",
 
         "build": "npm run clean; tsc; npm run svg",

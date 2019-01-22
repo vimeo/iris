@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { COLORS } from '../Legacy/COLORS';
 import { darken, rem, rgba } from 'polished';
 import { css } from 'styled-components';
-import DotsMenuIcon from '../icons/dots-menu.svg';
+import DotsMenuIcon from '../Icons/dots-menu.svg';
 
 const speed = '100ms';
 const activeColor = COLORS.Porcelain;

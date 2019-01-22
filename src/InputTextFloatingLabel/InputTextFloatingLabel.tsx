@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { InputWrapper } from '../InputWrapper/InputWrapper';
-import EyeIcon from '../icons/eye.svg';
-import EyeOffIcon from '../icons/eye-off.svg';
+import EyeIcon from '../Icons/eye.svg';
+import EyeOffIcon from '../Icons/eye-off.svg';
 import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 import {
     InputTextFloatingLabelProps as Props,

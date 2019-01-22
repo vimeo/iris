@@ -2,7 +2,7 @@ import React, { SFC, HTMLProps } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { mediaQuery } from '../Layout/MediaQuery';
-import ChevronRight from '../icons/chevron-right.svg';
+import ChevronRight from '../Icons/chevron-right.svg';
 import { ParagraphMd } from '../Type';
 import { TypeProps } from '../Type/TypeTypes';
 import { COLORS } from '../Legacy/COLORS';
