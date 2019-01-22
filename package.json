@@ -60,14 +60,19 @@
     },
     "scripts": {
         "dev": "tsc -w",
-        "clean": "rm -rf dist",
+        "clean": "rm -rf dist; find . -maxdepth 1 -type d -name \"dist-*\" -exec rm -rf \"{}\" \\;",
+
         "storybook": "start-storybook -p 9001 -c .storybook",
+
         "svg": "npm run svg-min; cp -r ./src/icons ./dist/; cp -r ./src/illustrations ./dist/;",
         "svg-min": "node scripts/svg",
+
         "build": "npm run clean; tsc; npm run svg",
         "build-storybook": "build-storybook -c .storybook -o build-styleguide",
-        "prepublishOnly": "npm run lint; npm run build; cp -r ./modules/* ./",
-        "postpublish": "rm color.d.ts color.js components.d.ts components.js icons.d.ts icons.js illustration.d.ts illustration.js index.d.ts index.js layout.d.ts layout.js legacy.d.ts legacy.js motion.d.ts motion.js typography.d.ts typography.js utils.d.ts utils.js",
+
+        "prepublishOnly": "npm run lint; npm run build; node scripts/uid-dist; cp -r ./modules/* ./",
+        "postpublish": "npm run clean; rm color.d.ts color.js components.d.ts components.js icons.d.ts icons.js illustration.d.ts illustration.js index.d.ts index.js layout.d.ts layout.js legacy.d.ts legacy.js motion.d.ts motion.js typography.d.ts typography.js utils.d.ts utils.js",
+
         "lint": "tslint 'src/**/*.{ts,tsx}' -e '**/*.story.tsx'; prettier --list-different 'src/**/*.{ts,tsx}'",
         "lint-pretty": "tslint 'src/**/*.{ts,tsx}' -e '**/*.story.tsx' -t codeFrame; prettier --list-different 'src/**/*.{ts,tsx}'"
     },
