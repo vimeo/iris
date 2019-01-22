@@ -1,1 +1,1 @@
-export * from './dist-f599ab873082/Type';
+export * from './dist-3796d36e7b39/Type';
