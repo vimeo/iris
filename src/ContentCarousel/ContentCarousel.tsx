@@ -37,7 +37,7 @@ export class ContentCarousel extends Component<
 
     _addA11yAttributesToLiveSlide = item => {
         /* clear existing attribute if any */
-        const el = findDOMNode(this);
+        const el = findDOMNode(this) as Element;
         const previousSlide = el && el.querySelector('[aria-live]');
 
         if (previousSlide instanceof HTMLElement) {
