@@ -1,13 +1,10 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { Button } from './Button';
 import styled from 'styled-components';
-
-import ShareIcon from '../Icons/paper-plane.svg';
-import HeartIcon from '../Icons/heart.svg';
-import DownloadIcon from '../Icons/download-arrow.svg';
-
+import { storiesOf } from '@storybook/react';
 import { text, select } from '@storybook/addon-knobs';
+
+import { Button } from './Button';
+import { DownloadArrow, Heart, PaperPlane } from '../Icons';
 
 const ButtonCropped = styled(Button)`
     max-width: 150px;
@@ -112,13 +109,13 @@ storiesOf('components/Button', module)
         () => (
             <div data-code>
                 <div>
-                    <Button size="lg" format="warning" icon={<ShareIcon />}>
+                    <Button size="lg" format="warning" icon={<PaperPlane />}>
                         warning lg
                     </Button>
                     <Button
                         size="lg"
                         format="success"
-                        icon={<DownloadIcon />}
+                        icon={<DownloadArrow />}
                         iconLocation="afterLabel"
                     >
                         Success lg
@@ -130,7 +127,7 @@ storiesOf('components/Button', module)
                     </Button>
                     <Button
                         format="secondaryOutline"
-                        icon={<HeartIcon />}
+                        icon={<Heart />}
                         iconLocation="afterLabel"
                     >
                         Secondary Outline

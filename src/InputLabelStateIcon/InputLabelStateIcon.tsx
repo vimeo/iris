@@ -1,6 +1,5 @@
 import React, { SFC } from 'react';
-import AlertIcon from '../Icons/circle-warning.svg';
-import SuccessIcon from '../Icons/checkmark.svg';
+import { CircleWarning, Checkmark } from '../Icons';
 import styled from 'styled-components';
 import { keyframes } from 'styled-components';
 import * as COLORS from '../Color/Color';
@@ -27,9 +26,9 @@ const iconColor = ({ format }) =>
 
 const IconStyled = styled(({ format, ...props }: Props) =>
     format === 'positive' ? (
-        <SuccessIcon {...props} />
+        <Checkmark {...props} />
     ) : (
-        <AlertIcon {...props} />
+        <CircleWarning {...props} />
     ),
 )`
     width: 1.125rem;

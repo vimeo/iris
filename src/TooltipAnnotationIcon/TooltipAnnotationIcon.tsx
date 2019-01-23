@@ -1,6 +1,6 @@
 import React, { ReactNode, SFC } from 'react';
 import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
-import InfoIcon from '../Icons/circle-info.svg';
+import { CircleInfo } from '../Icons';
 import {
     TooltipAnnotationIconStyled,
     IconWrapper,
@@ -34,7 +34,7 @@ export const TooltipAnnotationIcon: SFC<Props> = ({
                     e.stopPropagation();
                 }}
             >
-                <InfoIcon />
+                <CircleInfo />
             </TooltipOverlay>
         </IconWrapper>
     </TooltipAnnotationIconStyled>

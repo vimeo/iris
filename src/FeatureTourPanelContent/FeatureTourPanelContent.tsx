@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { HeaderAltSm, Header5, ParagraphMd } from '../Type';
 import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
-import DismissIcon from '../Icons/dismiss-x.svg';
+import { DismissX } from '../Icons';
 import * as COLORS from '../Color/Color';
 
 export interface FeatureTourPanelContentProps {
@@ -85,7 +85,7 @@ export const FeatureTourPanelContent = ({
         <FeatureTourPanelContentStyled {...props}>
             <DismissButtonStyled
                 {...dismissButtonProps}
-                icon={<DismissIcon title={dismissButtonA11yLabel} />}
+                icon={<DismissX />}
                 format="lightTransparent"
                 size="sm"
                 onClick={handleClick}

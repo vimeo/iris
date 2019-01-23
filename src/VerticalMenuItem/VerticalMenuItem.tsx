@@ -82,7 +82,7 @@ export class VerticalMenuItem extends Component<Props, State> {
 
         const NestedMenuButton = (
             <ButtonIconOnly
-                icon={<DotsMenuIconStyled title={nestedButtonLabel} />}
+                icon={<DotsMenuIconStyled />}
                 format="dark"
                 size="sm"
                 isButtonElement={false}

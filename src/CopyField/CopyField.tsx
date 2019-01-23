@@ -1,6 +1,6 @@
 import React, { SFC } from 'react';
 import { CopyFieldProps, CopyButtonProps } from './CopyFieldTypes';
-import ClipboardIcon from '../Icons/clipboard.svg';
+import { Clipboard } from '../Icons';
 import { withCopyAbility } from '../withCopyAbility/withCopyAbility';
 import { InputText } from '../InputText/InputText';
 import { ButtonInlineInputText } from '../ButtonInlineInputText/ButtonInlineInputText';
@@ -30,7 +30,7 @@ export const CopyField: SFC<CopyFieldProps> = ({
             <CopyButton
                 data-button-trigger
                 format={buttonFormat}
-                icon={<ClipboardIcon />}
+                icon={<Clipboard />}
                 size={size}
                 stringToCopy={stringToCopy}
                 successMessage={successMessage}

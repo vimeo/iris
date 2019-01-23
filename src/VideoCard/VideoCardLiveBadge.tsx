@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { ParagraphSm } from '../Type';
-import CircleIcon from '../Icons/circle-filled.svg';
+import { CircleFilled } from '../Icons';
 import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 
@@ -61,7 +61,7 @@ export const VideoCardLiveBadge: SFC<VideoCardLiveBadge> = ({
     <VideoCardLiveBadgeStyled>
         <VideoCardLiveBadgeTextStyled format="white">
             <LiveIconStyled>
-                <CircleIcon />
+                <CircleFilled />
             </LiveIconStyled>
             {liveLabelString}
         </VideoCardLiveBadgeTextStyled>

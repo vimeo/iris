@@ -1,5 +1,5 @@
 import React, { SFC } from 'react';
-import UploadIcon from '../Icons/upload-cloud.svg';
+import { UploadCloud } from '../Icons';
 import { ButtonFileUploadWrapper } from '../ButtonFileUploadWrapper/ButtonFileUploadWrapper';
 import { LabelStyled, SpanStyled } from './ButtonFileUploadIconOnlyStyled';
 import { BFUIOFocus as FocusOutline } from './ButtonFileIploadIconOnlyFocus';
@@ -25,7 +25,7 @@ export const ButtonFileUploadIconOnly: SFC<Props> = ({
     <ButtonFileUploadWrapper id={id} name={name} inputElementProps={props}>
         <LabelStyled htmlFor={id} size={size} inputElementProps={props}>
             <SpanStyled>
-                <UploadIcon title={label} />
+                <UploadCloud />
             </SpanStyled>
         </LabelStyled>
         <FocusOutline />

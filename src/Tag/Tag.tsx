@@ -2,7 +2,7 @@ import React, { SFC, ReactNode } from 'react';
 import { Button } from '../Button/Button';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import DeleteIcon from '../Icons/dismiss-x.svg';
+import { DismissX } from '../Icons';
 import { ButtonFocus } from '../Button/ButtonFocus';
 
 export interface TagProps {
@@ -58,7 +58,7 @@ export const Tag: SFC<TagProps> = ({
 const iconProps = onDismiss =>
     onDismiss
         ? ({
-              icon: <DeleteIcon />,
+              icon: <DismissX />,
               iconLocation: 'afterLabel',
           } as IconProps)
         : {};

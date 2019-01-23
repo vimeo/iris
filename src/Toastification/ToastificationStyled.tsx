@@ -1,6 +1,6 @@
 import React from 'react';
 import { ParagraphMd } from '../Type';
-import InfoIcon from '../Icons/circle-info.svg';
+import { CircleInfo } from '../Icons';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import * as COLORS from '../Color/Color';
@@ -68,7 +68,7 @@ export const Content = styled(ParagraphMd)`
     }
 `;
 
-export const InfoIconStyled = styled(InfoIcon)`
+export const InfoIconStyled = styled(CircleInfo)`
     position: absolute;
     top: ${rem(10)};
     left: ${rem(16)};

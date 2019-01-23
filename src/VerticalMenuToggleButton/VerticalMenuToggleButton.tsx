@@ -1,5 +1,5 @@
 import React, { SFC } from 'react';
-import RightArrow from '../Icons/chevron-right.svg';
+import { ChevronRight } from '../Icons';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import * as COLORS from '../Color/Color';
@@ -14,7 +14,7 @@ export const VerticalMenuToggleButton: SFC<Props> = ({
     ...props
 }) => (
     <ButtonStyled {...props}>
-        <RightArrowStyled title={nestedButtonLabel} />
+        <ChevronRightStyled />
     </ButtonStyled>
 );
 
@@ -32,7 +32,7 @@ const ButtonStyled = styled.button`
         background-color: rgba(162, 175, 184, 0.16);
     }
 `;
-const RightArrowStyled = styled(RightArrow)`
+const ChevronRightStyled = styled(ChevronRight)`
     position: absolute;
     top: ${rem(1)};
     left: ${rem(2)};

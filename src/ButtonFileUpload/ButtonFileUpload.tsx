@@ -1,5 +1,5 @@
 import React, { SFC } from 'react';
-import UploadIcon from '../Icons/upload-cloud.svg';
+import { UploadCloud } from '../Icons';
 import { ButtonFileUploadWrapper } from '../ButtonFileUploadWrapper/ButtonFileUploadWrapper';
 import { ButtonFileUploadProps as Props } from './ButtonFileUploadTypes';
 import { LabelStyled, IconWrapper } from './ButtonFileUploadStyled';
@@ -28,7 +28,7 @@ export const ButtonFileUpload: SFC<Props> = ({
         >
             {showIcon && (
                 <IconWrapper size={size}>
-                    <UploadIcon />
+                    <UploadCloud />
                 </IconWrapper>
             )}
             {label}

@@ -1,5 +1,5 @@
 import React, { SFC, HTMLProps } from 'react';
-import DeleteIcon from '../Icons/dismiss-x.svg';
+import { DismissX } from '../Icons';
 import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
 import { ButtonDialogCloseProps as Props } from './ButtonDialogCloseTypes';
 import { Omit } from '../Utils/Omit';
@@ -20,7 +20,7 @@ export const ButtonDialogClose: SFC<
         className={className}
         autoSpacingHorizontal={autoSpacingHorizontal}
         format={format}
-        icon={<DeleteIcon title={buttonTitle} />}
+        icon={<DismissX />}
         isButtonElement={isButtonElement}
         size={size}
         type="button"

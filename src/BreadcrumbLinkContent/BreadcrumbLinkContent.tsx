@@ -2,7 +2,7 @@ import React, { SFC, HTMLProps } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { mediaQuery } from '../Layout/MediaQuery';
-import ArrowLeft from '../Icons/arrow-left.svg';
+import { ArrowLeft } from '../Icons';
 import { ARROWLEFT_CLASSNAME } from '../Breadcrumb/Breadcrumb';
 
 const ArrowLeftWrapper = styled.span`

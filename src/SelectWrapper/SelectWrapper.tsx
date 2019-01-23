@@ -4,7 +4,7 @@ import { rem } from 'polished';
 import { Omit } from '../Utils/Omit';
 import { InputProps, InputStyleSettings } from '../InputText/InputHelpers';
 import { InputWrapper } from '../InputWrapper/InputWrapper';
-import ChevronIris from '../Icons/chevron-down.svg';
+import { ChevronDown } from '../Icons';
 
 export interface SelectWrapperProps
     extends InputProps,
@@ -128,7 +128,7 @@ export const SelectWrapper: SFC<SelectWrapperProps> = ({
                 disabled={disabled}
                 theme={theme}
             >
-                <ChevronIris />
+                <ChevronDown />
             </ArrowWrapperStyled>
         </WrapperStyled>
     </InputWrapper>

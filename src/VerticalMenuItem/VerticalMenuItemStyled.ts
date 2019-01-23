@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import * as COLORS from '../Color/Color';
 import { darken, rem, rgba } from 'polished';
 import { css } from 'styled-components';
-import DotsMenuIcon from '../Icons/dots-menu.svg';
+import { DotsMenu } from '../Icons';
 
 const speed = '100ms';
 const activeColor = COLORS.Porcelain;
@@ -79,6 +79,6 @@ export const NestedMenu = styled.div<{
     ${props => props.isShowing && props.isHovered && truncation(hoverColor)};
 `;
 
-export const DotsMenuIconStyled = styled(DotsMenuIcon)`
+export const DotsMenuIconStyled = styled(DotsMenu)`
     transform: rotate(90deg);
 `;

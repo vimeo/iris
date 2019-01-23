@@ -2,7 +2,7 @@ import React, { SFC, HTMLProps } from 'react';
 import { AddNewItemCardProps as Props } from './AddNewItemCardTypes';
 import { Wrapper, Card, Anchor } from './AddNewItemStyled';
 import { ParagraphAltMd } from '../Type';
-import CirclePlusIcon from '../Icons/circle-plus.svg';
+import { CirclePlus } from '../Icons';
 import { ANICFocusOutline as FocusOutline } from './AddNewItemCardFocusStyled';
 
 export const AddNewItemCard: SFC<Props & HTMLProps<HTMLDivElement>> = ({
@@ -14,7 +14,7 @@ export const AddNewItemCard: SFC<Props & HTMLProps<HTMLDivElement>> = ({
         <Card>
             <Anchor {...anchorProps}>
                 <span>
-                    <CirclePlusIcon />
+                    <CirclePlus />
                 </span>
                 <ParagraphAltMd>{text}</ParagraphAltMd>
                 <FocusOutline />

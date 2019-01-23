@@ -5,7 +5,7 @@ import {
     LinkStyled,
     LinkIconWrapperStyled,
     ListItemStyled,
-    SelectedIconElementStyled,
+    CheckmarkStyled,
 } from './MenuPanelListItemStyled';
 import { ParagraphMd } from '../Type';
 
@@ -32,7 +32,7 @@ export const MenuPanelListItem: SFC<MenuPanelListItemProps> = ({
         <ListItemStyled>
             <Element href={href} {...menuItemProps}>
                 <LinkStyled theme={theme}>
-                    {isSelected && <SelectedIconElementStyled />}
+                    {isSelected && <CheckmarkStyled />}
                     <LabelStyled>
                         {linkIconElement}
                         <ParagraphMd

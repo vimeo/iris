@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { ButtonIconOnly } from './ButtonIconOnly';
-import SettingsIcon from '../Icons/gear.svg';
+import { SettingsIcon } from '../Icons';
 import styled from 'styled-components';
 
 const Format = styled.h6`

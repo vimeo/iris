@@ -14,12 +14,12 @@ import { GridBlock } from '../GridBlock/GridBlock';
 import { MenuPanelList } from '../MenuPanelList/MenuPanelList';
 import { Header3, Header4, ParagraphMd } from '../Type';
 import { Button } from '../Button/Button';
-import PopOutIcon from '../Icons/pop-out.svg';
-import CirclePlusIcon from '../Icons/circle-plus.svg';
-import FolderIcon from '../Icons/folder.svg';
-import HomeIcon from '../Icons/home.svg';
-import HomeFilledIcon from '../Icons/home-filled.svg';
-import SettingsIcon from '../Icons/gear.svg';
+import { PopOutIcon } from '../Icons';
+import { CirclePlusIcon } from '../Icons';
+import { FolderIcon } from '../Icons';
+import { HomeIcon } from '../Icons';
+import { HomeFilledIcon } from '../Icons';
+import { SettingsIcon } from '../Icons';
 import * as COLORS from '../Color/Color';
 import styled from 'styled-components';
 

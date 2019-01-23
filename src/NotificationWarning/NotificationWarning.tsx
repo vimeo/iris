@@ -1,12 +1,12 @@
 import React, { SFC, HTMLProps } from 'react';
 import { Notification } from '../Notification/Notification';
-import WarningIcon from '../Icons/circle-warning.svg';
+import { CircleWarning } from '../Icons';
 
 export const NotificationWarning: SFC<
     { hasIcon?: boolean } & HTMLProps<HTMLDivElement>
 > = ({ children, hasIcon = true, ...props }) => (
     <Notification
-        icon={hasIcon ? <WarningIcon /> : null}
+        icon={hasIcon ? <CircleWarning /> : null}
         variant="warning"
         {...props}
     >

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
-import SelectedIcon from '../Icons/checkmark.svg';
+import { Checkmark } from '../Icons';
 import * as COLORS from '../Color/Color';
 import { MenuPanelListItemThemes } from './MenuPanelListItemTypes';
 
@@ -23,7 +23,7 @@ export const LabelStyled = styled.span`
     }
 `;
 
-export const SelectedIconElementStyled = styled(SelectedIcon)`
+export const CheckmarkStyled = styled(Checkmark)`
     position: absolute;
     top: ${rem(11)};
     left: 0.25rem;

@@ -1,7 +1,7 @@
 import React, { SFC } from 'react';
 import { InputText } from '../InputText/InputText';
 import { ButtonInlineInputText } from '../ButtonInlineInputText/ButtonInlineInputText';
-import SearchIcon from '../Icons/search.svg';
+import { Search } from '../Icons';
 import { Omit } from '../Utils/Omit';
 import { SearchFieldProps } from './SearchFieldTypes';
 
@@ -12,7 +12,7 @@ export const SearchField: SFC<
     buttonLabel,
     buttonProps,
     fieldLabel,
-    icon = <SearchIcon />,
+    icon = <Search />,
     isInline = true,
     showLabel = false,
     size = 'md',

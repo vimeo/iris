@@ -6,7 +6,7 @@ import Swipeable from 'react-swipeable';
 import throttle from 'lodash.throttle';
 import { Header4 } from '../Type/Header4';
 import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
-import ChevronRight from '../Icons/chevron-right.svg';
+import { ChevronRight } from '../Icons';
 
 const TRUNCATION_WIDTH = 100;
 
@@ -531,16 +531,14 @@ export class SteppedContentSlider extends Component<
                                 </AdditionalControlAreaStyled>
                             )}
                             <ButtonIconOnly
-                                icon={
-                                    <ChevronRightStyled title={previousLabel} />
-                                }
+                                icon={<ChevronRightStyled />}
                                 format={buttonFormat}
                                 size="md"
                                 onClick={this._onPreviousStepClick}
                                 disabled={!this.state.showPrevious}
                             />
                             <ButtonIconOnly
-                                icon={<ChevronRight title={nextLabel} />}
+                                icon={<ChevronRight />}
                                 format={buttonFormat}
                                 size="md"
                                 onClick={this._onNextStepClick}

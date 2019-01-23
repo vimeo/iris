@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { InputWrapper } from '../InputWrapper/InputWrapper';
-import EyeIcon from '../Icons/eye.svg';
-import EyeOffIcon from '../Icons/eye-off.svg';
+import { Eye, EyeOff } from '../Icons';
 import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 import {
     InputTextFloatingLabelProps as Props,
@@ -147,9 +146,9 @@ export class InputTextFloatingLabel extends Component<Props, State> {
                                     type="button"
                                 >
                                     {this.state.passwordHidden ? (
-                                        <EyeIcon />
+                                        <Eye />
                                     ) : (
-                                        <EyeOffIcon />
+                                        <EyeOff />
                                     )}
                                 </ToggleButton>
                             </TooltipOverlay>

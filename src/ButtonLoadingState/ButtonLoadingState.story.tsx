@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 import { ButtonLoadingState } from './ButtonLoadingState';
-import SettingsIcon from '../Icons/gear.svg';
+import { SettingsIcon } from '../Icons';
 
 storiesOf('components/Button', module).add(
     'loading state',

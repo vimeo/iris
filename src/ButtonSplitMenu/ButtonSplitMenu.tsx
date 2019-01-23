@@ -3,7 +3,7 @@ import React, { SFC } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { Button } from '../Button/Button';
-import ChevronDown from '../Icons/chevron-down.svg';
+import { ChevronDown } from '../Icons';
 import { MenuPanel } from '../MenuPanel/MenuPanel';
 import { ButtonIconElement } from '../Button/ButtonIconElement';
 import {
@@ -185,7 +185,7 @@ export const ButtonSplitMenu: SFC<
                         onClick={menuButtonOnClick}
                     >
                         <ButtonIconElement size={size}>
-                            <ChevronDown title={menuButtonA11yLabel} />
+                            <ChevronDown />
                         </ButtonIconElement>
                     </MenuButtonStyled>
                 </MenuPanel>

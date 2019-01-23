@@ -1,8 +1,7 @@
 import React, { SFC } from 'react';
 import { InputLabel } from '../InputLabel/InputLabel';
 import { InputMessageArea } from '../InputMessageArea/InputMessageArea';
-import SuccessIcon from '../Icons/checkmark.svg';
-import AlertIcon from '../Icons/circle-warning.svg';
+import { Checkmark, CircleWarning } from '../Icons';
 import { Omit } from '../Utils/Omit';
 import {
     IconStyled,
@@ -63,9 +62,9 @@ export const InputWrapper: SFC<InputWrapperProps> = ({
                 {format !== 'neutral' && (
                     <IconStyled format={format} iconSize={size}>
                         {format === 'positive' ? (
-                            <SuccessIcon />
+                            <Checkmark />
                         ) : (
-                            <AlertIcon />
+                            <CircleWarning />
                         )}
                     </IconStyled>
                 )}

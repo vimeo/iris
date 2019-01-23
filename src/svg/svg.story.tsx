@@ -1,12 +1,12 @@
 import React, { SFC } from 'react';
+import styled, { css } from 'styled-components';
 import { storiesOf } from '@storybook/react';
-import * as Icons from './iconList.js';
-import * as Illustrations from './illustrationList.js';
-import styled from 'styled-components';
+import { select } from '@storybook/addon-knobs';
+
+import * as Icons from '../Icons';
+import * as Illustrations from '../Illustrations';
 import { HeaderPlusUltra, Header2, Header4 } from '../Type';
 import * as COLORS from '../Color/Color';
-import { css } from 'styled-components';
-import { select } from '@storybook/addon-knobs';
 
 storiesOf('svg', module)
     .add('icons', () => {
