@@ -1,8 +1,0 @@
-<svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-<g id="rent_16">
-	<rect x="4" y="6" width="8" height="4"/>
-	<path d="M16,11V5c-1.657,0-3-1.343-3-3H3c0,1.657-1.343,3-3,3v6c1.657,0,3,1.343,3,3h10C13,12.343,14.343,11,16,11z M13,10
-		c0,0.552-0.448,1-1,1H4c-0.552,0-1-0.448-1-1V6c0-0.552,0.448-1,1-1h8c0.552,0,1,0.448,1,1V10z"/>
-</g>
-</svg>

@@ -1,8 +1,0 @@
-<svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
-<g id="edit_16">
-	<path d="M11,2V1c0-0.552-0.448-1-1-1H1C0.448,0,0,0.448,0,1v14c0,0.552,0.448,1,1,1h9c0.552,0,1-0.448,1-1v-5l-2,2v2H2V2h7v2L11,2z
-		"/>
-	<path d="M15.707,1.293c-0.391-0.391-1.024-0.391-1.414,0l-8,8L5,12l2.707-1.293l8-8C16.098,2.317,16.098,1.683,15.707,1.293z"/>
-</g>
-</svg>
