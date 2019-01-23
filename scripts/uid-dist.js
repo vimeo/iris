@@ -17,11 +17,8 @@ const updateModules = UID => fs.readdirSync('./modules').forEach((file) => {
 });
 
 if (fs.existsSync('./dist')) {
-    console.log(UID);
     updateDistDir(UID);
-    console.log(UID);
     updateModules(UID);
-    console.log(UID);
 } else {
     console.error(
         "\x1b[31m",
