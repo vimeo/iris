@@ -1,10 +1,7 @@
 const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
 const styledComponentsTransformer = createStyledComponentsTransformer();
 
-module.exports = (baseConfig, env, config) => {
-
-    config.module.rules = config.module.rules.filter(loader => !loader.test.exec('.svg'));
-
+module.exports = (_, _, config) => {
     config.module.rules.push({
         test: /\.(ts|tsx)$/,
         use: [{
@@ -17,23 +14,7 @@ module.exports = (baseConfig, env, config) => {
         }, {
             loader: 'react-docgen-typescript-loader'
         }],
-    }, {
-        test: /\.svg$/,
-        use: [{
-            loader: '@svgr/webpack',
-            options: {
-                svgoConfig: {
-                    plugins: [{
-                        cleanupIDs: {
-                            minify: false
-                        }
-                    }, ],
-                }
-            },
-        }],
     });
-
     config.resolve.extensions.push(".ts", ".tsx");
-
     return config;
 };
