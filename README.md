@@ -108,9 +108,9 @@ import { Button, ButtonIconOnly, ParagraphMd } from '@vimeo/iris';
 
 Import SVG icons into your React app:
 ```jsx
-import { GearIcon } from '@vimeo/iris';
+import { Gear } from '@vimeo/iris';
 
-<GearIcon />
+<Gear />
 
 ```
 

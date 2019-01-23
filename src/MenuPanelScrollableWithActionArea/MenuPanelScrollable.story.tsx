@@ -5,7 +5,7 @@ import { MenuPanelScrollableWithActionArea } from './MenuPanelScrollableWithActi
 import { InputText } from '../InputText/InputText';
 import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
 import { MenuPanel } from '../MenuPanel/MenuPanel';
-import { SettingsIcon } from '../Icons';
+import { Gear } from '../Icons';
 
 storiesOf('components/Menu Panel', module).add(
     'scrollable',
@@ -52,7 +52,7 @@ storiesOf('components/Menu Panel', module).add(
             }
         >
             <ButtonIconOnly
-                icon={<SettingsIcon />}
+                icon={<Gear />}
                 format="dark"
                 size="md"
                 isButtonElement={false}

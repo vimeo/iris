@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 import { ButtonToggleState } from './ButtonToggleState';
-import { PlusIcon } from '../Icons';
-import { CheckIcon } from '../Icons';
-import { DeleteIcon } from '../Icons';
+import { Plus, Checkmark, DismissX } from '../Icons';
 
 const followText = 'Follow';
 const unfollowText = 'Unfollow';
@@ -42,47 +40,47 @@ class ButtonToggleStateDocs extends Component {
             <ButtonToggleState
                 format="primaryOutline"
                 isActive={this.state.following}
-                offIcon={<PlusIcon />}
+                offIcon={<Plus />}
                 offStateText={followText}
-                onIcon={<CheckIcon />}
+                onIcon={<Checkmark />}
                 onStateText={followingText}
                 onClick={this.followToggle}
                 turnOffActionText={unfollowText}
-                turnOffIcon={<DeleteIcon />}
+                turnOffIcon={<DismissX />}
             />
             <ButtonToggleState
                 format="primary"
                 isActive={this.state.following}
-                offIcon={<PlusIcon />}
+                offIcon={<Plus />}
                 offStateText={followText}
-                onIcon={<CheckIcon />}
+                onIcon={<Checkmark />}
                 onStateText={followingText}
                 onClick={this.followToggle}
                 turnOffActionText={unfollowText}
-                turnOffIcon={<DeleteIcon />}
+                turnOffIcon={<DismissX />}
             />
 
             <ButtonToggleState
                 format="primaryOutline"
                 isActive={this.state.connected}
-                offIcon={<PlusIcon />}
+                offIcon={<Plus />}
                 offStateText={connectText}
-                onIcon={<CheckIcon />}
+                onIcon={<Checkmark />}
                 onStateText={connectedText}
                 onClick={this.connectToggle}
                 turnOffActionText={disconnectText}
-                turnOffIcon={<DeleteIcon />}
+                turnOffIcon={<DismissX />}
             />
             <ButtonToggleState
                 format="primary"
                 isActive={this.state.connected}
-                offIcon={<PlusIcon />}
+                offIcon={<Plus />}
                 offStateText={connectText}
-                onIcon={<CheckIcon />}
+                onIcon={<Checkmark />}
                 onStateText={connectedText}
                 onClick={this.connectToggle}
                 turnOffActionText={disconnectText}
-                turnOffIcon={<DeleteIcon />}
+                turnOffIcon={<DismissX />}
             />
         </div>
     );

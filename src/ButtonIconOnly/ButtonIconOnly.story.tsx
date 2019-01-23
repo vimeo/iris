@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { ButtonIconOnly } from './ButtonIconOnly';
-import { SettingsIcon } from '../Icons';
+import { Gear } from '../Icons';
 import styled from 'styled-components';
 
 const Format = styled.h6`
@@ -31,66 +31,46 @@ storiesOf('components/Button', module).add(
             >
                 <Format>alternative</Format>
                 <ButtonIconOnly
-                    icon={<SettingsIcon />}
+                    icon={<Gear />}
                     format="alternative"
                     size="md"
                 />
 
                 <Format>dark</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="dark"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="dark" size="md" />
 
                 <Format>transparent</Format>
                 <ButtonIconOnly
-                    icon={<SettingsIcon />}
+                    icon={<Gear />}
                     format="transparent"
                     size="md"
                 />
 
                 <Format>lightTransparent</Format>
                 <ButtonIconOnly
-                    icon={<SettingsIcon />}
+                    icon={<Gear />}
                     format="lightTransparent"
                     size="md"
                 />
 
                 <Format>lightWarning</Format>
                 <ButtonIconOnly
-                    icon={<SettingsIcon />}
+                    icon={<Gear />}
                     format="lightWarning"
                     size="md"
                 />
 
                 <Format>midDark</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="midDark"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="midDark" size="md" />
 
                 <Format>primary</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="primary"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="primary" size="md" />
 
                 <Format>secondary</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="secondary"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="secondary" size="md" />
 
                 <Format>warning</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="warning"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="warning" size="md" />
             </div>
             <div
                 style={{
@@ -103,66 +83,46 @@ storiesOf('components/Button', module).add(
             >
                 <Format>alternative</Format>
                 <ButtonIconOnly
-                    icon={<SettingsIcon />}
+                    icon={<Gear />}
                     format="alternative"
                     size="md"
                 />
 
                 <Format>dark</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="dark"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="dark" size="md" />
 
                 <Format>transparent</Format>
                 <ButtonIconOnly
-                    icon={<SettingsIcon />}
+                    icon={<Gear />}
                     format="transparent"
                     size="md"
                 />
 
                 <Format>lightTransparent</Format>
                 <ButtonIconOnly
-                    icon={<SettingsIcon />}
+                    icon={<Gear />}
                     format="lightTransparent"
                     size="md"
                 />
 
                 <Format>lightWarning</Format>
                 <ButtonIconOnly
-                    icon={<SettingsIcon />}
+                    icon={<Gear />}
                     format="lightWarning"
                     size="md"
                 />
 
                 <Format>midDark</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="midDark"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="midDark" size="md" />
 
                 <Format>primary</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="primary"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="primary" size="md" />
 
                 <Format>secondary</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="secondary"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="secondary" size="md" />
 
                 <Format>warning</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="warning"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="warning" size="md" />
             </div>
             <div
                 style={{
@@ -193,66 +153,46 @@ storiesOf('components/Button', module).add(
                 />
                 <Format>alternative</Format>
                 <ButtonIconOnly
-                    icon={<SettingsIcon />}
+                    icon={<Gear />}
                     format="alternative"
                     size="md"
                 />
 
                 <Format>dark</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="dark"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="dark" size="md" />
 
                 <Format>transparent</Format>
                 <ButtonIconOnly
-                    icon={<SettingsIcon />}
+                    icon={<Gear />}
                     format="transparent"
                     size="md"
                 />
 
                 <Format>lightTransparent</Format>
                 <ButtonIconOnly
-                    icon={<SettingsIcon />}
+                    icon={<Gear />}
                     format="lightTransparent"
                     size="md"
                 />
 
                 <Format>lightWarning</Format>
                 <ButtonIconOnly
-                    icon={<SettingsIcon />}
+                    icon={<Gear />}
                     format="lightWarning"
                     size="md"
                 />
 
                 <Format>midDark</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="midDark"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="midDark" size="md" />
 
                 <Format>primary</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="primary"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="primary" size="md" />
 
                 <Format>secondary</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="secondary"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="secondary" size="md" />
 
                 <Format>warning</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="warning"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="warning" size="md" />
             </div>
             <div
                 style={{
@@ -268,66 +208,46 @@ storiesOf('components/Button', module).add(
             >
                 <Format>alternative</Format>
                 <ButtonIconOnly
-                    icon={<SettingsIcon />}
+                    icon={<Gear />}
                     format="alternative"
                     size="md"
                 />
 
                 <Format>dark</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="dark"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="dark" size="md" />
 
                 <Format>transparent</Format>
                 <ButtonIconOnly
-                    icon={<SettingsIcon />}
+                    icon={<Gear />}
                     format="transparent"
                     size="md"
                 />
 
                 <Format>lightTransparent</Format>
                 <ButtonIconOnly
-                    icon={<SettingsIcon />}
+                    icon={<Gear />}
                     format="lightTransparent"
                     size="md"
                 />
 
                 <Format>lightWarning</Format>
                 <ButtonIconOnly
-                    icon={<SettingsIcon />}
+                    icon={<Gear />}
                     format="lightWarning"
                     size="md"
                 />
 
                 <Format>midDark</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="midDark"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="midDark" size="md" />
 
                 <Format>primary</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="primary"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="primary" size="md" />
 
                 <Format>secondary</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="secondary"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="secondary" size="md" />
 
                 <Format>warning</Format>
-                <ButtonIconOnly
-                    icon={<SettingsIcon />}
-                    format="warning"
-                    size="md"
-                />
+                <ButtonIconOnly icon={<Gear />} format="warning" size="md" />
             </div>
         </div>
     ),

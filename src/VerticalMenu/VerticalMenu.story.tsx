@@ -14,12 +14,9 @@ import { GridBlock } from '../GridBlock/GridBlock';
 import { MenuPanelList } from '../MenuPanelList/MenuPanelList';
 import { Header3, Header4, ParagraphMd } from '../Type';
 import { Button } from '../Button/Button';
-import { PopOutIcon } from '../Icons';
-import { CirclePlusIcon } from '../Icons';
-import { FolderIcon } from '../Icons';
-import { HomeIcon } from '../Icons';
-import { HomeFilledIcon } from '../Icons';
-import { SettingsIcon } from '../Icons';
+
+import { PopOut, CirclePlus, Folder, Home, HomeFilled, Gear } from '../Icons';
+
 import * as COLORS from '../Color/Color';
 import styled from 'styled-components';
 
@@ -31,13 +28,13 @@ storiesOf('components/VerticalMenu', module)
                 <VerticalMenuNested
                     actionButton={
                         <VerticalMenuActionButton
-                            icon={<CirclePlusIcon title="Add New Item" />}
+                            icon={<CirclePlus />}
                             tooltipText="click to add new item"
                         />
                     }
                     label="Menu Label"
                     labelId="testMenu"
-                    labelIcon={<FolderIcon />}
+                    labelIcon={<Folder />}
                     subMenuItems={subMenuItems}
                     nestedButtonLabel="toggle menu"
                 />
@@ -141,7 +138,7 @@ class VerticalMenuDemoDocs extends React.Component<any, any> {
                     menuItems={[
                         {
                             label: 'Item 3',
-                            icon: <SettingsIcon />,
+                            icon: <Gear />,
                             href: '#',
                         },
                         {
@@ -157,7 +154,7 @@ class VerticalMenuDemoDocs extends React.Component<any, any> {
                 <GridBlock>
                     <GridColStyled mdSpan={8}>
                         <VerticalMenuHeaderGroup
-                            actionButtonIcon={<CirclePlusIcon />}
+                            actionButtonIcon={<CirclePlus />}
                             actionButtonTooltipText="Tooltip Text"
                             actionButtonOnClick={this._handleClick}
                             label="Section Label 1"
@@ -178,16 +175,14 @@ class VerticalMenuDemoDocs extends React.Component<any, any> {
                             <VerticalMenuNested
                                 actionButton={
                                     <VerticalMenuActionButton
-                                        icon={
-                                            <CirclePlusIcon title="Add New Item" />
-                                        }
+                                        icon={<CirclePlus />}
                                         tooltipText="click to add new item"
                                     />
                                 }
                                 isOpen={!this.state.menuOpen}
                                 label="Menu Label"
                                 labelId="testMenu"
-                                labelIcon={<FolderIcon />}
+                                labelIcon={<Folder />}
                                 nestedButtonLabel="toggle menu"
                                 subMenuItems={subMenuItems}
                             />
@@ -203,7 +198,7 @@ class VerticalMenuDemoDocs extends React.Component<any, any> {
                             <a href="#" onClick={onClickHandler}>
                                 <VerticalMenuItemContent
                                     label="Stand Alone Link With Link Icon"
-                                    linkActionIcon={<PopOutIcon />}
+                                    linkActionIcon={<PopOut />}
                                 />
                             </a>
                         </VerticalMenuItem>
@@ -211,8 +206,8 @@ class VerticalMenuDemoDocs extends React.Component<any, any> {
                             <a href="#" onClick={onClickHandler}>
                                 <VerticalMenuItemContent
                                     label="Stand Alone Link With Label Icon"
-                                    labelIcon={<HomeIcon />}
-                                    labelIconActive={<HomeFilledIcon />}
+                                    labelIcon={<Home />}
+                                    labelIconActive={<HomeFilled />}
                                 />
                             </a>
                         </VerticalMenuItem>

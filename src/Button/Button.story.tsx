@@ -122,7 +122,7 @@ storiesOf('components/Button', module)
                     </Button>
                 </div>
                 <div>
-                    <Button format="alternative" icon={<ShareIcon />}>
+                    <Button format="alternative" icon={<PaperPlane />}>
                         Alternative
                     </Button>
                     <Button
@@ -134,13 +134,13 @@ storiesOf('components/Button', module)
                     </Button>
                 </div>
                 <div>
-                    <Button size="sm" format="primary" icon={<ShareIcon />}>
+                    <Button size="sm" format="primary" icon={<PaperPlane />}>
                         Primary sm
                     </Button>
                     <Button
                         size="sm"
                         format="secondary"
-                        icon={<DownloadIcon />}
+                        icon={<DownloadArrow />}
                         iconLocation="afterLabel"
                     >
                         Secondary sm
@@ -151,14 +151,14 @@ storiesOf('components/Button', module)
                     <Button
                         size="xs"
                         format="primaryOutline"
-                        icon={<ShareIcon />}
+                        icon={<PaperPlane />}
                     >
                         Primary xs
                     </Button>
                     <Button
                         size="xs"
                         format="secondaryOutline"
-                        icon={<ShareIcon />}
+                        icon={<PaperPlane />}
                         iconLocation="afterLabel"
                     >
                         Secondary xs

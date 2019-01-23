@@ -8,11 +8,13 @@ import { Grid } from '../Grid/Grid';
 import { GridCol } from '../GridCol/GridCol';
 import { MenuPanel } from '../MenuPanel/MenuPanel';
 import { ParagraphMd } from '../Type';
-import { SPicon } from '../Illustrations';
-import { FBChip } from '../Icons';
-import { YTChip } from '../Icons';
-import { SendIcon } from '../Icons';
-import { GearIcon } from '../Icons';
+import { StaffPicksBadgeJustSp } from '../Illustrations';
+import {
+    SocialChipFacebook,
+    SocialChipYoutube,
+    PaperPlane,
+    Gear,
+} from '../Icons';
 import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
 import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 import { VideoCardFooterActionsGrid } from './VideoCardFooterActionsGrid';
@@ -24,7 +26,7 @@ storiesOf('components/VideoCard', module).add('basic', () => (
                 <VideoCard
                     onClick={() => console.log('clicked')}
                     onCheckBoxClick={() => console.log('checkbox clicked')}
-                    thumbnailBrandDecorationArea={<SPicon />}
+                    thumbnailBrandDecorationArea={<StaffPicksBadgeJustSp />}
                     thumbnailData={thumbnailData}
                     // @ts-ignore
                     thumbnailSocialBadgeArea={socialBadges}
@@ -65,14 +67,14 @@ const socialBadges = [
         menuContent={<ParagraphMd>Menu Content Here</ParagraphMd>}
         size="md"
     >
-        <FBChip />
+        <SocialChipFacebook />
     </MenuPanel>,
     <MenuPanel
         alignment="left"
         menuContent={<ParagraphMd>Menu Content Here</ParagraphMd>}
         size="md"
     >
-        <YTChip />
+        <SocialChipYoutube />
     </MenuPanel>,
 ];
 
@@ -80,7 +82,7 @@ const actionButtonsFull = [
     <TooltipOverlay tooltipText="Send to a friend 1">
         <ButtonIconOnly
             format="midDark"
-            icon={<SendIcon title="Send to a friend 1" />}
+            icon={<PaperPlane />}
             isButtonElement={false}
             size="sm"
         />
@@ -88,7 +90,7 @@ const actionButtonsFull = [
     <TooltipOverlay tooltipText="Settings 2">
         <ButtonIconOnly
             format="midDark"
-            icon={<GearIcon title="Settings 2" />}
+            icon={<Gear />}
             isButtonElement={false}
             size="sm"
         />
@@ -96,7 +98,7 @@ const actionButtonsFull = [
     <TooltipOverlay tooltipText="Send to a friend 3">
         <ButtonIconOnly
             format="midDark"
-            icon={<SendIcon title="Send to a friend 3" />}
+            icon={<PaperPlane />}
             isButtonElement={false}
             size="sm"
         />
@@ -104,7 +106,7 @@ const actionButtonsFull = [
     <TooltipOverlay tooltipText="Settings 4">
         <ButtonIconOnly
             format="midDark"
-            icon={<GearIcon title="Settings 4" />}
+            icon={<Gear />}
             isButtonElement={false}
             size="sm"
         />
@@ -112,7 +114,7 @@ const actionButtonsFull = [
     <TooltipOverlay tooltipText="Send to a friend 5">
         <ButtonIconOnly
             format="midDark"
-            icon={<SendIcon title="Send to a friend 5" />}
+            icon={<PaperPlane />}
             isButtonElement={false}
             size="sm"
         />

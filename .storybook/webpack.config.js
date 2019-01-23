@@ -1,7 +1,7 @@
 const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
 const styledComponentsTransformer = createStyledComponentsTransformer();
 
-module.exports = (_, _, config) => {
+module.exports = (_1, _2, config) => {
     config.module.rules.push({
         test: /\.(ts|tsx)$/,
         use: [{

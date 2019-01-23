@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 import { ButtonLoadingState } from './ButtonLoadingState';
-import { SettingsIcon } from '../Icons';
+import { Gear } from '../Icons';
 
 storiesOf('components/Button', module).add(
     'loading state',
@@ -37,7 +37,7 @@ class ButtonLoadingStateDocs extends Component {
                 Click Me
             </ButtonLoadingState>
             <ButtonLoadingState
-                icon={<SettingsIcon />}
+                icon={<Gear />}
                 isLoading={this.state.isLoading}
                 onClick={this._handleClick}
                 format="primaryOutline"
@@ -46,7 +46,7 @@ class ButtonLoadingStateDocs extends Component {
                 Click Me
             </ButtonLoadingState>
             <ButtonLoadingState
-                icon={<SettingsIcon />}
+                icon={<Gear />}
                 isLoading={!this.state.isLoading}
                 onClick={this._handleClick}
                 format="success"
