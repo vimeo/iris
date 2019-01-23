@@ -59,12 +59,13 @@
         "styled-components": "^3.5.0-0"
     },
     "scripts": {
-        "dev": "tsc -w",
+        "dev": "npx tsc -w",
         "clean": "rm -rf dist; find . -maxdepth 1 -type d -name \"dist-*\" -exec rm -rf \"{}\" \\;",
         "storybook": "start-storybook -p 9001 -c .storybook",
-        "svg": "npm run svg-min; cp -r ./src/Icons ./dist/; cp -r ./src/Illustrations ./dist/;",
+        "svg": "npm run svg-min; npm run svg-react",
         "svg-min": "node scripts/svg",
-        "build": "npm run clean; tsc; npm run svg",
+        "svg-react": "npx @svgr/cli --template ./scripts/svgr.js --ext tsx -d ./src/icons ./src/icons; rm ./src/Icons/*.svg",
+        "build": "npm run clean; npm run svg; npx tsc",
         "build-storybook": "build-storybook -c .storybook -o build-styleguide",
         "prepublishOnly": "npm run lint; npm run build; node scripts/uid-dist; cp -r ./modules/* ./",
         "postpublish": "npm run clean; rm color.d.ts color.js components.d.ts components.js icons.d.ts icons.js illustration.d.ts illustration.js index.d.ts index.js layout.d.ts layout.js typography.d.ts typography.js",
