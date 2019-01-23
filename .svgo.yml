@@ -1,0 +1,5 @@
+plugins:
+  - removeDimensions: true
+  - removeTitle: true
+  - removeViewBox: false
+  - cleanupIDs: true
