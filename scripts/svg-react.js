@@ -1,3 +1,5 @@
+console.log("\x1b[32m", "Converting SVGs to React components...");
+
 const strip = componentName => componentName.name.replace('Svg', '');
 
 const TS = {
