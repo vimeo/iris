@@ -64,7 +64,7 @@
         "storybook": "start-storybook -p 9001 -c .storybook",
         "svg": "npm run svg-min; npm run svg-react",
         "svg-min": "node scripts/svg",
-        "svg-react": "npx @svgr/cli --template ./scripts/svgr.js --ext tsx -d ./src/icons ./src/icons; rm ./src/Icons/*.svg",
+        "svg-react": "npx @svgr/cli --template ./scripts/svgr.js --ext tsx -d ./src/icons ./src/icons; rm -f ./src/Icons/*.svg",
         "build": "npm run clean; npm run svg; npx tsc",
         "build-storybook": "build-storybook -c .storybook -o build-styleguide",
         "prepublishOnly": "npm run lint; npm run build; node scripts/uid-dist; cp -r ./modules/* ./",

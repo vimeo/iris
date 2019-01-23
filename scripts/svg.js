@@ -52,7 +52,7 @@ const filter = dir =>
         .readdirSync(dir)
         .filter(
             file =>
-                !fs.lstatSync(dir + file).isDirectory() && file !== 'index.ts',
+                !fs.lstatSync(dir + file).isDirectory() && file !== 'index.ts' && file.includes('.svg')
         );
 
 const compress = dir =>
