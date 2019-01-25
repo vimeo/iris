@@ -2,7 +2,7 @@
     "name": "@vimeo/iris",
     "author": "Vimeo",
     "homepage": "https://github.vimeows.com/pages/vimeo/iris/master/",
-    "version": "7.0.0-beta.4",
+    "version": "7.0.0-beta.5",
     "license": "ISC",
     "description": "Iris UI Pattern Framework",
     "main": "index.js",
@@ -87,7 +87,7 @@
         "url": "https://github.vimeows.com/Vimeo/iris.git"
     },
     "engines": {
-        "node": ">=10.0.0",
+        "node": ">=8.0.0",
         "yarn": ">=1.6.0"
     },
     "keywords": [
