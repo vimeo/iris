@@ -1,4 +1,5 @@
 pipeline {
+    NPM_CONFIG_CACHE = "/tmp/.npm",
     agent {
         docker {
             label 'docker'
