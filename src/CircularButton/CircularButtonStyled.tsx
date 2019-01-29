@@ -90,8 +90,7 @@ const maybeAutoMargins = (props: CircularButtonStyledProps) =>
 export const CircularButtonStyled = styled<
   CircularButtonStyledProps,
   any
->(({ icon,
-  autoMarginsHorizontal, ...rest }) => (
+>(({ icon, autoMarginsHorizontal, ...rest }) => (
   <CircularButtonElement icon={icon} {...rest} />
 ))`
   display: inline-block;
