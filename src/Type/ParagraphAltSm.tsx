@@ -4,7 +4,7 @@ import { TypeProps } from './TypeTypes';
 import { Omit } from '../Utils/Omit';
 
 export const ParagraphAltSm: SFC<
-    TypeProps & Omit<React.HTMLProps<HTMLParagraphElement>, 'size'>
+  TypeProps & Omit<React.HTMLProps<HTMLParagraphElement>, 'size'>
 > = ({ element = 'p', format = 'alternative', ...props }) => (
-    <TypeBase element={element} size="sm" format={format} {...props} />
+  <TypeBase element={element} size="sm" format={format} {...props} />
 );

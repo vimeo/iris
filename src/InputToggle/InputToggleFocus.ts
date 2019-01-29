@@ -1,18 +1,21 @@
 import styled from 'styled-components';
 import {
-    FocusOutline,
-    FocusOutlineFocused,
-    FocusOutlineProps,
+  FocusOutline,
+  FocusOutlineFocused,
+  FocusOutlineProps,
 } from '../FocusOutline/FocusOutline';
 import {
-    ToggleWrapper,
-    ToggleLabel,
-    Input,
-    ToggleOverlay,
+  ToggleWrapper,
+  ToggleLabel,
+  Input,
+  ToggleOverlay,
 } from './InputToggleStyled';
 import { rem } from 'polished';
 
-export const InputToggleFocusOutline = styled<FocusOutlineProps, 'div'>('div')`
+export const InputToggleFocusOutline = styled<
+  FocusOutlineProps,
+  'div'
+>('div')`
     ${FocusOutline}
     border-radius: ${rem(13)};
 

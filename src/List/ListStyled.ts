@@ -4,21 +4,21 @@ import { ListItemStyled } from '../ListItem/ListItemStyled';
 import { ListVariableElement } from './ListVariableElement';
 
 const LIST_TYPES = {
-    alphabet: 'lower-alpha',
-    ordered: 'decimal',
-    unordered: 'disc',
-    bare: 'none',
+  alphabet: 'lower-alpha',
+  ordered: 'decimal',
+  unordered: 'disc',
+  bare: 'none',
 };
 
 export const ListStyled = styled<
-    React.HTMLProps<HTMLUListElement> & ListProps,
-    any
+  React.HTMLProps<HTMLUListElement> & ListProps,
+  any
 >(ListVariableElement)`
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 
-    ${ListItemStyled} {
-        list-style-type: ${props =>
-            LIST_TYPES[props.format] || LIST_TYPES.unordered};
-    }
+  ${ListItemStyled} {
+    list-style-type: ${props =>
+      LIST_TYPES[props.format] || LIST_TYPES.unordered};
+  }
 `;

@@ -3,73 +3,74 @@ import styled, { keyframes, css } from 'styled-components';
 import { rem, rgba } from 'polished';
 import * as COLORS from '../Color/Color';
 
-export interface FeatureDotProps extends React.HTMLProps<HTMLSpanElement> {
-    beaconA11yText: string;
-    className?: string;
-    mode?: 'inactive' | 'open' | 'active' | 'hidden';
+export interface FeatureDotProps
+  extends React.HTMLProps<HTMLSpanElement> {
+  beaconA11yText: string;
+  className?: string;
+  mode?: 'inactive' | 'open' | 'active' | 'hidden';
 }
 
 export const FeatureDotStyleSettings = {
-    beaconSize: 14,
-    haloSize: 30,
-    wrapperSize: 46,
-    haloColor: rgba(COLORS.DarkerBlue, 0.25),
+  beaconSize: 14,
+  haloSize: 30,
+  wrapperSize: 46,
+  haloColor: rgba(COLORS.DarkerBlue, 0.25),
 };
 
 interface DotStyledProps extends React.HTMLProps<HTMLSpanElement> {
-    mode: 'inactive' | 'open' | 'active' | 'hidden';
+  mode: 'inactive' | 'open' | 'active' | 'hidden';
 }
 
 const WrapperStyled = styled<DotStyledProps, 'span'>('span')`
-    display: inline-block;
-    overflow: visible;
+  display: inline-block;
+  overflow: visible;
 
-    width: ${rem(FeatureDotStyleSettings.wrapperSize)};
-    height: ${rem(FeatureDotStyleSettings.wrapperSize)};
-    padding: ${props =>
-        props.mode === 'active'
-            ? rem(
-                  (FeatureDotStyleSettings.wrapperSize -
-                      FeatureDotStyleSettings.haloSize) /
-                      2,
-              )
-            : rem(
-                  (FeatureDotStyleSettings.wrapperSize -
-                      FeatureDotStyleSettings.beaconSize) /
-                      2,
-              )};
+  width: ${rem(FeatureDotStyleSettings.wrapperSize)};
+  height: ${rem(FeatureDotStyleSettings.wrapperSize)};
+  padding: ${props =>
+    props.mode === 'active'
+      ? rem(
+          (FeatureDotStyleSettings.wrapperSize -
+            FeatureDotStyleSettings.haloSize) /
+            2,
+        )
+      : rem(
+          (FeatureDotStyleSettings.wrapperSize -
+            FeatureDotStyleSettings.beaconSize) /
+            2,
+        )};
 
-    &:hover {
-        transform: scale(1.14);
-    }
+  &:hover {
+    transform: scale(1.14);
+  }
 `;
 
 const DotStyled = styled<DotStyledProps, 'span'>('span')`
-    display: inline-block;
+  display: inline-block;
 
-    width: ${rem(FeatureDotStyleSettings.beaconSize)};
-    height: ${rem(FeatureDotStyleSettings.beaconSize)};
+  width: ${rem(FeatureDotStyleSettings.beaconSize)};
+  height: ${rem(FeatureDotStyleSettings.beaconSize)};
 
-    border-radius: ${rem(FeatureDotStyleSettings.beaconSize / 2)};
+  border-radius: ${rem(FeatureDotStyleSettings.beaconSize / 2)};
 
-    transition: all 0.1s ease-in-out;
-    text-indent: -9999px;
-    background-color: ${props =>
-        props.mode === 'open' ? COLORS.White : COLORS.DarkerBlue};
+  transition: all 0.1s ease-in-out;
+  text-indent: -9999px;
+  background-color: ${props =>
+    props.mode === 'open' ? COLORS.White : COLORS.DarkerBlue};
 
-    box-shadow: ${props =>
-        props.mode === 'open'
-            ? `0 0 0 ${rem(2)} ${COLORS.DarkerBlue}, 0 ${rem(1)} ${rem(
-                  4,
-              )}  ${rem(2)}  rgba(60,90,153,0.66)`
-            : 'none'};
+  box-shadow: ${props =>
+    props.mode === 'open'
+      ? `0 0 0 ${rem(2)} ${COLORS.DarkerBlue}, 0 ${rem(1)} ${rem(
+          4,
+        )}  ${rem(2)}  rgba(60,90,153,0.66)`
+      : 'none'};
 `;
 
 const startFinishShadow = css`
-    box-shadow: 0 0 ${rem(4)} ${rem(4)} ${rgba(COLORS.VimeoBlue, 0)},
-        0 0 ${rem(8)} ${rem(6)} ${rgba(COLORS.VimeoBlue, 0)} 0 0 0 0
-            rgba(0, 0, 0, 0),
-        0 0 0 0 ${rgba(COLORS.VimeoBlue, 0)};
+  box-shadow: 0 0 ${rem(4)} ${rem(4)} ${rgba(COLORS.VimeoBlue, 0)},
+    0 0 ${rem(8)} ${rem(6)} ${rgba(COLORS.VimeoBlue, 0)} 0 0 0 0
+      rgba(0, 0, 0, 0),
+    0 0 0 0 ${rgba(COLORS.VimeoBlue, 0)};
 `;
 
 const haloKeyframes = keyframes`
@@ -78,7 +79,10 @@ const haloKeyframes = keyframes`
         }
 
         10% {
-            box-shadow: 0 0 ${rem(8)} ${rem(6)} ${rgba(COLORS.DarkerBlue, 0.4)},
+            box-shadow: 0 0 ${rem(8)} ${rem(6)} ${rgba(
+  COLORS.DarkerBlue,
+  0.4,
+)},
             0 0 ${rem(12)} ${rem(10)} rgba(0,0,0,0.0),
             0 0 ${rem(12)} ${rem(14)} ${rgba(COLORS.DarkerBlue, 0.4)};
         }
@@ -98,20 +102,20 @@ const haloKeyframes = keyframes`
     `;
 
 interface HaloStyledProps extends React.HTMLProps<HTMLSpanElement> {
-    isActive: boolean;
+  isActive: boolean;
 }
 
 const HaloStyled = styled<HaloStyledProps, 'span'>('span')`
-    display: inline-block;
-    ${props =>
-        props.isActive
-            ? `
+  display: inline-block;
+  ${props =>
+    props.isActive
+      ? `
         width: ${rem(FeatureDotStyleSettings.haloSize)};
         height: ${rem(FeatureDotStyleSettings.haloSize)};
         padding: ${rem(
-            (FeatureDotStyleSettings.haloSize -
-                FeatureDotStyleSettings.beaconSize) /
-                2,
+          (FeatureDotStyleSettings.haloSize -
+            FeatureDotStyleSettings.beaconSize) /
+            2,
         )};
 
         border-radius: ${rem(FeatureDotStyleSettings.haloSize / 2)};
@@ -128,18 +132,18 @@ const HaloStyled = styled<HaloStyledProps, 'span'>('span')`
         animation: 2500ms infinite ${haloKeyframes};
 
     `
-            : ''};
+      : ''};
 `;
 
 export const FeatureTourDot: SFC<FeatureDotProps> = ({
-    beaconA11yText,
-    mode = 'inactive',
-    ref: _,
-    ...props
+  beaconA11yText,
+  mode = 'inactive',
+  ref: _,
+  ...props
 }) => (
-    <WrapperStyled {...props} mode={mode}>
-        <HaloStyled isActive={mode === 'active'}>
-            <DotStyled mode={mode}>{beaconA11yText}</DotStyled>
-        </HaloStyled>
-    </WrapperStyled>
+  <WrapperStyled {...props} mode={mode}>
+    <HaloStyled isActive={mode === 'active'}>
+      <DotStyled mode={mode}>{beaconA11yText}</DotStyled>
+    </HaloStyled>
+  </WrapperStyled>
 );

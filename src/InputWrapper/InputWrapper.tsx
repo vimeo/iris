@@ -4,79 +4,79 @@ import { InputMessageArea } from '../InputMessageArea/InputMessageArea';
 import { Checkmark, CircleWarning } from '../Icons';
 import { Omit } from '../Utils/Omit';
 import {
-    IconStyled,
-    WrapperStyled,
-    PositioningWrapperStyled,
-    InputFieldWrapperStyled,
+  IconStyled,
+  WrapperStyled,
+  PositioningWrapperStyled,
+  InputFieldWrapperStyled,
 } from './InputWrapperStyled';
 
 export interface InputWrapperProps
-    extends Omit<React.HTMLProps<HTMLDivElement>, 'label' | 'size'> {
-    disabled?: boolean;
-    errorMsg?: React.ReactNode;
-    format?: 'negative' | 'positive' | 'neutral';
-    helperMsg?: React.ReactNode;
-    isInline?: boolean;
-    label?: React.ReactNode;
-    labelForId?: string;
-    preMessage?: React.ReactNode;
-    showLabel: boolean;
-    size?: 'sm' | 'md' | 'lg' | 'xl';
-    theme?: 'light' | 'dark' | 'default';
+  extends Omit<React.HTMLProps<HTMLDivElement>, 'label' | 'size'> {
+  disabled?: boolean;
+  errorMsg?: React.ReactNode;
+  format?: 'negative' | 'positive' | 'neutral';
+  helperMsg?: React.ReactNode;
+  isInline?: boolean;
+  label?: React.ReactNode;
+  labelForId?: string;
+  preMessage?: React.ReactNode;
+  showLabel: boolean;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  theme?: 'light' | 'dark' | 'default';
 }
 
 export const InputWrapper: SFC<InputWrapperProps> = ({
-    children,
-    disabled,
-    format = 'neutral',
-    labelForId,
-    errorMsg,
-    helperMsg,
-    isInline,
-    label,
-    preMessage,
-    ref: _,
-    showLabel = true,
-    size = 'md',
-    theme = 'light',
-    ...props
+  children,
+  disabled,
+  format = 'neutral',
+  labelForId,
+  errorMsg,
+  helperMsg,
+  isInline,
+  label,
+  preMessage,
+  ref: _,
+  showLabel = true,
+  size = 'md',
+  theme = 'light',
+  ...props
 }) => (
-    <WrapperStyled
-        {...props}
+  <WrapperStyled
+    {...props}
+    theme={theme === 'default' ? 'light' : theme}
+    isInline={isInline}
+  >
+    {showLabel && (
+      <InputLabel
+        disabled={disabled}
+        htmlFor={labelForId}
         theme={theme === 'default' ? 'light' : theme}
-        isInline={isInline}
-    >
-        {showLabel && (
-            <InputLabel
-                disabled={disabled}
-                htmlFor={labelForId}
-                theme={theme === 'default' ? 'light' : theme}
-            >
-                {label}
-            </InputLabel>
+      >
+        {label}
+      </InputLabel>
+    )}
+
+    <PositioningWrapperStyled>
+      <InputFieldWrapperStyled>
+        {children}
+        {format !== 'neutral' && (
+          <IconStyled format={format} iconSize={size}>
+            {format === 'positive' ? (
+              <Checkmark />
+            ) : (
+              <CircleWarning />
+            )}
+          </IconStyled>
         )}
+      </InputFieldWrapperStyled>
 
-        <PositioningWrapperStyled>
-            <InputFieldWrapperStyled>
-                {children}
-                {format !== 'neutral' && (
-                    <IconStyled format={format} iconSize={size}>
-                        {format === 'positive' ? (
-                            <Checkmark />
-                        ) : (
-                            <CircleWarning />
-                        )}
-                    </IconStyled>
-                )}
-            </InputFieldWrapperStyled>
+      {preMessage}
 
-            {preMessage}
-
-            <InputMessageArea
-                errorMsg={errorMsg}
-                helperMsg={helperMsg}
-                theme={theme}
-            />
-        </PositioningWrapperStyled>
-    </WrapperStyled>
+      <InputMessageArea
+        errorMsg={errorMsg}
+        helperMsg={helperMsg}
+        theme={theme}
+      />
+    </PositioningWrapperStyled>
+  </WrapperStyled>
 );

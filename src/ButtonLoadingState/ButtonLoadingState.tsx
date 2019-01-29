@@ -5,18 +5,26 @@ import { LoaderCircular } from '../LoaderCircular/LoaderCircular';
 import { Omit } from '../Utils/Omit';
 
 export const ButtonLoadingState: SFC<
-    Props & Omit<HTMLProps<HTMLButtonElement>, 'size'>
-> = ({ children, icon, isLoading, onClick, ref: _, size = 'md', ...props }) => (
-    <ButtonLoadingStateStyled
-        {...props}
-        size={size}
-        onClick={isLoading ? event => event.preventDefault() : onClick}
-        icon={isLoading ? null : icon}
-    >
-        {isLoading ? (
-            <LoaderCircular size={size} format="adaptive" />
-        ) : (
-            children
-        )}
-    </ButtonLoadingStateStyled>
+  Props & Omit<HTMLProps<HTMLButtonElement>, 'size'>
+> = ({
+  children,
+  icon,
+  isLoading,
+  onClick,
+  ref: _,
+  size = 'md',
+  ...props
+}) => (
+  <ButtonLoadingStateStyled
+    {...props}
+    size={size}
+    onClick={isLoading ? event => event.preventDefault() : onClick}
+    icon={isLoading ? null : icon}
+  >
+    {isLoading ? (
+      <LoaderCircular size={size} format="adaptive" />
+    ) : (
+      children
+    )}
+  </ButtonLoadingStateStyled>
 );

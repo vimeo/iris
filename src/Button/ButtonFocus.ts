@@ -5,8 +5,8 @@ import { ButtonStyled as Button } from './ButtonStyled';
 import { LinkElementStyled as ButtonFocusWrapper } from './ButtonFocusWrapper';
 import { TriggerWrapperStyled } from '../MenuPanel/MenuPanelStyled';
 import {
-    FocusOutline,
-    FocusOutlineFocused,
+  FocusOutline,
+  FocusOutlineFocused,
 } from '../FocusOutline/FocusOutline';
 
 export const ButtonFocus = styled.div<any>`
@@ -20,7 +20,7 @@ export const ButtonFocus = styled.div<any>`
     }
 
     ${props =>
-        props.size === 'xs' &&
-        `
+      props.size === 'xs' &&
+      `
         border-radius: ${rem(4)}`}
 `;

@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import {
-    Wrapper,
-    InputStyled,
+  Wrapper,
+  InputStyled,
 } from '../ButtonFileUploadWrapper/ButtonFileUploadWrapper';
 import {
-    FocusOutline,
-    FocusOutlineFocused,
-    FocusOutlineProps,
+  FocusOutline,
+  FocusOutlineFocused,
+  FocusOutlineProps,
 } from '../FocusOutline/FocusOutline';
 import { LabelStyled } from './ButtonFileUploadIconOnlyStyled';
 

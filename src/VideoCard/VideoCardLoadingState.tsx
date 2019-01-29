@@ -4,9 +4,9 @@ import { rem } from 'polished';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 
 const WrapperStyled = styled('div')`
-    position: absolute;
-    top: 0;
-    width: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
 `;
 
 const loaderBackgroundAnimation = keyframes`
@@ -19,16 +19,16 @@ const loaderBackgroundAnimation = keyframes`
 `;
 
 const loadingGradient = css`
-    background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.02) 25%,
-        rgba(0, 0, 0, 0.04) 50%,
-        rgba(0, 0, 0, 0.02) 75%,
-        rgba(0, 0, 0, 0) 100%
-    );
-    background-size: 200%;
-    animation: ${loaderBackgroundAnimation} 2.5s linear infinite;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.02) 25%,
+    rgba(0, 0, 0, 0.04) 50%,
+    rgba(0, 0, 0, 0.02) 75%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background-size: 200%;
+  animation: ${loaderBackgroundAnimation} 2.5s linear infinite;
 `;
 
 const ThumbnailLoadingStyled = styled('div')`
@@ -51,22 +51,22 @@ const TitleLoadingStyled = styled('div')`
 `;
 
 const SubTitleLoadingStyled = styled('div')`
-    width: calc(50% - ${rem(VideoCardStyleSettings.padding)});
-    margin-left: ${rem(VideoCardStyleSettings.padding)};
-    height: ${rem(16)};
-    ${loadingGradient};
+  width: calc(50% - ${rem(VideoCardStyleSettings.padding)});
+  margin-left: ${rem(VideoCardStyleSettings.padding)};
+  height: ${rem(16)};
+  ${loadingGradient};
 `;
 
 export const VideoCardLoadingState = props => {
-    const suppressClickPropagation = e => {
-        e.stopPropagation();
-    };
+  const suppressClickPropagation = e => {
+    e.stopPropagation();
+  };
 
-    return (
-        <WrapperStyled {...props} onClick={suppressClickPropagation}>
-            <ThumbnailLoadingStyled />
-            <TitleLoadingStyled />
-            <SubTitleLoadingStyled />
-        </WrapperStyled>
-    );
+  return (
+    <WrapperStyled {...props} onClick={suppressClickPropagation}>
+      <ThumbnailLoadingStyled />
+      <TitleLoadingStyled />
+      <SubTitleLoadingStyled />
+    </WrapperStyled>
+  );
 };

@@ -1,12 +1,17 @@
 import styled from 'styled-components';
-import { InputRadioStyled, InputRadioOverlayStyled } from './InputRadioStyled';
 import {
-    FocusOutline,
-    FocusOutlineFocused,
-    FocusOutlineProps,
+  InputRadioStyled,
+  InputRadioOverlayStyled,
+} from './InputRadioStyled';
+import {
+  FocusOutline,
+  FocusOutlineFocused,
+  FocusOutlineProps,
 } from '../FocusOutline/FocusOutline';
 
-export const RadioFocusOutline = styled<FocusOutlineProps, 'div'>('div')`
+export const RadioFocusOutline = styled<FocusOutlineProps, 'div'>(
+  'div',
+)`
     ${FocusOutline}
 
     ${InputRadioStyled}:focus ~ ${InputRadioOverlayStyled} & {

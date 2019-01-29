@@ -18,8 +18,8 @@ export const DatePickerWrapperStyled = styled.div`
 
     .rdtPicker {
         ${typeCSSByProps({
-            format: 'dark',
-            size: 'md',
+          format: 'dark',
+          size: 'md',
         })}
 
         position: relative;
@@ -134,8 +134,8 @@ export const DatePickerWrapperStyled = styled.div`
 
     .rdtSwitch {
         ${typeCSSByProps({
-            format: 'dark',
-            size: 'h5',
+          format: 'dark',
+          size: 'h5',
         })}
 
         width: ${rem(100)};
@@ -307,17 +307,17 @@ export const DatePickerWrapperStyled = styled.div`
 `;
 
 export const DateTriggerWrapperStyled = styled.div`
-    // this is a positions the hidden element that needs a little size for the tethering to work.
-    position: absolute;
-    top: 0;
+  // this is a positions the hidden element that needs a little size for the tethering to work.
+  position: absolute;
+  top: 0;
 `;
 
 export const DateTriggerStyled = styled.span`
-    // this IS the hidden element that needs a little size for the tethering to work.
-    display: inline-block;
+  // this IS the hidden element that needs a little size for the tethering to work.
+  display: inline-block;
 
-    width: 1px;
-    height: ${rem(InputStyleSettings.size.md.height)};
+  width: 1px;
+  height: ${rem(InputStyleSettings.size.md.height)};
 
-    outline: none;
+  outline: none;
 `;

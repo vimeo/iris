@@ -9,126 +9,125 @@ import { ButtonColors } from '../Button/ButtonColors';
 import { Omit } from '../Utils/Omit';
 
 const buttonSizes = {
-    sm: 22,
-    md: 32,
-    lg: 40,
+  sm: 22,
+  md: 32,
+  lg: 40,
 };
 
 const getFormatCss = (
-    props: CircularButtonStyledProps &
-        Omit<React.HTMLProps<HTMLButtonElement>, 'size'>,
+  props: CircularButtonStyledProps &
+    Omit<React.HTMLProps<HTMLButtonElement>, 'size'>,
 ) => {
-    switch (props.format) {
-        case 'lightDashed':
-            return css`
-                color: ${COLORS.SoutherlySky};
-                background-color: transparent;
-                border: ${rem(1)} dashed ${COLORS.SoutherlySky};
+  switch (props.format) {
+    case 'lightDashed':
+      return css`
+        color: ${COLORS.SoutherlySky};
+        background-color: transparent;
+        border: ${rem(1)} dashed ${COLORS.SoutherlySky};
 
-                &:hover {
-                    color: ${COLORS.White};
-                    background-color: transparent;
-                    border-color: ${COLORS.White};
-                }
-            `;
+        &:hover {
+          color: ${COLORS.White};
+          background-color: transparent;
+          border-color: ${COLORS.White};
+        }
+      `;
 
-        case 'secondary':
-            return css`
-                color: ${COLORS.White};
-                background-color: ${COLORS.RegentGray};
+    case 'secondary':
+      return css`
+        color: ${COLORS.White};
+        background-color: ${COLORS.RegentGray};
 
-                &:hover {
-                    background-color: ${COLORS.AstroGranite};
-                }
+        &:hover {
+          background-color: ${COLORS.AstroGranite};
+        }
 
-                &:active {
-                    background-color: ${COLORS.RavenImperial};
-                }
-            `;
+        &:active {
+          background-color: ${COLORS.RavenImperial};
+        }
+      `;
 
-        case 'secondaryDashed':
-            return css`
-                color: ${COLORS.RegentGray};
-                background-color: transparent;
-                border: ${rem(1)} dashed ${COLORS.RegentGray};
+    case 'secondaryDashed':
+      return css`
+        color: ${COLORS.RegentGray};
+        background-color: transparent;
+        border: ${rem(1)} dashed ${COLORS.RegentGray};
 
-                &:hover {
-                    color: ${COLORS.AstroGranite};
-                    background-color: transparent;
-                    border-color: ${COLORS.AstroGranite};
-                }
-            `;
+        &:hover {
+          color: ${COLORS.AstroGranite};
+          background-color: transparent;
+          border-color: ${COLORS.AstroGranite};
+        }
+      `;
 
-        default:
-            // default is primary
-            return css`
-                color: ${COLORS.White};
-                background-color: ${ButtonColors.PrimaryBackground};
+    default:
+      // default is primary
+      return css`
+        color: ${COLORS.White};
+        background-color: ${ButtonColors.PrimaryBackground};
 
-                &:hover {
-                    background-color: ${ButtonColors.PrimaryBackgroundHover};
-                }
+        &:hover {
+          background-color: ${ButtonColors.PrimaryBackgroundHover};
+        }
 
-                &:active {
-                    background-color: ${ButtonColors.PrimaryBackgroundActive};
-                }
-            `;
-    }
+        &:active {
+          background-color: ${ButtonColors.PrimaryBackgroundActive};
+        }
+      `;
+  }
 };
 
 const maybeAutoMargins = (props: CircularButtonStyledProps) =>
-    props.autoMarginsHorizontal
-        ? css`
-              margin-right: 0.5rem;
+  props.autoMarginsHorizontal
+    ? css`
+        margin-right: 0.5rem;
 
-              &:last-of-type {
-                  margin-left: 0;
-              }
-          `
-        : '';
+        &:last-of-type {
+          margin-left: 0;
+        }
+      `
+    : '';
 
-export const CircularButtonStyled = styled<CircularButtonStyledProps, any>(
-    ({
-        icon,
+export const CircularButtonStyled = styled<
+  CircularButtonStyledProps,
+  any
+>(({ icon,
+  autoMarginsHorizontal, ...rest }) => (
+  <CircularButtonElement icon={icon} {...rest} />
+))`
+  display: inline-block;
+  overflow: hidden;
 
-        autoMarginsHorizontal,
-        ...rest
-    }) => <CircularButtonElement icon={icon} {...rest} />,
-)`
-    display: inline-block;
-    overflow: hidden;
+  position: relative;
+  border: 0;
+  border-radius: 50%;
 
-    position: relative;
-    border: 0;
-    border-radius: 50%;
+  transition: all ${TRANSITIONS.base};
 
-    transition: all ${TRANSITIONS.base};
+  appearance: none;
 
-    appearance: none;
+  width: ${props => rem(buttonSizes[props.size])};
+  height: ${props => rem(buttonSizes[props.size])};
 
-    width: ${props => rem(buttonSizes[props.size])};
-    height: ${props => rem(buttonSizes[props.size])};
+  &:hover {
+    cursor: pointer;
+  }
 
-    &:hover {
-        cursor: pointer;
-    }
+  svg {
+    display: block;
+    width: ${props => (props.size === 'sm' ? '.75rem' : '1rem')};
+    height: ${props => (props.size === 'sm' ? '.75rem' : '1rem')};
 
-    svg {
-        display: block;
-        width: ${props => (props.size === 'sm' ? '.75rem' : '1rem')};
-        height: ${props => (props.size === 'sm' ? '.75rem' : '1rem')};
+    position: absolute;
+    top: 50%;
+    left: 50%;
 
-        position: absolute;
-        top: 50%;
-        left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
 
-        transform: translateY(-50%) translateX(-50%);
-    }
+  svg * {
+    fill: currentColor;
+  }
 
-    svg * {
-        fill: currentColor;
-    }
-
-    ${maybeAutoMargins};
-    ${getFormatCss};
+  ${maybeAutoMargins};
+  ${getFormatCss};
 `;

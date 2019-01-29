@@ -5,33 +5,37 @@ import { ButtonFileUploadProps as Props } from './ButtonFileUploadTypes';
 import { LabelStyled, IconWrapper } from './ButtonFileUploadStyled';
 
 export const ButtonFileUpload: SFC<Props> = ({
-    autoMargins = true,
-    autoWidth = 'sm',
-    disabled,
-    format = 'primary',
-    id,
-    isInline,
-    label,
-    name,
-    showIcon = true,
-    size = 'md',
-    ...props
+  autoMargins = true,
+  autoWidth = 'sm',
+  disabled,
+  format = 'primary',
+  id,
+  isInline,
+  label,
+  name,
+  showIcon = true,
+  size = 'md',
+  ...props
 }) => (
-    <ButtonFileUploadWrapper id={id} name={name} inputElementProps={props}>
-        <LabelStyled
-            autoMargins={autoMargins}
-            disabled={disabled}
-            format={format}
-            htmlFor={id}
-            isInline={isInline}
-            size={size}
-        >
-            {showIcon && (
-                <IconWrapper size={size}>
-                    <UploadCloud />
-                </IconWrapper>
-            )}
-            {label}
-        </LabelStyled>
-    </ButtonFileUploadWrapper>
+  <ButtonFileUploadWrapper
+    id={id}
+    name={name}
+    inputElementProps={props}
+  >
+    <LabelStyled
+      autoMargins={autoMargins}
+      disabled={disabled}
+      format={format}
+      htmlFor={id}
+      isInline={isInline}
+      size={size}
+    >
+      {showIcon && (
+        <IconWrapper size={size}>
+          <UploadCloud />
+        </IconWrapper>
+      )}
+      {label}
+    </LabelStyled>
+  </ButtonFileUploadWrapper>
 );

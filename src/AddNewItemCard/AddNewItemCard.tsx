@@ -5,20 +5,18 @@ import { ParagraphAltMd } from '../Type';
 import { CirclePlus } from '../Icons';
 import { ANICFocusOutline as FocusOutline } from './AddNewItemCardFocusStyled';
 
-export const AddNewItemCard: SFC<Props & HTMLProps<HTMLDivElement>> = ({
-    anchorProps,
-    fluid,
-    text,
-}) => (
-    <Wrapper fluid={fluid}>
-        <Card>
-            <Anchor {...anchorProps}>
-                <span>
-                    <CirclePlus />
-                </span>
-                <ParagraphAltMd>{text}</ParagraphAltMd>
-                <FocusOutline />
-            </Anchor>
-        </Card>
-    </Wrapper>
+export const AddNewItemCard: SFC<
+  Props & HTMLProps<HTMLDivElement>
+> = ({ anchorProps, fluid, text }) => (
+  <Wrapper fluid={fluid}>
+    <Card>
+      <Anchor {...anchorProps}>
+        <span>
+          <CirclePlus />
+        </span>
+        <ParagraphAltMd>{text}</ParagraphAltMd>
+        <FocusOutline />
+      </Anchor>
+    </Card>
+  </Wrapper>
 );

@@ -5,24 +5,24 @@ import { ButtonDialogCloseProps as Props } from './ButtonDialogCloseTypes';
 import { Omit } from '../Utils/Omit';
 
 export const ButtonDialogClose: SFC<
-    Props & Omit<HTMLProps<HTMLButtonElement>, 'size'>
+  Props & Omit<HTMLProps<HTMLButtonElement>, 'size'>
 > = ({
-    buttonTitle = 'Close',
-    autoSpacingHorizontal = true,
-    className,
-    format = 'dark',
-    isButtonElement = true,
-    size = 'sm',
-    ...props
+  buttonTitle = 'Close',
+  autoSpacingHorizontal = true,
+  className,
+  format = 'dark',
+  isButtonElement = true,
+  size = 'sm',
+  ...props
 }) => (
-    <ButtonIconOnly
-        {...props}
-        className={className}
-        autoSpacingHorizontal={autoSpacingHorizontal}
-        format={format}
-        icon={<DismissX />}
-        isButtonElement={isButtonElement}
-        size={size}
-        type="button"
-    />
+  <ButtonIconOnly
+    {...props}
+    className={className}
+    autoSpacingHorizontal={autoSpacingHorizontal}
+    format={format}
+    icon={<DismissX />}
+    isButtonElement={isButtonElement}
+    size={size}
+    type="button"
+  />
 );

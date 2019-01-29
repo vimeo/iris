@@ -5,21 +5,21 @@ import { BreadcrumbLinkContent } from '../BreadcrumbLinkContent/BreadcrumbLinkCo
 import { Omit } from '../Utils/Omit';
 
 export interface BreadcrumbLinkProps {
-    format: 'lightTheme' | 'darkTheme';
-    href: string;
+  format: 'lightTheme' | 'darkTheme';
+  href: string;
 }
 
 export const BreadcrumbLink: SFC<
-    BreadcrumbLinkProps &
-        Omit<LinkTextProps, 'format'> &
-        HTMLProps<HTMLAnchorElement>
+  BreadcrumbLinkProps &
+    Omit<LinkTextProps, 'format'> &
+    HTMLProps<HTMLAnchorElement>
 > = ({ children, format = 'lightTheme', href, ...props }) => (
-    <LinkText
-        href={href}
-        decoration="silent"
-        format={format === 'darkTheme' ? 'primaryDark' : 'primary'}
-        {...props}
-    >
-        <BreadcrumbLinkContent>{children}</BreadcrumbLinkContent>
-    </LinkText>
+  <LinkText
+    href={href}
+    decoration="silent"
+    format={format === 'darkTheme' ? 'primaryDark' : 'primary'}
+    {...props}
+  >
+    <BreadcrumbLinkContent>{children}</BreadcrumbLinkContent>
+  </LinkText>
 );

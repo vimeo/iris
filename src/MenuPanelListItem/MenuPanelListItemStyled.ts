@@ -7,78 +7,83 @@ import { MenuPanelListItemThemes } from './MenuPanelListItemTypes';
 const LinkIconSize = rem(18);
 
 export const ListItemStyled = styled('li')`
-    width: 100%;
+  width: 100%;
 
-    & a:focus {
-        outline: none;
-    }
+  & a:focus {
+    outline: none;
+  }
 `;
 
 export const LabelStyled = styled.span`
-    padding: ${rem(4)};
-    display: inline-block;
-    border-radius: ${rem(2)};
-    a:focus & {
-        box-shadow: 0 0 0 ${rem(2)} ${COLORS.VimeoBlue};
-    }
+  padding: ${rem(4)};
+  display: inline-block;
+  border-radius: ${rem(2)};
+  a:focus & {
+    box-shadow: 0 0 0 ${rem(2)} ${COLORS.VimeoBlue};
+  }
 `;
 
 export const CheckmarkStyled = styled(Checkmark)`
-    position: absolute;
-    top: ${rem(11)};
-    left: 0.25rem;
+  position: absolute;
+  top: ${rem(11)};
+  left: 0.25rem;
 
-    width: 1rem;
-    height: 1rem;
+  width: 1rem;
+  height: 1rem;
 
-    * {
-        fill: ${COLORS.VimeoBlue};
-    }
+  * {
+    fill: ${COLORS.VimeoBlue};
+  }
 `;
 
-export const LinkIconWrapperStyled = styled<MenuPanelListItemThemes, 'span'>(
-    'span',
+export const LinkIconWrapperStyled = styled<
+  MenuPanelListItemThemes,
+  'span'
+>('span')`
+  display: inline-block;
+
+  position: relative;
+  top: ${rem(4)};
+
+  width: ${LinkIconSize};
+  height: ${LinkIconSize};
+  margin-right: ${rem(8)};
+
+  * {
+    fill: ${props =>
+      props.theme === 'dark'
+        ? COLORS.SoutherlySky
+        : COLORS.AstroGranite};
+  }
+`;
+
+export const LinkStyled = styled<MenuPanelListItemThemes, 'span'>(
+  'span',
 )`
-    display: inline-block;
+  display: inline-block;
+  position: relative;
 
-    position: relative;
-    top: ${rem(4)};
+  width: 100%;
+  padding: ${rem(6) + ' ' + rem(20)};
 
-    width: ${LinkIconSize};
-    height: ${LinkIconSize};
-    margin-right: ${rem(8)};
+  color: ${props =>
+    props.theme === 'dark' ? COLORS.White : COLORS.AstroGranite};
 
-    * {
-        fill: ${props =>
-            props.theme === 'dark' ? COLORS.SoutherlySky : COLORS.AstroGranite};
-    }
-`;
+  cursor: pointer;
+  text-decoration: none;
 
-export const LinkStyled = styled<MenuPanelListItemThemes, 'span'>('span')`
-    display: inline-block;
-    position: relative;
+  &:hover {
+    background-color: ${props =>
+      props.theme === 'dark' ? COLORS.AshenWinter : COLORS.Paste};
 
-    width: 100%;
-    padding: ${rem(6) + ' ' + rem(20)};
-
-    color: ${props =>
+    & * {
+      color: ${props =>
         props.theme === 'dark' ? COLORS.White : COLORS.AstroGranite};
-
-    cursor: pointer;
-    text-decoration: none;
-
-    &:hover {
-        background-color: ${props =>
-            props.theme === 'dark' ? COLORS.AshenWinter : COLORS.Paste};
-
-        & * {
-            color: ${props =>
-                props.theme === 'dark' ? COLORS.White : COLORS.AstroGranite};
-        }
-
-        & svg * {
-            fill: ${props =>
-                props.theme === 'dark' ? COLORS.White : COLORS.AstroGranite};
-        }
     }
+
+    & svg * {
+      fill: ${props =>
+        props.theme === 'dark' ? COLORS.White : COLORS.AstroGranite};
+    }
+  }
 `;

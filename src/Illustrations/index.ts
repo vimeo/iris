@@ -1,7 +1,11 @@
 export { AlbumsAddFeature } from './AlbumsAddFeature';
 export { AlbumsEmptystate } from './AlbumsEmptystate';
-export { AlbumsPlaybackEmptystateDark } from './AlbumsPlaybackEmptystateDark';
-export { AlbumsPlaybackEmptystateLight } from './AlbumsPlaybackEmptystateLight';
+export {
+  AlbumsPlaybackEmptystateDark,
+} from './AlbumsPlaybackEmptystateDark';
+export {
+  AlbumsPlaybackEmptystateLight,
+} from './AlbumsPlaybackEmptystateLight';
 export { SearchEmptystate } from './SearchEmptystate';
 export { StaffPicksBadgeJustSp } from './StaffPicksBadgeJustSp';
 export { VimeoBusinessBlueBoxLogo } from './VimeoBusinessBlueBoxLogo';

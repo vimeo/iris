@@ -5,53 +5,57 @@ import { SlideUpDown } from './SlideUpDown';
 import { Button } from '../Button/Button';
 import { NotificationSuccess } from '../NotificationSuccess/NotificationSuccess';
 
-storiesOf('animation', module).add('Slide Up Down', () => <SlideUpDownDocs />, {
+storiesOf('animation', module).add(
+  'Slide Up Down',
+  () => <SlideUpDownDocs />,
+  {
     info: {
-        inline: true,
-        propTables: [SlideUpDown],
+      inline: true,
+      propTables: [SlideUpDown],
     },
     options: {
-        name: 'Iris',
-        url: '#',
+      name: 'Iris',
+      url: '#',
     },
-});
+  },
+);
 
 class SlideUpDownDocs extends Component {
-    state = { hideNotification: false };
+  state = { hideNotification: false };
 
-    handleClick = () =>
-        this.setState({ hideNotification: !this.state.hideNotification });
+  handleClick = () =>
+    this.setState({ hideNotification: !this.state.hideNotification });
 
-    render = () => (
-        <div>
-            <Button onClick={this.handleClick}>Toggle</Button>
-            <SlideUpDown isHidden={this.state.hideNotification}>
-                <NotificationSuccess>
-                    <ParagraphMd>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Aut quidem fugiat corrupti inventore eaque. Eaque
-                        aspernatur sed magni ex reprehenderit deleniti, nemo
-                        nihil delectus ab dignissimos, beatae molestiae
-                        architecto recusandae? Molestias accusantium dolorum
-                        ipsum quae quibusdam minus distinctio accusamus optio.
-                    </ParagraphMd>
-                </NotificationSuccess>
-            </SlideUpDown>
-            <SlideUpDown
-                animateOpenOnMount
-                isHidden={this.state.hideNotification}
-            >
-                <NotificationSuccess>
-                    <ParagraphMd>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Aut quidem fugiat corrupti inventore eaque. Eaque
-                        aspernatur sed magni ex reprehenderit deleniti, nemo
-                        nihil delectus ab dignissimos, beatae molestiae
-                        architecto recusandae? Molestias accusantium dolorum
-                        ipsum quae quibusdam minus distinctio accusamus optio.
-                    </ParagraphMd>
-                </NotificationSuccess>
-            </SlideUpDown>
-        </div>
-    );
+  render = () => (
+    <div>
+      <Button onClick={this.handleClick}>Toggle</Button>
+      <SlideUpDown isHidden={this.state.hideNotification}>
+        <NotificationSuccess>
+          <ParagraphMd>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Aut quidem fugiat corrupti inventore eaque. Eaque
+            aspernatur sed magni ex reprehenderit deleniti, nemo nihil
+            delectus ab dignissimos, beatae molestiae architecto
+            recusandae? Molestias accusantium dolorum ipsum quae
+            quibusdam minus distinctio accusamus optio.
+          </ParagraphMd>
+        </NotificationSuccess>
+      </SlideUpDown>
+      <SlideUpDown
+        animateOpenOnMount
+        isHidden={this.state.hideNotification}
+      >
+        <NotificationSuccess>
+          <ParagraphMd>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Aut quidem fugiat corrupti inventore eaque. Eaque
+            aspernatur sed magni ex reprehenderit deleniti, nemo nihil
+            delectus ab dignissimos, beatae molestiae architecto
+            recusandae? Molestias accusantium dolorum ipsum quae
+            quibusdam minus distinctio accusamus optio.
+          </ParagraphMd>
+        </NotificationSuccess>
+      </SlideUpDown>
+    </div>
+  );
 }

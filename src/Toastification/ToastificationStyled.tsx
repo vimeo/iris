@@ -7,23 +7,23 @@ import * as COLORS from '../Color/Color';
 import { keyframes } from 'styled-components';
 
 export const Wrapper = styled.div`
-    position: fixed;
-    z-index: 9995;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+  position: fixed;
+  z-index: 9995;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 `;
 
 interface ToastProps {
-    format: 'warning' | 'neutral';
-    actionLabel?: string;
-    onMouseEnter: React.MouseEventHandler;
-    onMouseLeave: React.MouseEventHandler;
+  format: 'warning' | 'neutral';
+  actionLabel?: string;
+  onMouseEnter: React.MouseEventHandler;
+  onMouseLeave: React.MouseEventHandler;
 }
 
 const toastAnimation = ({ actionLabel }: ToastProps) => css`
-    animation: ${toastKeyframes} ${actionLabel ? '6000ms' : '3000ms'}
-        ease-in-out both;
+  animation: ${toastKeyframes} ${actionLabel ? '6000ms' : '3000ms'}
+    ease-in-out both;
 `;
 
 const toastKeyframes = actionLabel => keyframes`
@@ -39,53 +39,55 @@ const toastKeyframes = actionLabel => keyframes`
 `;
 
 export const ToastStyled = styled(
-    ({ format, actionLabel, ...props }: ToastProps) => <div {...props} />,
+  ({ format, actionLabel, ...props }: ToastProps) => (
+    <div {...props} />
+  ),
 )<ToastProps>`
-    position: absolute;
-    bottom: ${rem(28)};
-    left: 50%;
-    min-width: ${rem(140)};
-    padding: ${rem(11)} ${rem(20)};
-    border-radius: ${rem(3)};
-    background: rgba(0, 0, 0, 0.9);
-    box-shadow: 0 ${rem(6)} ${rem(10)} 0 rgba(0, 0, 0, 0.12);
-    transform: translateX(-50%);
-    text-align: center;
+  position: absolute;
+  bottom: ${rem(28)};
+  left: 50%;
+  min-width: ${rem(140)};
+  padding: ${rem(11)} ${rem(20)};
+  border-radius: ${rem(3)};
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 ${rem(6)} ${rem(10)} 0 rgba(0, 0, 0, 0.12);
+  transform: translateX(-50%);
+  text-align: center;
 
-    ${toastAnimation};
+  ${toastAnimation};
 
-    ${props =>
-        props.format === 'warning' &&
-        css`
-            padding-left: ${rem(42)};
-            text-align: left;
-        `}
+  ${props =>
+    props.format === 'warning' &&
+    css`
+      padding-left: ${rem(42)};
+      text-align: left;
+    `}
 `;
 
 export const Content = styled(ParagraphMd)`
-    &:last-of-type {
-        margin-bottom: 0;
-    }
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 `;
 
 export const InfoIconStyled = styled(CircleInfo)`
-    position: absolute;
-    top: ${rem(10)};
-    left: ${rem(16)};
-    width: ${rem(18)};
-    height: auto;
+  position: absolute;
+  top: ${rem(10)};
+  left: ${rem(16)};
+  width: ${rem(18)};
+  height: auto;
 
-    * {
-        fill: ${COLORS.White};
-    }
+  * {
+    fill: ${COLORS.White};
+  }
 `;
 
 export const ActionLink = styled.a`
-    color: ${COLORS.White};
-    text-decoration: underline;
+  color: ${COLORS.White};
+  text-decoration: underline;
 
-    &:hover {
-        color: ${COLORS.White};
-        text-decoration: none;
-    }
+  &:hover {
+    color: ${COLORS.White};
+    text-decoration: none;
+  }
 `;

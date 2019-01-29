@@ -4,19 +4,19 @@ import { BadgeStyled } from './BadgeStyled';
 import { Omit } from '../Utils/Omit';
 
 export const Badge: SFC<
-    BadgeProps &
-        Omit<HTMLProps<HTMLSpanElement>, 'size'> &
-        Omit<HTMLProps<HTMLAnchorElement>, 'size'>
+  BadgeProps &
+    Omit<HTMLProps<HTMLSpanElement>, 'size'> &
+    Omit<HTMLProps<HTMLAnchorElement>, 'size'>
 > = ({
-    children,
-    format = 'default',
-    href,
-    label,
-    size = 'sm',
-    ref: _,
-    ...props
+  children,
+  format = 'default',
+  href,
+  label,
+  size = 'sm',
+  ref: _,
+  ...props
 }) => (
-    <BadgeStyled href={href} format={format} size={size} {...props}>
-        {children}
-    </BadgeStyled>
+  <BadgeStyled href={href} format={format} size={size} {...props}>
+    {children}
+  </BadgeStyled>
 );

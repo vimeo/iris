@@ -1,29 +1,29 @@
 import { VerticalMenuItemState as State } from './VerticalMenuItemTypes';
 
 export const nestedMenuOpen = (prevState: State) => ({
-    showNestedInteraction: prevState.nestedMenuOpen,
-    nestedMenuOpen: prevState.nestedMenuOpen,
-    subMenuOpen: prevState.subMenuOpen,
+  showNestedInteraction: prevState.nestedMenuOpen,
+  nestedMenuOpen: prevState.nestedMenuOpen,
+  subMenuOpen: prevState.subMenuOpen,
 });
 
 export const showNestedInteraction = () => ({
-    showNestedInteraction: true,
+  showNestedInteraction: true,
 });
 
 export const linkIsNotHovered = () => ({
-    linkIsHovered: false,
+  linkIsHovered: false,
 });
 
 export const linkIsHovered = () => ({
-    linkIsHovered: true,
+  linkIsHovered: true,
 });
 
 export const panelOpen = () => ({
-    nestedMenuOpen: true,
-    showNestedInteraction: true,
+  nestedMenuOpen: true,
+  showNestedInteraction: true,
 });
 
 export const panelClose = () => ({
-    nestedMenuOpen: false,
-    showNestedInteraction: false,
+  nestedMenuOpen: false,
+  showNestedInteraction: false,
 });

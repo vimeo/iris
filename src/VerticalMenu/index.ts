@@ -1,21 +1,25 @@
 export {
-    VerticalMenuActionButton,
+  VerticalMenuActionButton,
 } from '../VerticalMenuActionButton/VerticalMenuActionButton';
 export {
-    VerticalMenuContextualMenuPanel,
+  VerticalMenuContextualMenuPanel,
 } from '../VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel';
 export {
-    VerticalMenuHeaderGroup,
+  VerticalMenuHeaderGroup,
 } from '../VerticalMenuHeaderGroup/VerticalMenuHeaderGroup';
-export { VerticalMenuItem } from '../VerticalMenuItem/VerticalMenuItem';
 export {
-    VerticalMenuItemContent,
+  VerticalMenuItem,
+} from '../VerticalMenuItem/VerticalMenuItem';
+export {
+  VerticalMenuItemContent,
 } from '../VerticalMenuItemContent/VerticalMenuItemContent';
 
-export { VerticalMenuNested } from '../VerticalMenuNested/VerticalMenuNested';
 export {
-    VerticalMenuNestedSubMenu,
+  VerticalMenuNested,
+} from '../VerticalMenuNested/VerticalMenuNested';
+export {
+  VerticalMenuNestedSubMenu,
 } from '../VerticalMenuNestedSubMenu/VerticalMenuNestedSubMenu';
 export {
-    VerticalMenuToggleButton,
+  VerticalMenuToggleButton,
 } from '../VerticalMenuToggleButton/VerticalMenuToggleButton';

@@ -8,142 +8,148 @@ import { TypeProps } from '../Type/TypeTypes';
 import * as COLORS from '../Color/Color';
 
 export interface BreadcrumbProps {
-    /**
-     * An aray of BreadcrumbLink or BreadcrumbLinkReactRouter components
-     */
-    crumbs?: React.ReactNode[];
-    /**
-     * A string describing the current page title
-     */
-    currentPageLabel: string;
-    /**
-     * Set the current color theme, must also be set on the BreadcrumbLink or BreadcrumbLinkReactRouter
-     */
-    format: 'lightTheme' | 'darkTheme';
-    /**
-     * suppress bottom margin if true
-     */
-    noMargin?: boolean;
+  /**
+   * An aray of BreadcrumbLink or BreadcrumbLinkReactRouter components
+   */
+  crumbs?: React.ReactNode[];
+  /**
+   * A string describing the current page title
+   */
+  currentPageLabel: string;
+  /**
+   * Set the current color theme, must also be set on the BreadcrumbLink or BreadcrumbLinkReactRouter
+   */
+  format: 'lightTheme' | 'darkTheme';
+  /**
+   * suppress bottom margin if true
+   */
+  noMargin?: boolean;
 }
 
 const BreadCrumbSetWrapper = styled.div`
-    width: 100%;
+  width: 100%;
 `;
 
 const ArrowIconWidth = 24;
 export const ARROWLEFT_CLASSNAME = 'BreadcrumbLink_ArrowLeft';
 
 const truncatewithEllipsisCSS = css`
-    display: inline-block;
-    overflow: hidden;
+  display: inline-block;
+  overflow: hidden;
 
-    position: relative;
+  position: relative;
 
-    width: auto;
-    max-width: 100%;
+  width: auto;
+  max-width: 100%;
 
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 interface CrumbWrapperProps extends React.HTMLProps<HTMLDivElement> {
-    format: 'lightTheme' | 'darkTheme';
-    showOnSmall?: boolean;
+  format: 'lightTheme' | 'darkTheme';
+  showOnSmall?: boolean;
 }
 
 const CrumbWrapper = styled<CrumbWrapperProps, 'div'>('div')`
-    color: ${props =>
-        props.format === 'darkTheme' ? COLORS.IronHeart : COLORS.AstroGranite};
-    display: ${props => (props.showOnSmall ? 'inline-block' : 'none')};
+  color: ${props =>
+    props.format === 'darkTheme'
+      ? COLORS.IronHeart
+      : COLORS.AstroGranite};
+  display: ${props => (props.showOnSmall ? 'inline-block' : 'none')};
 
-    position: relative;
+  position: relative;
 
-    ${mediaQuery.md`
+  ${mediaQuery.md`
         display: inline-block;
         padding-right: ${rem(ArrowIconWidth)};
     `} ${props =>
-        props.showOnSmall
-            ? css`
-                  .${ARROWLEFT_CLASSNAME} {
-                      display: inline-block;
-                      padding-right: ${rem(8)};
-                      ${mediaQuery.md`
+    props.showOnSmall
+      ? css`
+          .${ARROWLEFT_CLASSNAME} {
+            display: inline-block;
+            padding-right: ${rem(8)};
+            ${mediaQuery.md`
                 display: none;
             `};
-                  }
-              `
-            : ''};
+          }
+        `
+      : ''};
 `;
 
 const CrumbLabel = styled<TypeProps, any>(ParagraphMd)`
-    ${truncatewithEllipsisCSS};
+  ${truncatewithEllipsisCSS};
 `;
 
 const CrumbArrowIcon = styled(ChevronRight)`
-    position: absolute;
-    top: ${rem(-2)};
+  position: absolute;
+  top: ${rem(-2)};
 
-    width: ${rem(ArrowIconWidth)};
-    height: ${rem(ArrowIconWidth)};
-    display: none;
-    right: 0;
+  width: ${rem(ArrowIconWidth)};
+  height: ${rem(ArrowIconWidth)};
+  display: none;
+  right: 0;
 
-    * {
-        fill: currentColor;
-    }
+  * {
+    fill: currentColor;
+  }
 
-    ${mediaQuery.md`
+  ${mediaQuery.md`
         display: inline-block;
     `};
 `;
 
 const CurrentPageCrumb = styled<TypeProps, any>(ParagraphMd)`
-    ${truncatewithEllipsisCSS} width: calc(50%);
-    ${mediaQuery.md`
+  ${truncatewithEllipsisCSS} width: calc(50%);
+  ${mediaQuery.md`
         width: calc(33%);
     `};
 `;
 
-export const Breadcrumb: SFC<BreadcrumbProps & HTMLProps<HTMLDivElement>> = ({
-    crumbs,
-    currentPageLabel,
-    format = 'lightTheme',
-    noMargin,
-    ref: _,
-    ...filteredProps
+export const Breadcrumb: SFC<
+  BreadcrumbProps & HTMLProps<HTMLDivElement>
+> = ({
+  crumbs,
+  currentPageLabel,
+  format = 'lightTheme',
+  noMargin,
+  ref: _,
+  ...filteredProps
 }) => {
-    const crumbWidth = crumbs ? `${100 / (crumbs.length + 1)}%` : '100%';
+  const crumbWidth = crumbs
+    ? `${100 / (crumbs.length + 1)}%`
+    : '100%';
 
-    const CrumbList = crumbs.map((crumb, i) => (
-        <CrumbWrapper
-            showOnSmall={i === crumbs.length - 1}
-            format={format}
-            key={`crumb-${i}`}
-            style={{ maxWidth: crumbWidth }}
-        >
-            <CrumbLabel
-                element="span"
-                format={format === 'darkTheme' ? 'light' : 'dark'}
-                noMargin={noMargin}
-            >
-                {crumb}
-            </CrumbLabel>
-            <CrumbArrowIcon />
-        </CrumbWrapper>
-    ));
+  const CrumbList = crumbs.map((crumb, i) => (
+    <CrumbWrapper
+      showOnSmall={i === crumbs.length - 1}
+      format={format}
+      key={`crumb-${i}`}
+      style={{ maxWidth: crumbWidth }}
+    >
+      <CrumbLabel
+        element="span"
+        format={format === 'darkTheme' ? 'light' : 'dark'}
+        noMargin={noMargin}
+      >
+        {crumb}
+      </CrumbLabel>
+      <CrumbArrowIcon />
+    </CrumbWrapper>
+  ));
 
-    return (
-        <BreadCrumbSetWrapper {...filteredProps}>
-            {crumbs && CrumbList}
+  return (
+    <BreadCrumbSetWrapper {...filteredProps}>
+      {crumbs && CrumbList}
 
-            <CurrentPageCrumb
-                element="span"
-                format={format === 'darkTheme' ? 'light' : 'dark'}
-                noMargin={noMargin}
-                style={{ maxWidth: crumbWidth }}
-            >
-                {currentPageLabel}
-            </CurrentPageCrumb>
-        </BreadCrumbSetWrapper>
-    );
+      <CurrentPageCrumb
+        element="span"
+        format={format === 'darkTheme' ? 'light' : 'dark'}
+        noMargin={noMargin}
+        style={{ maxWidth: crumbWidth }}
+      >
+        {currentPageLabel}
+      </CurrentPageCrumb>
+    </BreadCrumbSetWrapper>
+  );
 };

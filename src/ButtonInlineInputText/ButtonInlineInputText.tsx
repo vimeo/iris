@@ -5,33 +5,33 @@ import { Omit } from '../Utils/Omit';
 import { ButtonStyled, Wrapper } from './ButtonInlineInputTextStyled';
 
 export const ButtonInlineInputText: SFC<
-    Props & Omit<HTMLProps<HTMLButtonElement>, 'size'>
+  Props & Omit<HTMLProps<HTMLButtonElement>, 'size'>
 > = ({
-    className,
-    icon,
-    format = 'neutral',
-    size = 'md',
-    tooltipText,
-    tooltipPosition = 'top',
-    tooltipProps,
-    ref: _,
-    ...filteredProps
+  className,
+  icon,
+  format = 'neutral',
+  size = 'md',
+  tooltipText,
+  tooltipPosition = 'top',
+  tooltipProps,
+  ref: _,
+  ...filteredProps
 }) => (
-    <Wrapper>
-        {tooltipText ? (
-            <TooltipOverlay
-                tooltipText={tooltipText}
-                attachment={tooltipPosition}
-                {...tooltipProps}
-            >
-                <ButtonStyled size={size} format={format} {...filteredProps}>
-                    {icon}
-                </ButtonStyled>
-            </TooltipOverlay>
-        ) : (
-            <ButtonStyled size={size} format={format} {...filteredProps}>
-                {icon}
-            </ButtonStyled>
-        )}
-    </Wrapper>
+  <Wrapper>
+    {tooltipText ? (
+      <TooltipOverlay
+        tooltipText={tooltipText}
+        attachment={tooltipPosition}
+        {...tooltipProps}
+      >
+        <ButtonStyled size={size} format={format} {...filteredProps}>
+          {icon}
+        </ButtonStyled>
+      </TooltipOverlay>
+    ) : (
+      <ButtonStyled size={size} format={format} {...filteredProps}>
+        {icon}
+      </ButtonStyled>
+    )}
+  </Wrapper>
 );

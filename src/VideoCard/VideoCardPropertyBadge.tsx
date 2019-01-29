@@ -5,44 +5,44 @@ import { ParagraphSm } from '../Type';
 import * as COLORS from '../Color/Color';
 
 export interface VideoCardPropertyBadge
-    extends React.HTMLProps<HTMLInputElement> {
-    /*
-     * The Property Badge Label
-     */
-    label: string;
+  extends React.HTMLProps<HTMLInputElement> {
+  /*
+   * The Property Badge Label
+   */
+  label: string;
 }
 
 const VideoCardPropertyBadgeStyled = styled<
-    React.HTMLProps<HTMLDivElement>,
-    'div'
+  React.HTMLProps<HTMLDivElement>,
+  'div'
 >('div')`
-    align-items: center;
-    background: ${rgba(COLORS.Paste, 0.9)};
-    border-radius: ${rem(2)};
-    display: inline-flex;
-    padding: ${rem(4)} ${rem(8)};
-    text-transform: uppercase;
+  align-items: center;
+  background: ${rgba(COLORS.Paste, 0.9)};
+  border-radius: ${rem(2)};
+  display: inline-flex;
+  padding: ${rem(4)} ${rem(8)};
+  text-transform: uppercase;
 `;
 
 const VideoCardPropertyBadgeTextStyled = styled<
-    React.HTMLProps<HTMLDivElement>,
-    any
+  React.HTMLProps<HTMLDivElement>,
+  any
 >(ParagraphSm)`
-    align-items: center;
-    display: inline-flex;
-    font-weight: 600;
-    letter-spacing: ${rem(1.25)};
-    margin-bottom: 0;
+  align-items: center;
+  display: inline-flex;
+  font-weight: 600;
+  letter-spacing: ${rem(1.25)};
+  margin-bottom: 0;
 `;
 
 export const VideoCardPropertyBadge: SFC<VideoCardPropertyBadge> = ({
-    label,
-    // @ts-ignore
-    ref: _,
+  label,
+  // @ts-ignore
+  ref: _,
 }) => (
-    <VideoCardPropertyBadgeStyled>
-        <VideoCardPropertyBadgeTextStyled>
-            {label}
-        </VideoCardPropertyBadgeTextStyled>
-    </VideoCardPropertyBadgeStyled>
+  <VideoCardPropertyBadgeStyled>
+    <VideoCardPropertyBadgeTextStyled>
+      {label}
+    </VideoCardPropertyBadgeTextStyled>
+  </VideoCardPropertyBadgeStyled>
 );

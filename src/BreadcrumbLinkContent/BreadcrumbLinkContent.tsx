@@ -6,36 +6,38 @@ import { ArrowLeft } from '../Icons';
 import { ARROWLEFT_CLASSNAME } from '../Breadcrumb/Breadcrumb';
 
 const ArrowLeftWrapper = styled.span`
-    display: inline-block;
-    position: relative;
-    top: ${rem(5)};
+  display: inline-block;
+  position: relative;
+  top: ${rem(5)};
 
-    svg {
-        height: ${rem(24)};
-        width: ${rem(24)};
+  svg {
+    height: ${rem(24)};
+    width: ${rem(24)};
 
-        * {
-            fill: currentColor;
-        }
+    * {
+      fill: currentColor;
     }
+  }
 
-    ${mediaQuery.md`
+  ${mediaQuery.md`
             display: none;
         `};
 `;
 
 const LinkLabel = styled.span`
-    display: none;
-    ${mediaQuery.md`
+  display: none;
+  ${mediaQuery.md`
             display: inline;
         `};
 `;
 
-export const BreadcrumbLinkContent: SFC<HTMLProps<HTMLElement>> = props => (
-    <span>
-        <ArrowLeftWrapper className={ARROWLEFT_CLASSNAME}>
-            <ArrowLeft />
-        </ArrowLeftWrapper>
-        <LinkLabel>{props.children}</LinkLabel>
-    </span>
+export const BreadcrumbLinkContent: SFC<
+  HTMLProps<HTMLElement>
+> = props => (
+  <span>
+    <ArrowLeftWrapper className={ARROWLEFT_CLASSNAME}>
+      <ArrowLeft />
+    </ArrowLeftWrapper>
+    <LinkLabel>{props.children}</LinkLabel>
+  </span>
 );

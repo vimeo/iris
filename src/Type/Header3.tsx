@@ -4,7 +4,7 @@ import { TypeProps } from './TypeTypes';
 import { Omit } from '../Utils/Omit';
 
 export const Header3: SFC<
-    TypeProps & Omit<React.HTMLProps<HTMLHeadingElement>, 'size'>
+  TypeProps & Omit<React.HTMLProps<HTMLHeadingElement>, 'size'>
 > = ({ element = 'h3', format = 'dark', ...props }) => (
-    <TypeBase element={element} size="h3" format={format} {...props} />
+  <TypeBase element={element} size="h3" format={format} {...props} />
 );

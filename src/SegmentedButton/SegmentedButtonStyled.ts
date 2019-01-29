@@ -3,20 +3,21 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { SBBCProps } from './SegmentedButtonTypes';
 import {
-    ButtonCoreCSS,
-    getDefaultCSSByFormat,
-    getDisabledCSSByFormat,
-    getHoverCSSByFormat,
-    getSizeCSS,
+  ButtonCoreCSS,
+  getDefaultCSSByFormat,
+  getDisabledCSSByFormat,
+  getHoverCSSByFormat,
+  getSizeCSS,
 } from '../Button/ButtonHelpers';
 import * as COLORS from '../Color/Color';
 
 const OuterBorderRadius = rem(3);
 
-export const LabelStyled = styled<React.HTMLProps<HTMLLabelElement>, 'label'>(
-    'label',
-)`
-    flex-grow: 1;
+export const LabelStyled = styled<
+  React.HTMLProps<HTMLLabelElement>,
+  'label'
+>('label')`
+  flex-grow: 1;
 `;
 
 export const OptionStyled = styled<SBBCProps, 'span'>('span')`
@@ -32,23 +33,26 @@ export const OptionStyled = styled<SBBCProps, 'span'>('span')`
 
     &:hover {
         ${getHoverCSSByFormat({
-            format: 'primaryOutline',
+          format: 'primaryOutline',
         })};
         cursor: pointer;
     }
 
     input:checked + & {
         ${props =>
-            getDefaultCSSByFormat({
-                format: props.format === 'light' ? 'primary' : 'primaryDark',
-            })};
+          getDefaultCSSByFormat({
+            format:
+              props.format === 'light' ? 'primary' : 'primaryDark',
+          })};
 
         &:hover {
             ${props =>
-                getHoverCSSByFormat({
-                    format:
-                        props.format === 'light' ? 'primary' : 'primaryDark',
-                })};
+              getHoverCSSByFormat({
+                format:
+                  props.format === 'light'
+                    ? 'primary'
+                    : 'primaryDark',
+              })};
         }
     }
 
@@ -73,35 +77,36 @@ export const OptionStyled = styled<SBBCProps, 'span'>('span')`
     }
 
     ${props =>
-        props.disabled &&
-        `
+      props.disabled &&
+      `
 
         ${getDisabledCSSByFormat({
-            format: 'primaryOutline',
+          format: 'primaryOutline',
         })}
         &:hover {
             ${getDisabledCSSByFormat({
-                format: 'primaryOutline',
+              format: 'primaryOutline',
             })}
             cursor: not-allowed;
         }`}
 `;
 
-export const InputStyled = styled<React.HTMLProps<HTMLInputElement>, 'input'>(
-    'input',
-)`
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    width: 1px;
-    height: 1px;
-    margin: 0;
-    appearance: none;
-    align-items: center;
-    justify-content: center;
+export const InputStyled = styled<
+  React.HTMLProps<HTMLInputElement>,
+  'input'
+>('input')`
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  appearance: none;
+  align-items: center;
+  justify-content: center;
 
-    &:focus {
-        outline: none;
-    }
+  &:focus {
+    outline: none;
+  }
 `;
