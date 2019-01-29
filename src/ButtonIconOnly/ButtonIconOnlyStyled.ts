@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { rgba, rem } from 'polished';
 import * as COLORS from '../Color/Color';
-import { ButtonIconOnlyStyledProps } from './ButtonIconOnlyTypes';
 
 const ICON_SIZE = 20;
 
@@ -156,6 +155,14 @@ const ButtonIconOnlySharedCSS = css`
         }
     }
 `;
+
+export type ButtonIconOnlyFormats = keyof typeof BUTTON_FORMATS;
+
+export interface ButtonIconOnlyStyledProps {
+    autoSpacingHorizontal?: boolean;
+    format?: ButtonIconOnlyFormats;
+    size?: 'sm' | 'md';
+}
 
 export const ButtonStyled = styled<ButtonIconOnlyStyledProps, 'button'>(
     'button',

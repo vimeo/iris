@@ -6,8 +6,10 @@ import { VideoCardSelectionCheckbox } from './VideoCardSelectionCheckbox';
 import { VideoCardDecorationArea } from './VideoCardDecorationArea';
 import { VideoCardPropertiesArea } from './VideoCardPropertiesArea';
 import { VideoCardSocialBadgeArea } from './VideoCardSocialBadgeArea';
-import { VideoCardThumbnailGroup } from './VideoCardThumbnailGroup';
-import { VideoCardThumbnailData } from './VideoCard';
+import {
+    VideoCardThumbnailGroup,
+    VideoCardThumbnailData,
+} from './VideoCardThumbnailGroup';
 import * as COLORS from '../Color/Color';
 
 export interface VideoCardThumbnailAreaProps {

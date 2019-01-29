@@ -2,12 +2,26 @@ import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
-import { VideoCardThumbnailData } from './VideoCard';
 import * as COLORS from '../Color/Color';
 
 export interface VideoCardThumbnailGroupProps
     extends React.HTMLProps<HTMLDivElement> {
     thumbnailData: VideoCardThumbnailData[];
+}
+
+export interface VideoCardThumbnailData {
+    /**
+     * Alt Text for Thumbnail, probably the video title. **Required** for single video cards, can be excluded for group cards.
+     */
+    thumbnailAltText?: string;
+    /**
+     * src URI info for thumbnail
+     */
+    thumbnailSrc: string;
+    /**
+     * srcSet URI info for thumbnail **Required** for single video cards, can be excluded for group cards.
+     */
+    thumbnailSrcSet?: string;
 }
 // ==================== VideoCardThumbnailGroup Styled
 

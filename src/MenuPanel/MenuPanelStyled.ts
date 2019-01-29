@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import * as COLORS from '../Color/Color';
 import { Z_INDEXES } from '../Legacy/Z_INDEXES';
-import { menuSpeed } from './MenuPanel';
 import TetherComponent from 'react-tether';
 import {
     TetherComponentProps,
@@ -10,6 +9,8 @@ import {
     MenuPanelStyledProps,
     WrapperStyledProps,
 } from './MenuPanelTypes';
+
+export const menuSpeed = 100;
 
 const menuPanelSizes = {
     sm: 124,

@@ -10,13 +10,12 @@ import {
 import {
     MenuPanelStyled,
     menuPanelTransitionStyles,
+    menuSpeed,
     TetherComponentStyled,
     TriggerWrapperStyled,
     WrapperStyled,
 } from './MenuPanelStyled';
 import { Omit } from '../Utils/Omit';
-
-export const menuSpeed = 100;
 
 const defaultProps: DefaultProps = {
     alignment: 'center',

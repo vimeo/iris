@@ -3,26 +3,13 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { Card } from '../Card/Card';
 import { VideoCardThumbnailArea } from './VideoCardThumbnailArea';
+import { VideoCardThumbnailData } from './VideoCardThumbnailGroup';
 import { VideoCardInfoArea } from './VideoCardInfoArea';
 import { VideoCardLoadingState } from './VideoCardLoadingState';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 import { LoaderCircular } from '../LoaderCircular/LoaderCircular';
 import { Omit } from '../Utils/Omit';
 
-export interface VideoCardThumbnailData {
-    /**
-     * Alt Text for Thumbnail, probably the video title. **Required** for single video cards, can be excluded for group cards.
-     */
-    thumbnailAltText?: string;
-    /**
-     * src URI info for thumbnail
-     */
-    thumbnailSrc: string;
-    /**
-     * srcSet URI info for thumbnail **Required** for single video cards, can be excluded for group cards.
-     */
-    thumbnailSrcSet?: string;
-}
 export interface VideoCardProps
     extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
     /**
