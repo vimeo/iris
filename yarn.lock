@@ -7734,10 +7734,10 @@ typescript-plugin-styled-components@^1.0.0:
   resolved "https://registry.yarnpkg.com/typescript-plugin-styled-components/-/typescript-plugin-styled-components-1.0.0.tgz#b4de4ecd668fedd225d5c94bb5fe9cafbc0f045d"
   integrity sha512-uvndKU708YsCsud8bnBtSjosMEnUh/MXbUPswbNKjMY7GIumExp2xGEW/+2o3B+6zs98XHX4Z76iS81P5T3XUw==
 
-typescript@next:
-  version "3.4.0-dev.20190129"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.0-dev.20190129.tgz#6e830c290e3edfb0efd285f4390915ee17037b0b"
-  integrity sha512-g+SKJolDQQevfYOlDBCe+tjpN62m+9wos3+ZBdSMSbGoOTWeLevU/ZTIBzcLm/MMjOxYoXDzzYh/2mXxtnC/eA==
+typescript@rc:
+  version "3.3.0-rc"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.3.0-rc.tgz#700578b55868f99c79870c5611570663b3e21e44"
+  integrity sha512-C8FMc5pU+gFLm/rXKcwjHIeQnXJXfPNmONhKDSUWeVhyrnSqEI84EzoZylTqN0g6sJwdsn1W1AuG0RQRhfhSEA==
 
 ua-parser-js@^0.7.18:
   version "0.7.19"
