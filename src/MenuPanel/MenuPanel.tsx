@@ -192,7 +192,9 @@ export class MenuPanel extends Component<
     }
 
     if (this.props.shouldRefocusTriggerOnClose) {
-      this.menuTriggerEl.focus();
+      if (this.menuTriggerEl.focus) {
+        this.menuTriggerEl.focus();
+      }
     }
 
     if (typeof this.props.onClose === 'function') {

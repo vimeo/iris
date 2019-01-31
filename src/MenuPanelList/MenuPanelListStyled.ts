@@ -12,7 +12,7 @@ const maybeHasDividerBorder = props =>
   `;
 
 export const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
-  padding: ${rem(8)} 0;
+  padding: 0;
 
   ${maybeHasDividerBorder};
 `;
@@ -21,6 +21,7 @@ export const HeaderWrapperStyled = styled.div`
   margin-top: ${rem(8)};
   margin-right: ${rem(24)};
   margin-left: ${rem(24)};
+  padding: 0.75rem 0 0.25rem;
 `;
 
 export const MenuListStyled = styled.ul`

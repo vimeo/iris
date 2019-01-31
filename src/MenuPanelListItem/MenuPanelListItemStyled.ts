@@ -15,7 +15,7 @@ export const ListItemStyled = styled('li')`
 `;
 
 export const LabelStyled = styled.span`
-  padding: ${rem(4)};
+  padding: ${rem(3)};
   display: inline-block;
   border-radius: ${rem(2)};
   a:focus & {
