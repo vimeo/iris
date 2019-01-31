@@ -17,17 +17,10 @@ import {
 import {
     withKnobs
 } from '@storybook/addon-knobs';
-
-// import {
-//     createGlobalStyle
-// } from "styled-components";
 import {
     injectGlobal
 } from 'styled-components'
 
-import React from 'react';
-
-// const GlobalStyles = createGlobalStyle`
 injectGlobal `
     html {
         box-sizing: border-box;
@@ -50,24 +43,20 @@ injectGlobal `
     }
 `;
 
-// const withGlobalStyles = (storyFn) => ( <
-//     >
-//     <
-//     GlobalStyles / > {
-//         storyFn()
-//     } <
-//     />
-// );
-
 addDecorator(withInfo);
 addDecorator(withNotes);
 addDecorator(withKnobs);
 addDecorator(withViewport);
-// addDecorator(withGlobalStyles);
+
+import {
+    themes
+} from '@storybook/components';
+
 addDecorator(
     withOptions({
         name: 'Iris',
         url: '#',
+        theme: themes.light,
     })
 );
 
