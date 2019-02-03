@@ -38,6 +38,7 @@ nbproject
 *.sublime-project
 *.sublime-workspace
 .vscode
+.cache
 
 
 ########################
