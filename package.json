@@ -68,7 +68,7 @@
         "svg-react-icons": "npx @svgr/cli --template ./scripts/svg-react.js --ext tsx -d ./src/Icons ./src/Icons; rm -f ./src/Icons/*.svg",
         "svg-react-illustrations": "npx @svgr/cli --template ./scripts/svg-react.js --ext tsx -d ./src/Illustrations ./src/Illustrations; rm -f ./src/Illustrations/*.svg",
         "build": "npm run clean; npm run svg; npx tsc",
-        "build-storybook": "build-storybook -c .storybook -o build-styleguide",
+        "build-styleguide": "build-storybook -c .storybook -o build-styleguide",
         "test-publish": "npm run prepublishOnly; npm run postpublish;",
         "prepublishOnly": "npm run lint; npm run build; node scripts/uid-dist; cp -r ./modules/* ./",
         "postpublish": "npm run clean; rm color.d.ts color.js components.d.ts components.js icons.d.ts icons.js illustration.d.ts illustration.js index.d.ts index.js layout.d.ts layout.js typography.d.ts typography.js",
