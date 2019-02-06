@@ -29,9 +29,10 @@ const loadingGradient = css`
   );
   background-size: 200%;
   animation: ${loaderBackgroundAnimation} 2.5s linear infinite;
+  transiton: 200ms;
 `;
 
-const ThumbnailLoadingStyled = styled('div')`
+const ThumbnailLoadingStyled = styled.div`
     border-radius: ${rem(VideoCardStyleSettings.borderRadius)}
         ${rem(VideoCardStyleSettings.borderRadius)} 0 0;
     width: 100%;
@@ -41,7 +42,7 @@ const ThumbnailLoadingStyled = styled('div')`
     animation-delay: 500ms;
 `;
 
-const TitleLoadingStyled = styled('div')`
+const TitleLoadingStyled = styled.div`
     width: calc(100% - ${rem(VideoCardStyleSettings.padding * 2)});
     margin-left: ${rem(VideoCardStyleSettings.padding)};
     height: ${rem(16)};
@@ -50,7 +51,7 @@ const TitleLoadingStyled = styled('div')`
     animation-delay: 1000ms;
 `;
 
-const SubTitleLoadingStyled = styled('div')`
+const SubTitleLoadingStyled = styled.div`
   width: calc(50% - ${rem(VideoCardStyleSettings.padding)});
   margin-left: ${rem(VideoCardStyleSettings.padding)};
   height: ${rem(16)};

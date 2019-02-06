@@ -2,18 +2,86 @@ import React, { SFC } from 'react';
 import { storiesOf } from '@storybook/react';
 import * as COLORS from '../Color/Color';
 import styled from 'styled-components';
+import { Story } from '../../.storybook/Story';
 
-storiesOf('colors/Color Palette', module).add('default', () => (
-  <ColorGrid>
-    {Object.keys(COLORS).map((colorName, i) => (
-      <ColorBlock
-        colorName={colorName}
-        colorHex={COLORS[colorName]}
-        key={i}
-      />
-    ))}
-  </ColorGrid>
-));
+storiesOf('colors/', module)
+  .add('reds', () => (
+    <Story title="Colors" subTitle="reds" width="100%" flex>
+      {REDS.map((colorName, i) => (
+        <ColorBlock
+          colorName={colorName}
+          colorHex={COLORS[colorName]}
+          key={i}
+        />
+      ))}
+    </Story>
+  ))
+  .add('yellows', () => (
+    <Story title="Colors" subTitle="yellows" width="100%" flex>
+      {YELLOWS.map((colorName, i) => (
+        <ColorBlock
+          colorName={colorName}
+          colorHex={COLORS[colorName]}
+          key={i}
+        />
+      ))}
+    </Story>
+  ))
+  .add('blues', () => (
+    <Story title="Colors" subTitle="blues" width="100%" flex>
+      {BLUES.map((colorName, i) => (
+        <ColorBlock
+          colorName={colorName}
+          colorHex={COLORS[colorName]}
+          key={i}
+        />
+      ))}
+    </Story>
+  ))
+  .add('greens', () => (
+    <Story title="Colors" subTitle="greens" width="100%" flex>
+      {GREENS.map((colorName, i) => (
+        <ColorBlock
+          colorName={colorName}
+          colorHex={COLORS[colorName]}
+          key={i}
+        />
+      ))}
+    </Story>
+  ))
+  .add('slates', () => (
+    <Story title="Colors" subTitle="slates" width="100%" flex>
+      {SLATES.map((colorName, i) => (
+        <ColorBlock
+          colorName={colorName}
+          colorHex={COLORS[colorName]}
+          key={i}
+        />
+      ))}
+    </Story>
+  ))
+  .add('grayscale', () => (
+    <Story title="Colors" subTitle="grayscale" width="100%" flex>
+      {GRAYSCALE.map((colorName, i) => (
+        <ColorBlock
+          colorName={colorName}
+          colorHex={COLORS[colorName]}
+          key={i}
+        />
+      ))}
+    </Story>
+  ))
+  .add('all colors', () => (
+    <Story title="Colors" subTitle="all" width="100%" flex>
+      {Object.keys(COLORS).map((colorName, i) => (
+        <ColorBlock
+          colorName={colorName}
+          colorHex={COLORS[colorName]}
+          key={i}
+        />
+      ))}
+    </Story>
+  ));
 
 const ColorBlock: SFC<any> = ({ colorName, colorHex }) => (
   <ColorBlockStyled colorHex={colorHex}>
@@ -82,7 +150,35 @@ const ColorBlockStyled = styled.div<any>`
   }
 `;
 
-const ColorGrid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
+const REDS = ['PalePink', 'SunsetOrange', 'SunsetOrangeDarkened'];
+const YELLOWS = ['WarningYellow'];
+const BLUES = [
+  'Foam',
+  'VimeoBlueLightened',
+  'VimeoBlue',
+  'VimeoBlueDarkened',
+  'DarkerBlue',
+];
+const GREENS = [
+  'RumSwizzle',
+  'Pistachio',
+  'PistachioLightened',
+  'PistachioDarkened',
+];
+const SLATES = [
+  'Paste',
+  'SoutherlySky',
+  'RegentGray',
+  'AstroGranite',
+];
+const GRAYSCALE = [
+  'White',
+  'Plaster',
+  'Porcelain',
+  'IronHeart',
+  'AshenWinter',
+  'SovereignShadow',
+  'ObsidianSlate',
+  'RavenImperial',
+  'Black',
+];

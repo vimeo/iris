@@ -27,38 +27,33 @@ import {
 import * as COLORS from '../Color/Color';
 import styled from 'styled-components';
 
-storiesOf('components/VerticalMenu', module)
-  .add(
-    'simple',
-    () => (
-      <div className="Pattern__docs">
-        <VerticalMenuNested
-          actionButton={
-            <VerticalMenuActionButton
-              icon={<CirclePlus />}
-              tooltipText="click to add new item"
-            />
-          }
-          label="Menu Label"
-          labelId="testMenu"
-          labelIcon={<Folder />}
-          subMenuItems={subMenuItems}
-          nestedButtonLabel="toggle menu"
-        />
-      </div>
-    ),
-    {
-      info: {
-        inline: true,
-        propTables: [VerticalMenuToggleButton],
-      },
-      options: {
-        name: 'Iris',
-        url: '#',
-      },
-    },
-  )
-  .add('complex', () => <VerticalMenuDemoDocs />);
+import { Story } from '../../.storybook/Story';
+
+const componentName = 'Menu Panel';
+
+storiesOf(`components/${componentName}`, module)
+  .add('basic', () => (
+    <Story title={componentName} subTitle="basic">
+      <VerticalMenuNested
+        actionButton={
+          <VerticalMenuActionButton
+            icon={<CirclePlus />}
+            tooltipText="click to add new item"
+          />
+        }
+        label="Menu Label"
+        labelId="testMenu"
+        labelIcon={<Folder />}
+        subMenuItems={subMenuItems}
+        nestedButtonLabel="toggle menu"
+      />
+    </Story>
+  ))
+  .add('complex', () => (
+    <Story title={componentName} subTitle="complex" width="100%">
+      <VerticalMenuDemoDocs />
+    </Story>
+  ));
 
 const GridColStyled = styled(GridCol)`
   background: ${COLORS.Paste};

@@ -2,10 +2,14 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { ButtonFileUpload } from './ButtonFileUpload';
 
-storiesOf('components/Button', module).add(
+import { Story } from '../../.storybook/Story';
+
+const componentName = 'Button';
+
+storiesOf(`components/${componentName}`, module).add(
   'file upload',
   () => (
-    <div>
+    <Story title={componentName} subTitle="File Upload">
       <ButtonFileUpload
         label="Upload"
         id="uploadButtonFileUpload1"
@@ -22,12 +26,6 @@ storiesOf('components/Button', module).add(
         format="secondaryTextOnly"
         disabled
       />
-    </div>
+    </Story>
   ),
-  {
-    info: {
-      inline: true,
-      propTables: [ButtonFileUpload],
-    },
-  },
 );

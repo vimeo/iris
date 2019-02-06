@@ -6,78 +6,73 @@ import { Story } from '../../.storybook/Story';
 
 const componentName = 'Menu Panel';
 
-storiesOf(`components/${componentName}`, module).add(
-  'default',
-  () => (
-    <Story title={componentName}>
-      <MenuPanel alignment="right" menuContent={MenuList} size="md">
-        <Button isInline isButtonElement={false} autoWidth="md">
-          Click for Medium Right Menu
-        </Button>
-      </MenuPanel>
+storiesOf(`components/${componentName}`, module).add('basic', () => (
+  <Story title={componentName} subTitle="basic">
+    <MenuPanel alignment="right" menuContent={MenuList} size="md">
+      <Button isInline isButtonElement={false} autoWidth="md">
+        Click for Medium Right Menu
+      </Button>
+    </MenuPanel>
 
-      <br />
-      <br />
-      <br />
+    <br />
+    <br />
+    <br />
 
-      <MenuPanel alignment="left" menuContent={MenuList} size="lg">
-        <Button
-          isInline
-          isButtonElement={false}
-          autoWidth="md"
-          format="secondary"
-        >
-          Click for Large Left Menu
-        </Button>
-      </MenuPanel>
-
-      <br />
-      <br />
-      <br />
-
-      <MenuPanel alignment="center" menuContent={MenuList} size="sm">
-        <LinkText element="span">
-          Click for Small Center Menu
-        </LinkText>
-      </MenuPanel>
-
-      <br />
-      <br />
-      <br />
-
-      <MenuPanel
-        alignment="left"
-        menuContent={MenuListDark}
-        size="lg"
-        theme="dark"
+    <MenuPanel alignment="left" menuContent={MenuList} size="lg">
+      <Button
+        isInline
+        isButtonElement={false}
+        autoWidth="md"
+        format="secondary"
       >
-        <Button
-          isInline
-          isButtonElement={false}
-          autoWidth="md"
-          format="primaryDark"
-        >
-          Click for Dark Large Left Menu
-        </Button>
-      </MenuPanel>
+        Click for Large Left Menu
+      </Button>
+    </MenuPanel>
 
-      <br />
-      <br />
-      <br />
+    <br />
+    <br />
+    <br />
 
-      <MenuPanel
-        alignment="center"
-        menuContent={MenuList}
-        size="md"
-        isFluid
+    <MenuPanel alignment="center" menuContent={MenuList} size="sm">
+      <LinkText element="span">Click for Small Center Menu</LinkText>
+    </MenuPanel>
+
+    <br />
+    <br />
+    <br />
+
+    <MenuPanel
+      alignment="left"
+      menuContent={MenuListDark}
+      size="lg"
+      theme="dark"
+    >
+      <Button
+        isInline
+        isButtonElement={false}
+        autoWidth="md"
+        format="primaryDark"
       >
-        <Button isInline isButtonElement={false} autoWidth="fluid">
-          Click for Medium Center Menu
-        </Button>
-      </MenuPanel>
-    </Story>
-  ),
-);
+        Click for Dark Large Left Menu
+      </Button>
+    </MenuPanel>
+
+    <br />
+    <br />
+    <br />
+
+    <MenuPanel
+      alignment="center"
+      menuContent={MenuList}
+      size="md"
+      isFluid
+    >
+      <Button isInline isButtonElement={false} autoWidth="fluid">
+        Click for Medium Center Menu
+      </Button>
+    </MenuPanel>
+  </Story>
+));
 
 const MenuList = (
   <div>

@@ -31,37 +31,33 @@ const buttonFormats = {
   lightTextOnly: 'lightTextOnly',
 };
 
-storiesOf('components/Button', module)
+import { Story } from '../../.storybook/Story';
+import { ParagraphMd } from '../Type';
+
+const componentName = 'Button';
+
+storiesOf(`components/${componentName}`, module)
   .add('playground', () => (
-    <div>
+    <Story title={componentName} subTitle="Playground">
+      <ParagraphMd>Click "KNOBS" in the panel below.</ParagraphMd>
       <Button format={select('format', buttonFormats, 'primary')}>
         {text('text', 'Play with me!')}
       </Button>
-    </div>
+    </Story>
   ))
-  .add(
-    'basic buttons',
-    () => (
-      <div>
-        <Button>Primary</Button>
-        <Button format="secondary">Secondary</Button>
-        <Button format="alternative">Alternative</Button>
-        <Button format="success">Success</Button>
-        <Button format="warning">Warning</Button>
-      </div>
-    ),
-    {
-      info: {
-        inline: true,
-        propTables: [Button],
-      },
-      notes: 'test notes for button',
-    },
-  )
+  .add('basic', () => (
+    <Story title={componentName} subTitle="Basic">
+      <Button>Primary</Button>
+      <Button format="secondary">Secondary</Button>
+      <Button format="alternative">Alternative</Button>
+      <Button format="success">Success</Button>
+      <Button format="warning">Warning</Button>
+    </Story>
+  ))
   .add(
     'text overflow',
     () => (
-      <div>
+      <Story title={componentName} subTitle="Text Overflow">
         <ButtonCropped>Primary with Text Overflow</ButtonCropped>
         <ButtonCropped format="secondary">
           Secondary with Text Overflow
@@ -75,103 +71,83 @@ storiesOf('components/Button', module)
         <ButtonCropped format="warning">
           Warning with Text Overflow
         </ButtonCropped>
-      </div>
+      </Story>
     ),
     {
-      info: {
-        inline: true,
-        propTables: [Button],
-      },
       notes:
         'Buttons must be width constrained for the text to ellipsis crop. ButtonCropped used in example has a max-width of 150px.',
     },
   )
-  .add(
-    'outline buttons',
-    () => (
+  .add('outline', () => (
+    <Story title={componentName} subTitle="Outline">
+      <Button format="primaryOutline">Primary Outline</Button>
+      <Button format="secondaryOutline">Secondary Outline</Button>
+      <Button format="alternativeOutline">Alternative Outline</Button>
+      <Button format="successOutline">Success Outline</Button>
+      <Button format="warningOutline">Warning Outline</Button>
+    </Story>
+  ))
+  .add('icon', () => (
+    <Story
+      title={componentName}
+      subTitle="Icon"
+      props={['icon', 'iconLocation']}
+    >
       <div>
-        <Button format="primaryOutline">Primary Outline</Button>
-        <Button format="secondaryOutline">Secondary Outline</Button>
-        <Button format="alternativeOutline">
-          Alternative Outline
+        <Button size="lg" format="warning" icon={<PaperPlane />}>
+          warning lg
         </Button>
-        <Button format="successOutline">Success Outline</Button>
-        <Button format="warningOutline">Warning Outline</Button>
+        <Button
+          size="lg"
+          format="success"
+          icon={<DownloadArrow />}
+          iconLocation="afterLabel"
+        >
+          Success lg
+        </Button>
       </div>
-    ),
-    {
-      info: {
-        inline: true,
-        propTables: [Button],
-      },
-    },
-  )
-  .add(
-    'icon buttons',
-    () => (
-      <div data-code>
-        <div>
-          <Button size="lg" format="warning" icon={<PaperPlane />}>
-            warning lg
-          </Button>
-          <Button
-            size="lg"
-            format="success"
-            icon={<DownloadArrow />}
-            iconLocation="afterLabel"
-          >
-            Success lg
-          </Button>
-        </div>
-        <div>
-          <Button format="alternative" icon={<PaperPlane />}>
-            Alternative
-          </Button>
-          <Button
-            format="secondaryOutline"
-            icon={<Heart />}
-            iconLocation="afterLabel"
-          >
-            Secondary Outline
-          </Button>
-        </div>
-        <div>
-          <Button size="sm" format="primary" icon={<PaperPlane />}>
-            Primary sm
-          </Button>
-          <Button
-            size="sm"
-            format="secondary"
-            icon={<DownloadArrow />}
-            iconLocation="afterLabel"
-          >
-            Secondary sm
-          </Button>
-        </div>
+      <div>
+        <Button format="alternative" icon={<PaperPlane />}>
+          Alternative
+        </Button>
+        <Button
+          format="secondaryOutline"
+          icon={<Heart />}
+          iconLocation="afterLabel"
+        >
+          Secondary Outline
+        </Button>
+      </div>
+      <div>
+        <Button size="sm" format="primary" icon={<PaperPlane />}>
+          Primary sm
+        </Button>
+        <Button
+          size="sm"
+          format="secondary"
+          icon={<DownloadArrow />}
+          iconLocation="afterLabel"
+        >
+          Secondary sm
+        </Button>
+      </div>
 
-        <div>
-          <Button
-            size="xs"
-            format="primaryOutline"
-            icon={<PaperPlane />}
-          >
-            Primary xs
-          </Button>
-          <Button
-            size="xs"
-            format="secondaryOutline"
-            icon={<PaperPlane />}
-            iconLocation="afterLabel"
-          >
-            Secondary xs
-          </Button>
-        </div>
+      <div>
+        <Button
+          size="xs"
+          format="primaryOutline"
+          icon={<PaperPlane />}
+        >
+          Primary xs
+        </Button>
+        <Button
+          size="xs"
+          format="secondaryOutline"
+          icon={<PaperPlane />}
+          iconLocation="afterLabel"
+        >
+          Secondary xs
+        </Button>
       </div>
-    ),
-    {
-      info: {
-        inline: true,
-        propTables: [Button],
-      },
-    },
-  );
+    </Story>
+  ));

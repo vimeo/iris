@@ -2,21 +2,13 @@ import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Toastification } from './Toastification';
 import { Button } from '../Button/Button';
+import { Story } from '../../.storybook/Story';
 
-storiesOf('components/Notifications', module).add(
-  'Toastification',
-  () => <ToastificationDocs />,
-  {
-    info: {
-      inline: true,
-      propTables: [Toastification],
-    },
-    options: {
-      name: 'Iris',
-      url: '#',
-    },
-  },
-);
+storiesOf('components/', module).add('Toastification', () => (
+  <Story title="Toastification">
+    <ToastificationDocs />
+  </Story>
+));
 
 class ToastificationDocs extends Component<any, any> {
   readonly state = {

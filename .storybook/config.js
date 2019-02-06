@@ -3,9 +3,6 @@ import {
     configure
 } from '@storybook/react';
 import {
-    withInfo
-} from '@storybook/addon-info';
-import {
     withNotes
 } from '@storybook/addon-notes';
 import {
@@ -43,7 +40,6 @@ injectGlobal `
     }
 `;
 
-addDecorator(withInfo);
 addDecorator(withNotes);
 addDecorator(withKnobs);
 addDecorator(withViewport);

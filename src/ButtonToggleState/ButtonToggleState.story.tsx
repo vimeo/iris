@@ -11,16 +11,9 @@ const connectText = 'Connect';
 const disconnectText = 'Disconnect';
 const connectedText = 'Connected';
 
-storiesOf('components/Button', module).add(
-  'toggle state',
-  () => <ButtonToggleStateDocs />,
-  {
-    info: {
-      inline: true,
-      propTables: [ButtonToggleState],
-    },
-  },
-);
+storiesOf('components/Button', module).add('toggle state', () => (
+  <ButtonToggleStateDocs />
+));
 
 class ButtonToggleStateDocs extends Component {
   state = { following: false, connected: false };

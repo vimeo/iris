@@ -7,53 +7,47 @@ import * as Icons from '../Icons';
 import * as Illustrations from '../Illustrations';
 import { HeaderPlusUltra, Header2, Header4 } from '../Type';
 import * as COLORS from '../Color/Color';
+import { Story } from '../../.storybook/Story';
 
-storiesOf('svg', module)
-  .add('icons', () => {
-    const size = select(
-      'Size',
-      { XS: 0.625, SM: 0.875, MD: 1, LG: 1.125, XL: 2 },
-      1.125,
-      'iconSizes',
-    );
+storiesOf('Icons', module).add('all', () => {
+  const size = select(
+    'Size',
+    { XS: 0.625, SM: 0.875, MD: 1, LG: 1.125, XL: 2 },
+    1.125,
+    'iconSizes',
+  );
 
-    return (
-      <div>
-        <HeaderPlusUltra id="icons">Icons</HeaderPlusUltra>
-
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {Object.keys(Icons).map(icon => (
-            <IconWrapper>
-              <Header4 style={{ marginBottom: '0.125rem' }}>
-                {icon}
-              </Header4>
-
-              <Icon size={size} name={icon} />
-            </IconWrapper>
-          ))}
-        </div>
-      </div>
-    );
-  })
-  .add('illustrations', () => (
-    <div>
-      <HeaderPlusUltra id="illustrations">
-        Illustrations
-      </HeaderPlusUltra>
-
+  return (
+    <Story title="Icons" width="100%">
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {Object.keys(Illustrations).map(illustration => (
-          <IllustrationWrapper>
-            <Header2 style={{ marginBottom: '0.25rem' }}>
-              {illustration}
-            </Header2>
+        {Object.keys(Icons).map(icon => (
+          <IconWrapper>
+            <Header4 style={{ marginBottom: '0.125rem' }}>
+              {icon}
+            </Header4>
 
-            <Illustration name={illustration} />
-          </IllustrationWrapper>
+            <Icon size={size} name={icon} />
+          </IconWrapper>
         ))}
       </div>
+    </Story>
+  );
+});
+storiesOf('Illustration', module).add('all', () => (
+  <Story title="Illustrations" width="100%">
+    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      {Object.keys(Illustrations).map(illustration => (
+        <IllustrationWrapper>
+          <Header2 style={{ marginBottom: '0.25rem' }}>
+            {illustration}
+          </Header2>
+
+          <Illustration name={illustration} />
+        </IllustrationWrapper>
+      ))}
     </div>
-  ));
+  </Story>
+));
 
 const Card = css`
   padding: 1rem;

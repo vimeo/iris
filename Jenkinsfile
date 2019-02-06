@@ -24,5 +24,10 @@ pipeline {
                 sh 'yarn build'
             }
         }
+        stage('storybook') {
+            steps {
+                sh './scripts/gh-pages.sh'
+            }
+        }
     }
 }

@@ -4,10 +4,12 @@ import { AddNewItemCard } from './AddNewItemCard';
 import { Grid } from '../Grid/Grid';
 import { GridBlock } from '../GridBlock/GridBlock';
 import { GridCol } from '../GridCol/GridCol';
+import { Story } from '../../.storybook/Story';
 
-storiesOf('components/AddNewItemCard', module).add(
-  'default',
-  () => (
+const componentName = 'Add New Item Card';
+
+storiesOf(`components/`, module).add('Add New Item Card', () => (
+  <Story title={componentName} width="100%">
     <Grid isNested>
       <GridBlock>
         <GridCol mdSpan={12} lgSpan={6}>
@@ -84,11 +86,5 @@ storiesOf('components/AddNewItemCard', module).add(
         </GridCol>
       </GridBlock>
     </Grid>
-  ),
-  {
-    info: {
-      inline: true,
-      propTables: [AddNewItemCard],
-    },
-  },
-);
+  </Story>
+));

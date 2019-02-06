@@ -1,11 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { ButtonFileUploadIconOnly } from './ButtonFileUploadIconOnly';
+import { Story } from '../../.storybook/Story';
 
-storiesOf('components/Button', module).add(
+const componentName = 'Button';
+
+storiesOf(`components/${componentName}`, module).add(
   'file upload icon only',
   () => (
-    <div>
+    <Story title={componentName} subTitle="File Upload Icon Only">
       <ButtonFileUploadIconOnly
         label="Upload"
         id="uploadButtonFileUploadIcon1"
@@ -21,12 +24,6 @@ storiesOf('components/Button', module).add(
         id="uploadButtonFileUploadIconDisabled"
         format="light"
       />
-    </div>
+    </Story>
   ),
-  {
-    info: {
-      inline: true,
-      propTables: [ButtonFileUploadIconOnly],
-    },
-  },
 );

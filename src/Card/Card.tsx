@@ -31,7 +31,7 @@ const getBoxShadow = props => {
   return props.isSelected ? boxShadow.isSelected : boxShadow.inactive;
 };
 
-const CardStyled = styled<CardProps, 'div'>('div')`
+const CardStyled = styled.div<CardProps>`
   position: relative;
   background: ${props =>
     props.isLoading ? COLORS.Paste : COLORS.White};
@@ -50,8 +50,7 @@ const CardStyled = styled<CardProps, 'div'>('div')`
     border-radius: ${rem(CardSettings.borderRadius)};
     box-shadow: ${getBoxShadow};
     opacity: ${props => (props.isSelected ? '1' : '.85')};
-    transition: opacity ${CardSettings.hoverTransition},
-      transform ${CardSettings.hoverTransition};
+    transition: 120ms ease-in-out;
     z-index: -1;
   }
 

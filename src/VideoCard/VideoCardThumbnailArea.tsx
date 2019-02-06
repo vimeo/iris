@@ -1,7 +1,7 @@
 import React, { SFC } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { rem } from 'polished';
-import { VideoCardStyleSettings } from './VideoCardHelpers';
+import { VideoCardStyleSettings as settings } from './VideoCardHelpers';
 import { VideoCardSelectionCheckbox } from './VideoCardSelectionCheckbox';
 import { VideoCardDecorationArea } from './VideoCardDecorationArea';
 import { VideoCardPropertiesArea } from './VideoCardPropertiesArea';
@@ -42,18 +42,15 @@ export interface ThumbnailStyledProps
   isTopOfCard: boolean;
 }
 
-const ThumbnailShadowStyled = styled<ThumbnailStyledProps, 'div'>(
-  'div',
-)`
+const ThumbnailShadowStyled = styled.div<ThumbnailStyledProps>`
   border-radius: ${props =>
     props.isTopOfCard
-      ? `${rem(VideoCardStyleSettings.borderRadius)}
-        ${rem(VideoCardStyleSettings.borderRadius)} 0 0`
+      ? `${rem(settings.borderRadius)}
+        ${rem(settings.borderRadius)} 0 0`
       : '0'};
   position: absolute;
   top: 0;
   left: 0;
-  box-shadow: inset 0 ${rem(-1)} 0 0 rgba(0, 0, 0, 0.075);
   width: 100%;
   padding-bottom: 56.15%;
 `;
@@ -61,8 +58,8 @@ const ThumbnailShadowStyled = styled<ThumbnailStyledProps, 'div'>(
 const ThumbnailStyled = styled<ThumbnailStyledProps, 'img'>('img')`
   border-radius: ${props =>
     props.isTopOfCard
-      ? `${rem(VideoCardStyleSettings.borderRadius)}
-        ${rem(VideoCardStyleSettings.borderRadius)} 0 0`
+      ? `${rem(settings.borderRadius)}
+        ${rem(settings.borderRadius)} 0 0`
       : '0'};
   width: 100%;
   height: auto;
@@ -71,15 +68,11 @@ const ThumbnailStyled = styled<ThumbnailStyledProps, 'img'>('img')`
   left: 0;
 `;
 
-const ThumbnailContainerStyled = styled<
-  VideoCardThumbnailWrapperProps,
-  'div'
->('div')`
-  border-radius: ${rem(VideoCardStyleSettings.borderRadius)}
-    ${rem(VideoCardStyleSettings.borderRadius)} 0 0;
-  ${props =>
-    props.isHovered &&
-    'opacity: .66;'} box-shadow: inset 1px 1px 0px 0px rgba(0,0,0,0.10);
+const ThumbnailContainerStyled = styled.div<
+  VideoCardThumbnailWrapperProps
+>`
+  border-radius: ${rem(settings.borderRadius)}
+    ${rem(settings.borderRadius)} 0 0;
 `;
 
 const ThumbnailPreloadWrapperStyled = styled('div')`
@@ -88,35 +81,24 @@ const ThumbnailPreloadWrapperStyled = styled('div')`
   padding-bottom: 56.15%;
   position: relative;
 `;
-const hoverOverlayKeyframes = keyframes`
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: .5;
-        }
-`;
 
-const HoverOverlayWrapperStyled = styled('div')`
-  width: 100%;
-  height: 100%;
+const HoverOverlayStyled = styled.div<{ active?: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
-  animation: ${hoverOverlayKeyframes}
-    ${VideoCardStyleSettings.hoverTransition};
-`;
-
-const HoverOverlayStyled = styled('div')`
   width: 100%;
   height: 100%;
-  border-radius: ${rem(VideoCardStyleSettings.borderRadius)}
-    ${rem(VideoCardStyleSettings.borderRadius)} 0 0;
+  border-radius: ${rem(settings.borderRadius)}
+    ${rem(settings.borderRadius)} 0 0;
   background-image: linear-gradient(
     -180deg,
-    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.334) 0%,
     rgba(0, 0, 0, 0) 100%
   );
+  transition: 80ms ease-in-out;
+  opacity: ${props => (props.active ? '1' : '0')};
+  pointer-events: none;
+  z-index: 0;
 `;
 
 export const VideoCardThumbnailArea: SFC<
@@ -152,11 +134,7 @@ export const VideoCardThumbnailArea: SFC<
         </ThumbnailPreloadWrapperStyled>
       )}
     </ThumbnailContainerStyled>
-    {isHovered && !isGroup && (
-      <HoverOverlayWrapperStyled>
-        <HoverOverlayStyled />
-      </HoverOverlayWrapperStyled>
-    )}
+    <HoverOverlayStyled active={isHovered && !isGroup} />}
     {thumbnailBrandDecorationArea && (
       <VideoCardDecorationArea
         isHovered={isHovered}

@@ -4,21 +4,13 @@ import { ParagraphMd } from '../Type';
 import { SlideUpDown } from './SlideUpDown';
 import { Button } from '../Button/Button';
 import { NotificationSuccess } from '../NotificationSuccess/NotificationSuccess';
+import { Story } from '../../.storybook/Story';
 
-storiesOf('animation', module).add(
-  'Slide Up Down',
-  () => <SlideUpDownDocs />,
-  {
-    info: {
-      inline: true,
-      propTables: [SlideUpDown],
-    },
-    options: {
-      name: 'Iris',
-      url: '#',
-    },
-  },
-);
+storiesOf('animation', module).add('Slide Up Down', () => (
+  <Story title="Slide Up Down">
+    <SlideUpDownDocs />
+  </Story>
+));
 
 class SlideUpDownDocs extends Component {
   state = { hideNotification: false };

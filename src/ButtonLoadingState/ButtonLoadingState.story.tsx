@@ -2,18 +2,15 @@ import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 import { ButtonLoadingState } from './ButtonLoadingState';
 import { Gear } from '../Icons';
+import { Story } from '../../.storybook/Story';
 
-storiesOf('components/Button', module).add(
-  'loading state',
-  () => <ButtonLoadingStateDocs />,
-  {
-    info: {
-      inline: true,
-      propTables: [ButtonLoadingState],
-    },
-    notes: '',
-  },
-);
+const componentName = 'Button';
+
+storiesOf('components/Button', module).add('loading state', () => (
+  <Story title={componentName}>
+    <ButtonLoadingStateDocs />
+  </Story>
+));
 
 const initialState = { isLoading: true };
 type State = Readonly<typeof initialState>;

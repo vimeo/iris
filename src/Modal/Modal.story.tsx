@@ -1,65 +1,56 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Button } from '../Button/Button';
 import { Modal } from './Modal';
 import { ParagraphMd } from '../Type';
 
-storiesOf('components/Modal', module).add(
-  'basic modal',
-  () => <ModalDocs />,
-  {
-    info: {
-      inline: true,
-      propTables: [Modal],
-    },
-  },
-);
+import { Story } from '../../.storybook/Story';
 
-const initialState = { showModal: false };
-type State = Readonly<typeof initialState>;
-const closeModal = () => ({ showModal: false });
-const openModal = () => ({ showModal: true });
+const componentName = 'Modal';
 
-class ModalDocs extends Component {
-  readonly state: State = initialState;
-  closeModal = () => this.setState(closeModal);
-  openModal = () => this.setState(openModal);
+storiesOf(`components/${componentName}`, module).add('basic', () => (
+  <Story title={componentName} subTitle="basic">
+    <ModalDocs />
+  </Story>
+));
 
-  render() {
-    return (
-      <div>
-        <Modal
-          firstFocusSelector="#ModalPrimaryAction"
-          modalLabelId="exampleModalLabel"
-          modalDescriptionId="exampleModalDesc"
-          modalCloseLabel="Close this dialog."
-          modalTitle="Modal With Title Bar (Long for Truncation)"
-          onDismiss={this.closeModal}
-          primaryButtonProps={{
-            children: 'Submit',
-            id: 'ModalPrimaryAction',
-            onClick: this.closeModal,
-          }}
-          secondaryButtonProps={{
-            children: 'Cancel',
-            onClick: this.closeModal,
-          }}
-          fluidButtons
-          isShowing={this.state.showModal}
-          size="md"
-        >
-          <ParagraphMd id="exampleModalDesc">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Consectetur ipsam tenetur illum eius expedita cum ipsa
-            distinctio harum ut alias, praesentium suscipit vel soluta
-            natus repudiandae omnis reiciendis! Eos, beatae.
-          </ParagraphMd>
-        </Modal>
+const ModalDocs = () => {
+  const [active, setActive] = useState(false);
+  const toggleState = () => setActive(active => !active);
 
-        <Button format="primaryOutline" onClick={this.openModal}>
-          Show Modal
-        </Button>
-      </div>
-    );
-  }
-}
+  return (
+    <>
+      <Modal
+        firstFocusSelector="#ModalPrimaryAction"
+        modalLabelId="exampleModalLabel"
+        modalDescriptionId="exampleModalDesc"
+        modalCloseLabel="Close this dialog."
+        modalTitle="Modal With Title Bar (Long for Truncation)"
+        onDismiss={toggleState}
+        primaryButtonProps={{
+          children: 'Submit',
+          id: 'ModalPrimaryAction',
+          onClick: toggleState,
+        }}
+        secondaryButtonProps={{
+          children: 'Cancel',
+          onClick: toggleState,
+        }}
+        fluidButtons
+        isShowing={active}
+        size="md"
+      >
+        <ParagraphMd id="exampleModalDesc">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Consectetur ipsam tenetur illum eius expedita cum ipsa
+          distinctio harum ut alias, praesentium suscipit vel soluta
+          natus repudiandae omnis reiciendis! Eos, beatae.
+        </ParagraphMd>
+      </Modal>
+
+      <Button format="primaryOutline" onClick={toggleState}>
+        Show Modal
+      </Button>
+    </>
+  );
+};

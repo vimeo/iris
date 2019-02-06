@@ -4,9 +4,12 @@ import { Header2, ParagraphMd } from '../Type';
 import { LinkText } from '../LinkText/LinkText';
 import { TabNavigationHorizontal } from './TabNavigationHorizontal';
 
-storiesOf('components/Tabs', module).add(
-  'default',
-  () => (
+import { Story } from '../../.storybook/Story';
+
+const componentName = 'Tab Navigation Horizontal';
+
+storiesOf(`components/`, module).add('Tab Navigation', () => (
+  <Story title={componentName}>
     <TabNavigationHorizontal
       index={1}
       panels={[
@@ -78,11 +81,5 @@ storiesOf('components/Tabs', module).add(
         },
       ]}
     />
-  ),
-  {
-    info: {
-      inline: true,
-      propTables: [TabNavigationHorizontal],
-    },
-  },
-);
+  </Story>
+));

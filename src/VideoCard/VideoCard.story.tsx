@@ -19,32 +19,38 @@ import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
 import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 import { VideoCardFooterActionsGrid } from './VideoCardFooterActionsGrid';
 
-storiesOf('components/VideoCard', module).add('basic', () => (
-  <Grid isNested>
-    <GridBlock>
-      <GridCol mdSpan={12} lgSpan={6}>
-        <VideoCard
-          onClick={() => console.log('clicked')}
-          onCheckBoxClick={() => console.log('checkbox clicked')}
-          thumbnailBrandDecorationArea={<StaffPicksBadgeJustSp />}
-          thumbnailData={thumbnailData}
-          // @ts-ignore
-          thumbnailSocialBadgeArea={socialBadges}
-          thumbnailTimestampArea={
-            <VideoCardTimestamp timestamp="04:15" />
-          }
-          thumbnailVideoCardPropertiesArea={videoProperties}
-          title="Le Futur Sera Chauve / The Bald Futur, Encore, Le Futur Sera Chauve / The Bald Futur "
-          titleSubheader={<span>8432 plays &#183; 5d</span>}
-          footer={
-            <VideoCardFooterActionsGrid
-              actionItems={actionButtonsFull}
-            />
-          }
-        />
-      </GridCol>
-    </GridBlock>
-  </Grid>
+import { Story } from '../../.storybook/Story';
+
+const componentName = 'Video Card';
+
+storiesOf(`components/${componentName}`, module).add('basic', () => (
+  <Story title={componentName} subTitle="basic" width="100%">
+    <Grid isNested>
+      <GridBlock>
+        <GridCol mdSpan={12} lgSpan={6}>
+          <VideoCard
+            onClick={() => console.log('clicked')}
+            onCheckBoxClick={() => console.log('checkbox clicked')}
+            thumbnailBrandDecorationArea={<StaffPicksBadgeJustSp />}
+            thumbnailData={thumbnailData}
+            // @ts-ignore
+            thumbnailSocialBadgeArea={socialBadges}
+            thumbnailTimestampArea={
+              <VideoCardTimestamp timestamp="04:15" />
+            }
+            thumbnailVideoCardPropertiesArea={videoProperties}
+            title="Le Futur Sera Chauve / The Bald Futur, Encore, Le Futur Sera Chauve / The Bald Futur "
+            titleSubheader={<span>8432 plays &#183; 5d</span>}
+            footer={
+              <VideoCardFooterActionsGrid
+                actionItems={actionButtonsFull}
+              />
+            }
+          />
+        </GridCol>
+      </GridBlock>
+    </Grid>
+  </Story>
 ));
 
 const thumbnailData = [

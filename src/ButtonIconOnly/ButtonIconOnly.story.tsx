@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { ButtonIconOnly } from './ButtonIconOnly';
 import { Gear } from '../Icons';
 import styled from 'styled-components';
+import { Story } from '../../.storybook/Story';
 
 const Format = styled.h6`
   font-family: Helvetica;
@@ -14,10 +15,12 @@ const Format = styled.h6`
   position: relative;
 `;
 
-storiesOf('components/Button', module).add(
+const componentName = 'Button';
+
+storiesOf(`components/${componentName}`, module).add(
   'icon only',
   () => (
-    <div>
+    <Story title={componentName} subTitle="Icon Only">
       <div
         style={{
           background: '#222',
@@ -265,13 +268,6 @@ storiesOf('components/Button', module).add(
         <Format>warning</Format>
         <ButtonIconOnly icon={<Gear />} format="warning" size="md" />
       </div>
-    </div>
+    </Story>
   ),
-  {
-    info: {
-      inline: true,
-      propTables: [ButtonIconOnly],
-    },
-    notes: 'test notes for button',
-  },
 );

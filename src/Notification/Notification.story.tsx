@@ -5,67 +5,38 @@ import { NotificationSuccess } from '../NotificationSuccess/NotificationSuccess'
 import { NotificationWarning } from '../NotificationWarning/NotificationWarning';
 import { ParagraphMd } from '../Type';
 
-storiesOf('components/Notifications', module)
-  .add(
-    'neutral',
-    () => (
+import { Story } from '../../.storybook/Story';
+
+const componentName = 'Notification';
+
+storiesOf(`components/${componentName}`, module)
+  .add('neutral', () => (
+    <Story title={componentName} subTitle="neutral">
       <NotificationNeutral
         id="someOptionalId"
         className="someOptionalClass"
       >
         <ParagraphMd>Lorem ipsum dolor sit amet.</ParagraphMd>
       </NotificationNeutral>
-    ),
-    {
-      info: {
-        inline: true,
-        propTables: [NotificationNeutral],
-      },
-      options: {
-        name: 'Iris',
-        url: '#',
-      },
-    },
-  )
-  .add(
-    'success',
-    () => (
+    </Story>
+  ))
+  .add('success', () => (
+    <Story title={componentName} subTitle="success">
       <NotificationSuccess
         id="someOptionalId"
         className="someOptionalClass"
       >
         <ParagraphMd>Lorem ipsum dolor sit amet.</ParagraphMd>
       </NotificationSuccess>
-    ),
-    {
-      info: {
-        inline: true,
-        propTables: [NotificationSuccess],
-      },
-      options: {
-        name: 'Iris',
-        url: '#',
-      },
-    },
-  )
-  .add(
-    'warning',
-    () => (
+    </Story>
+  ))
+  .add('warning', () => (
+    <Story title={componentName} subTitle="warning">
       <NotificationWarning
         id="someOptionalId"
         className="someOptionalClass"
       >
         <ParagraphMd>Lorem ipsum dolor sit amet.</ParagraphMd>
       </NotificationWarning>
-    ),
-    {
-      info: {
-        inline: true,
-        propTables: [NotificationWarning],
-      },
-      options: {
-        name: 'Iris',
-        url: '#',
-      },
-    },
-  );
+    </Story>
+  ));
