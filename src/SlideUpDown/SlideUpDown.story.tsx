@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { ParagraphMd } from '../Type';
 import { SlideUpDown } from './SlideUpDown';
 import { Button } from '../Button/Button';
-import { NotificationSuccess } from '../NotificationSuccess/NotificationSuccess';
+import { Notification } from '../Notification/Notification';
 import { Story } from '../../.storybook/Story';
 
 storiesOf('animation', module).add('Slide Up Down', () => (
@@ -22,7 +22,7 @@ class SlideUpDownDocs extends Component {
     <div>
       <Button onClick={this.handleClick}>Toggle</Button>
       <SlideUpDown isHidden={this.state.hideNotification}>
-        <NotificationSuccess>
+        <Notification variant="success">
           <ParagraphMd>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Aut quidem fugiat corrupti inventore eaque. Eaque
@@ -31,13 +31,13 @@ class SlideUpDownDocs extends Component {
             recusandae? Molestias accusantium dolorum ipsum quae
             quibusdam minus distinctio accusamus optio.
           </ParagraphMd>
-        </NotificationSuccess>
+        </Notification>
       </SlideUpDown>
       <SlideUpDown
         animateOpenOnMount
         isHidden={this.state.hideNotification}
       >
-        <NotificationSuccess>
+        <Notification variant="success">
           <ParagraphMd>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Aut quidem fugiat corrupti inventore eaque. Eaque
@@ -46,7 +46,7 @@ class SlideUpDownDocs extends Component {
             recusandae? Molestias accusantium dolorum ipsum quae
             quibusdam minus distinctio accusamus optio.
           </ParagraphMd>
-        </NotificationSuccess>
+        </Notification>
       </SlideUpDown>
     </div>
   );

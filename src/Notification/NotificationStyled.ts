@@ -1,14 +1,15 @@
-import { NotificationProps } from './NotificationProps';
 import styled from 'styled-components';
 import { rgba, rem } from 'polished';
 import { TRANSITIONS } from '../Legacy/TRANSITIONS';
 import * as COLORS from '../Color/Color';
+import { ReactNode } from 'react';
+import { Variant } from './Notification';
 
-const notificationPaddingHorizontal = 16;
-const notificationPaddingVertical = 12;
-const notificationIconSize = 20;
-const notificationIconMargin = 12;
-const notificationDismissIconSize = 20;
+const padHorizontal = 16;
+const padVertical = 12;
+const iconSize = 20;
+const iconMargin = 12;
+const dismissIconSize = 20;
 
 const notificationColors = {
   neutral: {
@@ -30,67 +31,57 @@ const notificationBg = variant =>
 const notificationColor = variant =>
   notificationColors[variant] && notificationColors[variant].color;
 
-export const NotificationStyled = styled<NotificationProps, 'div'>(
-  'div',
-)`
+export const NotificationStyled = styled.div<{
+  icon: ReactNode;
+  variant: Variant;
+}>`
   position: relative;
-
   width: 100%;
   margin-bottom: ${rem(16)};
-  padding-top: ${rem(notificationPaddingVertical)};
-  padding-right: ${rem(
-    notificationDismissIconSize +
-      notificationPaddingHorizontal +
-      notificationIconMargin,
-  )};
-  padding-bottom: ${rem(notificationPaddingVertical)};
+  padding-top: ${rem(padVertical)};
+  padding-right: ${rem(dismissIconSize + padHorizontal + iconMargin)};
+  padding-bottom: ${rem(padVertical)};
   padding-left: ${props =>
-    props.hasIcon ? rem(48) : rem(notificationPaddingHorizontal)};
-
+    props.icon ? rem(48) : rem(padHorizontal)};
   border-radius: ${rem(3)};
   background-color: ${props => notificationBg(props.variant)};
-
   transition: all ${TRANSITIONS.base};
 
   p:last-of-type {
     max-width: 44rem;
     margin-bottom: 0 !important;
   }
+`;
 
-  .icon {
-    position: absolute;
-    top: ${props =>
-      props.headerText ? rem(14) : rem(notificationPaddingVertical)};
-    left: ${rem(notificationPaddingHorizontal)};
+export const Icon = styled.span<{
+  header: string;
+  variant: Variant;
+}>`
+  position: absolute;
+  top: ${props => (props.header ? rem(14) : rem(padVertical))};
+  left: ${rem(padHorizontal)};
 
-    svg {
-      width: ${rem(notificationIconSize)};
-      height: ${rem(notificationIconSize)};
+  svg {
+    width: ${rem(iconSize)};
+    height: ${rem(iconSize)};
 
-      * {
-        fill: ${props => notificationColor(props.variant)};
-      }
+    * {
+      fill: ${props => notificationColor(props.variant)};
     }
   }
+`;
 
-  .dismissButtonWrapper {
-    position: absolute;
-    top: ${rem(4)};
-    right: ${rem(4)};
+export const Dismiss = styled.div<{ variant: Variant }>`
+  position: absolute;
+  top: ${rem(4)};
+  right: ${rem(4)};
 
-    svg * {
-      fill: ${props =>
-        notificationColor(
-          props.variant,
-        )} !important; // overrides button icon color for special case
-    }
+  svg * {
+    fill: ${props => notificationColor(props.variant)} !important;
+  }
 
-    &:hover button {
-      background: ${props =>
-        rgba(
-          notificationColor(props.variant),
-          0.1,
-        )} !important; // overrides button icon color for special case
-    }
+  &:hover button {
+    background: ${props =>
+      rgba(notificationColor(props.variant), 0.1)} !important;
   }
 `;

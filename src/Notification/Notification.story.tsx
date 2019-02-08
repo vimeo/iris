@@ -1,42 +1,43 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { NotificationNeutral } from '../NotificationNeutral/NotificationNeutral';
-import { NotificationSuccess } from '../NotificationSuccess/NotificationSuccess';
-import { NotificationWarning } from '../NotificationWarning/NotificationWarning';
 import { ParagraphMd } from '../Type';
-
+import { Notification } from './Notification';
+import { Gear } from '../Icons';
 import { Story } from '../../.storybook/Story';
 
 const componentName = 'Notification';
 
-storiesOf(`components/${componentName}`, module)
-  .add('neutral', () => (
-    <Story title={componentName} subTitle="neutral">
-      <NotificationNeutral
-        id="someOptionalId"
-        className="someOptionalClass"
-      >
-        <ParagraphMd>Lorem ipsum dolor sit amet.</ParagraphMd>
-      </NotificationNeutral>
-    </Story>
-  ))
-  .add('success', () => (
-    <Story title={componentName} subTitle="success">
-      <NotificationSuccess
-        id="someOptionalId"
-        className="someOptionalClass"
-      >
-        <ParagraphMd>Lorem ipsum dolor sit amet.</ParagraphMd>
-      </NotificationSuccess>
-    </Story>
-  ))
-  .add('warning', () => (
-    <Story title={componentName} subTitle="warning">
-      <NotificationWarning
-        id="someOptionalId"
-        className="someOptionalClass"
-      >
-        <ParagraphMd>Lorem ipsum dolor sit amet.</ParagraphMd>
-      </NotificationWarning>
-    </Story>
-  ));
+const VariantStory = ({ variant }) => (
+  <Story title={componentName}>
+    <Notification
+      variant={variant}
+      id="someOptionalId"
+      className="someOptionalClass"
+    >
+      <ParagraphMd>Lorem ipsum dolor sit amet.</ParagraphMd>
+    </Notification>
+
+    <br />
+    <br />
+
+    <Notification
+      variant={variant}
+      icon={false}
+      header="lorem ipsum header"
+    >
+      <ParagraphMd>Lorem ipsum dolor sit amet.</ParagraphMd>
+    </Notification>
+
+    <br />
+    <br />
+
+    <Notification variant={variant} icon={<Gear />}>
+      <ParagraphMd>Lorem ipsum dolor sit amet.</ParagraphMd>
+    </Notification>
+  </Story>
+);
+
+storiesOf('components/Notification', module)
+  .add('neutral', () => <VariantStory variant="neutral" />)
+  .add('success', () => <VariantStory variant="success" />)
+  .add('warning', () => <VariantStory variant="warning" />);

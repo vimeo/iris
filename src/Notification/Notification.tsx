@@ -1,42 +1,60 @@
-import React, { SFC, HTMLProps } from 'react';
+import React, { SFC, ReactNode, MouseEventHandler } from 'react';
 import { ButtonDialogClose } from '../ButtonDialogClose/ButtonDialogClose';
-
 import { Header5 } from '../Type';
-import { NotificationProps } from './NotificationProps';
-import { NotificationStyled } from './NotificationStyled';
+import {
+  NotificationStyled,
+  Icon,
+  Dismiss,
+} from './NotificationStyled';
+import { CircleInfo, Checkmark, CircleWarning } from '../Icons';
 
-export const Notification: SFC<
-  NotificationProps & HTMLProps<HTMLDivElement>
-> = ({
+export type Variant = 'neutral' | 'success' | 'warning';
+
+interface Props {
+  className?: string;
+  dismissButtonClassName?: string;
+  header?: string;
+  icon?: ReactNode;
+  id?: string;
+  onDismiss?: MouseEventHandler;
+  variant: Variant;
+}
+
+export const Notification: SFC<Props> = ({
   children,
-  dismissButtonClassName,
-  headerText,
-  icon,
+  header,
+  icon = true,
   onDismiss,
   variant,
-  ref: _,
   ...props
 }) => (
-  <NotificationStyled
-    hasIcon={icon ? true : false}
-    headerText={headerText}
-    variant={variant}
-    {...props}
-  >
-    {icon && <span className="icon">{icon}</span>}
-    {headerText && <Header5>{headerText}</Header5>}
+  <NotificationStyled icon={icon} variant={variant} {...props}>
+    {icon && (
+      <Icon header={header} variant={variant}>
+        {getIcon(icon, variant)}
+      </Icon>
+    )}
 
+    {header && <Header5>{header}</Header5>}
     {children}
 
     {onDismiss && (
-      <div className="dismissButtonWrapper">
+      <Dismiss variant={variant}>
         <ButtonDialogClose
-          className={dismissButtonClassName}
           onClick={onDismiss}
           buttonTitle="Dismiss this notification"
           format="lightTransparent"
         />
-      </div>
+      </Dismiss>
     )}
   </NotificationStyled>
 );
+
+const defaultIcons = {
+  neutral: <CircleInfo />,
+  success: <Checkmark />,
+  warning: <CircleWarning />,
+};
+
+const getIcon = (icon, variant) =>
+  icon === true ? defaultIcons[variant] : icon;

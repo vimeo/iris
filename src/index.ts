@@ -93,16 +93,6 @@ export {
 export { ModalWrapper } from './ModalWrapper/ModalWrapper';
 
 export { Notification } from './Notification/Notification';
-export {
-  NotificationNeutral,
-} from './NotificationNeutral/NotificationNeutral';
-export {
-  NotificationSuccess,
-} from './NotificationSuccess/NotificationSuccess';
-export {
-  NotificationWarning,
-} from './NotificationWarning/NotificationWarning';
-
 export { ProgressBar } from './ProgressBar/ProgressBar';
 export { SearchField } from './SearchField/SearchField';
 export {
