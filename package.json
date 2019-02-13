@@ -2,7 +2,7 @@
     "name": "@vimeo/iris",
     "author": "Vimeo",
     "homepage": "https://github.vimeows.com/pages/vimeo/iris/master/",
-    "version": "7.0.0-rc.1",
+    "version": "7.0.0-rc.2",
     "license": "ISC",
     "description": "Iris UI Pattern Framework",
     "main": "index.js",
