@@ -80,7 +80,8 @@ export class MenuPanel extends Component<
     if (
       this.state.isShowing &&
       event.target instanceof HTMLElement &&
-      !this.menu.contains(event.target)
+      this.menu &&
+      !findDOMNode(this.menu).contains(event.target)
     ) {
       this.setState({
         isShowing: false,
@@ -132,7 +133,6 @@ export class MenuPanel extends Component<
   _bindEvents = () => {
     if (!this.props.isControlled) {
       document.addEventListener('click', this._handleClickWhileOpen);
-
       document.addEventListener('keydown', this._handleEsc);
 
       if (this.lastFocusableElement && this.firstFocusableElement) {

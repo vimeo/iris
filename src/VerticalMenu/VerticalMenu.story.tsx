@@ -29,7 +29,7 @@ import styled from 'styled-components';
 
 import { Story } from '../../.storybook/Story';
 
-const componentName = 'Menu Panel';
+const componentName = 'Vertical Menu';
 
 storiesOf(`components/${componentName}`, module)
   .add('basic', () => (
