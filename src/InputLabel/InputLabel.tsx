@@ -1,4 +1,4 @@
-import React, { SFC, HTMLProps } from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { InputLabelStateIcon } from '../InputLabelStateIcon/InputLabelStateIcon';
 import { Header6 } from '../Type';
@@ -9,6 +9,7 @@ export interface InputLabelProps {
   element?: 'label' | 'legend';
   format?: 'negative' | 'positive' | 'neutral';
   theme?: 'default' | 'light' | 'dark';
+  htmlFor?: string;
 }
 
 export interface LabelStyledProps {
@@ -16,10 +17,9 @@ export interface LabelStyledProps {
   labelTheme?: 'light' | 'dark';
 }
 
-const LabelStyled = styled<
-  { disabled: boolean; labelTheme: 'default' | 'light' | 'dark' },
-  any
->(({ disabled, labelTheme, ...props }) => <Header6 {...props} />)`
+const LabelStyled = styled(({ disabled, labelTheme, ...props }) => (
+  <Header6 {...props} />
+))<{ disabled: boolean; labelTheme: 'default' | 'light' | 'dark' }>`
   display: inline-block;
   position: relative;
   color: ${props =>
@@ -30,17 +30,12 @@ const LabelStyled = styled<
     props.labelTheme === 'dark' ? 'font-weight: normal' : ''};
 `;
 
-export const InputLabel: SFC<
-  InputLabelProps &
-    HTMLProps<HTMLLabelElement> &
-    HTMLProps<HTMLHeadingElement>
-> = ({
+export const InputLabel: SFC<InputLabelProps> = ({
   children,
   disabled,
   element = 'label',
   format = 'neutral',
   theme = 'light',
-  ref: _,
   ...props
 }) => (
   <LabelStyled

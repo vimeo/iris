@@ -2,9 +2,9 @@ import React, { SFC } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import { rem, rgba } from 'polished';
 import * as COLORS from '../Color/Color';
+import { BaseProps } from '../Utils/BaseProps';
 
-export interface FeatureDotProps
-  extends React.HTMLProps<HTMLSpanElement> {
+export interface FeatureDotProps extends BaseProps {
   beaconA11yText: string;
   className?: string;
   mode?: 'inactive' | 'open' | 'active' | 'hidden';
@@ -17,11 +17,9 @@ export const FeatureDotStyleSettings = {
   haloColor: rgba(COLORS.DarkerBlue, 0.25),
 };
 
-interface DotStyledProps extends React.HTMLProps<HTMLSpanElement> {
+const WrapperStyled = styled.span<{
   mode: 'inactive' | 'open' | 'active' | 'hidden';
-}
-
-const WrapperStyled = styled<DotStyledProps, 'span'>('span')`
+}>`
   display: inline-block;
   overflow: visible;
 
@@ -45,7 +43,9 @@ const WrapperStyled = styled<DotStyledProps, 'span'>('span')`
   }
 `;
 
-const DotStyled = styled<DotStyledProps, 'span'>('span')`
+const DotStyled = styled.span<{
+  mode: 'inactive' | 'open' | 'active' | 'hidden';
+}>`
   display: inline-block;
 
   width: ${rem(FeatureDotStyleSettings.beaconSize)};
@@ -101,11 +101,7 @@ const haloKeyframes = keyframes`
         }
     `;
 
-interface HaloStyledProps extends React.HTMLProps<HTMLSpanElement> {
-  isActive: boolean;
-}
-
-const HaloStyled = styled<HaloStyledProps, 'span'>('span')`
+const HaloStyled = styled.span<{ isActive: boolean }>`
   display: inline-block;
   ${props =>
     props.isActive
@@ -138,7 +134,6 @@ const HaloStyled = styled<HaloStyledProps, 'span'>('span')`
 export const FeatureTourDot: SFC<FeatureDotProps> = ({
   beaconA11yText,
   mode = 'inactive',
-  ref: _,
   ...props
 }) => (
   <WrapperStyled {...props} mode={mode}>

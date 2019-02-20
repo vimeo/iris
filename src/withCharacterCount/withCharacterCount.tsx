@@ -5,7 +5,6 @@ import React, {
   FormEvent,
 } from 'react';
 import styled, { css } from 'styled-components';
-import { rem } from 'polished';
 import * as COLORS from '../Color/Color';
 import { ParagraphAltSm } from '../Type';
 import { fnGuard } from '../Utils/fnGuard';
@@ -33,17 +32,10 @@ interface State {
   format?: 'negative' | 'positive' | 'neutral';
 }
 
-interface CounterStyledProps {
-  isErrored: boolean;
-  isWarning: boolean;
-}
-
-const CounterStyled = styled<CounterStyledProps, any>(
-  ({ isWarning, isErrored, ...props }) => (
-    <ParagraphAltSm {...props} />
-  ),
-)`
-  margin-bottom: ${rem(1)};
+const CounterStyled = styled(({ isWarning, isErrored, ...props }) => (
+  <ParagraphAltSm {...props} />
+))`
+  margin-top: 0.25rem;
 
   ${props =>
     props.isWarning &&
@@ -51,6 +43,7 @@ const CounterStyled = styled<CounterStyledProps, any>(
       font-weight: 600;
       color: ${COLORS.AstroGranite};
     `};
+
   ${props =>
     props.isErrored &&
     css`

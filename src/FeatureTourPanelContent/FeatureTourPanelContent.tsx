@@ -41,10 +41,9 @@ const HeaderWrapperStyled = styled.div`
   padding-right: ${rem(24)};
 `;
 
-const FeatureTourPanelContentStyled = styled<
-  React.HTMLProps<HTMLDivElement>,
-  'div'
->('div')`
+const FeatureTourPanelContentStyled = styled.div<
+  React.HTMLProps<HTMLDivElement>
+>`
   padding: ${rem(24) + ' ' + rem(24) + ' ' + rem(16)};
   border-radius: ${rem(5)};
   background: ${COLORS.DarkerBlue};
@@ -56,7 +55,7 @@ const DismissButtonStyled = styled(ButtonIconOnly)`
   right: ${rem(16)};
 `;
 
-const ContextAreaStyled = styled('div')`
+const ContextAreaStyled = styled.div`
   position: absolute;
   bottom: ${rem(20)};
   right: ${rem(20)};
@@ -72,10 +71,8 @@ export const FeatureTourPanelContent = ({
   headerText,
   onDismissClick,
   dismissButtonProps,
-  ref: _,
   ...props
-}: FeatureTourPanelContentProps &
-  React.HTMLProps<HTMLDivElement>) => {
+}: FeatureTourPanelContentProps) => {
   const handleClick = event => {
     if (typeof onDismissClick === 'function') {
       onDismissClick(event);

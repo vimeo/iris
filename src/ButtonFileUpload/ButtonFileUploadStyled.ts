@@ -2,15 +2,7 @@ import styled, { css } from 'styled-components';
 import { rem, rgba, darken } from 'polished';
 import * as COLORS from '../Color/Color';
 
-interface LabelStyledProps {
-  disabled: boolean;
-  format: string;
-  isInline: boolean;
-  autoMargins: boolean;
-  size: 'sm' | 'md';
-}
-
-export const LabelStyled = styled.label<LabelStyledProps>`
+export const LabelStyled = styled.label<any>`
     display: inline-flex;
     position: relative;
     width: 100%;
@@ -56,26 +48,6 @@ export const LabelStyled = styled.label<LabelStyledProps>`
     }
 
     ${props =>
-      props.autoMargins &&
-      css`
-        margin-right: ${rem(8)};
-
-        &:last-of-type {
-          margin-right: 0;
-        }
-      `}
-
-    ${props =>
-      (props.isInline || !props.autoMargins) &&
-      css`
-        margin: 0 0 ${rem(8)} 0;
-
-        &:first-of-type {
-          margin-right: 0;
-        }
-      `};
-
-    ${props =>
       props.disabled &&
       css`
         cursor: not-allowed;
@@ -94,7 +66,7 @@ export const LabelStyled = styled.label<LabelStyledProps>`
           background-color: ${COLORS.Porcelain};
         }
 
-        ${props =>
+        ${(props: any) =>
           props.format === 'primary' &&
           css`
             color: ${rgba(COLORS.White, 0.7)};

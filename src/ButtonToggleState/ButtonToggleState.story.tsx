@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 import { ButtonToggleState } from './ButtonToggleState';
 import { Plus, Checkmark, DismissX } from '../Icons';
+import { Story } from '../../.storybook/Story';
+import styled from 'styled-components';
+
+const Zorp = styled(ButtonToggleState)`
+  margin: 0 1rem 1rem 0;
+`;
 
 const followText = 'Follow';
 const unfollowText = 'Unfollow';
@@ -11,8 +17,12 @@ const connectText = 'Connect';
 const disconnectText = 'Disconnect';
 const connectedText = 'Connected';
 
+const componentName = 'Button';
+
 storiesOf('components/Button', module).add('toggle state', () => (
-  <ButtonToggleStateDocs />
+  <Story title={componentName} subTitle="Toggle State">
+    <ButtonToggleStateDocs />
+  </Story>
 ));
 
 class ButtonToggleStateDocs extends Component {
@@ -29,8 +39,8 @@ class ButtonToggleStateDocs extends Component {
     });
 
   render = () => (
-    <div data-code>
-      <ButtonToggleState
+    <>
+      <Zorp
         format="primaryOutline"
         isActive={this.state.following}
         offIcon={<Plus />}
@@ -41,7 +51,7 @@ class ButtonToggleStateDocs extends Component {
         turnOffActionText={unfollowText}
         turnOffIcon={<DismissX />}
       />
-      <ButtonToggleState
+      <Zorp
         format="primary"
         isActive={this.state.following}
         offIcon={<Plus />}
@@ -52,8 +62,7 @@ class ButtonToggleStateDocs extends Component {
         turnOffActionText={unfollowText}
         turnOffIcon={<DismissX />}
       />
-
-      <ButtonToggleState
+      <Zorp
         format="primaryOutline"
         isActive={this.state.connected}
         offIcon={<Plus />}
@@ -64,7 +73,7 @@ class ButtonToggleStateDocs extends Component {
         turnOffActionText={disconnectText}
         turnOffIcon={<DismissX />}
       />
-      <ButtonToggleState
+      <Zorp
         format="primary"
         isActive={this.state.connected}
         offIcon={<Plus />}
@@ -75,6 +84,6 @@ class ButtonToggleStateDocs extends Component {
         turnOffActionText={disconnectText}
         turnOffIcon={<DismissX />}
       />
-    </div>
+    </>
   );
 }

@@ -30,7 +30,7 @@ storiesOf('utilties/', module).add('Character Count', () => (
   </Story>
 ));
 
-const TextAreaStyled = styled<any, any>(TextArea)`
+const TextAreaStyled = styled(TextArea)`
   max-width: 20rem;
   min-height: 5rem;
 `;

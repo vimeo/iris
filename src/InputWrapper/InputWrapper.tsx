@@ -2,7 +2,6 @@ import React, { SFC } from 'react';
 import { InputLabel } from '../InputLabel/InputLabel';
 import { InputMessageArea } from '../InputMessageArea/InputMessageArea';
 import { Checkmark, CircleWarning } from '../Icons';
-import { Omit } from '../Utils/Omit';
 import {
   IconStyled,
   WrapperStyled,
@@ -10,13 +9,11 @@ import {
   InputFieldWrapperStyled,
 } from './InputWrapperStyled';
 
-export interface InputWrapperProps
-  extends Omit<React.HTMLProps<HTMLDivElement>, 'label' | 'size'> {
+export interface InputWrapperProps {
   disabled?: boolean;
   errorMsg?: React.ReactNode;
   format?: 'negative' | 'positive' | 'neutral';
   helperMsg?: React.ReactNode;
-  isInline?: boolean;
   label?: React.ReactNode;
   labelForId?: string;
   preMessage?: React.ReactNode;
@@ -32,10 +29,8 @@ export const InputWrapper: SFC<InputWrapperProps> = ({
   labelForId,
   errorMsg,
   helperMsg,
-  isInline,
   label,
   preMessage,
-  ref: _,
   showLabel = true,
   size = 'md',
   theme = 'light',
@@ -44,7 +39,6 @@ export const InputWrapper: SFC<InputWrapperProps> = ({
   <WrapperStyled
     {...props}
     theme={theme === 'default' ? 'light' : theme}
-    isInline={isInline}
   >
     {showLabel && (
       <InputLabel

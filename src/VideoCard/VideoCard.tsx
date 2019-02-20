@@ -1,4 +1,8 @@
-import React, { Component, ReactNode } from 'react';
+import React, {
+  Component,
+  ReactNode,
+  MouseEventHandler,
+} from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { Card } from '../Card/Card';
@@ -8,10 +12,8 @@ import { VideoCardInfoArea } from './VideoCardInfoArea';
 import { VideoCardLoadingState } from './VideoCardLoadingState';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 import { LoaderCircular } from '../LoaderCircular/LoaderCircular';
-import { Omit } from '../Utils/Omit';
 
-export interface VideoCardProps
-  extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
+export interface VideoCardProps {
   /**
    * A string to describe what checking the checkbox does. This is for screenreaders. This is **required** if `isSelectable` is chosen.
    */
@@ -60,10 +62,6 @@ export interface VideoCardProps
    * Set to `tall` to force the loading state to be tall, as if the card had a context area, otherwise defaults to "normal"
    */
   loadingStyle?: 'normal' | 'tall';
-  /**
-   * Defeats standard margin-bottom on cards
-   */
-  noMargin?: boolean;
   /**
    * Fires when the checkbox is clicked. This callback should control `isSelected`
    */
@@ -129,46 +127,35 @@ export interface VideoCardProps
    * Pass the video or album subheader, usually used for stats accepts HTML.
    */
   titleSubheader?: ReactNode;
+  onClick?: MouseEventHandler;
 }
 
-export interface VideoCardState
-  extends React.HTMLProps<HTMLDivElement> {
+export interface VideoCardState {
   isHovered?: boolean;
 }
 
 // ==================== VideoCardWrapper
 
-export interface WrapperStyledProps
-  extends Omit<React.HTMLProps<HTMLElement>, 'size'> {
+export interface WrapperStyledProps {
   hasContextArea?: boolean;
   isDraggable?: boolean;
   isSelected?: boolean;
   isLoading?: boolean;
   isProcessing?: boolean;
-  noMargin?: boolean;
   size?: 'sm' | 'md';
 }
 
-const WrapperStyled = styled<WrapperStyledProps, any>(Card)`
-  padding-bottom: ${props =>
-    props.hasContextArea
-      ? `calc(100% + ${rem(
-          VideoCardStyleSettings.contextAreaHeight,
-        )})`
-      : '100%'}; // forces square aspect ratio
-  margin-bottom: ${props => (props.noMargin ? 0 : rem(20))};
+const WrapperStyled = styled<any>(Card)`
   cursor: pointer;
+  position: relative;
+  padding-bottom: 100%;
 `;
 
-export interface ContentPositionWrapperStyledProps
-  extends React.HTMLProps<HTMLDivElement> {
+export interface ContentPositionWrapperStyledProps {
   isProcessing?: boolean;
 }
 
-const ContentPositionWrapperStyled = styled<
-  ContentPositionWrapperStyledProps,
-  'div'
->('div')`
+const ContentPositionWrapperStyled = styled.div<any>`
   position: absolute;
   top: 0;
   left: 0;
@@ -176,13 +163,13 @@ const ContentPositionWrapperStyled = styled<
   filter: ${props => (props.isProcessing ? 'grayscale(.7)' : 'none')};
 `;
 
-const SmallActionWrapperStyled = styled('div')`
+const SmallActionWrapperStyled = styled.div`
   position: absolute;
   right: ${rem(4)};
   bottom: ${rem(4)};
 `;
 
-const FooterAreaStyled = styled('div')`
+const FooterAreaStyled = styled.div`
   padding: ${rem(
       (VideoCardStyleSettings.footerHeight -
         VideoCardStyleSettings.actionButtonSize) /
@@ -195,7 +182,7 @@ const FooterAreaStyled = styled('div')`
   width: 100%;
 `;
 
-const ProcessingOverlayStyled = styled('div')`
+const ProcessingOverlayStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -266,7 +253,6 @@ export class VideoCard extends Component<
       isSelected,
       isSelectable,
       loadingStyle = 'normal',
-      noMargin,
       onCheckBoxClick,
       onCardClick,
       onMouseEnter,
@@ -283,8 +269,7 @@ export class VideoCard extends Component<
       titleLinkProps,
       title,
       titleSubheader,
-      ref: _,
-      ...filteredProps
+      ...props
     } = this.props;
 
     const showAllContent = size !== 'sm';
@@ -357,12 +342,11 @@ export class VideoCard extends Component<
         isLoading={isLoading}
         isProcessing={isProcessing}
         isSelected={isSelected}
-        noMargin={noMargin}
         onClick={this._handleClick}
         onMouseEnter={this._handleMouseEnter}
         onMouseLeave={this._handleMouseLeave}
         size={size}
-        {...filteredProps}
+        {...props}
       >
         {isLoading ? <VideoCardLoadingState /> : VideoCardContent}
       </WrapperStyled>

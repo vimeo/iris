@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ChangeEvent } from 'react';
 import {
   InputDatePickerProps,
   InputDatePickerState,
@@ -197,7 +197,7 @@ export class InputDatePicker extends Component<
     }
   };
 
-  _handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
+  _handleInputChange = (event: ChangeEvent) => {
     const eventTarget = event.target as HTMLInputElement;
 
     if (eventTarget && eventTarget.value) {
@@ -300,7 +300,6 @@ export class InputDatePicker extends Component<
           id={id}
           label={label}
           value={this.state.formattedDate}
-          isInline
           onChange={this._handleInputChange}
           size="md"
           preMessage={DateButton}

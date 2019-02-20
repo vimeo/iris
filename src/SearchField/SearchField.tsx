@@ -2,19 +2,14 @@ import React, { SFC } from 'react';
 import { InputText } from '../InputText/InputText';
 import { ButtonInlineInputText } from '../ButtonInlineInputText/ButtonInlineInputText';
 import { Search } from '../Icons';
-import { Omit } from '../Utils/Omit';
 import { SearchFieldProps } from './SearchFieldTypes';
 
-export const SearchField: SFC<
-  SearchFieldProps &
-    Omit<React.HTMLProps<HTMLInputElement>, 'type' | 'size'>
-> = ({
+export const SearchField: SFC<SearchFieldProps> = ({
   buttonFormat = 'subtle',
   buttonLabel,
   buttonProps,
   fieldLabel,
   icon = <Search />,
-  isInline = true,
   showLabel = false,
   size = 'md',
   ...props
@@ -23,7 +18,6 @@ export const SearchField: SFC<
     {...props}
     size={size}
     label={fieldLabel}
-    isInline={isInline}
     showLabel={showLabel}
     inlineButton={
       <ButtonInlineInputText

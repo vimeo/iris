@@ -47,20 +47,14 @@ export interface ModalFeatureUpdateProps {
   zIndexStartingPoint?: number;
 }
 
-export interface ModalFeatureUpdatePropsCombined
-  extends ModalFeatureUpdateProps,
-    React.HTMLProps<HTMLDivElement> {}
-
-// ==================== ModalFeatureUpdate Styled
 export interface ModalFeatureUpdateStyledProps {
   isOpen?: boolean;
   noDismiss?: boolean;
 }
 
-const ModalFeatureUpdateStyled = styled<
-  ModalFeatureUpdateStyledProps,
-  'div'
->('div')`
+const ModalFeatureUpdateStyled = styled.div<
+  ModalFeatureUpdateStyledProps
+>`
   box-shadow: 0 ${rem(6)} ${rem(10)} 0 rgba(0, 0, 0, 0.12);
   position: fixed;
   right: ${rem(ModalFeatureUpdateStyleSettings.modalMargin)};
@@ -93,16 +87,11 @@ const transitionStyles = {
   },
 };
 
-interface ButtonDialogCloseStyledProps
-  extends React.HTMLProps<HTMLSpanElement> {
-  dismissButtonLabel: string;
+const ButtonDialogCloseStyled = styled(ButtonDialogClose)<{
+  dismissButtonLabel?: string;
   dismissButtonFormat?: 'dark' | 'lightTransparent';
-}
-
-const ButtonDialogCloseStyled = styled<
-  ButtonDialogCloseStyledProps,
-  any
->(ButtonDialogClose)`
+  onClick?: (e?: Event) => void;
+}>`
   position: absolute;
   top: ${rem(6)};
   right: ${rem(6)};
@@ -112,10 +101,9 @@ const ButtonDialogCloseStyled = styled<
 // ==================== ModalFeatureUpdate
 
 export class ModalFeatureUpdate extends React.Component<
-  ModalFeatureUpdatePropsCombined,
-  any
+  ModalFeatureUpdateProps
 > {
-  _handleDismissButtonClick = (e: Event) => {
+  _handleDismissButtonClick = e => {
     if (typeof this.props.onCloseEvent === 'function') {
       this.props.onCloseEvent(e);
     }
@@ -132,7 +120,6 @@ export class ModalFeatureUpdate extends React.Component<
       noDismiss,
       onCloseEvent,
       zIndexStartingPoint,
-      ref: _,
       ...filteredProps
     } = this.props;
 

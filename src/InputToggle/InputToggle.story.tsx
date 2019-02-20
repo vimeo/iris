@@ -2,28 +2,32 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { InputToggle } from './InputToggle';
 import { Header3 } from '../Type';
-
 import { Story } from '../../.storybook/Story';
+import styled from 'styled-components';
+
+const $InputToggle = styled(InputToggle)`
+  margin: 0 0 2rem;
+`;
 
 const componentName = 'Inputs';
 
 storiesOf(`components/${componentName}`, module).add('toggle', () => (
   <Story title="Input Toggle" subTitle="Toggle">
     <div>
-      <InputToggle
+      <$InputToggle
         label="Toggle (medium)"
         name="demoToggleMd"
         id="ToggleMd"
         value="1"
       />
-      <InputToggle
+      <$InputToggle
         label="Toggle (Large)"
         name="demoToggleLg"
         id="ToggleLg"
         size="lg"
         value="2"
       />
-      <InputToggle
+      <$InputToggle
         label="Errored Toggle (Large)"
         name="demoToggleError"
         errorMsg="This field is required."
@@ -33,7 +37,7 @@ storiesOf(`components/${componentName}`, module).add('toggle', () => (
         value="3"
         required
       />
-      <InputToggle
+      <$InputToggle
         label="Disabled(Large)"
         name="demoToggleDisabled"
         id="ToggleLgDisabled"
@@ -43,7 +47,7 @@ storiesOf(`components/${componentName}`, module).add('toggle', () => (
       />
 
       <Header3>Hidden Labels</Header3>
-      <InputToggle
+      <$InputToggle
         label="Toggle Hidden Label"
         name="demoToggleMdHidden"
         id="ToggleMdHidden"
@@ -58,7 +62,7 @@ storiesOf(`components/${componentName}`, module).add('toggle', () => (
         color: '#FFF',
       }}
     >
-      <InputToggle
+      <$InputToggle
         label="Toggle (Large)"
         name="demoToggleLg"
         id="ToggleLgDark"
@@ -66,7 +70,7 @@ storiesOf(`components/${componentName}`, module).add('toggle', () => (
         theme="dark"
         size="lg"
       />
-      <InputToggle
+      <$InputToggle
         label="Toggle (medium)"
         name="demoToggleMd"
         id="ToggleMdDark"

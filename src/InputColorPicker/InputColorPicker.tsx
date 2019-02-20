@@ -1,14 +1,18 @@
-import React, { Component, ReactNode } from 'react';
+import React, {
+  Component,
+  ReactNode,
+  ChangeEvent,
+  MouseEventHandler,
+} from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { ChromePicker } from 'react-color';
-import { InputText, InputTextProps } from '../InputText/InputText';
+import { InputText } from '../InputText/InputText';
 import { InputProps } from '../InputText/InputHelpers';
 import { MenuPanel } from '../MenuPanel/MenuPanel';
 import * as COLORS from '../Color/Color';
 import { KEY_CODES } from '../Legacy/KEY_CODES';
 import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
-import { Omit } from '../Utils/Omit';
 
 const defaultColorValue = COLORS.VimeoBlue;
 
@@ -48,8 +52,7 @@ export interface InputColorPickerProps {
 }
 
 export type InputColorPickerCombinedProps = InputColorPickerProps &
-  InputProps &
-  Omit<React.HTMLProps<HTMLInputElement>, 'label' | 'size' | 'id'>;
+  InputProps;
 
 export interface InputColorPickerState {
   currentColor?: string;
@@ -61,21 +64,23 @@ export interface InputColorPickerState {
   shouldFocusNextUpdate?: boolean;
 }
 
-const ComponentWrapperStyled = styled('div')`
+const ComponentWrapperStyled = styled.div`
   position: relative;
 `;
 
-const ColorPickerPanelStyled = styled('div')`
+const ColorPickerPanelStyled = styled.div`
   margin-top: ${rem(8)};
 `;
 
-const ColorButtonWrapperStyled = styled('div')`
+const ColorButtonWrapperStyled = styled.div`
   position: absolute;
   top: ${rem(8)};
   left: ${rem(8)};
 `;
 
-const ColorButtonStyled = styled<HTMLButtonElement, any>('button')`
+const ColorButtonStyled = styled.button<{
+  onClick?: MouseEventHandler;
+}>`
   width: ${rem(24)};
   height: ${rem(24)};
   margin: 0;
@@ -95,17 +100,11 @@ const ColorButtonStyled = styled<HTMLButtonElement, any>('button')`
   }
 `;
 
-const InputStyled = styled<InputTextProps, any>(InputText)`
+const InputStyled = styled(InputText)`
   padding-left: ${rem(37)};
 `;
 
-interface ResetButtonStyledStyledProps extends HTMLAnchorElement {
-  isShowing: boolean;
-}
-
-const ResetButtonStyled = styled<ResetButtonStyledStyledProps, any>(
-  'a',
-)`
+const ResetButtonStyled = styled.a<{ isShowing: boolean }>`
   position: absolute;
   top: ${rem(30)};
   right: ${rem(8)};
@@ -246,9 +245,9 @@ export class InputColorPicker extends Component<
     }
   };
 
-  _handleButtonClick = (e: Event) => {
+  _handleButtonClick = (event: React.MouseEvent<any>) => {
     this._openMenu();
-    e.preventDefault();
+    event.preventDefault();
   };
 
   _handleColorChange = (color: string) => {
@@ -294,7 +293,7 @@ export class InputColorPicker extends Component<
     }
   };
 
-  _handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
+  _handleInputChange = (e: ChangeEvent) => {
     // @ts-ignore TS doesn't know event target has value sometimes, but I'm guarding agains that
     if (e.target && e.target.value) {
       // @ts-ignore see above
@@ -359,7 +358,6 @@ export class InputColorPicker extends Component<
       label,
       menuPanelZIndexOverride,
       resetButtonLabel,
-      ref: _,
       ...filteredProps
     } = this.props;
 
@@ -406,7 +404,6 @@ export class InputColorPicker extends Component<
           id={id}
           label={label}
           value={this.state.fieldValue}
-          isInline
           onChange={this._handleInputChange}
           size="md"
           preMessage={ColorButton}

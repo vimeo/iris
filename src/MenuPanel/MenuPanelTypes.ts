@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler, ReactNode } from 'react';
 
 export interface MenuPanelProps {
   /**
@@ -33,7 +33,7 @@ export interface MenuPanelProps {
    * Callback when the menu opens
    */
   onOpen?: () => void;
-  onClick?: () => void;
+  onClick?: MouseEventHandler;
   /**
    * Used to add a class to the panel element
    */
@@ -58,6 +58,7 @@ export interface MenuPanelProps {
    * Manually set zIndex of the component
    */
   zIndexOverride?: number;
+  children?: ReactNode;
 }
 
 export interface MenuPanelDefaultProps {
@@ -79,6 +80,8 @@ export interface MenuPanelStyledProps {
   size: 'sm' | 'md' | 'lg';
   isFluid?: boolean;
   zIndexOverride?: number;
+  onClick?: MouseEventHandler;
+  children?: ReactNode;
 }
 
 export interface TriggerWrapperStyledProps

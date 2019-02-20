@@ -21,7 +21,7 @@ export interface WrapperStyledProps
 
 const ContextIconSize = 14;
 // ==================== VideoCardContextArea Styled
-const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
+const WrapperStyled = styled.div<any>`
   display: flex;
   height: ${rem(VideoCardStyleSettings.contextAreaHeight)};
   padding: ${rem(VideoCardStyleSettings.padding / 2)}
@@ -29,7 +29,7 @@ const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
   align-items: center;
 `;
 
-const IconStyled = styled('div')`
+const IconStyled = styled.div`
   padding-top: ${rem(3)};
   margin-right: ${rem(4)};
   svg {

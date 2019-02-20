@@ -2,13 +2,14 @@ import React, {
   ReactNode,
   Component,
   MouseEventHandler,
+  CSSProperties,
 } from 'react';
 import { Button } from '../Button/Button';
 import { buttonFormats } from '../Button/ButtonProps';
 
 interface Props {
-  autoMargins?: boolean;
   autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid';
+  className?: string;
   format?: 'primaryOutline' | 'primary';
   isActive?: boolean;
   offIcon: ReactNode;
@@ -16,6 +17,7 @@ interface Props {
   onClick?: MouseEventHandler;
   onIcon: ReactNode;
   onStateText: string;
+  style?: { margins?: string };
   turnOffActionText: string;
   turnOffIcon: ReactNode;
 }
@@ -28,7 +30,6 @@ interface State {
 
 export class ButtonToggleState extends Component<Props, State> {
   static defaultProps = {
-    autoMargins: true,
     autoWidth: 'sm',
     format: 'primaryOutline',
   };
@@ -48,11 +49,13 @@ export class ButtonToggleState extends Component<Props, State> {
 
   render() {
     const {
+      className,
       offStateText,
       offIcon,
       onStateText,
       onIcon,
       isActive,
+      style,
       turnOffActionText,
       turnOffIcon,
       ...props
@@ -67,9 +70,11 @@ export class ButtonToggleState extends Component<Props, State> {
     return (
       <Button
         {...props}
+        style={style as CSSProperties}
         icon={Icon}
         format={this.state.format}
         children={this.state.children}
+        className={className}
         onMouseEnter={this.handleOnMouseEnter}
         onMouseLeave={this.handleOnMouseLeave}
       />

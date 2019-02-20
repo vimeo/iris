@@ -1,7 +1,8 @@
-import React, { Component, HTMLProps } from 'react';
+import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { KEY_CODES } from '../Legacy/KEY_CODES';
 import { Transition } from 'react-transition-group';
+import TetherComponent from 'react-tether';
 import {
   MenuPanelProps as Props,
   MenuPanelState as State,
@@ -11,11 +12,10 @@ import {
   MenuPanelStyled,
   menuPanelTransitionStyles,
   menuSpeed,
-  TetherComponentStyled,
   TriggerWrapperStyled,
   WrapperStyled,
 } from './MenuPanelStyled';
-import { Omit } from '../Utils/Omit';
+import { Z_INDEXES } from '../Legacy/Z_INDEXES';
 
 const defaultProps: DefaultProps = {
   alignment: 'center',
@@ -25,10 +25,7 @@ const defaultProps: DefaultProps = {
   shouldRefocusTriggerOnClose: true,
 };
 
-export class MenuPanel extends Component<
-  Props & Omit<HTMLProps<HTMLAnchorElement>, 'size'>,
-  State
-> {
+export class MenuPanel extends Component<Props, State> {
   firstFocusableElement: HTMLElement;
   lastFocusableElement: HTMLElement;
   menu: HTMLElement;
@@ -259,13 +256,14 @@ export class MenuPanel extends Component<
       shouldRefocusTriggerOnClose = true, // eslint-disable-line no-unused-vars
       size = 'md',
       zIndexOverride,
-      ref: _,
       ...filteredProps
     } = this.props;
 
     return (
       <WrapperStyled isFluid={isFluid}>
-        <TetherComponentStyled
+        {/*
+        // @ts-ignore */}
+        <TetherComponent
           attachment={`top ${alignment}`}
           targetAttachment={`bottom ${alignment}`}
           constraints={[
@@ -275,10 +273,11 @@ export class MenuPanel extends Component<
             },
           ]}
           enabled
-          innerRef={tether => {
+          ref={tether => {
             this.tether = tether;
           }}
           offset="-4px 0"
+          style={{ zIndex: Z_INDEXES.menuPanel }}
         >
           <TriggerWrapperStyled
             {...filteredProps}
@@ -290,7 +289,7 @@ export class MenuPanel extends Component<
             onFocus={this._bindTriggerTab}
             onBlur={this._unbindTriggerTab}
             onClick={this._handleClick}
-            innerRef={menuTriggerEl => {
+            ref={menuTriggerEl => {
               this.menuTriggerEl = menuTriggerEl;
             }}
           >
@@ -307,7 +306,7 @@ export class MenuPanel extends Component<
               <MenuPanelStyled
                 className={panelClassName}
                 isShowing={this.state.isShowing}
-                innerRef={menu => {
+                ref={menu => {
                   this.menu = menu;
                 }}
                 size={size}
@@ -321,7 +320,7 @@ export class MenuPanel extends Component<
               </MenuPanelStyled>
             )}
           </Transition>
-        </TetherComponentStyled>
+        </TetherComponent>
       </WrapperStyled>
     );
   }

@@ -1,4 +1,4 @@
-import React, { SFC, ReactNode } from 'react';
+import React, { SFC, ReactNode, MouseEventHandler } from 'react';
 import { Button } from '../Button/Button';
 import styled from 'styled-components';
 import { rem } from 'polished';
@@ -6,14 +6,12 @@ import { DismissX } from '../Icons';
 import { ButtonFocus } from '../Button/ButtonFocus';
 
 export interface TagProps {
-  autoMargins?: boolean;
   autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid';
   children: ReactNode;
   className?: string;
   format?: 'light' | 'dark';
   img?: string;
   isButtonElement?: boolean;
-  isInline?: boolean;
   onDismiss?: React.MouseEventHandler;
   size?: 'xs' | 'sm' | 'md' | 'lg';
 }
@@ -24,7 +22,6 @@ interface IconProps {
 }
 
 export const Tag: SFC<TagProps> = ({
-  autoMargins,
   autoWidth = 'xs',
   children,
   format = 'light',
@@ -37,7 +34,6 @@ export const Tag: SFC<TagProps> = ({
   <ButtonStyledAsTag
     {...props}
     {...iconProps(onDismiss)}
-    autoMargins={autoMargins}
     autoWidth={autoWidth}
     img={img}
     isButtonElement={isButtonElement}
@@ -88,7 +84,9 @@ function padding(size: Sizes) {
   return paddings[size];
 }
 
-const ButtonStyledAsTag = styled(Button)<IconProps & { img: string }>`
+const ButtonStyledAsTag = styled(Button)<
+  IconProps & { img: string; onClick: MouseEventHandler }
+>`
   border-radius: ${rem(66)};
   ${props =>
     props.img &&

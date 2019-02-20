@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
 import * as COLORS from '../Color/Color';
-import { Z_INDEXES } from '../Legacy/Z_INDEXES';
-import TetherComponent from 'react-tether';
 import {
-  TetherComponentProps,
   TriggerWrapperStyledProps,
   MenuPanelStyledProps,
   WrapperStyledProps,
@@ -27,9 +24,7 @@ export const menuPanelTransitionStyles = {
 const maybeFluid = props =>
   props.isFluid ? 'block' : 'inline-block';
 
-export const MenuPanelStyled = styled<MenuPanelStyledProps, 'div'>(
-  'div',
-)`
+export const MenuPanelStyled = styled.div<MenuPanelStyledProps>`
   display: ${props => (props.isShowing ? 'block' : 'none')};
 
   width: ${props => rem(menuPanelSizes[props.size])};
@@ -46,23 +41,15 @@ export const MenuPanelStyled = styled<MenuPanelStyledProps, 'div'>(
     props.zIndexOverride && `zIndex: ${props.zIndexOverride}`};
 `;
 
-export const TriggerWrapperStyled = styled<
-  TriggerWrapperStyledProps,
-  'a'
->('a')`
+export const TriggerWrapperStyled = styled.a<
+  TriggerWrapperStyledProps
+>`
   display: ${maybeFluid}; // this ensures proper menu placement;
   outline: none;
   position: relative;
 `;
 
-export const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
+export const WrapperStyled = styled.div<WrapperStyledProps>`
   display: ${maybeFluid};
   ${props => props.isFluid && 'width: 100%;'};
-`;
-
-export const TetherComponentStyled = styled<
-  TetherComponentProps,
-  any
->(TetherComponent)`
-  z-index: ${Z_INDEXES.menuPanel};
 `;

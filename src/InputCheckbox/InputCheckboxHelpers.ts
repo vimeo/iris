@@ -6,7 +6,6 @@ export const sharedInlineInputWrapperStyles = css`
   display: flex;
   position: relative;
   width: 100%;
-  margin-bottom: ${rem(8)};
   flex-wrap: wrap;
 `;
 

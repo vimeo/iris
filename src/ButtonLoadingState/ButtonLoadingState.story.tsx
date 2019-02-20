@@ -3,11 +3,16 @@ import { storiesOf } from '@storybook/react';
 import { ButtonLoadingState } from './ButtonLoadingState';
 import { Gear } from '../Icons';
 import { Story } from '../../.storybook/Story';
+import styled from 'styled-components';
 
 const componentName = 'Button';
 
+const $Button = styled(ButtonLoadingState)`
+  margin: 0 1rem 1rem 0;
+`;
+
 storiesOf('components/Button', module).add('loading state', () => (
-  <Story title={componentName}>
+  <Story title={componentName} subTitle="Loading State">
     <ButtonLoadingStateDocs />
   </Story>
 ));
@@ -26,14 +31,14 @@ class ButtonLoadingStateDocs extends Component {
 
   render = () => (
     <div>
-      <ButtonLoadingState
+      <$Button
         isLoading={!this.state.isLoading}
         onClick={this._handleClick}
         size="lg"
       >
         Click Me
-      </ButtonLoadingState>
-      <ButtonLoadingState
+      </$Button>
+      <$Button
         icon={<Gear />}
         isLoading={this.state.isLoading}
         onClick={this._handleClick}
@@ -41,8 +46,8 @@ class ButtonLoadingStateDocs extends Component {
         size="md"
       >
         Click Me
-      </ButtonLoadingState>
-      <ButtonLoadingState
+      </$Button>
+      <$Button
         icon={<Gear />}
         isLoading={!this.state.isLoading}
         onClick={this._handleClick}
@@ -50,15 +55,15 @@ class ButtonLoadingStateDocs extends Component {
         size="sm"
       >
         Click Me
-      </ButtonLoadingState>
-      <ButtonLoadingState
+      </$Button>
+      <$Button
         isLoading={this.state.isLoading}
         onClick={this._handleClick}
         format="secondary"
         size="xs"
       >
         Click Me
-      </ButtonLoadingState>
+      </$Button>
     </div>
   );
 }

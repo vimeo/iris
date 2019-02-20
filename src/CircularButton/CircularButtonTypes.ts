@@ -1,7 +1,6 @@
 import React from 'react';
 
 export interface CircularButtonProps {
-  autoMarginsHorizontal?: boolean;
   element?: 'button' | 'span';
   format?:
     | 'lightDashed'
@@ -13,7 +12,6 @@ export interface CircularButtonProps {
 }
 
 export interface CircularButtonStyledProps {
-  autoMarginsHorizontal?: boolean;
   element: 'button' | 'span';
   format: 'lightDashed' | 'primary' | 'secondary' | 'secondaryDashed';
   size: 'sm' | 'md' | 'lg';

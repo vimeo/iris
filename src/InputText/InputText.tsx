@@ -1,4 +1,4 @@
-import React, { SFC, HTMLProps } from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { InputWrapper } from '../InputWrapper/InputWrapper';
 import {
@@ -6,9 +6,9 @@ import {
   InputProps,
   InputStyledProps,
 } from './InputHelpers';
-import { Omit } from '../Utils/Omit';
 
 export interface InputTextProps {
+  value?: string | number | string[];
   inlineButton?: React.ReactNode;
   type?:
     | 'email'
@@ -24,19 +24,14 @@ export interface InputTextStyledProps extends InputStyledProps {
   inlineButton?: React.ReactNode;
 }
 
-const InputStyled = styled<InputTextStyledProps, 'input'>('input')`
+const InputStyled = styled.input<InputTextStyledProps>`
   ${getInputBaseStyles};
 `;
 
-export const InputText: SFC<
-  InputTextProps &
-    InputProps &
-    Omit<HTMLProps<HTMLInputElement>, 'label' | 'size' | 'id'>
-> = ({
+export const InputText: SFC<InputTextProps & InputProps> = ({
   disabled,
   errorMsg,
   format = 'neutral',
-  isInline,
   helperMsg,
   inlineButton,
   label,
@@ -46,7 +41,6 @@ export const InputText: SFC<
   theme = 'light',
   size = 'md',
   type = 'text',
-  ref: _,
   ...filteredProps
 }) => {
   const isNegative = format === 'negative';
@@ -65,7 +59,6 @@ export const InputText: SFC<
       helperMsg={helperMsg}
       label={label}
       labelForId={id}
-      isInline={isInline}
       preMessage={preMessage}
       size={size}
       theme={themeDefaultSupport}
@@ -78,7 +71,6 @@ export const InputText: SFC<
         hasIcon={hasIcon}
         id={id}
         inlineButton={inlineButton}
-        isInline={isInline}
         inputSize={size}
         theme={theme}
         type={type}

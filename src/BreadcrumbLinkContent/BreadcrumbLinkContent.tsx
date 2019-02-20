@@ -1,4 +1,4 @@
-import React, { SFC, HTMLProps } from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { mediaQuery } from '../Layout/MediaQuery';
@@ -31,9 +31,7 @@ const LinkLabel = styled.span`
         `};
 `;
 
-export const BreadcrumbLinkContent: SFC<
-  HTMLProps<HTMLElement>
-> = props => (
+export const BreadcrumbLinkContent: SFC<any> = props => (
   <span>
     <ArrowLeftWrapper className={ARROWLEFT_CLASSNAME}>
       <ArrowLeft />

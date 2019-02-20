@@ -8,14 +8,11 @@ import { MenuPanelListProps } from './MenuPanelListTypes';
 import { MenuPanelListItem } from '../MenuPanelListItem/MenuPanelListItem';
 import { Header6 } from '../Type';
 
-export const MenuPanelList: SFC<
-  MenuPanelListProps & React.HTMLProps<HTMLDivElement>
-> = ({
+export const MenuPanelList: SFC<MenuPanelListProps> = ({
   hasDivider,
   header,
   menuItems,
   theme = 'light',
-  ref: _,
   ...props
 }) => {
   const menuList =

@@ -6,7 +6,6 @@ export interface InputTextFloatingLabelProps {
   errorMsg?: ReactNode;
   format?: 'negative' | 'positive' | 'neutral';
   helperMsg?: ReactNode;
-  isInline?: boolean;
   label: ReactNode;
   id: string;
   onBlur?: (e?: React.FocusEvent<HTMLInputElement>) => void;

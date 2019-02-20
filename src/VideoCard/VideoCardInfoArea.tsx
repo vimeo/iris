@@ -23,29 +23,19 @@ export interface VideoCardInfoAreaProps
   titleSubheader?: ReactNode;
 }
 
-const VideoCardInfoAreaStyled = styled<
-  React.HTMLProps<HTMLDivElement>,
-  'div'
->('div')`
+const VideoCardInfoAreaStyled = styled.div`
   position: relative;
   padding: ${rem(VideoCardStyleSettings.padding / 2)}
     ${rem(VideoCardStyleSettings.padding)}
     ${rem(VideoCardStyleSettings.footerHeight)};
 `;
 
-interface PrivacyIconStyledProps
-  extends Omit<React.HTMLProps<HTMLSpanElement>, 'size'> {
-  size: 'sm' | 'md';
-}
-
 const PrivacyIconSize = {
   sm: '.75rem',
   md: '1rem',
 };
 
-const PrivacyIconStyled = styled<PrivacyIconStyledProps, 'span'>(
-  'span',
-)`
+const PrivacyIconStyled = styled.span<any>`
   float: left;
   display: inline-block;
   margin-right: ${rem(4)};
@@ -72,12 +62,7 @@ const PrivacyIconStyled = styled<PrivacyIconStyledProps, 'span'>(
   }
 `;
 
-interface TitleWrapperProps extends React.HTMLProps<HTMLDivElement> {
-  isPrivate: boolean;
-  cardSize: 'sm' | 'md';
-}
-
-const TitleWrapper = styled<TitleWrapperProps, 'div'>('div')`
+const TitleWrapper = styled.div<any>`
   ${props =>
     props.isPrivate
       ? `
@@ -110,8 +95,6 @@ export const VideoCardInfoArea: SFC<VideoCardInfoAreaProps> = ({
   titleLinkElement,
   titleLinkProps,
   titleSubheader,
-  // @ts-ignore
-  ref: _,
 }) => {
   const LinkTextElement = (
     <span>

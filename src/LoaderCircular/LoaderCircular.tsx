@@ -1,12 +1,9 @@
-// @flow
 import React, { SFC } from 'react';
 import { rem } from 'polished';
 import styled, { keyframes } from 'styled-components';
-import { Omit } from '../Utils/Omit';
 import * as COLORS from '../Color/Color';
 
-export interface LoaderCircularProps
-  extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
+export interface LoaderCircularProps {
   /**
    * Class is added to the outer div of the Loader
    */
@@ -38,34 +35,23 @@ const LoaderCircularFormats = {
 };
 
 const loaderRotationKeyframes = keyframes`
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg) }
+    to   { transform: rotate(360deg) }
 `;
 
-const LoaderCircularStyled = styled<LoaderCircularProps, 'div'>(
-  'div',
-)`
+const LoaderCircularStyled = styled.div<LoaderCircularProps>`
   border-width: ${rem(2)};
   border-style: solid;
   border-color: ${props => LoaderCircularFormats[props.format]};
   border-bottom-color: transparent !important;
-
   animation: ${loaderRotationKeyframes} 800ms linear infinite;
-
   width: ${getSizeFromProps};
   height: ${getSizeFromProps};
-
   border-radius: ${getSizeFromProps};
 `;
 
 export const LoaderCircular: SFC<LoaderCircularProps> = ({
   format = 'dark',
   size = 'md',
-  ref: _,
   ...props
 }) => <LoaderCircularStyled {...props} format={format} size={size} />;

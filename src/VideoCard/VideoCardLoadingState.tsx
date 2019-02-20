@@ -3,7 +3,7 @@ import styled, { css, keyframes } from 'styled-components';
 import { rem } from 'polished';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 
-const WrapperStyled = styled('div')`
+const WrapperStyled = styled.div`
   position: absolute;
   top: 0;
   width: 100%;

@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 import { rem, size } from 'polished';
-import { ButtonInlineInputTextStyleProps as Props } from './ButtonInlineInputTextTypes';
 import * as COLORS from '../Color/Color';
 import { TRANSITIONS } from '../Legacy/TRANSITIONS';
 import { ButtonColors } from '../Button/ButtonColors';
+import { Props } from './ButtonInlineInputText';
 
 const sizes = (size, format) => {
   const values =
@@ -57,7 +57,7 @@ const formats = {
   `,
 };
 
-const sizeStyles = ({ size: sizeStyle, format }) => css`
+const sizeStyles = ({ size: sizeStyle, format }: any) => css`
   ${size(rem(sizes(sizeStyle, format)))};
 
   svg {

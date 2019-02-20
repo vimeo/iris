@@ -1,15 +1,12 @@
-import React from 'react';
-
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-
 import * as COLORS from '../Color/Color';
 import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
 
-const categoryCardStyleSettings = {
+const settings = {
   ICON_SIZE: rem(48),
   BORDER_RADIUS: rem(5),
-  TRANSITION: '300ms ease',
+  TRANSITION: '300ms ease-in-out',
 };
 
 const commonSize = css`
@@ -22,23 +19,16 @@ const bgOverlay = css`
   ${commonSize};
   top: 0;
   left: 0;
-  padding-bottom: 100%;
-  border-radius: ${categoryCardStyleSettings.BORDER_RADIUS};
-  transition: transform ${categoryCardStyleSettings.TRANSITION},
-    opacity ${categoryCardStyleSettings.TRANSITION};
+  border-radius: ${settings.BORDER_RADIUS};
+  transition: transform ${settings.TRANSITION},
+    opacity ${settings.TRANSITION};
 `;
 
-export const CategoryCardStyled = styled<
-  React.HTMLProps<HTMLDivElement>,
-  'div'
->('div')`
-  margin-bottom: 1rem;
+export const CategoryCardStyled = styled.div`
   width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
-
   background-color: ${COLORS.SoutherlySky};
-  border-radius: ${categoryCardStyleSettings.BORDER_RADIUS};
-  padding-bottom: 100%;
+  border-radius: ${settings.BORDER_RADIUS};
   position: relative;
   overflow: hidden;
 
@@ -48,17 +38,17 @@ export const CategoryCardStyled = styled<
   }
 `;
 
-export const BackgroundStyled = styled('div')`
+export const BackgroundStyled = styled.div`
   ${bgOverlay};
   background-size: cover;
   background-position: center;
 
   ${CategoryCardStyled}:hover & {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 `;
 
-export const OverlayStyled = styled('div')`
+export const OverlayStyled = styled.div`
   ${bgOverlay};
   opacity: 0.7;
   background-image: linear-gradient(
@@ -72,23 +62,23 @@ export const OverlayStyled = styled('div')`
   }
 `;
 
-export const CardContentWrapStyled = styled('div')`
+export const CardContentWrapStyled = styled.div`
   ${commonSize};
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-export const CardContentStyled = styled('div')`
+export const CardContentStyled = styled.div`
   text-align: center;
   padding: ${rem(24)};
 `;
 
-export const IconWrapperStyled = styled('div')`
+export const IconWrapperStyled = styled.div`
   margin-bottom: ${rem(8)};
   svg {
-    height: ${categoryCardStyleSettings.ICON_SIZE};
-    width: ${categoryCardStyleSettings.ICON_SIZE};
+    height: ${settings.ICON_SIZE};
+    width: ${settings.ICON_SIZE};
     * {
       fill: ${VimeoStyleSettings.colors.typeColors.textColorLight};
     }

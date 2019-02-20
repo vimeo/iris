@@ -17,7 +17,7 @@ interface TooltipStyledProps {
   multiline?: boolean;
 }
 
-const TooltipStyled = styled<TooltipStyledProps, 'div'>('div')`
+const TooltipStyled = styled.div<TooltipStyledProps>`
   min-width: ${props =>
     props.multiline ? `${WIDTH_LIMIT / 2}rem` : '0'};
   max-width: ${WIDTH_LIMIT}rem;

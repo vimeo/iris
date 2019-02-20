@@ -35,7 +35,6 @@ export const TabNavigationHorizontalItem: SFC<Props> = ({
         autoWidth="fluid"
         format="secondaryTextOnly"
         isButtonElement={false}
-        isInline
         size="md"
       >
         {label}

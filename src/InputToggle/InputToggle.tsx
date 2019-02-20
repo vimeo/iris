@@ -9,6 +9,7 @@ import {
 import { InputToggleFocusOutline as FocusOutline } from './InputToggleFocus';
 
 interface Props {
+  className?: string;
   disabled?: boolean;
   errorMsg?: ReactNode;
   format?: 'negative' | 'positive' | 'neutral';
@@ -16,14 +17,15 @@ interface Props {
   hideLabel?: boolean;
   id: string;
   label: string | ReactNode;
+  name?: string;
+  required?: boolean;
   size?: 'md' | 'lg';
   theme?: 'default' | 'dark';
-  name?: string;
   value: string;
-  required?: boolean;
 }
 
 export const InputToggle: SFC<Props> = ({
+  className,
   disabled,
   errorMsg,
   format = 'neutral',
@@ -36,6 +38,7 @@ export const InputToggle: SFC<Props> = ({
   ...props
 }) => (
   <InputWrapperInline
+    className={className}
     errorMsg={errorMsg}
     helperMsg={helperMsg}
     theme={theme}

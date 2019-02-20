@@ -1,27 +1,26 @@
-import React, { SFC, HTMLProps } from 'react';
-import { Omit } from '../Utils/Omit';
-import { AvatarProps } from './AvatarProps';
+import React, { SFC } from 'react';
 import { AvatarStyled } from './AvatarStyled';
+import { BaseProps } from '../Utils/BaseProps';
 
-export const Avatar: SFC<
-  AvatarProps & Omit<HTMLProps<HTMLImageElement>, 'size'>
-> = ({
+export interface Props extends BaseProps {
+  alt: string;
+  src: string;
+  srcSet: string; // when is this used?
+  size?: 'auto' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+}
+
+export const Avatar: SFC<Props> = ({
   alt,
-  isInline = true,
-  ref: _,
-  // ???
-  crossOrigin,
   size = 'auto',
   src,
   srcSet,
-  ...filteredProps
+  ...props
 }) => (
   <AvatarStyled
     alt={alt}
-    isInline={isInline}
     size={size}
     src={src}
     srcSet={srcSet}
-    {...filteredProps}
+    {...props}
   />
 );

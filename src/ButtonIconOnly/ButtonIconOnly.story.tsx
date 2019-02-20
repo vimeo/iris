@@ -20,7 +20,7 @@ const componentName = 'Button';
 storiesOf(`components/${componentName}`, module).add(
   'icon only',
   () => (
-    <Story title={componentName} subTitle="Icon Only">
+    <Story title={componentName} subTitle="Icon Only" width="100%">
       <div
         style={{
           background: '#222',

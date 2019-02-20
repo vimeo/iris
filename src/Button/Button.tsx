@@ -5,16 +5,13 @@ import { ButtonFocus } from './ButtonFocus';
 import { ButtonIconElement } from './ButtonIconElement';
 
 export const Button: SFC<ButtonProps> = ({
-  autoMargins = true,
   autoWidth = 'sm',
   children,
   format = 'primary',
   icon,
   iconLocation = 'beforeLabel',
   isButtonElement = true,
-  isInline = false,
   size = 'md',
-  ref: _,
   ...props
 }) => {
   const hasIcon = position =>
@@ -27,13 +24,11 @@ export const Button: SFC<ButtonProps> = ({
 
   return (
     <ButtonStyled
-      autoMargins={autoMargins}
       autoWidth={autoWidth}
       format={format}
-      title={children}
+      title={children as string}
       hasFeaturedIcon={iconLocation === 'featuredLeft'}
       isButtonElement={isButtonElement}
-      isInline={isInline}
       size={size}
       {...props}
     >

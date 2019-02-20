@@ -49,7 +49,7 @@ interface WrapperStyledProps extends React.HTMLProps<HTMLDivElement> {
   beaconMode?: 'inactive' | 'open' | 'active' | 'hidden';
   isHidden: boolean;
 }
-const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
+const WrapperStyled = styled.div<WrapperStyledProps>`
     display: ${props => (props.isHidden ? 'none' : 'block')}
     overflow: visible;
 

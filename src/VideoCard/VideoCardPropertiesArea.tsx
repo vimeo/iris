@@ -2,31 +2,22 @@ import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
-export interface VideoCardPropertiesAreaProps
-  extends React.HTMLProps<HTMLDivElement> {
+
+interface Props {
   isHovered?: boolean;
   properties: any[];
 }
 
-export interface VideoCardPropertiesAreaStyledProps
-  extends React.HTMLProps<HTMLDivElement> {
+const VideoCardPropertiesAreaStyled = styled.div<{
   isHovered?: boolean;
-}
-
-const VideoCardPropertiesAreaStyled = styled<
-  VideoCardPropertiesAreaStyledProps,
-  'div'
->('div')`
+}>`
   opacity: ${props => (props.isHovered ? '.5' : '1')};
   position: absolute;
   top: ${rem(VideoCardStyleSettings.padding)};
   right: ${rem(VideoCardStyleSettings.padding)};
 `;
 
-const PropertyCellStyled = styled<
-  React.HTMLProps<HTMLDivElement>,
-  'div'
->('div')`
+const PropertyCellStyled = styled.div`
   display: inline-flex;
   margin-right: ${rem(8)};
 
@@ -35,14 +26,14 @@ const PropertyCellStyled = styled<
   }
 `;
 
-export const VideoCardPropertiesArea: SFC<
-  VideoCardPropertiesAreaProps
-> = ({ isHovered, properties, ref: _, ...props }) => (
+export const VideoCardPropertiesArea: SFC<Props> = ({
+  isHovered,
+  properties,
+  ...props
+}) => (
   <VideoCardPropertiesAreaStyled isHovered={isHovered} {...props}>
     {properties.map((property, i) => (
-      <PropertyCellStyled key={`property${i}`}>
-        {property}
-      </PropertyCellStyled>
+      <PropertyCellStyled key={i}>{property}</PropertyCellStyled>
     ))}
   </VideoCardPropertiesAreaStyled>
 );

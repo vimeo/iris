@@ -42,9 +42,6 @@ export {
   FeatureTourPanelContent,
 } from './FeatureTourPanelContent/FeatureTourPanelContent';
 export { FieldSet } from './FieldSet/FieldSet';
-export { Grid } from './Grid/Grid';
-export { GridBlock } from './GridBlock/GridBlock';
-export { GridCol } from './GridCol/GridCol';
 
 export { InputCheckbox } from './InputCheckbox/InputCheckbox';
 export {
@@ -70,10 +67,7 @@ export { InputToggle } from './InputToggle/InputToggle';
 export { InputWrapper } from './InputWrapper/InputWrapper';
 
 export { LinkText } from './LinkText/LinkText';
-export { List } from './List/List';
-export { ListItem } from './ListItem/ListItem';
 export { LoaderCircular } from './LoaderCircular/LoaderCircular';
-
 export { MenuPanel } from './MenuPanel/MenuPanel';
 export { MenuPanelList } from './MenuPanelList/MenuPanelList';
 export {
@@ -173,7 +167,6 @@ export {
   VideoCardContextInfoArea as VideoContextInfoArea,
 } from './VideoCard/VideoContextInfoArea';
 
-export { withCopyAbility } from './withCopyAbility/withCopyAbility';
 export {
   withCharacterCounter as withCharacterCount,
 } from './withCharacterCount/withCharacterCount';

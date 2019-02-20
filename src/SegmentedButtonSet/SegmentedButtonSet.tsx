@@ -14,16 +14,13 @@ const buildOptions = (options, name, format) =>
     />
   ));
 
-export const SegmentedButtonSet: SFC<
-  SegmentedButtonSetProps & React.HTMLProps<HTMLDivElement>
-> = ({
+export const SegmentedButtonSet: SFC<SegmentedButtonSetProps> = ({
   children,
   format = 'light',
   name,
   groupLabel,
   options,
   showGroupLabel = true,
-  ref: _,
   ...props
 }) => (
   <fieldset aria-label={!showGroupLabel ? groupLabel : null}>

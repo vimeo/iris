@@ -1,4 +1,4 @@
-import React, { SFC, HTMLProps } from 'react';
+import React, { SFC } from 'react';
 import styled from 'styled-components';
 import * as COLORS from '../Color/Color';
 import { Heart } from '../Icons';
@@ -11,10 +11,7 @@ const VideoCardLikeIconStyled = styled.span`
   }
 `;
 
-export const VideoCardLikeIcon: SFC<HTMLProps<HTMLSpanElement>> = ({
-  ref: _,
-  ...props
-}) => (
+export const VideoCardLikeIcon: SFC = props => (
   <VideoCardLikeIconStyled {...props}>
     <Heart />
   </VideoCardLikeIconStyled>

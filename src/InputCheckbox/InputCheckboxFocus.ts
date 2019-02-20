@@ -9,9 +9,7 @@ import {
   FocusOutlineProps,
 } from '../FocusOutline/FocusOutline';
 
-export const CheckboxFocusOutline = styled<FocusOutlineProps, 'div'>(
-  'div',
-)`
+export const CheckboxFocusOutline = styled.div<FocusOutlineProps>`
     ${FocusOutline}
 
     ${InputCheckboxStyled}:focus ~ ${OverlayStyled} & {

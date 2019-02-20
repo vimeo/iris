@@ -1,60 +1,52 @@
-import { HTMLProps } from 'react';
-import { Omit } from '../Utils/Omit';
+import { BaseProps } from '../Utils/BaseProps';
 
-export interface TypeProps
-  extends Omit<HTMLProps<HTMLElement>, 'size'> {
-  element?:
-    | 'h1'
-    | 'h2'
-    | 'h3'
-    | 'h4'
-    | 'h5'
-    | 'h6'
-    | 'p'
-    | 'li'
-    | 'div'
-    | 'span'
-    | 'label'
-    | 'legend';
-  format?: 'white' | 'light' | 'dark' | 'alternative' | 'success';
+type sizes =
+  | 'xs'
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'stat'
+  | 'plusUltra'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'headerSm';
+
+type elements =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'p'
+  | 'li'
+  | 'div'
+  | 'span'
+  | 'label'
+  | 'legend';
+
+type formats = 'white' | 'light' | 'dark' | 'alternative' | 'success';
+
+export interface TypeProps extends BaseProps {
+  element?: elements;
+  format?: formats;
   noMargin?: boolean;
+  role?: string;
 }
 
 export interface StyledTypeElementProps {
   fontStack?: 'regular' | 'light';
   noMargin?: boolean;
-  size:
-    | 'xs'
-    | 'sm'
-    | 'md'
-    | 'lg'
-    | 'stat'
-    | 'plusUltra'
-    | 'h1'
-    | 'h2'
-    | 'h3'
-    | 'h4'
-    | 'h5'
-    | 'h6'
-    | 'headerSm';
+  size: sizes;
 }
 
 export interface TypeByCSSInterface {
   fontStack?: 'regular' | 'light';
-  format: 'white' | 'light' | 'dark' | 'alternative' | 'success';
+  format: formats;
   noMargin?: boolean;
-  size:
-    | 'xs'
-    | 'sm'
-    | 'md'
-    | 'lg'
-    | 'stat'
-    | 'plusUltra'
-    | 'h1'
-    | 'h2'
-    | 'h3'
-    | 'h4'
-    | 'h5'
-    | 'h6'
-    | 'headerSm';
+  size: sizes;
 }

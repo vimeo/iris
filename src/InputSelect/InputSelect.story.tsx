@@ -3,6 +3,10 @@ import { storiesOf } from '@storybook/react';
 import { InputSelect } from './InputSelect';
 import { ParagraphMd } from '../Type';
 
+const $InputSelect = styled(InputSelect)`
+  margin: 0 0 2rem;
+`;
+
 const demoOptions = (
   <optgroup label="Option Group">
     <option value="" disabled hidden>
@@ -17,89 +21,65 @@ const demoOptions = (
 );
 
 import { Story } from '../../.storybook/Story';
+import styled from 'styled-components';
 
 const componentName = 'Inputs';
 
 storiesOf(`components/${componentName}`, module).add('select', () => (
   <Story title="Input Select" subTitle="Select">
     <div data-code>
-      <InputSelect
-        name="ExampleSelect1XL"
-        id="ExampleSelect1XL"
-        label="XL Select"
-        size="xl"
-      >
+      <$InputSelect id="ExampleSelect1XL" label="XL Select" size="xl">
         {demoOptions}
-      </InputSelect>
-      <InputSelect
-        name="ExampleSelect1Large"
+      </$InputSelect>
+      <$InputSelect
         id="ExampleSelect1Large"
         label="LG Select"
         size="lg"
       >
         {demoOptions}
-      </InputSelect>
-      <InputSelect
-        name="ExampleSelect1"
-        id="ExampleSelect1"
-        label="MD select (default)"
-      >
+      </$InputSelect>
+      <$InputSelect id="ExampleSelect1" label="MD select (default)">
         {demoOptions}
-      </InputSelect>
-      <InputSelect
-        name="ExampleSelect1sm"
-        id="ExampleSelect1sm"
-        label="SM Select"
-        size="sm"
-      >
+      </$InputSelect>
+      <$InputSelect id="ExampleSelect1sm" label="SM Select" size="sm">
         {demoOptions}
-      </InputSelect>
-      <InputSelect
-        name="ExampleSelect2"
+      </$InputSelect>
+      <$InputSelect
         helperMsg={<ParagraphMd>I am helpful text!</ParagraphMd>}
         id="ExampleSelect2"
         label="Default with Helper Text"
       >
         {demoOptions}
-      </InputSelect>
-      <InputSelect
-        name="ExampleSelect2"
+      </$InputSelect>
+      <$InputSelect
         format="negative"
         id="ExampleSelect2"
         label="Negative"
         errorMsg={<ParagraphMd>This is a problem!</ParagraphMd>}
       >
         {demoOptions}
-      </InputSelect>
-      <InputSelect
-        name="ExampleSelect3"
+      </$InputSelect>
+      <$InputSelect
         format="positive"
         id="ExampleSelect3"
         label="Positive"
       >
         {demoOptions}
-      </InputSelect>
-      <InputSelect
-        name="ExampleSelect4"
-        id="ExampleSelect4"
-        label="Disabled"
-        disabled
-      >
+      </$InputSelect>
+      <$InputSelect id="ExampleSelect4" label="Disabled" disabled>
         {demoOptions}
-      </InputSelect>
+      </$InputSelect>
     </div>
     <div className="Pattern-DarkBlock">
-      <InputSelect
-        name="ExampleSelect2"
+      <$InputSelect
         helperMsg={<ParagraphMd>I am helpful text!</ParagraphMd>}
         id="ExampleSelect2"
         label="Default with Helper Text"
         theme="dark"
       >
         {demoOptions}
-      </InputSelect>
-      <InputSelect
-        name="ExampleSelect2"
+      </$InputSelect>
+      <$InputSelect
         format="negative"
         id="ExampleSelect2"
         label="Negative"
@@ -107,16 +87,15 @@ storiesOf(`components/${componentName}`, module).add('select', () => (
         theme="dark"
       >
         {demoOptions}
-      </InputSelect>
-      <InputSelect
-        name="ExampleSelect3"
+      </$InputSelect>
+      <$InputSelect
         format="positive"
         id="ExampleSelect3"
         label="Positive"
         theme="dark"
       >
         {demoOptions}
-      </InputSelect>
+      </$InputSelect>
     </div>
   </Story>
 ));

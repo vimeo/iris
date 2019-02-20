@@ -33,7 +33,7 @@ export interface VideoCardThumbnailWrapperProps
   isHovered?: boolean;
 }
 
-const WrapperStyled = styled('div')`
+const WrapperStyled = styled.div`
   position: relative;
 `;
 
@@ -55,7 +55,7 @@ const ThumbnailShadowStyled = styled.div<ThumbnailStyledProps>`
   padding-bottom: 56.15%;
 `;
 
-const ThumbnailStyled = styled<ThumbnailStyledProps, 'img'>('img')`
+const ThumbnailStyled = styled.img<ThumbnailStyledProps>`
   border-radius: ${props =>
     props.isTopOfCard
       ? `${rem(settings.borderRadius)}
@@ -75,7 +75,7 @@ const ThumbnailContainerStyled = styled.div<
     ${rem(settings.borderRadius)} 0 0;
 `;
 
-const ThumbnailPreloadWrapperStyled = styled('div')`
+const ThumbnailPreloadWrapperStyled = styled.div`
   background-color: ${COLORS.Plaster};
   width: 100%;
   padding-bottom: 56.15%;
@@ -134,7 +134,7 @@ export const VideoCardThumbnailArea: SFC<
         </ThumbnailPreloadWrapperStyled>
       )}
     </ThumbnailContainerStyled>
-    <HoverOverlayStyled active={isHovered && !isGroup} />}
+    <HoverOverlayStyled active={isHovered && !isGroup} />
     {thumbnailBrandDecorationArea && (
       <VideoCardDecorationArea
         isHovered={isHovered}

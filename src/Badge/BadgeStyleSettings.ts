@@ -2,10 +2,9 @@ import * as COLORS from '../Color/Color';
 import { css } from 'styled-components';
 import { darken, rgba, rem } from 'polished';
 
-export const badgeSizeCSS = size =>
+export const badgeSizeCSS = ({ size }) =>
   size === 'lg' &&
   css`
-    margin-left: 2px;
     padding: ${rem(5)};
     font-size: 1rem;
     font-weight: 500;
@@ -28,7 +27,7 @@ export const basicBadge = (color, hover = true) => css`
     `};
 `;
 
-export const badgeColorsCSS = (format, href) =>
+export const badgeColorsCSS = ({ format, href }) =>
   ({
     alum: css`
       color: #503873;

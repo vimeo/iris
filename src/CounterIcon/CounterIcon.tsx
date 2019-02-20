@@ -1,7 +1,6 @@
-import React, { SFC, HTMLProps } from 'react';
+import React, { SFC } from 'react';
 import { ParagraphLg } from '../Type';
 import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
-
 import { CounterIconProps } from './CounterIconTypes';
 import {
   IconWrapperStyled,
@@ -9,17 +8,13 @@ import {
   CounterIconStyled,
 } from './CounterIconStyled';
 
-export const CounterIcon: SFC<
-  CounterIconProps & HTMLProps<HTMLDivElement>
-> = ({
-  autoMargins = true,
+export const CounterIcon: SFC<CounterIconProps> = ({
   children,
   href,
   icon,
   counterTitle,
   onClick,
   tooltipProps,
-  ref: _,
   ...filteredProps
 }) => {
   const CounterIconContent = (
@@ -38,7 +33,7 @@ export const CounterIcon: SFC<
   );
 
   return (
-    <CounterIconStyled autoMargins={autoMargins}>
+    <CounterIconStyled>
       <TooltipOverlay
         href={href}
         tooltipText={counterTitle}

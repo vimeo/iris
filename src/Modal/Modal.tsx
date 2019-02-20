@@ -3,17 +3,12 @@ import throttle from 'lodash.throttle';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { Transition } from 'react-transition-group';
-
-import { Omit } from '../Utils/Omit';
 import { mediaQuery } from '../Layout/MediaQuery';
 import * as COLORS from '../Color/Color';
 import { Z_INDEXES as Z_INDEX } from '../Legacy/Z_INDEXES';
 import { Button } from '../Button/Button';
 import { ButtonProps } from '../Button/ButtonProps';
 import { ButtonDialogClose } from '../ButtonDialogClose/ButtonDialogClose';
-import { Grid } from '../Grid/Grid';
-import { GridBlock } from '../GridBlock/GridBlock';
-import { GridCol } from '../GridCol/GridCol';
 import { Header4 } from '../Type';
 import { ModalWrapper } from '../ModalWrapper/ModalWrapper';
 
@@ -22,8 +17,7 @@ const MODAL_MAX_HEIGHT = '86vh';
 const MODAL_HEIGHT_SM_SCREEN = 134;
 const MODAL_HEIGHT_LG_SCREEN = 80;
 
-export interface ModalProps
-  extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
+export interface ModalProps {
   /**
    * The Content of the modal
    */
@@ -113,11 +107,9 @@ const modalWidths = {
   lg: 660,
 };
 
-interface ModalStyledProps {
+const ModalStyled = styled.div<{
   modalSize?: 'sm' | 'md' | 'lg' | 'fluid';
-}
-
-const ModalStyled = styled<ModalStyledProps, 'div'>('div')`
+}>`
   position: relative;
   width: 76%;
   margin: 0 auto;
@@ -157,7 +149,7 @@ interface ContentStyledProps {
   hasActionArea?: boolean;
 }
 
-const ContentStyled = styled<ContentStyledProps, 'div'>('div')`
+const ContentStyled = styled.div<ContentStyledProps>`
   max-height: ${MODAL_MAX_HEIGHT};
   overflow: auto;
   padding: ${props => (props.fullBleed ? 0 : rem(20))};
@@ -181,31 +173,41 @@ const ContentStyled = styled<ContentStyledProps, 'div'>('div')`
       : ''};
 `;
 
-const ModalCloseButtonWrapperStyled = styled('div')`
+const ModalCloseButtonWrapperStyled = styled.div`
   position: absolute;
   top: ${rem(16)};
   right: ${rem(16)};
 `;
 
-const ActionAreaStyled = styled('div')`
+const ActionAreaStyled = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  height: ${rem(MODAL_HEIGHT_SM_SCREEN)};
+  padding: ${rem(20)} ${rem(20)} ${rem(12)};
+  box-shadow: 0 ${rem(4)} ${rem(10)} ${rem(6)} rgba(0, 0, 0, 0.1);
+  z-index: ${Z_INDEX.modalActionArea};
+  position: relative;
 
-    ${mediaQuery.sm`
-        height: ${rem(MODAL_HEIGHT_LG_SCREEN)};
-    `}
-
-    height: ${rem(MODAL_HEIGHT_SM_SCREEN)};
-    padding: ${rem(20)} ${rem(20)} ${rem(12)};
-    box-shadow: 0 ${rem(4)} ${rem(10)} ${rem(6)} rgba(0, 0, 0, 0.1);
-    z-index: ${Z_INDEX.modalActionArea};
-    position: relative;
+  ${mediaQuery.sm`
+    height: ${rem(MODAL_HEIGHT_LG_SCREEN)};
+    flex-wrap: nowrap;
+  `}
 `;
 
-const ModalTitleStyled = styled('div')`
+const $Button = styled(Button)`
+  margin: 0.25rem;
+
+  ${mediaQuery.md`
+    margin: 0 0.5rem 0.5rem;
+  `}
+`;
+
+const ModalTitleStyled = styled.div`
   margin-bottom: ${rem(12)};
   padding-right: ${rem(8)};
 `;
 
-const ModalTitleTruncationStyled = styled('span')`
+const ModalTitleTruncationStyled = styled.span`
   display: inline-block;
   width: calc(100% - ${rem(40)});
   white-space: nowrap;
@@ -317,41 +319,28 @@ export class Modal extends React.Component<ModalProps, ModalState> {
       fluidButtons,
       size,
       zIndexStartingPoint,
-      ref: _,
       ...filteredProps
     } = this.props;
 
-    const buttonWidth = fluidButtons ? 12 : 8;
-    const buttonOffset = fluidButtons ? 0 : 8;
+    // const buttonWidth = fluidButtons ? 12 : 8;
+    // const buttonOffset = fluidButtons ? 0 : 8;
 
     const actionAreaElement = (
       <ActionAreaStyled>
-        <Grid isNested>
-          <GridBlock>
-            <GridCol
-              smOffset={buttonOffset}
-              smSpan={buttonWidth}
-              formColumn
-            >
-              {secondaryButtonProps && (
-                <Button
-                  {...secondaryButtonProps}
-                  autoWidth="fluid"
-                  format="secondary"
-                  size="md"
-                />
-              )}
-            </GridCol>
-            <GridCol smSpan={buttonWidth} formColumn>
-              <Button
-                {...primaryButtonProps}
-                autoWidth="fluid"
-                format="primary"
-                size="md"
-              />
-            </GridCol>
-          </GridBlock>
-        </Grid>
+        {secondaryButtonProps && (
+          <$Button
+            {...secondaryButtonProps}
+            autoWidth="fluid"
+            format="secondary"
+            size="md"
+          />
+        )}
+        <$Button
+          {...primaryButtonProps}
+          autoWidth="fluid"
+          format="primary"
+          size="md"
+        />
       </ActionAreaStyled>
     );
 

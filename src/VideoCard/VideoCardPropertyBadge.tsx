@@ -12,10 +12,7 @@ export interface VideoCardPropertyBadge
   label: string;
 }
 
-const VideoCardPropertyBadgeStyled = styled<
-  React.HTMLProps<HTMLDivElement>,
-  'div'
->('div')`
+const VideoCardPropertyBadgeStyled = styled.div<any>`
   align-items: center;
   background: ${rgba(COLORS.Paste, 0.9)};
   border-radius: ${rem(2)};
@@ -24,10 +21,7 @@ const VideoCardPropertyBadgeStyled = styled<
   text-transform: uppercase;
 `;
 
-const VideoCardPropertyBadgeTextStyled = styled<
-  React.HTMLProps<HTMLDivElement>,
-  any
->(ParagraphSm)`
+const VideoCardPropertyBadgeTextStyled = styled(ParagraphSm)`
   align-items: center;
   display: inline-flex;
   font-weight: 600;
@@ -37,8 +31,6 @@ const VideoCardPropertyBadgeTextStyled = styled<
 
 export const VideoCardPropertyBadge: SFC<VideoCardPropertyBadge> = ({
   label,
-  // @ts-ignore
-  ref: _,
 }) => (
   <VideoCardPropertyBadgeStyled>
     <VideoCardPropertyBadgeTextStyled>

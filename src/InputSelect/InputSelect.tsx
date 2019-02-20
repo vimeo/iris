@@ -1,44 +1,37 @@
 import React, { SFC } from 'react';
-import { Omit } from '../Utils/Omit';
 import { InputProps } from '../InputText/InputHelpers';
 import { SelectWrapper } from '../SelectWrapper/SelectWrapper';
 import { StyledSelect } from './InputSelectStyled';
 
-export interface InputSelectProps
-  extends InputProps,
-    Omit<
-      React.HTMLProps<HTMLSelectElement>,
-      'label' | 'size' | 'id'
-    > {
+export interface InputSelectProps extends InputProps {
   icon?: React.ReactNode;
   options?: Array<{ label: string; value: string }>;
 }
 
 export const InputSelect: SFC<InputSelectProps> = ({
   children,
+  className,
   disabled,
   errorMsg,
   format = 'neutral',
   helperMsg,
   icon,
   id,
-  isInline,
   label,
   options,
   showLabel = true,
   size = 'md',
   theme = 'default',
-  ref: _,
   ...props
 }) => (
   <SelectWrapper
+    className={className}
     disabled={disabled}
     errorMsg={errorMsg}
     format={format}
     helperMsg={helperMsg}
     icon={icon}
     id={id}
-    isInline={isInline}
     label={label}
     showLabel={showLabel}
     size={size}

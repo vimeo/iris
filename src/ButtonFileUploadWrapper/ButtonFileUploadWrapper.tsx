@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 interface Props {
   children: ReactNode;
+  className?: string;
   id: string;
   inputElementProps?: {};
   name?: string;
@@ -10,12 +11,13 @@ interface Props {
 
 export const ButtonFileUploadWrapper: SFC<Props> = ({
   children,
+  className,
   id,
   inputElementProps,
   name,
   ...props
 }) => (
-  <Wrapper>
+  <Wrapper className={className}>
     <InputStyled
       {...props}
       {...inputElementProps}

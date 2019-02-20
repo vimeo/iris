@@ -41,7 +41,7 @@ export const Story: SFC<Props> = ({
   props,
   subTitle,
   title,
-  width = '600px',
+  width = '700px',
   flex = false,
 }) => (
   <>

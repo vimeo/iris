@@ -1,4 +1,4 @@
-import React, { ReactNode, SFC, HTMLProps } from 'react';
+import React, { ReactNode, SFC } from 'react';
 import { InputWrapper } from '../InputWrapper/InputWrapper';
 
 import styled, { css } from 'styled-components';
@@ -18,9 +18,7 @@ export interface Props {
   theme?: 'default' | 'light' | 'dark';
 }
 
-export const TextArea: SFC<
-  Props & HTMLProps<HTMLTextAreaElement>
-> = ({
+export const TextArea: SFC<Props> = ({
   disabled,
   errorMsg,
   format = 'neutral',
@@ -28,7 +26,6 @@ export const TextArea: SFC<
   id,
   label,
   preMessage,
-  ref: _,
   showLabel = true,
   theme = 'light',
   ...props

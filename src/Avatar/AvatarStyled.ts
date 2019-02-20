@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
 
-import { AvatarProps } from './AvatarProps';
-
 const avatarSizes = {
   auto: '100%',
   xs: `${rem(16)}`,
@@ -12,8 +10,9 @@ const avatarSizes = {
   xl: `${rem(150)}`,
 };
 
-export const AvatarStyled = styled<AvatarProps, 'img'>('img')`
-  display: ${props => (props.isInline ? 'inline-block' : 'block')};
+export const AvatarStyled = styled.img<{
+  size: 'auto' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+}>`
   height: ${props => avatarSizes[props.size]};
   width: ${props => avatarSizes[props.size]};
   position: relative;

@@ -1,11 +1,9 @@
-import React, { SFC, HTMLProps } from 'react';
+import React, { SFC } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { ButtonStyleSettings } from './ButtonStyleSettings';
-import { Omit } from '../Utils/Omit';
 
-export interface ButtonIconElementStyledProps
-  extends Omit<HTMLProps<HTMLSpanElement>, 'size'> {
+export interface ButtonIconElementStyledProps {
   iconLocation?: 'beforeLabel' | 'afterLabel' | 'featuredLeft';
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
@@ -23,10 +21,7 @@ const iconStyle = css`
     fill: currentColor;
   }
 `;
-const ButtonIconElementStyled = styled<
-  ButtonIconElementStyledProps,
-  'span'
->('span')`
+const ButtonIconElementStyled = styled.span<any>`
   display: inline-flex;
   align-items: center;
 
@@ -49,13 +44,7 @@ const getFeaturedIconSizeCSS = props => {
     `;
 };
 
-interface FeaturedIconElementProps {
-  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-}
-
-const FeaturedIconElement = styled<FeaturedIconElementProps, 'span'>(
-  'span',
-)`
+const FeaturedIconElement = styled.span`
     display: flex;
     position: absolute;
     left: ${rem(-1)};
@@ -70,7 +59,6 @@ const FeaturedIconElement = styled<FeaturedIconElementProps, 'span'>(
 
 export const ButtonIconElement: SFC<ButtonIconElementStyledProps> = ({
   iconLocation,
-  ref: _,
   ...props
 }) =>
   iconLocation === 'featuredLeft' ? (

@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import { InputRadioOverlayStyledProps } from './InputRadioTypes';
 import * as COLORS from '../Color/Color';
 
 const wrapperSize = 2;
@@ -12,7 +11,6 @@ export const InputRadioWrapperStyled = styled.div`
   width: 100%;
   flex-wrap: wrap;
   min-height: ${rem(wrapperSize)};
-  margin-bottom: 0.5rem;
   padding-left: 2rem;
   min-height: 1.25rem;
 `;
@@ -66,10 +64,9 @@ const themeSpecificStyles = ({ theme = 'default' }) =>
     `,
   }[theme]);
 
-export const InputRadioOverlayStyled = styled<
-  InputRadioOverlayStyledProps,
-  'div'
->('div')`
+export const InputRadioOverlayStyled = styled.div<{
+  theme?: 'default' | 'dark';
+}>`
   display: block;
   position: absolute;
   z-index: 3;

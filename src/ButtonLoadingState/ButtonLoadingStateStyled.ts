@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Button } from '../Button/Button';
-import { ButtonLoadingStateProps as Props } from './ButtonLoadingStateTypes';
 
-const waitCursor = ({ isLoading }) =>
+const waitCursor = ({ isLoading = false }) =>
   isLoading &&
   css`
     &:hover {
@@ -10,6 +9,8 @@ const waitCursor = ({ isLoading }) =>
     }
   `;
 
-export const ButtonLoadingStateStyled = styled<Props, any>(Button)`
+export const ButtonLoadingStateStyled = styled(Button)<{
+  isLoading?: boolean;
+}>`
   ${waitCursor};
 `;

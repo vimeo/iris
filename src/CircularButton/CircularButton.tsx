@@ -3,7 +3,6 @@ import { CircularButtonProps } from './CircularButtonTypes';
 import { CircularButtonStyled } from './CircularButtonStyled';
 
 export const CircularButton: SFC<CircularButtonProps> = ({
-  autoMarginsHorizontal = true,
   element = 'button',
   format = 'primary',
   icon,
@@ -11,7 +10,6 @@ export const CircularButton: SFC<CircularButtonProps> = ({
   ...props
 }) => (
   <CircularButtonStyled
-    autoMarginsHorizontal={autoMarginsHorizontal}
     element={element}
     format={format}
     size={size}

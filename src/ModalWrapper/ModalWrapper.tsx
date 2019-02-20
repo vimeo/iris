@@ -19,9 +19,8 @@ export interface ModalWrapperProps
   unmountOnExit?: boolean;
   zIndexStartingPoint?: number;
 }
-// ==================== ModalWrapper Styled Thing
 
-const ModalWrapperStyled = styled<ModalWrapperProps, 'div'>('div')`
+const ModalWrapperStyled = styled.div<ModalWrapperProps>`
   position: fixed;
   z-index: ${props => props.zIndexStartingPoint};
   top: 0;
@@ -41,7 +40,7 @@ const wrapperTransitionStyles = {
   },
 };
 
-const ModalOverlayStyled = styled<ModalWrapperProps, 'div'>('div')`
+const ModalOverlayStyled = styled.div<ModalWrapperProps>`
   display: ${props => (props.isOpen ? 'flex' : 'none')};
   position: fixed;
   z-index: ${props => props.zIndexStartingPoint};
@@ -85,9 +84,7 @@ const getModalPositionCSS = props => {
   }
 };
 
-const ContentWrapperStyled = styled<ContentWrapperProps, 'div'>(
-  'div',
-)`
+const ContentWrapperStyled = styled.div<ContentWrapperProps>`
   cursor: default;
   z-index: ${props => props.zIndexStartingPoint + 1};
   position: absolute;

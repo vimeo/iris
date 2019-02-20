@@ -54,6 +54,7 @@ nbproject
 data/*
 !data/README.md
 build-styleguide
+storybook-static
 data
 docs/main.jsx
 dist

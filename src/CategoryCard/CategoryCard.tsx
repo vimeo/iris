@@ -1,7 +1,5 @@
-import React, { SFC, HTMLProps } from 'react';
-
+import React, { SFC } from 'react';
 import { ParagraphLg } from '../Type';
-import { CategoryCardProps } from './CategoryCardTypes';
 import {
   CategoryCardStyled,
   BackgroundStyled,
@@ -11,9 +9,27 @@ import {
   IconWrapperStyled,
 } from './CategoryCardStyled';
 
-export const CategoryCard: SFC<
-  CategoryCardProps & HTMLProps<HTMLDivElement>
-> = ({ backgroundImageURL, children, icon, ref: _, ...props }) => (
+interface CategoryCardProps {
+  /**
+   * a URL for a backgroundImage to represent the category
+   */
+  backgroundImageURL: string;
+  /**
+   * Should be a string of the category title
+   */
+  children: React.ReactNode;
+  /**
+   * Category Icon SVG
+   */
+  icon: React.ReactNode;
+}
+
+export const CategoryCard: SFC<CategoryCardProps> = ({
+  backgroundImageURL,
+  children,
+  icon,
+  ...props
+}) => (
   <CategoryCardStyled {...props}>
     <BackgroundStyled
       style={{

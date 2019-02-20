@@ -1,15 +1,27 @@
-import React, { SFC, HTMLProps } from 'react';
+import React, { SFC, MouseEventHandler } from 'react';
 import { DismissX } from '../Icons';
 import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
-import { ButtonDialogCloseProps as Props } from './ButtonDialogCloseTypes';
-import { Omit } from '../Utils/Omit';
+import { BaseProps } from '../Utils/BaseProps';
 
-export const ButtonDialogClose: SFC<
-  Props & Omit<HTMLProps<HTMLButtonElement>, 'size'>
-> = ({
+interface Props extends BaseProps {
+  buttonTitle?: string;
+  autoSpacingHorizontal?: boolean;
+  format?:
+    | 'alternative'
+    | 'dark'
+    | 'lightTransparent'
+    | 'lightWarning'
+    | 'transparent'
+    | 'warning';
+  isButtonElement?: boolean;
+  size?: 'sm' | 'md';
+  onClick?: MouseEventHandler;
+  type?: 'button';
+}
+
+export const ButtonDialogClose: SFC<Props> = ({
   buttonTitle = 'Close',
   autoSpacingHorizontal = true,
-  className,
   format = 'dark',
   isButtonElement = true,
   size = 'sm',
@@ -17,7 +29,6 @@ export const ButtonDialogClose: SFC<
 }) => (
   <ButtonIconOnly
     {...props}
-    className={className}
     autoSpacingHorizontal={autoSpacingHorizontal}
     format={format}
     icon={<DismissX />}

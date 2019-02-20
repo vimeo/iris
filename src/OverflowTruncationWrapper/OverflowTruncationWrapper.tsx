@@ -67,7 +67,7 @@ export class OverflowTruncationWrapper extends Component<
         <Position isTruncated={this.state.isTruncated}>
           <div
             style={{
-              overflow: 'scroll',
+              overflow: 'auto',
               maxHeight: `${this.state.maxHeight}px`,
             }}
           >

@@ -19,11 +19,9 @@ export const ToggleWrapper = styled.div<{
   ${props =>
     props.size === 'md'
       ? css`
-          margin-bottom: 0.5rem;
           padding-left: 2rem;
         `
       : css`
-          margin-bottom: ${rem(9.5)};
           padding-left: ${rem(44)};
         `};
 `;

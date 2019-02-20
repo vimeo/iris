@@ -127,9 +127,7 @@ const focusedSliderThumbStyles = props => {
         };`;
 };
 
-const InputSliderStyled = styled<InputSliderStyledProps, 'div'>(
-  'div',
-)`
+const InputSliderStyled = styled.div<InputSliderStyledProps>`
   position: relative;
   z-index: ${props => props.zIndexOverride};
   input[type='range'] {
@@ -218,7 +216,7 @@ const EndRangeValueStyled = styled.div`
   display: inline-block;
 `;
 
-const BubbleWrapper = styled<BubbleWrapperStyleProps, 'div'>('div')`
+const BubbleWrapper = styled.div<BubbleWrapperStyleProps>`
   position: relative;
   display: inline-block;
   width: 100%;

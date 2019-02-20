@@ -1,10 +1,9 @@
 import React, { SFC, ReactNode } from 'react';
 import { Button } from '../Button/Button';
 import { OverflowTruncationWrapper } from '../OverflowTruncationWrapper/OverflowTruncationWrapper';
-import { Grid } from '../Grid/Grid';
-import { GridCol } from '../GridCol/GridCol';
-import { GridBlock } from '../GridBlock/GridBlock';
 import * as COLORS from '../Color/Color';
+import styled from 'styled-components';
+import { mediaQuery } from '../Layout/MediaQuery';
 
 interface Props {
   children: ReactNode;
@@ -13,6 +12,23 @@ interface Props {
   secondaryButtonProps?: { children: ReactNode };
   maxHeight: number;
 }
+
+const ActionArea = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
+  ${mediaQuery.md`
+    flex-wrap: nowrap;
+  `}
+`;
+
+const $Button = styled(Button)`
+  margin: 0.25rem;
+
+  ${mediaQuery.md`
+    margin: 0 0.5rem;
+  `}
+`;
 
 export const MenuPanelScrollableWithActionArea: SFC<Props> = ({
   children,
@@ -24,7 +40,7 @@ export const MenuPanelScrollableWithActionArea: SFC<Props> = ({
 }) => (
   <div {...props} style={{ position: 'relative' }}>
     <OverflowTruncationWrapper maxHeight={maxHeight}>
-      <div style={{ padding: '1rem 1rem 0' }}>{children}</div>
+      <div style={{ padding: '1rem' }}>{children}</div>
     </OverflowTruncationWrapper>
     <div
       style={{
@@ -33,32 +49,24 @@ export const MenuPanelScrollableWithActionArea: SFC<Props> = ({
         backgroundColor: COLORS.White,
       }}
     >
-      <Grid isNested>
-        <GridBlock>
-          <GridCol mdSpan={12} formColumn>
-            {secondaryButtonProps && (
-              <Button
-                {...secondaryButtonProps}
-                autoWidth="fluid"
-                format="secondary"
-                isInline
-                size="sm"
-                children={primaryButtonProps.children}
-              />
-            )}
-          </GridCol>
-          <GridCol mdSpan={12} formColumn>
-            <Button
-              {...primaryButtonProps}
-              autoWidth="fluid"
-              format="primary"
-              isInline
-              size="sm"
-              children={secondaryButtonProps.children}
-            />
-          </GridCol>
-        </GridBlock>
-      </Grid>
+      <ActionArea>
+        {secondaryButtonProps && (
+          <$Button
+            {...secondaryButtonProps}
+            autoWidth="fluid"
+            format="secondary"
+            size="sm"
+            children={primaryButtonProps.children}
+          />
+        )}
+        <$Button
+          {...primaryButtonProps}
+          autoWidth="fluid"
+          format="primary"
+          size="sm"
+          children={secondaryButtonProps.children}
+        />
+      </ActionArea>
     </div>
   </div>
 );

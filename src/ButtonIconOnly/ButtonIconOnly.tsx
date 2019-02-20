@@ -1,23 +1,30 @@
-import React, { SFC, HTMLProps } from 'react';
-import { ButtonIconOnlyProps } from './ButtonIconOnlyTypes';
+import React, { SFC, ReactNode, MouseEventHandler } from 'react';
 import {
   ButtonStyled,
   IconWrapperStyled,
   SpanStyled,
   DEFAULT_BUTTON_FORMAT as DARK,
+  ButtonIconOnlyFormats,
 } from './ButtonIconOnlyStyled';
-import { Omit } from '../Utils/Omit';
 import { ButtonIconOnlyFocus } from './ButtonIconOnlyFocus';
+import { BaseProps } from '../Utils/BaseProps';
 
-export const ButtonIconOnly: SFC<
-  ButtonIconOnlyProps & Omit<HTMLProps<HTMLElement>, 'size'>
-> = ({
+export interface Props extends BaseProps {
+  autoSpacingHorizontal?: boolean;
+  format?: ButtonIconOnlyFormats;
+  icon: ReactNode;
+  isButtonElement?: boolean;
+  onClick?: MouseEventHandler | ((e?: Event) => void);
+  size?: 'sm' | 'md';
+  type?: 'button';
+}
+
+export const ButtonIconOnly: SFC<Props> = ({
   autoSpacingHorizontal = true,
   format = DARK,
   icon,
   isButtonElement = true,
   size = 'sm',
-  ref: _,
   ...props
 }) => {
   const ButtonElement = isButtonElement ? ButtonStyled : SpanStyled;

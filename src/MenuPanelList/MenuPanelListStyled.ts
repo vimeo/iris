@@ -11,7 +11,7 @@ const maybeHasDividerBorder = props =>
         props.theme === 'dark' ? COLORS.IronHeart : COLORS.Porcelain};
   `;
 
-export const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
+export const WrapperStyled = styled.div<WrapperStyledProps>`
   padding: 0;
 
   ${maybeHasDividerBorder};

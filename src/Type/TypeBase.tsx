@@ -9,7 +9,6 @@ import {
   StyledTypeElementProps,
 } from './TypeTypes';
 import { getUnitlessLineHeight } from './TypeHelpers';
-import { Omit } from '../Utils/Omit';
 import { TypeVariableElement } from './TypeVariableElement';
 
 export const TypeBaseStyleSettings = {
@@ -167,9 +166,7 @@ export const typeCSSByProps = ({
   ${darkFontSmoothing};
 `;
 
-const StyledElement = styled<StyledTypeElementProps & TypeProps, any>(
-  TypeVariableElement,
-)`
+const StyledElement = styled(TypeVariableElement)`
   ${props =>
     typeCSSByProps({
       fontStack: props.fontStack,
@@ -182,8 +179,6 @@ const StyledElement = styled<StyledTypeElementProps & TypeProps, any>(
   }
 `;
 
-export const TypeBase: SFC<
-  StyledTypeElementProps &
-    TypeProps &
-    Omit<React.HTMLProps<HTMLElement>, 'size'>
-> = ({ ref: _, ...props }) => <StyledElement {...props} />;
+export const TypeBase: SFC<StyledTypeElementProps & TypeProps> = ({
+  ...props
+}) => <StyledElement {...props} />;

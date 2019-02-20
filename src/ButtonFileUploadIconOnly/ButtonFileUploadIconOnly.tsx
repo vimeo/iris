@@ -9,6 +9,7 @@ import { BFUIOFocus as FocusOutline } from './ButtonFileIploadIconOnlyFocus';
 
 interface Props {
   autoSpacingHorizontal?: boolean;
+  className?: string;
   format?: 'dark' | 'alternative' | 'light';
   id: string;
   name?: string;
@@ -18,6 +19,7 @@ interface Props {
 
 export const ButtonFileUploadIconOnly: SFC<Props> = ({
   autoSpacingHorizontal = true,
+  className,
   format = 'dark',
   id,
   name,
@@ -26,6 +28,7 @@ export const ButtonFileUploadIconOnly: SFC<Props> = ({
   ...props
 }) => (
   <ButtonFileUploadWrapper
+    className={className}
     id={id}
     name={name}
     inputElementProps={props}

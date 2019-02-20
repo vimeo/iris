@@ -1,18 +1,11 @@
-import React from 'react';
-import { Omit } from '../Utils/Omit';
+import React, { MouseEventHandler } from 'react';
+import { BaseProps } from '../Utils/BaseProps';
 
-export interface ButtonProps
-  extends Omit<React.HTMLProps<HTMLButtonElement>, 'size'> {
-  /**
-   * Determines if there should be margins automatically, set to false to suppress.
-   */
-  autoMargins?: boolean;
+export interface ButtonProps extends BaseProps {
   /**
    * At what breakpoint should the button go to `width: auto`?
    */
   autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid';
-  children: React.ReactNode;
-  className?: string;
   /**
    * For custom color themes, specify color strings (any valid css color value) for the background and text color for default and hover states.
    *  *`hoverTextColor` is optional and falls back to `defaultTextColor`
@@ -36,13 +29,12 @@ export interface ButtonProps
    */
   isButtonElement?: boolean;
   /**
-   * removes all margins
-   */
-  isInline?: boolean;
-  /**
    * Choose the button size
    */
   size?: buttonSizes;
+  onClick?: MouseEventHandler;
+  onMouseEnter?: MouseEventHandler;
+  onMouseLeave?: MouseEventHandler;
 }
 
 export interface ButtonStyledProps {

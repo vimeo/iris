@@ -5,7 +5,7 @@ import { select } from '@storybook/addon-knobs';
 
 import * as Icons from '../Icons';
 import * as Illustrations from '../Illustrations';
-import { HeaderPlusUltra, Header2, Header4 } from '../Type';
+import { Header2, Header6 } from '../Type';
 import * as COLORS from '../Color/Color';
 import { Story } from '../../.storybook/Story';
 
@@ -22,9 +22,9 @@ storiesOf('Icons', module).add('all', () => {
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {Object.keys(Icons).map(icon => (
           <IconWrapper>
-            <Header4 style={{ marginBottom: '0.125rem' }}>
+            <Header6 style={{ marginBottom: '0.125rem' }}>
               {icon}
-            </Header4>
+            </Header6>
 
             <Icon size={size} name={icon} />
           </IconWrapper>
@@ -51,13 +51,11 @@ storiesOf('Illustration', module).add('all', () => (
 
 const Card = css`
   padding: 1rem;
-  margin: 2rem;
+  margin: 1.25rem;
   border-radius: 0.125rem;
   display: inline-block;
   width: calc(100% - 4rem);
-  background: ${COLORS.Paste};
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 10px -8px,
-    rgba(0, 0, 0, 0.3) 0px 0px 4px -1px;
+  border: 1px solid ${COLORS.Paste};
 `;
 
 const width = widthMap =>
@@ -74,9 +72,9 @@ const IconWrapper = styled.div`
 
   ${width({
     40: 50,
-    50: 25,
-    70: 20,
-    100: 16.6667,
+    60: 25,
+    80: 20,
+    120: 16.6667,
   })};
 `;
 

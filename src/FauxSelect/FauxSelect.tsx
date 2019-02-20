@@ -1,7 +1,6 @@
 import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { Omit } from '../Utils/Omit';
 import {
   getInputBaseStyles,
   InputProps,
@@ -9,12 +8,7 @@ import {
 import { TruncatedTextWrapper } from '../TruncatedTextWrapper/TruncatedTextWrapper';
 import { ArrowIconWrapperWidth } from '../SelectWrapper/SelectWrapper';
 
-export interface FauxSelectProps
-  extends InputProps,
-    Omit<
-      React.HTMLProps<HTMLButtonElement>,
-      'label' | 'size' | 'id'
-    > {
+export interface FauxSelectProps extends InputProps {
   /**
    * This string should explain what clicking this will do since this is not a native select. e.g. "Click to change update your privacy options"
    */
@@ -41,15 +35,14 @@ export interface FauxSelectProps
   theme: 'default' | 'light' | 'dark';
 }
 
-export interface FauxSelectStyledProps
-  extends Omit<FauxSelectProps, 'a11yLabel'> {
+export interface FauxSelectStyledProps {
   hasIcon?: boolean;
   hasInlineIcon?: boolean;
+  format?: 'negative' | 'positive' | 'neutral';
+  inputSize?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
-const FauxSelectStyled = styled<FauxSelectStyledProps, 'button'>(
-  'button',
-)`
+const FauxSelectStyled = styled.button<FauxSelectStyledProps>`
     ${getInputBaseStyles}
     ${props => props.hasInlineIcon && `padding-left: ${rem(40)};`}
     padding-right: ${rem(ArrowIconWrapperWidth)};
@@ -64,20 +57,17 @@ export const FauxSelect: SFC<FauxSelectProps> = ({
   disabled,
   format = 'neutral',
   hasInlineIcon,
-  isInline,
   size = 'md',
   theme = 'default',
-  ref: _,
-  ...filteredProps
+  ...props
 }) => (
   <FauxSelectStyled
-    {...filteredProps}
+    {...props}
     aria-label={a11yLabel}
     role="listbox"
     disabled={disabled}
     hasIcon={format === 'negative' || format === 'positive'}
     hasInlineIcon={hasInlineIcon}
-    isInline={isInline}
     format={format}
     inputSize={size}
     theme={theme === 'dark' ? theme : 'light'}

@@ -6,7 +6,11 @@ import { text, select } from '@storybook/addon-knobs';
 import { Button } from './Button';
 import { DownloadArrow, Heart, PaperPlane } from '../Icons';
 
-const ButtonCropped = styled(Button)`
+const $Button = styled(Button)`
+  margin: 0 1rem 1rem 0;
+`;
+
+const ButtonCropped = styled($Button)`
   max-width: 150px;
 `;
 
@@ -40,18 +44,18 @@ storiesOf(`components/${componentName}`, module)
   .add('playground', () => (
     <Story title={componentName} subTitle="Playground">
       <ParagraphMd>Click "KNOBS" in the panel below.</ParagraphMd>
-      <Button format={select('format', buttonFormats, 'primary')}>
+      <$Button format={select('format', buttonFormats, 'primary')}>
         {text('text', 'Play with me!')}
-      </Button>
+      </$Button>
     </Story>
   ))
   .add('basic', () => (
     <Story title={componentName} subTitle="Basic">
-      <Button>Primary</Button>
-      <Button format="secondary">Secondary</Button>
-      <Button format="alternative">Alternative</Button>
-      <Button format="success">Success</Button>
-      <Button format="warning">Warning</Button>
+      <$Button>Primary</$Button>
+      <$Button format="secondary">Secondary</$Button>
+      <$Button format="alternative">Alternative</$Button>
+      <$Button format="success">Success</$Button>
+      <$Button format="warning">Warning</$Button>
     </Story>
   ))
   .add(
@@ -80,11 +84,13 @@ storiesOf(`components/${componentName}`, module)
   )
   .add('outline', () => (
     <Story title={componentName} subTitle="Outline">
-      <Button format="primaryOutline">Primary Outline</Button>
-      <Button format="secondaryOutline">Secondary Outline</Button>
-      <Button format="alternativeOutline">Alternative Outline</Button>
-      <Button format="successOutline">Success Outline</Button>
-      <Button format="warningOutline">Warning Outline</Button>
+      <$Button format="primaryOutline">Primary Outline</$Button>
+      <$Button format="secondaryOutline">Secondary Outline</$Button>
+      <$Button format="alternativeOutline">
+        Alternative Outline
+      </$Button>
+      <$Button format="successOutline">Success Outline</$Button>
+      <$Button format="warningOutline">Warning Outline</$Button>
     </Story>
   ))
   .add('icon', () => (
@@ -94,60 +100,60 @@ storiesOf(`components/${componentName}`, module)
       props={['icon', 'iconLocation']}
     >
       <div>
-        <Button size="lg" format="warning" icon={<PaperPlane />}>
+        <$Button size="lg" format="warning" icon={<PaperPlane />}>
           warning lg
-        </Button>
-        <Button
+        </$Button>
+        <$Button
           size="lg"
           format="success"
           icon={<DownloadArrow />}
           iconLocation="afterLabel"
         >
           Success lg
-        </Button>
+        </$Button>
       </div>
       <div>
-        <Button format="alternative" icon={<PaperPlane />}>
+        <$Button format="alternative" icon={<PaperPlane />}>
           Alternative
-        </Button>
-        <Button
+        </$Button>
+        <$Button
           format="secondaryOutline"
           icon={<Heart />}
           iconLocation="afterLabel"
         >
           Secondary Outline
-        </Button>
+        </$Button>
       </div>
       <div>
-        <Button size="sm" format="primary" icon={<PaperPlane />}>
+        <$Button size="sm" format="primary" icon={<PaperPlane />}>
           Primary sm
-        </Button>
-        <Button
+        </$Button>
+        <$Button
           size="sm"
           format="secondary"
           icon={<DownloadArrow />}
           iconLocation="afterLabel"
         >
           Secondary sm
-        </Button>
+        </$Button>
       </div>
 
       <div>
-        <Button
+        <$Button
           size="xs"
           format="primaryOutline"
           icon={<PaperPlane />}
         >
           Primary xs
-        </Button>
-        <Button
+        </$Button>
+        <$Button
           size="xs"
           format="secondaryOutline"
           icon={<PaperPlane />}
           iconLocation="afterLabel"
         >
           Secondary xs
-        </Button>
+        </$Button>
       </div>
     </Story>
   ));

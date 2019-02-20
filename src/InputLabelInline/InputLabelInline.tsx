@@ -32,7 +32,7 @@ export const InputLabelInline: SFC<Props & { htmlFor: string }> = ({
   </StyledP>
 );
 
-const StyledP = styled<Props, any>(ParagraphMd)`
+const StyledP = styled(ParagraphMd)<{ hideLabel?: boolean }>`
     display: inline-flex;
     width: ${props => (props.hideLabel ? 'auto' : '100%')};
     margin: 0;

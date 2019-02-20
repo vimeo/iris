@@ -8,7 +8,6 @@ export interface SearchFieldProps {
   fieldLabel: string;
   icon?: ReactNode;
   id: string;
-  isInline?: boolean;
   showLabel?: boolean;
   size?: 'md' | 'lg';
 }

@@ -1,4 +1,4 @@
-import React, { SFC, HTMLProps } from 'react';
+import React, { SFC } from 'react';
 import { SegmentedButtonProps } from './SegmentedButtonTypes';
 import { SegmentedButtonSetOptionProps } from '../SegmentedButtonSet/SegmentedButtonSetTypes';
 import {
@@ -8,44 +8,34 @@ import {
 } from './SegmentedButtonStyled';
 
 export const SegmentedButtonSetButton: SFC<
-  SegmentedButtonProps &
-    SegmentedButtonSetOptionProps &
-    HTMLProps<HTMLDivElement>
+  SegmentedButtonProps & SegmentedButtonSetOptionProps
 > = ({
   children,
   disabled,
   id,
   format = 'light',
-  inputProps = { ref: undefined },
+  inputProps,
   name,
   optionLabel,
-  // @ts-ignore
-  ref: _,
   ...props
-}) => {
-  const {
-    // @ts-ignore
-    ref: _,
-    ...inputPropsFiltered
-  } = inputProps;
-
-  return (
-    <LabelStyled htmlFor={id}>
+}) => (
+  <LabelStyled htmlFor={id}>
+    {({ ...inputProps }) => (
       <InputStyled
-        {...inputPropsFiltered}
+        {...inputProps}
         name={name}
         id={id}
         type="radio"
         disabled={disabled}
       />
-      <OptionStyled
-        {...props}
-        disabled={disabled}
-        format={format}
-        size="md"
-      >
-        {optionLabel}
-      </OptionStyled>
-    </LabelStyled>
-  );
-};
+    )}
+    <OptionStyled
+      {...props}
+      disabled={disabled}
+      format={format}
+      size="md"
+    >
+      {optionLabel}
+    </OptionStyled>
+  </LabelStyled>
+);

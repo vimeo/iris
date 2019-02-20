@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLProps } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { SBBCProps } from './SegmentedButtonTypes';
@@ -13,14 +13,11 @@ import * as COLORS from '../Color/Color';
 
 const OuterBorderRadius = rem(3);
 
-export const LabelStyled = styled<
-  React.HTMLProps<HTMLLabelElement>,
-  'label'
->('label')`
+export const LabelStyled = styled.label<HTMLProps<HTMLLabelElement>>`
   flex-grow: 1;
 `;
 
-export const OptionStyled = styled<SBBCProps, 'span'>('span')`
+export const OptionStyled = styled.span<SBBCProps>`
     ${ButtonCoreCSS}
     ${getSizeCSS}
     ${getDefaultCSSByFormat({ format: 'primaryOutline' })}
@@ -91,10 +88,9 @@ export const OptionStyled = styled<SBBCProps, 'span'>('span')`
         }`}
 `;
 
-export const InputStyled = styled<
-  React.HTMLProps<HTMLInputElement>,
-  'input'
->('input')`
+export const InputStyled = styled.input<
+  React.HTMLProps<HTMLInputElement>
+>`
   position: absolute;
   z-index: 2;
   top: 0;

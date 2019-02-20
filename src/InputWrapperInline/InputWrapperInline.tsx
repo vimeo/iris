@@ -1,9 +1,9 @@
 import React, { ReactNode, SFC } from 'react';
 import { InputMessageArea } from '../InputMessageArea/InputMessageArea';
-import styled from 'styled-components';
 
 interface Props {
   children: ReactNode;
+  className?: string;
   errorMsg?: ReactNode;
   helperMsg?: ReactNode;
   theme: 'default' | 'dark';
@@ -11,21 +11,18 @@ interface Props {
 
 export const InputWrapperInline: SFC<Props> = ({
   children,
+  className,
   errorMsg,
   helperMsg,
   theme,
   ...props
 }) => (
-  <InputWrapperInlineStyled {...props}>
+  <div className={className} {...props}>
     {children}
     <InputMessageArea
       errorMsg={errorMsg}
       helperMsg={helperMsg}
       theme={theme}
     />
-  </InputWrapperInlineStyled>
+  </div>
 );
-
-const InputWrapperInlineStyled = styled.div`
-  margin-bottom: 1rem;
-`;

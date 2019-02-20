@@ -1,17 +1,13 @@
-import React, { HTMLProps, SFC } from 'react';
+import React, { SFC } from 'react';
 import { ButtonLoadingStateProps as Props } from './ButtonLoadingStateTypes';
 import { ButtonLoadingStateStyled } from './ButtonLoadingStateStyled';
 import { LoaderCircular } from '../LoaderCircular/LoaderCircular';
-import { Omit } from '../Utils/Omit';
 
-export const ButtonLoadingState: SFC<
-  Props & Omit<HTMLProps<HTMLButtonElement>, 'size'>
-> = ({
+export const ButtonLoadingState: SFC<Props> = ({
   children,
   icon,
-  isLoading,
+  isLoading = false,
   onClick,
-  ref: _,
   size = 'md',
   ...props
 }) => (

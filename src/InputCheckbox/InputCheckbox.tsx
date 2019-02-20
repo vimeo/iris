@@ -1,4 +1,4 @@
-import React, { SFC, HTMLProps } from 'react';
+import React, { SFC } from 'react';
 import { InputCheckboxProps } from './InputCheckboxTypes';
 import {
   InputCheckboxWrapperStyled,
@@ -9,11 +9,8 @@ import {
 } from './InputCheckboxStyled';
 import { CheckboxFocusOutline } from './InputCheckboxFocus';
 import { InputWrapperInline } from '../InputWrapperInline/InputWrapperInline';
-import { Omit } from '../Utils/Omit';
 
-export const InputCheckbox: SFC<
-  InputCheckboxProps & Omit<HTMLProps<HTMLDivElement>, 'size'>
-> = ({
+export const InputCheckbox: SFC<InputCheckboxProps> = ({
   checkedStyle = 'default',
   disabled,
   errorMsg,
@@ -23,7 +20,6 @@ export const InputCheckbox: SFC<
   id,
   label,
   theme = 'default',
-  ref: _,
   ...props
 }) => (
   <InputWrapperInline

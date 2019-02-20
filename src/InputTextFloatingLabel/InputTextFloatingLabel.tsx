@@ -89,7 +89,6 @@ export class InputTextFloatingLabel extends Component<Props, State> {
       helperMsg,
       label,
       id,
-      isInline,
       passwordHideText,
       passwordShowText,
       preMessage,
@@ -107,7 +106,6 @@ export class InputTextFloatingLabel extends Component<Props, State> {
         helperMsg={helperMsg}
         label={label}
         labelForId={id}
-        isInline={isInline}
         preMessage={preMessage}
         size="xl"
         theme={theme === 'dark' ? 'dark' : 'light'}
@@ -130,7 +128,7 @@ export class InputTextFloatingLabel extends Component<Props, State> {
             onBlur={this.handleFieldBlur}
             onFocus={this.handleFieldFocus}
             isActive={this.state.isActive}
-            innerRef={(input: HTMLInputElement) => {
+            ref={(input: HTMLInputElement) => {
               this.inputField = input;
             }}
           />

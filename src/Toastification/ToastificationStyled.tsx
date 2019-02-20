@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import * as COLORS from '../Color/Color';
 import { keyframes } from 'styled-components';
+import { BaseProps } from '../Utils/BaseProps';
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -14,7 +15,7 @@ export const Wrapper = styled.div`
   width: 100%;
 `;
 
-interface ToastProps {
+interface ToastProps extends BaseProps {
   format: 'warning' | 'neutral';
   actionLabel?: string;
   onMouseEnter: React.MouseEventHandler;

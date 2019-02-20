@@ -3,7 +3,6 @@ import { rem } from 'polished';
 import { InputLabelInline } from '../InputLabelInline/InputLabelInline';
 import * as COLORS from '../Color/Color';
 import {
-  InputCheckboxProps,
   InputCheckboxOverlayStyledProps,
   InputCheckboxHiddenLabelStyledProps,
 } from './InputCheckboxTypes';
@@ -57,7 +56,7 @@ export const OverlayStyled = styled.span<
   }
 `;
 
-export const InputCheckboxStyled = styled<any, 'input'>('input')`
+export const InputCheckboxStyled = styled<any>('input')`
     ${sharedInlineInputStyles}
 
     &:focus + ${OverlayStyled} {
@@ -103,10 +102,7 @@ export const InputCheckboxStyled = styled<any, 'input'>('input')`
     }
 `;
 
-export const InputCheckboxLabelStyled = styled<
-  InputCheckboxProps,
-  any
->(InputLabelInline)`
+export const InputCheckboxLabelStyled = styled(InputLabelInline)<any>`
   min-height: 1.125rem;
 
   &:hover {
@@ -127,9 +123,8 @@ export const InputCheckboxLabelStyled = styled<
   }
 `;
 
-export const HiddenLabelStyled = styled<
-  InputCheckboxHiddenLabelStyledProps,
-  'span'
->('span')`
+export const HiddenLabelStyled = styled.span<
+  InputCheckboxHiddenLabelStyledProps
+>`
   ${props => props.hideLabel && 'display: none;'};
 `;

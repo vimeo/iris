@@ -5,9 +5,8 @@ import * as COLORS from '../Color/Color';
 export const Wrapper = styled.div<{ fluid: boolean }>`
   cursor: pointer;
   position: relative;
-  padding-bottom: ${props => (props.fluid ? '0' : '100%')};
-  margin-bottom: ${rem(20)};
   min-height: ${props => (props.fluid ? '100%' : rem(200))};
+  min-height: 12rem;
   border: 1px dashed rgba(179, 191, 200, 0.4);
   border-radius: ${rem(4)};
   background-color: ${COLORS.Paste};

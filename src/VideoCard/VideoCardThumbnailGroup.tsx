@@ -25,11 +25,11 @@ export interface VideoCardThumbnailData {
 }
 // ==================== VideoCardThumbnailGroup Styled
 
-const WrapperStyled = styled<SFC<HTMLDivElement>, 'div'>('div')`
+const WrapperStyled = styled.div<any>`
   padding-bottom: 56.25%; // this is forces this area into a thumbnail aspcect ratio
 `;
 
-const ThumbnailsStyled = styled<SFC<HTMLDivElement>, 'div'>('div')`
+const ThumbnailsStyled = styled.div<any>`
   display: flex;
   padding: ${rem(VideoCardStyleSettings.padding)}
     ${rem(VideoCardStyleSettings.padding)} 0;
@@ -38,9 +38,7 @@ const ThumbnailsStyled = styled<SFC<HTMLDivElement>, 'div'>('div')`
   height: 100%;
 `;
 
-const MinorThumbnailsWrapper = styled<SFC<HTMLDivElement>, 'div'>(
-  'div',
-)`
+const MinorThumbnailsWrapper = styled.div<any>`
   display: flex;
   flex: 0 1 40%;
   flex-direction: column;
@@ -48,12 +46,12 @@ const MinorThumbnailsWrapper = styled<SFC<HTMLDivElement>, 'div'>(
   height: 100%;
 `;
 
-const MajorThumbnail = styled<SFC<HTMLDivElement>, 'div'>('div')`
+const MajorThumbnail = styled.div<any>`
   display: flex;
   flex: 0 1 60%;
 `;
 
-const MinorThumbnail = styled<SFC<HTMLDivElement>, 'div'>('div')`
+const MinorThumbnail = styled.div<any>`
   display: flex;
   height: 50%;
   flex-basis: 50%;
@@ -64,7 +62,7 @@ const MinorThumbnail = styled<SFC<HTMLDivElement>, 'div'>('div')`
   }
 `;
 
-const GroupThumbnailImage = styled<SFC<HTMLDivElement>, 'div'>('div')`
+const GroupThumbnailImage = styled.div<any>`
   width: 100%;
   height: auto;
   border-radius: ${rem(2)};
@@ -76,11 +74,7 @@ const GroupThumbnailImage = styled<SFC<HTMLDivElement>, 'div'>('div')`
 
 export const VideoCardThumbnailGroup: SFC<
   VideoCardThumbnailGroupProps
-> = ({
-  thumbnailData,
-  // @ts-ignore
-  ref: _,
-}) => (
+> = ({ thumbnailData }) => (
   <WrapperStyled>
     <ThumbnailsStyled>
       <MajorThumbnail>

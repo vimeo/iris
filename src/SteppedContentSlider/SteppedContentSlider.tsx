@@ -103,12 +103,12 @@ export interface SteppedContentSliderState {
   trackOffset: number;
 }
 
-const HeaderAreaStyled = styled('div')`
+const HeaderAreaStyled = styled.div`
   position: relative;
   padding-bottom: ${rem(4)};
 `;
 
-const ControlsContainerStyled = styled('div')`
+const ControlsContainerStyled = styled.div`
   display: flex;
   position: absolute;
   right: 0;
@@ -118,26 +118,20 @@ const ControlsContainerStyled = styled('div')`
   align-items: center;
 `;
 
-const AdditionalControlAreaStyled = styled('div')`
+const AdditionalControlAreaStyled = styled.div`
   margin-right: ${rem(8)};
 `;
 
-const SlideContentStyled = styled('div')`
+const SlideContentStyled = styled.div`
   flex: 0 1 auto;
 `;
 
-interface ViewContainerStyled
-  extends React.HTMLProps<HTMLDivElement> {
+const ViewContainerStyled = styled.div<{
   slideIsBiggerThanViewport: boolean;
-}
-
-const ViewContainerStyled = styled<ViewContainerStyled, 'div'>('div')`
+}>`
   overflow: hidden;
-
   position: relative;
-
   width: 100%;
-
   display: flex;
 
   ${props =>
@@ -172,7 +166,7 @@ const ViewTrackStyled = styled(ViewTrack)`
       : ''};
 `;
 
-const EmptyStateWrapperStyled = styled('div')`
+const EmptyStateWrapperStyled = styled.div`
   position: relative;
   width: 100%;
 `;
@@ -194,7 +188,7 @@ const buildTruncationBackground = (
   return `linear-gradient(to ${direction}, ${backgroundBlendColor} 0%,rgba(255,255,255,0) 100%)`;
 };
 
-const Truncation = styled<TruncationProps, 'div'>('div')`
+const Truncation = styled.div<TruncationProps>`
   display: ${props => (props.isShowing ? 'block' : 'none')};
 
   position: absolute;
@@ -531,7 +525,8 @@ export class SteppedContentSlider extends Component<
       slideMargin, // eslint-disable-line no-unused-vars
       stepMode, // eslint-disable-line no-unused-vars
       speed,
-      ref: _,
+      ref,
+      as,
       ...filteredProps
     } = this.props;
 

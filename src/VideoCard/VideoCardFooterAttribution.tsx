@@ -1,8 +1,7 @@
-import React, { SFC } from 'react';
+import React, { SFC, ReactNode } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { ParagraphSm } from '../Type';
-import { TypeProps } from '../Type/TypeTypes';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 import { TruncatedTextWrapper } from '../TruncatedTextWrapper/TruncatedTextWrapper';
 
@@ -25,13 +24,13 @@ export interface VideoCardFooterAttributionProps {
   userName: React.ReactNode;
 }
 
-const Wrapper = styled('div')`
+const Wrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
 `;
 
-const AvatarWrapperStyled = styled('div')`
+const AvatarWrapperStyled = styled.div`
   display: inline-flex;
   margin-right: ${rem(4)};
 `;
@@ -40,13 +39,7 @@ const ParagraphSmFiltered = ({ hasActionArea, ...props }) => (
   <ParagraphSm {...props} />
 );
 
-interface UserNameStyledProps extends TypeProps {
-  hasActionArea: boolean;
-}
-
-const UserNameStyled = styled<UserNameStyledProps, any>(
-  ParagraphSmFiltered,
-)`
+const UserNameStyled = styled(ParagraphSmFiltered)`
   align-items: center;
   display: inline-flex;
   font-weight: 600;
@@ -56,11 +49,7 @@ const UserNameStyled = styled<UserNameStyledProps, any>(
       : '100%'};
 `;
 
-interface AttributionStyledProps {
-  hasActionArea: boolean;
-}
-
-const AttributionStyled = styled<AttributionStyledProps, any>('div')`
+const AttributionStyled = styled.div<{ hasActionArea: ReactNode }>`
   display: inline-flex;
   width: ${props =>
     props.hasActionArea
@@ -69,7 +58,7 @@ const AttributionStyled = styled<AttributionStyledProps, any>('div')`
   align-items: center;
 `;
 
-const BadgeAreaStyled = styled('span')`
+const BadgeAreaStyled = styled.span`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -89,7 +78,6 @@ export const VideoCardFooterAttribution: SFC<
       <AvatarWrapperStyled>{userAvatar}</AvatarWrapperStyled>
       <UserNameStyled
         element="span"
-        noMargin
         hasActionArea={attributionActionArea}
       >
         <TruncatedTextWrapper>{userName}</TruncatedTextWrapper>

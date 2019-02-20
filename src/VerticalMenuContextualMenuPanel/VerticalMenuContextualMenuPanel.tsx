@@ -3,7 +3,6 @@ import { MenuPanel } from '../MenuPanel/MenuPanel';
 import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { MenuPanelProps } from '../MenuPanel/MenuPanelTypes';
 
 interface Props {
   buttonElement: ReactNode;
@@ -15,7 +14,7 @@ interface Props {
   tooltipProps?: {};
 }
 
-const MenuPanelStyled = styled<MenuPanelProps>(MenuPanel)`
+const MenuPanelStyled = styled(MenuPanel)`
   position: relative;
   top: ${rem(3)};
   right: ${rem(2)};

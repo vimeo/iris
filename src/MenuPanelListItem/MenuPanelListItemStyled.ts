@@ -6,7 +6,7 @@ import { MenuPanelListItemThemes } from './MenuPanelListItemTypes';
 
 const LinkIconSize = rem(18);
 
-export const ListItemStyled = styled('li')`
+export const ListItemStyled = styled.li`
   width: 100%;
 
   & a:focus {
@@ -36,10 +36,9 @@ export const CheckmarkStyled = styled(Checkmark)`
   }
 `;
 
-export const LinkIconWrapperStyled = styled<
-  MenuPanelListItemThemes,
-  'span'
->('span')`
+export const LinkIconWrapperStyled = styled.span<
+  MenuPanelListItemThemes
+>`
   display: inline-block;
 
   position: relative;
@@ -57,9 +56,7 @@ export const LinkIconWrapperStyled = styled<
   }
 `;
 
-export const LinkStyled = styled<MenuPanelListItemThemes, 'span'>(
-  'span',
-)`
+export const LinkStyled = styled.span<MenuPanelListItemThemes>`
   display: inline-block;
   position: relative;
 

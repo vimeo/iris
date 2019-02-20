@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
 import * as COLORS from '../Color/Color';
-import { Omit } from '../Utils/Omit';
 
 export interface LinkTextProps {
   /**
@@ -19,21 +18,18 @@ export interface LinkTextProps {
    */
   decoration?: 'loud' | 'inherit' | 'silent';
   title?: ReactNode;
+  href?: string;
 }
 
 const linkBorderCss = css`
   display: block;
-
   position: absolute;
   bottom: ${rem(-2)};
   left: 0;
-
   width: 100%;
   height: 1em;
   margin-top: ${rem(10)};
-
   border-bottom: ${rem(1)} solid currentColor;
-
   content: '';
 `;
 
@@ -113,7 +109,7 @@ const AnchorStyled = styled.a<any>`
   }
 `;
 
-const LinkTextStyled = styled<any, 'span'>('span')`
+const LinkTextStyled = styled<any>('span')`
   display: inline;
   position: relative;
 
@@ -153,15 +149,12 @@ const LinkTextStyled = styled<any, 'span'>('span')`
   ${props => getLinkDecorationCss(props.decoration)};
 `;
 
-export const LinkText: SFC<
-  LinkTextProps & Omit<React.HTMLProps<HTMLAnchorElement>, 'title'>
-> = ({
+export const LinkText: SFC<LinkTextProps> = ({
   children,
   decoration,
   element = 'a',
   format = 'primary',
   href,
-  ref: _,
   ...props
 }) => {
   const maybeAnchorTag =

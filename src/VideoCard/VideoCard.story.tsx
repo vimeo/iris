@@ -3,9 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { VideoCard } from './VideoCard';
 import { VideoCardPropertyBadge } from './VideoCardPropertyBadge';
 import { VideoCardTimestamp } from './VideoCardTimestamp';
-import { GridBlock } from '../GridBlock/GridBlock';
-import { Grid } from '../Grid/Grid';
-import { GridCol } from '../GridCol/GridCol';
 import { MenuPanel } from '../MenuPanel/MenuPanel';
 import { ParagraphMd } from '../Type';
 import { StaffPicksBadgeJustSp } from '../Illustrations';
@@ -20,35 +17,88 @@ import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 import { VideoCardFooterActionsGrid } from './VideoCardFooterActionsGrid';
 
 import { Story } from '../../.storybook/Story';
+import styled from 'styled-components';
+
+const Grid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 20rem;
+  position: relative;
+
+  > div {
+    flex: 0 0 calc(25% - 2rem);
+    margin: 1rem;
+  }
+`;
 
 const componentName = 'Video Card';
 
 storiesOf(`components/${componentName}`, module).add('basic', () => (
   <Story title={componentName} subTitle="basic" width="100%">
-    <Grid isNested>
-      <GridBlock>
-        <GridCol mdSpan={12} lgSpan={6}>
-          <VideoCard
-            onClick={() => console.log('clicked')}
-            onCheckBoxClick={() => console.log('checkbox clicked')}
-            thumbnailBrandDecorationArea={<StaffPicksBadgeJustSp />}
-            thumbnailData={thumbnailData}
-            // @ts-ignore
-            thumbnailSocialBadgeArea={socialBadges}
-            thumbnailTimestampArea={
-              <VideoCardTimestamp timestamp="04:15" />
-            }
-            thumbnailVideoCardPropertiesArea={videoProperties}
-            title="Le Futur Sera Chauve / The Bald Futur, Encore, Le Futur Sera Chauve / The Bald Futur "
-            titleSubheader={<span>8432 plays &#183; 5d</span>}
-            footer={
-              <VideoCardFooterActionsGrid
-                actionItems={actionButtonsFull}
-              />
-            }
-          />
-        </GridCol>
-      </GridBlock>
+    <Grid>
+      <div>
+        <VideoCard
+          onClick={() => console.log('clicked')}
+          onCheckBoxClick={() => console.log('checkbox clicked')}
+          thumbnailBrandDecorationArea={<StaffPicksBadgeJustSp />}
+          thumbnailData={thumbnailData}
+          // @ts-ignore
+          thumbnailSocialBadgeArea={socialBadges}
+          thumbnailTimestampArea={
+            <VideoCardTimestamp timestamp="04:15" />
+          }
+          thumbnailVideoCardPropertiesArea={videoProperties}
+          title="Le Futur Sera Chauve / The Bald Futur, Encore, Le Futur Sera Chauve / The Bald Futur "
+          titleSubheader={<span>8432 plays &#183; 5d</span>}
+          footer={
+            <VideoCardFooterActionsGrid
+              actionItems={actionButtonsFull}
+            />
+          }
+        />
+      </div>
+      <div>
+        <VideoCard
+          onClick={() => console.log('clicked')}
+          onCheckBoxClick={() => console.log('checkbox clicked')}
+          thumbnailBrandDecorationArea={<StaffPicksBadgeJustSp />}
+          thumbnailData={thumbnailData}
+          // @ts-ignore
+          thumbnailSocialBadgeArea={socialBadges}
+          thumbnailTimestampArea={
+            <VideoCardTimestamp timestamp="04:15" />
+          }
+          thumbnailVideoCardPropertiesArea={videoProperties}
+          title="Le Futur Sera Chauve / The Bald Futur, Encore, Le Futur Sera Chauve / The Bald Futur "
+          titleSubheader={<span>8432 plays &#183; 5d</span>}
+          footer={
+            <VideoCardFooterActionsGrid
+              actionItems={actionButtonsFull}
+            />
+          }
+        />
+      </div>
+      <div>
+        <VideoCard
+          onClick={() => console.log('clicked')}
+          onCheckBoxClick={() => console.log('checkbox clicked')}
+          thumbnailBrandDecorationArea={<StaffPicksBadgeJustSp />}
+          thumbnailData={thumbnailData}
+          // @ts-ignore
+          thumbnailSocialBadgeArea={socialBadges}
+          thumbnailTimestampArea={
+            <VideoCardTimestamp timestamp="04:15" />
+          }
+          thumbnailVideoCardPropertiesArea={videoProperties}
+          title="Le Futur Sera Chauve / The Bald Futur, Encore, Le Futur Sera Chauve / The Bald Futur "
+          titleSubheader={<span>8432 plays &#183; 5d</span>}
+          footer={
+            <VideoCardFooterActionsGrid
+              actionItems={actionButtonsFull}
+            />
+          }
+        />
+      </div>
     </Grid>
   </Story>
 ));

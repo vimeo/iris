@@ -1,22 +1,46 @@
-import React, { SFC, HTMLProps } from 'react';
-import { BadgeProps } from './BadgeTypes';
+import React, { SFC } from 'react';
 import { BadgeStyled } from './BadgeStyled';
-import { Omit } from '../Utils/Omit';
+import { BaseProps } from '../Utils/BaseProps';
 
-export const Badge: SFC<
-  BadgeProps &
-    Omit<HTMLProps<HTMLSpanElement>, 'size'> &
-    Omit<HTMLProps<HTMLAnchorElement>, 'size'>
-> = ({
+export const Badge: SFC<Props> = ({
   children,
   format = 'default',
   href,
   label,
   size = 'sm',
-  ref: _,
   ...props
 }) => (
   <BadgeStyled href={href} format={format} size={size} {...props}>
     {children}
   </BadgeStyled>
 );
+
+export interface Props extends BaseProps {
+  format?:
+    | 'alum'
+    | 'beta'
+    | 'business'
+    | 'curation'
+    | 'default'
+    | 'explicit'
+    | 'featured'
+    | 'hd'
+    | 'info'
+    | 'live'
+    | 'live-archive'
+    | 'new'
+    | 'partner'
+    | 'plus'
+    | 'producer'
+    | 'pro'
+    | 'spatial'
+    | 'sponsor'
+    | 'staff'
+    | 'support'
+    | 'unrated'
+    | 'upgrade'
+    | 'vod';
+  href: string;
+  label?: string;
+  size?: 'sm' | 'lg';
+}

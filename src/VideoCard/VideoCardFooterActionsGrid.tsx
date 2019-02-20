@@ -3,19 +3,15 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 
-export interface VideoCardFooterActionsGridProps
-  extends React.HTMLProps<HTMLDivElement> {
+export interface VideoCardFooterActionsGridProps {
   actionItems: ReactNode[];
 }
 
-export interface VideoCardFooterActionsGridStyledProps
-  extends React.HTMLProps<HTMLDivElement> {
+export interface VideoCardFooterActionsGridStyledProps {
   fillSpace: boolean;
 }
 
-const VideoCardFooterActionsGridStyled = styled.div<
-  VideoCardFooterActionsGridStyledProps
->`
+const VideoCardFooterActionsGridStyled = styled.div<any>`
   display: inline-flex;
   justify-content: space-evenly;
   justify-self: ${props => (props.fillSpace ? 'center' : 'end')};
@@ -40,7 +36,7 @@ const Wrapper = styled.div`
 
 export const VideoCardFooterActionsGrid: SFC<
   VideoCardFooterActionsGridProps
-> = ({ actionItems, ref: _, ...props }) => {
+> = ({ actionItems, ...props }) => {
   const suppressClickPropagation = e => {
     e.stopPropagation();
   };

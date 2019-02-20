@@ -1,4 +1,4 @@
-import React, { SFC, HTMLProps } from 'react';
+import React, { SFC } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import * as COLORS from '../Color/Color';
@@ -66,7 +66,6 @@ const CardStyled = styled.div<CardProps>`
     `};
 `;
 
-export const Card: SFC<CardProps & HTMLProps<HTMLDivElement>> = ({
-  ref: _,
-  ...props
-}) => <CardStyled {...props} />;
+export const Card: SFC<CardProps> = ({ ...props }) => (
+  <CardStyled {...props} />
+);

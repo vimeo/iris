@@ -1,12 +1,24 @@
-import React, { SFC, HTMLProps } from 'react';
+import React, { ReactNode, SFC } from 'react';
 import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
-import { ButtonInlineInputTextProps as Props } from './ButtonInlineInputTextTypes';
-import { Omit } from '../Utils/Omit';
 import { ButtonStyled, Wrapper } from './ButtonInlineInputTextStyled';
+import { BaseProps } from '../Utils/BaseProps';
 
-export const ButtonInlineInputText: SFC<
-  Props & Omit<HTMLProps<HTMLButtonElement>, 'size'>
-> = ({
+export interface Props extends BaseProps {
+  icon?: ReactNode;
+  format?: 'subtle' | 'neutral' | 'strong';
+  size: 'md' | 'lg';
+  title?: string;
+  tooltipText?: string;
+  tooltipPosition?: 'top' | 'right' | 'bottom' | 'left';
+  tooltipProps?: any;
+}
+
+export interface ButtonInlineInputTextStyleProps {
+  format: 'subtle' | 'neutral' | 'strong';
+  size: 'md' | 'lg';
+}
+
+export const ButtonInlineInputText: SFC<Props> = ({
   className,
   icon,
   format = 'neutral',
@@ -14,8 +26,7 @@ export const ButtonInlineInputText: SFC<
   tooltipText,
   tooltipPosition = 'top',
   tooltipProps,
-  ref: _,
-  ...filteredProps
+  ...props
 }) => (
   <Wrapper>
     {tooltipText ? (
@@ -24,12 +35,12 @@ export const ButtonInlineInputText: SFC<
         attachment={tooltipPosition}
         {...tooltipProps}
       >
-        <ButtonStyled size={size} format={format} {...filteredProps}>
+        <ButtonStyled size={size} format={format} {...props}>
           {icon}
         </ButtonStyled>
       </TooltipOverlay>
     ) : (
-      <ButtonStyled size={size} format={format} {...filteredProps}>
+      <ButtonStyled size={size} format={format} {...props}>
         {icon}
       </ButtonStyled>
     )}

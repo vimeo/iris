@@ -6,7 +6,6 @@ import { rem } from 'polished';
 import * as COLORS from '../Color/Color';
 import { TRANSITIONS } from '../Legacy/TRANSITIONS';
 import { ButtonColors } from '../Button/ButtonColors';
-import { Omit } from '../Utils/Omit';
 
 const buttonSizes = {
   sm: 22,
@@ -14,10 +13,7 @@ const buttonSizes = {
   lg: 40,
 };
 
-const getFormatCss = (
-  props: CircularButtonStyledProps &
-    Omit<React.HTMLProps<HTMLButtonElement>, 'size'>,
-) => {
+const getFormatCss = (props: CircularButtonStyledProps) => {
   switch (props.format) {
     case 'lightDashed':
       return css`
@@ -76,23 +72,9 @@ const getFormatCss = (
   }
 };
 
-const maybeAutoMargins = (props: CircularButtonStyledProps) =>
-  props.autoMarginsHorizontal
-    ? css`
-        margin-right: 0.5rem;
-
-        &:last-of-type {
-          margin-left: 0;
-        }
-      `
-    : '';
-
-export const CircularButtonStyled = styled<
-  CircularButtonStyledProps,
-  any
->(({ icon, autoMarginsHorizontal, ...rest }) => (
-  <CircularButtonElement icon={icon} {...rest} />
-))`
+export const CircularButtonStyled = styled(({ icon, ...props }) => (
+  <CircularButtonElement icon={icon} {...props} />
+))<CircularButtonStyledProps>`
   display: inline-block;
   overflow: hidden;
 
@@ -127,6 +109,5 @@ export const CircularButtonStyled = styled<
     fill: currentColor;
   }
 
-  ${maybeAutoMargins};
   ${getFormatCss};
 `;

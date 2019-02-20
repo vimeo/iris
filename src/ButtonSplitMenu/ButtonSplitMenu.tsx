@@ -1,4 +1,3 @@
-// @flow
 import React, { SFC } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
@@ -12,9 +11,7 @@ import {
   getHoverCSSByFormat,
   getSizeCSS,
 } from '../Button/ButtonHelpers';
-import { ButtonProps } from '../Button/ButtonProps';
 import { ButtonStyleSettings } from '../Button/ButtonStyleSettings';
-import { Omit } from '../Utils/Omit';
 
 const menuButtonWidths = {
   sm: 28,
@@ -31,8 +28,7 @@ const buttonBackgrounds = {
     ButtonStyleSettings.Formats.secondary.hover.backgroundColor,
 };
 
-interface ButtonStylingProps
-  extends Omit<React.HTMLProps<HTMLDivElement>, 'size'> {
+interface ButtonStylingProps {
   size: 'sm' | 'md' | 'lg';
   format?:
     | 'primary'
@@ -55,7 +51,7 @@ const activeAnimation = css`
   }
 `;
 
-const WrapperStyled = styled<ButtonStylingProps, 'div'>('div')`
+const WrapperStyled = styled.div<any>`
   position: relative;
 
   //:after pseudo-element is the visual dividing line between buttons
@@ -76,7 +72,7 @@ const WrapperStyled = styled<ButtonStylingProps, 'div'>('div')`
   }
 `;
 
-const MainButtonStyled = styled<ButtonProps, any>(Button)`
+const MainButtonStyled = styled(Button)`
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   margin-right: 0;
@@ -87,36 +83,34 @@ const MainButtonStyled = styled<ButtonProps, any>(Button)`
   ${activeAnimation};
 `;
 
-const MenuButtonWrapperStyled = styled('div')`
+const MenuButtonWrapperStyled = styled.div`
   display: inline-flex;
-  margin-bottom: ${rem(
-    -1,
-  )}; // fixes bug where menu button falls out of alignment with main button
+  margin-bottom: ${rem(-1)};
 `;
 
-const MenuButtonStyled = styled<ButtonStylingProps, 'button'>(
-  'button',
-)`
-    ${ButtonCoreCSS}
-    ${getDefaultCSSByFormat}
+const MenuButtonStyled = styled.button<ButtonStylingProps>`
+  ${ButtonCoreCSS};
+  /*
+  // @ts-ignore */
+  ${getDefaultCSSByFormat};
+  ${getSizeCSS};
 
-    ${getSizeCSS}
+  &:hover {
+    cursor: pointer;
+    ${getHoverCSSByFormat}
+  }
 
-    &:hover {
-        cursor: pointer;
-        ${getHoverCSSByFormat}
-    }
-    border-radius: ${rem(3)};
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    position: relative;
-    border-left-width: 0;
-    min-width: 0;
-    padding-left: 0;
-    padding-right: 0;
-    width: ${props => rem(menuButtonWidths[props.size]) || 0};
+  border-radius: ${rem(3)};
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  position: relative;
+  border-left-width: 0;
+  min-width: 0;
+  padding-left: 0;
+  padding-right: 0;
+  width: ${props => rem(menuButtonWidths[props.size]) || 0};
 
-    ${activeAnimation}
+  ${activeAnimation};
 `;
 
 export interface ButtonSplitMenuProps {
@@ -166,9 +160,7 @@ export interface ButtonSplitMenuProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
-export const ButtonSplitMenu: SFC<
-  ButtonSplitMenuProps & Omit<React.HTMLProps<HTMLElement>, 'size'>
-> = ({
+export const ButtonSplitMenu: SFC<ButtonSplitMenuProps> = ({
   buttonLabel,
   format = 'primary',
   menuButtonA11yLabel,
@@ -178,17 +170,11 @@ export const ButtonSplitMenu: SFC<
   menuProps,
   menuSize,
   size = 'md',
-  ref: _,
   ...props
 }) => {
   return (
     <WrapperStyled size={size} format={format}>
-      <MainButtonStyled
-        {...props}
-        format={format}
-        size={size}
-        isInline
-      >
+      <MainButtonStyled {...props} format={format} size={size}>
         {buttonLabel}
       </MainButtonStyled>
       <MenuButtonWrapperStyled>

@@ -118,12 +118,12 @@ Adding additional styles to a component:
 ```jsx
 import { Button } from '@vimeo/iris';
 
-const MyButton = styled(Button)`
+const $Button = styled(Button)`
   margin-bottom: 2rem;
 `;
 
 <div>
-    <MyButton format="primary" size="xl">xl Button</MyButton>
+    <$Button format="primary" size="xl">xl Button</$Button>
 </div>
 
 ```

@@ -13,7 +13,10 @@ interface State {
   maxHeight: number;
 }
 
-const WrapperStyled = styled.div<{ isHidden: boolean }>`
+const WrapperStyled = styled.div<{
+  isHidden: boolean;
+  ref: any;
+}>`
   overflow-y: hidden;
   transition: all 200ms ease-in-out;
 `;
@@ -46,7 +49,7 @@ export class SlideUpDown extends Component<Props, State> {
     >
       {state => (
         <WrapperStyled
-          innerRef={(div: HTMLDivElement) => (this.ref = div)}
+          ref={(div: HTMLDivElement) => (this.ref = div)}
           isHidden={this.props.isHidden}
           data-animation-wrapper
           style={

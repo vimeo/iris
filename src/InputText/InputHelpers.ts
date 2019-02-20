@@ -2,25 +2,33 @@ import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
 import { css } from 'styled-components';
 import { rem, rgba } from 'polished';
 import * as COLORS from '../Color/Color';
-import { ReactNode } from 'react';
+import {
+  ReactNode,
+  FormEventHandler,
+  FocusEventHandler,
+} from 'react';
 
 export interface InputProps {
+  className?: string;
+  disabled?: boolean;
   errorMsg?: React.ReactNode;
   format?: 'negative' | 'positive' | 'neutral';
-  isInline?: boolean;
   hasIcon?: boolean;
   helperMsg?: React.ReactNode;
-  label: React.ReactNode;
   id: string;
+  label: React.ReactNode;
+  onBlur?: FormEventHandler;
+  onChange?: FormEventHandler;
+  onFocus?: FocusEventHandler;
   preMessage?: any;
+  readOnly?: boolean;
   showLabel?: boolean;
-  theme?: 'default' | 'light' | 'dark';
   size?: 'sm' | 'md' | 'lg' | 'xl';
+  theme?: 'default' | 'light' | 'dark';
 }
 
 export interface InputStyledProps {
   format: 'negative' | 'positive' | 'neutral';
-  isInline?: boolean;
   hasIcon?: boolean;
   theme?: 'light' | 'dark';
   inputSize?: 'sm' | 'md' | 'lg' | 'xl';
@@ -166,11 +174,10 @@ const iconPadding = ({ hasIcon, inputSize }) =>
 export const getInputBaseStyles = ({
   theme = 'light',
   format = 'neutral',
-  isInline,
   hasIcon,
   inputSize = 'md',
   inlineButton,
-}: InputStyledProps) => {
+}: any) => {
   if (theme !== 'light' && theme !== 'dark') {
     theme = 'light';
   }
@@ -187,7 +194,6 @@ export const getInputBaseStyles = ({
       inlineButtonPadding({ inlineButton, inputSize }),
     )};
     padding-left: ${rem(iconPadding({ hasIcon, inputSize }))};
-    margin: 0 0 ${isInline ? 0 : rem(styles.marginBottom)} 0;
 
     font-family: ${VimeoStyleSettings.type.fontFamily.regular};
     font-size: ${rem(size(inputSize).fontSize)};

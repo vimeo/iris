@@ -8,14 +8,11 @@ import { ParagraphMd } from '../Type';
 const VerticalMenuItem_IconSize = rem(20);
 const VerticalMenuItem_IconMargin = rem(8);
 
-export const MenuItemContentStyled = styled<{
-  element: 'span';
-  id: string;
-  hasSubMenu: boolean;
-  hasRightSideContent: boolean;
-}>(({ hasSubMenu, hasRightSideContent, ...props }) => (
-  <ParagraphMd {...props} />
-))`
+export const MenuItemContentStyled = styled<any>(
+  ({ hasSubMenu, hasRightSideContent, ...props }) => (
+    <ParagraphMd {...props} />
+  ),
+)`
   display: flex;
   align-items: flex-start;
   width: 100%;

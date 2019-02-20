@@ -14,10 +14,7 @@ export interface VideoCardLiveBadge
   liveLabelString: string;
 }
 
-const VideoCardLiveBadgeStyled = styled<
-  React.HTMLProps<HTMLDivElement>,
-  'div'
->('div')`
+const VideoCardLiveBadgeStyled = styled.div`
   align-items: center;
   background: ${VimeoStyleSettings.colors.uiColors.liveColor};
   border-radius: ${rem(2)};
@@ -29,20 +26,14 @@ const VideoCardLiveBadgeStyled = styled<
   text-transform: uppercase;
 `;
 
-const VideoCardLiveBadgeTextStyled = styled<
-  React.HTMLProps<HTMLDivElement>,
-  any
->(ParagraphSm)`
+const VideoCardLiveBadgeTextStyled = styled(ParagraphSm)`
   align-items: center;
   display: inline-flex;
   letter-spacing: ${rem(1.25)};
   margin-bottom: 0;
 `;
 
-const LiveIconStyled = styled<
-  React.HTMLProps<HTMLSpanElement>,
-  'span'
->('span')`
+const LiveIconStyled = styled.span`
   display: inline-flex;
   height: ${rem(6)};
   width: ${rem(6)};

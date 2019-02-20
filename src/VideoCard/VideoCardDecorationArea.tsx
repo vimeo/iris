@@ -3,15 +3,12 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 
-export interface VideoCardDecorationAreaProps
-  extends React.HTMLProps<HTMLDivElement> {
+export interface Props {
   isHovered?: boolean;
   isSelected?: boolean;
 }
 
-const VideoCardDecorationAreaStyled = styled.div<
-  VideoCardDecorationAreaProps
->`
+const VideoCardDecorationAreaStyled = styled.div<Props>`
   opacity: ${props =>
     props.isHovered || props.isSelected ? '.5' : '1'};
   position: absolute;
@@ -26,8 +23,6 @@ const VideoCardDecorationAreaStyled = styled.div<
   }
 `;
 
-export const VideoCardDecorationArea: SFC<
-  VideoCardDecorationAreaProps
-> = ({ ref: _, ...props }) => (
+export const VideoCardDecorationArea: SFC<Props> = props => (
   <VideoCardDecorationAreaStyled {...props} />
 );

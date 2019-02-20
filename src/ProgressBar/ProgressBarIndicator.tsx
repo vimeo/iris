@@ -14,23 +14,19 @@ export interface ProgressBarIndicatorProps {
   animated?: boolean;
   size: 'md' | 'lg' | 'xl';
 }
-// ==================== ProgressBarIndicator
 
-const getBarBackgroundColor = props => {
-  const progressBarColors = ProgressBarStyleSettings.colors;
-  const uiColors = VimeoStyleSettings.colors.uiColors;
+const progressBarColors = ProgressBarStyleSettings.colors;
+const uiColors = VimeoStyleSettings.colors.uiColors;
 
-  const barBackgroundColorMap = {
-    alert: uiColors.alertColor,
-    disabled: progressBarColors.disabledBarColor,
-    warning: uiColors.warningColor,
-    empty: 'transparent',
-  };
-
-  return (
-    barBackgroundColorMap[props.formatProp] || uiColors.primaryColor
-  );
+const barBackgroundColorMap = {
+  alert: uiColors.alertColor,
+  disabled: progressBarColors.disabledBarColor,
+  warning: uiColors.warningColor,
+  empty: 'transparent',
 };
+
+const getBarBackgroundColor = props =>
+  barBackgroundColorMap[props.formatProp] || uiColors.primaryColor;
 
 const stripeSizeRems = rem(ProgressBarStyleSettings.stripeSize);
 
@@ -50,7 +46,7 @@ interface BarProps {
   size: 'md' | 'lg' | 'xl';
 }
 
-const ProgressBarStyled = styled<BarProps, 'div'>('div')`
+const ProgressBarStyled = styled.div<BarProps>`
   height: ${props => getBarHeight(props.size)};
   border-radius: ${props => getBarRadius(props.size)};
   position: absolute;
@@ -62,19 +58,19 @@ const ProgressBarStyled = styled<BarProps, 'div'>('div')`
   ${props =>
     props.animated
       ? `
-                background-image: linear-gradient(
-                    -45deg,
-                    ${rgba('#000', 0.1)} 25%,
-                    transparent 25%,
-                    transparent 50%,
-                    ${rgba('#000', 0.1)} 50%,
-                    ${rgba('#000', 0.1)} 75%,
-                    transparent 5%,
-                    transparent
-                );
-                background-size: ${stripeSizeRems} ${stripeSizeRems};
-                animation: ${stripeKeyframes} 1.5s linear infinite;
-        `
+          background-image: linear-gradient(
+              -45deg,
+              ${rgba('#000', 0.1)} 25%,
+              transparent 25%,
+              transparent 50%,
+              ${rgba('#000', 0.1)} 50%,
+              ${rgba('#000', 0.1)} 75%,
+              transparent 5%,
+              transparent
+          );
+          background-size: ${stripeSizeRems} ${stripeSizeRems};
+          animation: ${stripeKeyframes} 1.5s linear infinite;
+          `
       : ''};
 `;
 

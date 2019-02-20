@@ -1,6 +1,9 @@
-import React, { Component, ReactNode } from 'react';
+import React, {
+  Component,
+  ReactNode,
+  MouseEventHandler,
+} from 'react';
 import styled from 'styled-components';
-import { Omit } from '../Utils/Omit';
 import { Transition } from 'react-transition-group';
 import { Manager, Target, Popper } from 'react-popper';
 import { Z_INDEXES as Z_INDEX } from '../Legacy/Z_INDEXES';
@@ -8,8 +11,7 @@ import { Tooltip } from '../Tooltip/Tooltip';
 
 const TOOLTIP_SPEED = 50;
 
-export interface TooltipOverlayProps
-  extends Omit<React.HTMLProps<HTMLSpanElement>, 'size'> {
+export interface TooltipOverlayProps {
   /**
    * Sets word-break: break-all on tooltip text.
    */
@@ -55,10 +57,6 @@ export interface TooltipOverlayProps
    */
   popperEventsEnabled?: boolean;
   /**
-   * Tooltip Size (DEPRECATED!)
-   */
-  size?: 'sm' | 'md' | 'lg';
-  /**
    * A translated string of text for the tooltip.
    */
   tooltipText: ReactNode;
@@ -70,6 +68,7 @@ export interface TooltipOverlayProps
    *  Override the default Z-index
    */
   zIndexOverride?: number;
+  href?: string;
 }
 
 export interface TooltipOverlayState {
@@ -78,22 +77,16 @@ export interface TooltipOverlayState {
 }
 
 // filter out zIndexOverride prop because styled() is failing to do so
-const ManagerFiltered = ({ zIndexOverride, ...filteredProps }) => (
-  <Manager {...filteredProps} />
+const ManagerFiltered = ({ zIndexOverride, ...props }) => (
+  <Manager {...props} />
 );
 
-interface ManagerStyledProps {
-  zIndexOverride?: number;
-}
-
-const ManagerStyled = styled<ManagerStyledProps, any>(
-  ManagerFiltered,
-)`
+const ManagerStyled = styled(ManagerFiltered)`
   z-index: ${props => props.zIndexOverride || Z_INDEX.tooltip};
 `;
 
-const PopperFiltered = ({ zIndexOverride, ...filteredProps }) => (
-  <Popper {...filteredProps} />
+const PopperFiltered = ({ zIndexOverride, ...props }) => (
+  <Popper {...props} />
 );
 
 const PopperStyled = styled(PopperFiltered)`
@@ -105,11 +98,19 @@ const TargetStyled = styled(Target)`
   display: inline;
 `;
 
-const SpanWrapper = styled<TooltipOverlayProps, any>('span')`
+const SpanWrapper = styled.span<{
+  'aria-label'?: string;
+  'data-tooltip-trigger'?: boolean;
+  className?: string;
+  makeWrapperBlock?: boolean;
+  onClick?: MouseEventHandler;
+  onMouseEnter?: MouseEventHandler;
+  onMouseLeave?: MouseEventHandler;
+}>`
   display: ${props => (props.makeWrapperBlock ? 'block' : null)};
 `;
 
-const TooltipWrapperStyled = styled('div')`
+const TooltipWrapperStyled = styled.div`
   opacity: 0;
   transition: opacity ${TOOLTIP_SPEED}ms ease-in;
 `;
@@ -248,13 +249,10 @@ export class TooltipOverlay extends Component<
       onMouseLeave,
       pointerEvents,
       popperEventsEnabled = false,
-      // @ts-ignore deprecated prop will remove
-      size,
       tooltipText,
-      triggerOnClick, // eslint-disable-line no-unused-vars
+      triggerOnClick,
       zIndexOverride,
-      ref: _,
-      ...filteredProps
+      ...props
     } = this.props;
 
     const offsetMap = {
@@ -292,12 +290,12 @@ export class TooltipOverlay extends Component<
       <ManagerStyled zIndexOverride={zIndexOverride}>
         <TargetStyled>
           <SpanWrapper
-            {...filteredProps}
+            {...props}
             onClick={this.handleClick}
             onMouseEnter={this.handleMouseEnter}
             onMouseLeave={this.handleMouseLeave}
             data-tooltip-trigger
-            aria-label={tooltipText}
+            aria-label={tooltipText as string}
             className={className}
           >
             {children}

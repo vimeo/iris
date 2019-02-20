@@ -9,9 +9,7 @@ import {
   FocusOutlineProps,
 } from '../FocusOutline/FocusOutline';
 
-export const RadioFocusOutline = styled<FocusOutlineProps, 'div'>(
-  'div',
-)`
+export const RadioFocusOutline = styled.div<FocusOutlineProps>`
     ${FocusOutline}
 
     ${InputRadioStyled}:focus ~ ${InputRadioOverlayStyled} & {

@@ -25,18 +25,16 @@ export interface ModalFeatureUpdateTemplateProps {
 
 // ==================== ModalFeatureUpdateTemplate
 
-const ModalFeatureUpdateTemplateStyled = styled<
-  React.HTMLProps<HTMLDivElement>,
-  'div'
->('div')`
+const ModalFeatureUpdateTemplateStyled = styled.div<
+  React.HTMLProps<HTMLDivElement>
+>`
   display: block;
   position: relative;
 `;
 
-const HeroImageAreaStyled = styled<
-  React.HTMLProps<HTMLDivElement>,
-  'div'
->('div')`
+const HeroImageAreaStyled = styled.div<
+  React.HTMLProps<HTMLDivElement>
+>`
   border-radius: ${rem(ModalFeatureUpdateStyleSettings.borderRadius)}
     ${rem(ModalFeatureUpdateStyleSettings.borderRadius)} 0 0;
   max-height: ${rem(250)};
@@ -49,27 +47,21 @@ const HeroImageAreaStyled = styled<
   }
 `;
 
-const BodyAreaStyled = styled<React.HTMLProps<HTMLDivElement>, 'div'>(
-  'div',
-)`
+const BodyAreaStyled = styled.div<React.HTMLProps<HTMLDivElement>>`
   display: block;
   text-align: center;
   padding: ${rem(24)} ${rem(28)} 0;
 `;
 
-const FooterAreaStyled = styled<
-  React.HTMLProps<HTMLDivElement>,
-  'div'
->('div')`
+const FooterAreaStyled = styled.div<React.HTMLProps<HTMLDivElement>>`
   display: block;
   text-align: center;
   padding: 0 ${rem(28)} ${rem(28)};
 `;
 
-const SecondaryAreaStyled = styled<
-  React.HTMLProps<HTMLDivElement>,
-  any
->(ParagraphSm)`
+const SecondaryAreaStyled = styled(ParagraphSm)<
+  React.HTMLProps<HTMLDivElement>
+>`
   margin-top: ${rem(4)};
 `;
 

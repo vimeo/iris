@@ -7,9 +7,7 @@ import {
 import * as COLORS from '../Color/Color';
 import { visuallyHiddenCSS } from '../Utils/VisuallyHidden';
 
-export const WrapperStyled = styled<CarouselWrapperProps, 'div'>(
-  'div',
-)`
+export const WrapperStyled = styled.div<CarouselWrapperProps>`
   display: flex;
   width: 100%;
   justify-content: center;
@@ -31,7 +29,7 @@ const getHoverColor = (props: CarouselDotProps) => {
   }
 };
 
-export const DotStyled = styled<CarouselDotProps, 'button'>('button')`
+export const DotStyled = styled.button<CarouselDotProps>`
   padding: 0;
   height: 0.5rem;
   width: 0.5rem;

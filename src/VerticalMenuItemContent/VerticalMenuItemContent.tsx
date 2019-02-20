@@ -30,7 +30,6 @@ export const VerticalMenuItemContent: SFC<Props> = ({
     </span>
   ) : (
     <TooltipOverlay
-      size="sm"
       tooltipText={label}
       makeWrapperBlock
       pointerEvents={true}

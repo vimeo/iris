@@ -4,11 +4,8 @@ import { InputStyleSettings as styles } from '../InputText/InputHelpers';
 import { VimeoStyleSettings as vimeo } from '../Legacy/VimeoStyleSettings';
 
 export const WrapperStyled = styled.div<{
-  isInline?: boolean;
   theme: 'light' | 'dark';
 }>`
-  margin-bottom: ${props =>
-    props.isInline ? '0' : rem(styles.marginBottom)};
   color: ${props => styles.color[props.theme].text.default};
 `;
 

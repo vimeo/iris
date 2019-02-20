@@ -1,6 +1,19 @@
 import styled, { css } from 'styled-components';
 import { rgba, rem } from 'polished';
-import * as COLORS from '../Color/Color';
+import {
+  RegentGray,
+  SoutherlySky,
+  White,
+  Black,
+  AshenWinter,
+  AstroGranite,
+  SunsetOrange,
+  Plaster,
+  Porcelain,
+  IronHeart,
+  VimeoBlue,
+  VimeoBlueDarkened,
+} from '../Color/Color';
 
 const ICON_SIZE = 20;
 
@@ -8,16 +21,6 @@ const ButtonSizes = {
   md: 40,
   sm: 32,
 };
-
-const maybeAutoSpacingHorizontal = props =>
-  props.autoSpacingHorizontal
-    ? css`
-        margin-left: ${rem(2)};
-        &:first-of-type {
-          margin-left: 0;
-        }
-      `
-    : '';
 
 const getSizeCSS = props => {
   const ButtonSizeInRem = rem(
@@ -30,82 +33,87 @@ const getSizeCSS = props => {
   `;
 };
 
+const buildColors = ({
+  color = null,
+  bg = null,
+  hoverColor = null,
+  hoverBg = null,
+}) => css`
+  ${color && `color: ${color}`}
+  ${bg && `bg: ${bg}`}
+
+  &:hover {
+    ${hoverColor && `hoverColor: ${hoverColor}`}
+    ${hoverBg && `hoverBg: ${hoverBg}`}
+  }
+`;
+
 export const BUTTON_FORMATS = {
-  alternative: css`
-    color: ${COLORS.RegentGray};
+  alternative: buildColors({
+    color: RegentGray,
+    hoverColor: SoutherlySky,
+  }),
 
-    &:hover {
-      color: ${COLORS.SoutherlySky};
-    }
-  `,
-  transparent: css`
-    color: ${COLORS.White};
-    background-color: ${rgba(COLORS.Black, 0.25)};
+  transparent: buildColors({
+    color: White,
+    bg: rgba(Black, 0.25),
+    hoverBg: rgba(Black, 0.5),
+  }),
 
-    &:hover {
-      background-color: ${rgba(COLORS.Black, 0.5)};
-    }
-  `,
-  lightTransparent: css`
-    color: ${COLORS.White};
+  lightTransparent: buildColors({
+    color: White,
+    hoverBg: AshenWinter,
+  }),
 
-    &:hover {
-      background-color: ${COLORS.AshenWinter};
-    }
-  `,
-  lightWarning: css`
-    color: ${COLORS.AstroGranite};
-    background-color: ${COLORS.White};
+  lightWarning: buildColors({
+    color: AstroGranite,
+    bg: White,
+    hoverColor: SunsetOrange,
+  }),
 
-    &:hover {
-      color: ${COLORS.SunsetOrange};
-    }
-  `,
-  warning: css`
-    color: ${COLORS.SunsetOrange};
+  warning: buildColors({
+    color: SunsetOrange,
+    hoverColor: White,
+    hoverBg: SunsetOrange,
+  }),
 
-    &:hover {
-      color: ${COLORS.White};
-      background-color: ${COLORS.SunsetOrange};
-    }
-  `,
   midDark: css`
-    color: ${COLORS.RegentGray};
+    color: ${RegentGray};
 
     &:hover {
-      color: ${COLORS.AstroGranite};
-      background-color: ${COLORS.Plaster};
+      color: ${AstroGranite};
+      background-color: ${Plaster};
     }
   `,
   secondary: css`
-    color: ${COLORS.AstroGranite};
-    background-color: ${COLORS.Plaster};
+    color: ${AstroGranite};
+    background-color: ${Plaster};
 
     &:hover {
-      background-color: ${COLORS.Porcelain};
+      background-color: ${Porcelain};
     }
   `,
   secondaryDark: css`
-    color: ${COLORS.White};
-    background-color: ${COLORS.AshenWinter};
+    color: ${White};
+    background-color: ${AshenWinter};
 
     &:hover {
-      background-color: ${COLORS.IronHeart};
+      background-color: ${IronHeart};
     }
   `,
   primary: css`
-    color: ${COLORS.White};
-    background-color: ${COLORS.VimeoBlue};
+    color: ${White};
+    background-color: ${VimeoBlue};
 
     &:hover {
-      background-color: ${COLORS.VimeoBlueDarkened};
+      background-color: ${VimeoBlueDarkened};
     }
   `,
   dark: css`
-    color: ${COLORS.AstroGranite};
+    color: ${AstroGranite};
 
     &:hover {
-      background-color: ${COLORS.Plaster};
+      background-color: ${Plaster};
     }
   `,
 };
@@ -118,20 +126,16 @@ const getFormatCSS = ({ format = DEFAULT_BUTTON_FORMAT }) =>
 const ButtonIconOnlySharedCSS = css`
   display: inline-flex;
   position: relative;
-
   width: auto;
   margin: 0;
   padding: 0;
-
   outline: 0;
   border: 0;
   border-radius: ${rem(3)};
   background: transparent;
-
   transition: all 300ms ease;
   text-align: center;
   vertical-align: middle;
-
   appearance: none;
   align-items: center;
   justify-content: center;
@@ -147,10 +151,10 @@ const ButtonIconOnlySharedCSS = css`
   }
 
   &:disabled {
-    color: ${COLORS.Porcelain} !important;
+    color: ${Porcelain} !important;
 
     &:hover {
-      color: ${COLORS.Porcelain} !important;
+      color: ${Porcelain} !important;
       background: inherit !important;
       pointer-events: none;
       cursor: not-allowed;
@@ -160,29 +164,16 @@ const ButtonIconOnlySharedCSS = css`
 
 export type ButtonIconOnlyFormats = keyof typeof BUTTON_FORMATS;
 
-export interface ButtonIconOnlyStyledProps {
-  autoSpacingHorizontal?: boolean;
-  format?: ButtonIconOnlyFormats;
-  size?: 'sm' | 'md';
-}
-
-export const ButtonStyled = styled<
-  ButtonIconOnlyStyledProps,
-  'button'
->('button')`
+export const ButtonStyled = styled.button`
     ${ButtonIconOnlySharedCSS}
     ${getFormatCSS}
     ${getSizeCSS}
-    ${maybeAutoSpacingHorizontal}
 `;
 
-export const SpanStyled = styled<ButtonIconOnlyStyledProps, 'span'>(
-  'span',
-)`
+export const SpanStyled = styled.span`
     ${ButtonIconOnlySharedCSS}
     ${getFormatCSS}
     ${getSizeCSS}
-    ${maybeAutoSpacingHorizontal}
 `;
 
 export const IconWrapperStyled = styled.span`

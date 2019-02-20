@@ -8,9 +8,7 @@ import {
   getDisabledCSSByFormat,
   getHoverCSSByFormat,
   getSizeCSS,
-  getVerticalAutoMarginCSS,
 } from './ButtonHelpers';
-import { ButtonProps } from './ButtonProps';
 import { ButtonStyleSettings } from './ButtonStyleSettings';
 import { ButtonVariableElement } from './ButtonVariableElement';
 
@@ -29,13 +27,10 @@ const maybeGetFeaturedIconCSS = props => {
   }
 };
 
-export const ButtonStyled = styled<ButtonProps, any>(
-  ButtonVariableElement,
-)`
+export const ButtonStyled = styled(ButtonVariableElement)<any>`
     ${ButtonCoreCSS}
     ${getSizeCSS}
     ${maybeGetFeaturedIconCSS}
-    ${getVerticalAutoMarginCSS}
     ${getAutoWidthCSS};
 
     border-radius: ${props =>

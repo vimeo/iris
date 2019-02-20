@@ -16,7 +16,7 @@ export interface WrapperStyledProps
   isShowing?: boolean;
 }
 
-const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
+const WrapperStyled = styled.div<WrapperStyledProps>`
   display: ${props => (props.isShowing ? 'inline-flex' : 'none')};
   position: absolute;
   top: 0;
@@ -27,14 +27,7 @@ const WrapperStyled = styled<WrapperStyledProps, 'div'>('div')`
 
 export const VideoCardSelectionCheckbox: SFC<
   VideoCardSelectionCheckboxProps
-> = ({
-  isShowing,
-  label,
-  onCheckBoxClick,
-  title,
-  ref: _,
-  ...props
-}) => {
+> = ({ isShowing, label, onCheckBoxClick, title, ...props }) => {
   const handleCheckboxAreaClick = e => {
     e.stopPropagation();
     if ('function' === typeof onCheckBoxClick) {

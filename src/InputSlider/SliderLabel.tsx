@@ -17,7 +17,7 @@ interface LabelWrapperStyledProps {
   isDisabled: boolean;
 }
 
-const LabelWrapper = styled<LabelWrapperStyledProps, 'div'>('div')`
+const LabelWrapper = styled.div<LabelWrapperStyledProps>`
   background: ${props =>
     getSliderThemeColors(props.format).labelBackground};
   width: ${rem(60)};
@@ -54,15 +54,11 @@ const commonLabelStyles = props => {
 `;
 };
 
-const LabelValueStyled = styled<LabelWrapperStyledProps, 'label'>(
-  'label',
-)`
+const LabelValueStyled = styled.label<LabelWrapperStyledProps>`
   ${props => commonLabelStyles(props)};
 `;
 
-const LabelInputStyled = styled<LabelWrapperStyledProps, 'input'>(
-  'input',
-)`
+const LabelInputStyled = styled.input<LabelWrapperStyledProps>`
   ${commonLabelStyles};
   border: ${props =>
     props.format === 'dark'

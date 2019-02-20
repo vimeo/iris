@@ -18,7 +18,6 @@ export const CarouselDotNav: SFC<CarouselDotNavProps> = ({
   onPrevClick,
   showIndexedNav,
   theme,
-  ref: _,
   ...props
 }) => {
   const handleDotClick = event => {

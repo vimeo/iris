@@ -1,7 +1,5 @@
-import React, { HTMLProps, SFC } from 'react';
-import { Omit } from '../Utils/Omit';
+import React, { SFC, ReactNode } from 'react';
 import { InputLabelInline } from '../InputLabelInline/InputLabelInline';
-import { InputRadioProps } from './InputRadioTypes';
 import {
   InputRadioWrapperStyled,
   InputRadioStyled,
@@ -9,8 +7,14 @@ import {
 } from './InputRadioStyled';
 import { RadioFocusOutline } from './InputRadioFocus';
 
-export type Props = InputRadioProps &
-  Omit<HTMLProps<HTMLInputElement>, 'label'>;
+interface Props {
+  disabled?: boolean;
+  format?: 'negative' | 'positive' | 'neutral';
+  id: string;
+  label: ReactNode;
+  theme?: 'default' | 'dark';
+  name?: string;
+}
 
 export const InputRadio: SFC<Props> = ({
   disabled,
@@ -18,7 +22,6 @@ export const InputRadio: SFC<Props> = ({
   id,
   label,
   theme = 'default',
-  ref: _,
   ...props
 }) => (
   <InputRadioWrapperStyled theme={theme}>

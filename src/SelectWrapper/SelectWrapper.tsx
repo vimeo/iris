@@ -1,7 +1,6 @@
 import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { Omit } from '../Utils/Omit';
 import {
   InputProps,
   InputStyleSettings,
@@ -9,13 +8,12 @@ import {
 import { InputWrapper } from '../InputWrapper/InputWrapper';
 import { ChevronDown } from '../Icons';
 
-export interface SelectWrapperProps
-  extends InputProps,
-    Omit<React.HTMLProps<HTMLDivElement>, 'label' | 'size' | 'id'> {
+export interface SelectWrapperProps extends InputProps {
   /**
    * Use to pass an inline icon over the select, for example a credit card logo
    */
   icon?: React.ReactNode;
+  className?: string;
 }
 
 export const ArrowIconSize = 24;
@@ -67,23 +65,19 @@ interface ArrowWrapperStyledProps {
 
 const ArrowWrapperStyled = styled.div<ArrowWrapperStyledProps>`
   display: none;
+
   @supports (appearance: none) {
     display: flex;
     position: absolute;
     top: 50%;
     right: ${rem(4)};
-
     width: ${rem(ArrowIconWrapperWidth)};
-
     justify-content: center;
     align-items: center;
-
     transform: translateY(-50%);
-
     pointer-events: none;
 
     svg {
-      transform: translateY(-0.25rem);
       width: ${rem(ArrowIconSize)};
       height: ${rem(ArrowIconSize)};
 
@@ -102,12 +96,10 @@ export const SelectWrapper: SFC<SelectWrapperProps> = ({
   helperMsg,
   icon,
   id,
-  isInline,
   label,
   showLabel = true,
   size = 'md',
   theme = 'default',
-  ref: _,
   ...props
 }) => (
   <InputWrapper
@@ -119,7 +111,6 @@ export const SelectWrapper: SFC<SelectWrapperProps> = ({
     helperMsg={helperMsg}
     label={label}
     labelForId={id}
-    isInline={isInline}
     size={size}
     theme={theme}
   >

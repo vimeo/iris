@@ -1,17 +1,14 @@
-import React, { SFC } from 'react';
+import React, { SFC, ReactNode, MouseEventHandler } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 
-export interface VideoCardSocialBadgeAreaProps
-  extends React.HTMLProps<HTMLDivElement> {
-  socialBadges: any[];
+interface Props {
+  socialBadges: ReactNode[];
+  onClick?: MouseEventHandler;
 }
 
-const VideoCardSocialBadgeWrapperStyled = styled<
-  React.HTMLProps<HTMLDivElement>,
-  'div'
->('div')`
+const VideoCardSocialBadgeWrapperStyled = styled.div`
   display: flex;
   position: absolute;
   bottom: ${rem(VideoCardStyleSettings.padding)};
@@ -23,10 +20,7 @@ const VideoCardSocialBadgeWrapperStyled = styled<
   }
 `;
 
-const BadgeCellStyled = styled<
-  React.HTMLProps<HTMLDivElement>,
-  'div'
->('div')`
+const BadgeCellStyled = styled.div<any>`
   margin-right: ${rem(8)};
 
   &:last-child {
@@ -34,14 +28,13 @@ const BadgeCellStyled = styled<
   }
 `;
 
-export const VideoCardSocialBadgeArea: SFC<
-  VideoCardSocialBadgeAreaProps
-> = ({ socialBadges, ref: _, ...props }) => (
+export const VideoCardSocialBadgeArea: SFC<Props> = ({
+  socialBadges,
+  ...props
+}) => (
   <VideoCardSocialBadgeWrapperStyled {...props}>
-    {socialBadges.map((thisBadge, i) => (
-      <BadgeCellStyled key={`socialBadge${i}`}>
-        {thisBadge}
-      </BadgeCellStyled>
+    {socialBadges.map((badge, i) => (
+      <BadgeCellStyled key={i}>{badge}</BadgeCellStyled>
     ))}
   </VideoCardSocialBadgeWrapperStyled>
 );

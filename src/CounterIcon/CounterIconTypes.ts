@@ -1,15 +1,7 @@
 import React from 'react';
 // import { TooltipOverlayProps } from '../TooltipOverlay/TooltipOverlay';
 
-export interface CounterIconStyledProps {
-  autoMargins?: boolean;
-}
-
 export interface CounterIconProps {
-  /**
-   * Determines if there should be margins automatically. Set to false to suppress.
-   */
-  autoMargins?: boolean;
   /**
    * Title of CounterIcon. Appears on hover tooltip.
    */

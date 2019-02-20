@@ -1,10 +1,9 @@
-import React, { SFC, HTMLProps } from 'react';
+import React, { SFC } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { mediaQuery } from '../Layout/MediaQuery';
 import { ChevronRight } from '../Icons';
 import { ParagraphMd } from '../Type';
-import { TypeProps } from '../Type/TypeTypes';
 import * as COLORS from '../Color/Color';
 
 export interface BreadcrumbProps {
@@ -36,22 +35,17 @@ export const ARROWLEFT_CLASSNAME = 'BreadcrumbLink_ArrowLeft';
 const truncatewithEllipsisCSS = css`
   display: inline-block;
   overflow: hidden;
-
   position: relative;
-
   width: auto;
   max-width: 100%;
-
   white-space: nowrap;
   text-overflow: ellipsis;
 `;
 
-interface CrumbWrapperProps extends React.HTMLProps<HTMLDivElement> {
+const CrumbWrapper = styled.div<{
   format: 'lightTheme' | 'darkTheme';
   showOnSmall?: boolean;
-}
-
-const CrumbWrapper = styled<CrumbWrapperProps, 'div'>('div')`
+}>`
   color: ${props =>
     props.format === 'darkTheme'
       ? COLORS.IronHeart
@@ -77,7 +71,7 @@ const CrumbWrapper = styled<CrumbWrapperProps, 'div'>('div')`
       : ''};
 `;
 
-const CrumbLabel = styled<TypeProps, any>(ParagraphMd)`
+const CrumbLabel = styled(ParagraphMd)`
   ${truncatewithEllipsisCSS};
 `;
 
@@ -99,22 +93,19 @@ const CrumbArrowIcon = styled(ChevronRight)`
     `};
 `;
 
-const CurrentPageCrumb = styled<TypeProps, any>(ParagraphMd)`
+const CurrentPageCrumb = styled(ParagraphMd)`
   ${truncatewithEllipsisCSS} width: calc(50%);
   ${mediaQuery.md`
         width: calc(33%);
     `};
 `;
 
-export const Breadcrumb: SFC<
-  BreadcrumbProps & HTMLProps<HTMLDivElement>
-> = ({
+export const Breadcrumb: SFC<BreadcrumbProps> = ({
   crumbs,
   currentPageLabel,
   format = 'lightTheme',
   noMargin,
-  ref: _,
-  ...filteredProps
+  ...props
 }) => {
   const crumbWidth = crumbs
     ? `${100 / (crumbs.length + 1)}%`
@@ -139,7 +130,7 @@ export const Breadcrumb: SFC<
   ));
 
   return (
-    <BreadCrumbSetWrapper {...filteredProps}>
+    <BreadCrumbSetWrapper {...props}>
       {crumbs && CrumbList}
 
       <CurrentPageCrumb
