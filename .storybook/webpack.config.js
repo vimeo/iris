@@ -1,4 +1,3 @@
-const ForkTSPLugin = require('fork-ts-checker-webpack-plugin');
 const StyledTransformer = require('typescript-plugin-styled-components')
     .default();
 
@@ -20,7 +19,6 @@ module.exports = ({
         }],
     });
 
-    config.plugins.push(new ForkTSPLugin());
     config.resolve.extensions.push('.ts', '.tsx');
     config.output.pathinfo = false;
     config.optimization.removeAvailableModules = false;

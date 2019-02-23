@@ -8,7 +8,7 @@ import {
   White,
 } from '../src/Color/Color';
 
-const MonoHeader = styled(Header4)`
+const MonoHeader = styled(() => <Header4 element="span" />)`
   font-family: 'Source Code Pro', monospace;
   background: ${SovereignShadow};
   color: ${White};
@@ -16,7 +16,7 @@ const MonoHeader = styled(Header4)`
   border-radius: 0.25rem;
 `;
 
-const SubTitle = styled(Header6)`
+const SubTitle = styled(() => <Header6 element="span" />)`
   border: 1px solid ${IronHeart};
   color: ${IronHeart}
   font-weight: 800;
