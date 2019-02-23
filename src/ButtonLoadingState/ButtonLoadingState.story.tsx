@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { ButtonLoadingState } from './ButtonLoadingState';
+import { ButtonLoadingState as B } from './ButtonLoadingState';
 import { Gear } from '../Icons';
 import { Story } from '../../.storybook/Story';
 import styled from 'styled-components';
 
 const componentName = 'Button';
 
-const $Button = styled(ButtonLoadingState)`
+const ButtonLoadingState = styled(B)`
   margin: 0 1rem 1rem 0;
 `;
 
@@ -17,53 +17,45 @@ storiesOf('components/Button', module).add('loading state', () => (
   </Story>
 ));
 
-const initialState = { isLoading: true };
-type State = Readonly<typeof initialState>;
+const ButtonLoadingStateDocs = () => {
+  const [loading, setLoading] = useState(false);
+  const doClick = () => setLoading(loading => !loading);
 
-const handleClick = (prevState: State) => ({
-  isLoading: !prevState.isLoading,
-});
-
-class ButtonLoadingStateDocs extends Component {
-  readonly state: State = initialState;
-
-  _handleClick = () => this.setState(handleClick);
-
-  render = () => (
-    <div>
-      <$Button
-        isLoading={!this.state.isLoading}
-        onClick={this._handleClick}
+  return (
+    <>
+      <ButtonLoadingState
+        isLoading={!loading}
+        onClick={doClick}
         size="lg"
       >
         Click Me
-      </$Button>
-      <$Button
+      </ButtonLoadingState>
+      <ButtonLoadingState
         icon={<Gear />}
-        isLoading={this.state.isLoading}
-        onClick={this._handleClick}
+        isLoading={loading}
+        onClick={doClick}
         format="primaryOutline"
         size="md"
       >
         Click Me
-      </$Button>
-      <$Button
+      </ButtonLoadingState>
+      <ButtonLoadingState
         icon={<Gear />}
-        isLoading={!this.state.isLoading}
-        onClick={this._handleClick}
+        isLoading={!loading}
+        onClick={doClick}
         format="success"
         size="sm"
       >
         Click Me
-      </$Button>
-      <$Button
-        isLoading={this.state.isLoading}
-        onClick={this._handleClick}
+      </ButtonLoadingState>
+      <ButtonLoadingState
+        isLoading={loading}
+        onClick={doClick}
         format="secondary"
         size="xs"
       >
         Click Me
-      </$Button>
-    </div>
+      </ButtonLoadingState>
+    </>
   );
-}
+};

@@ -1,21 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { ButtonToggleState } from './ButtonToggleState';
+import { ButtonToggleState as B } from './ButtonToggleState';
 import { Plus, Checkmark, DismissX } from '../Icons';
 import { Story } from '../../.storybook/Story';
 import styled from 'styled-components';
 
-const Zorp = styled(ButtonToggleState)`
+const ButtonToggleState = styled(B)`
   margin: 0 1rem 1rem 0;
 `;
-
-const followText = 'Follow';
-const unfollowText = 'Unfollow';
-const followingText = 'Following';
-
-const connectText = 'Connect';
-const disconnectText = 'Disconnect';
-const connectedText = 'Connected';
 
 const componentName = 'Button';
 
@@ -25,65 +17,67 @@ storiesOf('components/Button', module).add('toggle state', () => (
   </Story>
 ));
 
-class ButtonToggleStateDocs extends Component {
-  state = { following: false, connected: false };
+const ButtonToggleStateDocs = () => {
+  const [following, setFollowing] = useState(false);
+  const toggleFollowing = () => setFollowing(following => !following);
 
-  followToggle = () =>
-    this.setState({
-      following: !this.state.following,
-    });
+  const [connected, setConnected] = useState(false);
+  const toggleConnected = () => setConnected(connected => !connected);
 
-  connectToggle = () =>
-    this.setState({
-      connected: !this.state.connected,
-    });
-
-  render = () => (
+  return (
     <>
-      <Zorp
+      <ButtonToggleState
         format="primaryOutline"
-        isActive={this.state.following}
+        isActive={following}
         offIcon={<Plus />}
         offStateText={followText}
         onIcon={<Checkmark />}
         onStateText={followingText}
-        onClick={this.followToggle}
+        onClick={toggleFollowing}
         turnOffActionText={unfollowText}
         turnOffIcon={<DismissX />}
       />
-      <Zorp
+      <ButtonToggleState
         format="primary"
-        isActive={this.state.following}
+        isActive={following}
         offIcon={<Plus />}
         offStateText={followText}
         onIcon={<Checkmark />}
         onStateText={followingText}
-        onClick={this.followToggle}
+        onClick={toggleFollowing}
         turnOffActionText={unfollowText}
         turnOffIcon={<DismissX />}
       />
-      <Zorp
+      <ButtonToggleState
         format="primaryOutline"
-        isActive={this.state.connected}
+        isActive={connected}
         offIcon={<Plus />}
         offStateText={connectText}
         onIcon={<Checkmark />}
         onStateText={connectedText}
-        onClick={this.connectToggle}
+        onClick={toggleConnected}
         turnOffActionText={disconnectText}
         turnOffIcon={<DismissX />}
       />
-      <Zorp
+      <ButtonToggleState
         format="primary"
-        isActive={this.state.connected}
+        isActive={connected}
         offIcon={<Plus />}
         offStateText={connectText}
         onIcon={<Checkmark />}
         onStateText={connectedText}
-        onClick={this.connectToggle}
+        onClick={toggleConnected}
         turnOffActionText={disconnectText}
         turnOffIcon={<DismissX />}
       />
     </>
   );
-}
+};
+
+const followText = 'Follow';
+const unfollowText = 'Unfollow';
+const followingText = 'Following';
+
+const connectText = 'Connect';
+const disconnectText = 'Disconnect';
+const connectedText = 'Connected';

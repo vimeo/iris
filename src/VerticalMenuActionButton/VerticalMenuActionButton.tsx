@@ -1,4 +1,4 @@
-import React, { ReactNode, SFC } from 'react';
+import React, { ReactNode, SFC, MouseEventHandler } from 'react';
 import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
 import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 
@@ -7,6 +7,7 @@ interface Props {
   tooltipText?: string;
   // tooltipProps?: TooltipOverlayProps;
   tooltipProps?: any;
+  onClick?: MouseEventHandler;
 }
 
 export const VerticalMenuActionButton: SFC<Props> = ({

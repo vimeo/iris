@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { ParagraphMd } from '../Type';
 import { SlideUpDown } from './SlideUpDown';
@@ -12,16 +12,14 @@ storiesOf('animation', module).add('Slide Up Down', () => (
   </Story>
 ));
 
-class SlideUpDownDocs extends Component {
-  state = { hideNotification: false };
+const SlideUpDownDocs = () => {
+  const [hidden, setHidden] = useState(false);
+  const doClick = () => setHidden(hidden => !hidden);
 
-  handleClick = () =>
-    this.setState({ hideNotification: !this.state.hideNotification });
-
-  render = () => (
-    <div>
-      <Button onClick={this.handleClick}>Toggle</Button>
-      <SlideUpDown isHidden={this.state.hideNotification}>
+  return (
+    <>
+      <Button onClick={doClick}>Toggle</Button>
+      <SlideUpDown isHidden={hidden}>
         <Notification variant="success">
           <ParagraphMd>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -33,10 +31,7 @@ class SlideUpDownDocs extends Component {
           </ParagraphMd>
         </Notification>
       </SlideUpDown>
-      <SlideUpDown
-        animateOpenOnMount
-        isHidden={this.state.hideNotification}
-      >
+      <SlideUpDown animateOpenOnMount isHidden={hidden}>
         <Notification variant="success">
           <ParagraphMd>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -48,6 +43,6 @@ class SlideUpDownDocs extends Component {
           </ParagraphMd>
         </Notification>
       </SlideUpDown>
-    </div>
+    </>
   );
-}
+};

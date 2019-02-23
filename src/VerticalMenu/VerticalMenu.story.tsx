@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import {
   VerticalMenuItemContent,
@@ -46,183 +46,168 @@ storiesOf(`components/${componentName}`, module)
     </Story>
   ));
 
-const onClickHandler = e => {
+const VerticalMenuDemoDocs = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [dynamicMenuItems, setDynamicMenuItems] = useState([]);
+
+  const doClick = e =>
+    console.log('Demo Click Handler: You Clicked:', e.target);
+  const toggleMenu = () => setMenuOpen(menuOpen => !menuOpen);
+
+  const makeMenuItem = () => {
+    setDynamicMenuItems([
+      ...dynamicMenuItems,
+      newItem(dynamicMenuItems.length),
+    ]);
+  };
+
+  return (
+    <>
+      <VerticalMenuHeaderGroup
+        actionButtonIcon={<CirclePlus />}
+        actionButtonTooltipText="Tooltip Text"
+        actionButtonOnClick={doClick}
+        label="Section Label 1"
+        labelId="Section1"
+      >
+        <VerticalMenuNested
+          isOpen={menuOpen}
+          label="Menu Label"
+          labelId="testMenu"
+          nestedButtonLabel="toggle menu"
+          onClick={toggleMenu}
+          subMenuItems={subMenuItems}
+        />
+      </VerticalMenuHeaderGroup>
+      <VerticalMenuHeaderGroup
+        label="Section Label 2"
+        labelId="Section2"
+      >
+        <VerticalMenuNested
+          actionButton={
+            <VerticalMenuActionButton
+              icon={<CirclePlus />}
+              tooltipText="click to add new item"
+              onClick={makeMenuItem}
+            />
+          }
+          isOpen={!menuOpen}
+          label="Menu Label"
+          labelId="testMenu"
+          labelIcon={<Folder />}
+          nestedButtonLabel="toggle menu"
+          onClick={toggleMenu}
+          subMenuItems={subMenuItems}
+        />
+      </VerticalMenuHeaderGroup>
+      <VerticalMenuNested
+        isOpen={menuOpen}
+        label="Dynamic Menu"
+        labelId="testDynamicMenu"
+        nestedButtonLabel="toggle menu"
+        onClick={toggleMenu}
+        subMenuItems={dynamicMenuItems}
+      />
+      <VerticalMenuItem>
+        <a href="#" onClick={doClick}>
+          <VerticalMenuItemContent
+            label="Stand Alone Link With Link Icon"
+            linkActionIcon={<PopOut />}
+          />
+        </a>
+      </VerticalMenuItem>
+      <VerticalMenuItem>
+        <a href="#" onClick={doClick}>
+          <VerticalMenuItemContent
+            label="Stand Alone Link With Label Icon"
+            labelIcon={<Home />}
+            labelIconActive={<HomeFilled />}
+          />
+        </a>
+      </VerticalMenuItem>
+      <VerticalMenuItem
+        nestedInteractionContent={MenuPanelDemoList}
+        menuPanelTooltip="Show Menu"
+      >
+        <a href="#" onClick={doClick}>
+          <VerticalMenuItemContent
+            label="Menu With Nested Menu on Hover"
+            truncateLabel
+          />
+        </a>
+      </VerticalMenuItem>
+      <VerticalMenuItem
+        isActive
+        nestedInteractionContent={MenuPanelDemoList}
+        menuPanelTooltip="Show Menu"
+      >
+        <a href="#" onClick={doClick}>
+          <VerticalMenuItemContent
+            isActive
+            label="Active Menu With Nested Menu on Hover"
+            truncateLabel
+          />
+        </a>
+      </VerticalMenuItem>
+    </>
+  );
+};
+
+const doClick = e => {
   e.preventDefault();
   console.log('Demo Click Handler: You Clicked:', e.target);
 };
 
 const subMenuItems = [
   <VerticalMenuItem>
-    <a href="#" onClick={onClickHandler}>
+    <a href="#" onClick={doClick}>
       <VerticalMenuItemContent label="Nested Item 1" />
     </a>
   </VerticalMenuItem>,
   <VerticalMenuItem isActive>
-    <a href="#" onClick={onClickHandler}>
+    <a href="#" onClick={doClick}>
       <VerticalMenuItemContent isActive label="Nested Item 2" />
     </a>
   </VerticalMenuItem>,
 ];
 
-class VerticalMenuDemoDocs extends React.Component<any, any> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      menuOpen: false,
-      dynamicMenuItems: [],
-    };
-  }
+const newItem = length => (
+  <VerticalMenuItem>
+    <a href="#">
+      <VerticalMenuItemContent label={`Dynamic Item ${length + 1}`} />
+    </a>
+  </VerticalMenuItem>
+);
 
-  componentWillMount() {
-    this._makeMenuItem();
-  }
-
-  _makeMenuItem = () => {
-    const i = this.state.dynamicMenuItems.length + 1;
-    const newItem = (
-      <VerticalMenuItem>
-        <a href="#">
-          <VerticalMenuItemContent label={`Dynamic Item ${i}`} />
-        </a>
-      </VerticalMenuItem>
-    );
-    const newItemState = [...this.state.dynamicMenuItems];
-    newItemState.push(newItem);
-    this.setState({
-      dynamicMenuItems: newItemState,
-    });
-  };
-  _toggleMenu = () => {
-    this.setState({
-      menuOpen: !this.state.menuOpen,
-    });
-  };
-  _handleClick = e => {
-    console.log(e);
-  };
-  render() {
-    const onClickHandler = e => {
-      e.preventDefault();
-      console.log('Demo Click Handler: You Clicked:', e.target);
-    };
-    const MenuPanelDemoList = (
-      <div>
-        <MenuPanelList
-          header="Section 1"
-          menuItems={[
-            {
-              label: 'Item 1',
-              href: '#',
-            },
-            {
-              label: 'Selected Item',
-              href: '#',
-              isSelected: true,
-              // 'data-foo': 'bar',
-            },
-          ]}
-        />
-        <MenuPanelList
-          hasDivider
-          menuItems={[
-            {
-              label: 'Item 3',
-              icon: <Gear />,
-              href: '#',
-            },
-            {
-              label: 'Item 4',
-              href: '#',
-            },
-          ]}
-        />
-      </div>
-    );
-    return (
-      <>
-        <VerticalMenuHeaderGroup
-          actionButtonIcon={<CirclePlus />}
-          actionButtonTooltipText="Tooltip Text"
-          actionButtonOnClick={this._handleClick}
-          label="Section Label 1"
-          labelId="Section1"
-        >
-          <VerticalMenuNested
-            isOpen={this.state.menuOpen}
-            label="Menu Label"
-            labelId="testMenu"
-            nestedButtonLabel="toggle menu"
-            subMenuItems={subMenuItems}
-          />
-        </VerticalMenuHeaderGroup>
-        <VerticalMenuHeaderGroup
-          label="Section Label 2"
-          labelId="Section2"
-        >
-          <VerticalMenuNested
-            actionButton={
-              <VerticalMenuActionButton
-                icon={<CirclePlus />}
-                tooltipText="click to add new item"
-              />
-            }
-            isOpen={!this.state.menuOpen}
-            label="Menu Label"
-            labelId="testMenu"
-            labelIcon={<Folder />}
-            nestedButtonLabel="toggle menu"
-            subMenuItems={subMenuItems}
-          />
-        </VerticalMenuHeaderGroup>
-        <VerticalMenuNested
-          isOpen={this.state.menuOpen}
-          label="Dynamic Menu"
-          labelId="testDynamicMenu"
-          nestedButtonLabel="toggle menu"
-          subMenuItems={this.state.dynamicMenuItems}
-        />
-        <VerticalMenuItem>
-          <a href="#" onClick={onClickHandler}>
-            <VerticalMenuItemContent
-              label="Stand Alone Link With Link Icon"
-              linkActionIcon={<PopOut />}
-            />
-          </a>
-        </VerticalMenuItem>
-        <VerticalMenuItem>
-          <a href="#" onClick={onClickHandler}>
-            <VerticalMenuItemContent
-              label="Stand Alone Link With Label Icon"
-              labelIcon={<Home />}
-              labelIconActive={<HomeFilled />}
-            />
-          </a>
-        </VerticalMenuItem>
-        <VerticalMenuItem
-          nestedInteractionContent={MenuPanelDemoList}
-          menuPanelTooltip="Show Menu"
-        >
-          <a href="#" onClick={onClickHandler}>
-            <VerticalMenuItemContent
-              label="Menu With Nested Menu on Hover"
-              truncateLabel
-            />
-          </a>
-        </VerticalMenuItem>
-        <VerticalMenuItem
-          isActive
-          nestedInteractionContent={MenuPanelDemoList}
-          menuPanelTooltip="Show Menu"
-        >
-          <a href="#" onClick={onClickHandler}>
-            <VerticalMenuItemContent
-              isActive
-              label="Active Menu With Nested Menu on Hover"
-              truncateLabel
-            />
-          </a>
-        </VerticalMenuItem>
-      </>
-    );
-  }
-}
+const MenuPanelDemoList = (
+  <div>
+    <MenuPanelList
+      header="Section 1"
+      menuItems={[
+        {
+          label: 'Item 1',
+          href: '#',
+        },
+        {
+          label: 'Selected Item',
+          href: '#',
+          isSelected: true,
+        },
+      ]}
+    />
+    <MenuPanelList
+      hasDivider
+      menuItems={[
+        {
+          label: 'Item 3',
+          icon: <Gear />,
+          href: '#',
+        },
+        {
+          label: 'Item 4',
+          href: '#',
+        },
+      ]}
+    />
+  </div>
+);
