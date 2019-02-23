@@ -1,5 +1,6 @@
-import { rem } from 'polished';
+import { rem, darken } from 'polished';
 import { ButtonColors } from './ButtonColors';
+import { Button } from './Button';
 
 export const ButtonStyleSettings = {
   Formats: {
@@ -140,11 +141,15 @@ export const ButtonStyleSettings = {
         backgroundColor: ButtonColors.PrimaryBackgroundActive,
       },
       default: {
+        // #a11y: contrast ratio of 4.5:1
+        // color: darken(0.124, ButtonColors.PrimaryBackground),
         color: ButtonColors.PrimaryBackground,
         borderColor: ButtonColors.PrimaryBackground,
         backgroundColor: ButtonColors.Transparent,
       },
       hover: {
+        // #a11y: contrast ratio of 4.5:1
+        // color: darken(0.124, ButtonColors.PrimaryBackground),
         color: ButtonColors.PrimaryBackground,
         borderColor: ButtonColors.PrimaryBackground,
         backgroundColor: ButtonColors.PrimaryOutlineHover,
