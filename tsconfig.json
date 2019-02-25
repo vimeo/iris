@@ -23,7 +23,7 @@
         "noUnusedParameters": true,
         "strict": false,
         "suppressImplicitAnyIndexErrors": true,
-        "target": "es6"
+        "target": "es5"
     },
     "include": [
         "src/**/*"

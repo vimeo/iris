@@ -1,6 +1,5 @@
-import { rem, darken } from 'polished';
+import { rem } from 'polished';
 import { ButtonColors } from './ButtonColors';
-import { Button } from './Button';
 
 export const ButtonStyleSettings = {
   Formats: {
