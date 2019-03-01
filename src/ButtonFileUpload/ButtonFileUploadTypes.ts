@@ -1,9 +1,8 @@
-export interface ButtonFileUploadProps {
+import { BaseProps } from '../Utils/BaseProps';
+
+export interface ButtonFileUploadProps extends BaseProps {
   autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid';
-  className?: string;
-  disabled?: boolean;
   format?: 'primary' | 'secondary' | 'secondaryTextOnly';
-  id: string;
   name?: string;
   label: string;
   showIcon?: boolean;

@@ -40,7 +40,7 @@ export interface Props extends BaseProps {
     | 'unrated'
     | 'upgrade'
     | 'vod';
-  href: string;
+  href?: string;
   label?: string;
   size?: 'sm' | 'lg';
 }

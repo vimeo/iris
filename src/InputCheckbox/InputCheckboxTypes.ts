@@ -1,17 +1,18 @@
 import { MouseEventHandler, ReactNode } from 'react';
 
 export interface InputCheckboxProps {
+  checked?: boolean;
   checkedStyle?: 'default' | 'indeterminate';
   disabled?: boolean;
   errorMsg?: ReactNode;
   format?: 'negative' | 'positive' | 'neutral';
   helperMsg?: ReactNode;
+  hideLabel?: boolean;
   id: string;
   label: ReactNode;
-  hideLabel?: boolean;
-  theme?: 'default' | 'dark';
   onClick?: MouseEventHandler;
   readOnly?: boolean;
+  theme?: 'default' | 'dark';
 }
 
 export interface InputCheckboxOverlayStyledProps {

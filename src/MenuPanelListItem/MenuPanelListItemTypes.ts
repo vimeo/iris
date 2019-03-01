@@ -12,4 +12,5 @@ export interface MenuPanelListItemProps
   linkElement?: any;
   isSelected?: boolean;
   icon?: ReactNode;
+  'aria-label': string;
 }

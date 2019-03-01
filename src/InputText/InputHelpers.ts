@@ -15,6 +15,7 @@ export interface InputProps {
   format?: 'negative' | 'positive' | 'neutral';
   hasIcon?: boolean;
   helperMsg?: React.ReactNode;
+  hidden?: boolean;
   id: string;
   label: React.ReactNode;
   onBlur?: FormEventHandler;
