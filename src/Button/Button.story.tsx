@@ -35,7 +35,7 @@ const buttonFormats = {
   lightTextOnly: 'lightTextOnly',
 };
 
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 import { ParagraphMd } from '../Type';
 
 const componentName = 'Button';

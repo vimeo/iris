@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { AddNewItemCard } from './AddNewItemCard';
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 import styled from 'styled-components';
 
 const Grid = styled.div`

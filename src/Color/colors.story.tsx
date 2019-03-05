@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import { storiesOf } from '@storybook/react';
 import * as COLORS from '../Color/Color';
 import styled from 'styled-components';
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 
 storiesOf('colors/', module)
   .add('reds', () => (

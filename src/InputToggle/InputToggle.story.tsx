@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { InputToggle } from './InputToggle';
 import { Header3 } from '../Type';
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 import styled from 'styled-components';
 
 const $InputToggle = styled(InputToggle)`

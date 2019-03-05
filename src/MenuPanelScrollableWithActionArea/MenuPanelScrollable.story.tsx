@@ -7,7 +7,7 @@ import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
 import { MenuPanel } from '../MenuPanel/MenuPanel';
 import { Gear } from '../Icons';
 
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 
 const componentName = 'Menu Panel';
 

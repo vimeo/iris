@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { TooltipAnnotationIcon } from './TooltipAnnotationIcon';
 import { Header4 } from '../Type';
 
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 
 const componentName = 'Tooltip Annotation Icon';
 

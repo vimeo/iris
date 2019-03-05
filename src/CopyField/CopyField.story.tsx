@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { CopyField } from './CopyField';
 
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 
 const componentName = 'Copy Field';
 

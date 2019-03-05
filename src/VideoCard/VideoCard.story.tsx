@@ -16,7 +16,7 @@ import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
 import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 import { VideoCardFooterActionsGrid } from './VideoCardFooterActionsGrid';
 
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 import styled from 'styled-components';
 
 const Grid = styled.div`

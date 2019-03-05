@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Button, LinkText, MenuPanel, MenuPanelList } from '../';
 import { Gear } from '../Icons';
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 
 const componentName = 'Menu Panel';
 

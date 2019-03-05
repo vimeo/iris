@@ -5,7 +5,7 @@ import { TextArea } from '../TextArea/TextArea';
 import { InputText } from '../InputText/InputText';
 import styled from 'styled-components';
 import { ParagraphMd } from '../Type';
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 
 storiesOf('utilties/', module).add('Character Count', () => (
   <Story title="Character Count">

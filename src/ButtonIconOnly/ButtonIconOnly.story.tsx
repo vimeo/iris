@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { ButtonIconOnly } from './ButtonIconOnly';
 import { Gear } from '../Icons';
 import styled from 'styled-components';
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 
 const Format = styled.h6`
   font-family: Helvetica;

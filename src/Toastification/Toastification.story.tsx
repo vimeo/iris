@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Toastification } from './Toastification';
 import { Button } from '../Button/Button';
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 
 storiesOf('components/', module).add('Toastification', () => (
   <Story title="Toastification">

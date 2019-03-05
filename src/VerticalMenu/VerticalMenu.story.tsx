@@ -18,7 +18,7 @@ import {
   Gear,
 } from '../Icons';
 
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 
 const componentName = 'Vertical Menu';
 

@@ -4,7 +4,7 @@ import { Button } from '../Button/Button';
 import { Modal } from './Modal';
 import { ParagraphMd } from '../Type';
 
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 
 const componentName = 'Modal';
 

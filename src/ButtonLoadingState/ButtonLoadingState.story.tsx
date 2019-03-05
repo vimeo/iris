@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { ButtonLoadingState as B } from './ButtonLoadingState';
 import { Gear } from '../Icons';
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 import styled from 'styled-components';
 
 const componentName = 'Button';

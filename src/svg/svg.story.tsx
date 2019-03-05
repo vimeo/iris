@@ -7,7 +7,7 @@ import * as Icons from '../Icons';
 import * as Illustrations from '../Illustrations';
 import { Header2, Header6 } from '../Type';
 import * as COLORS from '../Color/Color';
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 
 storiesOf('Icons', module).add('all', () => {
   const size = select(

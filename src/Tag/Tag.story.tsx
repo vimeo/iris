@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Tag } from './Tag';
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 import styled from 'styled-components';
 
 const $Tag = styled(Tag)`

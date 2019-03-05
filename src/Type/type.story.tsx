@@ -9,7 +9,7 @@ import {
   Header5,
   Header6,
 } from './index';
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 
 storiesOf('typography', module).add('headlines', () => (
   <Story title="Typography" subTitle="Headlines" width="100%">

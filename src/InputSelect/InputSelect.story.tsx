@@ -20,7 +20,7 @@ const demoOptions = (
   </optgroup>
 );
 
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 import styled from 'styled-components';
 
 const componentName = 'Inputs';

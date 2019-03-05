@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { ButtonToggleState as B } from './ButtonToggleState';
 import { Plus, Checkmark, DismissX } from '../Icons';
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 import styled from 'styled-components';
 
 const ButtonToggleState = styled(B)`

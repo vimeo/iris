@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { ButtonFileUploadIconOnly } from './ButtonFileUploadIconOnly';
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 import styled from 'styled-components';
 
 const $ButtonFileUploadIconOnly = styled(ButtonFileUploadIconOnly)`

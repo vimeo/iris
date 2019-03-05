@@ -4,7 +4,7 @@ import { Header2, ParagraphMd } from '../Type';
 import { LinkText } from '../LinkText/LinkText';
 import { TabNavigationHorizontal } from './TabNavigationHorizontal';
 
-import { Story } from '../../.storybook/Story';
+import { Story } from '../../.storybook/ui/Story';
 
 const componentName = 'Tab Navigation Horizontal';
 

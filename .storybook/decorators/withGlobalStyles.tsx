@@ -4,9 +4,17 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
     html {
         box-sizing: border-box;
-        padding: 2rem;
+        padding: 0;
+        margin: 0;
         font-size: 16px;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        min-height: 100%;
+    }
+
+    body {
+        padding: 0;
+        margin: 0;
+        min-height: 100%;
     }
 
     *, *:before, *:after {
