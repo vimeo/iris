@@ -1,1 +1,1 @@
-export * from './dist-c1eb691436a2/Icons';
+export * from './build/Icons';

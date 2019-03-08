@@ -60,6 +60,7 @@ docs/main.jsx
 dist
 dist-*
 tsdocsHTML
+build
 
 ########################
 # Github Pages
