@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
-import { Story } from '../../../.storybook/ui/Story';
+import { Story } from '../../.storybook/ui/Story';
 
 import { Comment } from './Comment';
 import { TextArea } from './AutoComplete';
@@ -9,7 +9,7 @@ import { AccountSettings } from './AccountSettings';
 import { UserInfo } from './UserInfoSettings';
 import { AutoplayList } from './AutoplayList';
 
-import { Header4, HeaderAltSm } from '../../../src/Type';
+import { Header4, HeaderAltSm } from '../../src/Type';
 
 const componentName = 'Comment';
 
@@ -23,7 +23,7 @@ const commentVariations = {
   'text below avatar': 'G',
 };
 
-storiesOf('Playground|Pronouns/', module).add('comments', () => (
+storiesOf('Labs|Pronouns/', module).add('comments', () => (
   <Story title={componentName}>
     {demoProps.map(comment => (
       <Comment
@@ -40,7 +40,7 @@ storiesOf('Playground|Pronouns/', module).add('comments', () => (
   </Story>
 ));
 
-storiesOf('Playground|Pronouns/settings/', module)
+storiesOf('Labs|Pronouns/settings/', module)
   // https://vimeo.com/settings/account/general
   .add('general settings', () => (
     <Story title="Settings">
@@ -54,7 +54,7 @@ storiesOf('Playground|Pronouns/settings/', module)
     </Story>
   ));
 
-storiesOf(`Playground|Pronouns/`, module)
+storiesOf(`Labs|Pronouns/`, module)
   .add('autocomplete', () => (
     <Story title="Autocomplete">
       {demoProps

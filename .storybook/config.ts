@@ -30,8 +30,8 @@ function loadStories() {
     (require as any).context('../src', true, /\.story\.tsx?$/),
   );
 
-  require('./playground/Playground.x-story');
-  require('./playground/Pronouns/Pronouns.x-story');
+  require('../labs/Labs.x-story');
+  require('../labs/Pronouns/Pronouns.x-story');
 }
 
 configure(loadStories, module);

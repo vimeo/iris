@@ -3,8 +3,8 @@ import styled, { keyframes } from 'styled-components';
 import { rgba } from 'polished';
 import { getCoord } from './getCoord';
 
-import { Black, White, VimeoBlue } from '../../../src/Color/Color';
-import { Avatar } from '../../../src/Avatar/Avatar';
+import { Black, White, VimeoBlue } from '../../src/Color/Color';
+import { Avatar } from '../../src/Avatar/Avatar';
 
 export const TextArea = ({ people }) => {
   const [value, setValue] = useState('');

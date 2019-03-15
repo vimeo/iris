@@ -7,12 +7,12 @@ import {
   ParagraphMd,
   Header5,
   Header4,
-} from '../../../src/Type';
-import { InputText } from '../../../src/InputText/InputText';
-import { InputCheckbox } from '../../../src/InputCheckbox/InputCheckbox';
-import { InputRadio } from '../../../src/InputRadio/InputRadio';
-import { IronHeart, Paste, Black } from '../../../src/Color/Color';
-import { InputToggle } from '../../../src';
+} from '../../src/Type';
+import { InputText } from '../../src/InputText/InputText';
+import { InputCheckbox } from '../../src/InputCheckbox/InputCheckbox';
+import { InputRadio } from '../../src/InputRadio/InputRadio';
+import { IronHeart, Paste, Black } from '../../src/Color/Color';
+import { InputToggle } from '../../src';
 
 export const AccountSettings = ({ email = '', name = '' }) => {
   const [userName, setUserName] = useState(name);

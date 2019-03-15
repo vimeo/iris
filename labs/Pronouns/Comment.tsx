@@ -2,14 +2,14 @@ import React, { SFC, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 
-import { Avatar } from '../../../src/Avatar/Avatar';
+import { Avatar } from '../../src/Avatar/Avatar';
 import {
   Header5,
   Header6,
   HeaderAltSm,
   ParagraphAltMd,
-} from '../../../src/Type';
-import { Badge as B } from '../../../src/Badge/Badge';
+} from '../../src/Type';
+import { Badge as B } from '../../src/Badge/Badge';
 import {
   AshenWinter,
   Black,
@@ -18,8 +18,8 @@ import {
   RavenImperial,
   IronHeart,
   Porcelain,
-} from '../../../src/Color/Color';
-import { TooltipOverlay } from '../../../src/TooltipOverlay/TooltipOverlay';
+} from '../../src/Color/Color';
+import { TooltipOverlay } from '../../src/TooltipOverlay/TooltipOverlay';
 
 interface Props {
   children: ReactNode;

@@ -4,17 +4,18 @@ import { Story } from './ui/Story';
 import { Header3 } from '../src/Type';
 import styled from 'styled-components';
 
-storiesOf('Iris|Welcome', module).add('Welcome to Iris!', () => (
-  <Story title="Welcome to Iris!" width="50rem">
-    <Header3>
-      Iris is the design system that powers Vimeo's web apps.
-    </Header3>
-    <Pre>
-      {
+storiesOf('Iris|Welcome', module)
+  .add('Welcome to Iris!', () => (
+    <Story title="Welcome to Iris!" width="50rem">
+      <Header3>
+        Iris is the design system that powers Vimeo's web apps.
+      </Header3>
+      <Pre>
+        {
         /* tslint:disable */
         /* prettier-ignore */
       }
-      <Code>
+        <Code>
 {'\n'}                                `..`                                  
 {'\n'}                            .://--/                                  
 {'\n'}                          `--::.``.`                                 
@@ -50,9 +51,41 @@ storiesOf('Iris|Welcome', module).add('Welcome to Iris!', () => (
 {'\n'}                                 yNh                                 
 {'\n'}                                 `.` 
       </Code>
-    </Pre>
-  </Story>
-));
+      </Pre>
+    </Story>
+  ))
+  .add('Modules', () => (
+    <Story title="Modules" width="100%">
+      <Pre>
+        import {'{ Button, VideoCard }'} from
+        '@vimeo/iris/components';
+      </Pre>
+      <Pre>
+        import {'{ VimeoBlue, RavenImperial }'} from
+        '@vimeo/iris/color';
+      </Pre>
+      <Pre>import {'{ SlideUpDown }'} from '@vimeo/iris/motion';</Pre>
+      <Pre>
+        import {'{ HeaderPlusUltra, ParagraphMd }'} from
+        '@vimeo/iris/typography';
+      </Pre>
+      <Pre>
+        import {'{ Comment, DownloadArrow, Replay }'} from
+        '@vimeo/iris/icons';
+      </Pre>
+      <Pre>
+        import {'{ VimeoExclusiveSm, VodThumbnailBadge }'} from
+        '@vimeo/iris/illustration';
+      </Pre>
+      {/* <Pre>
+        import {'{ visuallyHidden }'} from '@vimeo/iris/utils';
+      </Pre>
+      <Pre>
+        import {'{ arrowRight }'} from '@vimeo/iris/util/keyCodes';
+      </Pre> */}
+      <Pre>import {'{ KEY_CODES }'} from '@vimeo/iris/legacy';</Pre>
+    </Story>
+  ));
 
 const Pre = styled.pre`
   border-radius: 3px;

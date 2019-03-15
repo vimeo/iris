@@ -7,14 +7,14 @@ import {
   Header5,
   Header6,
   Badge,
-} from '../../../src';
+} from '../../src';
 import styled from 'styled-components';
 import {
   AstroGranite,
   RegentGray,
   VimeoBlue,
   VimeoBlueLightened,
-} from '../../../src/Color/Color';
+} from '../../src/Color/Color';
 
 export const AutoplayList = ({ videos, variation }) => {
   return (
