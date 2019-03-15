@@ -5,20 +5,15 @@ import {
 } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withA11y } from '@storybook/addon-a11y';
-import { withTheme } from './decorators/withTheme';
 import { withGlobalStyles } from './decorators/withGlobalStyles';
-import { light } from './themes';
+import { withThemes, addThemes } from 'sb-addon-themes/dist';
 
-addParameters({
-  options: {
-    theme: light,
-  },
-});
+addThemes(['dark', 'light']);
 
 addDecorator(withGlobalStyles);
 addDecorator(withA11y);
-addDecorator(withTheme);
 addDecorator(withKnobs);
+addDecorator(withThemes);
 
 const requireAll = requireContext =>
   requireContext.keys().map(requireContext);

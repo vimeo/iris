@@ -1231,7 +1231,7 @@
   dependencies:
     core-js "^2.6.5"
 
-"@storybook/components@5.0.1":
+"@storybook/components@5.0.1", "@storybook/components@^5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-5.0.1.tgz#6f9867a7f7481a5f5a1825a73b159b1ba8d130ef"
   integrity sha512-a5OrI5JIsGKh2ULzQO/dZMGQj0nh9FSqLgIyn5X99D068OX+1UyUvw9mEEz7OXj8cxzYM0oFHXyTNPTFa+BTyQ==
@@ -1262,7 +1262,7 @@
     recompose "^0.30.0"
     render-fragment "^0.1.1"
 
-"@storybook/core-events@5.0.1":
+"@storybook/core-events@5.0.1", "@storybook/core-events@^5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-5.0.1.tgz#62f412809e0e99b2d642e30de2cb0205682a885c"
   integrity sha512-I0d57Vm/BM2L668EDLmVNDOWSNU0xnQErDonDmzEWUFluiHaTWZ3Uz16vIB/6cIpZvF0XUPfwPlCQ1yf3gbJsg==
@@ -7609,6 +7609,18 @@ sax@^1.2.4, sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
+
+sb-addon-themes@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/sb-addon-themes/-/sb-addon-themes-0.0.5.tgz#2d2fcfa3db6bf8a5bec5732711eaad1fc31cd6cc"
+  integrity sha512-ak9nyaSTTEnm6ZBSVsOE/khPqsUFdtK9MMs2f0gHFzohIosusX4sWsTX2Ej2rQ/MFYBJxSIoWg0sUzeXZTNTHA==
+  dependencies:
+    "@storybook/addons" "^5.0.1"
+    "@storybook/components" "^5.0.1"
+    "@storybook/core-events" "^5.0.1"
+    "@storybook/react" "^5.0.1"
+    "@storybook/theming" "^5.0.1"
+    react "^16.8.4"
 
 scheduler@^0.13.4:
   version "0.13.4"
