@@ -1,8 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Story } from './ui/Story';
-import { Header3 } from '../src/Type';
+import { Header3, Header2 } from '../src/Type';
 import styled from 'styled-components';
+import {
+  Paste,
+  SovereignShadow,
+  RavenImperial,
+  White,
+} from '../src/Color/Color';
 
 storiesOf('Iris|Welcome', module)
   .add('Welcome to Iris!', () => (
@@ -56,46 +62,96 @@ storiesOf('Iris|Welcome', module)
   ))
   .add('Modules', () => (
     <Story title="Modules" width="100%">
-      <Pre>
-        import {'{ Button, VideoCard }'} from
-        '@vimeo/iris/components';
-      </Pre>
-      <Pre>
-        import {'{ VimeoBlue, RavenImperial }'} from
-        '@vimeo/iris/color';
-      </Pre>
-      <Pre>import {'{ SlideUpDown }'} from '@vimeo/iris/motion';</Pre>
-      <Pre>
-        import {'{ HeaderPlusUltra, ParagraphMd }'} from
-        '@vimeo/iris/typography';
-      </Pre>
-      <Pre>
-        import {'{ Comment, DownloadArrow, Replay }'} from
-        '@vimeo/iris/icons';
-      </Pre>
-      <Pre>
-        import {'{ VimeoExclusiveSm, VodThumbnailBadge }'} from
-        '@vimeo/iris/illustration';
-      </Pre>
-      {/* <Pre>
-        import {'{ visuallyHidden }'} from '@vimeo/iris/utils';
-      </Pre>
-      <Pre>
-        import {'{ arrowRight }'} from '@vimeo/iris/util/keyCodes';
-      </Pre> */}
-      <Pre>import {'{ KEY_CODES }'} from '@vimeo/iris/legacy';</Pre>
+      <div>
+        <Header3>Iris 7 is organized into multiple modules:</Header3>
+        <Ol>
+          <Header3>
+            <li>Color</li>
+          </Header3>
+          <Header3>
+            <li>Components</li>
+          </Header3>
+          <Header3>
+            <li>Icons</li>
+          </Header3>
+          <Header3>
+            <li>Illustration</li>
+          </Header3>
+          <Header3>
+            <li>Legacy</li>
+          </Header3>
+          <Header3>
+            <li>Motion</li>
+          </Header3>
+          <Header3>
+            <li>Typography</li>
+          </Header3>
+          <Header3>
+            <li>Utilities</li>
+          </Header3>
+        </Ol>
+      </div>
+      <br />
+      <br />
+      <Header3>You can import from them like this:</Header3>
+      <DemoImports>
+        <Pre>
+          import {'{ Button, VideoCard }'} from
+          '@vimeo/iris/components';
+        </Pre>
+        <Pre>
+          import {'{ VimeoBlue, RavenImperial }'} from
+          '@vimeo/iris/color';
+        </Pre>
+        <Pre>
+          import {'{ SlideUpDown }'} from '@vimeo/iris/motion';
+        </Pre>
+        <Pre>
+          import {'{ HeaderPlusUltra, ParagraphMd }'} from
+          '@vimeo/iris/typography';
+        </Pre>
+        <Pre>
+          import {'{ Comment, DownloadArrow, Replay }'} from
+          '@vimeo/iris/icons';
+        </Pre>
+        <Pre>
+          import {'{ VimeoExclusiveSm, VodThumbnailBadge }'} from
+          '@vimeo/iris/illustration';
+        </Pre>
+        {}
+        <Pre>import {'{ KEY_CODES }'} from '@vimeo/iris/legacy';</Pre>
+      </DemoImports>
     </Story>
   ));
+
+const Ol = styled.ol`
+  li {
+    margin-left: 1.5rem;
+  }
+`;
 
 const Pre = styled.pre`
   border-radius: 3px;
   font-size: 85%;
   line-height: 1.45;
   overflow: auto;
-  padding: 16px;
+  padding: 1rem;
   width: 45rem;
   word-wrap: normal;
   white-space: pre-wrap;
+`;
+
+const DemoImports = styled.div`
+  background: ${RavenImperial};
+  margin: 2rem 0;
+  border-radius: 0.25rem;
+
+  ${Pre} {
+    color: ${White};
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    width: auto;
+  }
 `;
 
 const Code = styled.code`
