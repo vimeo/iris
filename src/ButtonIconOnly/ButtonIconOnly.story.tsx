@@ -17,7 +17,7 @@ const Format = styled.h6`
 
 const componentName = 'Button';
 
-storiesOf(`components/${componentName}`, module).add(
+storiesOf(`components|${componentName}`, module).add(
   'icon only',
   () => (
     <Story title={componentName} subTitle="Icon Only" width="100%">

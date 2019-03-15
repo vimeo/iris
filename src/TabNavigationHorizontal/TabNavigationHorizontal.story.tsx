@@ -8,7 +8,7 @@ import { Story } from '../../.storybook/ui/Story';
 
 const componentName = 'Tab Navigation Horizontal';
 
-storiesOf(`components/`, module).add('Tab Navigation', () => (
+storiesOf(`components|Tabs`, module).add('Tab Navigation', () => (
   <Story title={componentName}>
     <TabNavigationHorizontal
       index={1}

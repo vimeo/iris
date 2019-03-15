@@ -1,16 +1,25 @@
 import React, { SFC, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
-import { Avatar } from '../../Avatar/Avatar';
+import { rgba } from 'polished';
+
+import { Avatar } from '../../../src/Avatar/Avatar';
 import {
   Header5,
   Header6,
   HeaderAltSm,
   ParagraphAltMd,
-} from '../../Type';
-import { Badge as B } from '../../Badge/Badge';
-import { AshenWinter, Black } from '../../Color/Color';
-import { rgba } from 'polished';
-import { TooltipOverlay } from '../../TooltipOverlay/TooltipOverlay';
+} from '../../../src/Type';
+import { Badge as B } from '../../../src/Badge/Badge';
+import {
+  AshenWinter,
+  Black,
+  White,
+  Plaster,
+  RavenImperial,
+  IronHeart,
+  Porcelain,
+} from '../../../src/Color/Color';
+import { TooltipOverlay } from '../../../src/TooltipOverlay/TooltipOverlay';
 
 interface Props {
   children: ReactNode;
@@ -19,7 +28,7 @@ interface Props {
   name: string;
   pronouns: string;
   badge: string;
-  variation: 'A' | 'B' | 'C' | 'D';
+  variation: 'B' | 'A' | 'C' | 'D' | 'E' | 'F' | 'G';
 }
 
 // A: comment, badges below
@@ -34,15 +43,53 @@ export const Comment: SFC<Props> = ({
 }) => {
   return (
     <CommentWrapper id={`comment_${id}`}>
-      <Avatar
-        alt="name"
-        src={`https://i.vimeocdn.com/portrait/${id}_75x75`}
-        srcSet={`https://i.vimeocdn.com/portrait/${id}_150x150 2x`}
+      <div
         style={{
-          width: '3rem',
-          marginRight: '1rem',
+          alignSelf: 'start',
+          width:
+            (variation === 'E' ||
+              variation === 'F' ||
+              variation === 'G') &&
+            '5.5rem',
+          minWidth:
+            (variation === 'E' ||
+              variation === 'F' ||
+              variation === 'G') &&
+            '5.5rem',
+          maxWidth:
+            (variation === 'E' ||
+              variation === 'F' ||
+              variation === 'G') &&
+            '5.5rem',
         }}
-      />
+      >
+        <Avatar
+          alt="name"
+          src={`https://i.vimeocdn.com/portrait/${id}_75x75`}
+          srcSet={`https://i.vimeocdn.com/portrait/${id}_150x150 2x`}
+          style={{
+            width: '3rem',
+            marginRight: '1rem',
+          }}
+        />
+        {(variation === 'E' || variation === 'F') && (
+          <>
+            <div style={{ marginTop: '0.25rem' }} />
+            <Badge href="#" format="live-archive" size="sm">
+              {pronouns}
+            </Badge>
+          </>
+        )}
+        {badge && variation === 'F' && (
+          <>
+            <div style={{ marginTop: '0.25rem' }} />
+            <Badge href="#" format={badge as Format} size="sm">
+              {badge}
+            </Badge>
+          </>
+        )}
+        {variation === 'G' && <PronounsSm>{pronouns}</PronounsSm>}
+      </div>
       <div>
         <Meta>
           {variation !== 'D' ? (
@@ -58,24 +105,28 @@ export const Comment: SFC<Props> = ({
             </InlineTipHack>
           )}
 
-          {variation === 'A' && <Time>2 hours ago</Time>}
+          {variation === 'B' && <Time>2 hours ago</Time>}
           {variation === 'C' && <Pronouns>({pronouns})</Pronouns>}
 
-          {variation === 'A' && <br />}
+          {variation === 'B' && <br />}
 
-          {variation !== 'C' && variation !== 'D' && (
-            <Badge href="#" format="live-archive" size="sm">
-              {pronouns}
-            </Badge>
-          )}
+          {variation !== 'C' &&
+            variation !== 'D' &&
+            variation !== 'E' &&
+            variation !== 'F' &&
+            variation !== 'G' && (
+              <Badge href="#" format="live-archive" size="sm">
+                {pronouns}
+              </Badge>
+            )}
 
-          {badge && (
+          {badge && variation !== 'F' && (
             <Badge href="#" format={badge as Format} size="sm">
               {badge}
             </Badge>
           )}
 
-          {variation !== 'A' && <Time>2 hours ago</Time>}
+          {variation !== 'B' && <Time>2 hours ago</Time>}
         </Meta>
         <CommentText variation={variation}>{children}</CommentText>
       </div>
@@ -90,11 +141,11 @@ const Time = styled(HeaderAltSm)`
 
 const CommentTextMargin = ({ variation = '' }) => {
   switch (variation) {
-    case 'A':
+    case 'B':
       return css`
         margin-top: 1rem;
       `;
-    case 'B':
+    case 'A':
     case 'C':
       return css`
         margin-top: 0.25rem;
@@ -107,6 +158,8 @@ const CommentTextMargin = ({ variation = '' }) => {
 const CommentText = styled(ParagraphAltMd)<{ variation?: string }>`
   width: 100%;
   display: block;
+  color: ${({ theme }) =>
+    theme.name === 'dark' ? Plaster : RavenImperial};
   ${CommentTextMargin};
 `;
 
@@ -127,6 +180,7 @@ const NameMargin = ({ variation = '' }) => {
 
 const Name = styled(Header5)<{ variation?: string }>`
   display: inline-block;
+  color: ${({ theme }) => (theme.name === 'dark' ? White : Black)};
   ${NameMargin}
 `;
 
@@ -146,12 +200,21 @@ const ReplyButton = styled(Header6)`
   position: absolute;
   right: 0;
   bottom: 0.5rem;
-  color: ${AshenWinter};
+  color: ${({ theme }) =>
+    theme.name === 'dark' ? Porcelain : AshenWinter};
+`;
+
+const PronounsSm = styled(Header6)`
+  margin-top: 0.5rem;
+  display: inline-block;
+  color: ${({ theme }) => (theme.name === 'dark' ? White : Black)};
+  transform: scale(0.85) translateX(-3px);
 `;
 
 const Pronouns = styled(Header5)`
   margin-right: 0.5rem;
   display: inline-block;
+  color: ${({ theme }) => (theme.name === 'dark' ? White : Black)};
 `;
 
 const InlineTipHack = styled.span`

@@ -40,7 +40,7 @@ import { ParagraphMd } from '../Type';
 
 const componentName = 'Button';
 
-storiesOf(`components/${componentName}`, module)
+storiesOf(`components|${componentName}`, module)
   .add('playground', () => (
     <Story title={componentName} subTitle="Playground">
       <ParagraphMd>Click "KNOBS" in the panel below.</ParagraphMd>

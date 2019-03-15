@@ -11,7 +11,7 @@ const ButtonToggleState = styled(B)`
 
 const componentName = 'Button';
 
-storiesOf('components/Button', module).add('toggle state', () => (
+storiesOf('Components|Button', module).add('toggle state', () => (
   <Story title={componentName} subTitle="Toggle State">
     <ButtonToggleStateDocs />
   </Story>

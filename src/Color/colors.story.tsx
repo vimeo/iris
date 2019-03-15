@@ -4,7 +4,7 @@ import * as COLORS from '../Color/Color';
 import styled from 'styled-components';
 import { Story } from '../../.storybook/ui/Story';
 
-storiesOf('colors/', module)
+storiesOf('Color|Color Palettes', module)
   .add('reds', () => (
     <Story title="Colors" subTitle="reds" width="100%" flex>
       {REDS.map((colorName, i) => (

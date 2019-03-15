@@ -37,7 +37,7 @@ const VariantStory = ({ variant }) => (
   </Story>
 );
 
-storiesOf('components/Notification', module)
+storiesOf('Components|Notification', module)
   .add('neutral', () => <VariantStory variant="neutral" />)
   .add('success', () => <VariantStory variant="success" />)
   .add('warning', () => <VariantStory variant="warning" />);

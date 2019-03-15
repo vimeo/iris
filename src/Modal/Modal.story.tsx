@@ -8,7 +8,7 @@ import { Story } from '../../.storybook/ui/Story';
 
 const componentName = 'Modal';
 
-storiesOf(`components/${componentName}`, module).add('basic', () => (
+storiesOf(`components|${componentName}`, module).add('basic', () => (
   <Story title={componentName} subTitle="basic">
     <ModalDocs />
   </Story>

@@ -1,11 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Story } from '../../.storybook/ui/Story';
-import { Header4 } from '../Type';
+import { Story } from '../ui/Story';
+import { Header4 } from '../../src/Type';
 
 const componentName = 'playground';
 
-storiesOf(`playground/`, module).add(
+storiesOf(`Playground|About`, module).add(
   'What is the playground?',
   () => (
     <Story title={componentName}>

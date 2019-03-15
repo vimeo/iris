@@ -10,7 +10,7 @@ const $Tag = styled(Tag)`
 
 const componentName = 'Tag';
 
-storiesOf(`components/${componentName}`, module)
+storiesOf(`components|${componentName}`, module)
   .add('basic', () => (
     <Story title={componentName} subTitle="basic">
       <$Tag size="xs">Documentary</$Tag>

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Avatar } from '../../Avatar/Avatar';
 import styled from 'styled-components';
-import { ParagraphSm, Header5 } from '../../Type';
-import { Badge } from '../../Badge/Badge';
-import { IronHeart } from '../../Color/Color';
 import { rgba } from 'polished';
+
+import { Avatar } from '../../../src/Avatar/Avatar';
+import { ParagraphSm, Header5 } from '../../../src/Type';
+import { Badge } from '../../../src/Badge/Badge';
+import { IronHeart } from '../../../src/Color/Color';
 
 export const UserInfo = ({ badge = 'staff', id, name }) => {
   return (

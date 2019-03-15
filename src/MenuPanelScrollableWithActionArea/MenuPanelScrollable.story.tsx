@@ -11,7 +11,7 @@ import { Story } from '../../.storybook/ui/Story';
 
 const componentName = 'Menu Panel';
 
-storiesOf(`components/${componentName}`, module).add(
+storiesOf(`components|${componentName}`, module).add(
   'scrollable',
   () => (
     <Story title={componentName} subTitle="Scrollable">

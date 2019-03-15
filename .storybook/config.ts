@@ -23,10 +23,15 @@ addDecorator(withKnobs);
 const requireAll = requireContext =>
   requireContext.keys().map(requireContext);
 
-const loadStories = () => {
+function loadStories() {
+  require('./Welcome.x-story');
+
   requireAll(
-    (require as any).context('../src', true, /story\.tsx?$/),
+    (require as any).context('../src', true, /\.story\.tsx?$/),
   );
-};
+
+  require('./playground/Playground.x-story');
+  require('./playground/Pronouns/Pronouns.x-story');
+}
 
 configure(loadStories, module);

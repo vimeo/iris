@@ -16,7 +16,7 @@ const Grid = styled.div`
 
 const componentName = 'Add New Item Card';
 
-storiesOf(`components/`, module).add('Add New Item Card', () => (
+storiesOf(`Components|Cards`, module).add('Add New Item Card', () => (
   <Story title={componentName} width="100%">
     <Grid>
       <AddNewItemCard

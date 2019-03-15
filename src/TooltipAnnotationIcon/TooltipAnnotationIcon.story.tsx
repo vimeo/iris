@@ -7,7 +7,7 @@ import { Story } from '../../.storybook/ui/Story';
 
 const componentName = 'Tooltip Annotation Icon';
 
-storiesOf(`components/`, module).add('Tooltip', () => (
+storiesOf(`components|Tooltips`, module).add('Tooltip', () => (
   <Story title={componentName}>
     <TooltipAnnotationIcon size="md" tooltipText="I am a tooltip">
       <Header4>Tooltip</Header4>

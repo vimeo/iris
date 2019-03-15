@@ -17,7 +17,7 @@ const sizes = {
 
 const componentName = 'Badge';
 
-storiesOf(`components/`, module)
+storiesOf(`components|Badges`, module)
   .addParameters({ options: { theme: (document as any).sbTheme } })
 
   .add('Badge', props => {

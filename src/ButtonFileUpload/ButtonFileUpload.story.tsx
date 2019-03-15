@@ -10,7 +10,7 @@ const $ButtonFileUpload = styled(ButtonFileUpload)`
 
 const componentName = 'Button';
 
-storiesOf(`components/${componentName}`, module).add(
+storiesOf(`components|${componentName}`, module).add(
   'file upload',
   () => (
     <Story title={componentName} subTitle="File Upload">

@@ -3,6 +3,7 @@
 .prettierrc
 .storybook
 *.story.tsx
+*.x-story.tsx
 build-styleguide
 Jenkinsfile
 modules

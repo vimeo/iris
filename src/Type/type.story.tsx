@@ -11,7 +11,7 @@ import {
 } from './index';
 import { Story } from '../../.storybook/ui/Story';
 
-storiesOf('typography', module).add('headlines', () => (
+storiesOf('Typography|Headlines', module).add('headlines', () => (
   <Story title="Typography" subTitle="Headlines" width="100%">
     <div style={{ padding: '2rem' }}>
       <HeaderPlusUltra>Header Plus Ultra</HeaderPlusUltra>

@@ -4,11 +4,14 @@ import { Toastification } from './Toastification';
 import { Button } from '../Button/Button';
 import { Story } from '../../.storybook/ui/Story';
 
-storiesOf('components/', module).add('Toastification', () => (
-  <Story title="Toastification">
-    <ToastificationDocs />
-  </Story>
-));
+storiesOf('Components|Toastification', module).add(
+  'Toastification',
+  () => (
+    <Story title="Toastification">
+      <ToastificationDocs />
+    </Story>
+  ),
+);
 
 const ToastificationDocs = () => {
   const [showing, setShowing] = useState({});

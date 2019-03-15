@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Button } from '../Button/Button';
 
-storiesOf('legacy', module).add('link to old docs', () => {
+storiesOf('Legacy|Iris 5', module).add('link to old docs', () => {
   window.open(
     'https://github.vimeows.com/pages/vimeo/iris/docs/',
     '_blank',

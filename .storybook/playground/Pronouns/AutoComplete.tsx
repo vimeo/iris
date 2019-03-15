@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { getCoord } from './getCoord';
-import { Black, White, VimeoBlue } from '../../Color/Color';
 import { rgba } from 'polished';
-import { Avatar } from '../../Avatar/Avatar';
+import { getCoord } from './getCoord';
+
+import { Black, White, VimeoBlue } from '../../../src/Color/Color';
+import { Avatar } from '../../../src/Avatar/Avatar';
 
 export const TextArea = ({ people }) => {
   const [value, setValue] = useState('');
@@ -118,15 +119,15 @@ const User = styled.div`
 
 const UCWAnime = keyframes`
   0% {
-    transform: translate(8px, 16px);
+    transform: translate(4px, 24px);
   }
 
   66% {
-    transform: translate(-4px, 16px);
+    transform: translate(-2px, 24px);
   }
 
   100% {
-    transform: translate(0, 16px);
+    transform: translate(0, 24px);
   }
 `;
 
@@ -140,7 +141,7 @@ const UserCompleteWrapper = styled.div<any>`
   background: ${rgba(White, 0.9)};
   box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 10px -8px,
     rgba(0, 0, 0, 0.3) 0px 0px 4px -1px;
-  animation: ${UCWAnime} 260ms both ease-in-out;
+  animation: ${UCWAnime} 300ms both ease-in-out;
   transform-origin: 0 0;
   cursor: pointer;
 `;
@@ -150,6 +151,7 @@ const isPronoun = string => pronouns.includes(string.toLowerCase());
 const pronouns = [
   'they',
   'them',
+  'their',
   'theirs',
   'she',
   'her',
@@ -180,13 +182,13 @@ const selectPronoun = (text, pronoun) => {
   //.join(' ')
   //.concat(' ');
 
-  console.log(newText);
+  // console.log(newText);
 
   return newText;
 };
 
 const pronounCase = string => {
-  console.log('string: ', string);
+  // console.log('string: ', string);
   switch (string) {
     case 'they':
     case 'she':
@@ -200,6 +202,8 @@ const pronounCase = string => {
     case 'her':
     case 'his':
       return 'possessiveA';
+    case 'theirs':
+      return 'possessiveP';
     default:
       console.warn('pronoun error');
       return '';

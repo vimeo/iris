@@ -7,28 +7,31 @@ import styled from 'styled-components';
 import { ParagraphMd } from '../Type';
 import { Story } from '../../.storybook/ui/Story';
 
-storiesOf('utilties/', module).add('Character Count', () => (
-  <Story title="Character Count">
-    <InputTextWithCharacterCount
-      id="someId1"
-      label="Input (text) with character count"
-      maxCharacters={10}
-      characterSingularString="character"
-      characterPluralString="characters"
-      helperMsg={
-        <ParagraphMd>This is helpful information.</ParagraphMd>
-      }
-    />
-    <TextAreaWithCharacterCount
-      id="someId2"
-      label="TextArea with character count"
-      maxCharacters={30}
-      warningThreshold={10}
-      characterSingularString="character"
-      characterPluralString="characters"
-    />
-  </Story>
-));
+storiesOf('Utilties|Character Count', module).add(
+  'Character Count',
+  () => (
+    <Story title="Character Count">
+      <InputTextWithCharacterCount
+        id="someId1"
+        label="Input (text) with character count"
+        maxCharacters={10}
+        characterSingularString="character"
+        characterPluralString="characters"
+        helperMsg={
+          <ParagraphMd>This is helpful information.</ParagraphMd>
+        }
+      />
+      <TextAreaWithCharacterCount
+        id="someId2"
+        label="TextArea with character count"
+        maxCharacters={30}
+        warningThreshold={10}
+        characterSingularString="character"
+        characterPluralString="characters"
+      />
+    </Story>
+  ),
+);
 
 const TextAreaStyled = styled(TextArea)`
   max-width: 20rem;

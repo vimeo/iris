@@ -9,7 +9,7 @@ import { Header2, Header6 } from '../Type';
 import * as COLORS from '../Color/Color';
 import { Story } from '../../.storybook/ui/Story';
 
-storiesOf('Icons', module).add('all', () => {
+storiesOf('SVG|Icons', module).add('all', () => {
   const size = select(
     'Size',
     { XS: 0.625, SM: 0.875, MD: 1, LG: 1.125, XL: 2 },
@@ -33,7 +33,7 @@ storiesOf('Icons', module).add('all', () => {
     </Story>
   );
 });
-storiesOf('Illustration', module).add('all', () => (
+storiesOf('SVG|Illustration', module).add('all', () => (
   <Story title="Illustrations" width="100%">
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
       {Object.keys(Illustrations).map(illustration => (

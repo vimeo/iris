@@ -6,7 +6,7 @@ import { Story } from '../../.storybook/ui/Story';
 
 const componentName = 'Menu Panel';
 
-storiesOf(`components/${componentName}`, module)
+storiesOf(`components|${componentName}`, module)
   .add('basic', () => (
     <Story title={componentName} subTitle="basic">
       <MenuPanel alignment="right" menuContent={MenuList} size="md">

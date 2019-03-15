@@ -11,7 +11,7 @@ const ButtonLoadingState = styled(B)`
   margin: 0 1rem 1rem 0;
 `;
 
-storiesOf('components/Button', module).add('loading state', () => (
+storiesOf('Components|Button', module).add('loading state', () => (
   <Story title={componentName} subTitle="Loading State">
     <ButtonLoadingStateDocs />
   </Story>

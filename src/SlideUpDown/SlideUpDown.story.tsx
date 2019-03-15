@@ -6,7 +6,7 @@ import { Button } from '../Button/Button';
 import { Notification } from '../Notification/Notification';
 import { Story } from '../../.storybook/ui/Story';
 
-storiesOf('animation', module).add('Slide Up Down', () => (
+storiesOf('Motion|Animation', module).add('Slide Up Down', () => (
   <Story title="Slide Up Down">
     <SlideUpDownDocs />
   </Story>

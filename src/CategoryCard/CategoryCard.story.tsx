@@ -22,7 +22,7 @@ const Grid = styled.div`
 
 const componentName = 'Category Card';
 
-storiesOf(`components/`, module).add('Category Card', () => (
+storiesOf(`components|Cards`, module).add('Category Card', () => (
   <Story title={componentName} width="100%">
     <Grid>
       <$CategoryCard

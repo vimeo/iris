@@ -25,7 +25,7 @@ import styled from 'styled-components';
 
 const componentName = 'Inputs';
 
-storiesOf(`components/${componentName}`, module).add('select', () => (
+storiesOf(`components|${componentName}`, module).add('select', () => (
   <Story title="Input Select" subTitle="Select">
     <div data-code>
       <$InputSelect id="ExampleSelect1XL" label="XL Select" size="xl">

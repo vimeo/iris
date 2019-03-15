@@ -6,7 +6,7 @@ import { Story } from '../../.storybook/ui/Story';
 
 const componentName = 'Copy Field';
 
-storiesOf(`components/`, module).add('Copy Field', () => (
+storiesOf(`components|Inputs`, module).add('Copy Field', () => (
   <Story title={componentName}>
     <CopyField
       buttonFormat="strong"

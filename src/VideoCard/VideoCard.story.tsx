@@ -33,7 +33,7 @@ const Grid = styled.div`
 
 const componentName = 'Video Card';
 
-storiesOf(`components/${componentName}`, module).add('basic', () => (
+storiesOf(`components|${componentName}`, module).add('basic', () => (
   <Story title={componentName} subTitle="basic" width="100%">
     <Grid>
       <div>
