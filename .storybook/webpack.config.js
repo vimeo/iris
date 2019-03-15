@@ -19,7 +19,9 @@ module.exports = ({
         }],
     });
 
-    config.resolve.extensions.push('.ts', '.tsx');
+    config.resolve.alias['styled-components'] = require.resolve('styled-components');
+
+    config.resolve.extensions.push('.jsx', '.ts', '.tsx');
     config.output.pathinfo = false;
     config.optimization.removeAvailableModules = false;
     config.optimization.removeEmptyChunks = false;

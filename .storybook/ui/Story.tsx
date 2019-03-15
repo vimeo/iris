@@ -28,7 +28,13 @@ export const Story = withTheme(
     flex = false,
     theme,
   }: Props) => {
-    const [height, setHeight] = useState(0);
+    if (!theme) {
+      console.error('No theme detected!');
+    } else {
+      theme.name = theme.base;
+    }
+
+    theme = theme || { name: 'light ' };
 
     return (
       <Wrapper>
