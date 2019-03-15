@@ -17,7 +17,7 @@ export interface InputProps {
   helperMsg?: React.ReactNode;
   hidden?: boolean;
   id: string;
-  label: React.ReactNode;
+  label?: React.ReactNode;
   onBlur?: FormEventHandler;
   onChange?: FormEventHandler;
   onFocus?: FocusEventHandler;

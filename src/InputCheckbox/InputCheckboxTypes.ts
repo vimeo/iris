@@ -1,4 +1,8 @@
-import { MouseEventHandler, ReactNode } from 'react';
+import {
+  MouseEventHandler,
+  ReactNode,
+  ChangeEventHandler,
+} from 'react';
 
 export interface InputCheckboxProps {
   checked?: boolean;
@@ -11,6 +15,7 @@ export interface InputCheckboxProps {
   id: string;
   label: ReactNode;
   onClick?: MouseEventHandler;
+  onChange?: ChangeEventHandler;
   readOnly?: boolean;
   theme?: 'default' | 'dark';
 }

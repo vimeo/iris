@@ -1,4 +1,4 @@
-import React, { SFC, ReactNode } from 'react';
+import React, { SFC, ReactNode, MouseEventHandler } from 'react';
 import { InputLabelInline } from '../InputLabelInline/InputLabelInline';
 import {
   InputRadioWrapperStyled,
@@ -14,6 +14,9 @@ interface Props {
   label: ReactNode;
   theme?: 'default' | 'dark';
   name?: string;
+  onClick?: MouseEventHandler;
+  checked?: boolean;
+  readOnly?: boolean;
 }
 
 export const InputRadio: SFC<Props> = ({
