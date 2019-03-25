@@ -6,6 +6,7 @@
 *.x-story.tsx
 build-styleguide
 Jenkinsfile
+labs
 modules
 scripts
 src
