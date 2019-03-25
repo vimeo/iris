@@ -37,6 +37,7 @@ export const InputText: SFC<InputTextProps & InputProps> = ({
   label,
   id,
   preMessage,
+  autocomplete = true,
   showLabel = true,
   theme = 'light',
   size = 'md',
@@ -74,6 +75,7 @@ export const InputText: SFC<InputTextProps & InputProps> = ({
         inputSize={size}
         theme={theme}
         type={type}
+        autoComplete={autocomplete ? 'on' : 'off'}
       />
       {inlineButton}
     </InputWrapper>

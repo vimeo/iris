@@ -26,6 +26,7 @@ export interface InputProps {
   showLabel?: boolean;
   size?: 'sm' | 'md' | 'lg' | 'xl';
   theme?: 'default' | 'light' | 'dark';
+  autocomplete?: boolean;
 }
 
 export interface InputStyledProps {

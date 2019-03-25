@@ -1,11 +1,18 @@
 if [ -z "$(git status --porcelain)" ]; then
 
+  git config --global user.email "iris@vimeo.com"
+  git config --global user.name "Iris"
+
   echo "Preparing to deploy to Github Pages..."
+  rm -rf storybook-static
   rm -rf build-styleguide
 
   echo "Building Storybook..."
   yarn build-styleguide
   UPDATE_BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+  echo " "
+  echo $UPDATE_BRANCH
+  echo " "
   git status
 
   echo "Switching to gh-pages branch..."

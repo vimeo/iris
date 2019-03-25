@@ -410,6 +410,7 @@ export class InputColorPicker extends Component<
           onBlur={!disabled && this._handleBlur}
           onFocus={!disabled && this._handleFocus}
           data-input-field
+          autocomplete={false}
         />
         {resetButtonLabel && (
           <ResetButtonStyled

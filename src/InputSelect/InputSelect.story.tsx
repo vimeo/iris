@@ -2,6 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { InputSelect } from './InputSelect';
 import { ParagraphMd } from '../Type';
+import { Story } from '../../.storybook/ui/Story';
+import styled from 'styled-components';
 
 const $InputSelect = styled(InputSelect)`
   margin: 0 0 2rem;
@@ -19,9 +21,6 @@ const demoOptions = (
     </option>
   </optgroup>
 );
-
-import { Story } from '../../.storybook/ui/Story';
-import styled from 'styled-components';
 
 const componentName = 'Inputs';
 
