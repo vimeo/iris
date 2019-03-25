@@ -1,14 +1,20 @@
-import React, { SFC, MouseEventHandler } from 'react';
+import React, {
+  SFC,
+  MouseEventHandler,
+  ChangeEventHandler,
+} from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { InputCheckbox } from '../InputCheckbox/InputCheckbox';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 
-export interface VideoCardSelectionCheckboxProps
-  extends React.HTMLProps<HTMLInputElement> {
+export interface VideoCardSelectionCheckboxProps {
+  checked?: boolean;
   isShowing?: boolean;
   label: string;
+  onChange?: ChangeEventHandler;
   onCheckBoxClick?: MouseEventHandler;
+  title?: string;
 }
 
 export interface WrapperStyledProps
