@@ -36,6 +36,7 @@ const ThumbnailsStyled = styled.div<any>`
   position: absolute;
   width: 100%;
   height: 100%;
+  transition: 160ms ease;
 `;
 
 const MinorThumbnailsWrapper = styled.div<any>`
@@ -44,6 +45,11 @@ const MinorThumbnailsWrapper = styled.div<any>`
   flex-direction: column;
   overflow: hidden;
   height: 100%;
+`;
+
+const SingleThumbnail = styled.div`
+  display: flex;
+  flex: 0 1 100%;
 `;
 
 const MajorThumbnail = styled.div<any>`
@@ -74,44 +80,61 @@ const GroupThumbnailImage = styled.div<any>`
 
 export const VideoCardThumbnailGroup: SFC<
   VideoCardThumbnailGroupProps
-> = ({ thumbnailData }) => (
-  <WrapperStyled>
-    <ThumbnailsStyled>
-      <MajorThumbnail>
-        <GroupThumbnailImage
-          style={
-            thumbnailData[0] && {
-              backgroundImage: `url(${
-                thumbnailData[0].thumbnailSrc
-              })`,
-            }
-          }
-        />
-      </MajorThumbnail>
-      <MinorThumbnailsWrapper>
-        <MinorThumbnail>
+> = ({ thumbnailData }) =>
+  thumbnailData.length === 1 ? (
+    <WrapperStyled>
+      <ThumbnailsStyled>
+        <SingleThumbnail>
           <GroupThumbnailImage
             style={
-              thumbnailData[1] && {
+              thumbnailData[0] && {
                 backgroundImage: `url(${
-                  thumbnailData[1].thumbnailSrc
+                  thumbnailData[0].thumbnailSrc
                 })`,
               }
             }
           />
-        </MinorThumbnail>
-        <MinorThumbnail>
+        </SingleThumbnail>
+      </ThumbnailsStyled>
+    </WrapperStyled>
+  ) : (
+    <WrapperStyled>
+      <ThumbnailsStyled>
+        <MajorThumbnail>
           <GroupThumbnailImage
             style={
-              thumbnailData[2] && {
+              thumbnailData[0] && {
                 backgroundImage: `url(${
-                  thumbnailData[2].thumbnailSrc
+                  thumbnailData[0].thumbnailSrc
                 })`,
               }
             }
           />
-        </MinorThumbnail>
-      </MinorThumbnailsWrapper>
-    </ThumbnailsStyled>
-  </WrapperStyled>
-);
+        </MajorThumbnail>
+        <MinorThumbnailsWrapper>
+          <MinorThumbnail>
+            <GroupThumbnailImage
+              style={
+                thumbnailData[1] && {
+                  backgroundImage: `url(${
+                    thumbnailData[1].thumbnailSrc
+                  })`,
+                }
+              }
+            />
+          </MinorThumbnail>
+          <MinorThumbnail>
+            <GroupThumbnailImage
+              style={
+                thumbnailData[2] && {
+                  backgroundImage: `url(${
+                    thumbnailData[2].thumbnailSrc
+                  })`,
+                }
+              }
+            />
+          </MinorThumbnail>
+        </MinorThumbnailsWrapper>
+      </ThumbnailsStyled>
+    </WrapperStyled>
+  );

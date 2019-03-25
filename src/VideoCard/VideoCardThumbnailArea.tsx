@@ -73,6 +73,7 @@ const ThumbnailContainerStyled = styled.div<
 >`
   border-radius: ${rem(settings.borderRadius)}
     ${rem(settings.borderRadius)} 0 0;
+  overflow: hidden;
 `;
 
 const ThumbnailPreloadWrapperStyled = styled.div`
@@ -90,11 +91,6 @@ const HoverOverlayStyled = styled.div<{ active?: boolean }>`
   height: 100%;
   border-radius: ${rem(settings.borderRadius)}
     ${rem(settings.borderRadius)} 0 0;
-  background-image: linear-gradient(
-    -180deg,
-    rgba(0, 0, 0, 0.334) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
   transition: 80ms ease-in-out;
   opacity: ${props => (props.active ? '1' : '0')};
   pointer-events: none;

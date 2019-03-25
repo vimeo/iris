@@ -9,8 +9,6 @@ export interface Props {
 }
 
 const VideoCardDecorationAreaStyled = styled.div<Props>`
-  opacity: ${props =>
-    props.isHovered || props.isSelected ? '.5' : '1'};
   position: absolute;
   top: ${rem(VideoCardStyleSettings.padding)};
   left: ${rem(VideoCardStyleSettings.padding)};

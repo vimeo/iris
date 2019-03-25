@@ -65,7 +65,7 @@ export interface VideoCardProps {
   /**
    * Fires when the checkbox is clicked. This callback should control `isSelected`
    */
-  onCheckBoxClick: (event: React.MouseEvent<HTMLElement>) => void;
+  onCheckBoxClick?: (event: React.MouseEvent<HTMLElement>) => void;
   /**
    * Fires when an area of card that does not have its own click behavior is clicked.
    */
@@ -149,6 +149,16 @@ const WrapperStyled = styled<any>(Card)`
   cursor: pointer;
   position: relative;
   padding-bottom: 100%;
+
+  img {
+    transition: 210ms ease-in-out;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.015) translate3d(0, 0, 0);
+    }
+  }
 `;
 
 export interface ContentPositionWrapperStyledProps {

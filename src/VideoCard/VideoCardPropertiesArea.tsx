@@ -11,7 +11,6 @@ interface Props {
 const VideoCardPropertiesAreaStyled = styled.div<{
   isHovered?: boolean;
 }>`
-  opacity: ${props => (props.isHovered ? '.5' : '1')};
   position: absolute;
   top: ${rem(VideoCardStyleSettings.padding)};
   right: ${rem(VideoCardStyleSettings.padding)};

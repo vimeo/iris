@@ -1,6 +1,6 @@
 import React, { SFC } from 'react';
 import styled, { css } from 'styled-components';
-import { rem } from 'polished';
+import { rem, rgba, darken } from 'polished';
 import * as COLORS from '../Color/Color';
 import { CardSettings } from './CardSettings';
 
@@ -20,15 +20,17 @@ export interface CardProps {
 }
 
 const boxShadow = {
-  inactive: `0 0 ${rem(10)} 0 rgba(0,0,0,0.15)`,
-  isSelected: `0 0 0 ${rem(3)} ${COLORS.VimeoBlue}`,
+  inactive: `0 0 ${rem(8)} 0 rgba(0,0,0,0.10)`,
+  hover: `${rgba(0, 0, 0, 0.16667)} 0 0.5rem 1rem -0.5rem,
+  ${rgba(0, 0, 0, 0.3334)} 0 0 0.25rem -0.0625rem`,
+  selected: `0 0 0 ${rem(3)} ${COLORS.VimeoBlue}`,
 };
 
 const getBoxShadow = props => {
   if (props.isLoading) {
     return 'none';
   }
-  return props.isSelected ? boxShadow.isSelected : boxShadow.inactive;
+  return props.isSelected ? boxShadow.selected : boxShadow.inactive;
 };
 
 const CardStyled = styled.div<CardProps>`
@@ -40,6 +42,8 @@ const CardStyled = styled.div<CardProps>`
       props.isSelected ? COLORS.VimeoBlueDarkened : COLORS.Plaster};
   border-radius: ${rem(CardSettings.borderRadius)};
   width: 100%;
+  transform: scale(1) translate3d(0, 0, 0);
+  transition: border 170ms ease-in-out;
 
   &:after {
     display: block;
@@ -49,19 +53,20 @@ const CardStyled = styled.div<CardProps>`
     padding-bottom: calc(100% + ${rem(2)});
     border-radius: ${rem(CardSettings.borderRadius)};
     box-shadow: ${getBoxShadow};
-    opacity: ${props => (props.isSelected ? '1' : '.85')};
-    transition: 120ms ease-in-out;
-    z-index: -1;
+    transition: box-shadow 120ms ease-in-out,
+      transform 120ms ease-in-out, opacity 120ms ease-in-out;
+    pointer-events: none;
   }
 
   ${props =>
     !props.isLoading &&
     !props.isSelected &&
     css`
-      &:hover:after {
-        background: rgba(0, 0, 0, 0.1);
-        opacity: 1;
-        transform: scale(1.01);
+      &:hover {
+        border: ${rem(1)} solid ${darken(0.1, COLORS.Plaster)};
+        &:after {
+          box-shadow: ${boxShadow.hover};
+        }
       }
     `};
 `;
