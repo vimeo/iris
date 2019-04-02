@@ -37,9 +37,10 @@
 
 ### [Iris](https://github.vimeows.com/pages/vimeo/iris/master) is the design system that powers Vimeo's web apps.
 
+<a href="https://github.vimeows.com/pages/vimeo/iris/master"><img src="https://lh5.googleusercontent.com/Tl9jgdwwlPdvbUdh3tJFu3gKGFu5dsRxTp6SNsC5rTaLgzAoWwNkCBmqXZQrZaW5nHlzT7b2rfr7Hw=w1940-h1322" width="720px" /></a>
 
 ## Installation
-Install [Yarn](https://github.com/yarnpkg/yarn): `npm install -g yarn`
+[Yarn](https://github.com/yarnpkg/yarn) is required: `npm install -g yarn`
 
 **For use in your project:**
 ```bash
@@ -48,8 +49,8 @@ $ yarn add @vimeo/iris
 
 [styled-components](https://github.com/styled-components/styled-components) and [polished](https://github.com/styled-components/polished) are also required
 ```bash
-$ yarn add styled-components@^3.4.9
-$ yarn add polished@^2.3.1
+$ yarn add styled-components@^4.1.0
+$ yarn add polished@^3.0.0
 
 ```
 ***
@@ -65,32 +66,16 @@ This will open the Iris docs at http://localhost:9001/
 ***
 🚨 All code in Iris must be formatted with [Prettier](https://github.com/prettier/prettier/) for acceptance. We reccomend using an extension to format on save for your code editor (ie. [vscode-prettier](https://github.com/prettier/prettier-vscode)).
 
+🚨 If you have an issue with `@types/react-native` please run `yarn clean`.
+
+
 ***
-**[Working with Iris in Vimeo via yarn link:](https://github.vimeows.com/Vimeo/iris/wiki/Working-with-Iris-in-Vimeo-via-yarn-link)**
-
-#### Linking
-
-In order to work with Iris changes in a Vimeo frontend project you need to symlink your Iris package to a local Iris repo. This is accomplished via `yarn link`.
-
-Assuming you have already cloned Iris in an adjacent directory:
-1. `cd iris` and run `yarn link`
-2. `cd ../vimeo` and run `yarn link "@vimeo/iris"`
-
-Once Iris is linked, you can make changes that will be reflected in your local environment.
-
-⚠️ Note that the `make webpack/[project-name]` watch will not detect changes in Iris. Only changes in the current project will trigger webpack to rebuild.
-
-#### Unlinking
-
-In order to unlink Iris:
-1. `cd vimeo` and run `yarn unlink "@vimeo/iris"`
-2. then run `make yarn`
-
 
 ## Using Components
 Import components into your React app:
 ```jsx
-import { Button, ButtonIconOnly, ParagraphMd } from '@vimeo/iris';
+import { Button, ButtonIconOnly } from '@vimeo/iris/components';
+import { ParagraphMd } from '@vimeo/iris/typography';
 
 
 <div>
@@ -108,22 +93,43 @@ import { Button, ButtonIconOnly, ParagraphMd } from '@vimeo/iris';
 
 Import SVG icons into your React app:
 ```jsx
-import { Gear } from '@vimeo/iris';
+import { Gear } from '@vimeo/iris/icons';
 
 <Gear />
 
 ```
 
-Adding additional styles to a component:
+Adding additional styles to a component with the [`css`](https://medium.com/styled-components/announcing-native-support-for-the-css-prop-in-styled-components-245ca5252feb) prop:
 ```jsx
-import { Button } from '@vimeo/iris';
+import { Button } from '@vimeo/iris/components';
 
-const $Button = styled(Button)`
-  margin-bottom: 2rem;
+<div>
+    <Button
+      format="primary" 
+      size="xl"
+      css={`
+        margin-bottom: 2px;
+      `}
+    >
+      xl Button
+    </Button>
+</div>
+
+```
+
+Adding additional styles to a component with the `styled` tag:
+```jsx
+import { ParagraphMd as P } from '@vimeo/iris/typography';
+import { SunsetOrangeDarkened } from '@vimeo/iris/color';
+
+const ParagraphMd = styled(P)`
+  color: ${SunsetOrangeDarkened};
 `;
 
 <div>
-    <$Button format="primary" size="xl">xl Button</$Button>
+    <ParagraphMd>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+    </ParagraphMd>
 </div>
 
 ```
@@ -136,15 +142,9 @@ const $Button = styled(Button)`
 
 🐛 [Report a bug](https://github.vimeows.com/Vimeo/iris/issues/new?labels=p2,type%3A+bug&milestone=4&title=Bug%3A&template=bug-report.md)
 
-💬 [#web-iris](https://vimeo.slack.com/messages/C2UF8PH0A) Slack
+💬 [#iris](https://vimeo.slack.com/messages/C2UF8PH0A) Slack
 
-## Release Schedule
+## Roadmap
 
-Minor versions of Iris are generally released biweekly on Wednesdays. If you have an urgent need for a release, please reach out in [#web-iris](https://vimeo.slack.com/messages/C2UF8PH0A).
+View the [roadmap](https://github.vimeows.com/Vimeo/iris/blob/master/ROADMAP.md). If you have an urgent need for a release, please reach out in [#iris](https://vimeo.slack.com/messages/C2UF8PH0A).
 
-## Releasing
-
-Read the [release docs](https://github.vimeows.com/Vimeo/iris/wiki/Publishing-an-Iris-Release).
-
-## Documentation
-Read the [wiki](https://github.vimeows.com/Vimeo/iris/wiki).
