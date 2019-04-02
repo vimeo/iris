@@ -56,7 +56,7 @@ export const MenuPanelScrollableWithActionArea: SFC<Props> = ({
             autoWidth="fluid"
             format="secondary"
             size="sm"
-            children={primaryButtonProps.children}
+            children={secondaryButtonProps.children}
           />
         )}
         <$Button
@@ -64,7 +64,7 @@ export const MenuPanelScrollableWithActionArea: SFC<Props> = ({
           autoWidth="fluid"
           format="primary"
           size="sm"
-          children={secondaryButtonProps.children}
+          children={primaryButtonProps.children}
         />
       </ActionArea>
     </div>
