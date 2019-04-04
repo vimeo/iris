@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { rem } from 'polished';
 import { InputStyleSettings as styles } from '../InputText/InputHelpers';
 import { VimeoStyleSettings as vimeo } from '../Legacy/VimeoStyleSettings';
@@ -34,6 +34,10 @@ const padding = {
   xl: `${rem(13)} ${rem(15)}`,
 };
 
+const iconSlideAnimation = css`
+  animation: ${iconSlide} 300ms ease-out forwards;
+`;
+
 export const IconStyled = styled.div<{
   iconSize?: 'sm' | 'md' | 'lg' | 'xl';
   format?: 'negative' | 'positive' | 'neutral';
@@ -48,7 +52,7 @@ export const IconStyled = styled.div<{
   svg {
     width: ${props => rem(styles.size[props.iconSize].iconSize)};
     height: ${props => rem(styles.size[props.iconSize].iconSize)};
-    animation: ${iconSlide} 300ms ease-out forwards;
+    ${iconSlideAnimation};
 
     * {
       fill: currentColor;

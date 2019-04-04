@@ -19,6 +19,7 @@ export interface LinkTextProps {
   decoration?: 'loud' | 'inherit' | 'silent';
   title?: ReactNode;
   href?: string;
+  target?: string;
 }
 
 const linkBorderCss = css`

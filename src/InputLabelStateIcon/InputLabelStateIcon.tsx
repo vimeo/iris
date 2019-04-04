@@ -1,6 +1,6 @@
 import React, { SFC } from 'react';
 import { CircleWarning, Checkmark } from '../Icons';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { keyframes } from 'styled-components';
 import * as COLORS from '../Color/Color';
 import { rem } from 'polished';
@@ -15,8 +15,12 @@ export const InputLabelStateIcon: SFC<Props> = ({
 }) => <IconStyled format={format} {...props} />;
 
 const inputIconFadeIn = keyframes`
-    0% { opacity: 0 }
-    100% { opacity: 1 }
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+`;
+
+const iconAnimation = css`
+  animation: ${inputIconFadeIn} 600ms ease-out forwards;
 `;
 
 const iconColor = ({ format }) =>
@@ -36,6 +40,6 @@ const IconStyled = styled(({ format, ...props }: Props) =>
   height: 1.125rem;
   margin-bottom: ${rem(-3)};
   margin-left: 0.5rem;
-  animation-name: ${inputIconFadeIn} 600ms ease-out forwards;
-  ${iconColor}
+  ${iconAnimation};
+  ${iconColor};
 `;

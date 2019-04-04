@@ -1,6 +1,6 @@
 import React, { SFC } from 'react';
 import { rem } from 'polished';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import * as COLORS from '../Color/Color';
 
 export interface LoaderCircularProps {
@@ -35,8 +35,12 @@ const LoaderCircularFormats = {
 };
 
 const loaderRotationKeyframes = keyframes`
-    from { transform: rotate(0deg) }
-    to   { transform: rotate(360deg) }
+  from { transform: rotate(0deg) }
+  to   { transform: rotate(360deg) }
+`;
+
+const loaderAnimation = css`
+  animation: ${loaderRotationKeyframes} 800ms linear infinite;
 `;
 
 const LoaderCircularStyled = styled.div<LoaderCircularProps>`
@@ -44,10 +48,10 @@ const LoaderCircularStyled = styled.div<LoaderCircularProps>`
   border-style: solid;
   border-color: ${props => LoaderCircularFormats[props.format]};
   border-bottom-color: transparent !important;
-  animation: ${loaderRotationKeyframes} 800ms linear infinite;
   width: ${getSizeFromProps};
   height: ${getSizeFromProps};
   border-radius: ${getSizeFromProps};
+  ${loaderAnimation};
 `;
 
 export const LoaderCircular: SFC<LoaderCircularProps> = ({

@@ -101,35 +101,39 @@ const haloKeyframes = keyframes`
         }
     `;
 
+const haloAnimation = css`
+  animation: 2500ms infinite ${haloKeyframes};
+`;
+
 const HaloStyled = styled.span<{ isActive: boolean }>`
   display: inline-block;
   ${props =>
-    props.isActive
-      ? `
-        width: ${rem(FeatureDotStyleSettings.haloSize)};
-        height: ${rem(FeatureDotStyleSettings.haloSize)};
-        padding: ${rem(
-          (FeatureDotStyleSettings.haloSize -
-            FeatureDotStyleSettings.beaconSize) /
-            2,
-        )};
+    props.isActive &&
+    css`
+      width: ${rem(FeatureDotStyleSettings.haloSize)};
+      height: ${rem(FeatureDotStyleSettings.haloSize)};
+      padding: ${rem(
+        (FeatureDotStyleSettings.haloSize -
+          FeatureDotStyleSettings.beaconSize) /
+          2,
+      )};
 
-        border-radius: ${rem(FeatureDotStyleSettings.haloSize / 2)};
-        background-image: radial-gradient(
+      border-radius: ${rem(FeatureDotStyleSettings.haloSize / 2)};
+      background-image: radial-gradient(
         circle,
         ${COLORS.White},
-        ${COLORS.White}  ${rem(9)},
+        ${COLORS.White} ${rem(9)},
         ${FeatureDotStyleSettings.haloColor} ${rem(10)},
         ${FeatureDotStyleSettings.haloColor} ${rem(15)},
-        rgba(255,255,255, 0) ${rem(16)},
-        rgba(255,255,255, 0)
-        );
+        rgba(255, 255, 255, 0) ${rem(16)},
+        rgba(255, 255, 255, 0)
+      );
 
-        animation: 2500ms infinite ${haloKeyframes};
-
-    `
-      : ''};
+      ${haloAnimation};
+    `};
 `;
+
+console.log('haloKeyframes: ', haloKeyframes);
 
 export const FeatureTourDot: SFC<FeatureDotProps> = ({
   beaconA11yText,

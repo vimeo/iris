@@ -9,13 +9,17 @@ const WrapperStyled = styled.div`
   width: 100%;
 `;
 
-const loaderBackgroundAnimation = keyframes`
+const loaderBackgroundKeyframes = keyframes`
     from {
         background-position: 100% 0;
     }
     to {
         background-position: -100% 0;
     }
+`;
+
+const loaderBackgroundAnimation = css`
+  animation: ${loaderBackgroundKeyframes} 2.5s linear infinite;
 `;
 
 const loadingGradient = css`
@@ -28,7 +32,7 @@ const loadingGradient = css`
     rgba(0, 0, 0, 0) 100%
   );
   background-size: 200%;
-  animation: ${loaderBackgroundAnimation} 2.5s linear infinite;
+  ${loaderBackgroundAnimation};
   transiton: 200ms;
 `;
 

@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, CSSProperties } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { FeatureTourPanelContent } from '../FeatureTourPanelContent/FeatureTourPanelContent';
@@ -19,11 +19,12 @@ export interface FeatureTourPanelProps {
   headerText?: string;
   shouldHideOnClose?: boolean;
   isOpen?: boolean;
-  onClose: () => void;
+  onClose?: () => void;
   onDismissClick?: (event?: MouseEvent) => void;
   onOpen?: () => void;
   shouldRefocusTriggerOnClose?: boolean;
   wrapperClass?: string;
+  style?: CSSProperties;
 }
 
 export interface FeatureTourPanelState {
@@ -259,7 +260,7 @@ const attachmentConfig = attachment =>
     },
     bottom: {
       attachment: 'top center',
-      offset: `-48px 0`,
+      offset: `0 0`,
       TargetAttachment: 'top center',
     },
     left: {

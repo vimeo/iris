@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { rgba } from 'polished';
 import { getCoord } from './getCoord';
 
@@ -117,7 +117,7 @@ const User = styled.div`
   }
 `;
 
-const UCWAnime = keyframes`
+const UCWKeyframes = keyframes`
   0% {
     transform: translate(4px, 24px);
   }
@@ -131,6 +131,10 @@ const UCWAnime = keyframes`
   }
 `;
 
+const UCWAnimation = css`
+  animation: ${UCWKeyframes} 300ms both ease-in-out;
+`;
+
 const UserCompleteWrapper = styled.div<any>`
   position: absolute;
   top: ${props => props.cursorPosition.top}px;
@@ -141,7 +145,7 @@ const UserCompleteWrapper = styled.div<any>`
   background: ${rgba(White, 0.9)};
   box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 10px -8px,
     rgba(0, 0, 0, 0.3) 0px 0px 4px -1px;
-  animation: ${UCWAnime} 300ms both ease-in-out;
+  ${UCWAnimation};
   transform-origin: 0 0;
   cursor: pointer;
 `;

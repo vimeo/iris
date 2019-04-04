@@ -59,6 +59,7 @@ export interface MenuPanelProps {
    */
   zIndexOverride?: number;
   children?: ReactNode;
+  options?: any;
 }
 
 export interface MenuPanelDefaultProps {

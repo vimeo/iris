@@ -1,5 +1,5 @@
 import React, { SFC } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
 import { rem, rgba } from 'polished';
 import {
@@ -31,15 +31,21 @@ const getBarBackgroundColor = props =>
 const stripeSizeRems = rem(ProgressBarStyleSettings.stripeSize);
 
 const stripeKeyframes = keyframes`
-        from {
-            background-position: 0 0;
-        }
-        to {
-            background-position: ${rem(
-              ProgressBarStyleSettings.stripeSize * 2,
-            )} ${stripeSizeRems};
-        }
-    `;
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: ${rem(
+      ProgressBarStyleSettings.stripeSize * 2,
+    )} ${stripeSizeRems};
+  }
+`;
+
+const stripeAnimation = css`
+  animation: ${stripeKeyframes} 1.5s linear infinite;
+`;
+
 interface BarProps {
   animated?: boolean;
   formatProp: 'neutral' | 'alert' | 'warning' | 'empty' | 'disabled';
@@ -56,22 +62,22 @@ const ProgressBarStyled = styled.div<BarProps>`
   background-color: ${getBarBackgroundColor};
 
   ${props =>
-    props.animated
-      ? `
-          background-image: linear-gradient(
-              -45deg,
-              ${rgba('#000', 0.1)} 25%,
-              transparent 25%,
-              transparent 50%,
-              ${rgba('#000', 0.1)} 50%,
-              ${rgba('#000', 0.1)} 75%,
-              transparent 5%,
-              transparent
-          );
-          background-size: ${stripeSizeRems} ${stripeSizeRems};
-          animation: ${stripeKeyframes} 1.5s linear infinite;
-          `
-      : ''};
+    props.animated &&
+    `
+      background-image: linear-gradient(
+          -45deg,
+          ${rgba('#000', 0.1)} 25%,
+          transparent 25%,
+          transparent 50%,
+          ${rgba('#000', 0.1)} 50%,
+          ${rgba('#000', 0.1)} 75%,
+          transparent 5%,
+          transparent
+      );
+
+      background-size: ${stripeSizeRems} ${stripeSizeRems};
+      ${stripeAnimation};
+    `};
 `;
 
 export const ProgressBarIndicator: SFC<

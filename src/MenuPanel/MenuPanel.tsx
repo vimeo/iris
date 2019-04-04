@@ -252,6 +252,7 @@ export class MenuPanel extends Component<Props, State> {
       onClick, // eslint-disable-line no-unused-vars
       onClose, // eslint-disable-line no-unused-vars
       onOpen, // eslint-disable-line no-unused-vars
+      options,
       panelClassName,
       shouldRefocusTriggerOnClose = true, // eslint-disable-line no-unused-vars
       size = 'md',
@@ -278,6 +279,7 @@ export class MenuPanel extends Component<Props, State> {
           }}
           offset="-4px 0"
           style={{ zIndex: Z_INDEXES.menuPanel }}
+          {...options}
         >
           <TriggerWrapperStyled
             {...filteredProps}
