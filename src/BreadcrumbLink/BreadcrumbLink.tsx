@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 
 import { LinkText, LinkTextProps } from '../LinkText/LinkText';
 import { BreadcrumbLinkContent } from '../BreadcrumbLinkContent/BreadcrumbLinkContent';
-import { Omit } from '../Utils/Omit';
+import { Omit } from '../Utils';
 import { BaseProps } from '../Utils/BaseProps';
 
 export interface BreadcrumbLinkProps extends BaseProps {

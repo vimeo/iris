@@ -8,7 +8,7 @@ import { Header6, ParagraphSm, ParagraphAltMd } from '../Type';
 import { LockFilled } from '../Icons';
 import { VideoCardStyleSettings } from './VideoCardHelpers';
 import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
-import { Omit } from '../Utils/Omit';
+import { Omit } from '../Utils';
 import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
 
 export interface VideoCardInfoAreaProps

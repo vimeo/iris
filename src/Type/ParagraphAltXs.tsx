@@ -1,7 +1,7 @@
 import React, { SFC } from 'react';
 import { TypeBase } from './TypeBase';
 import { TypeProps } from './TypeTypes';
-import { Omit } from '../Utils/Omit';
+import { Omit } from '../Utils';
 
 export const ParagraphAltXs: SFC<
   TypeProps & Omit<React.HTMLProps<HTMLParagraphElement>, 'size'>
