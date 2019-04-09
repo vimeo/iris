@@ -23,7 +23,14 @@
         "noUnusedParameters": true,
         "strict": false,
         "suppressImplicitAnyIndexErrors": true,
-        "target": "es5"
+        "target": "es5",
+        "types": [
+            "lodash",
+            "node",
+            "react",
+            "react-dom",
+            "styled-components"
+        ]
     },
     "include": [
         "src/**/*"
