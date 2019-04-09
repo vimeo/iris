@@ -113,24 +113,6 @@ export {
   TruncatedTextWrapper,
 } from './TruncatedTextWrapper/TruncatedTextWrapper';
 
-export { BigStat } from './Type/BigStat';
-export { Header1 } from './Type/Header1';
-export { Header2 } from './Type/Header2';
-export { Header3 } from './Type/Header3';
-export { Header4 } from './Type/Header4';
-export { Header5 } from './Type/Header5';
-export { Header6 } from './Type/Header6';
-export { HeaderAltSm } from './Type/HeaderAltSm';
-export { HeaderPlusUltra } from './Type/HeaderPlusUltra';
-export { ParagraphAltLg } from './Type/ParagraphAltLg';
-export { ParagraphAltMd } from './Type/ParagraphAltMd';
-export { ParagraphAltSm } from './Type/ParagraphAltSm';
-export { ParagraphAltXs } from './Type/ParagraphAltXs';
-export { ParagraphLg } from './Type/ParagraphLg';
-export { ParagraphMd } from './Type/ParagraphMd';
-export { ParagraphSm } from './Type/ParagraphSm';
-export { ParagraphXs } from './Type/ParagraphXs';
-
 export {
   VerticalMenuActionButton,
 } from './VerticalMenuActionButton/VerticalMenuActionButton';

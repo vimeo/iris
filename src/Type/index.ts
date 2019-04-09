@@ -16,8 +16,6 @@ import { Header5 } from './Header5';
 import { Header6 } from './Header6';
 import { HeaderAltSm } from './HeaderAltSm';
 
-import { BigStat } from './BigStat';
-
 export {
   ParagraphLg,
   ParagraphSm,
@@ -35,5 +33,4 @@ export {
   Header5,
   Header6,
   HeaderAltSm,
-  BigStat,
 };

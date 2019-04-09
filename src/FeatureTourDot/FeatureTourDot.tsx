@@ -133,8 +133,6 @@ const HaloStyled = styled.span<{ isActive: boolean }>`
     `};
 `;
 
-console.log('haloKeyframes: ', haloKeyframes);
-
 export const FeatureTourDot: SFC<FeatureDotProps> = ({
   beaconA11yText,
   mode = 'inactive',

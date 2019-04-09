@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { VimeoStyleSettings } from '../Legacy/VimeoStyleSettings';
@@ -10,6 +10,7 @@ import {
 } from './TypeTypes';
 import { getUnitlessLineHeight } from './TypeHelpers';
 import { TypeVariableElement } from './TypeVariableElement';
+import { withDeprecateComponent } from '../Utils/Deprecated';
 
 export const TypeBaseStyleSettings = {
   fontFamily: {
@@ -179,6 +180,9 @@ const StyledElement = styled(TypeVariableElement)`
   }
 `;
 
-export const TypeBase: SFC<StyledTypeElementProps & TypeProps> = ({
-  ...props
-}) => <StyledElement {...props} />;
+export const TypeBase = withDeprecateComponent<
+  StyledTypeElementProps & TypeProps
+>(
+  'Individual typography components such as <Header1 /> and <ParagraphSm /> are deprecated and will no longer be available in Iris 8. Please use <Header size="1" /> or <Paragraph size="3" />.',
+  props => <StyledElement {...props} />,
+);
