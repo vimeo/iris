@@ -1100,7 +1100,7 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@nox/addon-themes@^0.0.7":
+"@nox/addon-themes@^0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@nox/addon-themes/-/addon-themes-0.0.6.tgz#ad3822d72c74213014b937363b1dec758d56facc"
   integrity sha512-hpwCmLgRVClHIr62+GjmOCp5aJAODCyRNL66oiZcbQSt1Tjf35ouclJD3IJgrxwq79y/iw+FrjPVSNioMgXIow==
