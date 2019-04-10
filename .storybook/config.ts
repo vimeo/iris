@@ -6,7 +6,7 @@ import {
 import { withKnobs } from '@storybook/addon-knobs';
 import { withA11y } from '@storybook/addon-a11y';
 import { withGlobalStyles } from './decorators/withGlobalStyles';
-import { withThemes, addThemes } from 'sb-addon-themes/dist';
+import { withThemes, addThemes } from '@nox/addon-themes/dist';
 
 addThemes(['dark', 'light']);
 
