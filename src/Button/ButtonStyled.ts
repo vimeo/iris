@@ -10,24 +10,36 @@ import {
   getSizeCSS,
 } from './ButtonHelpers';
 import { ButtonStyleSettings } from './ButtonStyleSettings';
-import { ButtonVariableElement } from './ButtonVariableElement';
+import {
+  buttonFormats,
+  CustomFormatButton,
+  buttonSizes,
+} from './ButtonTypes';
 
 const maybeGetFeaturedIconCSS = props => {
   const thisButtonSize =
     ButtonStyleSettings.Sizes[props.size] ||
     ButtonStyleSettings.Sizes.md;
+
   if (props.hasFeaturedIcon && thisButtonSize) {
     const combinedPaddingBySize = `${
       thisButtonSize.minHeight
     } + 1rem`;
+
     return `
-            padding-right: calc(${combinedPaddingBySize});
-            padding-left: calc(${combinedPaddingBySize});
-        `;
+      padding-right: calc(${combinedPaddingBySize});
+      padding-left: calc(${combinedPaddingBySize});
+  `;
   }
 };
 
-export const ButtonStyled = styled(ButtonVariableElement)<any>`
+export const ButtonStyled = styled.button<{
+  autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid';
+  customFormat?: CustomFormatButton;
+  format: buttonFormats;
+  hasFeaturedIcon?: boolean;
+  size: buttonSizes;
+}>`
     ${ButtonCoreCSS}
     ${getSizeCSS}
     ${maybeGetFeaturedIconCSS}
@@ -39,7 +51,7 @@ export const ButtonStyled = styled(ButtonVariableElement)<any>`
     ${props =>
       props.customFormat
         ? customDefault(props)
-        : getDefaultCSSByFormat}
+        : getDefaultCSSByFormat};
 
     &:hover {
         cursor: pointer;

@@ -5,7 +5,7 @@ import React, {
   CSSProperties,
 } from 'react';
 import { Button } from '../Button/Button';
-import { buttonFormats } from '../Button/ButtonProps';
+import { buttonFormats } from '../Button/ButtonTypes';
 
 interface Props {
   autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid';

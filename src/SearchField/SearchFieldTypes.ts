@@ -1,4 +1,4 @@
-import { ButtonProps } from '../Button/ButtonProps';
+import { ButtonProps } from '../Button/ButtonTypes';
 import {
   ReactNode,
   ChangeEventHandler,

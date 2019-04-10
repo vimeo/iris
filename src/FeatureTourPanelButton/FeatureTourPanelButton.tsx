@@ -1,6 +1,6 @@
 import React, { SFC } from 'react';
 import { Button } from '../Button/Button';
-import { ButtonProps } from '../Button/ButtonProps';
+import { ButtonProps } from '../Button/ButtonTypes';
 
 export const FeatureTourPanelButton: SFC<ButtonProps> = ({
   children,

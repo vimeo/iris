@@ -7,7 +7,7 @@ import { mediaQuery } from '../Layout/MediaQuery';
 import * as COLORS from '../Color/Color';
 import { Z_INDEXES as Z_INDEX } from '../Legacy/Z_INDEXES';
 import { Button } from '../Button/Button';
-import { ButtonProps } from '../Button/ButtonProps';
+import { ButtonProps } from '../Button/ButtonTypes';
 import { ButtonDialogClose } from '../ButtonDialogClose/ButtonDialogClose';
 import { Header4 } from '../Type';
 import { ModalWrapper } from '../ModalWrapper/ModalWrapper';

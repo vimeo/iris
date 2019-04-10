@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { buttonFormats } from '../Button/ButtonProps';
+import { buttonFormats } from '../Button/ButtonTypes';
 
 export interface ButtonLoadingStateProps {
   format?: buttonFormats;
