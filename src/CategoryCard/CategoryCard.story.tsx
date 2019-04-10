@@ -1,13 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Story } from '../../.storybook/ui/Story';
-import { CategoryCard } from './CategoryCard';
+import { CategoryCard as CC } from './CategoryCard';
 import { Gear, Camera, Heart } from '../Icons';
 import styled from 'styled-components';
 
-const $CategoryCard = styled(CategoryCard)`
+const CategoryCard = styled(CC)`
   min-width: 12rem;
-  min-height: 15rem;
+  min-height: 12rem;
 `;
 
 const Grid = styled.div`
@@ -25,24 +25,24 @@ const componentName = 'Category Card';
 storiesOf(`components|Cards`, module).add('Category Card', () => (
   <Story title={componentName} width="100%">
     <Grid>
-      <$CategoryCard
+      <CategoryCard
         icon={<Gear />}
-        backgroundImageURL="https://i.vimeocdn.com/custom_asset/26.jpg"
+        src="https://i.vimeocdn.com/custom_asset/26.jpg"
       >
         Sports
-      </$CategoryCard>
-      <$CategoryCard
+      </CategoryCard>
+      <CategoryCard
         icon={<Camera />}
-        backgroundImageURL="https://i.vimeocdn.com/custom_asset/13.jpg"
+        src="https://i.vimeocdn.com/custom_asset/13.jpg"
       >
         Animation
-      </$CategoryCard>
-      <$CategoryCard
+      </CategoryCard>
+      <CategoryCard
         icon={<Heart />}
-        backgroundImageURL="https://i.vimeocdn.com/custom_asset/28.jpg"
+        src="https://i.vimeocdn.com/custom_asset/28.jpg"
       >
         Travel
-      </$CategoryCard>
+      </CategoryCard>
     </Grid>
   </Story>
 ));

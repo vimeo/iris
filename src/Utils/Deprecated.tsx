@@ -2,7 +2,7 @@ import React, { ComponentType, useMemo } from 'react';
 import { IrisComponent } from './IrisComponent';
 
 export function withDeprecateProps<Props extends {}>(
-  warnings: { [key in keyof Props]: string },
+  warnings: { [key in keyof Partial<Props>]: string },
   Component: IrisComponent<Props>,
 ): IrisComponent<Props> {
   return props => {

@@ -1,49 +1,38 @@
-import React, { SFC } from 'react';
+import React, { ReactNode } from 'react';
 import { ParagraphLg } from '../Type';
 import {
   CategoryCardStyled,
-  BackgroundStyled,
-  OverlayStyled,
-  CardContentWrapStyled,
-  CardContentStyled,
-  IconWrapperStyled,
+  Background,
+  Overlay,
+  CardContentWrap,
+  CardContent,
+  Icon,
 } from './CategoryCardStyled';
+import { withDeprecateProps } from '../Utils/Deprecated';
 
-interface CategoryCardProps {
-  /**
-   * a URL for a backgroundImage to represent the category
-   */
-  backgroundImageURL: string;
-  /**
-   * Should be a string of the category title
-   */
-  children: React.ReactNode;
-  /**
-   * Category Icon SVG
-   */
-  icon: React.ReactNode;
+interface Props {
+  backgroundImageURL?: string;
+  src?: string;
+  icon: ReactNode;
 }
 
-export const CategoryCard: SFC<CategoryCardProps> = ({
-  backgroundImageURL,
-  children,
-  icon,
-  ...props
-}) => (
-  <CategoryCardStyled {...props}>
-    <BackgroundStyled
-      style={{
-        backgroundImage: `url(${backgroundImageURL})`,
-      }}
-    />
-    <OverlayStyled />
-    <CardContentWrapStyled>
-      <CardContentStyled>
-        <IconWrapperStyled>{icon}</IconWrapperStyled>
-        <ParagraphLg format="white" element="div" noMargin>
-          {children}
-        </ParagraphLg>
-      </CardContentStyled>
-    </CardContentWrapStyled>
-  </CategoryCardStyled>
+export const CategoryCard = withDeprecateProps<Props>(
+  {
+    backgroundImageURL:
+      '`backgroundImageURL` is deprecated and will no longer be available in Iris 8. Please use `src`.',
+  },
+  ({ backgroundImageURL, src, children, icon, ...props }) => (
+    <CategoryCardStyled {...props}>
+      <Background bg={backgroundImageURL || src} />
+      <Overlay />
+      <CardContentWrap>
+        <CardContent>
+          <Icon>{icon}</Icon>
+          <ParagraphLg format="white" element="div" noMargin>
+            {children}
+          </ParagraphLg>
+        </CardContent>
+      </CardContentWrap>
+    </CategoryCardStyled>
+  ),
 );
