@@ -1,13 +1,6 @@
 import React from 'react';
-import {
-  Header3,
-  InputToggle,
-  HeaderAltSm,
-  Header4,
-  Header5,
-  Header6,
-  Badge,
-} from '../../src';
+import { InputToggle, Badge } from '../../src';
+import { Header } from '../../src/Typography';
 import styled from 'styled-components';
 import {
   AstroGranite,
@@ -19,18 +12,18 @@ import {
 export const AutoplayList = ({ videos, variation }) => {
   return (
     <>
-      <Header3>More from Vimeo Staff Picks</Header3>
-      <Header>
-        <InputToggle id="1" label="" value="true" checked />
-        <HeaderAltSm>Autoplay next video</HeaderAltSm>
-      </Header>
+      <Header size="3">More from Vimeo Staff Picks</Header>
+      <HeaderWrap>
+        <InputToggle id="1" label="" value="true" defaultChecked />
+        <Header size="6">Autoplay next video</Header>
+      </HeaderWrap>
       <div>
-        {videos.map(video => (
-          <Video>
+        {videos.map((video, i) => (
+          <Video key={i}>
             <img src={`https://i.vimeocdn.com/video/${video.src}`} />
             <div style={{ paddingTop: '0.9rem' }}>
-              <Title>{video.title}</Title>
-              <Author>
+              <Title size="5">{video.title}</Title>
+              <Author size="6">
                 {video.author}{' '}
                 {variation === 'A' && video.pronouns && (
                   <>({video.pronouns})</>
@@ -51,7 +44,7 @@ export const AutoplayList = ({ videos, variation }) => {
   );
 };
 
-const Header = styled.div`
+const HeaderWrap = styled.div`
   display: flex;
   margin-bottom: 0.5rem;
 `;
@@ -73,14 +66,14 @@ const Video = styled.div`
   }
 `;
 
-const Title = styled(Header5)`
+const Title = styled(Header)`
   max-width: 13rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 `;
 
-const Author = styled(Header6)`
+const Author = styled(Header)`
   display: flex;
   color: ${RegentGray};
   max-width: 13rem;

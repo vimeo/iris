@@ -11,6 +11,7 @@ import { InputToggleFocusOutline as FocusOutline } from './InputToggleFocus';
 interface Props {
   checked?: boolean;
   className?: string;
+  defaultChecked?: boolean;
   disabled?: boolean;
   errorMsg?: ReactNode;
   format?: 'negative' | 'positive' | 'neutral';
