@@ -4,8 +4,12 @@ import * as COLORS from '../Color/Color';
 import { TRANSITIONS } from '../Legacy/TRANSITIONS';
 import { ButtonColors } from '../Button/ButtonColors';
 import { Props } from './ButtonInlineInputText';
+import { fontFamily } from '../Typography/Typography';
 
-const sizes = (size, format) => {
+const sizes = (
+  size: 'md' | 'lg' | 'xl',
+  format: 'subtle' | 'neutral' | 'strong',
+): number => {
   const values =
     format === 'subtle'
       ? { md: 38, lg: 46, xl: 46 }
@@ -15,6 +19,7 @@ const sizes = (size, format) => {
 
 const formats = {
   strong: css`
+    color: ${COLORS.White};
     border-color: ${COLORS.VimeoBlue};
     background: ${COLORS.VimeoBlue};
     svg * {
@@ -27,6 +32,7 @@ const formats = {
     }
   `,
   neutral: css`
+    color: ${COLORS.White};
     border-color: ${ButtonColors.AlternativeBackground};
     background: ${ButtonColors.AlternativeBackground};
 
@@ -40,9 +46,10 @@ const formats = {
     }
   `,
   subtle: css`
-    //position: relative;
+    position: relative;
     top: ${rem(1)};
     right: ${rem(1)};
+    color: ${COLORS.RegentGray};
 
     border-color: transparent;
     background: ${COLORS.White};
@@ -58,7 +65,8 @@ const formats = {
 };
 
 const sizeStyles = ({ size: sizeStyle, format }: any) => css`
-  ${size(rem(sizes(sizeStyle, format)))};
+  height: ${rem(sizes(sizeStyle, format))};
+  min-width: ${rem(sizes(sizeStyle, format))};
 
   svg {
     ${size(rem(sizes(sizeStyle, format) / 2))};
@@ -79,9 +87,17 @@ export const ButtonStyled = styled.button<Props>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  font-family: ${fontFamily};
+  font-size: ${props => (props.size === 'md' ? rem(14) : rem(16))};
 
   ${sizeStyles};
   ${props => formats[props.format]};
+
+  ${props =>
+    typeof props.children === 'string' &&
+    css`
+      padding: ${rem(5)} ${rem(10)};
+    `}
 
   &:active svg {
     transform: scale(0.92);

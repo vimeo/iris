@@ -3,68 +3,51 @@ import { storiesOf } from '@storybook/react';
 import { CopyField } from './CopyField';
 
 import { Story } from '../../.storybook/ui/Story';
-
+import { select, text } from '@storybook/addon-knobs';
 const componentName = 'Copy Field';
+
+const sizes = {
+  md: 'md',
+  lg: 'lg',
+};
+
+const formats = {
+  strong: 'strong',
+  neutral: 'neutral',
+  subtle: 'subtle',
+};
 
 storiesOf(`components|Inputs`, module).add('Copy Field', () => (
   <Story title={componentName}>
+    Try the knobs!
     <CopyField
-      buttonFormat="strong"
+      format={select('format', formats, 'strong')}
       id="copyField1"
       label="Copy URL"
-      stringToCopy="http://www.vimeo.com"
-      successMessage="Copied!"
-      tooltipString="Copy this URL to the clipboard"
-    />
-    <br />
-    <CopyField
-      buttonFormat="neutral"
-      id="copyField2"
-      label="Copy URL"
-      stringToCopy="http://www.vimeo.com"
-      successMessage="Copied!"
-      tooltipString="Copy this URL to the clipboard"
-    />
-    <br />
-    <CopyField
-      buttonFormat="subtle"
-      id="copyField2"
-      label="Copy URL"
-      stringToCopy="http://www.vimeo.com"
-      successMessage="Copied!"
-      tooltipString="Copy this URL to the clipboard"
-    />
+      stringToCopy={text('stringToCopy', 'http://www.vimeo.com')}
+      successMessage={text('successMessage', 'Copied!')}
+      tooltipString={text(
+        'tooltipString',
+        'Copy this URL to the clipboard',
+      )}
+      size={select('size', sizes, 'md')}
+    >
+      {text('children', 'Copy feed URL')}
+    </CopyField>
     <br />
     <hr />
     <br />
     <CopyField
-      buttonFormat="strong"
-      id="copyField1"
-      label="Copy URL"
-      size="lg"
-      stringToCopy="http://www.vimeo.com"
-      successMessage="Copied!"
-      tooltipString="Copy this URL to the clipboard"
-    />
-    <br />
-    <CopyField
-      buttonFormat="neutral"
+      format={select('format', formats, 'strong')}
       id="copyField2"
       label="Copy URL"
-      size="lg"
-      stringToCopy="http://www.vimeo.com"
-      successMessage="Copied!"
-      tooltipString="Copy this URL to the clipboard"
-    />
-    <br />
-    <CopyField
-      buttonFormat="subtle"
-      id="copyField2"
-      label="Copy URL"
-      size="lg"
-      stringToCopy="http://www.vimeo.com"
-      successMessage="Copied!"
-      tooltipString="Copy this URL to the clipboard"
+      stringToCopy={text('stringToCopy', 'http://www.vimeo.com')}
+      successMessage={text('successMessage', 'Copied!')}
+      tooltipString={text(
+        'tooltipString',
+        'Copy this URL to the clipboard',
+      )}
+      size={select('size', sizes, 'md')}
     />
     <br />
   </Story>

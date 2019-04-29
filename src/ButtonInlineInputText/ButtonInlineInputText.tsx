@@ -1,7 +1,8 @@
-import React, { ReactNode, SFC } from 'react';
+import React, { ReactNode } from 'react';
 import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 import { ButtonStyled, Wrapper } from './ButtonInlineInputTextStyled';
 import { BaseProps } from '../Utils/BaseProps';
+import { withDeprecateProps } from '../Utils/Deprecated';
 
 export interface Props extends BaseProps {
   icon?: ReactNode;
@@ -18,31 +19,43 @@ export interface ButtonInlineInputTextStyleProps {
   size: 'md' | 'lg';
 }
 
-export const ButtonInlineInputText: SFC<Props> = ({
-  className,
-  icon,
-  format = 'neutral',
-  size = 'md',
-  tooltipText,
-  tooltipPosition = 'top',
-  tooltipProps,
-  ...props
-}) => (
-  <Wrapper>
-    {tooltipText ? (
-      <TooltipOverlay
-        tooltipText={tooltipText}
-        attachment={tooltipPosition}
-        {...tooltipProps}
-      >
-        <ButtonStyled size={size} format={format} {...props}>
-          {icon}
-        </ButtonStyled>
-      </TooltipOverlay>
-    ) : (
-      <ButtonStyled size={size} format={format} {...props}>
-        {icon}
-      </ButtonStyled>
-    )}
-  </Wrapper>
+export const ButtonInlineInputText = withDeprecateProps<Props>(
+  {
+    icon:
+      '`icon` is deprecated and will no longer be available in Iris 8. Use `children` (same functionality) instead.',
+  },
+  ({
+    children,
+    className,
+    icon,
+    format = 'neutral',
+    size = 'md',
+    tooltipText,
+    tooltipPosition = 'top',
+    tooltipProps,
+    ...props
+  }) => {
+    if (icon) {
+      children = icon;
+    }
+    return (
+      <Wrapper>
+        {tooltipText ? (
+          <TooltipOverlay
+            tooltipText={tooltipText}
+            attachment={tooltipPosition}
+            {...tooltipProps}
+          >
+            <ButtonStyled size={size} format={format} {...props}>
+              {children}
+            </ButtonStyled>
+          </TooltipOverlay>
+        ) : (
+          <ButtonStyled size={size} format={format} {...props}>
+            {children}
+          </ButtonStyled>
+        )}
+      </Wrapper>
+    );
+  },
 );
