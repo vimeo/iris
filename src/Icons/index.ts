@@ -87,6 +87,7 @@ export { Publish } from './Publish';
 export { Replay } from './Replay';
 export { ReviewCheck } from './ReviewCheck';
 export { Search } from './Search';
+export { Showcase } from './Showcase';
 export { SlackMark } from './SlackMark';
 export { SocialChipFacebook } from './SocialChipFacebook';
 export { SocialChipTwitter } from './SocialChipTwitter';
