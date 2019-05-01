@@ -50,55 +50,31 @@ This is a **provisional** overview of what the Iris team is planning to work on 
 
 **In upcoming 7+ minor releases we will**
 
-#### 7.1
 * Remove top-level imports from `@vimeo/iris` and require module imports, ie. `@vimeo/iris/color`
 * Reorganize the internal structure of Iris to better reflect its new module structure, improve the clarity of shared code between components, and dogfood its import conventions.
 	* The import groups, storybook, and `/src` folder will follow the same patterns.
 * Correct type bugs uncovered during the 7.0 upgrade process.
 * General typing improvements.
 	* Audit the excess use of `HTMLProps<>`
-
-#### 7.2
 * Set up an a11y board for tracking a11y issues and ideas across Vimeo's UIs.
 * Add documents to explain best practices when contributing to the Iris storybook.
 * Add getting started demos for Create React App and Rendezvous with Iris, TypeScript, and styled-components.
 * Improve the discoverability/searchability of icons in storybook.
-
-#### 7.3
 * Audit the backlog of bugs from before Iris 7.0 and address any bugs that still exist.
 * Finish implementing the new focus outline styles on all remaining components: [New Focus Styles](https://github.vimeows.com/Vimeo/iris/projects/3)
-
-#### 7.4
 * Replace the functionality of `react-popper`, `react-swipe`, `react-swipeable`, `react-tether`, and `react-transition-group` with hooks.
 * Remove  `react-popper` and `react-tether`.
 * Rewrite `MenuPanel`, `Tooltip`, and `SlideUpDown`[*](#function-components-note)
-
-#### 7.5
 * Minify Iris with `terser` to further reduce distribution size.
-
-#### 7.6
 * Rebuild `Modal` from scratch with a new design[*](#function-components-note)
 * Remove `react-transition-group`
-
-#### 7.7
 * Rebuild `VideoCard` from scratch and possibly update the design.[*](#function-components-note)
-
-#### 7.8
 * Replace `react-datetime` with a smaller library, or write our own date-picker.
 * Replace `moment` with `luxon` or `date-fns`
-
-#### 7.9
 * Rewrite any remaining class components as function components (except `FeatureTourPanel` and `InputColorPicker`):
 	* Should be: `ButtonToggleState`, `ContentCarousel`, `InputCheckboxSet`, `InputSlider`, `InputTextFloatingLabel`, `OverflowTruncationWrapper`, `SteppedContentSlider`, `TabNavigationHorizontal`, `VerticalMenuItem`, `VerticalMenuNested`, `withCharacterCount`[*](#function-components-note)
-
-#### 7.10
 * Early introduction of visual regression, snapshot, and unit testing.
-
-
-#### 7.11
 * Rewrite `FeatureTourPanel` from scratch and possibly update design.[*](#function-components-note)
-
-#### 7.12
 * Rewrite `InputColorPicker` from scratch and possibly update design.[*](#function-components-note)
 
 ***
