@@ -59,6 +59,7 @@ export { HeartBroken } from './HeartBroken';
 export { HeartFilled } from './HeartFilled';
 export { Home } from './Home';
 export { HomeFilled } from './HomeFilled';
+export { Image } from './Image';
 export { Instagram } from './Instagram';
 export { LifePreserver } from './LifePreserver';
 export { Link } from './Link';
