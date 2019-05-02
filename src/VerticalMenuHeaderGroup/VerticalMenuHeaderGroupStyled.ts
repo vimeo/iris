@@ -1,6 +1,6 @@
 import { rem } from 'polished';
 import styled, { css } from 'styled-components';
-import * as COLORS from '../Color/Color';
+import { AstroGranite, RegentGray } from '../Color/Color';
 
 export const VerticalMenuHeaderGroupStyled = styled.div`
   padding: ${rem(8)};
@@ -12,8 +12,7 @@ export const HeaderWrapper = styled.div<{ hasActionButton: boolean }>`
   ${props =>
     props.hasActionButton &&
     css`
-      padding-right: $VerticalMenuHeaderGroup_ButtonSize +
-        rem-calc(20);
+      padding-right: 1.8rem;
     `};
 `;
 
@@ -28,12 +27,12 @@ export const ActionButton = styled.span`
     width: 1rem;
     height: auto;
     * {
-      fill: $BodyTextColor-Light;
+      fill: ${RegentGray};
     }
   }
   &:hover {
     svg * {
-      fill: ${COLORS.AstroGranite};
+      fill: ${AstroGranite};
     }
   }
 `;

@@ -1,5 +1,7 @@
 import React, { MouseEventHandler, ReactNode } from 'react';
 
+type sizes = 'sm' | 'md' | 'lg' | 'xl';
+
 export interface MenuPanelProps {
   /**
    * In what direction should the menu panel try to open? Default: center
@@ -41,7 +43,7 @@ export interface MenuPanelProps {
   /**
    * Size of the panel
    */
-  size: 'sm' | 'md' | 'lg';
+  size: sizes;
   /**
    * Use isFluid if you need to wrap a fullwidth element (e.g. button)
    */
@@ -66,7 +68,7 @@ export interface MenuPanelDefaultProps {
   alignment: 'left' | 'right' | 'center';
   href: string;
   theme: 'light' | 'dark';
-  size: 'sm' | 'md' | 'lg';
+  size: sizes;
   shouldRefocusTriggerOnClose: boolean;
 }
 
@@ -78,7 +80,7 @@ export interface MenuPanelStyledProps {
   theme?: 'light' | 'dark';
   hideOutline?: boolean;
   isShowing?: boolean;
-  size: 'sm' | 'md' | 'lg';
+  size: sizes;
   isFluid?: boolean;
   zIndexOverride?: number;
   onClick?: MouseEventHandler;

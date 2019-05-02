@@ -4,6 +4,7 @@ import { rem } from 'polished';
 import { FeatureTourPanelContent } from '../FeatureTourPanelContent/FeatureTourPanelContent';
 import { FeatureTourDot } from '../FeatureTourDot/FeatureTourDot';
 import { MenuPanel } from '../MenuPanel/MenuPanel';
+import { DarkerBlue } from '../Color/Color';
 
 export interface FeatureTourPanelProps {
   actionArea?: ReactNode;
@@ -25,6 +26,8 @@ export interface FeatureTourPanelProps {
   shouldRefocusTriggerOnClose?: boolean;
   wrapperClass?: string;
   style?: CSSProperties;
+  color?: string;
+  size?: 'lg' | 'xl';
 }
 
 export interface FeatureTourPanelState {
@@ -189,6 +192,7 @@ export class FeatureTourPanel extends Component<
       beaconDelayIndex, // eslint-disable-line no-unused-vars
       beaconA11yText,
       children,
+      color = DarkerBlue,
       contextualInfo,
       dismissButtonA11yLabel,
       dismissButtonProps,
@@ -201,6 +205,7 @@ export class FeatureTourPanel extends Component<
       shouldHideOnClose,
       shouldRefocusTriggerOnClose,
       wrapperClass,
+      size = 'lg',
       ...filteredProps
     } = this.props;
 
@@ -213,6 +218,7 @@ export class FeatureTourPanel extends Component<
         dismissButtonProps={dismissButtonProps}
         onDismissClick={this._handleDismissClick}
         children={children}
+        color={color}
       />
     );
 
@@ -230,7 +236,7 @@ export class FeatureTourPanel extends Component<
           shouldRefocusTriggerOnClose={
             shouldHideOnClose ? false : shouldRefocusTriggerOnClose
           }
-          size="lg"
+          size={size}
           options={attachmentConfig(attachment)}
         >
           <FeatureTourDot
@@ -239,6 +245,7 @@ export class FeatureTourPanel extends Component<
             }}
             beaconA11yText={beaconA11yText}
             mode={this.state.beaconMode}
+            color={color}
           />
         </MenuPanelStyled>
       </WrapperStyled>
@@ -255,7 +262,7 @@ const attachmentConfig = attachment =>
     },
     right: {
       attachment: 'top left',
-      offset: '0 0',
+      offset: '36px -24px',
       TargetAttachment: 'top right',
     },
     bottom: {
@@ -265,7 +272,7 @@ const attachmentConfig = attachment =>
     },
     left: {
       attachment: 'top right',
-      offset: '0 0',
+      offset: '36px 24px',
       TargetAttachment: 'top left',
     },
   }[attachment]);

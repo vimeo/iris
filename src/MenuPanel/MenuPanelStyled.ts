@@ -13,6 +13,7 @@ const menuPanelSizes = {
   sm: 124,
   md: 200,
   lg: 320,
+  xl: 480,
 };
 
 export const menuPanelTransitionStyles = {
