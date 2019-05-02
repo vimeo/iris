@@ -43,7 +43,10 @@ export {
 } from './FeatureTourPanelContent/FeatureTourPanelContent';
 export { FieldSet } from './FieldSet/FieldSet';
 
-export { InputCheckbox } from './InputCheckbox/InputCheckbox';
+export {
+  Checkbox,
+  InputCheckbox,
+} from './InputCheckbox/InputCheckbox';
 export {
   InputCheckboxSet,
 } from './InputCheckboxSet/InputCheckboxSet';

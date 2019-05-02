@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-import {
-  InputCheckboxStyled,
-  OverlayStyled,
-} from './InputCheckboxStyled';
+import { InputCheckboxStyled, Overlay } from './InputCheckboxStyled';
 import {
   FocusOutline,
   FocusOutlineFocused,
@@ -12,7 +9,7 @@ import {
 export const CheckboxFocusOutline = styled.div<FocusOutlineProps>`
     ${FocusOutline}
 
-    ${InputCheckboxStyled}:focus ~ ${OverlayStyled} & {
+    ${InputCheckboxStyled}:focus ~ ${Overlay} & {
         ${FocusOutlineFocused}
     }
 `;

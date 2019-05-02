@@ -1,5 +1,6 @@
-import React, { ComponentType, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { IrisComponent } from './IrisComponent';
+import { IrisInputComponent } from './IrisInputComponent';
 
 export function withDeprecateProps<Props extends {}>(
   warnings: { [key in keyof Partial<Props>]: string },
@@ -20,14 +21,10 @@ export function withDeprecateProps<Props extends {}>(
   };
 }
 
-type IrisComponentType<Props = {}> =
-  | ComponentType<Props>
-  | IrisComponent<Props>;
-
 export function withDeprecateComponent<Props extends {}>(
   warning: string,
-  Component: IrisComponentType<Props>,
-): IrisComponentType<Props> {
+  Component: IrisInputComponent<Props>,
+): IrisInputComponent<Props> {
   if (process.env.NODE_ENV === 'development') {
     console.warn(`Warning: ${warning}`);
   }

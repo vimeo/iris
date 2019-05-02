@@ -1,58 +1,106 @@
-import React, { SFC } from 'react';
-import { InputCheckboxProps } from './InputCheckboxTypes';
+import React, { ReactNode } from 'react';
 import {
-  InputCheckboxWrapperStyled,
+  Wrapper,
   InputCheckboxStyled,
-  InputCheckboxLabelStyled,
-  OverlayStyled,
-  HiddenLabelStyled,
+  Label,
+  Overlay,
 } from './InputCheckboxStyled';
 import { CheckboxFocusOutline } from './InputCheckboxFocus';
 import { InputWrapperInline } from '../InputWrapperInline/InputWrapperInline';
+import { IrisInputComponent } from '../Utils/IrisInputComponent';
+import { withDeprecateComponent } from '../Utils/Deprecated';
 
-export const InputCheckbox: SFC<InputCheckboxProps> = ({
-  checkedStyle = 'default',
+interface Messages {
+  error?: ReactNode;
+  help?: ReactNode;
+}
+
+export interface Props {
+  indeterminate?: boolean;
+  format?: 'negative' | 'positive' | 'neutral';
+  messages?: Messages;
+  theme?: 'light' | 'dark';
+}
+
+export const Checkbox: IrisInputComponent<Props> = ({
   disabled,
-  errorMsg,
   format = 'neutral',
-  helperMsg,
-  hideLabel,
   id,
+  indeterminate,
   label,
-  theme = 'default',
+  messages,
+  theme = 'light',
   ...props
 }) => (
   <InputWrapperInline
-    errorMsg={errorMsg}
-    helperMsg={helperMsg}
-    theme={theme}
+    errorMsg={messages.error}
+    helperMsg={messages.help}
+    theme={theme === 'dark' ? 'dark' : 'default'}
   >
-    <InputCheckboxWrapperStyled>
-      <InputCheckboxLabelStyled
+    <Wrapper>
+      <Label
         htmlFor={id}
         format={format}
         disabled={disabled}
         fieldLevelErrors
-        hideLabel={hideLabel}
         theme={theme}
       >
         <InputCheckboxStyled
           {...props}
-          aria-label={hideLabel ? label : null}
+          aria-label={label}
           type="checkbox"
           id={id}
           disabled={disabled}
           theme={theme}
         />
 
-        <OverlayStyled theme={theme} checkedStyle={checkedStyle}>
+        <Overlay theme={theme} indeterminate={indeterminate}>
           <CheckboxFocusOutline theme={theme} />
-        </OverlayStyled>
+        </Overlay>
 
-        <HiddenLabelStyled hideLabel={hideLabel}>
-          {label}
-        </HiddenLabelStyled>
-      </InputCheckboxLabelStyled>
-    </InputCheckboxWrapperStyled>
+        {label}
+      </Label>
+    </Wrapper>
   </InputWrapperInline>
+);
+
+interface DeprecatedProps {
+  checkedStyle?: 'default' | 'indeterminate';
+  disabled?: boolean;
+  errorMsg?: ReactNode;
+  format?: 'negative' | 'positive' | 'neutral';
+  helperMsg?: ReactNode;
+  hideLabel?: boolean;
+  theme?: 'default' | 'dark';
+}
+
+export const InputCheckbox = withDeprecateComponent<DeprecatedProps>(
+  '<InputCheckbox /> will no longer be available in Iris 8. Please use <Checkbox />. Note: When updating components, please be aware the props interface has changed.',
+  ({
+    checkedStyle = 'default',
+    disabled,
+    errorMsg,
+    format = 'neutral',
+    helperMsg,
+    hideLabel,
+    id,
+    label,
+    theme = 'default',
+    ...props
+  }) => {
+    const newTheme = theme === 'default' ? 'light' : 'dark';
+    const newLabel = !hideLabel && <span>{label}</span>;
+    const messages = { error: errorMsg, help: helperMsg };
+    const indeterminate = checkedStyle === 'indeterminate';
+
+    return (
+      <Checkbox
+        {...props}
+        indeterminate={indeterminate}
+        messages={messages}
+        theme={newTheme}
+        label={newLabel}
+      />
+    );
+  },
 );

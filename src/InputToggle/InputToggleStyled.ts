@@ -4,16 +4,13 @@ import styled from 'styled-components';
 import { css } from 'styled-components';
 import * as COLORS from '../Color/Color';
 import { rgba } from 'polished';
-import {
-  sharedInlineInputWrapperStyles,
-  sharedInlineInputStyles,
-} from '../InputCheckbox/InputCheckboxHelpers';
+import { WrapperStyles, InlineStyles } from '../Inputs/InlineInput';
 
 export const ToggleWrapper = styled.div<{
   disabled: boolean;
   size: 'md' | 'lg';
 }>`
-  ${sharedInlineInputWrapperStyles}
+  ${WrapperStyles}
   ${props => props.disabled && 'opacity: 0.5 '};
 
   ${props =>
@@ -27,7 +24,7 @@ export const ToggleWrapper = styled.div<{
 `;
 
 export const Input = styled.input`
-  ${sharedInlineInputStyles};
+  ${InlineStyles};
   top: ${rem(5)};
   left: ${rem(5)};
 `;
