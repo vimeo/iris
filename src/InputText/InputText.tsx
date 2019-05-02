@@ -10,6 +10,7 @@ import {
 export interface InputTextProps {
   value?: string | number | string[];
   inlineButton?: React.ReactNode;
+  placeholder?: string;
   type?:
     | 'email'
     | 'number'
@@ -36,6 +37,7 @@ export const InputText: SFC<InputTextProps & InputProps> = ({
   inlineButton,
   label,
   id,
+  placeholder,
   preMessage,
   autocomplete = true,
   showLabel = true,

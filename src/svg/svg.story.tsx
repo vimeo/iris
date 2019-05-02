@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { SFC, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
@@ -8,31 +8,56 @@ import * as Illustrations from '../Illustrations';
 import { Header2, Header6 } from '../Type';
 import * as COLORS from '../Color/Color';
 import { Story } from '../../.storybook/ui/Story';
+import { InputText } from '../InputText/InputText';
 
 storiesOf('SVG|Icons', module).add('all', () => {
+  return <IconStory />;
+});
+
+function IconStory() {
+  const [searchText, setSearchText] = useState('');
+
+  const doChange = event => {
+    setSearchText(event.target.value);
+  };
+
   const size = select(
     'Size',
     { XS: 0.625, SM: 0.875, MD: 1, LG: 1.125, XL: 2 },
-    1.125,
+    2,
     'iconSizes',
   );
 
   return (
     <Story title="Icons" width="100%">
+      <Search
+        id="search"
+        onChange={doChange}
+        placeholder="Search for icons"
+      />
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {Object.keys(Icons).map(icon => (
-          <IconWrapper>
-            <Header6 style={{ marginBottom: '0.125rem' }}>
-              {icon}
-            </Header6>
-
-            <Icon size={size} name={icon} />
-          </IconWrapper>
-        ))}
+        {Object.keys(Icons)
+          .filter(icon =>
+            icon.toLowerCase().includes(searchText.toLowerCase()),
+          )
+          .map((icon, i) => (
+            <IconWrapper key={i}>
+              <Icon size={size} name={icon} />
+              <Header6
+                style={{
+                  margin: '1rem',
+                  display: 'inline-flex',
+                }}
+              >
+                {icon}
+              </Header6>
+            </IconWrapper>
+          ))}
       </div>
     </Story>
   );
-});
+}
+
 storiesOf('SVG|Illustration', module).add('all', () => (
   <Story title="Illustrations" width="100%">
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
@@ -50,12 +75,11 @@ storiesOf('SVG|Illustration', module).add('all', () => (
 ));
 
 const Card = css`
-  padding: 1rem;
-  margin: 1.25rem;
   border-radius: 0.125rem;
-  display: inline-block;
-  width: calc(100% - 4rem);
-  border: 1px solid ${COLORS.Paste};
+  width: 100%;
+  border: 1px solid ${COLORS.Porcelain};
+  align-items: center;
+  text-align: center;
 `;
 
 const width = widthMap =>
@@ -67,14 +91,27 @@ const width = widthMap =>
     `,
   );
 
-const IconWrapper = styled.div`
-  ${Card};
+const Search = styled(InputText)`
+  margin: 0.5rem;
+  width: 100%;
 
   ${width({
-    40: 50,
-    60: 25,
-    80: 20,
-    120: 16.6667,
+    55: 50,
+    80: 33.33,
+    120: 25,
+  })};
+`;
+
+const IconWrapper = styled.div`
+  ${Card};
+  padding: 0.5rem;
+  margin: 0.5rem;
+  display: flex;
+
+  ${width({
+    55: 50,
+    80: 33.33,
+    120: 25,
   })};
 `;
 
@@ -84,14 +121,17 @@ const Icon: SFC<{ size: number; name: string }> = ({ size, name }) =>
         styled(Icons[name])`
           width: ${size}rem;
           height: ${size}rem;
-          display: block;
-          margin: ${size * 1.5}rem auto;
+          display: inline-flex;
+          margin: 1rem;
         `,
       )
     : null;
 
 const IllustrationWrapper = styled.div`
   ${Card};
+  padding: 1rem;
+  margin: 1.25rem;
+  display: inline-block;
 
   ${width({
     70: 50,
