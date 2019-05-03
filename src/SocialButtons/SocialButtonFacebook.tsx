@@ -19,9 +19,9 @@ const FacebookFormat: CustomFormatButton = {
 };
 
 const FacebookIcon = styled(SocialChipFacebook)`
-  width: ${rem(25)};
-  height: ${rem(25)};
-  margin-left: ${rem(-4)};
+  width: ${rem(22)};
+  height: ${rem(22)};
+  margin-left: ${rem(-6)};
   rect {
     display: none;
   }
