@@ -97,12 +97,7 @@ export {
 } from './SegmentedButtonSet/SegmentedButtonSet';
 export { SelectWrapper } from './SelectWrapper/SelectWrapper';
 export { SlideUpDown } from './SlideUpDown/SlideUpDown';
-export {
-  SocialButtonFacebook,
-} from './SocialButtons/SocialButtonFacebook';
-export {
-  SocialButtonGoogle,
-} from './SocialButtons/SocialButtonGoogle';
+export { SocialButton } from './SocialButton/SocialButton';
 export {
   SteppedContentSlider,
 } from './SteppedContentSlider/SteppedContentSlider';
