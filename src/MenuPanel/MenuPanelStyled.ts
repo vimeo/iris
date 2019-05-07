@@ -30,7 +30,7 @@ export const MenuPanelStyled = styled.div<MenuPanelStyledProps>`
 
   width: ${props => rem(menuPanelSizes[props.size])};
 
-  border-radius: ${rem(2)};
+  border-radius: ${rem(5)};
   background: ${props =>
     props.theme === 'dark' ? COLORS.SovereignShadow : COLORS.White};
   box-shadow: 0 0 ${rem(1)} 0 rgba(0, 0, 0, 0.15),
