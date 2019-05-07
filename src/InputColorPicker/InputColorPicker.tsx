@@ -49,6 +49,10 @@ export interface InputColorPickerProps {
    * Add a unique id to the input.
    */
   id: string;
+
+  onOpen?: () => void;
+
+  onClose?: () => void;
 }
 
 export type InputColorPickerCombinedProps = InputColorPickerProps &
@@ -208,6 +212,9 @@ export class InputColorPicker extends Component<
       shouldFocusNextUpdate: true,
     });
 
+    if (typeof this.props.onOpen === 'function') {
+      this.props.onOpen();
+    }
     this._bindCloseMenuListeners();
   };
 
@@ -216,6 +223,9 @@ export class InputColorPicker extends Component<
       showColorPicker: false,
     });
 
+    if (typeof this.props.onClose === 'function') {
+      this.props.onClose();
+    }
     this._unbindCloseMenuListeners();
   };
 
