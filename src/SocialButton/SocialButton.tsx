@@ -1,5 +1,6 @@
-import React, { SFC } from 'react';
+import React from 'react';
 
+import { IrisComponent } from '../Utils';
 import { ButtonProps } from '../Button/ButtonTypes';
 import { SocialButtonWrapper } from './SocialButtonWrapper';
 import * as Settings from './SocialButtonSettings';
@@ -8,7 +9,7 @@ interface SocialButtonProps extends ButtonProps {
   brand: 'facebook' | 'google';
 }
 
-export const SocialButton: SFC<SocialButtonProps> = ({
+export const SocialButton: IrisComponent<SocialButtonProps> = ({
   brand,
   ...props
 }) => {

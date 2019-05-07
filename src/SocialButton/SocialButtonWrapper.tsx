@@ -1,7 +1,8 @@
-import React, { SFC } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 
+import { IrisComponent } from '../Utils';
 import { ButtonProps } from '../Button/ButtonTypes';
 import { ButtonStyleSettings } from '../Button/ButtonStyleSettings';
 import {
@@ -42,7 +43,7 @@ const SocialIconElement = styled.span<SocialIconElementProps>`
   ${getIconElementSizeCSS}
 `;
 
-export const SocialButtonWrapper: SFC<ButtonProps> = ({
+export const SocialButtonWrapper: IrisComponent<ButtonProps> = ({
   children,
   icon,
   autoWidth = 'sm',
