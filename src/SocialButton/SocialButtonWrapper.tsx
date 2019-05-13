@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 
 import { IrisComponent } from '../Utils';
@@ -23,10 +23,10 @@ const getIconElementSizeCSS = props => {
     ButtonStyleSettings.Sizes[props.size] ||
     ButtonStyleSettings.Sizes.md;
 
-  return `
-        width: ${thisButtonSize.minHeight};
-        height: ${thisButtonSize.minHeight};
-    `;
+  return css`
+    width: ${thisButtonSize.minHeight};
+    height: ${thisButtonSize.minHeight};
+  `;
 };
 
 const SocialIconElement = styled.span<SocialIconElementProps>`

@@ -3,7 +3,7 @@ import React from 'react';
 import { IrisComponent } from '../Utils';
 import { ButtonProps } from '../Button/ButtonTypes';
 import { SocialButtonWrapper } from './SocialButtonWrapper';
-import * as Settings from './SocialButtonSettings';
+import { Icons, Formats } from './SocialButtonSettings';
 
 interface SocialButtonProps extends ButtonProps {
   brand: 'facebook' | 'google';
@@ -15,8 +15,8 @@ export const SocialButton: IrisComponent<SocialButtonProps> = ({
 }) => {
   return (
     <SocialButtonWrapper
-      icon={Settings.Icons[brand]}
-      customFormat={Settings.Formats[brand]}
+      icon={Icons[brand]}
+      customFormat={Formats[brand]}
       {...props}
     />
   );

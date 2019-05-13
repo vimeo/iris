@@ -41,8 +41,8 @@ const GoogleFormat: CustomFormatButton = {
 };
 
 export const Icons = {
-  google: React.createElement(GoogleIcon),
-  facebook: React.createElement(FacebookIcon),
+  google: <GoogleIcon />,
+  facebook: <FacebookIcon />,
 };
 
 export const Formats = {
