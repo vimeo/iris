@@ -5,14 +5,16 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import * as COLORS from '../Color/Color';
 
+type Panel = {
+  tabId: string;
+  label: string;
+  content: ReactNode;
+  onClick?: (e: React.MouseEvent) => void;
+};
+
 interface Props {
   index: number;
-  panels: Array<{
-    tabId: string;
-    label: string;
-    content: ReactNode;
-    onClick?: (e: React.MouseEvent) => void;
-  }>;
+  panels: Panel[];
 }
 
 interface State {

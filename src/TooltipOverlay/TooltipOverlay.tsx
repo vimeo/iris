@@ -302,9 +302,7 @@ export class TooltipOverlay extends Component<
           </SpanWrapper>
         </TargetStyled>
         <PopperStyled
-          // @ts-ignore  eventsEnabled is a Popper prop
           eventsEnabled={popperEventsEnabled}
-          // @ts-ignore modifiers is a Popper prop
           modifiers={{
             offset: {
               offset: offsetMap[attachment],

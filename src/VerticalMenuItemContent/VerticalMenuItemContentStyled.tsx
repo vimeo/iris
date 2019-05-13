@@ -5,8 +5,8 @@ import { rem } from 'polished';
 import { css } from 'styled-components';
 import { ParagraphMd } from '../Type';
 
-const VerticalMenuItem_IconSize = rem(20);
-const VerticalMenuItem_IconMargin = rem(8);
+const size = rem(20);
+const margin = rem(8);
 
 export const MenuItemContentStyled = styled<any>(
   ({ hasSubMenu, hasRightSideContent, ...props }) => (
@@ -29,7 +29,7 @@ export const MenuItemContentStyled = styled<any>(
   ${props =>
     props.hasRightSideContent &&
     css`
-      padding-right: ${VerticalMenuItem_IconSize} + 1rem;
+      padding-right: ${size} + 1rem;
     `};
 `;
 
@@ -42,10 +42,7 @@ export const LabelStyled = styled.span<{
   ${props =>
     props.hasIcon &&
     css`
-      width: calc(
-        100% - ${VerticalMenuItem_IconSize} +
-          ${VerticalMenuItem_IconMargin}
-      );
+      width: calc(100% - ${size} + ${margin});
     `};
 
   ${props =>
@@ -61,12 +58,12 @@ export const LabelIconStyled = styled.span<{
   labelIconTheme?: 'default' | 'subtle';
 }>`
   margin-bottom: ${rem(-6)};
-  margin-right: ${VerticalMenuItem_IconMargin};
+  margin-right: ${margin};
   transform: translateY(${rem(-3)});
 
   svg {
-    width: ${VerticalMenuItem_IconSize};
-    height: ${VerticalMenuItem_IconSize};
+    width: ${size};
+    height: ${size};
 
     * {
       fill: ${props =>
@@ -83,8 +80,8 @@ export const LinkActionWrapper = styled.span`
   right: 0.5rem;
 
   svg {
-    width: ${VerticalMenuItem_IconSize};
-    height: ${VerticalMenuItem_IconSize};
+    width: ${size};
+    height: ${size};
 
     * {
       fill: currentColor;

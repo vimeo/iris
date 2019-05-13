@@ -175,9 +175,8 @@ export class ModalWrapper extends Component<ModalWrapperProps> {
 
   _getOriginalFocusedEl() {
     // store the element that was focused when the modal opened
-    const previouslyFocusedElement = document.activeElement;
+    const previouslyFocusedElement = document.activeElement as HTMLElement;
     if (previouslyFocusedElement) {
-      // @ts-ignore
       this.previouslyFocusedElement = previouslyFocusedElement;
     }
   }
@@ -319,10 +318,6 @@ export class ModalWrapper extends Component<ModalWrapperProps> {
       modalPosition,
       modalSpeed = 250,
       mountOnEnter,
-      // @ts-ignore
-      noDismiss,
-      // @ts-ignore
-      onCloseEvent,
       unmountOnExit,
       zIndexStartingPoint = Z_INDEX.modalWrapper,
     } = this.props;

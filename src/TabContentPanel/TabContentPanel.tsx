@@ -1,12 +1,14 @@
 import React, { ReactNode, SFC } from 'react';
 
+type Panel = {
+  tabId: string;
+  content: ReactNode;
+};
+
 interface Props {
   index: number;
   className?: string;
-  panels: Array<{
-    tabId: string;
-    content: ReactNode;
-  }>;
+  panels: Panel[];
 }
 
 export const TabContentPanel: SFC<Props> = ({

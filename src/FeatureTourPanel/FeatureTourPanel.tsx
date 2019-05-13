@@ -34,15 +34,15 @@ export interface FeatureTourPanelState {
   beaconMode?: 'inactive' | 'open' | 'active' | 'hidden';
   beaconDelayIndex?: number;
   beaconA11yText?: string;
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
-  dismissButtonA11yLabel: string;
+  dismissButtonA11yLabel?: string;
   dismissButtonProps?: {};
   dotZIndex?: number;
   headerText?: string;
   shouldHideOnClose?: boolean;
   isOpen?: boolean;
-  onClose: () => void;
+  onClose?: () => void;
   onDismissClick?: (e: Event) => void;
   onOpen?: () => void;
   shouldRefocusTriggerOnClose?: boolean;
@@ -88,7 +88,6 @@ export class FeatureTourPanel extends Component<
       initialBeaconMode = 'inactive';
     }
 
-    // @ts-ignore
     this.state = {
       isOpen: props.isOpen ? true : false,
       beaconMode: initialBeaconMode,

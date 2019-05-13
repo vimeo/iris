@@ -13,6 +13,7 @@ import { InputText } from '../InputText/InputText';
 import { InputTextProps } from '../InputText/InputText';
 import { MenuPanel } from '../MenuPanel/MenuPanel';
 import { KEY_CODES } from '../Legacy/KEY_CODES';
+// eslint-disable-next-line
 import { Moment } from 'moment';
 
 const inputDataAttribute = 'data-input-field';

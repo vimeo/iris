@@ -7,7 +7,8 @@ export const getBreakpoint = (
   cssDeclarations: any,
 ) => css`
   @media screen and (min-width: ${em(breakpointInPixels)}) {
-    // @ts-ignore
+    /* 
+    // @ts-ignore */
     ${css(...cssDeclarations)};
   }
 `;

@@ -303,10 +303,8 @@ export class InputColorPicker extends Component<
     }
   };
 
-  _handleInputChange = (e: ChangeEvent) => {
-    // @ts-ignore TS doesn't know event target has value sometimes, but I'm guarding agains that
+  _handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target && e.target.value) {
-      // @ts-ignore see above
       const value = e.target.value;
 
       if (typeof value === 'string') {

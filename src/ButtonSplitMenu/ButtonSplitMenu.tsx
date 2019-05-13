@@ -30,7 +30,7 @@ const buttonBackgrounds = {
 
 interface ButtonStylingProps {
   size: 'sm' | 'md' | 'lg';
-  format?:
+  format:
     | 'primary'
     | 'secondary'
     | 'alternative'
@@ -54,7 +54,6 @@ const activeAnimation = css`
 const WrapperStyled = styled.div<any>`
   position: relative;
 
-  //:after pseudo-element is the visual dividing line between buttons
   &::after {
     position: absolute;
     top: 50%;
@@ -90,8 +89,6 @@ const MenuButtonWrapperStyled = styled.div`
 
 const MenuButtonStyled = styled.button<ButtonStylingProps>`
   ${ButtonCoreCSS};
-  /*
-  // @ts-ignore */
   ${getDefaultCSSByFormat};
   ${getSizeCSS};
 

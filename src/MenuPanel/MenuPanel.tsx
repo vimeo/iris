@@ -262,8 +262,6 @@ export class MenuPanel extends Component<Props, State> {
 
     return (
       <WrapperStyled isFluid={isFluid}>
-        {/*
-        // @ts-ignore */}
         <TetherComponent
           attachment={`top ${alignment}`}
           targetAttachment={`bottom ${alignment}`}

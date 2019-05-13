@@ -5,7 +5,7 @@ import { StyledSelect } from './InputSelectStyled';
 
 export interface InputSelectProps extends InputProps {
   icon?: React.ReactNode;
-  options?: Array<{ label: string; value: string }>;
+  options?: { label: string; value: string }[];
 }
 
 export const InputSelect: SFC<InputSelectProps> = ({

@@ -61,7 +61,6 @@ storiesOf(`components|${componentName}`, module)
             onCheckBoxClick={() => console.log('checkbox clicked')}
             thumbnailBrandDecorationArea={<StaffPicksBadgeJustSp />}
             thumbnailData={thumbnailData}
-            // @ts-ignore
             thumbnailSocialBadgeArea={socialBadges}
             thumbnailTimestampArea={
               <VideoCardTimestamp timestamp="04:15" />
@@ -82,7 +81,6 @@ storiesOf(`components|${componentName}`, module)
             onCheckBoxClick={() => console.log('checkbox clicked')}
             thumbnailBrandDecorationArea={<StaffPicksBadgeJustSp />}
             thumbnailData={thumbnailData}
-            // @ts-ignore
             thumbnailSocialBadgeArea={socialBadges}
             thumbnailTimestampArea={
               <VideoCardTimestamp timestamp="04:15" />
@@ -103,7 +101,6 @@ storiesOf(`components|${componentName}`, module)
             onCheckBoxClick={() => console.log('checkbox clicked')}
             thumbnailBrandDecorationArea={<StaffPicksBadgeJustSp />}
             thumbnailData={thumbnailData}
-            // @ts-ignore
             thumbnailSocialBadgeArea={socialBadges}
             thumbnailTimestampArea={
               <VideoCardTimestamp timestamp="04:15" />
