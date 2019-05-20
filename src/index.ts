@@ -25,6 +25,8 @@ export {
   ButtonToggleState,
 } from './ButtonToggleState/ButtonToggleState';
 
+export { FloatingButton } from './Buttons/Floating/Floating';
+
 export { Card } from './Card/Card';
 export { CategoryCard } from './CategoryCard/CategoryCard';
 export { CircularButton } from './CircularButton/CircularButton';
