@@ -37,7 +37,7 @@
 
 ### [Iris](https://github.vimeows.com/pages/vimeo/iris/master) is the design system that powers Vimeo's web apps.
 
-<a href="https://github.vimeows.com/pages/vimeo/iris/master"><img src="https://github.vimeows.com/Vimeo/iris/blob/master/README.png" width="720px" /></a>
+<a href="https://github.vimeows.com/pages/vimeo/iris/master"><img src="https://github.vimeows.com/Vimeo/iris/blob/master/storybook.png" width="720px" /></a>
 
 ## Installation
 [Yarn](https://github.com/yarnpkg/yarn) is required: `npm install -g yarn`
