@@ -5,14 +5,17 @@
 *.story.tsx
 *.x-story.tsx
 build-styleguide
+CHANGELOG.md
+FAQ.md
 Jenkinsfile
 labs
 modules
+README.png
 scripts
 src
+storybook-static
 svg_src_files
 yarn.lock
-
 
 node_modules
 *.log
