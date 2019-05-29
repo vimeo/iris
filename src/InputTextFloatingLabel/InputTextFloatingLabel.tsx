@@ -47,7 +47,7 @@ export class InputTextFloatingLabel extends Component<Props, State> {
     e.relatedTarget instanceof HTMLElement &&
     e.relatedTarget.hasAttribute('data-js-passwordtoggle')
       ? this.inputField.focus()
-      : () => {
+      : (() => {
           this.setState(
             activeFocused(
               e.target instanceof HTMLInputElement &&
@@ -56,7 +56,7 @@ export class InputTextFloatingLabel extends Component<Props, State> {
             ),
           );
           this.props.onBlur(e);
-        };
+        })();
 
   private handleFieldFocus = (
     e: React.FocusEvent<HTMLInputElement>,
