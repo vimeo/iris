@@ -108,4 +108,5 @@ export { UploadCloudFilled } from './UploadCloudFilled';
 export { Video } from './Video';
 export { VideoStack } from './VideoStack';
 export { VideoStackFilled } from './VideoStackFilled';
+export { VimeoV } from './VimeoV';
 export { Youtube } from './Youtube';
