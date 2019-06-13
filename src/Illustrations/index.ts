@@ -12,6 +12,7 @@ export { VimeoBusinessBlueBoxLogo } from './VimeoBusinessBlueBoxLogo';
 export { VimeoExclusiveLg } from './VimeoExclusiveLg';
 export { VimeoExclusiveSm } from './VimeoExclusiveSm';
 export { VimeoLivestreamLogo } from './VimeoLivestreamLogo';
+export { VimeoLogo } from './VimeoLogo';
 export { VimeoPlusBlueBoxLogo } from './VimeoPlusBlueBoxLogo';
 export { VimeoPlusLogoBlackBlue } from './VimeoPlusLogoBlackBlue';
 export { VimeoProBlueBoxLogo } from './VimeoProBlueBoxLogo';
