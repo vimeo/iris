@@ -78,12 +78,9 @@ export const InputCheckbox = withDeprecateComponent<DeprecatedProps>(
   '<InputCheckbox /> will no longer be available in Iris 8. Please use <Checkbox />. Note: When updating components, please be aware the props interface has changed.',
   ({
     checkedStyle = 'default',
-    disabled,
     errorMsg,
-    format = 'neutral',
     helperMsg,
     hideLabel,
-    id,
     label,
     theme = 'default',
     ...props
