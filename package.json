@@ -90,7 +90,7 @@
         "checkup": "npx npm-check-updates",
         "clean": "rm -rf build",
         "storybook": "start-storybook -p 9001 -c .storybook --ci",
-        "svg": "npm run svg-min; npm run svg-react",
+        "svg": "npm run svg-react; npm run svg-min",
         "svg-min": "node scripts/svg-index; npx prettier ./src/Icons/index.ts --write; npx prettier ./src/Illustrations/index.ts --write",
         "svg-react": "npm run svg-react-icons; npm run svg-react-illustrations;",
         "svg-react-icons": "npx @svgr/cli --template ./scripts/svg-react.js --ext tsx -d ./src/Icons ./src/Icons; rm -f ./src/Icons/*.svg",

@@ -41,6 +41,7 @@ export { DownloadArrow } from './DownloadArrow';
 export { Drive } from './Drive';
 export { Dropbox } from './Dropbox';
 export { Enterprise } from './Enterprise';
+export { Envelope } from './Envelope';
 export { Eye } from './Eye';
 export { EyeOff } from './EyeOff';
 export { Facebook } from './Facebook';
