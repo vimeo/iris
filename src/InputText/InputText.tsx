@@ -37,7 +37,6 @@ export const InputText: SFC<InputTextProps & InputProps> = ({
   inlineButton,
   label,
   id,
-  placeholder,
   preMessage,
   autocomplete = true,
   showLabel = true,
