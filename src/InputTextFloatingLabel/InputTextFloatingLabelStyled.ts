@@ -6,6 +6,7 @@ import { getInputBaseStyles } from '../InputText/InputHelpers';
 
 export const Wrapper = styled.div<{
   format: 'negative' | 'positive' | 'neutral';
+  disabled?: boolean;
   onClick: () => void;
 }>`
   ${getInputBaseStyles};
@@ -14,6 +15,7 @@ export const Wrapper = styled.div<{
   min-height: ${rem(52)};
   font-size: ${rem(16)};
   transition: all 100ms ease;
+  ${props => props.disabled && `background-color: ${COLORS.Paste}`}
 `;
 
 export const Label = styled.label<{

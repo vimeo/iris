@@ -110,7 +110,11 @@ export class InputTextFloatingLabel extends Component<Props, State> {
         size="xl"
         theme={theme === 'dark' ? 'dark' : 'light'}
       >
-        <Wrapper format={format} onClick={this.handleWrapperClick}>
+        <Wrapper
+          format={format}
+          onClick={this.handleWrapperClick}
+          disabled={disabled}
+        >
           <Label
             isActive={this.state.isActive}
             theme={theme === 'dark' ? 'dark' : 'light'}

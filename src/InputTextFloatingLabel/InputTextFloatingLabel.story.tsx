@@ -26,6 +26,13 @@ storiesOf(`components|${componentName}`, module).add(
           helperMsg="helper message"
           format="neutral"
         />
+        <$InputTextFloatingLabel
+          id="id"
+          label="disabled"
+          type="text"
+          format="neutral"
+          disabled={true}
+        />
       </div>
     </Story>
   ),
