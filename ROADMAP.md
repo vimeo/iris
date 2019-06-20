@@ -2,16 +2,13 @@
 
  Iris 7.0 (released March 2019) is partial rewrite of Iris that lays the groundwork for new features, better DX, smaller bundles, improved performance, component testing & validation, SSR support, and more! Iris is now written in 100% TypeScript and runs on the latest versions of React and styled-components. With the release of Iris 7, _**support for Iris 5 is dropped**_. If you are using Iris outside of the app shell please upgrade to `^6.0.0` ASAP.
 
-Last Updated: 3/28/2018 by [@sean-mcintyre](https://github.vimeows.com/sean-mcintyre)
+Last Updated: 6/11/2018 by [@sean-mcintyre](https://github.vimeows.com/sean-mcintyre)
 
 # Roadmap 🚙
-### aka, Rainbow Road
 This is a **provisional** overview of what the Iris team is planning to work on over the course of the next year as well as a summary of recent changes. Please file issues in this repository if you have questions, concerns, or suggestions!
 
-<img src="https://media.giphy.com/media/1385h22r1k6sIU/giphy.gif" width="300px" />
 
-
-## Iris 7.0: 💫 Supernumerary (March 2019)
+## Iris 7.0 (March 2019)
 
 <a id="changelog" />
 
@@ -45,14 +42,10 @@ This is a **provisional** overview of what the Iris team is planning to work on 
 	*   `List`, `ListItem`
 	*   `withCopyAbility` (HOC)
 
-<img src="https://media.giphy.com/media/13AcmSNW5O7WV2/source.gif" width="300px" />
-
 
 **In upcoming 7+ minor releases we will**
 
 * Remove top-level imports from `@vimeo/iris` and require module imports, ie. `@vimeo/iris/color`
-* Reorganize the internal structure of Iris to better reflect its new module structure, improve the clarity of shared code between components, and dogfood its import conventions.
-	* The import groups, storybook, and `/src` folder will follow the same patterns.
 * Correct type bugs uncovered during the 7.0 upgrade process.
 * General typing improvements.
 	* Audit the excess use of `HTMLProps<>`
@@ -61,92 +54,227 @@ This is a **provisional** overview of what the Iris team is planning to work on 
 * Add getting started demos for Create React App and Rendezvous with Iris, TypeScript, and styled-components.
 * Improve the discoverability/searchability of icons in storybook.
 * Audit the backlog of bugs from before Iris 7.0 and address any bugs that still exist.
-* Finish implementing the new focus outline styles on all remaining components: [New Focus Styles](https://github.vimeows.com/Vimeo/iris/projects/3)
-* Replace the functionality of `react-popper`, `react-swipe`, `react-swipeable`, `react-tether`, and `react-transition-group` with hooks.
-* Remove  `react-popper` and `react-tether`.
-* Rewrite `MenuPanel`, `Tooltip`, and `SlideUpDown`[*](#function-components-note)
-* Minify Iris with `terser` to further reduce distribution size.
-* Rebuild `Modal` from scratch with a new design[*](#function-components-note)
-* Remove `react-transition-group`
-* Rebuild `VideoCard` from scratch and possibly update the design.[*](#function-components-note)
-* Replace `react-datetime` with a smaller library, or write our own date-picker.
-* Replace `moment` with `luxon` or `date-fns`
-* Rewrite any remaining class components as function components (except `FeatureTourPanel` and `InputColorPicker`):
-	* Should be: `ButtonToggleState`, `ContentCarousel`, `InputCheckboxSet`, `InputSlider`, `InputTextFloatingLabel`, `OverflowTruncationWrapper`, `SteppedContentSlider`, `TabNavigationHorizontal`, `VerticalMenuItem`, `VerticalMenuNested`, `withCharacterCount`[*](#function-components-note)
-* Early introduction of visual regression, snapshot, and unit testing.
-* Rewrite `FeatureTourPanel` from scratch and possibly update design.[*](#function-components-note)
-* Rewrite `InputColorPicker` from scratch and possibly update design.[*](#function-components-note)
-
-***
-
-<a id="function-components-note" />
-
-**Note about component rewrites**
-
-The remaining class components are being rewritten for the same reasons that many were leading up to the release of 7.0: to share stateful logic between components, reduce code complexity, improve performance, increase readability, and prepare for upcoming React features. Additionally, a select few: such as `SteppedContentSlider`, `VideoCard` and `MenuPanel`, are especially complicated, suffer from unacceptable performance issues, and are very challenging to alter or add new features to.
-
-<img src="https://media.giphy.com/media/YXH92d9qgLbUY/giphy.gif" width="300px" />
+* Replace the functionality of `react-popper` and `react-tether` with hooks.
+	* Remove  `react-popper` and `react-tether`.
+	* Rebuild `MenuPanel` and `Tooltip`.
+* Replace `react-swipe`, `react-swipeable`, and `react-transition-group` with hooks (or `react-spring`).
+	* Rebuild `SlideUpDown`
+* Replace `copy-to-clipboard` with a hook and native API.
+* Rebuild `Modal` from scratch with a new design
+* Rebuild `InputColorPicker` without dependencies.
+* Rebuild `InputDatePicker` without dependencies.
+	* Remove `moment` library
+	* Add `DateRange` variation for selecting between two dates.
 
 ## Upcoming 
-### Iris 8.0: 🌻 Flower Picking (June 2019 ETA)
+### Iris 8.0 (July 2019 ETA)
 
-* Themes! Iris components will support light and dark themes, and we will explore creating a11y themes that users can enable in their Vimeo settings.
+* **Themes!** Iris components will support light and dark themes, as well as a11y theme settings (ie. high contrast mode) that users can enable.
+* Require stories and unit tests when modifying or adding components
+* Finish implementing the new focus outline styles on all remaining components: [New Focus Styles](https://github.vimeows.com/Vimeo/iris/projects/3)
 * Comprehensive props audit of all components.
 	* Conceptually similar/identical props will consolidated across Iris. This means no more `variant`, `format`, `theme`, etc confusion!
-* Enforce stricter TypeScript rules (`noImplicitAny`, `strictNullChecks`, etc).
-* Enforce stricter ESLint rules.
-* Improve component bundling and minification.
-* Remove the remaining `react-*` libs: `react-color`, `react-swipe`, `react-swipeable`
+* All exported components will use the new `IrisComponent` and `IrisInputComponent` types instead of React's `SFC`, `FC`, etc.
+* `/src` will be reorganized to reflect the new module structure.
+* Automation:
+	* Github Pages Storybook builds per branch.
+	* Minor and patch releases (Artifactory, Github, and Slack #iris).
+	* Webpack bundle analyzer.
+	* Readme updates.
+	* SVG compression.
+	* Component status/coverage list.
+	* Componnet history timeline (add, modify, remove).
+* Dev environments:
+	* Components with exported with dev versions.
+	* Iris will be compressed with terser and exported with sourcemaps.
+* Pre-commit hooks will be removed.
+* Storybook UI will be updated to better reflect Vimeo branding.
 
-<img src="https://media.giphy.com/media/EOmSQEk9b5aqA/giphy.gif" width="300px" />
+
+### Iris 9.0 (October 2019 ETA)
+
+#### This release will focus on DesignsOps, documentation, and DevEx.
+
+* Introduce `@iris/hooks`
+* Introduce `@iris/layout`
+* **Spectrum Phase 1**: Early exploration of Framer, Sketch, Storybook integration and development of a long term plan for keeping designer assets synchronized with Iris codebase.
+* Establish a Storybook-first UI engineering workflow with tools and documentation in Iris, Rendezvous, or both.
+* Introduction of initial design system KPIs and recurring surveys for designers and engineers.
+* Design documentation, principles, and guidelines.
+	* Design specs/documentation in VSCode tooltips.
+	* UX copywriting documentation.
+	* Vimeo brand guidelines and styleguide integration into Iris.
+	* Storybook panel: good and bad component examples
+* Automated prop documentation for components in Storybook.
+* Compile time rendering performance improvements (probably via babel macros).
+* **vimeo.design, iris.design**
+	* product design, design systems, a11y blog
+	* storybook enhancements:
+		* homepage with updates and general info
+		* getting started
+		* changelog
+		* component status page (ie. https://polaris.shopify.com/components/component-status#navigation)
 
 
-### Iris 9.0: 🌈 Full Spectrum (September 2019 ETA)
-* Finalize tools for visual regression testing, Jest snapshot testing, and Enzyme unit testing.
+### Iris 10.0 (December 2019 ETA)
+
+#### This release will focus on test coverage and tooling.
+
+* **Visual regression testing, snapshot testing, and unit testing coverage for all components.**
 * Comprehensive performance audit of all components.
 * Audit and address all component a11y issues to bring Iris to (at minimum) WCAG 2.1 AA compliance.
 * Improve a11y testing and per-component WCAG compliance scoring.
-* Add our first a11y theme for components.
-* **Exploratory:**
-	* Sketch <—> React integration tools
-		* and possibly following this: Framer, Figma, etc
-	* Component analytics
-		* Locations of all Iris imports in vimeo/vimeo accessible via Storybook (github code and CI preview links)
-		* Component interface stability: frequency of a component's prop interface changes over versions/time.
-		* Per component bug tracking.
-		* Per component A/B testing.
+* **Component Scoring**
+	* Component scores will be displayed in Storybook based upon:
+		* code quality
+		* performance tests results
+		* a11y (WCAG) score
+		* API stability (how stable are the props over time?)
+		* developer rating
+* Improve Github experience and CI checks.
+* Replace TSLint with ESLint.
+* Enforce stricter TypeScript rules (`noImplicitAny`, `strictNullChecks`, etc).
+* Enforce stricter ESLint rules.
+* Improve component bundling and minification.
 
 
-### Iris 10.0: 🙀 Emotional Reactions (December 2019 ETA)
 
-* Add 'iris/motion' module, animation guidelines, and react-spring
-* Consolidate existing animation code, and add and improve animation across all components.
-* Abstract 'formats', color relationships, animation timings/styles, aesthetic geometry, etc, into importable, reusable configs.
+### Iris 11.0: (February 2020 ETA)
+
+* **Partially open source Iris**
+* Introduce `@iris/graphs` (D3?)
+	* Area Chart
+	* Bar Charts
+		* Stacked Bar Chart
+		* Vertical Bar Chart
+	* Donut Chart
+	* Histogram
+	* Line Graph
+	* Pie Chart
+	* Scatterplot
+	* Word Cloud
+* **Component Coverage:**
+	* `@iris/components`
+		* Code Gist
+		* Data Table
+		* Number Inputs
+		* Timeline
+		* Timepicker
+	* `@iris/layout`
+		* Footers
 
 
-### Future 🚀
-#### Somewhere over the rainbow. (Sorry, last pun. I promiris!)
+### Iris 12.0: (May 2020 ETA)
 
-* Blog post on the styled components blog about its use at Vimeo, hopefully around the release of 8.0 (the creator of styled components, Max Stoiber, is very excited about this 🎉).
-* Integrate brand guidelines/styleguide into Iris.
-* Host (bi-)monthly Iris Talks on UI Engineering and Design Systems.
-* Design documentation, principles, and guidelines.
-	* Design specs/documentation in VSCode tooltips.
-* Explore [immutable documentation](https://codeascraft.com/2018/10/10/etsys-experiment-with-immutable-documentation/).
-* Iris Slackbot! Like Siri but spelled backwards! Also, you she can't hear you so communication via text is preferred 😉
-	* Search and share Vimeo brand assets, Iris icons, colors, etc in Slack!
-	* Lazy link to the Iris Storybook!
-	* And more!
-* Individually versioned and packaged components
-* Iris CLI
-	* Code scaffolding
-	* And more!
-* vimeo.design / iris.design
-	* Vimeo blog for product design, UI, UX, animation, design engineering, and a11y 
-	* hosting Iris sandboxes and tutorial videos on [Glitch](https://glitch.com/@vimeo)
-* Tool for queueing up proposals to be reviewed/approved by Designers and Iris Engineers
+* Introduce `@iris/motion`
+	* Animation guidelines and documentation
+	* Consolidate existing animation code, and add and improve animation across all components
+	* SVG animation API
+	* Animated icons
+	* 3D cards
+	* blobs (dynamic natural contours)
+	* Typography
+		* Character animation
+	* List / Grid Re-ordering (drag and drop)
+	* Connected transformations/transitions (ie. button becomes the modal it opens)
+* Elevation system
+	* Dynamic light sources
+* Spectrum Phase 2: Improved integration between React, Storybook, Sketch, and Framer. Early prototypes of generating code from design tooling.
+* **Fully open source Iris**
+	* Separate Vimeo specific (or private) code from general design system abstractions
+* **Advanced Themes:**
+	* Abstract 'formats', color relationships, animation timings/styles, aesthetic geometry, etc, into importable, reusable configs.
+	* Demo Iris in multiple brand styles derived from small theme objects (Twitter, Facebook, Google, Apple, etc)
+* **Component Coverage:**
+	* `@iris/components`
+		* Accordions
+		* Grouped Components
+			* Avatar Group
+			* Card Stack
+		* Indicators
+			* Capacity
+			* Circle
+			* Progress
+			* Rating
+			* Relevance
+			* Spinners
+		* Maps (google maps?)
+		* Vertical Tabs
+		* Virtual Lists / Grids
 
-<img src="https://media.giphy.com/media/9serkTf0zakU0/giphy.gif" width="300px" />
+
+
+### Iris 13.0: (August 2020 ETA)
+
+* Further enhancements to vimeo.design/iris.design
+* **SVG system** (similar to Apple's SF symbols, consistent with `@iris/color` and `@iris/typography` systems)
+	* Composable SVGs
+* **Separate iris modules on npm**
+	* `@iris/color`
+	* `@iris/components`
+	* `@iris/graphs`
+	* `@iris/hooks`
+	* `@iris/icons`
+	* `@iris/illustration`
+	* `@iris/layout`
+	* `@iris/motion`
+	* `@iris/typography`
+	* `@iris/utilities`
+* **Component Coverage:**
+	* **100% responsive support** for all relevant components and layouts
+	* `@iris/components`
+		* Video (player/editor) components
+			* Filmstrip
+			* Histogram
+			* Playbar
+			* Scrubber
+			* Timeline
+		* Chat / Messaging
+	* `@iris/graphs`
+		* Bar charts
+			* Positive-Negative Bar Chart
+		* Collapsible Tree
+		* Difference Chart
+		* Motion Chart
+		* Spider Charts
+		* Stream Graph
+		* Timeline Chart
+		* Tree Map
+		* Trend Chart
+
+
+### Iris 14.0: (December 2020 ETA)
+
+* `@iris/iOS`
+* `@iris/android`
+* `@iris/tv`
+	* Apple TV and Android TV components and compilation via react-native
+* **Spectrum Phase 3:** "multi-platform HMR" work on/with Iris in realtime across multiple browsers, devices, platforms, environments, screen sizes, etc
+
+### Iris 15.0: (April 2021 ETA)
+
+* Individually published components
+	* `@iris@15.0.0`
+		* `@iris/components@15.0.0`
+			* `@iris/components-modal@4.3.1`
+* Vimeo keynote builder
+* `@iris/color`
+	* Advanced color API (chromajs)
+* **Component Coverage:**
+	* `@iris/components`
+		* Blanket/Screen
+		* Drop Zone
+		* Rich Text Editor
+		* Stepper
+		* Search
+			* Inline Search Tags
+			* Typeahead
+	* `@iris/layout`
+		* Column View
+		* Navs
+			* Overflow Nav
+			* Trees
+		* Split View
 
 
 <a id="faq" />
@@ -164,8 +292,6 @@ The remaining class components are being rewritten for the same reasons that man
 <b class="qa">Q:</b> <i>A few days/weeks/months ago we discussed implementing a new feature, component, or some such item in Iris. What's the the deal with that? Can I has now please?</i>
 
 <b class="qa">A:</b> I don't know! A good place to check on the status of something in Iris would be to consult its github issue! All issues are organized into minor version [milestones](https://github.vimeows.com/Vimeo/iris/milestones) with approximate release dates. If you need something to be expedited, please comment on the issue with further information before reaching out to an Iris engineer.
-
-<img src="https://media.giphy.com/media/26n6WywJyh39n1pBu/giphy.gif" width="300px" />
 
 ### Whatever happened to Iris 6.0?
 
@@ -201,8 +327,6 @@ The short term goal is to make that list look like this:
 
 <b class="qa">A:</b> Yes! Iris can be used with any React (16.8+) app. The only requirement is that you are behind the IAC firewall to retrieve it from Artifactory via npm/yarn. We're working on a solution to eliminate this requirement though 😉
 
-<img src="https://media.giphy.com/media/WgPQdRXlUcgVO/giphy.gif" width="300px" />
-
 ### I'm looking for an icon.
 
 <b class="qa">Q:</b> <i>Does Iris have the icon I'm looking for? Where can I find it?</i>
@@ -222,5 +346,3 @@ The short term goal is to make that list look like this:
 <b class="qa">Q:</b> <i>An Iris component is missing a type definition for a prop, or it has an incorrect definition. How can I correct this?</i>
 
 <b class="qa">A:</b> Please do not override TypeScript definitions for Iris components. If you need to make an adjustment, open a pull request. If the matter is very time sensitive, please reach out in [#iris](https://vimeo.slack.com/messages/C2UF8PH0A). In absolutely dire situations, you can `ts-ignore` the problem. Please add `#iris`, `#type-issue`, and a brief explaination to your ignore comment.
-
-<img src="https://media.giphy.com/media/ihViTxTZOHw0o/giphy.gif" width="300px" />
