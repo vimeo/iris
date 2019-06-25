@@ -33,6 +33,7 @@ export { CircularButton } from './CircularButton/CircularButton';
 export { ContentCarousel } from './ContentCarousel/ContentCarousel';
 export { CopyField } from './CopyField/CopyField';
 export { CounterIcon } from './CounterIcon/CounterIcon';
+export { DateRange } from './Inputs/DateRange/DateRange';
 export { FauxSelect } from './FauxSelect/FauxSelect';
 export {
   FeatureTourPanel,
