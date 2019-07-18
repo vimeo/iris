@@ -11,6 +11,7 @@ export { ArrowRight } from './ArrowRight';
 export { ArrowVertical } from './ArrowVertical';
 export { Bell } from './Bell';
 export { Box } from './Box';
+export { BulletedList } from './BulletedList';
 export { Camera } from './Camera';
 export { CameraFilled } from './CameraFilled';
 export { Cart } from './Cart';

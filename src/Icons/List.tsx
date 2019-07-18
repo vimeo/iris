@@ -1,9 +1,14 @@
 import React, { SVGProps } from 'react';
 export const List = (props: SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 20 20" {...props}>
+  <svg x={0} y={0} viewBox="0 0 24 24" {...props}>
     <path
-      fill="#1a2e3b"
-      d="M0 3h2v2H0zm0 6h2v2H0zm0 6h2v2H0zM6 3h13a1 1 0 0 1 1 1 1 1 0 0 1-1 1H6a1 1 0 0 1-1-1 1 1 0 0 1 1-1zm0 6h13a1 1 0 0 1 1 1 1 1 0 0 1-1 1H6a1 1 0 0 1-1-1 1 1 0 0 1 1-1zm0 6h13a1 1 0 0 1 1 1 1 1 0 0 1-1 1H6a1 1 0 0 1-1-1 1 1 0 0 1 1-1z"
+      id="List_svg__Rectangle-16"
+      className="List_svg__st0"
+      d="M4 5h16c.6 0 1 .4 1 1s-.4 1-1 1H4c-.6 0-1-.4-1-1s.4-1 1-1z"
+    />
+    <path
+      className="List_svg__st0"
+      d="M4 11h10c.6 0 1 .4 1 1s-.4 1-1 1H4c-.6 0-1-.4-1-1s.4-1 1-1zM4 17h7c.6 0 1 .4 1 1s-.4 1-1 1H4c-.6 0-1-.4-1-1s.4-1 1-1z"
     />
   </svg>
 );
