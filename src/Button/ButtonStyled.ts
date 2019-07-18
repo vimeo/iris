@@ -16,6 +16,7 @@ import {
   buttonSizes,
 } from './ButtonTypes';
 
+/* prettier-ignore */
 const maybeGetFeaturedIconCSS = props => {
   const thisButtonSize =
     ButtonStyleSettings.Sizes[props.size] ||

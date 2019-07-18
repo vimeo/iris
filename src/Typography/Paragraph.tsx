@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { fontFamily, antialias } from './Typography';
 import {
@@ -9,6 +9,7 @@ import {
   Pistachio,
   PistachioLightened,
 } from '../Color/Color';
+import { IrisComponent } from '../Utils';
 
 interface Props {
   size?: '1' | '2' | '3' | '4';
@@ -16,7 +17,7 @@ interface Props {
   variant?: 'normal' | 'alt';
 }
 
-export const Paragraph: SFC<Props> = ({
+export const Paragraph: IrisComponent<Props> = ({
   size = '4',
   theme = 'light',
   variant = 'normal',

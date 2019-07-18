@@ -6,6 +6,7 @@ module.exports = {
     'immutable',
     'import',
     '@typescript-eslint',
+    'prettier',
   ],
   rules: {
     'arrow-parens': 0,
@@ -25,6 +26,7 @@ module.exports = {
     'import/prefer-default-export': 0,
 
     // @typescript rules
+    '@typescript-eslint/array-type': [1, 'array-simple'],
     '@typescript-eslint/ban-ts-ignore': 1,
     '@typescript-eslint/indent': 0, // ['warn', 2],
     '@typescript-eslint/explicit-member-accessibility': 0, // 2,
@@ -46,7 +48,7 @@ module.exports = {
     'react/jsx-filename-extension': 0,
     'react/prop-types': 0,
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn'
+    'react-hooks/exhaustive-deps': 'warn',
   },
   settings: {
     'import/resolver': {

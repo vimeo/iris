@@ -18,7 +18,6 @@ storiesOf('Iris|Welcome', module)
       </Header3>
       <Pre>
         {
-        /* tslint:disable */
         /* prettier-ignore */
       }
         <Code>

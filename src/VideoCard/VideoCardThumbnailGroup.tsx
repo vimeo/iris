@@ -26,9 +26,10 @@ export interface VideoCardThumbnailData {
 // ==================== VideoCardThumbnailGroup Styled
 
 const WrapperStyled = styled.div<any>`
-  padding-bottom: 56.25%; // this is forces this area into a thumbnail aspcect ratio
+  padding-bottom: 56.25%;
 `;
 
+/* prettier-ignore */
 const ThumbnailsStyled = styled.div<any>`
   display: flex;
   padding: ${rem(VideoCardStyleSettings.padding)}
@@ -76,8 +77,8 @@ const GroupThumbnailImage = styled.div<any>`
   background-position: center;
   background-color: ${COLORS.Porcelain};
 `;
-// ==================== VideoCardThumbnailGroup
 
+/* prettier-ignore */
 export const VideoCardThumbnailGroup: SFC<
   VideoCardThumbnailGroupProps
 > = ({ thumbnailData }) =>

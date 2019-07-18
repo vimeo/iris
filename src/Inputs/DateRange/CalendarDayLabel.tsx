@@ -25,7 +25,6 @@ interface Props {
 
 const Label: IrisComponent<Props> = ({ className, children }) => {
   return (
-    // @ts-ignore no prop className
     <Paragraph size="1" className={className}>
       {children}
     </Paragraph>

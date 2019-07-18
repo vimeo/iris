@@ -87,7 +87,7 @@ export const DateRange: IrisInputComponent<DateRangeProps> = ({
     }
 
     return '';
-  }, [open, draftStart, startLabel, hoverStart]);
+  }, [open, draftStart, startLabel, hoverStart, rangeStart]);
 
   // Derive the value for the input that represents our end date.
   const endDateLabel = useMemo(() => {
@@ -108,7 +108,7 @@ export const DateRange: IrisInputComponent<DateRangeProps> = ({
     }
 
     return '';
-  }, [open, draftEnd, endLabel, hoverEnd]);
+  }, [open, draftEnd, endLabel, hoverEnd, rangeEnd]);
 
   // Callback for going to the next month in our date range picker.
   function handleGoForward() {

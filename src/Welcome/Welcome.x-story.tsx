@@ -11,7 +11,6 @@ storiesOf('Iris|Welcome', module).add('Welcome to Iris!', () => (
     </Header3>
     <Pre>
       {
-        /* tslint:disable */
         /* prettier-ignore */
       }
       <Code>
