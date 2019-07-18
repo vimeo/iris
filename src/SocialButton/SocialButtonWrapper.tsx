@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 
 import { IrisComponent } from '../Utils';
+import { ButtonFocus } from '../Button/ButtonFocus';
 import { ButtonProps } from '../Button/ButtonTypes';
 import { ButtonStyleSettings } from '../Button/ButtonStyleSettings';
 import {
@@ -61,5 +62,6 @@ export const SocialButtonWrapper: IrisComponent<ButtonProps> = ({
   >
     <SocialIconElement size={size}>{icon}</SocialIconElement>
     <ButtonLabelStyled>{children}</ButtonLabelStyled>
+    <ButtonFocus size={size} />
   </ButtonStyled>
 );

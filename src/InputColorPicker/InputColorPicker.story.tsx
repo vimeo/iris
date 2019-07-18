@@ -16,7 +16,7 @@ const componentName = 'InputColorPicker';
 storiesOf(`components|Inputs`, module).add('InputColorPicker', () => (
   <Story title={componentName} subTitle="Playground">
     <ParagraphMd>Color picker below.</ParagraphMd>
-    <$ColorPicker
+    <InputColorPicker
       defaultColor="#00adef"
       resetButtonLabel="Reset"
       resetColor="#00adef"

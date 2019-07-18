@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { CircularButtonStyled } from './CircularButtonStyled';
 import { withDeprecateProps } from '../Utils/Deprecated';
+import { CircularButtonFocusOutline as FocusOutline } from './CircularButtonFocus';
 
 interface Props {
   element?: 'button' | 'span';
@@ -39,6 +40,7 @@ export const CircularButton = withDeprecateProps<Props>(
         {...props}
       >
         {icon}
+        <FocusOutline />
       </CircularButtonStyled>
     );
   },

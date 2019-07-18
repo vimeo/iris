@@ -33,12 +33,14 @@ storiesOf(`components|Avatar`, module).add('Avatar', () => (
       src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
       srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg 2x"
       size="lg"
+      href="#"
     />
     <Avatar
       alt="Extra Large Avatar Example"
       src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
       srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg 2x"
       size="xl"
+      href="#"
     />
   </Story>
 ));

@@ -94,7 +94,7 @@ const PopperStyled = styled(PopperFiltered)`
   pointer-events: ${props => (props.pointerEvents ? 'none' : 'auto')};
 `;
 
-const TargetStyled = styled(Target)`
+export const TargetStyled = styled(Target)`
   display: inline;
 `;
 

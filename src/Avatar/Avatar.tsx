@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { IrisComponent } from '../Utils';
 import { size } from 'polished';
+import { AvatarFocusOutline as FocusOutline } from './AvatarFocus';
+import { FocusOutlineFocused } from '../FocusOutline/FocusOutline';
+import { splitStyleProps } from '../Utils/splitProps';
 
 type sizes = 'auto' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -9,12 +12,27 @@ interface Props {
   src: string;
   srcSet?: string;
   size?: sizes;
+  href?: string;
 }
 
 export const Avatar: IrisComponent<Props> = ({
+  className,
   size = 'auto',
+  href,
+  style,
   ...props
-}) => <AvatarStyled size={size} {...props} />;
+}) => {
+  if (href) {
+    const [layoutStyles, styles] = splitStyleProps(className, style);
+    return (
+      <Anchor href={href} {...layoutStyles}>
+        <AvatarStyled size={size} {...props} {...styles} />
+        <FocusOutline />
+      </Anchor>
+    );
+  }
+  return <AvatarStyled size={size} {...props} />;
+};
 
 const avatarSizes = {
   auto: '100%',
@@ -29,6 +47,16 @@ const AvatarStyled = styled.img<{
   size: sizes;
 }>`
   ${props => size(avatarSizes[props.size])}
-  position: relative;
   border-radius: 100%;
+`;
+
+export const Anchor = styled.a`
+  text-decoration: none;
+  position: relative;
+  outline: none;
+  display: inline-block;
+
+  &:focus > ${FocusOutline} {
+    ${FocusOutlineFocused};
+  }
 `;

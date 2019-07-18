@@ -6,6 +6,8 @@ import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 import { TRANSITIONS } from '../Legacy/TRANSITIONS';
 import { withDeprecateProps } from '../Utils/Deprecated';
 import { AstroGranite } from '../Color/Color';
+import { CounterIconFocusOutline as FocusOutline } from './CounterIconFocus';
+import { FocusOutlineFocused } from '../FocusOutline/FocusOutline';
 
 interface Props {
   counterTitle?: string;
@@ -29,14 +31,16 @@ export const CounterIcon = withDeprecateProps<Props>(
     title,
     onClick,
     tooltipProps,
+    className,
     ...props
   }) => {
     if (counterTitle) {
       title = counterTitle;
     }
+    const hrefProp = href ? { href } : {};
 
     return (
-      <CounterIconStyled>
+      <CounterIconStyled className={className}>
         <TooltipOverlay
           href={href}
           tooltipText={title}
@@ -48,9 +52,11 @@ export const CounterIcon = withDeprecateProps<Props>(
             {...props}
             as={href ? 'a' : 'span'}
             onClick={href && onClick}
+            {...hrefProp}
           >
             <Icon>{icon}</Icon>
             <ParagraphLg element="span">{children}</ParagraphLg>
+            <FocusOutline />
           </Content>
         </TooltipOverlay>
       </CounterIconStyled>
@@ -97,8 +103,16 @@ export const Content = styled.span`
   align-items: center;
   justify-content: center;
   -webkit-font-smoothing: antialiased;
+  outline: none;
 
   ${CounterIconStyled}:hover & {
     background-color: ${rgba(162, 175, 184, 0.16)};
+  }
+
+  &: focus {
+    background-color: ${rgba(162, 175, 184, 0.16)};
+    ${FocusOutline} {
+      ${FocusOutlineFocused};
+    }
   }
 `;

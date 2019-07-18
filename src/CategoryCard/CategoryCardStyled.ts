@@ -20,8 +20,15 @@ const bgOverlay = css`
   transition: transform ${TRANSITION}, opacity ${TRANSITION};
 `;
 
+export const Anchor = styled.a`
+  text-decoration: none;
+  position: relative;
+  outline: none;
+`;
+
 export const CategoryCardStyled = styled.div`
   width: 100%;
+  height: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
   background-color: ${SoutherlySky};
   border-radius: ${BORDER_RADIUS};
@@ -40,7 +47,9 @@ export const Background = styled.div<{ bg: string }>`
   background-position: center;
   background-image: ${({ bg }) => `url(${bg})`};
 
-  ${CategoryCardStyled}:hover & {
+  ${CategoryCardStyled}:hover &,
+  ${CategoryCardStyled}:focus &,
+  ${Anchor}:focus & {
     transform: scale(1.05);
   }
 `;

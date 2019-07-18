@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { InputWrapper } from '../InputWrapper/InputWrapper';
 import { Eye, EyeOff } from '../Icons';
 import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
+import { ITFLFocusOutline as FocusOutline } from './InputTextFloatingLabelFocus';
 import {
   InputTextFloatingLabelProps as Props,
   InputTextFloatingLabelState as State,
@@ -157,6 +158,7 @@ export class InputTextFloatingLabel extends Component<Props, State> {
               </TooltipOverlay>
             </ActionButton>
           )}
+          <FocusOutline />
         </Wrapper>
       </InputWrapper>
     );

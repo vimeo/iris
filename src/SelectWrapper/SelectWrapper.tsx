@@ -1,6 +1,7 @@
 import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
+import { SelectWrapperFocusOutline as FocusOutline } from './SelectWrapperFocus';
 import {
   InputProps,
   InputStyleSettings,
@@ -19,7 +20,7 @@ export interface SelectWrapperProps extends InputProps {
 export const ArrowIconSize = 24;
 export const ArrowIconWrapperWidth = 36;
 
-const WrapperStyled = styled.div`
+export const WrapperStyled = styled.div`
   position: relative;
 `;
 
@@ -124,6 +125,7 @@ export const SelectWrapper: SFC<SelectWrapperProps> = ({
       >
         <ChevronDown />
       </ArrowWrapperStyled>
+      <FocusOutline />
     </WrapperStyled>
   </InputWrapper>
 );

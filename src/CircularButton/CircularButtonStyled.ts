@@ -75,7 +75,6 @@ const getFormatCss = (props: Props) => {
 
 export const CircularButtonStyled = styled.button<Props>`
   display: inline-block;
-  overflow: hidden;
   position: relative;
   border: 0;
   border-radius: 50%;
@@ -83,6 +82,7 @@ export const CircularButtonStyled = styled.button<Props>`
   appearance: none;
   width: ${props => rem(buttonSizes[props.size])};
   height: ${props => rem(buttonSizes[props.size])};
+  outline: none;
 
   &:hover {
     cursor: pointer;

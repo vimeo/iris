@@ -2,7 +2,7 @@
 node_modules
 *.log
 *.orig
-
+package-lock.json
 
 ########################
 # node.js / npm

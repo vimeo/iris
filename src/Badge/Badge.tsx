@@ -2,8 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { badgeColorsCSS, badgeSizeCSS } from './BadgeStyleSettings';
+import { BadgeFocusOutline as FocusOutline } from './BadgeFocus';
 import { IrisComponent } from '../Utils/IrisComponent';
 import { fontFamily } from '../Typography/Typography';
+import { FocusOutlineFocused } from '../FocusOutline/FocusOutline';
+import { splitStyleProps } from '../Utils/splitProps';
 
 interface Props {
   format?: BadgeFormats;
@@ -13,18 +16,33 @@ interface Props {
 }
 
 export const Badge: IrisComponent<Props> = ({
+  className,
   href,
   format = 'default',
   size = 'sm',
+  style,
   ...props
-}) => (
-  <BadgeStyled
-    as={href ? 'a' : 'span'}
-    format={format}
-    size={size}
-    {...props}
-  />
-);
+}) => {
+  if (href) {
+    const [layoutStyle, styles] = splitStyleProps(className, style);
+    return (
+      <BadgeWrapper {...layoutStyle}>
+        <BadgeStyled
+          as="a"
+          format={format}
+          size={size}
+          href={href}
+          {...props}
+          {...styles}
+        />
+        <FocusOutline />
+      </BadgeWrapper>
+    );
+  }
+  return (
+    <BadgeStyled as="span" format={format} size={size} {...props} />
+  );
+};
 
 type BadgeFormats =
   | 'alum'
@@ -51,12 +69,16 @@ type BadgeFormats =
   | 'upgrade'
   | 'vod';
 
-const BadgeStyled = styled.span<{
+export const BadgeWrapper = styled.div`
+  position: relative;
+`;
+
+export const BadgeStyled = styled.span<{
   format: BadgeFormats;
   href?: string;
   size: 'sm' | 'lg';
 }>`
-  display: inline-block;
+  display: block;
   padding: ${rem(3)} ${rem(4)};
   font-family: ${fontFamily};
   font-size: ${rem(9)};
@@ -69,6 +91,9 @@ const BadgeStyled = styled.span<{
   white-space: nowrap;
   letter-spacing: 0.02rem;
   text-transform: uppercase;
+  outline: none;
+  text-decoration: none;
+  color: inherit;
 
   ${badgeSizeCSS};
   ${badgeColorsCSS};
@@ -76,5 +101,9 @@ const BadgeStyled = styled.span<{
   &::-moz-focus-inner {
     padding: 0;
     border: 0;
+  }
+
+  &:focus + ${FocusOutline} {
+    ${FocusOutlineFocused};
   }
 `;

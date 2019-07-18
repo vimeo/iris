@@ -28,12 +28,14 @@ storiesOf(`components|Cards`, module).add('Category Card', () => (
       <CategoryCard
         icon={<Gear />}
         src="https://i.vimeocdn.com/custom_asset/26.jpg"
+        href="#"
       >
         Sports
       </CategoryCard>
       <CategoryCard
         icon={<Camera />}
         src="https://i.vimeocdn.com/custom_asset/13.jpg"
+        href="#"
       >
         Animation
       </CategoryCard>

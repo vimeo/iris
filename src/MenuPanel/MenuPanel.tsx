@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
+import { MenuPanelFocusOutline as FocusOutline } from './MenuPanelFocus';
 import { KEY_CODES } from '../Legacy/KEY_CODES';
 import { Transition } from 'react-transition-group';
 import TetherComponent from 'react-tether';
@@ -294,6 +295,7 @@ export class MenuPanel extends Component<Props, State> {
             }}
           >
             {children}
+            <FocusOutline />
           </TriggerWrapperStyled>
           <Transition
             in={this.state.isShowing}

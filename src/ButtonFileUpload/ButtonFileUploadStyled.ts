@@ -11,6 +11,7 @@ export const LabelStyled = styled.label<any>`
     border-width: ${rem(1)};
     border-style: solid;
     border-radius: ${rem(4)};
+    outline: none;
 
     transition: 100ms ease-in-out;
     text-align: center;
@@ -39,12 +40,12 @@ export const LabelStyled = styled.label<any>`
           `};
 
     &:hover {
-        cursor: pointer;
+      cursor: pointer;
     }
 
     &:active {
-        outline: 0;
-        transform: scale(0.98);
+      outline: 0;
+      transform: scale(0.98);
     }
 
     ${props =>

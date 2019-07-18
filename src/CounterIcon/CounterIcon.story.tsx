@@ -10,13 +10,17 @@ const CounterIcon = styled(C)`
 `;
 
 storiesOf(`components|CounterIcon`, module).add('CounterIcon', () => (
-  <Story title="Avatar">
-    <CounterIcon icon={<Play />} counterTitle="Download Count (Dark)">
+  <Story title="Counter Icon">
+    <CounterIcon
+      icon={<Play />}
+      title="Download Count (Dark)"
+      href="#"
+    >
       2.12K
     </CounterIcon>
     <CounterIcon
       icon={<Collections />}
-      counterTitle="Play Count (Alternative)"
+      title="Play Count (Alternative)"
     >
       100
     </CounterIcon>
