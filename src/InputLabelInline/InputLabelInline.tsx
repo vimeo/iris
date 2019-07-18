@@ -22,7 +22,7 @@ export const InputLabelInline: SFC<Props & { htmlFor: string }> = ({
   theme = 'default',
   ...props
 }) => (
-  <StyledP {...props} element="label">
+  <StyledP {...props} element="label" theme={theme}>
     <span>
       {children}
       {format !== 'neutral' && fieldLevelErrors && (
