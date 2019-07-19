@@ -1,4 +1,4 @@
-import React, { ReactNode, Component } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import {
   ActionLink,
   Content,
@@ -6,6 +6,7 @@ import {
   ToastStyled,
   Wrapper,
 } from './ToastificationStyled';
+import { IrisComponent } from '../Utils';
 
 interface Props {
   actionLabel?: string;
@@ -16,100 +17,85 @@ interface Props {
   onComplete?: () => void;
 }
 
-interface State {
-  showing: boolean;
-}
+export const Toastification: IrisComponent<Props> = ({
+  actionLabel,
+  children = null,
+  format = 'warning',
+  isShowing,
+  onActionClick = () => null,
+  onComplete = () => null,
+  ...props
+}) => {
+  const [showing, setShowing] = useState(
+    isShowing ? isShowing : false,
+  );
 
-const defaultProps: Props = {
-  children: null,
-  format: 'warning',
-  onActionClick: () => null,
-  onComplete: () => null,
-};
+  let timeout: ReturnType<typeof window.setTimeout>;
 
-export class Toastification extends Component<Props, State> {
-  readonly state: Readonly<State>;
-  static defaultProps = defaultProps;
-  timeout?: ReturnType<typeof window.setTimeout>;
-
-  componentWillMount = () => this.setState(toggle(this.props));
-  componentWillUnmount = () => this.clearTimeout();
-  componentDidMount = () => this.delayedHide();
-
-  componentDidUpdate = (prevP: Props) => this.delayedHide(prevP);
-  componentWillReceiveProps = (nextP: Props) =>
-    this.setState(toggle(nextP));
-
-  private handleToastMouseEnter = () => this.clearTimeout();
-  private handleToastMouseLeave = () => this.setTimeout(750);
-
-  private handleActionClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    this.props.onActionClick(e);
-    this.setState(hide);
+  const clearTimeout = () => {
+    window.clearTimeout(timeout);
   };
 
-  private delayedHide = (prevP: any = {}) =>
-    !prevP.isShowing &&
-    this.state.showing &&
-    this.setTimeout(this.props.actionLabel ? 6000 : 3000);
-
-  private clearTimeout = () => window.clearTimeout(this.timeout);
-
-  private setTimeout = duration => {
-    this.timeout = window.setTimeout(() => {
-      this.setState(hide);
-      setTimeout(() => this.props.onComplete(), 200);
+  const setToastTimeout = duration => {
+    timeout = window.setTimeout(() => {
+      onComplete();
+      setShowing(false);
     }, duration);
   };
 
-  render() {
-    const {
-      actionLabel,
-      children,
-      format,
-      isShowing,
-      onActionClick,
-      onComplete,
-      ...props
-    } = this.props;
+  useEffect(() => {
+    isShowing ? setShowing(true) : setShowing(false);
+  }, [isShowing]);
 
-    return (
-      this.state.showing && (
-        <Wrapper>
-          <ToastStyled
-            {...props}
-            format={format}
-            actionLabel={actionLabel}
-            onMouseEnter={this.handleToastMouseEnter}
-            onMouseLeave={this.handleToastMouseLeave}
-          >
-            <Content format="white">
-              {format === 'warning' && (
-                <span>
-                  <InfoIconStyled />
-                </span>
-              )}
-              {children}
-              {actionLabel && (
-                <span>
-                  &nbsp;
-                  <ActionLink
-                    href="#"
-                    onClick={this.handleActionClick}
-                  >
-                    {actionLabel}
-                  </ActionLink>
-                </span>
-              )}
-            </Content>
-          </ToastStyled>
-        </Wrapper>
-      )
-    );
-  }
-}
+  useEffect(() => {
+    if (showing) {
+      setToastTimeout(actionLabel ? 6000 : 3000);
+    } else {
+      clearTimeout();
+    }
+  }, [showing]);
 
-const show = (): State => ({ showing: true });
-const hide = (): State => ({ showing: false });
-const toggle = ({ isShowing }: Props) => (isShowing ? show : hide);
+  useEffect(() => {
+    return () => clearTimeout();
+  }, []);
+
+  const handleActionClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onActionClick(e);
+    setShowing(false);
+  };
+
+  const handleToastMouseEnter = () => clearTimeout();
+  const handleToastMouseLeave = () => setToastTimeout(750);
+
+  return (
+    showing && (
+      <Wrapper>
+        <ToastStyled
+          {...props}
+          format={format}
+          actionLabel={actionLabel}
+          onMouseEnter={handleToastMouseEnter}
+          onMouseLeave={handleToastMouseLeave}
+        >
+          <Content format="white">
+            {format === 'warning' && (
+              <span>
+                <InfoIconStyled />
+              </span>
+            )}
+            {children}
+            {actionLabel && (
+              <span>
+                &nbsp;
+                <ActionLink href="#" onClick={handleActionClick}>
+                  {actionLabel}
+                </ActionLink>
+              </span>
+            )}
+          </Content>
+        </ToastStyled>
+      </Wrapper>
+    )
+  );
+};
