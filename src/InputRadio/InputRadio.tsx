@@ -1,4 +1,4 @@
-import React, { SFC, ReactNode, MouseEventHandler } from 'react';
+import React from 'react';
 import { InputLabelInline } from '../InputLabelInline/InputLabelInline';
 import {
   InputRadioWrapperStyled,
@@ -6,20 +6,17 @@ import {
   InputRadioOverlayStyled,
 } from './InputRadioStyled';
 import { RadioFocusOutline } from './InputRadioFocus';
+import { IrisInputComponent } from '../Utils/IrisInputComponent';
 
 interface Props {
-  disabled?: boolean;
+  defaultValue?: string | string[];
+  value?: string | number | string[];
   format?: 'negative' | 'positive' | 'neutral';
-  id: string;
-  label: ReactNode;
   theme?: 'default' | 'dark';
-  name?: string;
-  onClick?: MouseEventHandler;
-  checked?: boolean;
-  readOnly?: boolean;
 }
 
-export const InputRadio: SFC<Props> = ({
+export const InputRadio: IrisInputComponent<Props> = ({
+  className,
   disabled,
   format = 'neutral',
   id,
@@ -27,7 +24,7 @@ export const InputRadio: SFC<Props> = ({
   theme = 'default',
   ...props
 }) => (
-  <InputRadioWrapperStyled theme={theme}>
+  <InputRadioWrapperStyled theme={theme} className={className}>
     <InputLabelInline
       htmlFor={id}
       format={format}
