@@ -1,20 +1,18 @@
 import React, {
   ReactNode,
-  Component,
-  MouseEventHandler,
   CSSProperties,
+  useReducer,
+  useEffect,
 } from 'react';
 import { Button } from '../Button/Button';
-import { buttonFormats } from '../Button/ButtonTypes';
+import { IrisComponent } from '../Utils';
 
 interface Props {
   autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid';
-  className?: string;
   format?: 'primaryOutline' | 'primary';
   isActive?: boolean;
   offIcon: ReactNode;
   offStateText: string;
-  onClick?: MouseEventHandler;
   onIcon: ReactNode;
   onStateText: string;
   style?: { margins?: string };
@@ -22,86 +20,76 @@ interface Props {
   turnOffIcon: ReactNode;
 }
 
-interface State {
-  children: ReactNode;
-  format: buttonFormats;
-  icon: 'on' | 'off' | 'turnOff';
-}
+export const ButtonToggleState: IrisComponent<Props> = ({
+  autoWidth = 'sm',
+  format = 'primaryOutline',
+  className,
+  offStateText,
+  offIcon,
+  onStateText,
+  onIcon,
+  isActive,
+  style,
+  turnOffActionText,
+  turnOffIcon,
+  ...buttonProps
+}) => {
+  const initialState = isActive
+    ? {
+        children: onStateText,
+        format:
+          format === 'primaryOutline' ? 'successOutline' : 'success',
+        icon: onIcon,
+      }
+    : {
+        children: offStateText,
+        format,
+        icon: offIcon,
+      };
 
-export class ButtonToggleState extends Component<Props, State> {
-  static defaultProps = {
-    autoWidth: 'sm',
-    format: 'primaryOutline',
-  };
-
-  readonly state: Readonly<State> = this.props.isActive
-    ? on({}, this.props)
-    : off({}, this.props);
-
-  private handleOnMouseEnter = () =>
-    this.props.isActive && this.setState(hovering);
-
-  private handleOnMouseLeave = () =>
-    this.props.isActive ? this.setState(on) : this.setState(off);
-
-  componentWillReceiveProps = (nextProps: Props) =>
-    nextProps.isActive ? this.setState(on) : this.setState(off);
-
-  render() {
-    const {
-      className,
-      offStateText,
-      offIcon,
-      onStateText,
-      onIcon,
-      isActive,
-      style,
-      turnOffActionText,
-      turnOffIcon,
-      ...props
-    } = this.props;
-
-    const Icon = {
-      on: onIcon,
-      off: offIcon,
-      turnOff: turnOffIcon,
-    }[this.state.icon];
-
-    return (
-      <Button
-        {...props}
-        style={style as CSSProperties}
-        icon={Icon}
-        format={this.state.format}
-        children={this.state.children}
-        className={className}
-        onMouseEnter={this.handleOnMouseEnter}
-        onMouseLeave={this.handleOnMouseLeave}
-      />
-    );
+  function reducer(state, action) {
+    switch (action) {
+      case 'on':
+        return {
+          ...state,
+          children: onStateText,
+          format:
+            format === 'primaryOutline'
+              ? 'successOutline'
+              : 'success',
+          icon: onIcon,
+        };
+      case 'off':
+        return {
+          ...state,
+          children: offStateText,
+          format,
+          icon: offIcon,
+        };
+      case 'hovering':
+        return {
+          ...state,
+          children: turnOffActionText,
+          format: 'secondary',
+          icon: turnOffIcon,
+        };
+    }
   }
-}
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const hover = () => isActive && dispatch('hovering');
+  const toggle = () => (isActive ? dispatch('on') : dispatch('off'));
+  useEffect(toggle, [isActive]);
 
-const on = (
-  _,
-  { format = 'primaryOutline', onStateText }: Props,
-): State => ({
-  children: onStateText,
-  format: format === 'primaryOutline' ? 'successOutline' : 'success',
-  icon: 'on',
-});
-
-const off = (
-  _,
-  { format = 'primaryOutline', offStateText }: Props,
-): State => ({
-  children: offStateText,
-  format,
-  icon: 'off',
-});
-
-const hovering = (_, { turnOffActionText }): State => ({
-  children: turnOffActionText,
-  format: 'secondary',
-  icon: 'turnOff',
-});
+  return (
+    <Button
+      {...buttonProps}
+      style={style as CSSProperties}
+      icon={state.icon}
+      format={state.format}
+      children={state.children}
+      className={className}
+      onMouseEnter={hover}
+      onMouseLeave={toggle}
+    />
+  );
+};
