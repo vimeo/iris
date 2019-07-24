@@ -128,18 +128,18 @@ const ModalStyled = styled.div<{
 
   ${props => {
     if (props.modalSize === 'sm') {
-      return mediaQuery.sm`
-                width: ${rem(modalWidths.sm)};
-            `;
+      return mediaQuery.sm(css`
+        width: ${rem(modalWidths.sm)};
+      `);
     } else if (props.modalSize === 'fluid') {
       return `
                 width: auto;
                 overflow: auto;
             `;
     } else {
-      return mediaQuery.md`
-                width: ${props => rem(modalWidths[props.modalSize])}
-            `;
+      return mediaQuery.md(css`
+        width: ${rem(modalWidths[props.modalSize])};
+      `);
     }
   }};
 `;
@@ -160,11 +160,11 @@ const ContentStyled = styled.div<ContentStyledProps>`
   ${props =>
     props.hasActionArea
       ? css`
-        ${mediaQuery.sm`
-            max-height: calc(${MODAL_MAX_HEIGHT} - ${rem(
-          MODAL_HEIGHT_LG_SCREEN,
-        )});
-        `}
+        ${mediaQuery.sm(css`
+          max-height: calc(
+            ${MODAL_MAX_HEIGHT} - ${rem(MODAL_HEIGHT_LG_SCREEN)}
+          );
+        `)}
 
         max-height: calc(${MODAL_MAX_HEIGHT} - ${rem(
           MODAL_HEIGHT_SM_SCREEN,
@@ -188,10 +188,10 @@ const ActionAreaStyled = styled.div`
   z-index: ${Z_INDEX.modalActionArea};
   position: relative;
 
-  ${mediaQuery.sm`
+  ${mediaQuery.sm(css`
     height: ${rem(MODAL_HEIGHT_LG_SCREEN)};
     flex-wrap: nowrap;
-  `}
+  `)}
 `;
 
 const $Button = styled(Button)`

@@ -2,21 +2,23 @@ import { xs, sm, md, lg, xl, xxl, xxxl } from './Breakpoints';
 import { css } from 'styled-components';
 import { em } from 'polished';
 
-export const getBreakpoint = (
+function mq(
   breakpointInPixels: number,
-  cssDeclarations: any,
-) => css`
-  @media screen and (min-width: ${em(breakpointInPixels)}) {
-    ${cssDeclarations};
-  }
-`;
+  styles: TemplateStringsArray,
+) {
+  return css`
+    @media screen and (min-width: ${em(breakpointInPixels)}) {
+      ${styles};
+    }
+  `;
+}
 
 export const mediaQuery = {
-  xs: (...args) => getBreakpoint(xs, args),
-  sm: (...args) => getBreakpoint(sm, args),
-  md: (...args) => getBreakpoint(md, args),
-  lg: (...args) => getBreakpoint(lg, args),
-  xl: (...args) => getBreakpoint(xl, args),
-  xxl: (...args) => getBreakpoint(xxl, args),
-  xxxl: (...args) => getBreakpoint(xxxl, args),
+  xs: styles => mq(xs, styles),
+  sm: styles => mq(sm, styles),
+  md: styles => mq(md, styles),
+  lg: styles => mq(lg, styles),
+  xl: styles => mq(xl, styles),
+  xxl: styles => mq(xxl, styles),
+  xxxl: styles => mq(xxxl, styles),
 };

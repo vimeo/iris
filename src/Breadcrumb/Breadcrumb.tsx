@@ -54,10 +54,12 @@ const CrumbWrapper = styled.div<{
 
   position: relative;
 
-  ${mediaQuery.md`
-        display: inline-block;
-        padding-right: ${rem(ArrowIconWidth)};
-    `} ${props =>
+  ${mediaQuery.md(css`
+    display: inline-block;
+    padding-right: ${rem(ArrowIconWidth)};
+  `)}
+
+  ${props =>
     props.showOnSmall
       ? css`
           .${ARROWLEFT_CLASSNAME} {
