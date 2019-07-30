@@ -1,7 +1,10 @@
-import React, { ReactNode, Component } from 'react';
-import styled from 'styled-components';
-import { rem } from 'polished';
-import { Transition } from 'react-transition-group';
+import React, {
+  useState,
+  ReactNode,
+  useLayoutEffect,
+  useRef,
+} from 'react';
+import { IrisComponent } from '../Utils';
 
 interface Props {
   animateOpenOnMount?: boolean;
@@ -9,60 +12,35 @@ interface Props {
   isHidden: boolean;
 }
 
-interface State {
-  maxHeight: number;
-}
+export const SlideUpDown: IrisComponent<Props> = ({
+  animateOpenOnMount = false,
+  children,
+  isHidden,
+}) => {
+  const [maxHeight, setMaxHeight] = useState(0);
 
-const WrapperStyled = styled.div<{
-  isHidden: boolean;
-  ref: any;
-}>`
-  overflow-y: hidden;
-  transition: all 200ms ease-in-out;
-`;
+  const ref = useRef(null);
 
-const maxHeight = height => () => ({ maxHeight: height });
+  useLayoutEffect(() => {
+    // tslint:disable-next-line:no-unused-expression
+    !animateOpenOnMount && setMaxHeight(0);
+  }, []);
 
-export class SlideUpDown extends Component<Props, State> {
-  static defaultProps = { animateOpenOnMount: false };
-  readonly state: Readonly<State> = { maxHeight: 0 };
-  private ref: HTMLDivElement;
+  useLayoutEffect(() => {
+    // tslint:disable-next-line:no-unused-expression
+    !isHidden && setMaxHeight(ref.current.scrollHeight);
+  }, [children]);
 
-  componentDidMount = () =>
-    !this.props.isHidden && this.setState(maxHeight(this.height()));
-
-  componentDidUpdate = (pProps: Props) =>
-    this.props.children !== pProps.children &&
-    !this.props.isHidden &&
-    this.setState(maxHeight(this.height()));
-
-  private height = () =>
-    this.ref instanceof HTMLDivElement ? this.ref.scrollHeight : 1000;
-
-  render = () => (
-    <Transition
-      appear={this.props.animateOpenOnMount}
-      in={!this.props.isHidden}
-      timeout={200}
-      mountOnEnter
-      unmountOnExit
+  return (
+    <div
+      ref={ref}
+      style={{
+        overflowY: 'hidden',
+        transition: 'all 200ms ease-in-out',
+        maxHeight: isHidden ? 0 : maxHeight,
+      }}
     >
-      {state => (
-        <WrapperStyled
-          ref={(div: HTMLDivElement) => (this.ref = div)}
-          isHidden={this.props.isHidden}
-          data-animation-wrapper
-          style={
-            {
-              entering: { maxHeight: 0 },
-              entered: { maxHeight: rem(this.state.maxHeight) },
-              exiting: { maxHeight: 0 },
-            }[state]
-          }
-        >
-          {this.props.children}
-        </WrapperStyled>
-      )}
-    </Transition>
+      {children}
+    </div>
   );
-}
+};

@@ -149,11 +149,9 @@ const WrapperStyled = styled<any>(Card)`
   cursor: pointer;
   position: relative;
   padding-bottom: 100%;
-
   img {
     transition: 210ms ease-in-out;
   }
-
   &:hover {
     img {
       transform: scale(1.015) translate3d(0, 0, 0);
