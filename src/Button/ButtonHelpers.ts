@@ -35,9 +35,9 @@ const getAutoWidthCSS = props =>
   props.autoWidth !== 'fluid' &&
   (props.autoWidth === 'xs'
     ? autoWidthCSS
-    : mediaQuery[props.autoWidth]`
+    : mediaQuery[props.autoWidth](css`
         ${autoWidthCSS}
-      `);
+      `));
 
 const formatCSS = (format, state) =>
   ButtonStyleSettings.Formats[format] &&
