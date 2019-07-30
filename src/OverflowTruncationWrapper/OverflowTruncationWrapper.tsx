@@ -1,7 +1,8 @@
-import React, { Component, ReactNode } from 'react';
+import React, { ReactNode, useState, useEffect, useRef } from 'react';
 import throttle from 'lodash.throttle';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
+import { IrisComponent } from '../Utils';
 
 interface Props {
   className?: string;
@@ -9,81 +10,58 @@ interface Props {
   maxHeight: number;
 }
 
-interface State {
-  isTruncated: boolean;
-  maxHeight: number;
-}
+export const OverflowTruncationWrapper: IrisComponent<Props> = ({
+  children,
+  ...props
+}) => {
+  const wrapperEl = useRef(null);
+  const innerEl = useRef(null);
 
-export class OverflowTruncationWrapper extends Component<
-  Props,
-  State
-> {
-  wrapperEl: HTMLElement;
-  innerEl: HTMLElement;
+  const [isTruncated, setIsTruncated] = useState(false);
+  const [maxHeight, setMaxHeight] = useState(props.maxHeight);
 
-  state: State = {
-    isTruncated: false,
-    maxHeight: this.props.maxHeight,
+  let truncate = () => {
+    setIsTruncated(
+      wrapperEl.current.clientHeight < innerEl.current.clientHeight,
+    );
+    setMaxHeight(
+      innerEl.current.clientHeight < props.maxHeight
+        ? innerEl.current.clientHeight
+        : props.maxHeight,
+    );
   };
 
-  constructor(props) {
-    super(props);
-    this.truncate = throttle(this.truncate, 200);
-  }
+  useEffect(() => {
+    truncate = throttle(truncate, 200);
+    truncate();
+    window.addEventListener('resize', truncate);
+    return () => {
+      window.removeEventListener('resize', truncate);
+    };
+  }, []);
 
-  componentDidMount() {
-    this.truncate();
-    window.addEventListener('resize', this.truncate);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.truncate);
-  }
-
-  private truncate = () =>
-    this.setState({
-      isTruncated:
-        this.wrapperEl.clientHeight < this.innerEl.clientHeight,
-      maxHeight:
-        this.innerEl.clientHeight < this.props.maxHeight
-          ? this.innerEl.clientHeight
-          : this.props.maxHeight,
-    });
-
-  render() {
-    const { children, maxHeight, ...props } = this.props;
-
-    return (
-      <div
-        {...props}
-        style={{
-          position: 'relative',
-          height: `${this.state.maxHeight}px`,
-        }}
-        ref={wrapper => {
-          this.wrapperEl = wrapper;
-        }}
-      >
-        <Position isTruncated={this.state.isTruncated}>
-          <div
-            style={{
-              overflow: 'auto',
-              maxHeight: `${this.state.maxHeight}px`,
-            }}
-          >
-            <div
-              ref={el => {
-                this.innerEl = el;
-              }}
-            >
-              {children}
-            </div>
-          </div>
-        </Position>
-      </div>
-    );
-  }
-}
+  return (
+    <div
+      {...props}
+      style={{
+        position: 'relative',
+        height: `${maxHeight}px`,
+      }}
+      ref={wrapperEl}
+    >
+      <Position isTruncated={isTruncated}>
+        <div
+          style={{
+            overflow: 'auto',
+            maxHeight: `${maxHeight}px`,
+          }}
+        >
+          <div ref={innerEl}>{children}</div>
+        </div>
+      </Position>
+    </div>
+  );
+};
 
 const Position = styled.div<{ isTruncated: boolean }>`
   position: absolute;
