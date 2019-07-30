@@ -1,10 +1,16 @@
-import React, { Component, ReactNode, CSSProperties } from 'react';
+import React, {
+  ReactNode,
+  CSSProperties,
+  useState,
+  useEffect,
+} from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { FeatureTourPanelContent } from '../FeatureTourPanelContent/FeatureTourPanelContent';
 import { FeatureTourDot } from '../FeatureTourDot/FeatureTourDot';
 import { MenuPanel } from '../MenuPanel/MenuPanel';
 import { DarkerBlue } from '../Color/Color';
+import { IrisComponent } from '../Utils';
 
 export interface FeatureTourPanelProps {
   actionArea?: ReactNode;
@@ -66,191 +72,131 @@ const MenuPanelStyled = styled(MenuPanel)<{ options: any }>`
   border-radius: ${rem(5)};
 `;
 
-export class FeatureTourPanel extends Component<
-  FeatureTourPanelProps,
-  FeatureTourPanelState
-> {
-  static defaultProps = {
-    attachment: 'right',
-    beaconDelayIndex: 0,
-    shouldRefocusTriggerOnClose: true,
-  };
+export const FeatureTourPanel: IrisComponent<
+  FeatureTourPanelProps
+> = ({
+  actionArea,
+  attachment = 'right',
+  beaconDelayIndex = 0,
+  beaconA11yText,
+  children,
+  color = DarkerBlue,
+  contextualInfo,
+  dismissButtonA11yLabel,
+  dismissButtonProps,
+  dotZIndex = 1,
+  headerText,
+  isOpen = false,
+  onOpen,
+  onClose,
+  onDismissClick,
+  shouldHideOnClose,
+  shouldRefocusTriggerOnClose = true,
+  wrapperClass,
+  size = 'lg',
+  ...props
+}) => {
+  let beaconTimer: any;
 
-  constructor(props: FeatureTourPanelProps) {
-    super(props);
-
-    let initialBeaconMode: 'inactive' | 'open' | 'active' | 'hidden' =
-      'active';
-
-    if (props.isOpen) {
-      initialBeaconMode = 'open';
-    } else if (props.beaconDelayIndex && props.beaconDelayIndex > 0) {
-      initialBeaconMode = 'inactive';
-    }
-
-    this.state = {
-      isOpen: props.isOpen ? true : false,
-      beaconMode: initialBeaconMode,
-    };
-  }
-
-  state: FeatureTourPanelState;
-
-  componentDidMount() {
-    if (this.props.beaconDelayIndex) {
-      this._setDelay(this.props.beaconDelayIndex);
-    }
-  }
-
-  componentWillUpdate(
-    nextProps: FeatureTourPanelProps,
-    nextState: FeatureTourPanelState,
-  ) {
-    if (nextProps.isOpen !== this.props.isOpen) {
-      this.setState({
-        isOpen: nextProps.isOpen,
-        beaconMode: this._chooseBeaconState(nextProps),
-      });
-    }
-
-    if (
-      this.state.beaconMode === 'active' &&
-      nextState.beaconMode !== 'active'
-    ) {
-      clearTimeout(this.beaconTimer);
-    }
-  }
-
-  componentWillUnmount() {
-    clearTimeout(this.beaconTimer);
-  }
-
-  props: FeatureTourPanelProps;
-  beaconTimer: any;
-
-  _chooseBeaconState = (choiceProps: FeatureTourPanelProps) => {
-    if (choiceProps.beaconDelayIndex && !choiceProps.isOpen) {
-      this._setDelay(choiceProps.beaconDelayIndex);
-      return 'inactive';
-    } else if (choiceProps.isOpen) {
-      return 'open';
-    }
-
-    return this.state.beaconMode;
-  };
-
-  _handleClose = () => {
-    this.setState({
-      isOpen: false,
-      beaconMode: this.props.shouldHideOnClose
-        ? 'hidden'
-        : 'inactive',
-    });
-
-    if (typeof this.props.onClose === 'function') {
-      this.props.onClose();
-    }
-  };
-
-  _handleDismissClick = (event: MouseEvent) => {
-    this.setState({
-      isOpen: false,
-      beaconMode: 'inactive',
-    });
-
-    if (typeof this.props.onDismissClick === 'function') {
-      this.props.onDismissClick(event);
-    }
-  };
-
-  _handleOpen = () => {
-    this.setState({
-      isOpen: true,
-      beaconMode: 'open',
-    });
-
-    if (typeof this.props.onOpen === 'function') {
-      this.props.onOpen();
-    }
-  };
-
-  _setDelay = (beaconDelayIndex: number) => {
-    this.beaconTimer = setTimeout(() => {
-      if (this.state.beaconMode === 'inactive') {
-        this.setState({
-          beaconMode: 'active',
-        });
+  const setDelay = (beaconDelayIndex: number) => {
+    beaconTimer = setTimeout(() => {
+      if (beaconMode === 'inactive') {
+        setBeaconMode('active');
       }
     }, beaconDelayIndex * 300);
   };
 
-  render() {
-    const {
-      actionArea,
-      attachment,
-      beaconDelayIndex, // eslint-disable-line no-unused-vars
-      beaconA11yText,
-      children,
-      color = DarkerBlue,
-      contextualInfo,
-      dismissButtonA11yLabel,
-      dismissButtonProps,
-      dotZIndex = 1,
-      headerText,
-      isOpen, // eslint-disable-line no-unused-vars
-      onOpen, // eslint-disable-line no-unused-vars
-      onClose, // eslint-disable-line no-unused-vars
-      onDismissClick, // eslint-disable-line no-unused-vars
-      shouldHideOnClose,
-      shouldRefocusTriggerOnClose,
-      wrapperClass,
-      size = 'lg',
-      ...filteredProps
-    } = this.props;
+  const chooseBeaconMode = defaultMode => {
+    if (isOpen) {
+      clearTimeout(beaconTimer);
+      return 'open';
+    } else if (beaconDelayIndex && beaconDelayIndex > 0) {
+      clearTimeout(beaconTimer);
+      setDelay(beaconDelayIndex);
+      return 'inactive';
+    }
+    return defaultMode;
+  };
 
-    const MenuPanelContent = (
-      <FeatureTourPanelContent
-        actionArea={actionArea}
-        contextualInfo={contextualInfo}
-        headerText={headerText}
-        dismissButtonA11yLabel={dismissButtonA11yLabel}
-        dismissButtonProps={dismissButtonProps}
-        onDismissClick={this._handleDismissClick}
-        children={children}
-        color={color}
-      />
-    );
+  const [beaconMode, setBeaconMode] = useState(() =>
+    chooseBeaconMode('active'),
+  );
 
-    return (
-      <WrapperStyled
-        className={wrapperClass}
-        isHidden={this.state.beaconMode === 'hidden'}
+  useEffect(() => {
+    return () => clearTimeout(beaconTimer);
+  }, []);
+
+  useEffect(() => {
+    setBeaconMode(chooseBeaconMode(beaconMode));
+  }, [isOpen]);
+
+  const handleOpen = () => {
+    clearTimeout(beaconTimer);
+    setBeaconMode('open');
+
+    if (typeof onOpen === 'function') {
+      onOpen();
+    }
+  };
+
+  const handleClose = () => {
+    setBeaconMode(shouldHideOnClose ? 'hidden' : 'inactive');
+
+    if (typeof onClose === 'function') {
+      onClose();
+    }
+  };
+
+  const handleDismissClick = (event: MouseEvent) => {
+    setBeaconMode('inactive');
+
+    if (typeof onDismissClick === 'function') {
+      onDismissClick(event);
+    }
+  };
+
+  const MenuPanelContent = (
+    <FeatureTourPanelContent
+      actionArea={actionArea}
+      contextualInfo={contextualInfo}
+      headerText={headerText}
+      dismissButtonA11yLabel={dismissButtonA11yLabel}
+      dismissButtonProps={dismissButtonProps}
+      onDismissClick={handleDismissClick}
+      children={children}
+      color={color}
+    />
+  );
+
+  return (
+    <WrapperStyled
+      className={wrapperClass}
+      isHidden={beaconMode === 'hidden'}
+    >
+      <MenuPanelStyled
+        {...props}
+        isShowing={beaconMode === 'open'}
+        menuContent={MenuPanelContent}
+        onClose={handleClose}
+        onOpen={handleOpen}
+        shouldRefocusTriggerOnClose={
+          shouldHideOnClose ? false : shouldRefocusTriggerOnClose
+        }
+        size={size}
+        options={attachmentConfig(attachment)}
       >
-        <MenuPanelStyled
-          {...filteredProps}
-          isShowing={this.state.isOpen}
-          menuContent={MenuPanelContent}
-          onClose={this._handleClose}
-          onOpen={this._handleOpen}
-          shouldRefocusTriggerOnClose={
-            shouldHideOnClose ? false : shouldRefocusTriggerOnClose
-          }
-          size={size}
-          options={attachmentConfig(attachment)}
-        >
-          <FeatureTourDot
-            style={{
-              zIndex: dotZIndex,
-            }}
-            beaconA11yText={beaconA11yText}
-            mode={this.state.beaconMode}
-            color={color}
-          />
-        </MenuPanelStyled>
-      </WrapperStyled>
-    );
-  }
-}
+        <FeatureTourDot
+          style={{
+            zIndex: dotZIndex,
+          }}
+          beaconA11yText={beaconA11yText}
+          mode={beaconMode}
+          color={color}
+        />
+      </MenuPanelStyled>
+    </WrapperStyled>
+  );
+};
 
 const attachmentConfig = attachment =>
   ({
