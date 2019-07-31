@@ -56,7 +56,11 @@ export const CategoryCard = withDeprecateProps<Props>(
       );
     }
     return (
-      <CategoryCardStyled {...props} className={className}>
+      <CategoryCardStyled
+        {...props}
+        className={className}
+        style={style}
+      >
         <Background bg={backgroundImageURL || src} />
         <Overlay />
         <CardContentWrap>

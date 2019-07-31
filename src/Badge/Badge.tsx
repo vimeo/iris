@@ -40,7 +40,14 @@ export const Badge: IrisComponent<Props> = ({
     );
   }
   return (
-    <BadgeStyled as="span" format={format} size={size} {...props} />
+    <BadgeStyled
+      as="span"
+      format={format}
+      size={size}
+      className={className}
+      style={style}
+      {...props}
+    />
   );
 };
 

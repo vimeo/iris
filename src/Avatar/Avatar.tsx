@@ -31,7 +31,14 @@ export const Avatar: IrisComponent<Props> = ({
       </Anchor>
     );
   }
-  return <AvatarStyled size={size} {...props} />;
+  return (
+    <AvatarStyled
+      size={size}
+      className={className}
+      style={style}
+      {...props}
+    />
+  );
 };
 
 const avatarSizes = {
