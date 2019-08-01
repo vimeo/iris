@@ -1,7 +1,6 @@
 import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { InputWrapper } from '../InputWrapper/InputWrapper';
-import { InputTextFocusOutline as FocusOutline } from './InputTextFocus';
 import {
   getInputBaseStyles,
   InputProps,
@@ -28,12 +27,6 @@ export interface InputTextStyledProps extends InputStyledProps {
 
 const InputStyled = styled.input<InputTextStyledProps>`
   ${getInputBaseStyles};
-`;
-
-export const InputOutlineWrapper = styled.div`
-  position: relative;
-  padding: 0;
-  outline: none;
 `;
 
 export const InputText: SFC<InputTextProps & InputProps> = ({
@@ -72,22 +65,19 @@ export const InputText: SFC<InputTextProps & InputProps> = ({
       size={size}
       theme={themeDefaultSupport}
     >
-      <InputOutlineWrapper>
-        <InputStyled
-          {...filteredProps}
-          aria-invalid={ariaInvalid}
-          disabled={disabled}
-          format={format}
-          hasIcon={hasIcon}
-          id={id}
-          inlineButton={inlineButton}
-          inputSize={size}
-          theme={theme}
-          type={type}
-          autoComplete={autocomplete ? 'on' : 'off'}
-        />
-        <FocusOutline />
-      </InputOutlineWrapper>
+      <InputStyled
+        {...filteredProps}
+        aria-invalid={ariaInvalid}
+        disabled={disabled}
+        format={format}
+        hasIcon={hasIcon}
+        id={id}
+        inlineButton={inlineButton}
+        inputSize={size}
+        theme={theme}
+        type={type}
+        autoComplete={autocomplete ? 'on' : 'off'}
+      />
       {inlineButton}
     </InputWrapper>
   );

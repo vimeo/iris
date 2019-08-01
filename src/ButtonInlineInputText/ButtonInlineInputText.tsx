@@ -3,7 +3,6 @@ import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
 import { ButtonStyled, Wrapper } from './ButtonInlineInputTextStyled';
 import { BaseProps } from '../Utils/BaseProps';
 import { withDeprecateProps } from '../Utils/Deprecated';
-import { BIITFocusOutline as FocusOutline } from './ButtonInlineInputTextFocus';
 
 export interface Props extends BaseProps {
   icon?: ReactNode;
@@ -49,13 +48,11 @@ export const ButtonInlineInputText = withDeprecateProps<Props>(
           >
             <ButtonStyled size={size} format={format} {...props}>
               {children}
-              <FocusOutline />
             </ButtonStyled>
           </TooltipOverlay>
         ) : (
           <ButtonStyled size={size} format={format} {...props}>
             {children}
-            <FocusOutline />
           </ButtonStyled>
         )}
       </Wrapper>

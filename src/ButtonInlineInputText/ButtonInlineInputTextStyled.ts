@@ -89,7 +89,6 @@ export const ButtonStyled = styled.button<Props>`
   cursor: pointer;
   font-family: ${fontFamily};
   font-size: ${props => (props.size === 'md' ? rem(14) : rem(16))};
-  outline: none;
 
   ${sizeStyles};
   ${props => formats[props.format]};
