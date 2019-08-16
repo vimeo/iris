@@ -33,8 +33,8 @@ export const Checkbox: IrisInputComponent<Props> = ({
   ...props
 }) => (
   <InputWrapperInline
-    errorMsg={messages.error}
-    helperMsg={messages.help}
+    errorMsg={messages && messages.error}
+    helperMsg={messages && messages.help}
     theme={theme === 'dark' ? 'dark' : 'default'}
   >
     <Wrapper>
