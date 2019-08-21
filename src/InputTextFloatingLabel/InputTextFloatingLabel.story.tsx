@@ -8,6 +8,9 @@ import { InputTextFloatingLabel } from './InputTextFloatingLabel';
 
 const $InputTextFloatingLabel = styled(InputTextFloatingLabel)`
   margin: 0 0 2rem;
+  span[role='alert'] {
+    color: red;
+  }
 `;
 
 const componentName = 'Inputs';

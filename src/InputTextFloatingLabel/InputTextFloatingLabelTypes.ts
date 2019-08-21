@@ -27,6 +27,7 @@ export interface InputTextFloatingLabelProps {
     | 'text'
     | 'url';
   value?: string;
+  className?: string;
 }
 
 export interface InputTextFloatingLabelState {

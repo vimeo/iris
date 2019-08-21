@@ -95,6 +95,7 @@ export class InputTextFloatingLabel extends Component<Props, State> {
       preMessage,
       theme = 'light',
       type,
+      className,
       ...props
     } = this.props;
 
@@ -110,6 +111,7 @@ export class InputTextFloatingLabel extends Component<Props, State> {
         preMessage={preMessage}
         size="xl"
         theme={theme === 'dark' ? 'dark' : 'light'}
+        className={className}
       >
         <Wrapper
           format={format}
@@ -140,13 +142,24 @@ export class InputTextFloatingLabel extends Component<Props, State> {
 
           {type === 'password' && this.state.isActive && (
             <ActionButton>
-              <TooltipOverlay
-                tooltipText={
-                  this.state.passwordHidden
-                    ? passwordShowText
-                    : passwordHideText
-                }
-              >
+              {passwordHideText && passwordShowText ? (
+                <TooltipOverlay
+                  tooltipText={
+                    this.state.passwordHidden
+                      ? passwordShowText
+                      : passwordHideText
+                  }
+                >
+                  <ToggleButton
+                    role="switch"
+                    onClick={this.handlePasswordToggle}
+                    data-js-passwordtoggle
+                    type="button"
+                  >
+                    {this.state.passwordHidden ? <Eye /> : <EyeOff />}
+                  </ToggleButton>
+                </TooltipOverlay>
+              ) : (
                 <ToggleButton
                   role="switch"
                   onClick={this.handlePasswordToggle}
@@ -155,7 +168,7 @@ export class InputTextFloatingLabel extends Component<Props, State> {
                 >
                   {this.state.passwordHidden ? <Eye /> : <EyeOff />}
                 </ToggleButton>
-              </TooltipOverlay>
+              )}
             </ActionButton>
           )}
           <FocusOutline />

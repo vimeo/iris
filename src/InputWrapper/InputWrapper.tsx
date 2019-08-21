@@ -20,6 +20,7 @@ export interface InputWrapperProps {
   showLabel: boolean;
   size?: 'sm' | 'md' | 'lg' | 'xl';
   theme?: 'light' | 'dark' | 'default';
+  className?: string;
 }
 
 export const InputWrapper: SFC<InputWrapperProps> = ({
