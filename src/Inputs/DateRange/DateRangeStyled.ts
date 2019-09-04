@@ -55,7 +55,7 @@ export const Calendar = styled(BaseCalendar)`
 
 export const MoveLeft = styled(ChevronRight)<{ inactive: boolean }>`
   ${size(rem(24))};
-  transform: rotateY(180deg);
+  transform: rotate(180deg);
   cursor: pointer;
   path {
     fill: ${props => (props.inactive ? Porcelain : Black)};
