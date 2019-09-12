@@ -11,6 +11,7 @@ export { ArrowRight } from './build/Icons/ArrowRight';
 export { ArrowVertical } from './build/Icons/ArrowVertical';
 export { Bell } from './build/Icons/Bell';
 export { Box } from './build/Icons/Box';
+export { BulletedList } from './build/Icons/BulletedList';
 export { Camera } from './build/Icons/Camera';
 export { CameraFilled } from './build/Icons/CameraFilled';
 export { Cart } from './build/Icons/Cart';
