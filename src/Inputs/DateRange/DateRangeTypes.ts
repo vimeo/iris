@@ -12,6 +12,7 @@ export interface DateRangeProps {
    * Use to get the `Date` objects that define the selected calendar range
    */
   onChange?: (range: [Date, Date]) => void;
+  onApply?: () => void;
 }
 
 export interface DateRangeState {

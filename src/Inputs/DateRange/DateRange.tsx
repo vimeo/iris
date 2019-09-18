@@ -31,6 +31,7 @@ const dateFormat = getDateFormat();
 export const DateRange: IrisInputComponent<DateRangeProps> = ({
   className,
   onChange,
+  onApply,
   alignment = 'left',
   children,
   minDate,
@@ -130,6 +131,11 @@ export const DateRange: IrisInputComponent<DateRangeProps> = ({
       1,
     );
     dispatch({ type: 'CHANGE_VIEWPORT', payload });
+  }
+
+  function handleApply() {
+    onApply && onApply();
+    dispatch({ type: 'SAVE' });
   }
 
   function handleKeyDown(event: KeyboardEvent) {
@@ -275,7 +281,7 @@ export const DateRange: IrisInputComponent<DateRangeProps> = ({
                 }
                 size="sm"
                 format="secondary"
-                onClick={() => void dispatch({ type: 'SAVE' })}
+                onClick={handleApply}
               >
                 Apply
               </ApplyButton>
