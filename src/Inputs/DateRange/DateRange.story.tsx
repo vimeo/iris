@@ -32,14 +32,14 @@ storiesOf(`components|${componentName}`, module).add(
 );
 
 function DateRangeButton() {
-  const defaultText = 'Select a date range';
+  const defaultText = 'Date range';
   const [buttonText, setButtonText] = useState(defaultText);
 
   const onChange = (range: [Date, Date]) => {
     if (range[0] && range[1]) {
       const start = range[0].toLocaleDateString();
       const end = range[1].toLocaleDateString();
-      setButtonText(`${start} - ${end}`);
+      setButtonText(`${start}–${end}`);
     } else {
       setButtonText(defaultText);
     }

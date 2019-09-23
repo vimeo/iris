@@ -203,7 +203,7 @@ export const DateRange: IrisInputComponent<DateRangeProps> = ({
                  //@ts-ignore no prop onKeyDown*/}
                 <InputText
                   id="start–date"
-                  label="Start date"
+                  label="Start"
                   value={startDateLabel}
                   onChange={handleStartChange}
                   onKeyDown={handleKeyDown}
@@ -218,7 +218,7 @@ export const DateRange: IrisInputComponent<DateRangeProps> = ({
                 //@ts-ignore no prop onKeyDown*/}
                 <InputText
                   id="end-date"
-                  label="End date"
+                  label="End"
                   value={endDateLabel}
                   onChange={handleEndChange}
                   onKeyDown={handleKeyDown}
