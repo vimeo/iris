@@ -26,7 +26,7 @@ module.exports = {
     'import/prefer-default-export': 0,
 
     // @typescript rules
-    '@typescript-eslint/array-type': [1, 'array-simple'],
+    '@typescript-eslint/array-type': 0, // [1, 'array-simple'],
     '@typescript-eslint/ban-ts-ignore': 1,
     '@typescript-eslint/indent': 0, // ['warn', 2],
     '@typescript-eslint/explicit-member-accessibility': 0, // 2,

@@ -279,7 +279,6 @@ export class SteppedContentSlider extends Component<
       this._updateA11yVisibility();
       this._changeSlide(this.state.currentSlide, false);
       this.setState({
-        // eslint-disable-line react/no-did-update-set-state
         initialPositionSet: true,
       });
     }
