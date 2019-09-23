@@ -60,7 +60,7 @@ const TextAreaStyled = styled.textarea<any>`
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding: ${rem(11)};
   font-size: ${rem(14)};
-  line-height: ${14 / 16};
+  line-height: 1.25rem;
   height: auto;
 
   &:placeholder {
