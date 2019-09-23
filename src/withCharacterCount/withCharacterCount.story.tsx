@@ -20,6 +20,7 @@ storiesOf('Utilties|Character Count', module).add(
         helperMsg={
           <ParagraphMd>This is helpful information.</ParagraphMd>
         }
+        defaultValue="hello"
       />
       <TextAreaWithCharacterCount
         id="someId2"

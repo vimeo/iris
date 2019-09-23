@@ -9,6 +9,7 @@ import {
 
 export interface InputTextProps {
   value?: string | number | string[];
+  defaultValue?: string | string[];
   inlineButton?: React.ReactNode;
   placeholder?: string;
   type?:

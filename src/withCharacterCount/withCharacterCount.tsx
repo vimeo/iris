@@ -74,6 +74,31 @@ export const withCharacterCounter = <P extends {}>(
       format: this.props.format,
     };
 
+    update(value) {
+      const newRemainingCharacters =
+        this.props.maxCharacters - value.length;
+      const isErrorState = newRemainingCharacters < 0;
+
+      if (this.state.isErrored && !isErrorState) {
+        this.resolveErrorState();
+      } else if (!this.state.isErrored) {
+        this.checkIfWarningState(newRemainingCharacters);
+
+        if (isErrorState) {
+          this.enterErrorState();
+        }
+      }
+
+      this.setState({
+        remainingCharacters: newRemainingCharacters,
+        format: isErrorState ? 'negative' : this.props.format,
+      });
+    }
+
+    componentDidMount = () =>
+      // @ts-ignore
+      this.props.defaultValue && this.update(this.props.defaultValue);
+
     checkIfWarningState = (remainingCharacters: number) => {
       const isWarning =
         remainingCharacters <= this.props.warningThreshold &&
@@ -88,35 +113,10 @@ export const withCharacterCounter = <P extends {}>(
     resolveErrorState = () =>
       this.setState(resolved, fnGuard(this.props, 'onResolve'));
 
-    onInput = (e: Event) => {
-      if (
-        e.target instanceof HTMLInputElement ||
-        e.target instanceof HTMLTextAreaElement
-      ) {
-        const newRemainingCharacters =
-          this.props.maxCharacters - e.target.value.length;
-        const isErrorState = newRemainingCharacters < 0;
-
-        if (this.state.isErrored && !isErrorState) {
-          this.resolveErrorState();
-        } else if (!this.state.isErrored) {
-          this.checkIfWarningState(newRemainingCharacters);
-
-          if (isErrorState) {
-            this.enterErrorState();
-          }
-        }
-
-        this.setState({
-          remainingCharacters: newRemainingCharacters,
-          format: isErrorState ? 'negative' : this.props.format,
-        });
-      }
-
-      if (this.props.onInput) {
-        this.props.onInput(e);
-      }
-    };
+    onInput = (e: Event) =>
+      (e.target instanceof HTMLInputElement ||
+        e.target instanceof HTMLTextAreaElement) &&
+      this.update(e.target.value);
 
     render() {
       const {
