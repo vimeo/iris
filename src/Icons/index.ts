@@ -9,6 +9,7 @@ export { ArrowLeft } from './ArrowLeft';
 export { ArrowReply } from './ArrowReply';
 export { ArrowRight } from './ArrowRight';
 export { ArrowVertical } from './ArrowVertical';
+export { Avatar } from './Avatar';
 export { Bell } from './Bell';
 export { Box } from './Box';
 export { BulletedList } from './BulletedList';
