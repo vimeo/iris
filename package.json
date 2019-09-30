@@ -5,7 +5,7 @@
         "url": "https://vimeo.com"
     },
     "homepage": "https://github.vimeows.com/pages/vimeo/iris/master/",
-    "version": "7.9.0",
+    "version": "7.10.0-beta.0",
     "license": "ISC",
     "description": "Iris UI Pattern Framework",
     "contributors": [
@@ -89,22 +89,18 @@
         "@types/react": "*"
     },
     "scripts": {
-        "dev": "npx tsc -w",
+        "build-styleguide": "build-storybook -c .storybook -o build-styleguide",
+        "build": "npm run clean; npx tsc",
         "checkup": "npx npm-check-updates",
         "clean": "rm -rf build",
-        "storybook": "start-storybook -p 9001 -c .storybook --ci",
-        "svg": "npm run svg-react; npm run svg-min",
-        "svg-min": "node scripts/svg-index; npx prettier ./src/Icons/index.ts --write; npx prettier ./src/Illustrations/index.ts --write",
-        "svg-react": "npm run svg-react-icons; npm run svg-react-illustrations;",
-        "svg-react-icons": "npx @svgr/cli --template ./scripts/svg-react.js --ext tsx -d ./src/Icons ./src/Icons; rm -f ./src/Icons/*.svg",
-        "svg-react-illustrations": "npx @svgr/cli --template ./scripts/svg-react.js --ext tsx -d ./src/Illustrations ./src/Illustrations; rm -f ./src/Illustrations/*.svg",
-        "build": "npm run clean; npm run svg; npx tsc",
-        "build-styleguide": "build-storybook -c .storybook -o build-styleguide",
-        "test-publish": "npm run prepublishOnly; npm run postpublish;",
-        "prepublishOnly": "npm run lint; npm run eslint --quiet; npm run build; cp -r ./modules/* ./",
-        "postpublish": "npm run clean; rm color.d.ts color.js components.d.ts components.js icons.d.ts icons.js illustration.d.ts illustration.js layout.d.ts layout.js typography.d.ts typography.js",
+        "dev": "npx tsc -w",
+        "lint-pretty": "eslint 'src/**/*.{ts,tsx}' -f codeFrame; prettier --list-different 'src/**/*.{ts,tsx}'",
         "lint": "eslint 'src/**/*.{ts,tsx}'; prettier --list-different 'src/**/*.{ts,tsx}'",
-        "lint-pretty": "eslint 'src/**/*.{ts,tsx}' -f codeFrame; prettier --list-different 'src/**/*.{ts,tsx}'"
+        "postpublish": "git clean -fd",
+        "prepublishOnly": "npm run lint; npm run build; cp -r ./build/* ./; npm run clean",
+        "storybook": "start-storybook -p 9001 -c .storybook --ci",
+        "test-publish": "npm run prepublishOnly; npm run postpublish;",
+        "typecheck": "npx tsc --noEmit -w"
     },
     "pre-commit": [
         "lint-pretty"

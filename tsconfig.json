@@ -42,6 +42,7 @@
         "node_modules",
         "src/**/*.story.tsx",
         "src/**/*.x-story.tsx",
-        "src/Welcome"
+        "src/_docs",
+        "src/_labs"
     ]
 }

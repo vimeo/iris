@@ -1,13 +1,18 @@
+.babelrc
+.eslintrc.js
 .github
 .gitignore
 .prettierrc
 .storybook
+.stylelintrc
+.svgo.yml
 *.story.tsx
 *.x-story.tsx
-build-styleguide
-CHANGELOG.md
-FAQ.md
 Jenkinsfile
+tsconfig.json
+yarn.lock
+
+build-styleguide
 labs
 modules
 scripts
@@ -15,7 +20,10 @@ src
 storybook-static
 storybook.png
 svg_src_files
-yarn.lock
+
+CHANGELOG.md
+FAQ.md
+ROADMAP.md
 
 node_modules
 *.log

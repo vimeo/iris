@@ -19,14 +19,14 @@ const requireAll = requireContext =>
   requireContext.keys().map(requireContext);
 
 function loadStories() {
-  require('./Welcome.x-story');
+  require('../src/_docs/Welcome.x-story');
 
   requireAll(
     (require as any).context('../src', true, /\.story\.tsx?$/),
   );
 
-  require('../labs/Labs.x-story');
-  require('../labs/Pronouns/Pronouns.x-story');
+  require('../src/_labs/Labs.x-story');
+  require('../src/_labs/Pronouns/Pronouns.x-story');
 }
 
 configure(loadStories, module);
