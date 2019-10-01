@@ -1,0 +1,1 @@
+export { correctComponentStructure } from './correctComponentStructure';

@@ -9,10 +9,7 @@ export const xl = 1280;
 export const xxl = 1440;
 export const xxxl = 1680;
 
-function mq(
-  breakpointInPixels: number,
-  styles: TemplateStringsArray,
-) {
+function mq(breakpointInPixels: number, styles: TemplateStringsArray) {
   return css`
     @media screen and (min-width: ${em(breakpointInPixels)}) {
       ${styles};

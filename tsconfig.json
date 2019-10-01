@@ -24,11 +24,13 @@
         "strict": false,
         "suppressImplicitAnyIndexErrors": true,
         "target": "es5",
+        "importHelpers": true,
         "types": [
+            "jest",
             "lodash",
             "node",
-            "react",
             "react-dom",
+            "react",
             "styled-components"
         ]
     },

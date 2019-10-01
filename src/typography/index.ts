@@ -11,5 +11,4 @@ export const antialias = css`
   text-rendering: optimizelegibility;
 `;
 
-export const fontFamily =
-  '"Helvetica Neue", Helvetica, Arial, sans-serif';
+export const fontFamily = '"Helvetica Neue", Helvetica, Arial, sans-serif';

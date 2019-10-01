@@ -10,5 +10,13 @@
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "all",
-  "useTabs": false
+  "useTabs": false,
+  "overrides": [
+    {
+      "files": [ "index.ts" ],
+      "options": {
+        "printWidth": 200
+      }
+    }
+  ]
 }

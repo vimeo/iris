@@ -19,7 +19,7 @@ module.exports = {
 
     // import rules
     'import/order': 0, // 1,
-    'import/named': 2,
+    // 'import/named': 2,
     'import/no-default-export': 2,
     'import/no-extraneous-dependencies': 1,
     'import/no-unresolved': 0, // 2,

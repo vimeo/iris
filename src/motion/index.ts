@@ -1,0 +1,1 @@
+export { setTrans } from './transitions';
