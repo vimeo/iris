@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { InputToggle, Badge } from '../../components';
+import { Toggle, Badge } from '../../components';
 import { Header } from '../../typography';
 import {
   AstroGranite,
@@ -15,7 +15,7 @@ export const AutoplayList = ({ videos, variation }) => {
     <>
       <Header size="3">More from Vimeo Staff Picks</Header>
       <HeaderWrap>
-        <InputToggle id="1" label="" value="true" defaultChecked />
+        <Toggle id="1" label="" value="true" defaultChecked />
         <Header size="6">Autoplay next video</Header>
       </HeaderWrap>
       <div>

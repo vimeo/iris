@@ -3,12 +3,7 @@ import styled from 'styled-components';
 import { rgba } from 'polished';
 
 import { Header2, ParagraphMd, Header5, Header4 } from '../../legacy';
-import {
-  InputText,
-  InputRadio,
-  InputCheckbox,
-  InputToggle,
-} from '../../components';
+import { InputText, Radio, Checkbox, Toggle } from '../../components';
 import { IronHeart, Paste, Black } from '../../color';
 
 export const AccountSettings = ({ email = '', name = '' }) => {
@@ -73,22 +68,22 @@ export const AccountSettings = ({ email = '', name = '' }) => {
           Help us call you by the proper pronouns.
         </Description>
         <PronounCheckboxes>
-          <InputCheckbox
+          <Checkbox
             id="they/them"
             label="they/them"
             onClick={updatePronouns('they')}
           />
-          <InputCheckbox
+          <Checkbox
             id="she/her"
             label="she/her"
             onClick={updatePronouns('she')}
           />
-          <InputCheckbox
+          <Checkbox
             id="he/him"
             label="he/him"
             onClick={updatePronouns('he')}
           />
-          <InputCheckbox
+          <Checkbox
             id="other"
             label={
               <>
@@ -114,7 +109,7 @@ export const AccountSettings = ({ email = '', name = '' }) => {
               {Object.keys(pronouns)
                 .filter(pronoun => pronouns[pronoun])
                 .map(p => (
-                  <InputRadio
+                  <Radio
                     key={p}
                     id={`radio-${p}`}
                     label={p}
@@ -136,7 +131,7 @@ export const AccountSettings = ({ email = '', name = '' }) => {
               Display my pronouns throughout Vimeo
             </SubHeader>
             <PronounCheckboxes>
-              <InputRadio
+              <Radio
                 id="displayPronouns"
                 label="display"
                 checked={displayPronouns}
@@ -145,7 +140,7 @@ export const AccountSettings = ({ email = '', name = '' }) => {
                 }
                 readOnly
               />
-              <InputRadio
+              <Radio
                 id="hidePronouns"
                 label="hide"
                 checked={!displayPronouns}

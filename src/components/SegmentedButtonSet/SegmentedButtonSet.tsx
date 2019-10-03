@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import { WrapperStyled } from './SegmentedButtonSetStyled';
 import { SegmentedButtonSetProps } from './SegmentedButtonSetTypes';
 import { SegmentedButtonSetButton as SegmentedButton } from '../SegmentedButton/SegmentedButton';
-import { InputLabel } from '../InputLabel/InputLabel';
+import { InputLabel } from '../Inputs/InputLabel/InputLabel';
 
 const buildOptions = (options, name, format) =>
   options.map((option, i) => (

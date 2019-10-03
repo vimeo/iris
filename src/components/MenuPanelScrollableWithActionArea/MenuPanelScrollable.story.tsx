@@ -1,10 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { ParagraphMd } from '../../legacy';
+
 import { MenuPanelScrollableWithActionArea } from './MenuPanelScrollableWithActionArea';
-import { InputText } from '../InputText/InputText';
+import { InputText } from '../Inputs/InputText/InputText';
 import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
 import { MenuPanel } from '../MenuPanel/MenuPanel';
+
+import { ParagraphMd } from '../../legacy';
 import { Gear } from '../../icons';
 
 import { Story } from '../../storybook';

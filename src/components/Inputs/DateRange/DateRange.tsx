@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 
 import { MenuPanel } from '../../MenuPanel/MenuPanel';
-import { InputText } from '../../InputText/InputText';
+import { InputText } from '../InputText/InputText';
 
 import { reducer, init } from './Reducer';
 import { DateRangeProps, initialState } from './DateRangeTypes';
