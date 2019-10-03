@@ -3,7 +3,6 @@ import { rem } from 'polished';
 
 import * as COLORS from '../../../color';
 
-const wrapperSize = 2;
 const inputSize = 20;
 
 export const RadioWrapperStyled = styled.div`
@@ -11,7 +10,6 @@ export const RadioWrapperStyled = styled.div`
   position: relative;
   width: 100%;
   flex-wrap: wrap;
-  min-height: ${rem(wrapperSize)};
   padding-left: 2rem;
   min-height: 1.25rem;
 `;
@@ -32,14 +30,10 @@ export const RadioStyled = styled.input`
 `;
 
 // prettier-ignore
-const radioHover = css`
-    ${RadioWrapperStyled}:hover ${RadioStyled}:not([disabled]) + &
-`;
+const radioHover = `${RadioWrapperStyled}:hover ${RadioStyled}:not([disabled]) + &`;
 
 // prettier-ignore
-const radioChecked = css`
-    ${RadioStyled}:checked + &
-`;
+const radioChecked = `${RadioStyled}:checked + &`;
 
 const themeSpecificStyles = ({ theme = 'default' }) =>
   ({
@@ -96,6 +90,5 @@ export const RadioOverlayStyled = styled.div<{
 
   ${radioChecked}:after {
     transform: scale(1);
-    test: ${radioChecked};
   }
 `;

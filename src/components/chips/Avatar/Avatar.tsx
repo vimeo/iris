@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { size } from 'polished';
 
 import { AvatarFocusOutline as FocusOutline } from './AvatarFocus';
-import { FocusOutlineFocused } from '../FocusOutline/FocusOutline';
+import { FocusOutlineFocused } from '../../FocusOutline/FocusOutline';
 
-import { IrisComponent, splitStyleProps } from '../../utils';
+import { IrisComponent, splitStyleProps } from '../../../utils';
 
 type sizes = 'auto' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 

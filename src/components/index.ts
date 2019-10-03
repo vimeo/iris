@@ -1,9 +1,13 @@
 // Iris 8
-export { Card } from './Cards/Card/Card';
-export { CategoryCard } from './Cards/CategoryCard/CategoryCard';
-export { NewItemCard } from './Cards/NewItemCard/NewItemCard';
+export { Card } from './cards/Card/Card';
+export { CategoryCard } from './cards/CategoryCard/CategoryCard';
+export { NewItemCard } from './cards/NewItemCard/NewItemCard';
 
 // 8 Bridge
+export { Avatar } from './chips/Avatar/Avatar';
+export { Badge } from './chips/Badge/Badge';
+export { CounterIcon } from './chips/CounterIcon/CounterIcon';
+export { Tag } from './chips/Tag/Tag';
 export { DateRange } from './Inputs/DateRange/DateRange';
 export { InputText } from './Inputs/InputText/InputText';
 export { InputSelect } from './Inputs/InputSelect/InputSelect';
@@ -27,8 +31,6 @@ export { SearchField } from './Inputs/SearchField/SearchField';
 export { SelectWrapper } from './Inputs/SelectWrapper/SelectWrapper';
 
 // Iris 7
-export { Avatar } from './Avatar/Avatar';
-export { Badge } from './Badge/Badge';
 export { Breadcrumb } from './Breadcrumb/Breadcrumb';
 export { BreadcrumbLink } from './BreadcrumbLink/BreadcrumbLink';
 export { Button } from './Button/Button';
@@ -43,7 +45,6 @@ export { ButtonSplitMenu } from './ButtonSplitMenu/ButtonSplitMenu';
 export { ButtonToggleState } from './ButtonToggleState/ButtonToggleState';
 export { CircularButton } from './CircularButton/CircularButton';
 export { ContentCarousel } from './ContentCarousel/ContentCarousel';
-export { CounterIcon } from './CounterIcon/CounterIcon';
 export { FeatureTourPanel } from './FeatureTourPanel/FeatureTourPanel';
 export { FeatureTourPanelButton } from './FeatureTourPanelButton/FeatureTourPanelButton';
 export { FeatureTourPanelContent } from './FeatureTourPanelContent/FeatureTourPanelContent';
@@ -65,7 +66,6 @@ export { SlideUpDown } from './SlideUpDown/SlideUpDown';
 export { SocialButton } from './SocialButton/SocialButton';
 export { SteppedContentSlider } from './SteppedContentSlider/SteppedContentSlider';
 export { TabNavigationHorizontal } from './TabNavigationHorizontal/TabNavigationHorizontal';
-export { Tag } from './Tag/Tag';
 export { Toastification } from './Toastification/Toastification';
 export { Tooltip } from './Tooltip/Tooltip';
 export { TooltipAnnotationIcon } from './TooltipAnnotationIcon/TooltipAnnotationIcon';

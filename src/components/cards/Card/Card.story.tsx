@@ -15,7 +15,7 @@ const Card = styled(C)`
   font-size: 1.25rem;
 `;
 
-storiesOf(`Components|Cards/`, module).add('Card', () => (
+storiesOf(`Components|cards/`, module).add('Card', () => (
   <Story title="Card" width="100%">
     <Grid>
       <Card>Card</Card>

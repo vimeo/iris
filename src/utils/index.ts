@@ -12,3 +12,4 @@ export { CSSProps, ExtractProps, Override, IrisElement } from './types';
 export { Focus } from './Focus';
 export { IrisProps } from './IrisProps';
 export { withIris } from './withIris';
+export { useLayoutStyles } from './useLayoutStyles';

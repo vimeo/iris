@@ -1,9 +1,11 @@
 import React, { SFC, ReactNode, MouseEventHandler } from 'react';
-import { Button } from '../Button/Button';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { DismissX } from '../../icons';
-import { ButtonFocus } from '../Button/ButtonFocus';
+
+import { Button } from '../../Button/Button';
+import { ButtonFocus } from '../../Button/ButtonFocus';
+
+import { DismissX } from '../../../icons';
 
 export interface TagProps {
   autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid';

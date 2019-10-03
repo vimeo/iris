@@ -7,7 +7,7 @@ import { CategoryCard as CC } from './CategoryCard';
 import { Story } from '../../../storybook';
 import { Gear, Camera, Heart } from '../../../icons';
 
-storiesOf(`Components|Cards`, module).add('Category Card', () => (
+storiesOf(`Components|cards`, module).add('Category Card', () => (
   <Story title="Category Card" width="100%">
     <Grid>
       <CategoryCard

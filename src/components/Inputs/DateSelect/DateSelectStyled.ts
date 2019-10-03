@@ -8,10 +8,12 @@ import * as COLORS from '../../../color';
 export const DatePickerWrapperStyled = styled.div`
     padding: .5rem;
 
+    /* 
     // these globals are namespaced by the styled component transformation on this element
 
     // Copied from https://github.com/YouCanBookMe/react-datetime/blob/master/css/react-datetime.css
-        // with some improvements to flex with the bounding element
+        // with some improvements to flex with the bounding element 
+    */
 
     .rdt {
         position: relative;
@@ -128,7 +130,7 @@ export const DatePickerWrapperStyled = styled.div`
     .dow {
         width: 14.2857%;
 
-        font-weight: normal; // overrides browser th styling.
+        font-weight: normal; /* // overrides browser th styling. */
 
         border-bottom: none;
     }
@@ -267,9 +269,6 @@ export const DatePickerWrapperStyled = styled.div`
 
     .rdtCounter {
         height: ${rem(100)};
-    }
-
-    .rdtCounter {
         width: ${rem(40)};
     }
 
@@ -308,13 +307,13 @@ export const DatePickerWrapperStyled = styled.div`
 `;
 
 export const DateTriggerWrapperStyled = styled.div`
-  // this is a positions the hidden element that needs a little size for the tethering to work.
+  /* // this is a positions the hidden element that needs a little size for the tethering to work. */
   position: absolute;
   top: 0;
 `;
 
 export const DateTriggerStyled = styled.span`
-  // this IS the hidden element that needs a little size for the tethering to work.
+  /* // this IS the hidden element that needs a little size for the tethering to work. */
   display: inline-block;
 
   width: 1px;

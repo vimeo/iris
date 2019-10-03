@@ -7,7 +7,7 @@ import { NewItemCard } from './NewItemCard';
 import { Story } from '../../../storybook';
 import { theme } from '../../../themes';
 
-storiesOf(`Components|Cards/`, module).add('New Item Card', () => (
+storiesOf(`Components|cards/`, module).add('New Item Card', () => (
   <Story title="New Item Card" width="100%">
     <Grid>
       <NewItemCard href="#">Add New Item</NewItemCard>

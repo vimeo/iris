@@ -69,7 +69,7 @@ export const OptionStyled = styled.span<SBBCProps>`
     }
 
     ${LabelStyled}:not(:first-child) & {
-        // prevent double border on buttons.
+        /* // prevent double border on buttons. */
         border-left-width: 0;
     }
 

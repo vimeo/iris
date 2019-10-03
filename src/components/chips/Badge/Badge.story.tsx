@@ -5,7 +5,7 @@ import { select } from '@storybook/addon-knobs';
 
 import { Badge as B } from './Badge';
 
-import { Story } from '../../storybook';
+import { Story } from '../../../storybook';
 
 const BadgeOuterWrapper = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ const sizes = {
   lg: 'lg',
 };
 
-storiesOf(`components|Badges`, module).add('Badge', () => (
+storiesOf(`components|chips/`, module).add('Badge', () => (
   <Story title="Badge">
     <BadgeOuterWrapper>
       <Badge href="#" size={select('size', sizes, 'sm')}>

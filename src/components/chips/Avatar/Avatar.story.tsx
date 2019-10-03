@@ -4,13 +4,13 @@ import { storiesOf } from '@storybook/react';
 
 import { Avatar as A } from './Avatar';
 
-import { Story } from '../../storybook';
+import { Story } from '../../../storybook';
 
 const Avatar = styled(A)`
   margin: 0 0.5rem;
 `;
 
-storiesOf(`components|Avatar`, module).add('Avatar', () => (
+storiesOf(`components|chips/`, module).add('Avatar', () => (
   <Story title="Avatar">
     <Avatar
       alt="Extra Small Avatar Example"

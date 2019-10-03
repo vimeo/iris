@@ -28,7 +28,7 @@ const TooltipStyled = styled.div<TooltipStyledProps>`
   text-align: center;
 
   p {
-    color: ${COLORS.White}; //override default paragraph color
+    color: ${COLORS.White}; /* // override default paragraph color */
     white-space: ${props => (props.multiline ? 'normal' : 'nowrap')};
     word-break: ${props =>
       props.breakWords ? 'break-all' : 'normal'};

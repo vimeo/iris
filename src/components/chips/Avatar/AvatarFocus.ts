@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+
 import {
   FocusOutline,
   FocusOutlineProps,
-} from '../FocusOutline/FocusOutline';
+} from '../../FocusOutline/FocusOutline';
 
 export const AvatarFocusOutline = styled.div<FocusOutlineProps>`
   ${FocusOutline};

@@ -1,13 +1,14 @@
 import React, { MouseEventHandler, ReactNode } from 'react';
 import styled from 'styled-components';
 import { rem, rgba } from 'polished';
-import { ParagraphLg } from '../../legacy';
-import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
-import { TRANSITIONS } from '../../legacy';
-import { withDeprecateProps } from '../../utils';
-import { AstroGranite } from '../../color';
+
+import { TooltipOverlay } from '../../TooltipOverlay/TooltipOverlay';
 import { CounterIconFocusOutline as FocusOutline } from './CounterIconFocus';
-import { FocusOutlineFocused } from '../FocusOutline/FocusOutline';
+import { FocusOutlineFocused } from '../../FocusOutline/FocusOutline';
+
+import { ParagraphLg, TRANSITIONS } from '../../../legacy';
+import { withDeprecateProps } from '../../../utils';
+import { AstroGranite } from '../../../color';
 
 interface Props {
   counterTitle?: string;
@@ -109,7 +110,7 @@ export const Content = styled.span`
     background-color: ${rgba(162, 175, 184, 0.16)};
   }
 
-  &: focus {
+  &:focus {
     background-color: ${rgba(162, 175, 184, 0.16)};
     ${FocusOutline} {
       ${FocusOutlineFocused};

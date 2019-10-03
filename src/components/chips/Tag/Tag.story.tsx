@@ -1,8 +1,10 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { Tag } from './Tag';
-import { Story } from '../../storybook';
 import styled from 'styled-components';
+import { storiesOf } from '@storybook/react';
+
+import { Tag } from './Tag';
+
+import { Story } from '../../../storybook';
 
 const $Tag = styled(Tag)`
   margin: 0 1rem 1rem 0;
@@ -10,9 +12,9 @@ const $Tag = styled(Tag)`
 
 const componentName = 'Tag';
 
-storiesOf(`components|${componentName}`, module)
+storiesOf(`components|chips/Tag/`, module)
   .add('basic', () => (
-    <Story title={componentName} subTitle="basic">
+    <Story title="Tag" subTitle="basic">
       <$Tag size="xs">Documentary</$Tag>
       <$Tag size="sm">Animation</$Tag>
       <$Tag size="md">Narrative</$Tag>
@@ -23,7 +25,7 @@ storiesOf(`components|${componentName}`, module)
     </Story>
   ))
   .add('image', () => (
-    <Story title={componentName} subTitle="image" props={['img']}>
+    <Story title="Tag" subTitle="image" props={['img']}>
       <$Tag
         size="xs"
         img="https://i.vimeocdn.com/video/562859486_270x270.jpg"

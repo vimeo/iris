@@ -1,15 +1,15 @@
 import React from 'react';
-import { CounterIcon as C } from '../';
+import { CounterIcon as C } from '../..';
 import { storiesOf } from '@storybook/react';
-import { Story } from '../../storybook';
+import { Story } from '../../../storybook';
 import styled from 'styled-components';
-import { Play, Collections } from '../../icons';
+import { Play, Collections } from '../../../icons';
 
 const CounterIcon = styled(C)`
   margin: 0 0.5rem;
 `;
 
-storiesOf(`components|CounterIcon`, module).add('CounterIcon', () => (
+storiesOf(`components|chips/`, module).add('CounterIcon', () => (
   <Story title="Counter Icon">
     <CounterIcon
       icon={<Play />}
