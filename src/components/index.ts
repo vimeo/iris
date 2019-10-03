@@ -1,4 +1,6 @@
 // Iris 8
+export { Card } from './Cards/Card/Card';
+export { CategoryCard } from './Cards/CategoryCard/CategoryCard';
 export { NewItemCard } from './Cards/NewItemCard/NewItemCard';
 
 // Iris 7
@@ -16,8 +18,6 @@ export { ButtonInlineInputText } from './ButtonInlineInputText/ButtonInlineInput
 export { ButtonLoadingState } from './ButtonLoadingState/ButtonLoadingState';
 export { ButtonSplitMenu } from './ButtonSplitMenu/ButtonSplitMenu';
 export { ButtonToggleState } from './ButtonToggleState/ButtonToggleState';
-export { Card } from './Card/Card';
-export { CategoryCard } from './CategoryCard/CategoryCard';
 export { Checkbox, InputCheckbox } from './InputCheckbox/InputCheckbox';
 export { CircularButton } from './CircularButton/CircularButton';
 export { ContentCarousel } from './ContentCarousel/ContentCarousel';
@@ -74,13 +74,4 @@ export { VerticalMenuHeaderGroup } from './VerticalMenuHeaderGroup/VerticalMenuH
 export { VerticalMenuItem } from './VerticalMenuItem/VerticalMenuItem';
 export { VerticalMenuItemContent } from './VerticalMenuItemContent/VerticalMenuItemContent';
 export { VerticalMenuNested } from './VerticalMenuNested/VerticalMenuNested';
-export { VideoCard } from './VideoCard/VideoCard';
-export { VideoCardContextInfoArea as VideoContextInfoArea } from './VideoCard/VideoContextInfoArea';
-export { VideoCardFooterActionsGrid } from './VideoCard/VideoCardFooterActionsGrid';
-export { VideoCardFooterAttribution } from './VideoCard/VideoCardFooterAttribution';
-export { VideoCardLikeIcon } from './VideoCard/VideoCardLikeIcon';
-export { VideoCardLiveBadge } from './VideoCard/VideoCardLiveBadge';
-export { VideoCardPropertiesArea } from './VideoCard/VideoCardPropertiesArea';
-export { VideoCardPropertyBadge } from './VideoCard/VideoCardPropertyBadge';
-export { VideoCardTimestamp } from './VideoCard/VideoCardTimestamp';
 export { withCharacterCounter as withCharacterCount } from './withCharacterCount/withCharacterCount';

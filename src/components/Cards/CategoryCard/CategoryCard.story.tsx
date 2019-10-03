@@ -1,29 +1,14 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { Story } from '../../storybook';
-import { CategoryCard as CC } from './CategoryCard';
-import { Gear, Camera, Heart } from '../../icons';
 import styled from 'styled-components';
+import { storiesOf } from '@storybook/react';
 
-const CategoryCard = styled(CC)`
-  min-width: 12rem;
-  min-height: 12rem;
-`;
+import { CategoryCard as CC } from './CategoryCard';
 
-const Grid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+import { Story } from '../../../storybook';
+import { Gear, Camera, Heart } from '../../../icons';
 
-  > * {
-    flex: 0 0 calc(25% - 2rem);
-    margin: 1rem;
-  }
-`;
-
-const componentName = 'Category Card';
-
-storiesOf(`components|Cards`, module).add('Category Card', () => (
-  <Story title={componentName} width="100%">
+storiesOf(`Components|Cards`, module).add('Category Card', () => (
+  <Story title="Category Card" width="100%">
     <Grid>
       <CategoryCard
         icon={<Gear />}
@@ -48,3 +33,17 @@ storiesOf(`components|Cards`, module).add('Category Card', () => (
     </Grid>
   </Story>
 ));
+
+const CategoryCard = styled(CC)`
+  min-width: 12rem;
+  min-height: 12rem;
+`;
+
+const Grid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  > * {
+    flex: 0 0 calc(25% - 2rem);
+    margin: 1rem;
+  }
+`;

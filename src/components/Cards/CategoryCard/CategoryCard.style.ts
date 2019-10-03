@@ -1,15 +1,28 @@
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import { SoutherlySky, Plaster } from '../../color';
+
+// import { slate, grayscale } from '../../../color';
+import { AstroGranite, Paste } from '../../../color';
 
 const ICON_SIZE = rem(48);
 const BORDER_RADIUS = rem(5);
 const TRANSITION = '300ms ease-in-out';
 
+export const Wrapper = styled.div`
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
 const commonSize = css`
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
 `;
 
 const bgOverlay = css`
@@ -26,29 +39,39 @@ export const Anchor = styled.a`
   outline: none;
 `;
 
-export const CategoryCardStyled = styled.div`
+export const CategoryCard = styled.button`
   width: 100%;
   height: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
-  background-color: ${SoutherlySky};
+  background-color: ${AstroGranite}; /* // slate(200) */
   border-radius: ${BORDER_RADIUS};
   position: relative;
-  overflow: hidden;
+  outline: none;
+  display: flex;
+  border: 0;
+  transition: 150ms;
+
+  &:focus {
+    outline: none;
+    transform: scale(1.025);
+  }
 
   &:hover {
     cursor: pointer;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+    transform: scale(1.035);
   }
 `;
 
 export const Background = styled.div<{ bg: string }>`
   ${bgOverlay};
+  pointer-events: none;
   background-size: cover;
   background-position: center;
   background-image: ${({ bg }) => `url(${bg})`};
 
-  ${CategoryCardStyled}:hover &,
-  ${CategoryCardStyled}:focus &,
+  ${CategoryCard}:hover &,
+  ${CategoryCard}:focus &,
   ${Anchor}:focus & {
     transform: scale(1.05);
   }
@@ -63,7 +86,7 @@ export const Overlay = styled.div`
     rgba(0, 0, 0, 1) 100%
   );
 
-  ${CategoryCardStyled}:hover & {
+  ${CategoryCard}:hover & {
     opacity: 1;
   }
 `;
@@ -86,7 +109,7 @@ export const Icon = styled.div`
     height: ${ICON_SIZE};
     width: ${ICON_SIZE};
     * {
-      fill: ${Plaster};
+      fill: ${Paste}; /* //grayscale(100) */
     }
   }
 `;
