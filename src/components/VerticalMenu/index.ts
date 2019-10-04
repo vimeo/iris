@@ -1,5 +1,5 @@
 export { VerticalMenuActionButton } from '../VerticalMenuActionButton/VerticalMenuActionButton';
-export { VerticalMenuContextualMenuPanel } from '../VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel';
+export { VerticalMenuContextualPopOver } from '../VerticalMenuContextualPopOver/VerticalMenuContextualPopOver';
 export { VerticalMenuHeaderGroup } from '../VerticalMenuHeaderGroup/VerticalMenuHeaderGroup';
 export { VerticalMenuItem } from '../VerticalMenuItem/VerticalMenuItem';
 export { VerticalMenuItemContent } from '../VerticalMenuItemContent/VerticalMenuItemContent';

@@ -30,6 +30,19 @@ export { InputWrapper } from './Inputs/InputWrapper/InputWrapper';
 export { SearchField } from './Inputs/SearchField/SearchField';
 export { SelectWrapper } from './Inputs/SelectWrapper/SelectWrapper';
 
+// Iris 8 path, Iris 7 component
+export { PopOver } from './portals/PopOver/PopOver';
+export { PopOverList } from './portals/PopOverList/PopOverList';
+export { PopOverListItem } from './portals/PopOverListItem/PopOverListItem';
+export { PopOverScrollableWithActionArea } from './portals/PopOverScrollableWithActionArea/PopOverScrollableWithActionArea';
+export { Modal } from './portals/Modal/Modal';
+export { ModalFeatureUpdate } from './portals/ModalFeatureUpdate/ModalFeatureUpdate';
+export { ModalFeatureUpdateTemplate } from './portals/ModalFeatureUpdate/ModalFeatureUpdateTemplate';
+export { ModalWrapper } from './portals/ModalWrapper/ModalWrapper';
+export { Tip } from './portals/Tip/Tip';
+export { Annotation } from './portals/Annotation/Annotation';
+export { TipOverlay } from './portals/TipOverlay/TipOverlay';
+
 // Iris 7
 export { Breadcrumb } from './Breadcrumb/Breadcrumb';
 export { BreadcrumbLink } from './BreadcrumbLink/BreadcrumbLink';
@@ -51,14 +64,6 @@ export { FeatureTourPanelContent } from './FeatureTourPanelContent/FeatureTourPa
 export { FloatingButton } from './Buttons/Floating/Floating';
 export { LinkText } from './LinkText/LinkText';
 export { LoaderCircular } from './LoaderCircular/LoaderCircular';
-export { MenuPanel } from './MenuPanel/MenuPanel';
-export { MenuPanelList } from './MenuPanelList/MenuPanelList';
-export { MenuPanelListItem } from './MenuPanelListItem/MenuPanelListItem';
-export { MenuPanelScrollableWithActionArea } from './MenuPanelScrollableWithActionArea/MenuPanelScrollableWithActionArea';
-export { Modal } from './Modal/Modal';
-export { ModalFeatureUpdate } from './ModalFeatureUpdate/ModalFeatureUpdate';
-export { ModalFeatureUpdateTemplate } from './ModalFeatureUpdate/ModalFeatureUpdateTemplate';
-export { ModalWrapper } from './ModalWrapper/ModalWrapper';
 export { Notification } from './Notification/Notification';
 export { ProgressBar } from './ProgressBar/ProgressBar';
 export { SegmentedButtonSet } from './SegmentedButtonSet/SegmentedButtonSet';
@@ -67,9 +72,6 @@ export { SocialButton } from './SocialButton/SocialButton';
 export { SteppedContentSlider } from './SteppedContentSlider/SteppedContentSlider';
 export { TabNavigationHorizontal } from './TabNavigationHorizontal/TabNavigationHorizontal';
 export { Toastification } from './Toastification/Toastification';
-export { Tooltip } from './Tooltip/Tooltip';
-export { TooltipAnnotationIcon } from './TooltipAnnotationIcon/TooltipAnnotationIcon';
-export { TooltipOverlay } from './TooltipOverlay/TooltipOverlay';
 export { TruncatedTextWrapper } from './TruncatedTextWrapper/TruncatedTextWrapper';
 export { VerticalMenuActionButton } from './VerticalMenuActionButton/VerticalMenuActionButton';
 export { VerticalMenuHeaderGroup } from './VerticalMenuHeaderGroup/VerticalMenuHeaderGroup';

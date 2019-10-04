@@ -3,7 +3,7 @@ import { rem } from 'polished';
 
 import { ButtonStyled as Button } from './ButtonStyled';
 import { LinkElementStyled as ButtonFocusWrapper } from './ButtonFocusWrapper';
-import { TriggerWrapperStyled } from '../MenuPanel/MenuPanelStyled';
+import { TriggerWrapperStyled } from '../portals/PopOver/PopOverStyled';
 import {
   FocusOutline,
   FocusOutlineFocused,

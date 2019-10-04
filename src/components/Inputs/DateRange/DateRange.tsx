@@ -5,7 +5,7 @@ import React, {
   FormEventHandler,
 } from 'react';
 
-import { MenuPanel } from '../../MenuPanel/MenuPanel';
+import { PopOver } from '../../portals/PopOver/PopOver';
 import { InputText } from '../InputText/InputText';
 
 import { reducer, init } from './Reducer';
@@ -189,7 +189,7 @@ export const DateRange: IrisInputComponent<DateRangeProps> = ({
   // Generate the styles to pin the portal to the parent node.
   return (
     <>
-      <MenuPanel
+      <PopOver
         isShowing={open}
         alignment={alignment}
         size="xl"
@@ -290,7 +290,7 @@ export const DateRange: IrisInputComponent<DateRangeProps> = ({
         }
       >
         {children}
-      </MenuPanel>
+      </PopOver>
     </>
   );
 };

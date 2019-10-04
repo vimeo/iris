@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { KEY_CODES } from '../../legacy';
 import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
-import { VerticalMenuContextualMenuPanel } from '../VerticalMenuContextualMenuPanel/VerticalMenuContextualMenuPanel';
+import { VerticalMenuContextualPopOver } from '../VerticalMenuContextualPopOver/VerticalMenuContextualPopOver';
 import {
   VerticalMenuItemProps as Props,
   VerticalMenuItemState as State,
@@ -96,7 +96,7 @@ export class VerticalMenuItem extends Component<Props, State> {
         isActive={isActive}
         isHovered={this.state.linkIsHovered}
       >
-        <VerticalMenuContextualMenuPanel
+        <VerticalMenuContextualPopOver
           tooltipText={menuPanelTooltip}
           onClose={this.handlePanelClose}
           onOpen={this.handlePanelOpen}
@@ -105,7 +105,7 @@ export class VerticalMenuItem extends Component<Props, State> {
           size={nestedInteractionMenuSize}
         >
           {nestedInteractionContent}
-        </VerticalMenuContextualMenuPanel>
+        </VerticalMenuContextualPopOver>
       </NestedMenu>
     );
 

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { Button } from '../Button/Button';
 import { ChevronDown } from '../../icons';
-import { MenuPanel } from '../MenuPanel/MenuPanel';
+import { PopOver } from '../portals/PopOver/PopOver';
 import { ButtonIconElement } from '../Button/ButtonIconElement';
 import {
   ButtonCoreCSS,
@@ -132,19 +132,19 @@ export interface ButtonSplitMenuProps {
    */
   menuButtonOnClick?: (event: React.MouseEvent<HTMLElement>) => void;
   /**
-   * Menu Direction (see MenuPanel)
+   * Menu Direction (see PopOver)
    */
   menuAlignment?: 'left' | 'right' | 'center';
   /**
-   * Content of MenuPanel
+   * Content of PopOver
    */
   menuContent: React.ReactNode;
   /**
-   * Object of any additional props to send to MenuPanel
+   * Object of any additional props to send to PopOver
    */
   menuProps?: {};
   /**
-   * Menu Size (see MenuPanel)
+   * Menu Size (see PopOver)
    */
   menuSize: 'sm' | 'md' | 'lg';
   /**
@@ -175,7 +175,7 @@ export const ButtonSplitMenu: SFC<ButtonSplitMenuProps> = ({
         {buttonLabel}
       </MainButtonStyled>
       <MenuButtonWrapperStyled>
-        <MenuPanel
+        <PopOver
           alignment={menuAlignment}
           menuContent={menuContent}
           size={menuSize}
@@ -190,7 +190,7 @@ export const ButtonSplitMenu: SFC<ButtonSplitMenuProps> = ({
               <ChevronDown />
             </ButtonIconElement>
           </MenuButtonStyled>
-        </MenuPanel>
+        </PopOver>
       </MenuButtonWrapperStyled>
     </WrapperStyled>
   );

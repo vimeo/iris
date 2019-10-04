@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
+import { TipOverlay } from '../portals/TipOverlay/TipOverlay';
 import { ButtonStyled, Wrapper } from './ButtonInlineInputTextStyled';
 import { BaseProps, withDeprecateProps } from '../../utils';
 
@@ -40,7 +40,7 @@ export const ButtonInlineInputText = withDeprecateProps<Props>(
     return (
       <Wrapper>
         {tooltipText ? (
-          <TooltipOverlay
+          <TipOverlay
             tooltipText={tooltipText}
             attachment={tooltipPosition}
             {...tooltipProps}
@@ -48,7 +48,7 @@ export const ButtonInlineInputText = withDeprecateProps<Props>(
             <ButtonStyled size={size} format={format} {...props}>
               {children}
             </ButtonStyled>
-          </TooltipOverlay>
+          </TipOverlay>
         ) : (
           <ButtonStyled size={size} format={format} {...props}>
             {children}

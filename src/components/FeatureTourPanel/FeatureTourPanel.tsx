@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { rem } from 'polished';
 import { FeatureTourPanelContent } from '../FeatureTourPanelContent/FeatureTourPanelContent';
 import { FeatureTourDot } from '../FeatureTourDot/FeatureTourDot';
-import { MenuPanel } from '../MenuPanel/MenuPanel';
+import { PopOver } from '../portals/PopOver/PopOver';
 import { DarkerBlue } from '../../color';
 import { IrisComponent } from '../../utils';
 
@@ -68,7 +68,7 @@ const WrapperStyled = styled.div<WrapperStyledProps>`
     }
 `;
 
-const MenuPanelStyled = styled(MenuPanel)<{ options: any }>`
+const PopOverStyled = styled(PopOver)<{ options: any }>`
   border-radius: ${rem(5)};
 `;
 
@@ -155,7 +155,7 @@ export const FeatureTourPanel: IrisComponent<
     }
   };
 
-  const MenuPanelContent = (
+  const PopOverContent = (
     <FeatureTourPanelContent
       actionArea={actionArea}
       contextualInfo={contextualInfo}
@@ -173,10 +173,10 @@ export const FeatureTourPanel: IrisComponent<
       className={wrapperClass}
       isHidden={beaconMode === 'hidden'}
     >
-      <MenuPanelStyled
+      <PopOverStyled
         {...props}
         isShowing={beaconMode === 'open'}
-        menuContent={MenuPanelContent}
+        menuContent={PopOverContent}
         onClose={handleClose}
         onOpen={handleOpen}
         shouldRefocusTriggerOnClose={
@@ -193,7 +193,7 @@ export const FeatureTourPanel: IrisComponent<
           mode={beaconMode}
           color={color}
         />
-      </MenuPanelStyled>
+      </PopOverStyled>
     </WrapperStyled>
   );
 };

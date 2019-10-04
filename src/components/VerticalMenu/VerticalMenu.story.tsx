@@ -7,7 +7,7 @@ import {
   VerticalMenuActionButton,
   VerticalMenuHeaderGroup,
 } from '../VerticalMenu';
-import { MenuPanelList } from '../MenuPanelList/MenuPanelList';
+import { PopOverList } from '../portals/PopOverList/PopOverList';
 
 import {
   PopOut,
@@ -126,7 +126,7 @@ const VerticalMenuDemoDocs = () => {
         </a>
       </VerticalMenuItem>
       <VerticalMenuItem
-        nestedInteractionContent={MenuPanelDemoList}
+        nestedInteractionContent={PopOverDemoList}
         menuPanelTooltip="Show Menu"
       >
         <a href="#" onClick={doClick}>
@@ -138,7 +138,7 @@ const VerticalMenuDemoDocs = () => {
       </VerticalMenuItem>
       <VerticalMenuItem
         isActive
-        nestedInteractionContent={MenuPanelDemoList}
+        nestedInteractionContent={PopOverDemoList}
         menuPanelTooltip="Show Menu"
       >
         <a href="#" onClick={doClick}>
@@ -179,9 +179,9 @@ const newItem = length => (
   </VerticalMenuItem>
 );
 
-const MenuPanelDemoList = (
+const PopOverDemoList = (
   <div>
-    <MenuPanelList
+    <PopOverList
       header="Section 1"
       menuItems={[
         {
@@ -195,7 +195,7 @@ const MenuPanelDemoList = (
         },
       ]}
     />
-    <MenuPanelList
+    <PopOverList
       hasDivider
       menuItems={[
         {

@@ -7,12 +7,13 @@ import React, {
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { ChromePicker } from 'react-color';
+
 import { InputText } from '../InputText/InputText';
 import { InputProps } from '../InputText/InputHelpers';
-import { MenuPanel } from '../../MenuPanel/MenuPanel';
+import { PopOver } from '../../portals/PopOver/PopOver';
+
 import * as COLORS from '../../../color';
-import { KEY_CODES } from '../../../legacy';
-import { VimeoStyleSettings } from '../../../legacy';
+import { KEY_CODES, VimeoStyleSettings } from '../../../legacy';
 
 const defaultColorValue = COLORS.VimeoBlue;
 
@@ -382,7 +383,7 @@ export class ColorSelect extends Component<
     );
     const ColorButton = (
       <ColorButtonWrapperStyled>
-        <MenuPanel
+        <PopOver
           alignment="left"
           menuContent={ColorPickerPanelContent}
           size="md"
@@ -395,7 +396,7 @@ export class ColorSelect extends Component<
             type="button"
             onClick={!disabled && this._handleButtonClick}
           />
-        </MenuPanel>
+        </PopOver>
       </ColorButtonWrapperStyled>
     );
 

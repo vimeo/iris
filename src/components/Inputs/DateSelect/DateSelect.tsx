@@ -7,9 +7,10 @@ import {
   DatePickerWrapperStyled,
 } from './DateSelectStyled';
 import DateTime from 'react-datetime';
+
 import { InputText } from '../InputText/InputText';
 import { InputTextProps } from '../InputText/InputText';
-import { MenuPanel } from '../../MenuPanel/MenuPanel';
+import { PopOver } from '../../portals/PopOver/PopOver';
 
 import { KEY_CODES } from '../../../legacy';
 // eslint-disable-next-line
@@ -277,7 +278,7 @@ export class DateSelect extends Component<
     );
     const DateButton = (
       <DateTriggerWrapperStyled>
-        <MenuPanel
+        <PopOver
           alignment="left"
           menuContent={DatePickerPanelContent}
           size="lg"
@@ -285,7 +286,7 @@ export class DateSelect extends Component<
           isControlled
         >
           <DateTriggerStyled />
-        </MenuPanel>
+        </PopOver>
       </DateTriggerWrapperStyled>
     );
 

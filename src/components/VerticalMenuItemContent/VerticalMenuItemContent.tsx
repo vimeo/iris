@@ -8,7 +8,7 @@ import {
   ActionButtonStyled,
 } from './VerticalMenuItemContentStyled';
 
-import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
+import { TipOverlay } from '../portals/TipOverlay/TipOverlay';
 
 export const VerticalMenuItemContent: SFC<Props> = ({
   hasSubMenu,
@@ -29,7 +29,7 @@ export const VerticalMenuItemContent: SFC<Props> = ({
       />
     </span>
   ) : (
-    <TooltipOverlay
+    <TipOverlay
       tooltipText={label}
       makeWrapperBlock
       pointerEvents={true}
@@ -41,7 +41,7 @@ export const VerticalMenuItemContent: SFC<Props> = ({
         hasSubMenu={hasSubMenu}
         {...props}
       />
-    </TooltipOverlay>
+    </TipOverlay>
   );
 
 const MenuItemContent: SFC<Props> = ({

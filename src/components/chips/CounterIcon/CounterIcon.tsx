@@ -2,7 +2,7 @@ import React, { MouseEventHandler, ReactNode } from 'react';
 import styled from 'styled-components';
 import { rem, rgba } from 'polished';
 
-import { TooltipOverlay } from '../../TooltipOverlay/TooltipOverlay';
+import { TipOverlay } from '../../portals/TipOverlay/TipOverlay';
 import { CounterIconFocusOutline as FocusOutline } from './CounterIconFocus';
 import { FocusOutlineFocused } from '../../FocusOutline/FocusOutline';
 
@@ -42,7 +42,7 @@ export const CounterIcon = withDeprecateProps<Props>(
 
     return (
       <CounterIconStyled className={className}>
-        <TooltipOverlay
+        <TipOverlay
           href={href}
           tooltipText={title}
           onClick={!href && onClick}
@@ -59,7 +59,7 @@ export const CounterIcon = withDeprecateProps<Props>(
             <ParagraphLg element="span">{children}</ParagraphLg>
             <FocusOutline />
           </Content>
-        </TooltipOverlay>
+        </TipOverlay>
       </CounterIconStyled>
     );
   },

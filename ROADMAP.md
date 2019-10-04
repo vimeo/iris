@@ -56,7 +56,7 @@ This is a **provisional** overview of what the Iris team is planning to work on 
 * Audit the backlog of bugs from before Iris 7.0 and address any bugs that still exist.
 * Replace the functionality of `react-popper` and `react-tether` with hooks.
 	* Remove  `react-popper` and `react-tether`.
-	* Rebuild `MenuPanel` and `Tooltip`.
+	* Rebuild `PopOver` and `Tooltip`.
 * Replace `react-swipe`, `react-swipeable`, and `react-transition-group` with hooks (or `react-spring`).
 	* Rebuild `SlideUpDown`
 * Replace `copy-to-clipboard` with a hook and native API.

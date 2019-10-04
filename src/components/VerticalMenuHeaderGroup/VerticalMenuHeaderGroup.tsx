@@ -1,5 +1,5 @@
 import React, { ReactNode, SFC } from 'react';
-import { TooltipOverlay } from '../TooltipOverlay/TooltipOverlay';
+import { TipOverlay } from '../portals/TipOverlay/TipOverlay';
 import { HeaderAltSm } from '../../legacy';
 import {
   VerticalMenuHeaderGroupStyled,
@@ -43,14 +43,14 @@ export const VerticalMenuHeaderGroup: SFC<Props> = ({
         </HeaderAltSm>
         {hasActionButton && (
           <ActionButtonWrapper>
-            <TooltipOverlay
+            <TipOverlay
               tooltipText={actionButtonTooltipText}
               triggerOnClick={false}
             >
               <ActionButton onClick={actionButtonOnClick}>
                 {actionButtonIcon}
               </ActionButton>
-            </TooltipOverlay>
+            </TipOverlay>
           </ActionButtonWrapper>
         )}
       </HeaderWrapper>
