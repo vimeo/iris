@@ -5,8 +5,8 @@ import { PositionProperty } from 'csstype';
 
 import { FeatureTourPanel } from './FeatureTourPanel';
 import { FeatureTourPanelButton } from '../FeatureTourPanelButton/FeatureTourPanelButton';
+import { Button } from '../../../components/buttons/Button/Button';
 
-import { Button } from '../../../components';
 import { LinkText } from '../../../typography';
 import { Header3, ParagraphMd } from '../../../legacy';
 import {
@@ -16,7 +16,7 @@ import {
   WarningYellow,
 } from '../../../color';
 
-storiesOf('components|Feature Tour Panel', module)
+storiesOf('components|informational/Feature Tour Panel/', module)
   .add('default', () => (
     <div
       style={{

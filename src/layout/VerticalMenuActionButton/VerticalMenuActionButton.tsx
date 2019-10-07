@@ -1,6 +1,7 @@
 import React, { ReactNode, SFC, MouseEventHandler } from 'react';
 
-import { ButtonIconOnly, TipOverlay } from '../../components';
+import { ButtonIconOnly } from '../../components/buttons/ButtonIconOnly/ButtonIconOnly';
+import { TipOverlay } from '../../components/portals/TipOverlay/TipOverlay';
 
 interface Props {
   icon: ReactNode;

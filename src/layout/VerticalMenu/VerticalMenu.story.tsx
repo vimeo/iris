@@ -22,7 +22,7 @@ import { Story } from '../../storybook';
 
 const componentName = 'Vertical Menu';
 
-storiesOf(`components|${componentName}`, module)
+storiesOf(`Layout|${componentName}`, module)
   .add('basic', () => (
     <Story title={componentName} subTitle="basic">
       <VerticalMenuNested

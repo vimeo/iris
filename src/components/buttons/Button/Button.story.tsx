@@ -38,11 +38,9 @@ const buttonFormats = {
   lightTextOnly: 'lightTextOnly',
 };
 
-const componentName = 'Button';
-
-storiesOf(`components|${componentName}`, module)
+storiesOf(`components|buttons/`, module)
   .add('playground', () => (
-    <Story title={componentName} subTitle="Playground">
+    <Story title="Button" subTitle="Playground">
       <ParagraphMd>Click "KNOBS" in the panel below.</ParagraphMd>
       <$Button format={select('format', buttonFormats, 'primary')}>
         {text('text', 'Play with me!')}
@@ -50,7 +48,7 @@ storiesOf(`components|${componentName}`, module)
     </Story>
   ))
   .add('basic', () => (
-    <Story title={componentName} subTitle="Basic">
+    <Story title="Button" subTitle="Basic">
       <$Button>Primary</$Button>
       <$Button format="secondary">Secondary</$Button>
       <$Button format="alternative">Alternative</$Button>
@@ -61,7 +59,7 @@ storiesOf(`components|${componentName}`, module)
   .add(
     'text overflow',
     () => (
-      <Story title={componentName} subTitle="Text Overflow">
+      <Story title="Button" subTitle="Text Overflow">
         <ButtonCropped>Primary with Text Overflow</ButtonCropped>
         <ButtonCropped format="secondary">
           Secondary with Text Overflow
@@ -83,7 +81,7 @@ storiesOf(`components|${componentName}`, module)
     },
   )
   .add('outline', () => (
-    <Story title={componentName} subTitle="Outline">
+    <Story title="Button" subTitle="Outline">
       <$Button format="primaryOutline">Primary Outline</$Button>
       <$Button format="secondaryOutline">Secondary Outline</$Button>
       <$Button format="alternativeOutline">
@@ -95,7 +93,7 @@ storiesOf(`components|${componentName}`, module)
   ))
   .add('icon', () => (
     <Story
-      title={componentName}
+      title="Button"
       subTitle="Icon"
       props={['icon', 'iconLocation']}
     >

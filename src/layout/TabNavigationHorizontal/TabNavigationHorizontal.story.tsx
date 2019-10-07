@@ -10,7 +10,7 @@ import { Story } from '../../storybook';
 
 const componentName = 'Tab Navigation Horizontal';
 
-storiesOf(`components|Tabs`, module).add('Tab Navigation', () => (
+storiesOf(`Layout|Tabs`, module).add('Tab Navigation', () => (
   <Story title={componentName}>
     <TabNavigationHorizontal
       index={1}

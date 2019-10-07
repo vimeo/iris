@@ -1,16 +1,18 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { Story } from '../../storybook';
-import { text } from '@storybook/addon-knobs';
 import styled from 'styled-components';
+import { storiesOf } from '@storybook/react';
+import { text } from '@storybook/addon-knobs';
+
 import { SocialButton } from './SocialButton';
+
+import { Story } from '../../../storybook';
 
 const componentName = 'Button';
 const Container = styled.div`
   width: 300px;
 `;
 
-storiesOf('Components|Button', module).add('social', () => (
+storiesOf('Components|buttons/', module).add('social', () => (
   <Story title={componentName} subTitle="Social Buttons">
     <Container>
       <SocialButton brand="facebook" autoWidth="fluid">

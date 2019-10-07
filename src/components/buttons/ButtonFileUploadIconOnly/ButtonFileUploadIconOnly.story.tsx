@@ -10,7 +10,7 @@ const $ButtonFileUploadIconOnly = styled(ButtonFileUploadIconOnly)`
 
 const componentName = 'Button';
 
-storiesOf(`components|${componentName}`, module).add(
+storiesOf(`components|buttons/`, module).add(
   'file upload icon only',
   () => (
     <Story title={componentName} subTitle="File Upload Icon Only">

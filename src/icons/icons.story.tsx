@@ -3,11 +3,12 @@ import styled, { css } from 'styled-components';
 import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
 
+import { InputText } from '../components/Inputs/InputText/InputText';
+
 import * as Icons from './index';
 import { Header2, Header6 } from '../legacy';
 import * as COLORS from '../color';
 import { Story } from '../storybook';
-import { InputText } from '../components';
 
 storiesOf('Icons|icons', module).add('all', () => {
   return <IconStory />;

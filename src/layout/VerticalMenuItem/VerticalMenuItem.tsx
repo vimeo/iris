@@ -19,9 +19,9 @@ import {
   NestedMenu,
   Wrapper,
 } from './VerticalMenuItemStyled';
+import { ButtonIconOnly } from '../../components/buttons/ButtonIconOnly/ButtonIconOnly';
 
 import { KEY_CODES } from '../../legacy';
-import { ButtonIconOnly } from '../../components';
 
 export class VerticalMenuItem extends Component<Props, State> {
   static defaultProps = {
