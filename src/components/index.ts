@@ -30,7 +30,15 @@ export { InputWrapper } from './Inputs/InputWrapper/InputWrapper';
 export { SearchField } from './Inputs/SearchField/SearchField';
 export { SelectWrapper } from './Inputs/SelectWrapper/SelectWrapper';
 
-// Iris 8 path, Iris 7 component
+export { Breadcrumb } from './informational/Breadcrumb/Breadcrumb';
+export { BreadcrumbLink } from './informational/BreadcrumbLink/BreadcrumbLink';
+export { FeatureTourPanel } from './informational/FeatureTourPanel/FeatureTourPanel';
+export { FeatureTourPanelButton } from './informational/FeatureTourPanelButton/FeatureTourPanelButton';
+export { FeatureTourPanelContent } from './informational/FeatureTourPanelContent/FeatureTourPanelContent';
+export { Notice } from './informational/Notice/Notice';
+export { ProgressBar } from './informational/ProgressBar/ProgressBar';
+export { Notification } from './informational/Notification/Notification';
+
 export { PopOver } from './portals/PopOver/PopOver';
 export { PopOverList } from './portals/PopOverList/PopOverList';
 export { PopOverListItem } from './portals/PopOverListItem/PopOverListItem';
@@ -44,8 +52,6 @@ export { Annotation } from './portals/Annotation/Annotation';
 export { TipOverlay } from './portals/TipOverlay/TipOverlay';
 
 // Iris 7
-export { Breadcrumb } from './Breadcrumb/Breadcrumb';
-export { BreadcrumbLink } from './BreadcrumbLink/BreadcrumbLink';
 export { Button } from './Button/Button';
 export { ButtonFileUpload } from './ButtonFileUpload/ButtonFileUpload';
 export { ButtonFileUploadIconOnly } from './ButtonFileUploadIconOnly/ButtonFileUploadIconOnly';
@@ -57,21 +63,13 @@ export { ButtonLoadingState } from './ButtonLoadingState/ButtonLoadingState';
 export { ButtonSplitMenu } from './ButtonSplitMenu/ButtonSplitMenu';
 export { ButtonToggleState } from './ButtonToggleState/ButtonToggleState';
 export { CircularButton } from './CircularButton/CircularButton';
-export { ContentCarousel } from './ContentCarousel/ContentCarousel';
-export { FeatureTourPanel } from './FeatureTourPanel/FeatureTourPanel';
-export { FeatureTourPanelButton } from './FeatureTourPanelButton/FeatureTourPanelButton';
-export { FeatureTourPanelContent } from './FeatureTourPanelContent/FeatureTourPanelContent';
 export { FloatingButton } from './Buttons/Floating/Floating';
 export { LinkText } from './LinkText/LinkText';
 export { LoaderCircular } from './LoaderCircular/LoaderCircular';
-export { Notification } from './Notification/Notification';
-export { ProgressBar } from './ProgressBar/ProgressBar';
 export { SegmentedButtonSet } from './SegmentedButtonSet/SegmentedButtonSet';
 export { SlideUpDown } from './SlideUpDown/SlideUpDown';
 export { SocialButton } from './SocialButton/SocialButton';
-export { SteppedContentSlider } from './SteppedContentSlider/SteppedContentSlider';
 export { TabNavigationHorizontal } from './TabNavigationHorizontal/TabNavigationHorizontal';
-export { Toastification } from './Toastification/Toastification';
 export { TruncatedTextWrapper } from './TruncatedTextWrapper/TruncatedTextWrapper';
 export { VerticalMenuActionButton } from './VerticalMenuActionButton/VerticalMenuActionButton';
 export { VerticalMenuHeaderGroup } from './VerticalMenuHeaderGroup/VerticalMenuHeaderGroup';

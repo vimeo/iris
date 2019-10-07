@@ -4,7 +4,7 @@ import { Clipboard } from '../../../icons';
 import { InputText } from '../InputText/InputText';
 import { ButtonInlineInputText } from '../../ButtonInlineInputText/ButtonInlineInputText';
 import copy from 'copy-to-clipboard';
-import { Toastification } from '../../Toastification/Toastification';
+import { Notification } from '../../informational/Notification/Notification';
 import { withDeprecateProps } from '../../../utils';
 
 export const CopyField = withDeprecateProps<CopyFieldProps>(
@@ -51,9 +51,9 @@ export const CopyField = withDeprecateProps<CopyFieldProps>(
             >
               {children}
             </CopyButton>
-            <Toastification isShowing={copied as boolean}>
+            <Notification isShowing={copied as boolean}>
               {successMessage}
-            </Toastification>
+            </Notification>
           </>
         }
       />
