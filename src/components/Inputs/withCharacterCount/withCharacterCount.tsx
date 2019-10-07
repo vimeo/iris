@@ -5,9 +5,9 @@ import React, {
   FormEvent,
 } from 'react';
 import styled, { css } from 'styled-components';
-import * as COLORS from '../../color';
-import { ParagraphAltSm } from '../../legacy';
-import { fnGuard } from '../../utils';
+import * as COLORS from '../../../color';
+import { ParagraphAltSm } from '../../../legacy';
+import { fnGuard } from '../../../utils';
 
 interface Props {
   maxCharacters: number;

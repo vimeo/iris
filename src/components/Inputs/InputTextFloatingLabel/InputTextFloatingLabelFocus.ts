@@ -6,7 +6,7 @@ import {
   FocusOutline,
   FocusOutlineFocused,
   FocusOutlineProps,
-} from '../../FocusOutline/FocusOutline';
+} from '../../../utils';
 
 export const ITFLFocusOutline = styled.div<FocusOutlineProps>`
   ${FocusOutline};

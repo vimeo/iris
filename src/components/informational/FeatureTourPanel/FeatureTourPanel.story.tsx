@@ -1,12 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { color } from '@storybook/addon-knobs';
+import { PositionProperty } from 'csstype';
+
 import { FeatureTourPanel } from './FeatureTourPanel';
 import { FeatureTourPanelButton } from '../FeatureTourPanelButton/FeatureTourPanelButton';
-import { LinkText } from '../../LinkText/LinkText';
-import { PositionProperty } from 'csstype';
-import { Header3, ParagraphMd } from '../../../legacy';
 import { Button } from '../../Button/Button';
+
+import { LinkText } from '../../../typography';
+import { Header3, ParagraphMd } from '../../../legacy';
 import {
   RumSwizzle,
   PalePink,

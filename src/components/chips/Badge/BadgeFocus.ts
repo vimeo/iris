@@ -4,7 +4,7 @@ import {
   FocusOutline,
   FocusOutlineFocused,
   FocusOutlineProps,
-} from '../../FocusOutline/FocusOutline';
+} from '../../../utils';
 
 export const BadgeFocusOutline = styled.div<FocusOutlineProps>`
   ${FocusOutline};

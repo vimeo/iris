@@ -4,7 +4,7 @@ import {
   FocusOutline,
   FocusOutlineFocused,
   FocusOutlineProps,
-} from '../../FocusOutline/FocusOutline';
+} from '../../../utils';
 
 export const CheckboxFocusOutline = styled.div<FocusOutlineProps>`
     ${FocusOutline}

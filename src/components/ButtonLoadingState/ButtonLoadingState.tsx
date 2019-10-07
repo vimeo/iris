@@ -1,7 +1,7 @@
 import React, { SFC } from 'react';
 import { ButtonLoadingStateProps as Props } from './ButtonLoadingStateTypes';
 import { ButtonLoadingStateStyled } from './ButtonLoadingStateStyled';
-import { LoaderCircular } from '../LoaderCircular/LoaderCircular';
+import { LoaderCircular } from '../../motion/LoaderCircular/LoaderCircular';
 
 export const ButtonLoadingState: SFC<Props> = ({
   children,

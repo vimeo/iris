@@ -1,8 +1,11 @@
+import { css } from 'styled-components';
+
 export { Paragraph } from './Paragraph';
 export { Header } from './Header';
 export { BigStat } from './BigStat';
+export { LinkText } from './LinkText';
 
-import { css } from 'styled-components';
+export const fontFamily = '"Helvetica Neue", Helvetica, Arial, sans-serif';
 
 export const antialias = css`
   font-smoothing: antialiased;
@@ -10,5 +13,3 @@ export const antialias = css`
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
 `;
-
-export const fontFamily = '"Helvetica Neue", Helvetica, Arial, sans-serif';

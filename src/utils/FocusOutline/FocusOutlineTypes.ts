@@ -1,4 +1,7 @@
-import { buttonFormats, buttonSizes } from '../Button/ButtonTypes';
+import {
+  buttonFormats,
+  buttonSizes,
+} from '../../components/Button/ButtonTypes';
 
 export interface FocusOutlineProps {
   format?: buttonFormats | null;

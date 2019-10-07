@@ -2,11 +2,10 @@ import React, { Component, useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { SlideUpDown } from './SlideUpDown';
-import { Button } from '../Button/Button';
-import { Notification } from '../informational/Notification/Notification';
 
-import { ParagraphMd } from '../../legacy';
 import { Story } from '../../storybook';
+import { ParagraphMd } from '../../legacy';
+import { Button, Notification } from '../../components';
 
 storiesOf('Motion|Animation', module).add('Slide Up Down', () => (
   <Story title="Slide Up Down">

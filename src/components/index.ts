@@ -4,10 +4,14 @@ export { CategoryCard } from './cards/CategoryCard/CategoryCard';
 export { NewItemCard } from './cards/NewItemCard/NewItemCard';
 
 // 8 Bridge
+
+// chips
 export { Avatar } from './chips/Avatar/Avatar';
 export { Badge } from './chips/Badge/Badge';
 export { CounterIcon } from './chips/CounterIcon/CounterIcon';
 export { Tag } from './chips/Tag/Tag';
+
+// inputs
 export { DateRange } from './Inputs/DateRange/DateRange';
 export { InputText } from './Inputs/InputText/InputText';
 export { InputSelect } from './Inputs/InputSelect/InputSelect';
@@ -29,7 +33,10 @@ export { Toggle } from './Inputs/Toggle/Toggle';
 export { InputWrapper } from './Inputs/InputWrapper/InputWrapper';
 export { SearchField } from './Inputs/SearchField/SearchField';
 export { SelectWrapper } from './Inputs/SelectWrapper/SelectWrapper';
+export { withCharacterCounter as withCharacterCount } from './Inputs/withCharacterCount/withCharacterCount';
+export { TruncatedTextWrapper } from './Inputs/TruncatedTextWrapper/TruncatedTextWrapper';
 
+// informational
 export { Breadcrumb } from './informational/Breadcrumb/Breadcrumb';
 export { BreadcrumbLink } from './informational/BreadcrumbLink/BreadcrumbLink';
 export { FeatureTourPanel } from './informational/FeatureTourPanel/FeatureTourPanel';
@@ -39,6 +46,7 @@ export { Notice } from './informational/Notice/Notice';
 export { ProgressBar } from './informational/ProgressBar/ProgressBar';
 export { Notification } from './informational/Notification/Notification';
 
+// portals
 export { PopOver } from './portals/PopOver/PopOver';
 export { PopOverList } from './portals/PopOverList/PopOverList';
 export { PopOverListItem } from './portals/PopOverListItem/PopOverListItem';
@@ -64,16 +72,5 @@ export { ButtonSplitMenu } from './ButtonSplitMenu/ButtonSplitMenu';
 export { ButtonToggleState } from './ButtonToggleState/ButtonToggleState';
 export { CircularButton } from './CircularButton/CircularButton';
 export { FloatingButton } from './Buttons/Floating/Floating';
-export { LinkText } from './LinkText/LinkText';
-export { LoaderCircular } from './LoaderCircular/LoaderCircular';
 export { SegmentedButtonSet } from './SegmentedButtonSet/SegmentedButtonSet';
-export { SlideUpDown } from './SlideUpDown/SlideUpDown';
 export { SocialButton } from './SocialButton/SocialButton';
-export { TabNavigationHorizontal } from './TabNavigationHorizontal/TabNavigationHorizontal';
-export { TruncatedTextWrapper } from './TruncatedTextWrapper/TruncatedTextWrapper';
-export { VerticalMenuActionButton } from './VerticalMenuActionButton/VerticalMenuActionButton';
-export { VerticalMenuHeaderGroup } from './VerticalMenuHeaderGroup/VerticalMenuHeaderGroup';
-export { VerticalMenuItem } from './VerticalMenuItem/VerticalMenuItem';
-export { VerticalMenuItemContent } from './VerticalMenuItemContent/VerticalMenuItemContent';
-export { VerticalMenuNested } from './VerticalMenuNested/VerticalMenuNested';
-export { withCharacterCounter as withCharacterCount } from './withCharacterCount/withCharacterCount';

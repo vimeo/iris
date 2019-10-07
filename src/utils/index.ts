@@ -6,6 +6,9 @@ export { withDeprecateComponent, withDeprecateProps } from './Deprecated';
 export { fnGuard } from './fnGuard';
 export { visuallyHiddenCSS } from './VisuallyHidden';
 
+// 8 Bridge
+export { FocusOutline, FocusOutlineFocused, FocusOutlineProps } from './FocusOutline/FocusOutline';
+
 // IRIS 8
 export { CSSProps, ExtractProps, Override, IrisElement } from './types';
 

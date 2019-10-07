@@ -1,7 +1,7 @@
 import React, { ReactNode, SFC } from 'react';
 
 import { InputMessage } from '../InputMessage/InputMessage';
-import { SlideUpDown } from '../../SlideUpDown/SlideUpDown';
+import { SlideUpDown } from '../../../motion/SlideUpDown/SlideUpDown';
 
 interface Props {
   errorMsg?: ReactNode;

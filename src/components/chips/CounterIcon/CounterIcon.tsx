@@ -4,7 +4,7 @@ import { rem, rgba } from 'polished';
 
 import { TipOverlay } from '../../portals/TipOverlay/TipOverlay';
 import { CounterIconFocusOutline as FocusOutline } from './CounterIconFocus';
-import { FocusOutlineFocused } from '../../FocusOutline/FocusOutline';
+import { FocusOutlineFocused } from '../../../utils';
 
 import { ParagraphLg, TRANSITIONS } from '../../../legacy';
 import { withDeprecateProps } from '../../../utils';

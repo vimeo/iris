@@ -1,6 +1,6 @@
 import React, { ReactNode, SFC } from 'react';
-import { PopOver } from '../portals/PopOver/PopOver';
-import { TipOverlay } from '../portals/TipOverlay/TipOverlay';
+import { PopOver } from '../../components/portals/PopOver/PopOver';
+import { TipOverlay } from '../../components/portals/TipOverlay/TipOverlay';
 import styled from 'styled-components';
 import { rem } from 'polished';
 

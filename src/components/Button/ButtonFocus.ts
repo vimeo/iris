@@ -4,10 +4,7 @@ import { rem } from 'polished';
 import { ButtonStyled as Button } from './ButtonStyled';
 import { LinkElementStyled as ButtonFocusWrapper } from './ButtonFocusWrapper';
 import { TriggerWrapperStyled } from '../portals/PopOver/PopOverStyled';
-import {
-  FocusOutline,
-  FocusOutlineFocused,
-} from '../FocusOutline/FocusOutline';
+import { FocusOutline, FocusOutlineFocused } from '../../utils';
 
 export const ButtonFocus = styled.div<any>`
     ${FocusOutline}

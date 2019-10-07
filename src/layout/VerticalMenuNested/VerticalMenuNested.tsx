@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SlideUpDown } from '../SlideUpDown/SlideUpDown';
+import { SlideUpDown } from '../../motion/SlideUpDown/SlideUpDown';
 import { VerticalMenuToggleButton } from '../VerticalMenuToggleButton/VerticalMenuToggleButton';
 import { VerticalMenuItemContent } from '../VerticalMenuItemContent/VerticalMenuItemContent';
 import { VerticalMenuItem } from '../VerticalMenuItem/VerticalMenuItem';

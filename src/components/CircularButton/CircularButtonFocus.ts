@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 
 import { CircularButtonStyled } from './CircularButtonStyled';
-import {
-  FocusOutline,
-  FocusOutlineFocused,
-} from '../FocusOutline/FocusOutline';
+import { FocusOutline, FocusOutlineFocused } from '../../utils';
 
 export const CircularButtonFocusOutline = styled.div<any>`
   ${FocusOutline}

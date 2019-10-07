@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Checkbox } from '../Checkbox/Checkbox';
-import { SlideUpDown } from '../../SlideUpDown/SlideUpDown';
+import { SlideUpDown } from '../../../motion/SlideUpDown/SlideUpDown';
 import {
   CheckboxSetProps,
   CheckboxSetState,

@@ -7,7 +7,7 @@ import {
   FocusOutline,
   FocusOutlineFocused,
   FocusOutlineProps,
-} from '../FocusOutline/FocusOutline';
+} from '../../utils';
 import { LabelStyled } from './ButtonFileUploadIconOnlyStyled';
 
 export const BFUIOFocus = styled.div<FocusOutlineProps>`

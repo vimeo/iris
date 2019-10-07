@@ -1,8 +1,9 @@
 import React, { SFC, ReactNode } from 'react';
-
-import { LinkText } from '../../LinkText/LinkText';
-import { BreadcrumbLinkContent } from '../BreadcrumbLinkContent/BreadcrumbLinkContent';
 import { Link } from 'react-router-dom';
+
+import { BreadcrumbLinkContent } from '../BreadcrumbLinkContent/BreadcrumbLinkContent';
+
+import { LinkText } from '../../../typography/';
 
 export interface BreadcrumbLinkReactRouterProps {
   children: ReactNode;

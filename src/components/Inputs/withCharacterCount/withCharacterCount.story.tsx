@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { storiesOf } from '@storybook/react';
 
 import { withCharacterCounter as withCharacterCount } from './withCharacterCount';
-import { TextArea } from '../Inputs/TextArea/TextArea';
-import { InputText } from '../Inputs/InputText/InputText';
+import { TextArea } from '../TextArea/TextArea';
+import { InputText } from '../InputText/InputText';
 
-import { ParagraphMd } from '../../legacy';
-import { Story } from '../../storybook';
+import { ParagraphMd } from '../../../legacy';
+import { Story } from '../../../storybook';
 
 storiesOf('Utilties|Character Count', module).add(
   'Character Count',

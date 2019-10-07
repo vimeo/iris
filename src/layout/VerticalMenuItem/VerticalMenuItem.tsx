@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { KEY_CODES } from '../../legacy';
-import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
+import { ButtonIconOnly } from '../../components/ButtonIconOnly/ButtonIconOnly';
 import { VerticalMenuContextualPopOver } from '../VerticalMenuContextualPopOver/VerticalMenuContextualPopOver';
 import {
   VerticalMenuItemProps as Props,

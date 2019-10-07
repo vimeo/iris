@@ -5,7 +5,7 @@ import {
   FocusOutline,
   FocusOutlineFocused,
   FocusOutlineProps,
-} from '../FocusOutline/FocusOutline';
+} from '../../utils';
 
 export const BIITFocusOutline = styled.div<FocusOutlineProps>`
   ${FocusOutline};

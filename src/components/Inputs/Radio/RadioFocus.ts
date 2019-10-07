@@ -4,7 +4,7 @@ import {
   FocusOutline,
   FocusOutlineFocused,
   FocusOutlineProps,
-} from '../../FocusOutline/FocusOutline';
+} from '../../../utils';
 
 export const RadioFocusOutline = styled.div<FocusOutlineProps>`
     ${FocusOutline}

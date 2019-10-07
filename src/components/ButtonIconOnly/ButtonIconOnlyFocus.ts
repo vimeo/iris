@@ -4,7 +4,7 @@ import {
   FocusOutline,
   FocusOutlineFocused,
   FocusOutlineProps,
-} from '../FocusOutline/FocusOutline';
+} from '../../utils';
 
 export const ButtonIconOnlyFocus = styled.div<FocusOutlineProps>`
     ${FocusOutline}

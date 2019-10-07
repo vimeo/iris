@@ -8,7 +8,7 @@ import {
   ActionButtonStyled,
 } from './VerticalMenuItemContentStyled';
 
-import { TipOverlay } from '../portals/TipOverlay/TipOverlay';
+import { TipOverlay } from '../../components/portals/TipOverlay/TipOverlay';
 
 export const VerticalMenuItemContent: SFC<Props> = ({
   hasSubMenu,

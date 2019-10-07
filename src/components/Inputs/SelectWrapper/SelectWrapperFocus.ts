@@ -5,7 +5,7 @@ import {
   FocusOutline,
   FocusOutlineFocused,
   FocusOutlineProps,
-} from '../../FocusOutline/FocusOutline';
+} from '../../../utils';
 
 export const SelectWrapperFocusOutline = styled.div<
   FocusOutlineProps

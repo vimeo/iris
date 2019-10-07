@@ -4,7 +4,7 @@ import { rem } from 'polished';
 
 import { badgeColorsCSS, badgeSizeCSS } from './BadgeStyleSettings';
 import { BadgeFocusOutline as FocusOutline } from './BadgeFocus';
-import { FocusOutlineFocused } from '../../FocusOutline/FocusOutline';
+import { FocusOutlineFocused } from '../../../utils';
 
 import { fontFamily } from '../../../typography';
 import { IrisComponent, splitStyleProps } from '../../../utils';

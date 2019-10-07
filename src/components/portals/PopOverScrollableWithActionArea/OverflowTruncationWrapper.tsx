@@ -2,7 +2,7 @@ import React, { ReactNode, useState, useEffect, useRef } from 'react';
 import throttle from 'lodash.throttle';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import { IrisComponent } from '../../utils';
+import { IrisComponent } from '../../../utils';
 
 interface Props {
   className?: string;

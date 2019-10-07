@@ -6,8 +6,8 @@ import {
   VerticalMenuItem,
   VerticalMenuActionButton,
   VerticalMenuHeaderGroup,
-} from '../VerticalMenu';
-import { PopOverList } from '../portals/PopOverList/PopOverList';
+} from '.';
+import { PopOverList } from '../../components/portals/PopOverList/PopOverList';
 
 import {
   PopOut,

@@ -5,7 +5,7 @@ import {
   getInputBaseStyles,
   InputProps,
 } from '../InputText/InputHelpers';
-import { TruncatedTextWrapper } from '../../TruncatedTextWrapper/TruncatedTextWrapper';
+import { TruncatedTextWrapper } from '../TruncatedTextWrapper/TruncatedTextWrapper';
 import { ArrowIconWrapperWidth } from '../SelectWrapper/SelectWrapper';
 
 export interface FauxSelectProps extends InputProps {

@@ -4,7 +4,7 @@ import {
   FocusOutline,
   FocusOutlineFocused,
   FocusOutlineProps,
-} from '../FocusOutline/FocusOutline';
+} from '../../utils';
 import { Wrapper } from '../ButtonFileUploadWrapper/ButtonFileUploadWrapper';
 
 export const ButtonFileUploadFocusOutline = styled.div<

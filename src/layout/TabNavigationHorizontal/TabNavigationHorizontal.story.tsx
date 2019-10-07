@@ -1,8 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Header2, ParagraphMd } from '../../legacy';
-import { LinkText } from '../LinkText/LinkText';
+
 import { TabNavigationHorizontal } from './TabNavigationHorizontal';
+
+import { Header2, ParagraphMd } from '../../legacy';
+import { LinkText } from '../../typography';
 
 import { Story } from '../../storybook';
 

@@ -1,5 +1,5 @@
 import React, { ReactNode, SFC } from 'react';
-import { TipOverlay } from '../portals/TipOverlay/TipOverlay';
+import { TipOverlay } from '../../components/portals/TipOverlay/TipOverlay';
 import { HeaderAltSm } from '../../legacy';
 import {
   VerticalMenuHeaderGroupStyled,
