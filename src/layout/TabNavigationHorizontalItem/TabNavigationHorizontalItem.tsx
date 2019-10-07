@@ -1,5 +1,6 @@
 import React, { SFC, MouseEventHandler } from 'react';
-import { Button } from '../../components/Button/Button';
+
+import { Button } from '../../components/buttons/Button/Button';
 
 interface Props {
   handleTabChange: MouseEventHandler;

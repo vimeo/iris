@@ -5,7 +5,7 @@ import { select, date } from '@storybook/addon-knobs';
 
 import { Story } from '../../../storybook';
 import { DateRange } from './DateRange';
-import { Button } from '../../Button/Button';
+import { Button } from '../../buttons/Button/Button';
 import { ChevronDown } from '../../../icons';
 
 const componentName = 'Inputs';

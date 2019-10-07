@@ -1,8 +1,8 @@
 import React, { SFC, ReactNode } from 'react';
 import styled from 'styled-components';
 
-import { Button } from '../../Button/Button';
-import { OverflowTruncationWrapper } from './OverflowTruncationWrapper';
+import { Button } from '../../buttons/Button/Button';
+import { OverflowTruncationWrapper } from '../../portals/PopOverScrollableWithActionArea/OverflowTruncationWrapper';
 
 import * as COLORS from '../../../color';
 import { mediaQuery } from '../../../layout';

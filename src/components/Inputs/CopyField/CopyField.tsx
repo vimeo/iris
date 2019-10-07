@@ -2,7 +2,7 @@ import React, { useState, ClipboardEventHandler } from 'react';
 import { CopyFieldProps } from './CopyFieldTypes';
 import { Clipboard } from '../../../icons';
 import { InputText } from '../InputText/InputText';
-import { ButtonInlineInputText } from '../../ButtonInlineInputText/ButtonInlineInputText';
+import { ButtonInlineInputText } from '../../buttons/ButtonInlineInputText/ButtonInlineInputText';
 import copy from 'copy-to-clipboard';
 import { Notification } from '../../informational/Notification/Notification';
 import { withDeprecateProps } from '../../../utils';

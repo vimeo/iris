@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import { Notification } from './Notification';
 
-import { Button } from '../../Button/Button';
+import { Button } from '../../../components';
 import { Story } from '../../../storybook';
 
 storiesOf('Components|Notification', module).add(

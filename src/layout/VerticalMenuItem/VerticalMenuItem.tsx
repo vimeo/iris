@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { KEY_CODES } from '../../legacy';
-import { ButtonIconOnly } from '../../components/ButtonIconOnly/ButtonIconOnly';
+
 import { VerticalMenuContextualPopOver } from '../VerticalMenuContextualPopOver/VerticalMenuContextualPopOver';
 import {
   VerticalMenuItemProps as Props,
@@ -20,6 +19,9 @@ import {
   NestedMenu,
   Wrapper,
 } from './VerticalMenuItemStyled';
+
+import { KEY_CODES } from '../../legacy';
+import { ButtonIconOnly } from '../../components';
 
 export class VerticalMenuItem extends Component<Props, State> {
   static defaultProps = {

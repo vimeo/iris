@@ -5,6 +5,22 @@ export { NewItemCard } from './cards/NewItemCard/NewItemCard';
 
 // 8 Bridge
 
+// buttons
+export { Button } from './buttons/Button/Button';
+export { ButtonFileUpload } from './buttons/ButtonFileUpload/ButtonFileUpload';
+export { ButtonFileUploadIconOnly } from './buttons/ButtonFileUploadIconOnly/ButtonFileUploadIconOnly';
+export { ButtonFocusWrapper } from './buttons/Button/ButtonFocusWrapper';
+export { ButtonIconElement } from './buttons/Button/ButtonIconElement';
+export { ButtonIconOnly } from './buttons/ButtonIconOnly/ButtonIconOnly';
+export { ButtonInlineInputText } from './buttons/ButtonInlineInputText/ButtonInlineInputText';
+export { ButtonLoadingState } from './buttons/ButtonLoadingState/ButtonLoadingState';
+export { ButtonSplitMenu } from './buttons/ButtonSplitMenu/ButtonSplitMenu';
+export { ButtonToggleState } from './buttons/ButtonToggleState/ButtonToggleState';
+export { CircularButton } from './buttons/CircularButton/CircularButton';
+export { SegmentedButtonSet } from './buttons/SegmentedButtonSet/SegmentedButtonSet';
+export { SocialButton } from './buttons/SocialButton/SocialButton';
+export { FloatingButton } from './buttons/Floating/Floating';
+
 // chips
 export { Avatar } from './chips/Avatar/Avatar';
 export { Badge } from './chips/Badge/Badge';
@@ -58,19 +74,3 @@ export { ModalWrapper } from './portals/ModalWrapper/ModalWrapper';
 export { Tip } from './portals/Tip/Tip';
 export { Annotation } from './portals/Annotation/Annotation';
 export { TipOverlay } from './portals/TipOverlay/TipOverlay';
-
-// Iris 7
-export { Button } from './Button/Button';
-export { ButtonFileUpload } from './ButtonFileUpload/ButtonFileUpload';
-export { ButtonFileUploadIconOnly } from './ButtonFileUploadIconOnly/ButtonFileUploadIconOnly';
-export { ButtonFocusWrapper } from './Button/ButtonFocusWrapper';
-export { ButtonIconElement } from './Button/ButtonIconElement';
-export { ButtonIconOnly } from './ButtonIconOnly/ButtonIconOnly';
-export { ButtonInlineInputText } from './ButtonInlineInputText/ButtonInlineInputText';
-export { ButtonLoadingState } from './ButtonLoadingState/ButtonLoadingState';
-export { ButtonSplitMenu } from './ButtonSplitMenu/ButtonSplitMenu';
-export { ButtonToggleState } from './ButtonToggleState/ButtonToggleState';
-export { CircularButton } from './CircularButton/CircularButton';
-export { FloatingButton } from './Buttons/Floating/Floating';
-export { SegmentedButtonSet } from './SegmentedButtonSet/SegmentedButtonSet';
-export { SocialButton } from './SocialButton/SocialButton';

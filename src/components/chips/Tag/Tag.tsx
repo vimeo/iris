@@ -2,8 +2,8 @@ import React, { SFC, ReactNode, MouseEventHandler } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
 
-import { Button } from '../../Button/Button';
-import { ButtonFocus } from '../../Button/ButtonFocus';
+import { Button } from '../../buttons/Button/Button';
+import { ButtonFocus } from '../../buttons/Button/ButtonFocus';
 
 import { DismissX } from '../../../icons';
 

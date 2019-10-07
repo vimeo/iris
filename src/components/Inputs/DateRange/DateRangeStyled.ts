@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { rem, size, transparentize, padding, margin } from 'polished';
 
 import { Calendar as BaseCalendar } from './Calendar';
-import { Button } from '../../Button/Button';
+import { Button } from '../../buttons/Button/Button';
 
 import { ChevronRight } from '../../../icons';
 import { White, Black, Porcelain, VimeoBlue } from '../../../color';

@@ -4,7 +4,7 @@ import { rem } from 'polished';
 import { Transition } from 'react-transition-group';
 
 import { ModalWrapper } from '../ModalWrapper/ModalWrapper';
-import { ButtonDialogClose } from '../../ButtonDialogClose/ButtonDialogClose';
+import { ButtonDialogClose } from '../../buttons/ButtonDialogClose/ButtonDialogClose';
 
 import * as COLORS from '../../../color';
 

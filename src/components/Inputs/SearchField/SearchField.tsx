@@ -1,6 +1,6 @@
 import React, { SFC } from 'react';
 import { InputText } from '../InputText/InputText';
-import { ButtonInlineInputText } from '../../ButtonInlineInputText/ButtonInlineInputText';
+import { ButtonInlineInputText } from '../../buttons/ButtonInlineInputText/ButtonInlineInputText';
 import { Search } from '../../../icons';
 import { SearchFieldProps } from './SearchFieldTypes';
 

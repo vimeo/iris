@@ -2,7 +2,6 @@ import React, { Component, useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { SlideUpDown } from './SlideUpDown';
-
 import { Story } from '../../storybook';
 import { ParagraphMd } from '../../legacy';
 import { Button, Notification } from '../../components';

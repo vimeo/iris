@@ -1,10 +1,10 @@
 import React, { SFC, ReactNode, MouseEventHandler } from 'react';
 
+import { ButtonDialogClose } from '../../buttons/ButtonDialogClose/ButtonDialogClose';
 import { NoticeStyled, Icon, Dismiss } from './NoticeStyled';
-import { ButtonDialogClose } from '../../ButtonDialogClose/ButtonDialogClose';
 
-import { CircleInfo, Checkmark, CircleWarning } from '../../../icons';
 import { Header5 } from '../../../legacy';
+import { CircleInfo, Checkmark, CircleWarning } from '../../../icons';
 
 export type Variant = 'neutral' | 'success' | 'warning';
 

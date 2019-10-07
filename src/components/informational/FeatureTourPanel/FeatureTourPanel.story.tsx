@@ -5,8 +5,8 @@ import { PositionProperty } from 'csstype';
 
 import { FeatureTourPanel } from './FeatureTourPanel';
 import { FeatureTourPanelButton } from '../FeatureTourPanelButton/FeatureTourPanelButton';
-import { Button } from '../../Button/Button';
 
+import { Button } from '../../../components';
 import { LinkText } from '../../../typography';
 import { Header3, ParagraphMd } from '../../../legacy';
 import {

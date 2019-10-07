@@ -6,9 +6,9 @@ import { Transition } from 'react-transition-group';
 
 import { ModalWrapper } from '../ModalWrapper/ModalWrapper';
 
-import { Button } from '../../Button/Button';
-import { ButtonProps } from '../../Button/ButtonTypes';
-import { ButtonDialogClose } from '../../ButtonDialogClose/ButtonDialogClose';
+import { Button } from '../../buttons/Button/Button';
+import { ButtonProps } from '../../buttons/Button/ButtonTypes';
+import { ButtonDialogClose } from '../../buttons/ButtonDialogClose/ButtonDialogClose';
 
 import { mediaQuery } from '../../../layout';
 import { Header4 } from '../../../legacy';

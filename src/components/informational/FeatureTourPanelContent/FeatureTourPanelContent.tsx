@@ -1,8 +1,10 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { rem, getLuminance } from 'polished';
+
+import { ButtonIconOnly } from '../../buttons/ButtonIconOnly/ButtonIconOnly';
+
 import { HeaderAltSm, Header5, ParagraphMd } from '../../../legacy';
-import { ButtonIconOnly } from '../../ButtonIconOnly/ButtonIconOnly';
 import { DismissX } from '../../../icons';
 import * as COLORS from '../../../color';
 
