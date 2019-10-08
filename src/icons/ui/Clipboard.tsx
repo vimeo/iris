@@ -1,7 +1,7 @@
-import React, { forwardRef, Ref } from 'react';
-import { IrisSVGProps } from '../../utils';
+import React, { forwardRef, Ref, SVGAttributes } from 'react';
+
 export const Clipboard = forwardRef(
-  (props: IrisSVGProps, ref: Ref<SVGSVGElement>) => (
+  (props: SVGAttributes<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
     <svg viewBox="0 0 20 20" ref={ref} {...props}>
       <path
         d="M13.71 11.3l-4-4-1.42 1.41L10.58 11H2v2h8.59l-2.3 2.29L9.7 16.7l4-4a1 1 0 0 0 .01-1.4z"

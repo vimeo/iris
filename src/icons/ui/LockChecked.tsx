@@ -1,7 +1,7 @@
-import React, { forwardRef, Ref } from 'react';
-import { IrisSVGProps } from '../../utils';
+import React, { forwardRef, Ref, SVGAttributes } from 'react';
+
 export const LockChecked = forwardRef(
-  (props: IrisSVGProps, ref: Ref<SVGSVGElement>) => (
+  (props: SVGAttributes<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
     <svg viewBox="0 0 20 20" ref={ref} {...props}>
       <g fill="#1a2e3b">
         <path d="M9 16a1 1 0 0 1-.71-.29l-2-2 1.42-1.42L9 13.59l3.29-3.3 1.42 1.42-4 4A1 1 0 0 1 9 16z" />

@@ -1,7 +1,7 @@
-import React, { forwardRef, Ref } from 'react';
-import { IrisSVGProps } from '../../utils';
+import React, { forwardRef, Ref, SVGAttributes } from 'react';
+
 export const Onedrive = forwardRef(
-  (props: IrisSVGProps, ref: Ref<SVGSVGElement>) => (
+  (props: SVGAttributes<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
     <svg viewBox="0 0 20 20" ref={ref} {...props}>
       <path
         d="M17.55 11.12a2 2 0 0 1 1.77 2.13 1.85 1.85 0 0 1-1.77 2H7.44a2.47 2.47 0 0 1-2.64-2.67c0-2.31 2.55-2.39 2.55-2.39s.21-2.52 2.44-3a3.23 3.23 0 0 1 3.64 1.4A3 3 0 0 1 16 8.47a2.62 2.62 0 0 1 1.54 2.65"

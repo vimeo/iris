@@ -1,7 +1,7 @@
-import React, { forwardRef, Ref } from 'react';
-import { IrisSVGProps } from '../../utils';
+import React, { forwardRef, Ref, SVGAttributes } from 'react';
+
 export const Trash = forwardRef(
-  (props: IrisSVGProps, ref: Ref<SVGSVGElement>) => (
+  (props: SVGAttributes<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
     <svg viewBox="0 0 18 20" ref={ref} {...props}>
       <path
         d="M17 3h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5h1a1 1 0 0 0 0-2zM7 2h4v1H7zm7 16H4V5h10z"

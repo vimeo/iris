@@ -1,7 +1,7 @@
-import React, { forwardRef, Ref } from 'react';
-import { IrisSVGProps } from '../../utils';
+import React, { forwardRef, Ref, SVGAttributes } from 'react';
+
 export const SlackMark = forwardRef(
-  (props: IrisSVGProps, ref: Ref<SVGSVGElement>) => (
+  (props: SVGAttributes<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
     <svg viewBox="0 0 20 20" ref={ref} {...props}>
       <path
         d="M4.2 12.64a2.1 2.1 0 1 1-2.1-2.1h2.1zM5.26 12.64a2.1 2.1 0 1 1 4.2 0v5.26a2.1 2.1 0 0 1-4.2 0z"

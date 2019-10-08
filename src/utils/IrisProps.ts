@@ -21,14 +21,6 @@ export type IrisProps<
   DOMElement = HTMLDivElement
 > = Override<DefaultIrisProps<DOMElement>, Props & ForbidAsProp>;
 
-export type IrisSVGProps<
-  Props = {},
-  DOMElement = SVGSVGElement
-> = Override<
-  DefaultIrisProps<DOMElement> & SVGAttributes<DOMElement>,
-  Props & ForbidAsProp
->;
-
 type DefaultIrisProps<DOMElement = HTMLDivElement> = IrisElementProps<
   DOMElement
 > &

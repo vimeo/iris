@@ -1,7 +1,7 @@
-import React, { forwardRef, Ref } from 'react';
-import { IrisSVGProps } from '../../utils';
+import React, { forwardRef, Ref, SVGAttributes } from 'react';
+
 export const Cart = forwardRef(
-  (props: IrisSVGProps, ref: Ref<SVGSVGElement>) => (
+  (props: SVGAttributes<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
     <svg data-name="Layer 1" viewBox="0 0 20 20" ref={ref} {...props}>
       <circle cx={15.5} cy={18.5} r={1.5} fill="#1a2e3b" />
       <circle cx={2.5} cy={18.5} r={1.5} fill="#1a2e3b" />

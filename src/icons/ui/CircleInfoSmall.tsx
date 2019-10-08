@@ -1,7 +1,7 @@
-import React, { forwardRef, Ref } from 'react';
-import { IrisSVGProps } from '../../utils';
+import React, { forwardRef, Ref, SVGAttributes } from 'react';
+
 export const CircleInfoSmall = forwardRef(
-  (props: IrisSVGProps, ref: Ref<SVGSVGElement>) => (
+  (props: SVGAttributes<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
     <svg viewBox="0 0 20 20" ref={ref} {...props}>
       <g fill="#1a2e3b">
         <path d="M10 16a6 6 0 1 1 6-6 6 6 0 0 1-6 6zm0-11a5 5 0 1 0 5 5 5 5 0 0 0-5-5z" />
