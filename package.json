@@ -5,7 +5,7 @@
         "url": "https://vimeo.com"
     },
     "homepage": "https://github.vimeows.com/pages/vimeo/iris/master/",
-    "version": "7.14.0",
+    "version": "7.18.0",
     "license": "ISC",
     "description": "Iris UI Pattern Framework",
     "contributors": [
@@ -103,7 +103,7 @@
         "prettier": "prettier --list-different 'src/**/*.{ts,tsx}'",
         "prepublishOnly": "npm run typecheck; npm run lint; npm run build; cp -r ./build/* ./; npm run clean",
         "start": "npm run storybook",
-        "storybook": "npm run typecheck; npm run lint; start-storybook -p 9001 -c .storybook --ci",
+        "storybook": "npm run typecheck; npm run lint; npm run test; start-storybook -p 9001 -c .storybook --ci",
         "stylelint": "npx stylelint 'src/**/*.ts'",
         "test-publish": "npm run prepublishOnly; npm run postpublish;",
         "test": "jest",
