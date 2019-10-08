@@ -9,7 +9,7 @@ import {
   RavenImperial,
   Paste,
   VimeoBlueLightened,
-} from '../src/Color/Color';
+} from '../src/color';
 
 const base = {
   colorPrimary: PistachioLightened,

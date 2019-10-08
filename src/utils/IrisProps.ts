@@ -6,14 +6,28 @@ import {
   ChangeEventHandler,
   KeyboardEventHandler,
   Ref,
+  SVGAttributes,
+  ReactElement,
 } from 'react';
 import { Override } from './types';
 // import { IrisTheme } from '../themes';
+
+export interface IrisSVG<T = SVGSVGElement> {
+  (props: SVGAttributes<any>, ref: Ref<T>): ReactElement | null;
+}
 
 export type IrisProps<
   Props = {},
   DOMElement = HTMLDivElement
 > = Override<DefaultIrisProps<DOMElement>, Props & ForbidAsProp>;
+
+export type IrisSVGProps<
+  Props = {},
+  DOMElement = SVGSVGElement
+> = Override<
+  DefaultIrisProps<DOMElement> & SVGAttributes<DOMElement>,
+  Props & ForbidAsProp
+>;
 
 type DefaultIrisProps<DOMElement = HTMLDivElement> = IrisElementProps<
   DOMElement
@@ -38,6 +52,7 @@ type IrisElementProps<DOMElement = HTMLDivElement> = {
   tabIndex?: number;
   // theme?: IrisTheme['theme'];
   title?: string;
+  test?: 'foo';
 };
 
 type IrisEventProps<DOMElement = HTMLDivElement> = {

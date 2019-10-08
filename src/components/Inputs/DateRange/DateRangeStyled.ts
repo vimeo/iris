@@ -6,6 +6,7 @@ import { Button } from '../../buttons/Button/Button';
 
 import { ChevronRight } from '../../../icons';
 import { White, Black, Porcelain, VimeoBlue } from '../../../color';
+import { MouseEventHandler } from 'react';
 
 export const DateField = styled.div`
   padding-top: ${rem(16)};
@@ -49,7 +50,10 @@ export const Calendar = styled(BaseCalendar)`
   display: flex;
 `;
 
-export const MoveLeft = styled(ChevronRight)<{ inactive: boolean }>`
+export const MoveLeft = styled(ChevronRight)<{
+  onClick?: MouseEventHandler;
+  inactive: boolean;
+}>`
   ${size(rem(24))};
   transform: rotate(180deg);
   cursor: pointer;

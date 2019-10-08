@@ -62,12 +62,12 @@ interface WrapperStyledProps extends React.HTMLProps<HTMLDivElement> {
   isHidden: boolean;
 }
 const WrapperStyled = styled.div<WrapperStyledProps>`
-    display: ${props => (props.isHidden ? 'none' : 'block')}
-    overflow: visible;
+  display: ${props => (props.isHidden ? 'none' : 'block')};
+  overflow: visible;
 
-    * {
-        overflow: visible;
-    }
+  * {
+    overflow: visible;
+  }
 `;
 
 const PopOverStyled = styled(PopOver)<{ options: any }>`

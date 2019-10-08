@@ -127,6 +127,7 @@ const focusedSliderThumbStyles = props => {
 };
 
 const SliderStyled = styled.div<SliderStyledProps>`
+  /* stylelint-disable */
   position: relative;
   z-index: ${props => props.zIndexOverride};
   input[type='range'] {
@@ -201,6 +202,7 @@ const SliderStyled = styled.div<SliderStyledProps>`
       background: none;
     }
   }
+  /* stylelint-enable */
 `;
 
 const StartRangeValueStyled = styled.div`

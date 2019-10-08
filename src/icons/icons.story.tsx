@@ -1,20 +1,48 @@
-import React, { SFC, useState } from 'react';
+import React, { createElement, useState } from 'react';
 import styled, { css } from 'styled-components';
+import { rgba } from 'polished';
 import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
 
+import * as UI_ICONS from './ui';
+import * as SOCIAL_ICONS from './social';
+import * as PAYMENT_ICONS from './payment';
+import * as VIMEO_ICONS from './vimeo';
+
+import { Header } from '../typography';
+// import { Input } from '../components';
 import { InputText } from '../components/Inputs/InputText/InputText';
-
-import * as Icons from './index';
-import { Header2, Header6 } from '../legacy';
-import * as COLORS from '../color';
 import { Story } from '../storybook';
+import { Black, White } from '../color';
+// import { slate } from '../color';
+// import { theme } from '../themes';
+// import { rgba } from '../color';
 
-storiesOf('Icons|icons', module).add('all', () => {
-  return <IconStory />;
-});
+const ICONS = {
+  ...VIMEO_ICONS,
+  ...UI_ICONS,
+  ...SOCIAL_ICONS,
+  ...PAYMENT_ICONS,
+};
 
-function IconStory() {
+storiesOf('Icons|icons/', module)
+  .add('all', () => {
+    return <IconStory icons={ICONS} />;
+  })
+  .add('ui', () => {
+    return <IconStory icons={UI_ICONS} />;
+  })
+  .add('social', () => {
+    return <IconStory icons={SOCIAL_ICONS} preserve />;
+  })
+  .add('payment', () => {
+    return <IconStory icons={PAYMENT_ICONS} preserve />;
+  })
+  .add('vimeo', () => {
+    return <IconStory icons={VIMEO_ICONS} />;
+  });
+
+function IconStory({ icons, preserve = false, ...props }) {
   const [searchText, setSearchText] = useState('');
 
   const doChange = event => {
@@ -36,21 +64,22 @@ function IconStory() {
         placeholder="Search for icons"
       />
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {Object.keys(Icons)
+        {Object.keys(icons)
           .filter(icon =>
             icon.toLowerCase().includes(searchText.toLowerCase()),
           )
           .map((icon, i) => (
             <IconWrapper key={i}>
-              <Icon size={size} name={icon} />
-              <Header6
+              <Icon size={size} name={icon} preserve={preserve} />
+              <Header
+                size="6"
                 style={{
                   margin: '1rem',
                   display: 'inline-flex',
                 }}
               >
                 {icon}
-              </Header6>
+              </Header>
             </IconWrapper>
           ))}
       </div>
@@ -59,9 +88,11 @@ function IconStory() {
 }
 
 const Card = css`
-  border-radius: 0.125rem;
+  border-radius: 0.25rem;
   width: 100%;
-  border: 1px solid ${COLORS.Porcelain};
+  border: 1px solid
+    ${({ theme }) =>
+      theme.name === 'dark' ? rgba(White, 0.3) : rgba(Black, 0.3)};
   align-items: center;
   text-align: center;
 `;
@@ -75,6 +106,7 @@ const width = widthMap =>
     `,
   );
 
+// const Search = styled(Input)`
 const Search = styled(InputText)`
   margin: 0.5rem;
   width: 100%;
@@ -99,14 +131,25 @@ const IconWrapper = styled.div`
   })};
 `;
 
-const Icon: SFC<{ size: number; name: string }> = ({ size, name }) =>
-  Icons[name]
-    ? React.createElement(
-        styled(Icons[name])`
-          width: ${size}rem;
-          height: ${size}rem;
-          display: inline-flex;
-          margin: 1rem;
-        `,
-      )
-    : null;
+function Icon({ size, name, preserve }) {
+  return (
+    ICONS[name] &&
+    createElement(
+      styled(ICONS[name])`
+        width: ${size}rem;
+        height: ${size}rem;
+        display: inline-flex;
+        margin: 1rem;
+
+        ${p =>
+          !preserve &&
+          css`
+            * {
+              fill: ${({ theme }) =>
+                theme.name === 'dark' ? White : Black};
+            }
+          `}
+      `,
+    )
+  );
+}

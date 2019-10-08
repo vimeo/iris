@@ -13,6 +13,6 @@ export { FocusOutline, FocusOutlineFocused, FocusOutlineProps } from './FocusOut
 export { CSSProps, ExtractProps, Override, IrisElement } from './types';
 
 export { Focus } from './Focus';
-export { IrisProps } from './IrisProps';
+export { IrisProps, IrisSVGProps } from './IrisProps';
 export { withIris } from './withIris';
 export { useLayoutStyles } from './useLayoutStyles';
