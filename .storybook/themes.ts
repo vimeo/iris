@@ -42,7 +42,7 @@ function lightTheme() {
     brandTitle: 'Vimeo Iris Storybook',
     // brandUrl: 'https://vimeo.com',
     brandImage:
-      'https://github.vimeows.com/Vimeo/iris/blob/master/vimeo.png',
+      'https://github.vimeows.com/storage/user/544/files/4baeee80-eb74-11e9-92db-39d4b2a25ed2',
     ...irisThemes.light,
     // @ts-ignore
     icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="m7,25a18,18 0 1,1 0,.1zm3,0a15,15 0 1,0 0-.1zm11,0a4,4 0 1,0 0-.1z" /></svg>`,
@@ -69,7 +69,7 @@ function darkTheme() {
     brandTitle: 'Vimeo Iris Storybook',
     // brandUrl: 'https://vimeo.com',
     brandImage:
-      'https://github.vimeows.com/Vimeo/iris/blob/master/vimeo.png',
+      'https://github.vimeows.com/storage/user/544/files/4baeee80-eb74-11e9-92db-39d4b2a25ed2',
     ...irisThemes.dark,
     // @ts-ignore
     icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path style="stroke-width: 3; stroke-color: red;" fill="none" strokeLinejoin="round" d="M37,4a22,22 0 1,0 0,42a22,22 0 0,1 0-42z" /></svg>`,
