@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 
-// import { slate, grayscale } from '../../../color';
-import { AstroGranite, Paste } from '../../../color';
+// import { slate, grayscale } from '../../../legacy';
+import { AstroGranite, Paste } from '../../../legacy';
 
 const ICON_SIZE = rem(48);
 const BORDER_RADIUS = rem(5);

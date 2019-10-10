@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
 import { Checkmark } from '../../../icons';
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 import { PopOverListItemThemes } from './PopOverListItemTypes';
 
 const LinkIconSize = rem(18);

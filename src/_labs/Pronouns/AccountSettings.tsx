@@ -4,7 +4,7 @@ import { rgba } from 'polished';
 
 import { Header2, ParagraphMd, Header5, Header4 } from '../../legacy';
 import { InputText, Radio, Checkbox, Toggle } from '../../components';
-import { IronHeart, Paste, Black } from '../../color';
+import { IronHeart, Paste, Black } from '../../legacy';
 
 export const AccountSettings = ({ email = '', name = '' }) => {
   const [userName, setUserName] = useState(name);

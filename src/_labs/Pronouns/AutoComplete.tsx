@@ -3,7 +3,7 @@ import styled, { keyframes, css } from 'styled-components';
 import { rgba } from 'polished';
 import { getCoord } from './getCoord';
 
-import { Black, White, VimeoBlue } from '../../color';
+import { Black, White, VimeoBlue } from '../../legacy';
 import { Avatar } from '../../components';
 
 export const TextArea = ({ people }) => {

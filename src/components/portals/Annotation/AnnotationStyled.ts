@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 
 export const AnnotationStyled = styled.div`
   display: inline-block;

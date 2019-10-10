@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 import { css } from 'styled-components';
 import { getInputBaseStyles } from '../InputText/InputHelpers';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import { rem, rgba, setLightness, saturate } from 'polished';
-import { White, VimeoBlue } from '../../../color';
+import { White, VimeoBlue } from '../../../legacy';
 import { IrisComponent } from '../../../utils';
 
 export interface FeatureDotProps {

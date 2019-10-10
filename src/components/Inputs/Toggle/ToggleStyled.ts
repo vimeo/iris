@@ -4,7 +4,7 @@ import { rgba, rem } from 'polished';
 import { InputLabelInline } from '../InputLabelInline/InputLabelInline';
 import { WrapperStyles, InlineStyles } from '../InlineInput';
 
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 
 export const ToggleWrapper = styled.div<{
   disabled: boolean;

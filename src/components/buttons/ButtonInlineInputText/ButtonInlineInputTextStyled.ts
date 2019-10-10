@@ -4,7 +4,7 @@ import { rem, size } from 'polished';
 import { ButtonColors } from '../Button/ButtonColors';
 import { Props } from './ButtonInlineInputText';
 
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 import { TRANSITIONS } from '../../../legacy';
 import { fontFamily } from '../../../typography';
 

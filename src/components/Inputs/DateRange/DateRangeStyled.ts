@@ -5,7 +5,7 @@ import { Calendar as BaseCalendar } from './Calendar';
 import { Button } from '../../buttons/Button/Button';
 
 import { ChevronRight } from '../../../icons';
-import { White, Black, Porcelain, VimeoBlue } from '../../../color';
+import { White, Black, Porcelain, VimeoBlue } from '../../../legacy';
 import { MouseEventHandler } from 'react';
 
 export const DateField = styled.div`

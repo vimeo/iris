@@ -4,7 +4,7 @@ import { rem } from 'polished';
 import { ButtonColors } from '../Button/ButtonColors';
 
 import { TRANSITIONS } from '../../../legacy';
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 
 interface Props {
   format: 'lightDashed' | 'primary' | 'secondary' | 'secondaryDashed';

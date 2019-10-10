@@ -3,7 +3,7 @@ import { TabNavigationHorizontalItem } from '../TabNavigationHorizontalItem/TabN
 import { TabContentPanel } from '../TabContentPanel/TabContentPanel';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import * as COLORS from '../../color';
+import { COLORS } from '../../legacy';
 
 type Panel = {
   tabId: string;

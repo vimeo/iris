@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { darken, rgba, rem } from 'polished';
 
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 
 export const badgeSizeCSS = ({ size }) =>
   size === 'lg' &&

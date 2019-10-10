@@ -12,7 +12,7 @@ import { InputText } from '../InputText/InputText';
 import { InputProps } from '../InputText/InputHelpers';
 import { PopOver } from '../../portals/PopOver/PopOver';
 
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 import { KEY_CODES, VimeoStyleSettings } from '../../../legacy';
 
 const defaultColorValue = COLORS.VimeoBlue;

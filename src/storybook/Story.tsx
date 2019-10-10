@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import styled, { withTheme } from 'styled-components';
 
-import { White, RavenImperial } from '../color';
+import { White, RavenImperial } from '../legacy';
 import { Header } from '../typography';
 
 interface Props {

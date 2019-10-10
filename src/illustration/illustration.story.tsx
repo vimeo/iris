@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 import * as Illustrations from './index';
 import { Header2 } from '../legacy';
-import * as COLORS from '../color';
+import { COLORS } from '../legacy';
 import { Story } from '../storybook';
 
 storiesOf('illustration|illustrations', module).add('all', () => (

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { rem, rgba, darken } from 'polished';
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 
 export const LabelStyled = styled.label<any>`
     display: inline-flex;

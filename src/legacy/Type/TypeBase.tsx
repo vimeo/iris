@@ -12,7 +12,7 @@ import { VimeoStyleSettings } from '../VimeoStyleSettings';
 import { getUnitlessLineHeight } from './TypeHelpers';
 import { TypeVariableElement } from './TypeVariableElement';
 
-import * as COLORS from '../../color';
+import { COLORS } from '../COLORS';
 import { withDeprecateComponent } from '../../utils';
 
 export const TypeBaseStyleSettings = {

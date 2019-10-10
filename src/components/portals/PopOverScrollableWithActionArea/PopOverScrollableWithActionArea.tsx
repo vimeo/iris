@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Button } from '../../buttons/Button/Button';
 import { OverflowTruncationWrapper } from '../../portals/PopOverScrollableWithActionArea/OverflowTruncationWrapper';
 
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 import { mediaQuery } from '../../../layout';
 
 interface Props {

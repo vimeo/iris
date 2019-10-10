@@ -13,10 +13,10 @@ import { Header } from '../typography';
 // import { Input } from '../components';
 import { InputText } from '../components/Inputs/InputText/InputText';
 import { Story } from '../storybook';
-import { Black, White } from '../color';
-// import { slate } from '../color';
+import { Black, White } from '../legacy';
+// import { slate } from '../legacy';
 // import { theme } from '../themes';
-// import { rgba } from '../color';
+// import { rgba } from '../legacy';
 
 const ICONS = {
   ...VIMEO_ICONS,

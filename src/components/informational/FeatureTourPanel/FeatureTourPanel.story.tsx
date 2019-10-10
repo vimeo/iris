@@ -14,7 +14,7 @@ import {
   PalePink,
   Foam,
   WarningYellow,
-} from '../../../color';
+} from '../../../legacy';
 
 storiesOf('components|informational/Feature Tour Panel/', module)
   .add('default', () => (

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { WrapperStyledProps } from './PopOverListTypes';
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 
 const maybeHasDividerBorder = props =>
   props.hasDivider &&

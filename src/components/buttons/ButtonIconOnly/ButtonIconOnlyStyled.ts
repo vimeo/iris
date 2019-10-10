@@ -13,7 +13,7 @@ import {
   IronHeart,
   VimeoBlue,
   VimeoBlueDarkened,
-} from '../../../color';
+} from '../../../legacy';
 
 const ICON_SIZE = 20;
 

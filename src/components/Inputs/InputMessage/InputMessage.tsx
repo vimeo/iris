@@ -2,7 +2,7 @@ import React, { SFC, ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { ParagraphSm } from '../../../legacy';
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 
 interface Props {
   children: ReactNode;

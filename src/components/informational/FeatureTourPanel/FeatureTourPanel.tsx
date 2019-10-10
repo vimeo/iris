@@ -11,7 +11,7 @@ import { FeatureTourPanelContent } from '../FeatureTourPanelContent/FeatureTourP
 import { FeatureTourDot } from '../FeatureTourDot/FeatureTourDot';
 import { PopOver } from '../../portals/PopOver/PopOver';
 
-import { DarkerBlue } from '../../../color';
+import { DarkerBlue } from '../../../legacy';
 import { IrisComponent } from '../../../utils';
 
 export interface FeatureTourPanelProps {

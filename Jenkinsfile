@@ -14,19 +14,33 @@ pipeline {
                 sh 'yarn install'
             }
         }
-        stage('lint') {
-            steps {
-                sh 'yarn lint'
-            }
-        }
-        stage('build') {
-            steps {
-                sh 'yarn build'
-            }
-        }
-        stage('storybook') {
-            steps {
-                sh './scripts/gh-pages.sh'
+        stage('build & test') {
+            parallel {
+                stage('lint') {
+                    steps {
+                        sh 'yarn lint'
+                    }
+                }
+                stage('typecheck') {
+                    steps {
+                        sh 'yarn typecheck'
+                    }
+                }
+                stage('test') {
+                    steps {
+                        sh 'yarn test -u'
+                    }
+                }
+                stage('build') {
+                    steps {
+                        sh 'yarn build'
+                    }
+                }
+                stage('storybook') {
+                    steps {
+                        sh 'yarn build-storybook'
+                    }
+                }
             }
         }
     }

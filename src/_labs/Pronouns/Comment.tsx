@@ -17,7 +17,7 @@ import {
   RavenImperial,
   IronHeart,
   Porcelain,
-} from '../../color';
+} from '../../legacy';
 
 interface Props {
   children: ReactNode;

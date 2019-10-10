@@ -5,7 +5,7 @@ import { rgba, rem } from 'polished';
 import { Button } from '../Button/Button';
 import { ButtonFocus } from '../Button/ButtonFocus';
 
-import { Black } from '../../../color';
+import { Black } from '../../../legacy';
 import { ArrowRight } from '../../../icons';
 
 export const FloatingButton = ({ children }) => (

@@ -1,7 +1,7 @@
 import React, { SFC } from 'react';
 import styled, { css } from 'styled-components';
 import { fontFamily, antialias } from './index';
-import { AstroGranite, White } from '../color';
+import { AstroGranite, White } from '../legacy';
 // import { rem } from 'polished';
 
 interface Props {

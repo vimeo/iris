@@ -1,4 +1,4 @@
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 import { rem, rgba } from 'polished';
 
 const SliderStyleSettings = {

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 import { antialias, fontFamily } from './index';
 
-import { AstroGranite, SoutherlySky } from '../color';
+import { AstroGranite, SoutherlySky } from '../legacy';
 
 interface Props {
   element?: 'p';

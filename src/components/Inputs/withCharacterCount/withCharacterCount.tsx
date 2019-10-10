@@ -5,7 +5,7 @@ import React, {
   FormEvent,
 } from 'react';
 import styled, { css } from 'styled-components';
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 import { ParagraphAltSm } from '../../../legacy';
 import { fnGuard } from '../../../utils';
 

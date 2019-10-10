@@ -10,7 +10,7 @@ import {
   VimeoBlueDarkened,
   VimeoBlue,
   AstroGranite,
-} from '../../../color';
+} from '../../../legacy';
 
 export const Wrapper = styled.div`
     ${WrapperStyles}

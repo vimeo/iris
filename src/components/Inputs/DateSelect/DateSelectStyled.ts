@@ -3,7 +3,7 @@ import { rem } from 'polished';
 import { InputStyleSettings } from '../InputText/InputHelpers';
 
 import { typeCSSByProps } from '../../../legacy';
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 
 export const DatePickerWrapperStyled = styled.div`
     padding: .5rem;

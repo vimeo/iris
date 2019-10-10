@@ -5,7 +5,7 @@ import { rem } from 'polished';
 import { mediaQuery } from '../../../layout';
 import { ChevronRight } from '../../../icons';
 import { ParagraphMd } from '../../../legacy';
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 
 export interface BreadcrumbProps {
   /**

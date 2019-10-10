@@ -5,7 +5,7 @@ import { rgba, rem } from 'polished';
 import { Variant } from './Notice';
 
 import { TRANSITIONS } from '../../../legacy';
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 
 const padHorizontal = 16;
 const padVertical = 12;

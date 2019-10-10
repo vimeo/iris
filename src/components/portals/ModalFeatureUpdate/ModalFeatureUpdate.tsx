@@ -6,7 +6,7 @@ import { Transition } from 'react-transition-group';
 import { ModalWrapper } from '../ModalWrapper/ModalWrapper';
 import { ButtonDialogClose } from '../../buttons/ButtonDialogClose/ButtonDialogClose';
 
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 
 export const ModalFeatureUpdateStyleSettings = {
   borderRadius: 8,

@@ -2,7 +2,7 @@ import React, { SFC, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 import { VimeoStyleSettings } from '../legacy';
-import * as COLORS from '../color';
+import { COLORS } from '../legacy';
 
 export interface LinkTextProps {
   /**

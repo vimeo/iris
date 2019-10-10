@@ -12,7 +12,7 @@ import { ButtonDialogClose } from '../../buttons/ButtonDialogClose/ButtonDialogC
 
 import { mediaQuery } from '../../../layout';
 import { Header4 } from '../../../legacy';
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 
 const MODAL_SPEED = 300;
 const MODAL_MAX_HEIGHT = '86vh';

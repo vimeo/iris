@@ -1,6 +1,6 @@
 import { rem } from 'polished';
 import styled, { css } from 'styled-components';
-import { AstroGranite, RegentGray } from '../../color';
+import { AstroGranite, RegentGray } from '../../legacy';
 
 export const VerticalMenuHeaderGroupStyled = styled.div`
   padding: ${rem(8)};

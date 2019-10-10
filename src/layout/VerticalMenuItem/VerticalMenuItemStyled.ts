@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as COLORS from '../../color';
+import { COLORS } from '../../legacy';
 import { darken, rem, rgba } from 'polished';
 import { css } from 'styled-components';
 import { DotsMenu } from '../../icons';

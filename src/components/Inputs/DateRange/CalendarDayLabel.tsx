@@ -13,7 +13,7 @@ import {
   Foam,
   VimeoBlue,
   VimeoBlueDarkened,
-} from '../../../color';
+} from '../../../legacy';
 
 interface Props {
   isControl: boolean;

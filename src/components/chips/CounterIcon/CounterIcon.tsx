@@ -8,7 +8,7 @@ import { FocusOutlineFocused } from '../../../utils';
 
 import { ParagraphLg, TRANSITIONS } from '../../../legacy';
 import { withDeprecateProps } from '../../../utils';
-import { AstroGranite } from '../../../color';
+import { AstroGranite } from '../../../legacy';
 
 interface Props {
   counterTitle?: string;

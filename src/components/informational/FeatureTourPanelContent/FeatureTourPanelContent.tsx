@@ -6,7 +6,7 @@ import { ButtonIconOnly } from '../../buttons/ButtonIconOnly/ButtonIconOnly';
 
 import { HeaderAltSm, Header5, ParagraphMd } from '../../../legacy';
 import { DismissX } from '../../../icons';
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 
 export interface FeatureTourPanelContentProps {
   actionArea?: ReactNode;

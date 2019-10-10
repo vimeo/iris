@@ -1,7 +1,7 @@
 import { VimeoStyleSettings } from '../../../legacy';
 import { css } from 'styled-components';
 import { rem, rgba } from 'polished';
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 import {
   ReactNode,
   FormEventHandler,

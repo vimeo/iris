@@ -8,7 +8,7 @@ import {
   RegentGray,
   VimeoBlue,
   VimeoBlueLightened,
-} from '../../color';
+} from '../../legacy';
 
 export const AutoplayList = ({ videos, variation }) => {
   return (

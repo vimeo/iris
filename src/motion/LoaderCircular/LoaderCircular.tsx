@@ -1,7 +1,7 @@
 import React, { SFC } from 'react';
 import { rem } from 'polished';
 import styled, { keyframes, css } from 'styled-components';
-import * as COLORS from '../../color';
+import { COLORS } from '../../legacy';
 
 export interface LoaderCircularProps {
   /**

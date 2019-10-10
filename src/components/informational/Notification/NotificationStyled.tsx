@@ -3,7 +3,7 @@ import { ParagraphMd } from '../../../legacy';
 import { CircleInfo } from '../../../icons';
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 import { keyframes } from 'styled-components';
 import { BaseProps } from '../../../utils';
 

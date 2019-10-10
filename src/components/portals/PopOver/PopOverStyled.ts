@@ -7,7 +7,7 @@ import {
   WrapperStyledProps,
 } from './PopOverTypes';
 
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 
 export const menuSpeed = 100;
 

@@ -8,7 +8,7 @@ import {
   Paste,
   Pistachio,
   PistachioLightened,
-} from '../color';
+} from '../legacy';
 import { IrisComponent } from '../utils';
 
 interface Props {

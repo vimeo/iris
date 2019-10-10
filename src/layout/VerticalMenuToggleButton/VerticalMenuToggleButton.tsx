@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import { ChevronRight } from '../../icons';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import * as COLORS from '../../color';
+import { COLORS } from '../../legacy';
 
 interface Props {
   nestedButtonLabel: string;

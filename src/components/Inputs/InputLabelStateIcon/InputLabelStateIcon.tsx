@@ -3,7 +3,7 @@ import styled, { css, keyframes } from 'styled-components';
 import { rem } from 'polished';
 
 import { CircleWarning, Checkmark } from '../../../icons';
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 
 interface Props {
   format?: 'negative' | 'positive' | 'neutral';

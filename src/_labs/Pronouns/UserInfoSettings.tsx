@@ -4,7 +4,7 @@ import { rgba } from 'polished';
 
 import { Avatar, Badge } from '../../components';
 import { ParagraphSm, Header5 } from '../../legacy';
-import { IronHeart } from '../../color';
+import { IronHeart } from '../../legacy';
 
 export const UserInfo = ({ badge = 'staff', id, name }) => {
   return (

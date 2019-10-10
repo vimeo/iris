@@ -2,7 +2,7 @@ import React, { ReactNode, SFC } from 'react';
 import { InputLabelStateIcon } from '../InputLabelStateIcon/InputLabelStateIcon';
 import { ParagraphMd } from '../../../legacy';
 import styled from 'styled-components';
-import * as COLORS from '../../../color';
+import { COLORS } from '../../../legacy';
 
 export interface Props {
   children: ReactNode;

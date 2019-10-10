@@ -1,5 +1,5 @@
 import styled, { css, StyledComponent } from 'styled-components';
-import { VimeoBlue } from '../color';
+import { VimeoBlue } from '../legacy';
 import { rem, rgba } from 'polished';
 
 interface Props {

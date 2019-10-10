@@ -14,7 +14,7 @@ import {
   PalePink,
   AshenWinter,
   IronHeart,
-} from '../../../color';
+} from '../../../legacy';
 
 const UICOLORS = VimeoStyleSettings.colors.uiColors;
 
