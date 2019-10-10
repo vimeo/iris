@@ -8,8 +8,6 @@ import { DateRange } from './DateRange';
 import { Button } from '../../buttons/Button/Button';
 import { ChevronDown } from '../../../icons';
 
-const componentName = 'Inputs';
-
 const alignments = {
   left: 'left',
   right: 'right',
@@ -21,16 +19,13 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-storiesOf(`components|${componentName}`, module).add(
-  'Date Range',
-  () => (
-    <Story title="Date Range" subTitle="DateRange">
-      <Container>
-        <DateRangeButton />
-      </Container>
-    </Story>
-  ),
-);
+storiesOf(`components|inputs`, module).add('Date Range', () => (
+  <Story title="Date Range" subTitle="DateRange">
+    <Container>
+      <DateRangeButton />
+    </Container>
+  </Story>
+));
 
 function DateRangeButton() {
   const defaultText = 'Date range';

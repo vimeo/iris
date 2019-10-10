@@ -11,9 +11,7 @@ const $Toggle = styled(Toggle)`
   margin: 0 0 2rem;
 `;
 
-const componentName = 'Inputs';
-
-storiesOf(`components|${componentName}`, module).add('toggle', () => (
+storiesOf(`components|inputs`, module).add('toggle', () => (
   <Story title="Input Toggle" subTitle="Toggle">
     <div>
       <$Toggle

@@ -24,9 +24,7 @@ const demoOptions = (
   </optgroup>
 );
 
-const componentName = 'Inputs';
-
-storiesOf(`components|${componentName}`, module).add('select', () => (
+storiesOf(`components|inputs`, module).add('select', () => (
   <Story title="Input Select" subTitle="Select">
     <div data-code>
       <$InputSelect id="ExampleSelect1XL" label="XL Select" size="xl">

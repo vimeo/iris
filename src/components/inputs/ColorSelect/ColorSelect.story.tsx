@@ -13,7 +13,7 @@ import { ParagraphMd } from '../../../legacy';
 
 const componentName = 'ColorSelect';
 
-storiesOf(`components|Inputs`, module).add('ColorSelect', () => (
+storiesOf(`components|inputs`, module).add('ColorSelect', () => (
   <Story title={componentName} subTitle="Playground">
     <ParagraphMd>Color picker below.</ParagraphMd>
     <ColorSelect

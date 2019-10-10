@@ -10,7 +10,7 @@ const Checkbox = styled(IC)`
   margin: 1rem 0;
 `;
 
-storiesOf(`components|Inputs/Checkbox`, module)
+storiesOf(`components|inputs/Checkbox`, module)
   .add('light', () => (
     <Story title="Checkbox">
       <Checkbox

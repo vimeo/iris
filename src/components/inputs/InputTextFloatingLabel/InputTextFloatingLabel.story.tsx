@@ -14,9 +14,7 @@ const $InputTextFloatingLabel = styled(InputTextFloatingLabel)`
   }
 `;
 
-const componentName = 'Inputs';
-
-storiesOf(`components|${componentName}`, module).add(
+storiesOf(`components|inputs`, module).add(
   'text floating label',
   () => (
     <Story title="Input Text Floating Label" subTitle="Toggle">

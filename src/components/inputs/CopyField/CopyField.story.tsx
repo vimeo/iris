@@ -17,7 +17,7 @@ const formats = {
   subtle: 'subtle',
 };
 
-storiesOf(`components|Inputs`, module).add('Copy Field', () => (
+storiesOf(`components|inputs`, module).add('Copy Field', () => (
   <Story title={componentName}>
     Try the knobs!
     <CopyField

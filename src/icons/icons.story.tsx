@@ -11,7 +11,7 @@ import * as VIMEO_ICONS from './vimeo';
 
 import { Header } from '../typography';
 // import { Input } from '../components';
-import { InputText } from '../components/Inputs/InputText/InputText';
+import { InputText } from '../components/inputs/InputText/InputText';
 import { Story } from '../storybook';
 import { Black, White } from '../legacy';
 // import { slate } from '../legacy';
