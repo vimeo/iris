@@ -1,30 +1,23 @@
-import {
-  addDecorator,
-  addParameters,
-  configure,
-} from '@storybook/react';
+import { addDecorator, configure } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withA11y } from '@storybook/addon-a11y';
 import { withGlobalStyles } from './decorators/withGlobalStyles';
 import { withThemes, addThemes } from '@nox/addon-themes/dist';
+import { themes } from './themes';
 
-addThemes(['dark', 'light']);
+// @ts-ignore
+addThemes(themes);
 
 addDecorator(withGlobalStyles);
 addDecorator(withA11y);
 addDecorator(withKnobs);
 addDecorator(withThemes);
 
-const requireAll = requireContext =>
-  requireContext.keys().map(requireContext);
+const req = require.context('../src', true, /\.story\.tsx?$/);
 
 function loadStories() {
   require('../src/_docs/Welcome.x-story');
-
-  requireAll(
-    (require as any).context('../src', true, /\.story\.tsx?$/),
-  );
-
+  req.keys().forEach(filename => req(filename));
   require('../src/_labs/Labs.x-story');
   require('../src/_labs/Pronouns/Pronouns.x-story');
 }

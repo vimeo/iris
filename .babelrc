@@ -7,14 +7,23 @@
             "@babel/preset-env",
             {
               "targets": {
-                "node": "current",
-                },
-            },
-        ],
+                "node": "current"
+                }
+            }
+        ]
     ],
     "plugins": [
         "babel-plugin-styled-components",
         "@babel/plugin-proposal-export-default-from",
         "@babel/plugin-proposal-object-rest-spread"
-    ]
+    ],
+    "env": {
+        "test": {
+          "plugins": [
+                "@babel/plugin-proposal-export-default-from",
+                "@babel/plugin-proposal-object-rest-spread",
+                "require-context-hook"
+            ]
+        }
+      }
 }

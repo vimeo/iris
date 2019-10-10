@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
 import { rem, rgba } from 'polished';
-import { theme } from '../../../themes';
+import { themes } from '../../../themes';
 // import { rgba } from '../../../color';
+
+const theme = themes.light;
 
 interface Props {
   loading?: boolean;

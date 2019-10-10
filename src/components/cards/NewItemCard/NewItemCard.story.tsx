@@ -5,7 +5,9 @@ import { storiesOf } from '@storybook/react';
 import { NewItemCard } from './NewItemCard';
 
 import { Story } from '../../../storybook';
-import { theme } from '../../../themes';
+import { themes } from '../../../themes';
+
+const theme = themes.light;
 
 storiesOf(`Components|cards/`, module).add('New Item Card', () => (
   <Story title="New Item Card" width="100%">

@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
-import { theme } from '../../../themes';
+import { themes } from '../../../themes';
 import { setTrans } from '../../../motion';
 import { rem, rgba, tint } from 'polished';
 
+const theme = themes.light;
 const transition = setTrans({ transitionDuration: '150ms' });
 
 export const Wrapper = styled.div`
