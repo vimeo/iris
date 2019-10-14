@@ -1,20 +1,33 @@
 import { rgba } from 'polished';
 import { grayscale, white, black, slate, blue, red, green } from '../color';
 
-export const themes = {
+export interface IrisTheme {
+  name: string;
+  content: { [key: string]: string };
+  item: { [key: string]: string };
+  formats: { [key: string]: string };
+  inputs: { [key: string]: string };
+  shadows: { [key: string]: string };
+}
+
+export const themes: {
+  [key: string]: IrisTheme;
+} = {
   light: {
     name: 'light',
-    background: white,
+    // a11y: a11yDefaults,
+    content: {
+      background: white,
+      color: black,
+      disabled: grayscale(50),
+      focus: blue(500),
+      // focus: rgba(blue(500), 0.5),
+    },
     item: {
       bg: white,
       bg2: slate(50),
       locked: grayscale(50),
     },
-    color: black,
-    disabled: grayscale(50),
-    // focus: rgba(blue(500), 0.5),
-    focus: blue(500),
-    // a11y: a11yDefaults,
     formats: {
       primary: blue(500),
       secondary: grayscale(50),
@@ -34,15 +47,18 @@ export const themes = {
   },
   dark: {
     name: 'dark',
-    background: black,
+    // a11y: a11yDefaults,
+    content: {
+      background: black,
+      color: white,
+      disabled: grayscale(850),
+      focus: blue(400),
+    },
     item: {
-      background: grayscale(850),
+      bg: grayscale(850),
+      bg2: slate(800),
       locked: grayscale(800),
     },
-    color: white,
-    disabled: grayscale(850),
-    focus: blue(400),
-    // a11y: a11yDefaults,
     formats: {
       primary: blue(500),
       secondary: grayscale(700),

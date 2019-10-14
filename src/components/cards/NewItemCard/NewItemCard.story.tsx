@@ -45,8 +45,8 @@ const Grid = styled.div`
 `;
 
 const Spacer = styled.div`
-  border: 1px solid ${theme.color};
-  color: ${theme.color};
+  border: 1px solid ${theme.content.color};
+  color: ${theme.content.color};
   padding: 5rem 1rem;
   transition: 200ms;
 `;

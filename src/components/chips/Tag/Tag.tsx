@@ -1,109 +1,59 @@
-import React, { SFC, ReactNode, MouseEventHandler } from 'react';
-import styled from 'styled-components';
-import { rem } from 'polished';
+import React, { ReactNode, MouseEventHandler } from 'react';
 
-import { Button } from '../../buttons/Button/Button';
-import { ButtonFocus } from '../../buttons/Button/ButtonFocus';
+import { Tag as Styled, Image } from './Tag.style';
 
 import { DismissX } from '../../../icons';
+import { IrisProps, withIris } from '../../../utils';
 
-export interface TagProps {
-  autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid';
-  children: ReactNode;
-  className?: string;
-  format?: 'light' | 'dark';
-  img?: string;
-  isButtonElement?: boolean;
-  onDismiss?: React.MouseEventHandler;
-  size?: 'xs' | 'sm' | 'md' | 'lg';
-}
+export const Tag = withIris<DOMElement, Props>(TagComponent);
 
-interface IconProps {
-  icon?: ReactNode;
-  iconLocation?: 'afterLabel' | 'beforeLabel' | 'featuredLeft';
-}
-
-export const Tag: SFC<TagProps> = ({
-  autoWidth = 'xs',
-  children,
-  format = 'light',
-  img,
-  isButtonElement,
-  onDismiss,
-  size = 'md',
-  ...props
-}) => (
-  <ButtonStyledAsTag
-    {...props}
-    {...iconProps(onDismiss)}
-    autoWidth={autoWidth}
-    img={img}
-    isButtonElement={isButtonElement}
-    size={size}
-    format={format === 'dark' ? 'secondaryDark' : 'secondary'}
-    onClick={e => {
-      e.preventDefault();
-      if (typeof onDismiss === 'function') {
-        onDismiss(e);
-      }
-    }}
-  >
-    {img && <img src={img} />}
-    {children}
-  </ButtonStyledAsTag>
-);
-
-const iconProps = onDismiss =>
-  onDismiss
-    ? ({
-        icon: <DismissX />,
-        iconLocation: 'afterLabel',
-      } as IconProps)
-    : {};
+type DOMElement = HTMLButtonElement | HTMLSpanElement;
 
 type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-type Keys<K extends string, T> = { [P in K]: T };
 
-function width(size: Sizes) {
-  const widths: Keys<Sizes, number> = {
-    xl: 60,
-    lg: 48,
-    md: 39,
-    sm: 32,
-    xs: 24,
+type Props = IrisProps<
+  {
+    element?: 'button' | 'span';
+    icon?: ReactNode;
+    iconPosition?: 'right' | 'left' | 'featured';
+    onDismiss?: MouseEventHandler;
+    size?: Sizes;
+    src?: string;
+  },
+  DOMElement
+>;
+
+function TagComponent({
+  children,
+  element = 'button',
+  forwardRef,
+  onDismiss,
+  size = 'md',
+  src,
+  theme,
+  ...props
+}: Props) {
+  const onClick = event => {
+    event.preventDefault();
+    return onDismiss && onDismiss(event);
   };
-  return widths[size];
+
+  return (
+    <Styled
+      // element={element} needs Iris 8 Button
+      // format="secondary" needs Iris 8 Button
+      format={theme.name === 'dark' ? 'secondaryDark' : 'secondary'}
+      icon={onDismiss && <DismissX />}
+      iconPosition={onDismiss ? 'right' : null}
+      // ref={forwardRef} needs Iris 8 Button
+      size={size}
+      src={src}
+      theme={theme}
+      onClick={onClick}
+      {...props}
+    >
+      {src && <Image size={size} src={src} />}
+      {children}
+    </Styled>
+  );
 }
-
-function padding(size: Sizes) {
-  const paddings: Keys<Sizes, number> = {
-    xl: width(size) + 20,
-    lg: width(size) + 20,
-    md: width(size) + 14,
-    sm: width(size) + 8,
-    xs: width(size) + 6,
-  };
-  return paddings[size];
-}
-
-const ButtonStyledAsTag = styled(Button)<
-  IconProps & { img: string; onClick: MouseEventHandler }
->`
-  border-radius: ${rem(66)};
-  ${props =>
-    props.img &&
-    `padding-left: ${rem(padding(props.size))} !important`}
-
-  ${ButtonFocus} {
-    border-radius: ${rem(66)};
-  }
-
-  img {
-    position: absolute;
-    top: 0.03125rem;
-    left: 0.03125rem;
-    border-radius: 50%;
-    height: calc(100% - 0.03125rem);
-    width: ${props => rem(width(props.size))};
-  }
-`;

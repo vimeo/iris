@@ -16,7 +16,7 @@ export const Card = styled.div<Props>`
   width: 100%;
   transform: scale(1) translate3d(0, 0, 0);
   transition: border 170ms ease-in-out;
-  color: ${theme.color};
+  color: ${theme.content.color};
 
   background: ${p => (p.loading ? theme.item.locked : theme.item.bg)};
 
@@ -58,7 +58,7 @@ export function hover({ loading, selected }: Props) {
     !selected &&
     css`
       &:hover {
-        border: ${rem(1)} solid ${rgba(theme.color, 0.3)};
+        border: ${rem(1)} solid ${rgba(theme.content.color, 0.3)};
         &:after {
           box-shadow: rgba(0, 0, 0, 0.16667) 0 0.5rem 1rem -0.5rem,
             rgba(0, 0, 0, 0.3334) 0 0 0.25rem -0.0625rem;

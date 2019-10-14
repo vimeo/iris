@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   min-height: 12rem;
   border-radius: ${rem(4)};
   background-color: ${theme.item.bg2};
-  border: 1px dashed ${rgba(theme.color, 0.15)};
+  border: 1px dashed ${rgba(theme.content.color, 0.15)};
   ${transition('box-shadow', 'background-color', 'border')};
   svg {
     ${transition('transform')};
@@ -35,7 +35,7 @@ export const Wrapper = styled.div`
   &:active {
     outline: none;
     background-color: ${tint(0.05, theme.item.bg)};
-    border: 1px dashed ${rgba(theme.color, 0)};
+    border: 1px dashed ${rgba(theme.content.color, 0)};
     box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 10px -8px,
       rgba(0, 0, 0, 0.3) 0px 0px 4px -1px;
     svg {

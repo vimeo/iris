@@ -1,70 +1,50 @@
-import React from 'react';
-import styled from 'styled-components';
-import { size } from 'polished';
+import React, { Ref } from 'react';
 
-import { AvatarFocusOutline as FocusOutline } from './AvatarFocus';
-import { FocusOutlineFocused } from '../../../utils';
+import { Avatar as Styled, Anchor } from './Avatar.style';
+import { Sizes } from './Avatar.types';
 
-import { IrisComponent, splitStyleProps } from '../../../utils';
+import { IrisProps, useLayoutStyles, withIris } from '../../../utils';
 
-type sizes = 'auto' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export const Avatar = withIris<DOMElement, Props>(AvatarComponent);
 
-interface Props {
-  src: string;
-  srcSet?: string;
-  size?: sizes;
-  href?: string;
-}
+type DOMElement = HTMLImageElement | HTMLAnchorElement;
 
-export const Avatar: IrisComponent<Props> = ({
+type Props = IrisProps<
+  {
+    size?: Sizes;
+    src: string;
+    srcSet?: string;
+    href?: string;
+  },
+  DOMElement
+>;
+
+function AvatarComponent({
   className,
+  forwardRef,
   size = 'auto',
   href,
   style,
   ...props
-}) => {
-  if (href) {
-    const [layoutStyles, styles] = splitStyleProps(className, style);
-    return (
-      <Anchor href={href} {...layoutStyles}>
-        <AvatarStyled size={size} {...props} {...styles} />
-        <FocusOutline />
-      </Anchor>
-    );
-  }
-  return (
-    <AvatarStyled
+}: Props) {
+  const [layoutStyles, displayStyles] = useLayoutStyles(style);
+
+  return href ? (
+    <Anchor
+      href={href}
+      className={className}
+      ref={forwardRef as Ref<HTMLAnchorElement>}
+      style={layoutStyles}
+    >
+      <Styled size={size} style={displayStyles} {...props} />
+    </Anchor>
+  ) : (
+    <Styled
       size={size}
+      ref={forwardRef as Ref<HTMLImageElement>}
       className={className}
       style={style}
       {...props}
     />
   );
-};
-
-const avatarSizes = {
-  auto: '100%',
-  xs: '1rem',
-  sm: '2rem',
-  md: '2.5rem',
-  lg: '4rem',
-  xl: '9.375rem',
-};
-
-const AvatarStyled = styled.img<{
-  size: sizes;
-}>`
-  ${props => size(avatarSizes[props.size])}
-  border-radius: 100%;
-`;
-
-export const Anchor = styled.a`
-  text-decoration: none;
-  position: relative;
-  outline: none;
-  display: inline-block;
-
-  &:focus > ${FocusOutline} {
-    ${FocusOutlineFocused};
-  }
-`;
+}

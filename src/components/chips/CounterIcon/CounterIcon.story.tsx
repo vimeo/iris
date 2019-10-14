@@ -1,8 +1,10 @@
 import React from 'react';
-import { CounterIcon as C } from '../..';
-import { storiesOf } from '@storybook/react';
-import { Story } from '../../../storybook';
 import styled from 'styled-components';
+import { storiesOf } from '@storybook/react';
+
+import { CounterIcon as C } from './CounterIcon';
+
+import { Story } from '../../../storybook';
 import { Play, Collections } from '../../../icons';
 
 const CounterIcon = styled(C)`

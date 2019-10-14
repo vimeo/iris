@@ -10,7 +10,7 @@ import {
   ReactElement,
 } from 'react';
 import { Override } from './types';
-// import { IrisTheme } from '../themes';
+import { IrisTheme } from '../themes';
 
 export interface IrisSVG<T = SVGSVGElement> {
   (props: SVGAttributes<any>, ref: Ref<T>): ReactElement | null;
@@ -42,7 +42,7 @@ type IrisElementProps<DOMElement = HTMLDivElement> = {
   name?: string;
   style?: CSSProperties;
   tabIndex?: number;
-  // theme?: IrisTheme['theme'];
+  theme?: IrisTheme;
   title?: string;
   test?: 'foo';
 };

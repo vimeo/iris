@@ -1,34 +1,86 @@
-import { css } from 'styled-components';
-import { darken, rgba, rem } from 'polished';
+import styled, { css } from 'styled-components';
+import { rem, rgba, darken } from 'polished';
 
-import { COLORS } from '../../../legacy';
+import { BadgeFormats } from './Badge.types';
 
-export const badgeSizeCSS = ({ size }) =>
-  size === 'lg' &&
-  css`
-    padding: ${rem(5)};
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 0.8;
-    cursor: default;
-    vertical-align: middle;
-    text-transform: uppercase;
-  `;
+import { fontFamily } from '../../../typography';
+import {
+  red,
+  white,
+  green,
+  blue,
+  slate,
+  grayscale,
+} from '../../../color';
 
-export const basicBadge = (color, hover = true) => css`
-  color: ${color};
-  background-color: ${rgba(color, 0.15)};
-
-  ${hover &&
-    css`
-      &:hover {
-        color: ${darken(0.1, color)};
-        background-color: ${rgba(color, 0.2)};
-      }
-    `};
+export const Wrapper = styled.div`
+  position: relative;
 `;
 
-export function badgeColorsCSS({ format, href = null }) {
+interface Props {
+  format: BadgeFormats;
+  href?: string;
+  size: 'sm' | 'lg';
+}
+
+export const Badge = styled.span<Props>`
+  display: block;
+  padding: ${rem(3)} ${rem(4)};
+  font-family: ${fontFamily};
+  font-size: ${rem(9)};
+  font-weight: 700;
+  line-height: 1.2;
+  border-radius: ${rem(2)};
+  text-shadow: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  letter-spacing: 0.02rem;
+  text-transform: uppercase;
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+
+  ${badgeSizeCSS};
+  ${badgeColorsCSS};
+
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+`;
+
+function badgeSizeCSS({ size }) {
+  return (
+    size === 'lg' &&
+    css`
+      padding: ${rem(5)};
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 0.8;
+      cursor: default;
+      vertical-align: middle;
+      text-transform: uppercase;
+    `
+  );
+}
+
+function basicBadge(color, hover = true) {
+  return css`
+    color: ${color};
+    background-color: ${rgba(color, 0.15)};
+
+    ${hover &&
+      css`
+        &:hover {
+          color: ${darken(0.1, color)};
+          background-color: ${rgba(color, 0.2)};
+        }
+      `};
+  `;
+}
+
+function badgeColorsCSS({ format, href = null }) {
   switch (format) {
     case 'alum':
       return css`
@@ -44,7 +96,7 @@ export function badgeColorsCSS({ format, href = null }) {
         color: #ff8a00;
       `;
     case 'business':
-      return basicBadge(COLORS.Pistachio);
+      return basicBadge(green(500));
     case 'curation':
       return css`
         color: #ff8a00;
@@ -77,8 +129,8 @@ export function badgeColorsCSS({ format, href = null }) {
       `;
     case 'explicit':
       return css`
-        color: ${COLORS.SunsetOrangeDarkened};
-        border: 1px solid ${COLORS.SunsetOrangeDarkened};
+        color: ${red(600)};
+        border: 1px solid ${red(600)};
         background-color: transparent;
 
         ${href &&
@@ -86,8 +138,8 @@ export function badgeColorsCSS({ format, href = null }) {
             &:focus,
             &:active,
             &:hover {
-              color: ${COLORS.SunsetOrangeDarkened};
-              background-color: ${COLORS.PalePink};
+              color: ${red(600)};
+              background-color: ${red(50)};
             }
           `}
       `;
@@ -106,7 +158,7 @@ export function badgeColorsCSS({ format, href = null }) {
 
         &:hover,
         &:focus {
-          color: ${COLORS.White};
+          color: ${white};
           background-color: #3a5161;
         }
       `;
@@ -117,18 +169,18 @@ export function badgeColorsCSS({ format, href = null }) {
 
         &:hover,
         &:focus {
-          color: ${COLORS.White} !important;
-          background: ${COLORS.RegentGray};
+          color: ${white} !important;
+          background: ${slate(500)};
         }
       `;
     case 'live':
       return css`
-        color: ${COLORS.White};
+        color: ${white};
         background: #ff4d4d;
 
         &:hover {
-          color: ${COLORS.White};
-          background: ${COLORS.SunsetOrangeDarkened};
+          color: ${white};
+          background: ${red(600)};
         }
       `;
     case 'live-archive':
@@ -137,28 +189,28 @@ export function badgeColorsCSS({ format, href = null }) {
         border: 1px solid #8699a6;
 
         &:hover {
-          color: ${COLORS.AstroGranite};
-          border-color: ${COLORS.AstroGranite};
+          color: ${slate(800)};
+          border-color: ${slate(800)};
         }
       `;
     case 'new':
       return css`
-        color: ${COLORS.SunsetOrange};
+        color: ${red(500)};
         vertical-align: top;
       `;
     case 'sponsor':
-      return basicBadge(COLORS.Pistachio);
+      return basicBadge(green(500));
     case 'partner':
       return css`
-        ${basicBadge(COLORS.AstroGranite)};
+        ${basicBadge(slate(800))};
         color: #a2afb8;
-        background-color: ${COLORS.Porcelain};
+        background-color: ${slate(100)};
       `;
     case 'pro':
-      return basicBadge(COLORS.AstroGranite);
+      return basicBadge(slate(800));
     case 'plus':
       return css`
-        ${basicBadge(COLORS.VimeoBlue)};
+        ${basicBadge(blue(500))};
         border: none;
       `;
     case 'producer':
@@ -168,24 +220,24 @@ export function badgeColorsCSS({ format, href = null }) {
       `;
     case 'spatial':
       return css`
-        color: ${COLORS.RegentGray};
+        color: ${slate(500)};
         border: 1px solid #d0d8db;
         background-color: transparent;
 
         &:focus,
         &:active,
         &:hover {
-          background-color: ${COLORS.Plaster};
+          background-color: ${grayscale(100)};
         }
       `;
     case 'upgrade':
       return css`
-        color: ${COLORS.White};
-        background-color: ${COLORS.VimeoBlue};
+        color: ${white};
+        background-color: ${blue(500)};
 
         &:hover {
-          color: ${COLORS.White};
-          background-color: ${COLORS.VimeoBlueDarkened};
+          color: ${white};
+          background-color: ${blue(600)};
         }
       `;
     case 'vod':
