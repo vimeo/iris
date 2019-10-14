@@ -10,6 +10,7 @@ import {
   Wrapper,
 } from './CategoryCard.style';
 
+// import { themes } from '../../../themes'; needs Iris 8 Paragraph
 import { Paragraph } from '../../../typography';
 import { Focus, IrisProps, withIris } from '../../../utils';
 
@@ -43,6 +44,7 @@ function CategoryCardComponent({
             <Icon>{icon}</Icon>
             <Paragraph
               size="1"
+              // theme={themes.dark} needs Iris 8 Paragraph
               theme="dark"
               style={{ margin: 0, textShadow: '0 0 5px 1px red' }}
             >

@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 
-// import { slate, grayscale } from '../../../legacy';
-import { AstroGranite, Paste } from '../../../legacy';
+import { slate, grayscale } from '../../../color';
 
 const ICON_SIZE = rem(48);
 const BORDER_RADIUS = rem(5);
@@ -43,7 +42,7 @@ export const CategoryCard = styled.button`
   width: 100%;
   height: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
-  background-color: ${AstroGranite}; /* // slate(200) */
+  background-color: ${slate(200)};
   border-radius: ${BORDER_RADIUS};
   position: relative;
   outline: none;
@@ -105,11 +104,13 @@ export const CardContent = styled.div`
 
 export const Icon = styled.div`
   margin-bottom: ${rem(8)};
+
   svg {
     height: ${ICON_SIZE};
     width: ${ICON_SIZE};
+
     * {
-      fill: ${Paste}; /* //grayscale(100) */
+      fill: ${grayscale(100)};
     }
   }
 `;

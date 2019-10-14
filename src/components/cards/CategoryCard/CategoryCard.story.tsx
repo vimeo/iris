@@ -42,6 +42,7 @@ const CategoryCard = styled(CC)`
 const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
+
   > * {
     flex: 0 0 calc(25% - 2rem);
     margin: 1rem;

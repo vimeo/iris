@@ -1,13 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { rgba } from 'polished';
 import { storiesOf } from '@storybook/react';
 
 import { NewItemCard } from './NewItemCard';
 
 import { Story } from '../../../storybook';
-import { themes } from '../../../themes';
-
-const theme = themes.light;
 
 storiesOf(`Components|cards/`, module).add('New Item Card', () => (
   <Story title="New Item Card" width="100%">
@@ -21,16 +19,9 @@ storiesOf(`Components|cards/`, module).add('New Item Card', () => (
       </NewItemCard>
       <NewItemCard onClick={doClick}>Add All the Item</NewItemCard>
       <NewItemCard href="#">Add New Item</NewItemCard>
-
-      <Spacer>
-        <h3>Lorem, ipsum.</h3>
-      </Spacer>
-      <Spacer>
-        <h3>Lorem, ipsum.</h3>
-      </Spacer>
-      <Spacer>
-        <h3>Lorem, ipsum.</h3>
-      </Spacer>
+      <Spacer />
+      <Spacer />
+      <Spacer />
     </Grid>
   </Story>
 ));
@@ -38,6 +29,7 @@ storiesOf(`Components|cards/`, module).add('New Item Card', () => (
 const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
+
   > * {
     flex: 0 0 calc(25% - 2rem);
     margin: 1rem;
@@ -45,10 +37,15 @@ const Grid = styled.div`
 `;
 
 const Spacer = styled.div`
-  border: 1px solid ${theme.content.color};
-  color: ${theme.content.color};
   padding: 5rem 1rem;
   transition: 200ms;
+  border-radius: 0.2rem;
+  background: center/cover url('http://placekitten.com/630/630');
+
+  ${({ theme: { content } }) => css`
+    border: 1px solid ${rgba(content.color, 0.5)};
+    color: ${content.color};
+  `}
 `;
 
 const doClick = event => {

@@ -3,8 +3,8 @@ import React, { MouseEventHandler } from 'react';
 import { Wrapper, Card, Anchor } from './NewItemCard.style';
 
 import { CirclePlus } from '../../../icons';
-import { Focus, IrisProps, withIris } from '../../../utils';
 import { Paragraph } from '../../../typography';
+import { Focus, IrisProps, withIris } from '../../../utils';
 
 export const NewItemCard = withIris<HTMLDivElement, Props>(
   NewItemCardComponent,
