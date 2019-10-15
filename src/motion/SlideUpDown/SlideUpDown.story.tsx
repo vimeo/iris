@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
+import { SlideUpDown } from './SlideUpDown';
+
 import { Story } from '../../storybook';
 import { Paragraph } from '../../typography';
 import { Button, Notice } from '../../components';
-
-import { SlideUpDown } from './SlideUpDown';
 
 storiesOf('Motion|animation', module).add('Slide Up Down', () => (
   <Story title="Slide Up Down">
@@ -35,7 +35,7 @@ const SlideUpDownDocs = () => {
         </Notice>
       </SlideUpDown>
       <SlideUpDown animateOpenOnMount isHidden={hidden}>
-        <Notice format="primary">
+        <Notice format="positive">
           <Paragraph size="2">
             I open automatically on mount!
             <br />

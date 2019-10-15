@@ -23,14 +23,10 @@ export const Story = withTheme(
     theme,
   }: Props) => {
     if (!theme) console.error('No theme detected!');
-    else theme.name = theme.base;
-    theme = theme || { name: 'light ' };
 
     return (
       <Wrapper>
-        <Header size="plusUltra" theme={theme.name}>
-          {title}
-        </Header>
+        <Header size="plusUltra">{title}</Header>
 
         <Source width={width} flex={flex}>
           {children}

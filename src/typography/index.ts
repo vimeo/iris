@@ -1,15 +1,7 @@
-import { css } from 'styled-components';
+export { BigStat } from './BigStat/BigStat';
+export { Header } from './Header/Header';
+export { Link } from './Link/Link';
+export { Paragraph } from './Paragraph/Paragraph';
 
-export { Paragraph } from './Paragraph';
-export { Header } from './Header';
-export { BigStat } from './BigStat';
-export { LinkText } from './LinkText';
-
-export const fontFamily = '"Helvetica Neue", Helvetica, Arial, sans-serif';
-
-export const antialias = css`
-  font-smoothing: antialiased;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizelegibility;
-`;
+export { Text } from './Text';
+export { antialias, fontFamily } from './typography';

@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 
 import { BreadcrumbLinkContent } from '../BreadcrumbLinkContent/BreadcrumbLinkContent';
 
-import { LinkText } from '../../../typography';
+import { Link } from '../../../typography';
 import { BaseProps } from '../../../utils';
 
 export interface BreadcrumbLinkProps extends BaseProps {
@@ -16,12 +16,12 @@ export const BreadcrumbLink: SFC<any> = ({
   href,
   ...props
 }) => (
-  <LinkText
+  <Link
     href={href}
     decoration="silent"
     format={format === 'darkTheme' ? 'primaryDark' : 'primary'}
     {...props}
   >
     <BreadcrumbLinkContent>{children}</BreadcrumbLinkContent>
-  </LinkText>
+  </Link>
 );
