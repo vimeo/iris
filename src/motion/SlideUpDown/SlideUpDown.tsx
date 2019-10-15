@@ -4,32 +4,36 @@ import React, {
   useLayoutEffect,
   useRef,
 } from 'react';
-import { IrisComponent } from '../../utils';
 
-interface Props {
+import { withIris, IrisProps } from '../../utils';
+
+export const SlideUpDown = withIris<HTMLDivElement, Props>(
+  SlideUpDownComponent,
+);
+
+type Props = IrisProps<{
   animateOpenOnMount?: boolean;
   children: ReactNode;
   isHidden: boolean;
-}
+}>;
 
-export const SlideUpDown: IrisComponent<Props> = ({
+function SlideUpDownComponent({
   animateOpenOnMount = false,
+  forwardRef,
   children,
   isHidden,
-}) => {
+  ...props
+}: Props) {
+  const ref = useRef(null);
   const [maxHeight, setMaxHeight] = useState(0);
 
-  const ref = useRef(null);
+  useLayoutEffect(() => {
+    if (!isHidden) setMaxHeight(ref.current.scrollHeight);
+  }, [children, isHidden]);
 
   useLayoutEffect(() => {
-    // tslint:disable-next-line:no-unused-expression
-    !animateOpenOnMount && setMaxHeight(0);
-  }, []);
-
-  useLayoutEffect(() => {
-    // tslint:disable-next-line:no-unused-expression
-    !isHidden && setMaxHeight(ref.current.scrollHeight);
-  }, [children]);
+    if (!animateOpenOnMount) setMaxHeight(0);
+  }, [animateOpenOnMount]);
 
   return (
     <div
@@ -39,8 +43,9 @@ export const SlideUpDown: IrisComponent<Props> = ({
         transition: 'all 200ms ease-in-out',
         maxHeight: isHidden ? 0 : maxHeight,
       }}
+      {...props}
     >
       {children}
     </div>
   );
-};
+}

@@ -29,6 +29,11 @@ const GlobalStyles = createGlobalStyle`
     a {
         text-decoration: none;
     }
+
+    button {
+        background: transparent;
+        border-color: transparent;
+    }
 `;
 
 export const withGlobalStyles = storyFn => (

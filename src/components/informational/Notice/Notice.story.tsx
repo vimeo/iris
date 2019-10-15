@@ -1,45 +1,42 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-
+import { Paragraph } from '../../../typography';
 import { Notice } from './Notice';
-
-import { ParagraphMd } from '../../../legacy';
 import { Gear } from '../../../icons';
 import { Story } from '../../../storybook';
 
-const componentName = 'Notice';
-
-const VariantStory = ({ variant }) => (
-  <Story title={componentName}>
+const VariantStory = ({ format }) => (
+  <Story title="Notice">
     <Notice
-      variant={variant}
+      format={format}
       id="someOptionalId"
       className="someOptionalClass"
     >
-      <ParagraphMd>Lorem ipsum dolor sit amet.</ParagraphMd>
+      <Paragraph size="2">Lorem ipsum dolor sit amet.</Paragraph>
     </Notice>
 
     <br />
     <br />
 
     <Notice
-      variant={variant}
+      format={format}
       icon={false}
       header="lorem ipsum header"
+      onDismiss={() => {}}
     >
-      <ParagraphMd>Lorem ipsum dolor sit amet.</ParagraphMd>
+      <Paragraph size="2">Lorem ipsum dolor sit amet.</Paragraph>
     </Notice>
 
     <br />
     <br />
 
-    <Notice variant={variant} icon={<Gear />}>
-      <ParagraphMd>Lorem ipsum dolor sit amet.</ParagraphMd>
+    <Notice format={format} icon={<Gear />}>
+      <Paragraph size="2">Lorem ipsum dolor sit amet.</Paragraph>
     </Notice>
   </Story>
 );
 
 storiesOf('Components|informational/Notice', module)
-  .add('neutral', () => <VariantStory variant="neutral" />)
-  .add('success', () => <VariantStory variant="success" />)
-  .add('warning', () => <VariantStory variant="warning" />);
+  .add('primary', () => <VariantStory format="primary" />)
+  .add('success', () => <VariantStory format="positive" />)
+  .add('warning', () => <VariantStory format="negative" />);

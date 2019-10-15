@@ -1,58 +1,78 @@
-import React, { SFC, ReactNode, MouseEventHandler } from 'react';
+import React, { ReactNode, MouseEventHandler } from 'react';
 
-import { ButtonDialogClose } from '../../buttons/ButtonDialogClose/ButtonDialogClose';
-import { NoticeStyled, Icon, Dismiss } from './NoticeStyled';
+import { NoticeStyled, Icon, Dismiss } from './Notice.style';
 
-import { Header5 } from '../../../legacy';
-import { CircleInfo, Checkmark, CircleWarning } from '../../../icons';
+import { ButtonIconOnly } from '../../buttons/ButtonIconOnly/ButtonIconOnly';
 
-export type Variant = 'neutral' | 'success' | 'warning';
+import {
+  CircleInfo,
+  Checkmark,
+  CircleWarning,
+  DismissX,
+} from '../../../icons';
+import { Header } from '../../../typography';
+import { IrisProps, withIris } from '../../../utils';
 
-interface Props {
-  className?: string;
-  dismissButtonClassName?: string;
-  header?: string;
-  icon?: ReactNode;
-  id?: string;
-  onDismiss?: MouseEventHandler;
-  variant: Variant;
-}
-
-export const Notice: SFC<Props> = ({
-  children,
-  header,
-  icon = true,
-  onDismiss,
-  variant,
-  ...props
-}) => (
-  <NoticeStyled icon={icon} variant={variant} {...props}>
-    {icon && (
-      <Icon header={header} variant={variant}>
-        {getIcon(icon, variant)}
-      </Icon>
-    )}
-
-    {header && <Header5>{header}</Header5>}
-    {children}
-
-    {onDismiss && (
-      <Dismiss variant={variant}>
-        <ButtonDialogClose
-          onClick={onDismiss}
-          buttonTitle="Dismiss this Notice"
-          format="lightTransparent"
-        />
-      </Dismiss>
-    )}
-  </NoticeStyled>
+export const Notice = withIris<HTMLDivElement, Props>(
+  NoticeComponent,
 );
 
-const defaultIcons = {
-  neutral: <CircleInfo />,
-  success: <Checkmark />,
-  warning: <CircleWarning />,
-};
+type Props = IrisProps<
+  {
+    dismissButtonClassName?: string;
+    header?: string;
+    icon?: ReactNode;
+    onDismiss?: MouseEventHandler;
+    format: 'primary' | 'positive' | 'negative';
+  },
+  HTMLDivElement
+>;
 
-const getIcon = (icon, variant) =>
-  icon === true ? defaultIcons[variant] : icon;
+function NoticeComponent({
+  children,
+  header,
+  onDismiss,
+  format,
+  forwardRef,
+  icon = icons[format],
+  ...props
+}: Props) {
+  return (
+    <NoticeStyled
+      icon={icon}
+      format={format}
+      ref={forwardRef}
+      {...props}
+    >
+      {icon && (
+        <Icon header={header} format={format}>
+          {icon}
+        </Icon>
+      )}
+
+      {header && <Header size="5">{header}</Header>}
+      {children}
+
+      {onDismiss && (
+        <Dismiss format={format}>
+          {/* Needs Iris 8 Button
+          <Button
+            title="Dismiss this notification"
+            variant="minimal"
+            format="basic"
+            size="xs"
+            icon={<DismissX />}
+          />
+          */}
+          <ButtonIconOnly icon={<DismissX />} />
+        </Dismiss>
+      )}
+    </NoticeStyled>
+  );
+}
+
+const icons = {
+  primary: <CircleInfo />,
+  positive: <Checkmark />,
+  negative: <CircleWarning />,
+};

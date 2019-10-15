@@ -1,14 +1,13 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { SlideUpDown } from './SlideUpDown';
-import { Button } from '../../components/buttons/Button/Button';
-import { Notification } from '../../components/informational/Notification/Notification';
-
 import { Story } from '../../storybook';
-import { ParagraphMd } from '../../legacy';
+import { Paragraph } from '../../typography';
+import { Button, Notice } from '../../components';
 
-storiesOf('Motion|Animation', module).add('Slide Up Down', () => (
+import { SlideUpDown } from './SlideUpDown';
+
+storiesOf('Motion|animation', module).add('Slide Up Down', () => (
   <Story title="Slide Up Down">
     <SlideUpDownDocs />
   </Story>
@@ -20,30 +19,35 @@ const SlideUpDownDocs = () => {
 
   return (
     <>
-      <Button onClick={doClick}>Toggle</Button>
+      <Button onClick={doClick} style={{ marginBottom: '1rem' }}>
+        Toggle
+      </Button>
       <SlideUpDown isHidden={hidden}>
-        <Notification variant="success">
-          <ParagraphMd>
+        <Notice format="positive">
+          <Paragraph size="2">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Aut quidem fugiat corrupti inventore eaque. Eaque
             aspernatur sed magni ex reprehenderit deleniti, nemo nihil
             delectus ab dignissimos, beatae molestiae architecto
             recusandae? Molestias accusantium dolorum ipsum quae
             quibusdam minus distinctio accusamus optio.
-          </ParagraphMd>
-        </Notification>
+          </Paragraph>
+        </Notice>
       </SlideUpDown>
       <SlideUpDown animateOpenOnMount isHidden={hidden}>
-        <Notification variant="success">
-          <ParagraphMd>
+        <Notice format="primary">
+          <Paragraph size="2">
+            I open automatically on mount!
+            <br />
+            <br />
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Aut quidem fugiat corrupti inventore eaque. Eaque
             aspernatur sed magni ex reprehenderit deleniti, nemo nihil
             delectus ab dignissimos, beatae molestiae architecto
             recusandae? Molestias accusantium dolorum ipsum quae
             quibusdam minus distinctio accusamus optio.
-          </ParagraphMd>
-        </Notification>
+          </Paragraph>
+        </Notice>
       </SlideUpDown>
     </>
   );
