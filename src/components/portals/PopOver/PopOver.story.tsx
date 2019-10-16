@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Button, LinkText, PopOver, PopOverList } from '../../index';
+import { Button, Link, PopOver, PopOverList } from '../../index';
 import { Gear } from '../../../icons';
 import { Story } from '../../../storybook';
 
@@ -34,9 +34,7 @@ storiesOf(`components|Portals/PopOver`, module)
       <br />
 
       <PopOver alignment="center" menuContent={MenuList} size="sm">
-        <LinkText element="span">
-          Click for Small Center Menu
-        </LinkText>
+        <Link element="span">Click for Small Center Menu</Link>
       </PopOver>
 
       <br />

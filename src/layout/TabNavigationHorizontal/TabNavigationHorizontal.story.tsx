@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { TabNavigationHorizontal } from './TabNavigationHorizontal';
 
 import { Header2, ParagraphMd } from '../../legacy';
-import { LinkText } from '../../typography';
+import { Link } from '../../typography';
 
 import { Story } from '../../storybook';
 
@@ -59,20 +59,20 @@ storiesOf(`Layout|Tabs`, module).add('Tab Navigation', () => (
                 My liege, and madam, to expostulate What majesty
                 should be, what duty is, What day is day, night night,
                 and{' '}
-                <LinkText
+                <Link
                   href="https://en.wikipedia.org/wiki/Hamlet"
                   target="_blank"
                 >
                   time is time
-                </LinkText>
+                </Link>
                 , Were nothing but to waste night, day, and time;
                 Therefore, since{' '}
-                <LinkText
+                <Link
                   href="https://en.wikipedia.org/wiki/William_Shakespeare"
                   target="_blank"
                 >
                   brevity is the soul of wit
-                </LinkText>
+                </Link>
                 , And tediousness the limbs and outward flourishes, I
                 will be brief. Your noble son is mad
               </ParagraphMd>

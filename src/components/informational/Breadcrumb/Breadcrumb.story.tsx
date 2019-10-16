@@ -1,27 +1,52 @@
 import React from 'react';
-import { BreadcrumbLink } from '../BreadcrumbLink/BreadcrumbLink';
-import { Breadcrumb } from './Breadcrumb';
+import { Breadcrumb as B } from './Breadcrumb';
+import { BreadcrumbLink } from './BreadcrumbLink';
 import { storiesOf } from '@storybook/react';
 import { Story } from '../../../storybook';
+import styled from 'styled-components';
 
-storiesOf(`components|informational/`, module).add(
+const Breadcrumb = styled(B)`
+  margin: 0 0.5rem;
+`;
+
+storiesOf(`Components|informational/`, module).add(
   'Breadcrumb',
   () => (
     <Story title="Breadcrumb">
       <Breadcrumb
-        currentPageLabel=""
-        format="lightTheme"
         crumbs={[
-          <BreadcrumbLink format="lightTheme" href="#">
-            Crumb1
+          <BreadcrumbLink href="#">
+            Breadcrumb Item 1 is Pretty Long So Cut it Off
           </BreadcrumbLink>,
-          <BreadcrumbLink format="lightTheme" href="#">
-            Crumb2
-          </BreadcrumbLink>,
-          <BreadcrumbLink format="lightTheme" href="#">
-            Crumb3
+          <BreadcrumbLink href="#">
+            Breadcrumb Item 2 is Pretty Long So Cut it Off
           </BreadcrumbLink>,
         ]}
+        currentPageLabel="Current Page Label is Pretty Long So Cut it Off"
+      />
+      <Breadcrumb
+        style={{ maxWidth: '30rem' }}
+        crumbs={[
+          <BreadcrumbLink href="#">
+            Breadcrumb Item 1 is Pretty Long So Cut it Off
+          </BreadcrumbLink>,
+          <BreadcrumbLink href="#">
+            Breadcrumb Item 2 is Pretty Long So Cut it Off
+          </BreadcrumbLink>,
+        ]}
+        currentPageLabel="Current Page Label is Pretty Long So Cut it Off"
+      />
+      <Breadcrumb
+        style={{ maxWidth: '15rem' }}
+        crumbs={[
+          <BreadcrumbLink href="#">
+            Breadcrumb Item 1 is Pretty Long So Cut it Off
+          </BreadcrumbLink>,
+          <BreadcrumbLink href="#">
+            Breadcrumb Item 2 is Pretty Long So Cut it Off
+          </BreadcrumbLink>,
+        ]}
+        currentPageLabel="Current Page Label is Pretty Long So Cut it Off"
       />
     </Story>
   ),

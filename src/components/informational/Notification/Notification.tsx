@@ -1,102 +1,123 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, {
+  useEffect,
+  useReducer,
+  MouseEventHandler,
+} from 'react';
+
 import {
-  ActionLink,
+  Action,
   Content,
-  InfoIconStyled,
-  NotificationStyled,
+  Icon,
+  Notification as Styled,
   Wrapper,
-} from './NotificationStyled';
-import { IrisComponent } from '../../../utils';
+} from './Notification.style';
+import { reducer } from './Notification.state';
 
-interface Props {
+import { withIris, IrisProps } from '../../../utils';
+
+export const Notification = withIris<HTMLDivElement, Props>(
+  NotficationComponent,
+);
+
+type Props = IrisProps<{
   actionLabel?: string;
-  children: ReactNode;
+  content: string;
   format?: 'warning' | 'neutral';
-  isShowing?: boolean;
-  onActionClick?: React.MouseEventHandler;
+  duration?: number;
+  automatic?: boolean;
+  showing?: boolean;
+  action?: { label: string; onClick: MouseEventHandler };
   onComplete?: () => void;
-}
+}>;
 
-export const Notification: IrisComponent<Props> = ({
+function NotficationComponent({
+  automatic = false,
+  showing: controlled = false,
+  action,
   actionLabel,
   children = null,
   format = 'warning',
-  isShowing,
-  onActionClick = () => null,
-  onComplete = () => null,
+  forwardRef,
+  duration = 4000,
+  content,
+  onComplete,
   ...props
-}) => {
-  const [showing, setShowing] = useState(
-    isShowing ? isShowing : false,
+}: Props) {
+  console.log({ automatic });
+
+  const initialState = {
+    active: automatic,
+    showing: automatic,
+    time: duration,
+  };
+
+  const [{ showing, time, active }, dispatch] = useReducer(
+    reducer(duration),
+    initialState,
   );
 
-  let timeout: ReturnType<typeof window.setTimeout>;
+  function toggle() {
+    if (active) dispatch('PAUSE');
+    if (!active) dispatch('RESUME');
 
-  const clearTimeout = () => {
-    window.clearTimeout(timeout);
-  };
+    if (showing) dispatch('HIDE');
+    if (!showing) dispatch('SHOW');
 
-  const setNotificationTimeout = duration => {
-    timeout = window.setTimeout(() => {
-      onComplete();
-      setShowing(false);
-    }, duration);
-  };
+    dispatch('RESET');
+  }
 
-  useEffect(() => {
-    isShowing ? setShowing(true) : setShowing(false);
-  }, [isShowing]);
+  const pause = () => dispatch('PAUSE');
+  const resume = () => dispatch('RESUME');
 
-  useEffect(() => {
-    if (showing) {
-      setNotificationTimeout(actionLabel ? 6000 : 3000);
-    } else {
-      clearTimeout();
-    }
-  }, [showing]);
+  function finish() {
+    dispatch('PAUSE');
+    dispatch('HIDE');
+    onComplete && onComplete();
+  }
 
   useEffect(() => {
-    return () => clearTimeout();
-  }, []);
+    const timer = setInterval(() => dispatch('TICK'), 100);
 
-  const handleActionClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    onActionClick(e);
-    setShowing(false);
-  };
+    if (time <= 0) finish();
 
-  const handleNotificationMouseEnter = () => clearTimeout();
-  const handleNotificationMouseLeave = () =>
-    setNotificationTimeout(750);
+    if (!active) clearInterval(timer);
+    return () => clearInterval(timer);
+  }, [active, time]);
 
   return (
-    showing && (
-      <Wrapper>
-        <NotificationStyled
-          {...props}
-          format={format}
-          actionLabel={actionLabel}
-          onMouseEnter={handleNotificationMouseEnter}
-          onMouseLeave={handleNotificationMouseLeave}
-        >
-          <Content format="white">
-            {format === 'warning' && (
-              <span>
-                <InfoIconStyled />
-              </span>
-            )}
-            {children}
-            {actionLabel && (
-              <span>
-                &nbsp;
-                <ActionLink href="#" onClick={handleActionClick}>
-                  {actionLabel}
-                </ActionLink>
-              </span>
-            )}
-          </Content>
-        </NotificationStyled>
-      </Wrapper>
-    )
+    <>
+      {children && <div onClick={toggle}>{children}</div>}
+      {(controlled || showing) && (
+        <Wrapper>
+          <Styled
+            format={format}
+            duration={duration}
+            actionLabel={actionLabel}
+            onMouseEnter={pause}
+            onMouseLeave={resume}
+            ref={forwardRef}
+            {...props}
+          >
+            <Content>
+              {format === 'warning' && (
+                <span>
+                  <Icon />
+                </span>
+              )}
+              {content}
+
+              {actionLabel && (
+                <span>
+                  &nbsp;
+                  <Action href="#" onClick={action.onClick}>
+                    {actionLabel}
+                  </Action>
+                </span>
+              )}
+            </Content>
+          </Styled>
+        </Wrapper>
+      )}
+    </>
   );
-};
+}

@@ -54,7 +54,7 @@ export { TruncatedTextWrapper } from './inputs/TruncatedTextWrapper/TruncatedTex
 
 // informational
 export { Breadcrumb } from './informational/Breadcrumb/Breadcrumb';
-export { BreadcrumbLink } from './informational/BreadcrumbLink/BreadcrumbLink';
+export { BreadcrumbLink } from './informational/Breadcrumb/BreadcrumbLink';
 export { FeatureTourPanel } from './informational/FeatureTourPanel/FeatureTourPanel';
 export { FeatureTourPanelButton } from './informational/FeatureTourPanelButton/FeatureTourPanelButton';
 export { FeatureTourPanelContent } from './informational/FeatureTourPanelContent/FeatureTourPanelContent';

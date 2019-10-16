@@ -51,9 +51,10 @@ export const CopyField = withDeprecateProps<CopyFieldProps>(
             >
               {children}
             </CopyButton>
-            <Notification isShowing={copied as boolean}>
-              {successMessage}
-            </Notification>
+            <Notification
+              showing={copied as boolean}
+              content={successMessage}
+            ></Notification>
           </>
         }
       />
