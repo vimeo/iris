@@ -12,7 +12,8 @@ export { FocusOutline, FocusOutlineFocused, FocusOutlineProps } from './FocusOut
 // IRIS 8
 export { CSSProps, ExtractProps, Override, IrisElement } from './types';
 
+export { generateUID } from './generateUID';
 export { Focus } from './Focus';
-export { IrisProps } from './IrisProps';
+export { IrisProps, IrisInputProps, Messages } from './IrisProps';
 export { withIris } from './withIris';
 export { useLayoutStyles } from './useLayoutStyles';

@@ -43,8 +43,6 @@ function NotficationComponent({
   onComplete,
   ...props
 }: Props) {
-  console.log({ automatic });
-
   const initialState = {
     active: automatic,
     showing: automatic,

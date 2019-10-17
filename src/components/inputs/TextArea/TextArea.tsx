@@ -1,70 +1,70 @@
-import React, { ReactNode, SFC } from 'react';
-import { InputWrapper } from '../InputWrapper/InputWrapper';
+import React, { ReactNode } from 'react';
 
 import styled, { css } from 'styled-components';
-import { getInputBaseStyles } from '../InputText/InputHelpers';
 import { rem } from 'polished';
-import { COLORS } from '../../../legacy';
 
-export interface Props {
+import { slate, blue } from '../../../color';
+import { withIris, IrisInputProps } from '../../../utils';
+import { Wrapper } from '../Wrapper/Wrapper';
+
+export const TextArea = withIris<HTMLInputElement, Props>(
+  TextAreaComponent,
+);
+
+type Props = IrisInputProps<{
   disabled?: boolean;
   errorMsg?: ReactNode;
   format?: 'negative' | 'positive' | 'neutral';
   helperMsg?: ReactNode;
-  id: string;
-  label: string;
+  id?: string;
+  label?: string;
   preMessage?: ReactNode;
   showLabel?: boolean;
-  theme?: 'default' | 'light' | 'dark';
-}
+}>;
 
-export const TextArea: SFC<Props> = ({
+function TextAreaComponent({
   disabled,
   errorMsg,
   format = 'neutral',
+  messages,
   helperMsg,
   id,
   label,
   preMessage,
-  showLabel = true,
-  theme = 'light',
   ...props
-}) => (
-  <InputWrapper
-    showLabel={showLabel}
-    disabled={disabled}
-    errorMsg={errorMsg}
-    format={format}
-    helperMsg={helperMsg}
-    label={label}
-    labelForId={id}
-    preMessage={preMessage}
-    theme={theme === 'dark' ? 'dark' : 'light'}
-  >
-    <TextAreaStyled
-      id={id}
-      aria-label={!showLabel ? label : null}
-      aria-invalid={format === 'negative'}
-      disabled={disabled}
-      hasIcon={format !== 'neutral'}
-      theme={theme === 'dark' ? 'dark' : 'light'}
-      format={format}
-      {...props}
-    />
-  </InputWrapper>
-);
+}) {
+  return (
+    <Wrapper disabled={disabled} label={label} messages={messages}>
+      <TextAreaStyled
+        id={id}
+        aria-label={label}
+        aria-invalid={format === 'negative'}
+        disabled={disabled}
+        hasIcon={format !== 'neutral'}
+        format={format}
+        {...props}
+      />
+    </Wrapper>
+  );
+}
 
 const TextAreaStyled = styled.textarea<any>`
-  ${getInputBaseStyles};
+  display: block;
   width: 100%;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  padding: ${rem(11)};
+  padding: 1rem;
   font-size: ${rem(14)};
   line-height: 1.25rem;
   height: auto;
+  border-radius: 0.2rem;
 
   &:placeholder {
-    color: ${COLORS.SoutherlySky};
+    color: ${slate(200)};
+  }
+
+  &:focus {
+    outline: none;
+    border: 1.5px solid ${blue(500)};
   }
 
   ${props =>

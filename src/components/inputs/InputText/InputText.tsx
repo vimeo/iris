@@ -20,6 +20,7 @@ export interface InputTextProps {
     | 'tel'
     | 'text'
     | 'url';
+  messages?: any;
 }
 
 export interface InputTextStyledProps extends InputStyledProps {
@@ -44,6 +45,7 @@ export const InputText: SFC<InputTextProps & InputProps> = ({
   theme = 'light',
   size = 'md',
   type = 'text',
+  messages,
   ...filteredProps
 }) => {
   const isNegative = format === 'negative';
@@ -52,6 +54,11 @@ export const InputText: SFC<InputTextProps & InputProps> = ({
   // support deprecated 'default' theme as 'light'
   const themeDefaultSupport = theme === 'default' ? 'light' : theme;
   // Protect against invalid props that are needed for style look up.
+
+  if (messages && messages.pre) preMessage = messages.pre;
+  if (messages && messages.post) preMessage = messages.post; // ¯\_(ツ)_/¯
+  if (messages && messages.help) helperMsg = messages.help;
+  if (messages && messages.error) errorMsg = messages.error;
 
   return (
     <InputWrapper

@@ -10,6 +10,9 @@ export interface IrisTheme {
   shadows: { [key: string]: string };
 }
 
+export type Formats = 'basic' | 'soft' | 'alternative' | 'secondary' | 'primary';
+export type Statuses = 'positive' | 'negative';
+
 export const themes: {
   [key: string]: IrisTheme;
 } = {

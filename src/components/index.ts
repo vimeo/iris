@@ -1,14 +1,31 @@
+//
 // Iris 8
+//
+
+// cards
 export { Card } from './cards/Card/Card';
 export { CategoryCard } from './cards/CategoryCard/CategoryCard';
 export { NewItemCard } from './cards/NewItemCard/NewItemCard';
 
+// chips
+export { Avatar } from './chips/Avatar/Avatar';
+export { Badge } from './chips/Badge/Badge';
+export { Tag } from './chips/Tag/Tag';
+
+// inputs
+export { TextArea } from './inputs/TextArea/TextArea';
+export { Checkbox } from './inputs/Checkbox/Checkbox';
+export { Radio } from './inputs/Radio/Radio';
+export { RadioSet } from './inputs/Radio/RadioSet';
+export { Toggle } from './inputs/Toggle/Toggle';
+export { withCharacterCount } from './inputs/withCharacterCount/withCharacterCount';
+
+//
 // 8 Bridge
+//
 
 // buttons
 export { Button } from './buttons/Button/Button';
-export { ButtonFileUpload } from './buttons/ButtonFileUpload/ButtonFileUpload';
-export { ButtonFileUploadIconOnly } from './buttons/ButtonFileUploadIconOnly/ButtonFileUploadIconOnly';
 export { ButtonFocusWrapper } from './buttons/Button/ButtonFocusWrapper';
 export { ButtonIconElement } from './buttons/Button/ButtonIconElement';
 export { ButtonIconOnly } from './buttons/ButtonIconOnly/ButtonIconOnly';
@@ -22,10 +39,7 @@ export { SocialButton } from './buttons/SocialButton/SocialButton';
 export { FloatingButton } from './buttons/Floating/Floating';
 
 // chips
-export { Avatar } from './chips/Avatar/Avatar';
-export { Badge } from './chips/Badge/Badge';
 export { CounterIcon } from './chips/CounterIcon/CounterIcon';
-export { Tag } from './chips/Tag/Tag';
 
 // inputs
 export { DateRange } from './inputs/DateRange/DateRange';
@@ -34,22 +48,15 @@ export { InputSelect } from './inputs/InputSelect/InputSelect';
 export { Slider } from './inputs/Slider/Slider';
 export { CopyField } from './inputs/CopyField/CopyField';
 export { FauxSelect } from './inputs/FauxSelect/FauxSelect';
-export { TextArea } from './inputs/TextArea/TextArea';
 export { FieldSet } from './inputs/FieldSet/FieldSet';
 export { ColorSelect } from './inputs/ColorSelect/ColorSelect';
-export { Checkbox } from './inputs/Checkbox/Checkbox';
-export { CheckboxSet } from './inputs/CheckboxSet/CheckboxSet';
 export { DateSelect } from './inputs/DateSelect/DateSelect';
 export { InputLabel } from './inputs/InputLabel/InputLabel';
 export { InputLabelInline } from './inputs/InputLabelInline/InputLabelInline';
-export { Radio } from './inputs/Radio/Radio';
-export { RadioSet } from './inputs/RadioSet/RadioSet';
 export { InputTextFloatingLabel } from './inputs/InputTextFloatingLabel/InputTextFloatingLabel';
-export { Toggle } from './inputs/Toggle/Toggle';
 export { InputWrapper } from './inputs/InputWrapper/InputWrapper';
 export { SearchField } from './inputs/SearchField/SearchField';
 export { SelectWrapper } from './inputs/SelectWrapper/SelectWrapper';
-export { withCharacterCounter as withCharacterCount } from './inputs/withCharacterCount/withCharacterCount';
 export { TruncatedTextWrapper } from './inputs/TruncatedTextWrapper/TruncatedTextWrapper';
 
 // informational

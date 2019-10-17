@@ -2,16 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import { storiesOf } from '@storybook/react';
 
-import { Checkbox as IC } from '../Checkbox/Checkbox';
+import { Checkbox as C } from './Checkbox';
+import { CheckboxSet } from './CheckboxSet';
 
 import { Story } from '../../../storybook';
+import { Header } from '../../../typography';
 
-const Checkbox = styled(IC)`
+const Checkbox = styled(C)`
   margin: 1rem 0;
 `;
 
-storiesOf(`components|inputs/Checkbox`, module)
-  .add('light', () => (
+storiesOf(`Components|inputs/Marks/`, module)
+  .add('Checkbox', () => (
     <Story title="Checkbox">
       <Checkbox
         label="Checkbox 1 (Medium)"
@@ -34,7 +36,7 @@ storiesOf(`components|inputs/Checkbox`, module)
       <Checkbox
         label="Errored Field"
         name="demoCheckbox4"
-        format="negative"
+        status="negative"
         id="Checkbox4"
         value="4"
         required
@@ -49,31 +51,47 @@ storiesOf(`components|inputs/Checkbox`, module)
       <Checkbox
         label="Checkbox has a very long label. Sometimes we need to tell people that they must agree to terms and conditions before they submit a form."
         name="demoCheckbox5"
-        errorMsg="This field is required!"
-        format="negative"
+        status="negative"
         id="Checkbox5"
         value="5"
         required
       />
       <Checkbox
-        label="Hidden Label"
-        hideLabel
+        label={false}
         name="demoCheckbox6"
         id="Checkbox6"
         value="6"
       />
     </Story>
   ))
-  .add('dark', () => (
-    <Story title="Checkbox">
-      <div style={{ background: '#222', padding: '2rem' }}>
-        <Checkbox
-          label="Checkbox 1 (Medium)"
-          name="demoCheckbox1"
-          id="Checkbox1Dark"
-          value="1"
-          theme="dark"
-        />
-      </div>
+  .add('Checkbox Set', () => (
+    <Story title="Checkbox Set">
+      <Header size="5">
+        The default {'<CheckboxSet />'} will set children deselect
+        children, but it will not select them.
+      </Header>
+
+      <CheckboxSet label="default">
+        <Checkbox label="default" />
+        <Checkbox label="default" />
+      </CheckboxSet>
+      <br />
+      <Header size="5">
+        The `coupled` prop will override the children when the parent
+        value changes.
+      </Header>
+      <CheckboxSet label="coupled" coupled>
+        <Checkbox label="coupled" />
+        <Checkbox label="coupled" />
+      </CheckboxSet>
+      <br />
+      <Header size="5">
+        The `toggled` prop will hide the children unless the parent is
+        selected.
+      </Header>
+      <CheckboxSet label="toggled" toggled>
+        <Checkbox label="toggled" />
+        <Checkbox label="toggled" />
+      </CheckboxSet>
     </Story>
   ));

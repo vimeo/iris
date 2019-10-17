@@ -1,70 +1,20 @@
-import React, { ReactNode, SFC } from 'react';
-import { InputWrapperInline } from '../InputWrapperInline/InputWrapperInline';
-import {
-  ToggleWrapper,
-  ToggleLabel,
-  Input,
-  ToggleOverlay,
-} from './ToggleStyled';
-import { ToggleFocusOutline as FocusOutline } from './ToggleFocus';
+import React from 'react';
 
-interface Props {
-  checked?: boolean;
-  className?: string;
-  defaultChecked?: boolean;
-  disabled?: boolean;
-  errorMsg?: ReactNode;
-  format?: 'negative' | 'positive' | 'neutral';
-  helperMsg?: ReactNode;
-  hideLabel?: boolean;
-  id: string;
-  label: string | ReactNode;
-  name?: string;
-  required?: boolean;
-  size?: 'md' | 'lg';
-  theme?: 'default' | 'dark';
-  value: string;
-}
+import { Input } from '../Input/Input';
 
-export const Toggle: SFC<Props> = ({
-  className,
-  disabled,
-  errorMsg,
-  format = 'neutral',
-  helperMsg,
-  hideLabel,
-  id,
-  label,
-  size = 'md',
-  theme = 'default',
-  ...props
-}) => (
-  <InputWrapperInline
-    className={className}
-    errorMsg={errorMsg}
-    helperMsg={helperMsg}
-    theme={theme}
-  >
-    <ToggleWrapper disabled={disabled} size={size}>
-      <ToggleLabel
-        htmlFor={id}
-        format={format}
-        disabled={disabled}
-        hideLabel={hideLabel}
-        theme={theme}
-      >
-        <Input
-          type="checkbox"
-          id={id}
-          {...props}
-          disabled={disabled}
-        />
-        <ToggleOverlay size={size} theme={theme}>
-          <FocusOutline />
-        </ToggleOverlay>
+import { withIris, IrisInputProps } from '../../../utils';
 
-        {!hideLabel && <span>{label}</span>}
-      </ToggleLabel>
-    </ToggleWrapper>
-  </InputWrapperInline>
+export const Toggle = withIris<HTMLInputElement, Props>(
+  ToggleComponent,
 );
+
+type Props = IrisInputProps<
+  {
+    size?: 'sm' | 'md' | 'lg' | 'xl';
+  },
+  HTMLInputElement
+>;
+
+function ToggleComponent(props: Props) {
+  return <Input type="toggle" {...props} />;
+}

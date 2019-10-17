@@ -1,160 +1,86 @@
-import React, {
-  Component,
-  ComponentType,
-  ReactNode,
-  FormEvent,
-} from 'react';
-import styled, { css } from 'styled-components';
-import { COLORS } from '../../../legacy';
-import { ParagraphAltSm } from '../../../legacy';
-import { fnGuard } from '../../../utils';
+import React, { useReducer, ChangeEventHandler, FC } from 'react';
+
+import { reducer } from './withCharacterCount.state';
+import { Counter } from './withCharacterCount.style';
 
 interface Props {
-  maxCharacters: number;
-  characterSingularString: string;
-  characterPluralString: string;
-  format?: 'negative' | 'positive' | 'neutral';
-  onInput?: (
-    e:
-      | Event
-      | FormEvent<HTMLInputElement>
-      | FormEvent<HTMLTextAreaElement>,
-  ) => void;
-  onError?: () => void;
-  onResolve?: () => void;
+  maxCharacters?: number;
+  onChange?: ChangeEventHandler;
+  onError?: ChangeEventHandler;
+  onWarn?: ChangeEventHandler;
+  plural?: string;
+  singular?: string;
   warningThreshold?: number;
 }
 
-interface State {
-  isErrored: boolean;
-  isWarning: boolean;
-  remainingCharacters: number;
-  format?: 'negative' | 'positive' | 'neutral';
-}
+export function withCharacterCount<P = {}>(Component: FC<P>) {
+  return function({
+    maxCharacters = 30,
+    onChange,
+    onError,
+    onWarn,
+    plural = 'characters',
+    singular = 'character',
+    warningThreshold = 5,
+    ...props
+  }: Props & P) {
+    const intitialState = { remainingCharacters: maxCharacters };
 
-const CounterStyled = styled(({ isWarning, isErrored, ...props }) => (
-  <ParagraphAltSm {...props} />
-))`
-  margin-top: 0.25rem;
+    const [state, dispatch] = useReducer(reducer, intitialState);
+    const { error, warning, remainingCharacters } = state;
 
-  ${props =>
-    props.isWarning &&
-    css`
-      font-weight: 600;
-      color: ${COLORS.AstroGranite};
-    `};
+    const charactersString =
+      Math.abs(remainingCharacters) === 1 ? singular : plural;
 
-  ${props =>
-    props.isErrored &&
-    css`
-      font-weight: 600;
-      color: ${COLORS.SunsetOrange};
-    `};
-`;
-
-export const withCharacterCounter = <P extends {}>(
-  WrappedComponent: ComponentType<
-    P & {
-      onInput?: (
-        e:
-          | Event
-          | FormEvent<HTMLInputElement>
-          | FormEvent<HTMLTextAreaElement>,
-      ) => void;
-      format?: 'negative' | 'positive' | 'neutral';
-      preMessage?: ReactNode;
-    }
-  >,
-) =>
-  class extends Component<P & Props, State> {
-    state: State = {
-      isErrored: false,
-      isWarning: false,
-      remainingCharacters: this.props.maxCharacters,
-      format: this.props.format,
-    };
-
-    update(value) {
-      const newRemainingCharacters =
-        this.props.maxCharacters - value.length;
-      const isErrorState = newRemainingCharacters < 0;
-
-      if (this.state.isErrored && !isErrorState) {
-        this.resolveErrorState();
-      } else if (!this.state.isErrored) {
-        this.checkIfWarningState(newRemainingCharacters);
-
-        if (isErrorState) {
-          this.enterErrorState();
-        }
-      }
-
-      this.setState({
-        remainingCharacters: newRemainingCharacters,
-        format: isErrorState ? 'negative' : this.props.format,
+    function doWarn(event, payload = true) {
+      dispatch({
+        type: 'SET_WARNING',
+        payload,
       });
+      onWarn && onWarn(event);
     }
 
-    componentDidMount = () =>
-      // @ts-ignore
-      this.props.defaultValue && this.update(this.props.defaultValue);
+    function doError(event, payload = true) {
+      dispatch({
+        type: 'SET_ERROR',
+        payload,
+      });
+      onError && onError(event);
+    }
 
-    checkIfWarningState = (remainingCharacters: number) => {
-      const isWarning =
-        remainingCharacters <= this.props.warningThreshold &&
-        remainingCharacters > -1;
+    function clean(event) {
+      doError(event, false);
+      doWarn(event, false);
+    }
 
-      this.setState({ isWarning });
+    function doChange(event) {
+      const remaining = maxCharacters - event.target.value.length;
+      if (remaining < 0) doError(event);
+      else if (remaining <= warningThreshold) doWarn(event);
+      else clean(event);
+
+      dispatch({
+        type: 'SET_REMAINING_CHARACTERS',
+        payload: remaining,
+      });
+
+      onChange && onChange(event);
+    }
+
+    const messages = {
+      post: (
+        <Counter error={error} warning={warning}>
+          {remainingCharacters} {charactersString}
+        </Counter>
+      ),
     };
 
-    enterErrorState = () =>
-      this.setState(errored, fnGuard(this.props, 'onError'));
-
-    resolveErrorState = () =>
-      this.setState(resolved, fnGuard(this.props, 'onResolve'));
-
-    onInput = (e: Event) =>
-      (e.target instanceof HTMLInputElement ||
-        e.target instanceof HTMLTextAreaElement) &&
-      this.update(e.target.value);
-
-    render() {
-      const {
-        characterSingularString = 'character',
-        characterPluralString = 'characters',
-        format = 'neutral',
-        maxCharacters,
-        onInput,
-        warningThreshold = 5,
-        ...filteredProps
-      } = this.props as any;
-      // Storybook oddly has a problem here
-
-      const charactersString =
-        this.state.remainingCharacters === 1 ||
-        this.state.remainingCharacters === -1
-          ? characterSingularString
-          : characterPluralString;
-
-      const CounterElement = (
-        <CounterStyled
-          isErrored={this.state.isErrored}
-          isWarning={this.state.isWarning}
-        >
-          {`${this.state.remainingCharacters} ${charactersString}`}
-        </CounterStyled>
-      );
-
-      return (
-        <WrappedComponent
-          {...filteredProps}
-          onInput={this.onInput}
-          format={this.state.format}
-          preMessage={CounterElement}
-        />
-      );
-    }
+    return (
+      <Component
+        {...(props as P)}
+        onChange={doChange}
+        messages={messages}
+      />
+    );
   };
-
-const resolved = { isErrored: false };
-const errored = { isErrored: true, isWarning: false };
+}
