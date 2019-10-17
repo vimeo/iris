@@ -17,8 +17,8 @@ export function useLayoutStyles(style: CSSProperties = null) {
 }
 
 function splitStyles({ style, layout = false, display = false }) {
-  let layoutStyles = {};
-  let displayStyles = {};
+  const layoutStyles = {};
+  const displayStyles = {};
 
   Object.keys(style).map(key =>
     layoutProperties.includes(key)

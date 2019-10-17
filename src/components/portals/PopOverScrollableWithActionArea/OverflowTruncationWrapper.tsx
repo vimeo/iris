@@ -20,25 +20,26 @@ export const OverflowTruncationWrapper: IrisComponent<Props> = ({
   const [isTruncated, setIsTruncated] = useState(false);
   const [maxHeight, setMaxHeight] = useState(props.maxHeight);
 
-  let truncate = () => {
-    setIsTruncated(
-      wrapperEl.current.clientHeight < innerEl.current.clientHeight,
-    );
-    setMaxHeight(
-      innerEl.current.clientHeight < props.maxHeight
-        ? innerEl.current.clientHeight
-        : props.maxHeight,
-    );
-  };
-
   useEffect(() => {
+    let truncate = () => {
+      setIsTruncated(
+        wrapperEl.current.clientHeight < innerEl.current.clientHeight,
+      );
+      setMaxHeight(
+        innerEl.current.clientHeight < props.maxHeight
+          ? innerEl.current.clientHeight
+          : props.maxHeight,
+      );
+    };
+
     truncate = throttle(truncate, 200);
     truncate();
+
     window.addEventListener('resize', truncate);
     return () => {
       window.removeEventListener('resize', truncate);
     };
-  }, []);
+  }, [props.maxHeight]);
 
   return (
     <div

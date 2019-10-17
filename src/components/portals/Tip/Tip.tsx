@@ -41,8 +41,6 @@ function TipComponent({
     validate(children as any),
   );
 
-  if (irisError) return <div {...irisError}>{children}</div>;
-
   const [TipElement, anchor] = usePortal(
     <Styled
       wrap={wrap}
@@ -58,6 +56,8 @@ function TipComponent({
     </Styled>,
     { attach, margin: 8, trigger },
   );
+
+  if (irisError) return <div {...irisError}>{children}</div>;
 
   return (
     <>

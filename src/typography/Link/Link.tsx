@@ -11,7 +11,7 @@ export const Link = withIris<
 type Props = IrisProps<
   {
     element?: 'a' | 'span';
-    format?: 'primary' | 'primaryDark' | 'warning' | 'light';
+    format?: 'primary' | 'soft' | 'basic' | 'positive' | 'negative';
     decoration?: 'loud' | 'inherit' | 'silent';
     title?: ReactNode;
     href?: string;

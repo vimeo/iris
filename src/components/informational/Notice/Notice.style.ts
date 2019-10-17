@@ -31,7 +31,7 @@ export const NoticeStyled = styled.div<Props>`
   }
 `;
 
-function themeColor({ theme, format }: Props, opacity: number = 1) {
+function themeColor({ theme, format }: Props, opacity = 1) {
   return rgba(theme.formats[format], opacity);
 }
 

@@ -50,7 +50,7 @@ export function usePortal(
     forceActive,
   }: PortalConfig,
 ): [false | ReactPortal, AnchoredComponentProps] {
-  let [active, setActive] = useState(false);
+  const [active, setActive] = useState(false);
   const childRef = useRef(null);
   const ref = useRef(null);
   const UID = useMemo(() => generateUID(), []);

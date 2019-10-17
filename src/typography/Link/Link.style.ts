@@ -1,16 +1,8 @@
 import styled, { css } from 'styled-components';
 import { rem, tint } from 'polished';
-import { themes } from '../../themes';
 
 export const Link = styled.span<any>`
   ${({ decoration, theme, format }) => {
-    // Remove in Iris 8.0
-    if (!theme.formats && process.env.NODE_ENV === 'development')
-      console.warn('Invalid theme:', { theme });
-    if (theme === 'light') theme = themes.light;
-    if (theme === 'dark') theme = themes.dark;
-    //
-
     const color = theme.formats[format];
     const hoverColor = tint(0.15, color);
 

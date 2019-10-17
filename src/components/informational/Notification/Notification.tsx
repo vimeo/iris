@@ -2,6 +2,7 @@ import React, {
   useEffect,
   useReducer,
   MouseEventHandler,
+  useCallback,
 } from 'react';
 
 import {
@@ -67,11 +68,11 @@ function NotficationComponent({
   const pause = () => dispatch('PAUSE');
   const resume = () => dispatch('RESUME');
 
-  function finish() {
+  const finish = useCallback(() => {
     dispatch('PAUSE');
     dispatch('HIDE');
     onComplete && onComplete();
-  }
+  }, [onComplete]);
 
   useEffect(() => {
     const timer = setInterval(() => dispatch('TICK'), 100);
@@ -80,7 +81,7 @@ function NotficationComponent({
 
     if (!active) clearInterval(timer);
     return () => clearInterval(timer);
-  }, [active, time]);
+  }, [active, time, finish]);
 
   return (
     <>

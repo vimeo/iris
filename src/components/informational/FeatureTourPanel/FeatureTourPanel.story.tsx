@@ -7,7 +7,7 @@ import { FeatureTourPanel } from './FeatureTourPanel';
 import { FeatureTourPanelButton } from '../FeatureTourPanelButton/FeatureTourPanelButton';
 import { Button } from '../../../components/buttons/Button/Button';
 
-import { LinkText } from '../../../typography';
+import { Link } from '../../../typography';
 import { Header3, ParagraphMd } from '../../../legacy';
 import {
   RumSwizzle,
@@ -42,13 +42,13 @@ storiesOf('components|informational/Feature Tour Panel/', module)
         style={dotStyles(0)}
       >
         This is the body text. Vimeo was born in{' '}
-        <LinkText
+        <Link
           href="https://en.wikipedia.org/wiki/2004"
           target="_blank"
-          format="light"
+          format="soft"
         >
           2004
-        </LinkText>
+        </Link>
         , created by a group of filmmakers who wanted an easy and
         beautiful way to share videos with their friends.
       </FeatureTourPanel>
@@ -66,13 +66,13 @@ storiesOf('components|informational/Feature Tour Panel/', module)
         style={dotStyles(4)}
       >
         This is the body text. Vimeo was born in{' '}
-        <LinkText
+        <Link
           href="https://en.wikipedia.org/wiki/2004"
           target="_blank"
-          format="light"
+          format="soft"
         >
           2004
-        </LinkText>
+        </Link>
         , created by a group of filmmakers who wanted an easy and
         beautiful way to share videos with their friends.
       </FeatureTourPanel>
@@ -90,13 +90,13 @@ storiesOf('components|informational/Feature Tour Panel/', module)
         style={dotStyles(8)}
       >
         This is the body text. Vimeo was born in{' '}
-        <LinkText
+        <Link
           href="https://en.wikipedia.org/wiki/2004"
           target="_blank"
-          format="light"
+          format="soft"
         >
           2004
-        </LinkText>
+        </Link>
         , created by a group of filmmakers who wanted an easy and
         beautiful way to share videos with their friends.
       </FeatureTourPanel>
@@ -115,13 +115,13 @@ storiesOf('components|informational/Feature Tour Panel/', module)
         style={dotStyles(12)}
       >
         This is the body text. Vimeo was born in{' '}
-        <LinkText
+        <Link
           href="https://en.wikipedia.org/wiki/2004"
           target="_blank"
-          format="light"
+          format="soft"
         >
           2004
-        </LinkText>
+        </Link>
         , created by a group of filmmakers who wanted an easy and
         beautiful way to share videos with their friends.
       </FeatureTourPanel>
@@ -140,13 +140,13 @@ storiesOf('components|informational/Feature Tour Panel/', module)
         style={dotStyles(16)}
       >
         This is the body text. Vimeo was born in{' '}
-        <LinkText
+        <Link
           href="https://en.wikipedia.org/wiki/2004"
           target="_blank"
-          format="light"
+          format="soft"
         >
           2004
-        </LinkText>
+        </Link>
         , created by a group of filmmakers who wanted an easy and
         beautiful way to share videos with their friends.
       </FeatureTourPanel>
@@ -180,13 +180,13 @@ storiesOf('components|informational/Feature Tour Panel/', module)
         color={color('(1) color', RumSwizzle, 'tour-colors')}
       >
         This is the body text. Vimeo was born in{' '}
-        <LinkText
+        <Link
           href="https://en.wikipedia.org/wiki/2004"
           target="_blank"
-          format="primaryDark"
+          format="primary"
         >
           2004
-        </LinkText>
+        </Link>
         , created by a group of filmmakers who wanted an easy and
         beautiful way to share videos with their friends.
       </FeatureTourPanel>
@@ -207,13 +207,13 @@ storiesOf('components|informational/Feature Tour Panel/', module)
         color={color('(2) color', Foam, 'tour-colors')}
       >
         This is the body text. Vimeo was born in{' '}
-        <LinkText
+        <Link
           href="https://en.wikipedia.org/wiki/2004"
           target="_blank"
-          format="primaryDark"
+          format="primary"
         >
           2004
-        </LinkText>
+        </Link>
         , created by a group of filmmakers who wanted an easy and
         beautiful way to share videos with their friends.
       </FeatureTourPanel>
@@ -234,13 +234,13 @@ storiesOf('components|informational/Feature Tour Panel/', module)
         color={color('(3) color', WarningYellow, 'tour-colors')}
       >
         This is the body text. Vimeo was born in{' '}
-        <LinkText
+        <Link
           href="https://en.wikipedia.org/wiki/2004"
           target="_blank"
-          format="primaryDark"
+          format="primary"
         >
           2004
-        </LinkText>
+        </Link>
         , created by a group of filmmakers who wanted an easy and
         beautiful way to share videos with their friends.
       </FeatureTourPanel>
