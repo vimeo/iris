@@ -21,12 +21,7 @@ export function BreadcrumbLink({
   ...props
 }: Props) {
   return (
-    <Link
-      href={href}
-      decoration="silent"
-      format={format === 'darkTheme' ? 'primaryDark' : 'primary'}
-      {...props}
-    >
+    <Link href={href} decoration="silent" format="primary" {...props}>
       <Content>{children}</Content>
     </Link>
   );
