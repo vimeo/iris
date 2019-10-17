@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Button, Link, PopOver, PopOverList } from '../../index';
+import { Button, PopOver, PopOverList } from '../../index';
 import { Gear } from '../../../icons';
 import { Story } from '../../../storybook';
+import { Link } from '../../../typography';
 
 storiesOf(`components|Portals/PopOver`, module)
   .add('basic', () => (

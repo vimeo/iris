@@ -1,5 +1,4 @@
 import React, { ReactNode, SFC } from 'react';
-import { TipOverlay } from '../../components/portals/TipOverlay/TipOverlay';
 import { HeaderAltSm } from '../../legacy';
 import {
   VerticalMenuHeaderGroupStyled,
@@ -7,6 +6,7 @@ import {
   ActionButtonWrapper,
   ActionButton,
 } from './VerticalMenuHeaderGroupStyled';
+import { Tip } from '../../components/portals/Tip/Tip';
 
 interface Props {
   actionButtonIcon?: ReactNode;
@@ -43,14 +43,14 @@ export const VerticalMenuHeaderGroup: SFC<Props> = ({
         </HeaderAltSm>
         {hasActionButton && (
           <ActionButtonWrapper>
-            <TipOverlay
-              tooltipText={actionButtonTooltipText}
-              triggerOnClick={false}
+            <Tip
+              content={actionButtonTooltipText}
+              // triggerOnClick={false}
             >
               <ActionButton onClick={actionButtonOnClick}>
                 {actionButtonIcon}
               </ActionButton>
-            </TipOverlay>
+            </Tip>
           </ActionButtonWrapper>
         )}
       </HeaderWrapper>

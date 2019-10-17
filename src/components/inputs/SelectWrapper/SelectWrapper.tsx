@@ -1,12 +1,20 @@
 import React, { SFC } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
-import { SelectWrapperFocusOutline as FocusOutline } from './SelectWrapperFocus';
+
 import {
   InputProps,
   InputStyleSettings,
 } from '../InputText/InputHelpers';
 import { InputWrapper } from '../InputWrapper/InputWrapper';
+import { InputFieldWrapperStyled } from '../InputWrapper/InputWrapperStyled';
+
+import {
+  FocusOutline,
+  FocusOutlineFocused,
+  FocusOutlineProps,
+} from '../../../utils';
+
 import { ChevronDown } from '../../../icons';
 
 export interface SelectWrapperProps extends InputProps {
@@ -125,7 +133,18 @@ export const SelectWrapper: SFC<SelectWrapperProps> = ({
       >
         <ChevronDown />
       </ArrowWrapperStyled>
-      <FocusOutline />
+      <SelectWrapperFocusOutline />
     </WrapperStyled>
   </InputWrapper>
 );
+
+export const SelectWrapperFocusOutline = styled.div<
+  FocusOutlineProps
+>`
+  ${FocusOutline};
+  transform: scale(0.98, 0.86);
+
+  ${InputFieldWrapperStyled} > ${WrapperStyled}:focus-within & {
+    ${FocusOutlineFocused};
+  }
+`;

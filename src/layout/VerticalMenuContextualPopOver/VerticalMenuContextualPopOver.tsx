@@ -1,6 +1,6 @@
-import React, { ReactNode, SFC } from 'react';
+import React, { ReactNode, SFC, ReactElement } from 'react';
 import { PopOver } from '../../components/portals/PopOver/PopOver';
-import { TipOverlay } from '../../components/portals/TipOverlay/TipOverlay';
+import { Tip } from '../../components/portals/Tip/Tip';
 import styled from 'styled-components';
 import { rem } from 'polished';
 
@@ -42,13 +42,9 @@ export const VerticalMenuContextualPopOver: SFC<Props> = ({
     onOpen={onOpen}
   >
     {tooltipText ? (
-      <TipOverlay
-        tooltipText={tooltipText}
-        triggerOnClick={false}
-        {...tooltipProps}
-      >
-        {buttonElement}
-      </TipOverlay>
+      <Tip content={tooltipText} {...tooltipProps}>
+        {buttonElement as ReactElement}
+      </Tip>
     ) : (
       buttonElement
     )}

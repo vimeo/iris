@@ -1,119 +1,58 @@
-import React, { MouseEventHandler, ReactNode } from 'react';
-import styled from 'styled-components';
-import { rem, rgba } from 'polished';
+import React, { ReactNode } from 'react';
 
-import { TipOverlay } from '../../portals/TipOverlay/TipOverlay';
-import { CounterIconFocusOutline as FocusOutline } from './CounterIconFocus';
-import { FocusOutlineFocused } from '../../../utils';
+import {
+  CounterIcon as Styled,
+  Icon,
+  Content,
+} from './CounterIcon.style';
 
-import { ParagraphLg, TRANSITIONS } from '../../../legacy';
-import { withDeprecateProps } from '../../../utils';
-import { AstroGranite } from '../../../legacy';
+import { Tip } from '../../portals/Tip/Tip';
+import { Paragraph } from '../../../typography';
+import { withIris, IrisProps } from '../../../utils';
 
-interface Props {
-  counterTitle?: string;
-  title?: string;
-  href?: string;
-  icon: ReactNode;
-  onClick?: MouseEventHandler;
-  tooltipProps?: {};
-}
-
-export const CounterIcon = withDeprecateProps<Props>(
-  {
-    counterTitle:
-      '`counterTitle` is deprecated and will no longer be available in Iris 8. Please use `title`.',
-  },
-  ({
-    children,
-    href,
-    icon,
-    counterTitle,
-    title,
-    onClick,
-    tooltipProps,
-    className,
-    ...props
-  }) => {
-    if (counterTitle) {
-      title = counterTitle;
-    }
-    const hrefProp = href ? { href } : {};
-
-    return (
-      <CounterIconStyled className={className}>
-        <TipOverlay
-          href={href}
-          tooltipText={title}
-          onClick={!href && onClick}
-          triggerOnClick={false}
-          {...tooltipProps}
-        >
-          <Content
-            {...props}
-            as={href ? 'a' : 'span'}
-            onClick={href && onClick}
-            {...hrefProp}
-          >
-            <Icon>{icon}</Icon>
-            <ParagraphLg element="span">{children}</ParagraphLg>
-            <FocusOutline />
-          </Content>
-        </TipOverlay>
-      </CounterIconStyled>
-    );
-  },
+export const CounterIcon = withIris<HTMLDivElement, Props>(
+  CounterIconComponent,
 );
 
-const size = 18;
+type Props = IrisProps<
+  {
+    href?: string;
+    icon: ReactNode;
+    trigger?: 'click' | 'hover';
+  },
+  HTMLDivElement
+>;
 
-export const CounterIconStyled = styled.div`
-  display: inline-block;
-`;
-
-export const Icon = styled.span`
-  position: absolute;
-  top: ${rem(5)};
-  left: ${rem(4)};
-  width: ${rem(size)};
-  height: ${rem(size)};
-
-  svg {
-    width: ${rem(size)};
-    height: ${rem(size)};
-
-    * {
-      fill: ${AstroGranite};
-    }
-  }
-`;
-
-export const Content = styled.span`
-  display: inline-flex;
-  display: inline-block;
-  position: relative;
-  padding: ${rem(4)} ${rem(4)} ${rem(4)} ${rem(size + 10)};
-  color: ${AstroGranite};
-  border: 0;
-  border-radius: ${rem(3)};
-  background: transparent;
-  transition: all ${TRANSITIONS.base};
-  text-align: center;
-  vertical-align: middle;
-  appearance: none;
-  align-items: center;
-  justify-content: center;
-  -webkit-font-smoothing: antialiased;
-  outline: none;
-
-  ${CounterIconStyled}:hover & {
-    background-color: ${rgba(162, 175, 184, 0.16)};
-  }
-
-  &:focus {
-    background-color: ${rgba(162, 175, 184, 0.16)};
-    ${FocusOutline} {
-      ${FocusOutlineFocused};
-    }
-  }
-`;
+function CounterIconComponent({
+  children,
+  forwardRef,
+  href,
+  trigger = 'hover',
+  icon,
+  onClick,
+  title,
+  ...props
+}: Props) {
+  return (
+    <Styled ref={forwardRef}>
+      <Tip
+        // href={href}
+        onClick={!href && onClick}
+        content={title}
+        trigger={trigger}
+        attach="top"
+      >
+        <Content
+          as={href ? 'a' : 'span'}
+          onClick={href && onClick}
+          {...props}
+        >
+          <Icon>{icon}</Icon>
+          <Paragraph size="1" element="span">
+            {children}
+          </Paragraph>
+        </Content>
+      </Tip>
+    </Styled>
+  );
+}

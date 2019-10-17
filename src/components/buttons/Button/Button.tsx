@@ -1,30 +1,25 @@
-import React from 'react';
+import React, { forwardRef, Ref } from 'react';
 
 import { ButtonProps } from './ButtonTypes';
 import { ButtonStyled, ButtonLabelStyled } from './ButtonStyled';
 import { ButtonFocus } from './ButtonFocus';
 import { ButtonIconElement } from './ButtonIconElement';
 
-import { withDeprecateProps } from '../../../utils';
-
-export const Button = withDeprecateProps<ButtonProps>(
-  {
-    customFormat:
-      '`customFormat` is deprecated and will no longer be available in Iris 8.',
-    isButtonElement:
-      '`isButtonElement` is deprecated and will no longer be available in Iris 8. Please use `as="span"`.',
-  },
-  ({
-    as = 'button',
-    autoWidth = 'sm',
-    children,
-    format = 'primary',
-    icon,
-    iconLocation = 'beforeLabel',
-    isButtonElement,
-    size = 'md',
-    ...props
-  }) => {
+export const Button = forwardRef(
+  (
+    {
+      as = 'button',
+      autoWidth = 'sm',
+      children,
+      format = 'primary',
+      icon,
+      iconLocation = 'beforeLabel',
+      isButtonElement,
+      size = 'md',
+      ...props
+    }: ButtonProps,
+    ref: Ref<HTMLButtonElement>,
+  ) => {
     const hasIcon = position =>
       icon &&
       iconLocation === position && (
@@ -45,6 +40,7 @@ export const Button = withDeprecateProps<ButtonProps>(
         title={children as string}
         hasFeaturedIcon={iconLocation === 'featuredLeft'}
         size={size}
+        ref={ref}
         {...props}
       >
         {hasIcon('featuredLeft')}

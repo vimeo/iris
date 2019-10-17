@@ -1,4 +1,9 @@
-import React, { SFC, ReactNode, MouseEventHandler } from 'react';
+import React, {
+  SFC,
+  ReactNode,
+  MouseEventHandler,
+  forwardRef,
+} from 'react';
 import {
   ButtonStyled,
   IconWrapperStyled,
@@ -20,25 +25,31 @@ export interface Props extends BaseProps {
   type?: 'button';
 }
 
-export const ButtonIconOnly: SFC<Props> = ({
-  autoSpacingHorizontal = true,
-  format = DARK,
-  icon,
-  isButtonElement = true,
-  size = 'sm',
-  ...props
-}) => {
-  const ButtonElement = isButtonElement ? ButtonStyled : SpanStyled;
+export const ButtonIconOnly: SFC<Props> = forwardRef(
+  (
+    {
+      autoSpacingHorizontal = true,
+      format = DARK,
+      icon,
+      isButtonElement = true,
+      size = 'sm',
+      ...props
+    }: Props,
+    ref,
+  ) => {
+    const ButtonElement = isButtonElement ? ButtonStyled : SpanStyled;
 
-  return (
-    <ButtonElement
-      {...props}
-      autoSpacingHorizontal={autoSpacingHorizontal}
-      format={format}
-      size={size}
-    >
-      <IconWrapperStyled>{icon}</IconWrapperStyled>
-      <ButtonIconOnlyFocus />
-    </ButtonElement>
-  );
-};
+    return (
+      <ButtonElement
+        {...props}
+        ref={ref}
+        autoSpacingHorizontal={autoSpacingHorizontal}
+        format={format}
+        size={size}
+      >
+        <IconWrapperStyled>{icon}</IconWrapperStyled>
+        <ButtonIconOnlyFocus />
+      </ButtonElement>
+    );
+  },
+);

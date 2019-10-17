@@ -1,12 +1,12 @@
 import React, { ReactNode, SFC, MouseEventHandler } from 'react';
 
 import { ButtonIconOnly } from '../../components/buttons/ButtonIconOnly/ButtonIconOnly';
-import { TipOverlay } from '../../components/portals/TipOverlay/TipOverlay';
+import { Tip } from '../../components/portals/Tip/Tip';
 
 interface Props {
   icon: ReactNode;
   tooltipText?: string;
-  // tooltipProps?: TipOverlayProps;
+  // tooltipProps?: TipProps;
   tooltipProps?: any;
   onClick?: MouseEventHandler;
 }
@@ -18,7 +18,7 @@ export const VerticalMenuActionButton: SFC<Props> = ({
   ...props
 }) =>
   tooltipText ? (
-    <TipOverlay tooltipText={tooltipText} {...tooltipProps}>
+    <Tip content={tooltipText} {...tooltipProps}>
       <ButtonIconOnly
         {...props}
         autoSpacingHorizontal={false}
@@ -27,7 +27,7 @@ export const VerticalMenuActionButton: SFC<Props> = ({
         isButtonElement={false}
         size="sm"
       />
-    </TipOverlay>
+    </Tip>
   ) : (
     <ButtonIconOnly
       {...props}

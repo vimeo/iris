@@ -47,6 +47,7 @@
         "babel-plugin-polished": "^1.1.0",
         "babel-plugin-require-context-hook": "^1.0.0",
         "babel-plugin-styled-components": "^1.10.6",
+        "circular-dependency-plugin": "^5.2.0",
         "eslint": "^6.5.1",
         "eslint-config-airbnb": "^18.0.1",
         "eslint-config-prettier": "^6.4.0",

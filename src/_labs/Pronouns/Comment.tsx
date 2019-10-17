@@ -2,7 +2,7 @@ import React, { SFC, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 
-import { Avatar, Badge as B, TipOverlay } from '../../components';
+import { Avatar, Badge as B, Tip } from '../../components';
 import {
   Header5,
   Header6,
@@ -94,12 +94,9 @@ export const Comment: SFC<Props> = ({
             <Name variation={variation}>{name}</Name>
           ) : (
             <InlineTipHack>
-              <TipOverlay
-                tooltipText={pronouns}
-                triggerOnClick={false}
-              >
+              <Tip content={pronouns}>
                 <Name>{name}</Name>
-              </TipOverlay>
+              </Tip>
             </InlineTipHack>
           )}
 

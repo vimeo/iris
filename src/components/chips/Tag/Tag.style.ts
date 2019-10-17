@@ -3,7 +3,7 @@ import { rem } from 'polished';
 
 import { Sizes } from './Tag.types';
 
-import { Button } from '../../index';
+import { Button } from '../../buttons/Button/Button';
 
 const width = (size: Sizes) => widths[size];
 const widths: { [key in Sizes]: number } = {

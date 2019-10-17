@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { storiesOf } from '@storybook/react';
+
 import { ButtonLoadingState as B } from './ButtonLoadingState';
+
 import { Gear } from '../../../icons';
 import { Story } from '../../../storybook';
-import styled from 'styled-components';
 
 const componentName = 'Button';
 

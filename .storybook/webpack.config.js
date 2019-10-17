@@ -1,4 +1,5 @@
 const StyledTransformer = require('typescript-plugin-styled-components').default();
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 module.exports = ({ config, mode }) => {
   config.module.rules.push({
@@ -34,6 +35,16 @@ module.exports = ({ config, mode }) => {
   config.optimization.removeAvailableModules = false;
   config.optimization.removeEmptyChunks = false;
   config.optimization.splitChunks = false;
+
+  config.plugins.push(
+    new CircularDependencyPlugin({
+      exclude: /a\.js|node_modules/,
+      include: /\.(ts|tsx)$/,
+      failOnError: true,
+      allowAsyncCycles: false,
+      cwd: process.cwd(),
+    }),
+  );
 
   return config;
 };

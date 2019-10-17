@@ -1,40 +1,28 @@
-import React, { ReactNode, SFC } from 'react';
+import React from 'react';
 
-import { TipOverlay } from '../TipOverlay/TipOverlay';
-import { AnnotationStyled, IconWrapper } from './AnnotationStyled';
+import { Tip } from '../Tip/Tip';
 
-import { CircleInfo } from '../../../icons';
+import { withIris, IrisProps } from '../../../utils';
+import { Annotation as Styled, Icon } from './Annotation.style';
 
-interface Props {
-  children?: ReactNode;
-  labelType?: 'textBlock' | 'inline' | 'noPosition'; // DEPRECATE?
-  tooltipText: string;
-  size?: 'md' | 'lg'; // DEPRECATE?
-  tooltipProps?: {};
-}
-
-export const Annotation: SFC<Props> = ({
-  children,
-  labelType = 'inline',
-  size = 'md',
-  tooltipText,
-  tooltipProps,
-  ...props
-}) => (
-  <AnnotationStyled {...props}>
-    {children}
-    <IconWrapper labelType={labelType}>
-      <TipOverlay
-        {...tooltipProps}
-        tooltipText={tooltipText}
-        triggerOnClick={false}
-        onClick={e => {
-          e.preventDefault();
-          e.stopPropagation();
-        }}
-      >
-        <CircleInfo />
-      </TipOverlay>
-    </IconWrapper>
-  </AnnotationStyled>
+export const Annotation = withIris<HTMLDivElement, Props>(
+  AnnotationComponent,
 );
+
+type Props = IrisProps<{ content?: string }, HTMLDivElement>;
+
+function AnnotationComponent({
+  children,
+  content,
+  forwardRef,
+  ...props
+}: Props) {
+  return (
+    <Styled ref={forwardRef}>
+      {children}
+      <Tip attach="top" content={content} {...props}>
+        <Icon />
+      </Tip>
+    </Styled>
+  );
+}

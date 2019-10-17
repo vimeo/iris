@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { InputWrapper } from '../InputWrapper/InputWrapper';
 
-import { TipOverlay } from '../../portals/TipOverlay/TipOverlay';
+import { Tip } from '../../portals/Tip/Tip';
 import { ITFLFocusOutline as FocusOutline } from './InputTextFloatingLabelFocus';
 import {
   InputTextFloatingLabelProps as Props,
@@ -146,8 +146,8 @@ export class InputTextFloatingLabel extends Component<Props, State> {
           {type === 'password' && this.state.isActive && (
             <ActionButton>
               {passwordHideText && passwordShowText ? (
-                <TipOverlay
-                  tooltipText={
+                <Tip
+                  content={
                     this.state.passwordHidden
                       ? passwordShowText
                       : passwordHideText
@@ -161,7 +161,7 @@ export class InputTextFloatingLabel extends Component<Props, State> {
                   >
                     {this.state.passwordHidden ? <Eye /> : <EyeOff />}
                   </ToggleButton>
-                </TipOverlay>
+                </Tip>
               ) : (
                 <ToggleButton
                   role="switch"
