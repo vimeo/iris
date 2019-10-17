@@ -84,7 +84,7 @@
         "react-swipe": "^6.0.4",
         "react-swipeable": "^4.3.1",
         "react-tether": "1.0.2",
-        "react-transition-group": "^2.6.0",
+        "react-transition-group": "^2.6.0"
     },
     "peerDependencies": {
         "polished": "^3.4.1",
