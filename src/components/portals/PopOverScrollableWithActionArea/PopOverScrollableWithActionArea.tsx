@@ -55,7 +55,7 @@ export const PopOverScrollableWithActionArea: SFC<Props> = ({
         {secondaryButtonProps && (
           <$Button
             {...secondaryButtonProps}
-            autoWidth="fluid"
+            fluid
             format="secondary"
             size="sm"
             children={secondaryButtonProps.children}
@@ -63,7 +63,7 @@ export const PopOverScrollableWithActionArea: SFC<Props> = ({
         )}
         <$Button
           {...primaryButtonProps}
-          autoWidth="fluid"
+          fluid
           format="primary"
           size="sm"
           children={primaryButtonProps.children}

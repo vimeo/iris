@@ -40,12 +40,11 @@ function TagComponent({
 
   return (
     <Styled
-      // element={element} needs Iris 8 Button
-      // format="secondary" needs Iris 8 Button
-      format={theme.name === 'dark' ? 'secondaryDark' : 'secondary'}
+      element={element}
+      format="secondary"
       icon={onDismiss && <DismissX />}
       iconPosition={onDismiss ? 'right' : null}
-      // ref={forwardRef} needs Iris 8 Button
+      ref={forwardRef}
       size={size}
       src={src}
       theme={theme}

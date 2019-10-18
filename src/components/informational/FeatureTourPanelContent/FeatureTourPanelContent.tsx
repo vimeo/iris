@@ -2,11 +2,12 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { rem, getLuminance } from 'polished';
 
-import { ButtonIconOnly } from '../../buttons/ButtonIconOnly/ButtonIconOnly';
+import { Button } from '../../buttons/Button/Button';
 
 import { HeaderAltSm, Header5, ParagraphMd } from '../../../legacy';
 import { DismissX } from '../../../icons';
 import { COLORS } from '../../../legacy';
+import { themes } from '../../../themes';
 
 export interface FeatureTourPanelContentProps {
   actionArea?: ReactNode;
@@ -43,9 +44,9 @@ export const FeatureTourPanelContent = ({
       <DismissButtonStyled
         {...dismissButtonProps}
         icon={<DismissX />}
-        format={
-          getLuminance(color) > 0.5 ? 'dark' : 'lightTransparent'
-        }
+        format="basic"
+        variant="hyperminimal"
+        theme={getLuminance(color) > 0.5 ? themes.light : themes.dark}
         size="sm"
         onClick={handleClick}
       />
@@ -91,7 +92,7 @@ const FeatureTourPanelContentStyled = styled.div`
   }
 `;
 
-const DismissButtonStyled = styled(ButtonIconOnly)`
+const DismissButtonStyled = styled(Button)`
   position: absolute;
   top: ${rem(14)};
   right: ${rem(16)};

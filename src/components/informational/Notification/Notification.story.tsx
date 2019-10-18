@@ -8,11 +8,7 @@ storiesOf('Components|informational/', module).add(
   'Notification',
   () => (
     <Story title="Notification">
-      <Notification
-        automatic
-        content="This is Notification 1!"
-        // onComplete={() => onComplete(1)}
-      >
+      <Notification automatic content="This is Notification 1!">
         <Button>Show Notification 1</Button>
       </Notification>
 
@@ -21,7 +17,6 @@ storiesOf('Components|informational/', module).add(
 
       <Notification
         format="warning"
-        // onComplete={() => onComplete(2)}
         actionLabel="Undo"
         content="This is Notification 2!"
         action={{

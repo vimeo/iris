@@ -32,12 +32,7 @@ export const TabNavigationHorizontalItem: SFC<Props> = ({
         }
       }}
     >
-      <Button
-        autoWidth="fluid"
-        format="secondaryTextOnly"
-        isButtonElement={false}
-        size="md"
-      >
+      <Button format="primary" variant="hyperminimal" size="md" fluid>
         {label}
       </Button>
     </a>

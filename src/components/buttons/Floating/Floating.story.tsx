@@ -3,8 +3,11 @@ import { storiesOf } from '@storybook/react';
 import { Story } from '../../../storybook';
 import { FloatingButton } from './Floating';
 
-storiesOf(`components|Buttons/`, module).add('Floating', () => (
-  <Story title="Floating Button">
-    <FloatingButton>Post a job</FloatingButton>
-  </Story>
-));
+storiesOf(`Components|buttons/`, module).add(
+  'Floating Button',
+  () => (
+    <Story title="Floating Button">
+      <FloatingButton>Post a job</FloatingButton>
+    </Story>
+  ),
+);

@@ -39,12 +39,7 @@ function BreadcrumbComponent({
             style={{ maxWidth: crumbWidth }}
             theme={theme}
           >
-            <Label
-              // element="span"
-              // noMargin={noMargin}
-              size="2"
-              theme={theme}
-            >
+            <Label size="2" theme={theme}>
               {crumb}
             </Label>
             <Arrow />
@@ -52,8 +47,6 @@ function BreadcrumbComponent({
         ))}
 
       <Current
-        // element="span"
-        // noMargin={noMargin}
         size="2"
         style={{ maxWidth: crumbWidth }}
         theme={theme}

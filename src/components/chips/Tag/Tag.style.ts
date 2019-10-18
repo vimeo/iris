@@ -27,10 +27,7 @@ interface Props {
   src: string;
 }
 
-export const Tag = styled(Button).attrs({
-  radius: 66,
-  iconLocation: 'afterLabel',
-})<Props>`
+export const Tag = styled(Button).attrs({ radius: 66 })<Props>`
   border-radius: ${rem(66)};
 
   ${({ src, size }) =>

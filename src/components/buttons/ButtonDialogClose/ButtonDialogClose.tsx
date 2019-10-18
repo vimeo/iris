@@ -1,6 +1,6 @@
 import React, { SFC, MouseEventHandler } from 'react';
 
-import { ButtonIconOnly } from '../ButtonIconOnly/ButtonIconOnly';
+import { Button } from '../Button/Button';
 
 import { DismissX } from '../../../icons';
 import { BaseProps } from '../../../utils';
@@ -8,14 +8,15 @@ import { BaseProps } from '../../../utils';
 interface Props extends BaseProps {
   buttonTitle?: string;
   autoSpacingHorizontal?: boolean;
-  format?:
-    | 'alternative'
-    | 'dark'
-    | 'lightTransparent'
-    | 'lightWarning'
+  format?: 'basic' | 'soft' | 'alternative' | 'secondary' | 'primary';
+  variant?:
+    | 'basic'
     | 'transparent'
-    | 'warning';
-  isButtonElement?: boolean;
+    | 'outline'
+    | 'dashed'
+    | 'minimal'
+    | 'hyperminimal'
+    | 'minimalTransparent';
   size?: 'sm' | 'md';
   onClick?: MouseEventHandler;
   type?: 'button';
@@ -24,18 +25,14 @@ interface Props extends BaseProps {
 export const ButtonDialogClose: SFC<Props> = ({
   buttonTitle = 'Close',
   autoSpacingHorizontal = true,
-  format = 'dark',
-  isButtonElement = true,
+  format = 'basic',
   size = 'sm',
   ...props
 }) => (
-  <ButtonIconOnly
+  <Button
     {...props}
-    autoSpacingHorizontal={autoSpacingHorizontal}
     format={format}
     icon={<DismissX />}
-    isButtonElement={isButtonElement}
     size={size}
-    type="button"
   />
 );

@@ -5,7 +5,7 @@ import { PopOverScrollableWithActionArea } from './PopOverScrollableWithActionAr
 import { PopOver } from '../PopOver/PopOver';
 
 import { ParagraphMd } from '../../../legacy';
-import { InputText, ButtonIconOnly } from '../../index';
+import { InputText, Button } from '../../index';
 import { Gear } from '../../../icons';
 
 import { Story } from '../../../storybook';
@@ -55,12 +55,7 @@ storiesOf(`components|portals/PopOver`, module).add(
           </PopOverScrollableWithActionArea>
         }
       >
-        <ButtonIconOnly
-          icon={<Gear />}
-          format="dark"
-          size="md"
-          isButtonElement={false}
-        />
+        <Button icon={<Gear />} size="md" />
       </PopOver>
     </Story>
   ),

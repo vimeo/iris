@@ -20,10 +20,6 @@ export interface ModalFeatureUpdateProps {
    */
   dismissButtonLabel: string;
   /**
-   * Chose the format of ButtonIconOnly that will appear in the top-right corner
-   */
-  dismissButtonFormat?: 'dark' | 'lightTransparent';
-  /**
    * Pass an object of props to be spread across the dismiss button.
    */
   dismissButtonProps?: {};
@@ -91,13 +87,12 @@ const transitionStyles = {
 
 const ButtonDialogCloseStyled = styled(ButtonDialogClose)<{
   dismissButtonLabel?: string;
-  dismissButtonFormat?: 'dark' | 'lightTransparent';
   onClick?: (e?: Event) => void;
 }>`
   position: absolute;
   top: ${rem(6)};
   right: ${rem(6)};
-  z-index: 1; // needs some z-index to be visible.
+  z-index: 1;
 `;
 
 // ==================== ModalFeatureUpdate
@@ -114,7 +109,6 @@ export class ModalFeatureUpdate extends React.Component<
   public render() {
     const {
       children,
-      dismissButtonFormat,
       dismissButtonLabel,
       dismissButtonProps,
       firstFocusSelector = '[data-modal-close]',
@@ -149,8 +143,7 @@ export class ModalFeatureUpdate extends React.Component<
                 <ButtonDialogCloseStyled
                   {...dismissButtonProps}
                   buttonTitle={dismissButtonLabel}
-                  format={dismissButtonFormat}
-                  isButtonElement={true}
+                  format="basic"
                   onClick={this._handleDismissButtonClick}
                   size="sm"
                   data-modal-close

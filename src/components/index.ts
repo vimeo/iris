@@ -22,22 +22,17 @@ export { Toggle } from './inputs/Toggle/Toggle';
 export { withCharacterCount } from './inputs/withCharacterCount/withCharacterCount';
 
 //
+// buttons
+export { Button } from './buttons/Button/Button';
+export { FloatingButton } from './buttons/Floating/Floating';
+export { SocialButton } from './buttons/Social/SocialButton';
+export { ButtonToggleState } from './buttons/ToggleState/ToggleState';
+
 // 8 Bridge
 //
 
 // buttons
-export { Button } from './buttons/Button/Button';
-export { ButtonFocusWrapper } from './buttons/Button/ButtonFocusWrapper';
-export { ButtonIconElement } from './buttons/Button/ButtonIconElement';
-export { ButtonIconOnly } from './buttons/ButtonIconOnly/ButtonIconOnly';
 export { ButtonInlineInputText } from './buttons/ButtonInlineInputText/ButtonInlineInputText';
-export { ButtonLoadingState } from './buttons/ButtonLoadingState/ButtonLoadingState';
-export { ButtonSplitMenu } from './buttons/ButtonSplitMenu/ButtonSplitMenu';
-export { ButtonToggleState } from './buttons/ButtonToggleState/ButtonToggleState';
-export { CircularButton } from './buttons/CircularButton/CircularButton';
-export { FloatingButton } from './buttons/Floating/Floating';
-export { SegmentedButtonSet } from './buttons/SegmentedButtonSet/SegmentedButtonSet';
-export { SocialButton } from './buttons/SocialButton/SocialButton';
 
 // inputs
 export { ColorSelect } from './inputs/ColorSelect/ColorSelect';

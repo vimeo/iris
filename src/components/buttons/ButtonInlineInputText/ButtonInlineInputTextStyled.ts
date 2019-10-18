@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 import { rem, size } from 'polished';
 
-import { ButtonColors } from '../Button/ButtonColors';
 import { Props } from './ButtonInlineInputText';
 
 import { COLORS } from '../../../legacy';
+import { themes } from '../../../themes';
 import { TRANSITIONS } from '../../../legacy';
 import { fontFamily } from '../../../typography';
 
@@ -35,8 +35,8 @@ const formats = {
   `,
   neutral: css`
     color: ${COLORS.White};
-    border-color: ${ButtonColors.AlternativeBackground};
-    background: ${ButtonColors.AlternativeBackground};
+    border-color: ${themes.light.formats.alternative};
+    background: ${themes.light.formats.alternative};
 
     svg * {
       fill: ${COLORS.White};

@@ -7,12 +7,11 @@ import { Transition } from 'react-transition-group';
 import { ModalWrapper } from '../ModalWrapper/ModalWrapper';
 
 import { Button } from '../../buttons/Button/Button';
-import { ButtonProps } from '../../buttons/Button/ButtonTypes';
-import { ButtonDialogClose } from '../../buttons/ButtonDialogClose/ButtonDialogClose';
 
 import { mediaQuery } from '../../../layout';
 import { Header4 } from '../../../legacy';
 import { COLORS } from '../../../legacy';
+import { DismissX } from '../../../icons';
 
 const MODAL_SPEED = 300;
 const MODAL_MAX_HEIGHT = '86vh';
@@ -64,11 +63,11 @@ export interface ModalProps {
   /**
    * Pass an object of Button Props to get an Action Area
    */
-  primaryButtonProps?: ButtonProps;
+  primaryButtonProps?: any;
   /**
    * Pass an object of Button Props to get a secondary button in the ActionArea
    */
-  secondaryButtonProps?: ButtonProps;
+  secondaryButtonProps?: any;
   /**
    * Hides the dismiss button (Use with Caution!)
    */
@@ -356,15 +355,13 @@ export class Modal extends React.Component<ModalProps, ModalState> {
       </ModalTitleStyled>
     );
 
-    const closeButtonFormat =
-      dismissButtonFormat === 'light' ? 'lightTransparent' : 'dark';
-
     const CloseButton = (
       <ModalCloseButtonWrapperStyled>
-        <ButtonDialogClose
-          buttonTitle={modalCloseLabel}
+        <Button
           onClick={this._handleModalClose}
-          format={closeButtonFormat}
+          format="basic"
+          variant="minimalTransparent"
+          icon={<DismissX />}
           data-js-modalCloseButton
         />
       </ModalCloseButtonWrapperStyled>

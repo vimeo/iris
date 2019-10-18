@@ -19,7 +19,7 @@ import {
   NestedMenu,
   Wrapper,
 } from './VerticalMenuItemStyled';
-import { ButtonIconOnly } from '../../components/buttons/ButtonIconOnly/ButtonIconOnly';
+import { Button } from '../../components/buttons/Button/Button';
 
 import { KEY_CODES } from '../../legacy';
 
@@ -84,11 +84,10 @@ export class VerticalMenuItem extends Component<Props, State> {
     } = this.props;
 
     const NestedMenuButton = (
-      <ButtonIconOnly
+      <Button
         icon={<DotsMenuIconStyled />}
-        format="dark"
+        format="basic"
         size="sm"
-        isButtonElement={false}
       />
     );
 

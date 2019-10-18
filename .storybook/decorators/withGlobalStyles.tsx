@@ -33,6 +33,8 @@ const GlobalStyles = createGlobalStyle`
     button {
         background: transparent;
         border-color: transparent;
+        padding: 0;
+        margin: 0;
     }
 `;
 

@@ -1,157 +1,281 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { storiesOf } from '@storybook/react';
-import { text, select } from '@storybook/addon-knobs';
+import { Button as B } from './Button';
+import {
+  DownloadArrow,
+  Plus,
+  PaperPlane,
+  Heart,
+  Gear,
+  ChevronDown,
+} from '../../../icons';
 
-import { Button } from './Button';
-
-import { DownloadArrow, Heart, PaperPlane } from '../../../icons';
-import { Story } from '../../../storybook';
-import { ParagraphMd } from '../../../legacy';
-
-const $Button = styled(Button)`
+const Button = styled(B)`
+  display: flex;
   margin: 0 1rem 1rem 0;
 `;
 
-const ButtonCropped = styled($Button)`
-  max-width: 150px;
+import { Story } from '../../../storybook';
+import { Header } from '../../../typography';
+
+const componentName = 'Button';
+
+const Cols = styled.div`
+  display: flex;
+  > * {
+    flex: 1;
+  }
 `;
 
-const buttonFormats = {
-  primary: 'primary',
-  primaryDark: 'primaryDark',
-  primaryOutline: 'primaryOutline',
-  primaryTextOnly: 'primaryTextOnly',
-  secondary: 'secondary',
-  secondaryDark: 'secondaryDark',
-  secondaryOutline: 'secondaryOutline',
-  secondaryTextOnly: 'secondaryTextOnly',
-  alternative: 'alternative',
-  alternativeOutline: 'alternativeOutline',
-  darkSecondary: 'darkSecondary',
-  success: 'success',
-  successOutline: 'successOutline',
-  warning: 'warning',
-  warningOutline: 'warningOutline',
-  warningTextOnly: 'warningTextOnly',
-  lightTransparent: 'lightTransparent',
-  lightTextOnly: 'lightTextOnly',
-};
+storiesOf(`Components|buttons/Button/props/`, module).add(
+  'circular',
+  () => (
+    <Story title="Circular" width="100%">
+      <Button circular icon={<Plus />} size="sm" />
+      <Button circular icon={<Plus />} size="md" />
+      <Button circular icon={<Plus />} size="lg" />
+    </Story>
+  ),
+);
 
-storiesOf(`components|buttons/`, module)
-  .add('playground', () => (
-    <Story title="Button" subTitle="Playground">
-      <ParagraphMd>Click "KNOBS" in the panel below.</ParagraphMd>
-      <$Button format={select('format', buttonFormats, 'primary')}>
-        {text('text', 'Play with me!')}
-      </$Button>
+storiesOf(`Components|buttons/Button/props/`, module).add(
+  'fluid',
+  () => (
+    <Story title="Button" width="100%">
+      {formats.map((format, i) => (
+        <div key={i}>
+          <Button fluid format={format} children={format} size="lg" />
+        </div>
+      ))}
+      {statuses.map((status, i) => (
+        <div key={i}>
+          <Button fluid status={status} children={status} size="lg" />
+        </div>
+      ))}
+      <br />
     </Story>
-  ))
-  .add('basic', () => (
-    <Story title="Button" subTitle="Basic">
-      <$Button>Primary</$Button>
-      <$Button format="secondary">Secondary</$Button>
-      <$Button format="alternative">Alternative</$Button>
-      <$Button format="success">Success</$Button>
-      <$Button format="warning">Warning</$Button>
-    </Story>
-  ))
-  .add(
-    'text overflow',
-    () => (
-      <Story title="Button" subTitle="Text Overflow">
-        <ButtonCropped>Primary with Text Overflow</ButtonCropped>
-        <ButtonCropped format="secondary">
-          Secondary with Text Overflow
-        </ButtonCropped>
-        <ButtonCropped format="alternative">
-          Alternative with Text Overflow
-        </ButtonCropped>
-        <ButtonCropped format="success">
-          Success with Text Overflow
-        </ButtonCropped>
-        <ButtonCropped format="warning">
-          Warning with Text Overflow
-        </ButtonCropped>
-      </Story>
-    ),
-    {
-      notes:
-        'Buttons must be width constrained for the text to ellipsis crop. ButtonCropped used in example has a max-width of 150px.',
-    },
-  )
-  .add('outline', () => (
-    <Story title="Button" subTitle="Outline">
-      <$Button format="primaryOutline">Primary Outline</$Button>
-      <$Button format="secondaryOutline">Secondary Outline</$Button>
-      <$Button format="alternativeOutline">
-        Alternative Outline
-      </$Button>
-      <$Button format="successOutline">Success Outline</$Button>
-      <$Button format="warningOutline">Warning Outline</$Button>
-    </Story>
-  ))
-  .add('icon', () => (
-    <Story
-      title="Button"
-      subTitle="Icon"
-      props={['icon', 'iconLocation']}
-    >
-      <div>
-        <$Button size="lg" format="warning" icon={<PaperPlane />}>
-          warning lg
-        </$Button>
-        <$Button
-          size="lg"
-          format="success"
-          icon={<DownloadArrow />}
-          iconLocation="afterLabel"
-        >
-          Success lg
-        </$Button>
-      </div>
-      <div>
-        <$Button format="alternative" icon={<PaperPlane />}>
-          Alternative
-        </$Button>
-        <$Button
-          format="secondaryOutline"
-          icon={<Heart />}
-          iconLocation="afterLabel"
-        >
-          Secondary Outline
-        </$Button>
-      </div>
-      <div>
-        <$Button size="sm" format="primary" icon={<PaperPlane />}>
-          Primary sm
-        </$Button>
-        <$Button
-          size="sm"
-          format="secondary"
-          icon={<DownloadArrow />}
-          iconLocation="afterLabel"
-        >
-          Secondary sm
-        </$Button>
-      </div>
+  ),
+);
 
-      <div>
-        <$Button
-          size="xs"
-          format="primaryOutline"
-          icon={<PaperPlane />}
-        >
-          Primary xs
-        </$Button>
-        <$Button
-          size="xs"
-          format="secondaryOutline"
-          icon={<PaperPlane />}
-          iconLocation="afterLabel"
-        >
-          Secondary xs
-        </$Button>
-      </div>
+storiesOf(
+  `Components|buttons/Button/props/icon/iconPosition/`,
+  module,
+)
+  .add('left', () => (
+    <Story title="Button" width="100%">
+      {variants.map((variant, i) => (
+        <Cols key={i}>
+          {formats.map((format, i) => (
+            <div key={i}>
+              <Button
+                variant={variant}
+                format={format}
+                children={format}
+                icon={<Plus />}
+              />
+            </div>
+          ))}
+          {statuses.map((status, i) => (
+            <div key={i}>
+              <Button
+                variant={variant}
+                status={status}
+                children={status}
+                icon={<Plus />}
+              />
+            </div>
+          ))}
+          <br />
+        </Cols>
+      ))}
+    </Story>
+  ))
+  .add('right', () => (
+    <Story title="Button" width="100%">
+      {variants.map((variant, i) => (
+        <Cols key={i}>
+          {formats.map((format, i) => (
+            <div key={i}>
+              <Button
+                variant={variant}
+                format={format}
+                children={format}
+                icon={<ChevronDown />}
+                iconPosition="right"
+              />
+            </div>
+          ))}
+          {statuses.map((status, i) => (
+            <div key={i}>
+              <Button
+                variant={variant}
+                status={status}
+                children={status}
+                icon={<ChevronDown />}
+                iconPosition="right"
+              />
+            </div>
+          ))}
+          <br />
+        </Cols>
+      ))}
+    </Story>
+  ))
+  .add('featured', () => (
+    <Story title="Button" width="100%">
+      {formats.map((format, i) => (
+        <div key={i}>
+          <Button
+            format={format}
+            children={format}
+            icon={<PaperPlane />}
+            iconPosition="featured"
+            size="lg"
+          />
+        </div>
+      ))}
+      {statuses.map((status, i) => (
+        <div key={i}>
+          <Button
+            status={status}
+            children={status}
+            icon={<PaperPlane />}
+            iconPosition="featured"
+            size="lg"
+          />
+        </div>
+      ))}
+      <br />
     </Story>
   ));
+
+storiesOf(`Components|buttons/Button`, module)
+  .add('Button', () => (
+    <Story title={componentName} width="100%">
+      {formats.map((format, i) => (
+        <div key={i}>
+          <Button format={format} children={format} />
+        </div>
+      ))}
+      {statuses.map((status, i) => (
+        <div key={i}>
+          <Button status={status} children={status} />
+        </div>
+      ))}
+    </Story>
+  ))
+  .add('text overflow', () => (
+    <Story title="text overflow" width="100%">
+      {formats.map((format, i) => (
+        <div key={i}>
+          <Button
+            format={format}
+            children={format + ' lorem ipsum dolor'}
+            style={{ maxWidth: '6rem' }}
+          />
+        </div>
+      ))}
+      {statuses.map((status, i) => (
+        <div key={i}>
+          <Button
+            status={status}
+            children={status + ' lorem ipsum dolor'}
+            style={{ maxWidth: '6rem' }}
+          />
+        </div>
+      ))}
+    </Story>
+  ));
+
+storiesOf(`Components|buttons/Button/props/icon/`, module).add(
+  'icon',
+  () => (
+    <Story title="Icon Only" width="100%">
+      {formats.map((format, i) => (
+        <div key={i}>
+          <Button format={format} icon={<DownloadArrow />} />
+        </div>
+      ))}
+      {statuses.map((status, i) => (
+        <div key={i}>
+          <Button status={status} icon={<DownloadArrow />} />
+        </div>
+      ))}
+    </Story>
+  ),
+);
+
+storiesOf(`Components|buttons/Button/props`, module).add(
+  'loading',
+  () => <ButtonLoadingStory />,
+);
+// .add('Render Error Example', () => (
+//   <Story title="Render Error">
+//     <Button format="badFormatName" debug>
+//       hey
+//     </Button>
+//     <Button format="primary">hey</Button>
+//     <Button format="badFormatNameTwo" debug>
+//       hey
+//     </Button>
+//   </Story>
+// ));
+
+const ButtonLoadingStory = props => {
+  const [loading, setLoading] = useState(false);
+  const doClick = () => setLoading(loading => !loading);
+
+  return (
+    <Story title="Loading" width="100%">
+      <Button size="lg" loading={!loading} onClick={doClick}>
+        Click Me
+      </Button>
+      <Button
+        icon={<Gear />}
+        loading={loading}
+        onClick={doClick}
+        format="primary"
+        variant="outline"
+        size="md"
+      >
+        Click Me
+      </Button>
+      <Button
+        icon={<Gear />}
+        loading={!loading}
+        onClick={doClick}
+        status="positive"
+        size="sm"
+      >
+        Click Me
+      </Button>
+      <Button
+        loading={loading}
+        onClick={doClick}
+        format="secondary"
+        size="xs"
+      >
+        Click Me
+      </Button>
+    </Story>
+  );
+};
+
+const formats = [
+  'basic',
+  'soft',
+  'alternative',
+  'secondary',
+  'primary',
+] as const;
+const statuses = ['positive', 'negative'] as const;
+const variants = [
+  'basic',
+  'transparent',
+  'outline',
+  'dashed',
+  'minimal',
+  'hyperminimal',
+  'minimalTransparent',
+] as const;

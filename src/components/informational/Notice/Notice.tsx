@@ -2,7 +2,7 @@ import React, { ReactNode, MouseEventHandler } from 'react';
 
 import { NoticeStyled, Icon, Dismiss } from './Notice.style';
 
-import { ButtonIconOnly } from '../../buttons/ButtonIconOnly/ButtonIconOnly';
+import { Button } from '../../buttons/Button/Button';
 
 import {
   CircleInfo,
@@ -64,7 +64,7 @@ function NoticeComponent({
             icon={<DismissX />}
           />
           */}
-          <ButtonIconOnly icon={<DismissX />} />
+          <Button icon={<DismissX />} variant="minimalTransparent" />
         </Dismiss>
       )}
     </NoticeStyled>

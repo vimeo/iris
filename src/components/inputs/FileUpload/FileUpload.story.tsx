@@ -5,7 +5,6 @@ import { storiesOf } from '@storybook/react';
 import { FileUpload as FU } from './FileUpload';
 
 import { Button } from '../../buttons/Button/Button';
-import { ButtonIconOnly } from '../../buttons/ButtonIconOnly/ButtonIconOnly';
 import { Story } from '../../../storybook';
 import { UploadCloud } from '../../../icons';
 
@@ -19,15 +18,13 @@ storiesOf(`Components|inputs/`, module).add('File Upload ', () => (
       <Button icon={<UploadCloud />}>Upload</Button>
     </FileUpload>
     <FileUpload>
-      {/* // Needs Iris 8 button
-      <Button icon={<UploadCloud />} variant="outline" /> */}
-      <ButtonIconOnly icon={<UploadCloud />} />
+      <Button icon={<UploadCloud />} variant="outline" />
     </FileUpload>
     <FileUpload>
-      <ButtonIconOnly
+      <Button
         icon={<UploadCloud />}
         format="alternative"
-        // variant="minimal" // Needs Iris 8 button
+        variant="minimal"
       />
     </FileUpload>
   </Story>

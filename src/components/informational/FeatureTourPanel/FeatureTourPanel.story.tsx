@@ -131,7 +131,6 @@ storiesOf('components|informational/Feature Tour Panel/', module)
           <FeatureTourPanelButton>Okay</FeatureTourPanelButton>
         }
         attachment="right"
-        // shouldHideOnClose
         headerText="Right Attachment With Long Title For Multi-line"
         beaconDelayIndex={5}
         beaconA11yText="click to learn more"
@@ -165,7 +164,10 @@ storiesOf('components|informational/Feature Tour Panel/', module)
     >
       <FeatureTourPanel
         actionArea={
-          <FeatureTourPanelButton format="secondaryOutline">
+          <FeatureTourPanelButton
+            format="secondary"
+            variant="outline"
+          >
             Okay
           </FeatureTourPanelButton>
         }
@@ -192,7 +194,10 @@ storiesOf('components|informational/Feature Tour Panel/', module)
       </FeatureTourPanel>
       <FeatureTourPanel
         actionArea={
-          <FeatureTourPanelButton format="secondaryOutline">
+          <FeatureTourPanelButton
+            format="secondary"
+            variant="outline"
+          >
             Okay
           </FeatureTourPanelButton>
         }
@@ -219,7 +224,10 @@ storiesOf('components|informational/Feature Tour Panel/', module)
       </FeatureTourPanel>
       <FeatureTourPanel
         actionArea={
-          <FeatureTourPanelButton format="secondaryOutline">
+          <FeatureTourPanelButton
+            format="secondary"
+            variant="outline"
+          >
             Okay
           </FeatureTourPanelButton>
         }
@@ -273,7 +281,8 @@ storiesOf('components|informational/Feature Tour Panel/', module)
           sites, and create channels for TV apps.
         </ParagraphMd>
         <Button
-          format="alternativeOutline"
+          format="alternative"
+          variant="outline"
           style={{ marginRight: '1rem' }}
         >
           Learn More
@@ -296,7 +305,8 @@ storiesOf('components|informational/Feature Tour Panel/', module)
           sites, and create channels for TV apps.
         </ParagraphMd>
         <Button
-          format="alternativeOutline"
+          format="alternative"
+          variant="outline"
           style={{ marginRight: '1rem' }}
         >
           Learn More
@@ -319,7 +329,8 @@ storiesOf('components|informational/Feature Tour Panel/', module)
           sites, and create channels for TV apps.
         </ParagraphMd>
         <Button
-          format="alternativeOutline"
+          format="alternative"
+          variant="outline"
           style={{ marginRight: '1rem' }}
         >
           Learn More
@@ -342,7 +353,8 @@ storiesOf('components|informational/Feature Tour Panel/', module)
           sites, and create channels for TV apps.
         </ParagraphMd>
         <Button
-          format="alternativeOutline"
+          format="alternative"
+          variant="outline"
           style={{ marginRight: '1rem' }}
         >
           Learn More
@@ -365,7 +377,8 @@ storiesOf('components|informational/Feature Tour Panel/', module)
           sites, and create channels for TV apps.
         </ParagraphMd>
         <Button
-          format="alternativeOutline"
+          format="alternative"
+          variant="outline"
           style={{ marginRight: '1rem' }}
         >
           Learn More

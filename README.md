@@ -74,14 +74,14 @@ This will open the Iris docs at http://localhost:9001/
 ## Using Components
 Import components into your React app:
 ```jsx
-import { Button, ButtonIconOnly } from '@vimeo/iris/components';
+import { Button } from '@vimeo/iris/components';
 import { ParagraphMd } from '@vimeo/iris/typography';
 
 
 <div>
     <ParagraphMd>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ParagraphMd>
     <Button format="primary" size="xl">xl Button</Button>
-    <ButtonIconOnly
+    <Button
         icon={<SettingsIcon title="Settings" />}
         format="dark"
         size="sm"

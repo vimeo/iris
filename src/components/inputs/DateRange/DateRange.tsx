@@ -267,7 +267,8 @@ export const DateRange: IrisInputComponent<DateRangeProps> = ({
               <ClearButton
                 hidden={draftEnd === null}
                 size="sm"
-                format="primaryTextOnly"
+                format="primary"
+                variant="hyperminimal"
                 onClick={() => void dispatch({ type: 'CLEAR' })}
               >
                 Clear

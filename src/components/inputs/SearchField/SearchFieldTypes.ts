@@ -1,4 +1,3 @@
-import { ButtonProps } from '../../buttons/Button/ButtonTypes';
 import {
   ReactNode,
   ChangeEventHandler,
@@ -8,7 +7,7 @@ import {
 export interface SearchFieldProps {
   buttonFormat?: 'subtle' | 'neutral' | 'strong';
   buttonLabel: string;
-  buttonProps?: ButtonProps;
+  buttonProps?: any;
   fieldLabel: string;
   icon?: ReactNode;
   id: string;

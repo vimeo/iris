@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { ButtonToggleState as B } from './ButtonToggleState';
+import { ButtonToggleState as B } from '../ToggleState/ToggleState';
 import { Plus, Checkmark, DismissX } from '../../../icons';
 import { Story } from '../../../storybook';
 import styled from 'styled-components';
@@ -11,11 +11,14 @@ const ButtonToggleState = styled(B)`
 
 const componentName = 'Button';
 
-storiesOf('Components|buttons/', module).add('toggle state', () => (
-  <Story title={componentName} subTitle="Toggle State">
-    <ButtonToggleStateDocs />
-  </Story>
-));
+storiesOf('Components|buttons/', module).add(
+  'ToggleState Button',
+  () => (
+    <Story title={componentName} subTitle="Toggle State">
+      <ButtonToggleStateDocs />
+    </Story>
+  ),
+);
 
 const ButtonToggleStateDocs = () => {
   const [following, setFollowing] = useState(false);
@@ -27,7 +30,6 @@ const ButtonToggleStateDocs = () => {
   return (
     <>
       <ButtonToggleState
-        format="primaryOutline"
         isActive={following}
         offIcon={<Plus />}
         offStateText={followText}
@@ -38,7 +40,6 @@ const ButtonToggleStateDocs = () => {
         turnOffIcon={<DismissX />}
       />
       <ButtonToggleState
-        format="primary"
         isActive={following}
         offIcon={<Plus />}
         offStateText={followText}
@@ -49,7 +50,6 @@ const ButtonToggleStateDocs = () => {
         turnOffIcon={<DismissX />}
       />
       <ButtonToggleState
-        format="primaryOutline"
         isActive={connected}
         offIcon={<Plus />}
         offStateText={connectText}
@@ -60,7 +60,50 @@ const ButtonToggleStateDocs = () => {
         turnOffIcon={<DismissX />}
       />
       <ButtonToggleState
-        format="primary"
+        isActive={connected}
+        offIcon={<Plus />}
+        offStateText={connectText}
+        onIcon={<Checkmark />}
+        onStateText={connectedText}
+        onClick={toggleConnected}
+        turnOffActionText={disconnectText}
+        turnOffIcon={<DismissX />}
+      />
+      <ButtonToggleState
+        variant="basic"
+        isActive={following}
+        offIcon={<Plus />}
+        offStateText={followText}
+        onIcon={<Checkmark />}
+        onStateText={followingText}
+        onClick={toggleFollowing}
+        turnOffActionText={unfollowText}
+        turnOffIcon={<DismissX />}
+      />
+      <ButtonToggleState
+        variant="basic"
+        isActive={following}
+        offIcon={<Plus />}
+        offStateText={followText}
+        onIcon={<Checkmark />}
+        onStateText={followingText}
+        onClick={toggleFollowing}
+        turnOffActionText={unfollowText}
+        turnOffIcon={<DismissX />}
+      />
+      <ButtonToggleState
+        variant="basic"
+        isActive={connected}
+        offIcon={<Plus />}
+        offStateText={connectText}
+        onIcon={<Checkmark />}
+        onStateText={connectedText}
+        onClick={toggleConnected}
+        turnOffActionText={disconnectText}
+        turnOffIcon={<DismissX />}
+      />
+      <ButtonToggleState
+        variant="basic"
         isActive={connected}
         offIcon={<Plus />}
         offStateText={connectText}

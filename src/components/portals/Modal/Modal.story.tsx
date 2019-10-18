@@ -47,7 +47,11 @@ const ModalDocs = () => {
         </ParagraphMd>
       </Modal>
 
-      <Button format="primaryOutline" onClick={toggleState}>
+      <Button
+        format="primary"
+        variant="outline"
+        onClick={toggleState}
+      >
         Show Modal
       </Button>
     </>
