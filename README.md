@@ -64,7 +64,7 @@ $ yarn storybook
 ```
 This will open the Iris docs at http://localhost:9001/
 ***
-🚨 All code in Iris must be formatted with [Prettier](https://github.com/prettier/prettier/) for acceptance. We reccomend using an extension to format on save for your code editor (ie. [vscode-prettier](https://github.com/prettier/prettier-vscode)).
+🚨 All code in Iris must be formatted with [Prettier](https://github.com/prettier/prettier/) for acceptance. We recommend using an extension to format on save for your code editor (ie. [vscode-prettier](https://github.com/prettier/prettier-vscode)).
 
 🚨 If you have an issue with `@types/react-native` please run `yarn clean`.
 
