@@ -10,13 +10,9 @@ import * as PAYMENT_ICONS from './payment';
 import * as VIMEO_ICONS from './vimeo';
 
 import { Header } from '../typography';
-// import { Input } from '../components';
-import { InputText } from '../components/inputs/InputText/InputText';
+import { Input } from '../components/inputs/Input/Input';
 import { Story } from '../storybook';
-import { Black, White } from '../legacy';
-// import { slate } from '../legacy';
-// import { theme } from '../themes';
-// import { rgba } from '../legacy';
+import { black, white } from '../color';
 
 const ICONS = {
   ...VIMEO_ICONS,
@@ -92,7 +88,7 @@ const Card = css`
   width: 100%;
   border: 1px solid
     ${({ theme }) =>
-      theme.name === 'dark' ? rgba(White, 0.3) : rgba(Black, 0.3)};
+      theme.name === 'dark' ? rgba(white, 0.3) : rgba(black, 0.3)};
   align-items: center;
   text-align: center;
 `;
@@ -106,8 +102,7 @@ const width = widthMap =>
     `,
   );
 
-// const Search = styled(Input)`
-const Search = styled(InputText)`
+const Search = styled(Input)`
   margin: 0.5rem;
   width: 100%;
 
@@ -146,7 +141,7 @@ function Icon({ size, name, preserve }) {
           css`
             * {
               fill: ${({ theme }) =>
-                theme.name === 'dark' ? White : Black};
+                theme.name === 'dark' ? white : black};
             }
           `}
       `,

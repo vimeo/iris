@@ -2,9 +2,9 @@ import React, { useState, ReactNode } from 'react';
 import styled from 'styled-components';
 import { rgba } from 'polished';
 
-import { Header2, ParagraphMd, Header5, Header4 } from '../../legacy';
-import { InputText, Radio, Checkbox, Toggle } from '../../components';
-import { IronHeart, Paste, Black } from '../../legacy';
+import { Header, Paragraph } from '../../typography';
+import { Input, Radio, Checkbox, Toggle } from '../../components';
+import { grayscale, slate, black } from '../../color';
 
 export const AccountSettings = ({ email = '', name = '' }) => {
   const [userName, setUserName] = useState(name);
@@ -27,14 +27,14 @@ export const AccountSettings = ({ email = '', name = '' }) => {
 
   return (
     <>
-      <Header2>Account</Header2>
+      <Header size="2">Account</Header>
       <div>
         <SectionHeader>Name</SectionHeader>
         <Description>
           A lot of people use their real name, but anything you choose
           will probably be better than "user5582238."
         </Description>
-        <InputText
+        <Input
           id="name"
           showLabel={false}
           value={userName}
@@ -51,7 +51,7 @@ export const AccountSettings = ({ email = '', name = '' }) => {
           Use this to log in to your account and to receive email
           notifications and updates from us.
         </Description>
-        <InputText
+        <Input
           id="email"
           showLabel={false}
           value={userEmail}
@@ -155,7 +155,7 @@ export const AccountSettings = ({ email = '', name = '' }) => {
       </div>
       <br />
       <br />
-      <Header2>Summary</Header2>
+      <Header size="2">Summary</Header>
       <Summary
         email={userEmail}
         name={userName}
@@ -174,9 +174,6 @@ const Summary = ({
   neoPronouns,
   preferredPronoun,
 }) => {
-  // console.log(neoPronouns);
-  // console.log(pronouns.other);
-
   const nameText = name.length > 1 && (
     <>
       My name is <em>{name}</em>.
@@ -261,18 +258,18 @@ const Summary = ({
 
   return (
     <SummaryWrap>
-      <Header4>
+      <Header size="4">
         {nameText}
         {pronounText}
         {preferredText}
         {emailText}
-      </Header4>
+      </Header>
     </SummaryWrap>
   );
 };
 
 const SummaryWrap = styled.div`
-  background: ${Paste};
+  background: ${slate(50)};
   border-radius: 0.25rem;
   padding: 1rem;
   line-height: 1.5 !important;
@@ -283,20 +280,20 @@ const SummaryWrap = styled.div`
 
   em {
     font-style: normal;
-    border-bottom: 2px solid ${rgba(Black, 0.5)};
+    border-bottom: 2px solid ${rgba(black, 0.5)};
   }
 `;
 
-const SubHeader = styled(ParagraphMd)`
+const SubHeader = styled(Paragraph).attrs({ size: '2' })`
   margin: 0.5rem 0;
 `;
 
-const SectionHeader = styled(Header5)`
+const SectionHeader = styled(Header).attrs({ size: '5' })`
   margin-bottom: 0.25rem;
 `;
 
-const Description = styled(ParagraphMd)`
-  color: ${rgba(IronHeart, 0.8)};
+const Description = styled(Paragraph).attrs({ size: '2' })`
+  color: ${rgba(grayscale(500), 0.8)};
 `;
 
 const PronounCheckboxes = styled.div`

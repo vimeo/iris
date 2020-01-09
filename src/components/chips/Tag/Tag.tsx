@@ -1,9 +1,13 @@
-import React, { ReactNode, MouseEventHandler } from 'react';
+import React, { ReactNode } from 'react';
 
-import { Tag as Styled, Image } from './Tag.style';
+import { Tag as Styled, Image, DismissX } from './Tag.style';
 
-import { DismissX } from '../../../icons';
-import { IrisProps, withIris } from '../../../utils';
+import {
+  IrisProps,
+  withIris,
+  useClose,
+  onClose,
+} from '../../../utils';
 
 export const Tag = withIris<DOMElement, Props>(TagComponent);
 
@@ -16,7 +20,7 @@ type Props = IrisProps<
     element?: 'button' | 'span';
     icon?: ReactNode;
     iconPosition?: 'right' | 'left' | 'featured';
-    onDismiss?: MouseEventHandler;
+    onClose?: onClose;
     size?: Sizes;
     src?: string;
   },
@@ -27,31 +31,33 @@ function TagComponent({
   children,
   element = 'button',
   forwardRef,
-  onDismiss,
+  onClose,
   size = 'md',
   src,
   theme,
   ...props
 }: Props) {
+  const { reject, complete } = useClose(onClose);
+
   const onClick = event => {
     event.preventDefault();
-    return onDismiss && onDismiss(event);
+    if (reject) reject(event);
+    if (complete) complete(event);
   };
 
   return (
     <Styled
       element={element}
       format="secondary"
-      icon={onDismiss && <DismissX />}
-      iconPosition={onDismiss ? 'right' : null}
+      icon={reject && <DismissX onClick={onClick} />}
+      iconPosition={reject ? 'right' : null}
       ref={forwardRef}
       size={size}
       src={src}
       theme={theme}
-      onClick={onClick}
       {...props}
     >
-      {src && <Image size={size} src={src} />}
+      {src && <Image size={size} src={src} alt="User avatar image" />}
       {children}
     </Styled>
   );

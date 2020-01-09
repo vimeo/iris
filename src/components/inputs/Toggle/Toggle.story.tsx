@@ -1,8 +1,12 @@
 import React from 'react';
-import { Toggle as T } from './Toggle';
-import { storiesOf } from '@storybook/react';
-import { Story } from '../../../storybook';
 import styled from 'styled-components';
+import { storiesOf } from '@storybook/react';
+import { useState } from '@storybook/addons';
+
+import { Toggle as T } from './Toggle';
+import { Button } from '../../buttons/Button/Button';
+
+import { Story } from '../../../storybook';
 
 const Toggle = styled(T)`
   margin: 1rem 0;
@@ -98,4 +102,31 @@ storiesOf(`Components|inputs/Marks`, module)
         size="xl"
       />
     </Story>
-  ));
+  ))
+  .add('Toggle (controlled)', () => {
+    const [checked, setChecked] = useState(true);
+
+    return (
+      <Story title="Toggle">
+        <Button onClick={() => setChecked(checked => !checked)}>
+          Toggle {checked.toString()}
+        </Button>
+        <Toggle
+          label="Toggle 1 (Medium)"
+          name="demoToggle1"
+          id="Toggle1"
+          value="1"
+          size="sm"
+          checked={checked}
+        />
+        <Toggle
+          label="Toggle 2 (Medium)"
+          name="demoToggle2"
+          id="Toggle2"
+          value="2"
+          size="sm"
+          checked={checked}
+        />
+      </Story>
+    );
+  });

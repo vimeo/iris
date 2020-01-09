@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Text } from '../Text';
+import { Text } from '../Text/Text';
 
 import { withIris, IrisProps } from '../../utils';
-import { fontFamily } from '../typography';
 
 export const BigStat = withIris<
   HTMLParagraphElement | HTMLSpanElement,
@@ -19,11 +18,13 @@ type Props = IrisProps<
 >;
 
 function BigStatComponent({ element = 'p', ...props }: Props) {
-  return <Styled as={element} format="soft" {...props} />;
+  return <Styled element={element} format="soft" {...props} />;
 }
 
-const Styled = styled(Text)<{ format: 'soft' }>`
-  font: 300 1.5rem / 2rem ${fontFamily};
+const Styled = styled(Text)`
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 2rem;
   letter-spacing: 0.01rem;
   margin-bottom: 1.5rem;
 `;

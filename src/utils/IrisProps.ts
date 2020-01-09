@@ -8,6 +8,7 @@ import {
   Ref,
   SVGAttributes,
   ReactElement,
+  FunctionComponent,
 } from 'react';
 import { Override } from './types';
 import { IrisTheme } from '../themes';
@@ -221,13 +222,13 @@ export type IrisInputProps<
 > = Override<
   {
     accept?: string;
-    autoComplete?: string;
+    autocomplete?: boolean | 'on' | 'off'; // iris specific variation of native
     autoFocus?: boolean;
     capture?: boolean | string; // https://www.w3.org/TR/html-media-capture/#the-capture-attribute
     checked?: boolean;
     crossOrigin?: string;
     defaultChecked?: boolean;
-    // defaultValue?: string | string[] | number | boolean;
+    defaultValue?: string | string[] | number | boolean;
     label?: ReactNode;
     forwardRef?: Ref<DOMElement>;
     max?: number | string;
@@ -235,6 +236,7 @@ export type IrisInputProps<
     messages?: Messages;
     min?: number | string;
     minLength?: number;
+    mirror?: boolean;
     name?: string;
     onChange?: ChangeEventHandler<DOMElement>;
     onKeyDown?: KeyboardEventHandler<DOMElement>;
@@ -274,4 +276,8 @@ export type IrisInputProps<
     value?: string | string[] | number | boolean;
   } & IrisProps<{}, DOMElement>,
   Props
+>;
+
+export type MinorComponent<Props = {}> = FunctionComponent<
+  IrisProps<Props>
 >;

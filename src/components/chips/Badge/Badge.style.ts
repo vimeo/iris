@@ -3,7 +3,6 @@ import { rem, rgba, darken } from 'polished';
 
 import { BadgeFormats } from './Badge.types';
 
-import { fontFamily } from '../../../typography';
 import {
   red,
   white,
@@ -26,7 +25,6 @@ interface Props {
 export const Badge = styled.span<Props>`
   display: block;
   padding: ${rem(3)} ${rem(4)};
-  font-family: ${fontFamily};
   font-size: ${rem(9)};
   font-weight: 700;
   line-height: 1.2;

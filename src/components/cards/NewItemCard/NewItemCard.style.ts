@@ -61,7 +61,7 @@ function themeStyles({
     name === 'dark' ? formats.primary : content.color;
 
   return css`
-    background-color: ${item.background};
+    background-color: ${item.bg};
     border: 1px dashed ${rgba(content.color, 0.2)};
 
     svg {

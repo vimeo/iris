@@ -7,11 +7,13 @@ import {
   ToggleInput,
   inputColors,
   inputShape,
+  Hidden,
 } from '../Shared';
 
 import { blue } from '../../../color';
 import { IrisInputProps } from '../../../utils';
 import { Formats, Statuses } from '../../../themes';
+import { rgba } from 'polished';
 
 export const InputStyled = styled.input<
   IrisInputProps & {
@@ -20,7 +22,7 @@ export const InputStyled = styled.input<
     disabled?: boolean;
     defaultValue?: any;
     value?: any;
-    format?: Formats | Statuses;
+    format: Formats | Statuses;
   }
 >`
   ${inputColors};
@@ -35,9 +37,47 @@ export const radii = {
 
 export const Faux = styled.div<any>`
   ${inputColors};
-  ${({ type }) => FauxMark(type)};
+  ${({ type, mirror }) => FauxMark(type, mirror)};
   ${FauxType};
 `;
+
+export const HiddenMark = styled.input.attrs(({ type }) => ({
+  type: type === 'toggle' ? 'checkbox' : type,
+  toggle: type === 'toggle',
+}))`
+  ${Hidden};
+  ${fauxMarkChecked};
+  ${fauxToggleChecked};
+`;
+
+function fauxMarkChecked({ theme }) {
+  return css`
+    &:checked ~ ${Faux} {
+      border: 1px solid ${rgba(theme.content.color, 0.75)};
+
+      &:after {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  `;
+}
+
+function fauxToggleChecked({ toggle, theme }) {
+  return (
+    toggle &&
+    css`
+      &:checked ~ ${Faux} {
+        background: ${theme.formats.primary};
+        border: 1px solid ${theme.formats.primary};
+
+        &::after {
+          transform: scale(1) translateX(calc(100% + 4px));
+        }
+      }
+    `
+  );
+}
 
 const sizes = {
   sm: 16,

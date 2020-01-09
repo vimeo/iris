@@ -3,7 +3,7 @@ import styled, { keyframes, css } from 'styled-components';
 import { rgba } from 'polished';
 import { getCoord } from './getCoord';
 
-import { Black, White, VimeoBlue } from '../../legacy';
+import { black, white, blue } from '../../color';
 import { Avatar } from '../../components';
 
 export const TextArea = ({ people }) => {
@@ -99,7 +99,7 @@ const UserComplete = ({
 
 const User = styled.div`
   padding: 0.5rem 1rem;
-  border-bottom: 1px solid ${rgba(Black, 0.2)};
+  border-bottom: 1px solid ${rgba(black, 0.2)};
   line-height: 2rem;
   font-size: 1rem;
   display: flex;
@@ -109,7 +109,7 @@ const User = styled.div`
   }
 
   &:hover {
-    background: ${rgba(VimeoBlue, 0.334)};
+    background: ${rgba(blue(500), 0.334)};
   }
 `;
 
@@ -137,8 +137,8 @@ const UserCompleteWrapper = styled.div<any>`
   left: ${props => props.cursorPosition.left}px;
   padding: 0rem;
   border-radius: 0.125rem;
-  border: 1px solid ${rgba(Black, 0.2)});
-  background: ${rgba(White, 0.9)};
+  border: 1px solid ${rgba(black, 0.2)});
+  background: ${rgba(white, 0.9)};
   box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 10px -8px,
     rgba(0, 0, 0, 0.3) 0px 0px 4px -1px;
   ${UCWAnimation};
@@ -182,13 +182,10 @@ const selectPronoun = (text, pronoun) => {
   //.join(' ')
   //.concat(' ');
 
-  // console.log(newText);
-
   return newText;
 };
 
 const pronounCase = string => {
-  // console.log('string: ', string);
   switch (string) {
     case 'they':
     case 'she':

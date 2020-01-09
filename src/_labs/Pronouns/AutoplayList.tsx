@@ -3,12 +3,7 @@ import styled from 'styled-components';
 
 import { Toggle, Badge } from '../../components';
 import { Header } from '../../typography';
-import {
-  AstroGranite,
-  RegentGray,
-  VimeoBlue,
-  VimeoBlueLightened,
-} from '../../legacy';
+import { slate, blue } from '../../color';
 
 export const AutoplayList = ({ videos, variation }) => {
   return (
@@ -56,7 +51,7 @@ const Video = styled.div`
 
   &:nth-child(1) {
     img {
-      border: 0.3rem solid ${VimeoBlueLightened};
+      border: 0.3rem solid ${blue(400)};
     }
   }
 
@@ -76,7 +71,7 @@ const Title = styled(Header)`
 
 const Author = styled(Header)`
   display: flex;
-  color: ${RegentGray};
+  color: ${slate(500)};
   max-width: 13rem;
   overflow: hidden;
   white-space: nowrap;

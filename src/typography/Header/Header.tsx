@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Props, StyleProps } from './Header.types';
+import { Props } from './Header.types';
 import { Header as Styled } from './Header.style';
 
 import { withIris } from '../../utils';
@@ -18,16 +18,13 @@ function HeaderComponent({
   variant = 'normal',
   ...props
 }: Props) {
-  const variantMod: StyleProps['variant'] =
-    size === 'plusUltra' ? 'plusUltra' : variant;
-
   return (
     <Styled
-      as={element || elements(size)}
+      element={element || elements(size)}
       format={format}
       ref={forwardRef}
       size={size}
-      variant={variantMod}
+      variant={variant}
       {...props}
     />
   );
@@ -38,5 +35,5 @@ function elements(size) {
     ? 'h' + size
     : size === 'plusUltra'
     ? 'h1'
-    : 'span') as Props['as'];
+    : 'span') as Props['element'];
 }

@@ -1,12 +1,11 @@
 import styled, { css } from 'styled-components';
 import { rgba, rem, tint, shade, em } from 'polished';
-import memoize from 'lodash.memoize';
+// import memoize from 'lodash.memoize';
 
 import { FeaturedIcon } from './FeaturedIcon';
 
 import { a11yColor } from '../../../themes';
 import { white } from '../../../color';
-import { BREAKPOINTS } from '../../../legacy';
 
 const buttonCore = css`
   position: relative;
@@ -95,14 +94,14 @@ export const ButtonStyled = styled.button<any>`
   ${buttonShape};
   ${buttonMotion};
   ${buttonLoading};
-  ${props => buttonVariants(props)};
+  ${buttonVariants};
 `;
 
 function buttonMotion({ theme }) {
   return {
     transition: theme.a11y.motion
       ? 'none'
-      : 'all 200ms ease-in-out, font-size 50ms',
+      : 'all 200ms ease-in-out, font-size 50ms, width none',
   };
 }
 
@@ -141,8 +140,9 @@ function buttonShape({ circular = null }) {
     : { borderRadius: '0.25rem' };
 }
 
-const buttonVariants = memoize(buttonVariantsFn);
-function buttonVariantsFn({ format, variant, theme }) {
+// const buttonVariants = memoize(buttonVariantsFn);
+// function buttonVariantsFn({ format, variant, theme }) {
+function buttonVariants({ format, variant, theme }) {
   const color = theme.formats[format];
 
   // const { saturation } = parseToHsl(color);
@@ -247,6 +247,35 @@ function buttonVariantsFn({ format, variant, theme }) {
   }
 }
 
+// function fluidity(sizes: number | number[]) {
+//   const min = rem(Math.min(...sizes));
+//   const max = rem(Math.max(...sizes));
+
+//   return css`
+//     ${mediaQuery({ min, max })} {
+//       width: 100%;
+//     }
+//   `;
+// }
+
+const mediaQuery = ({ min = 0, max, type = 'only screen' }) =>
+  !max || min === max
+    ? `@media ${type} and (min-width: ${em(min)})`
+    : `@media ${type} and (min-width: ${em(
+        min,
+      )}) and (max-width: ${em(max)})`;
+
+type MediaQuerySize = { min?: number; max?: number };
+
+const fluidWidth = ({ min = 0, max }: MediaQuerySize) => css`
+  ${mediaQuery({ min, max })} {
+    width: 100%;
+  }
+`;
+
+const fluidity = (fluid: true | MediaQuerySize) =>
+  fluid === true ? fluidWidth({}) : fluidWidth(fluid);
+
 const sizePads = {
   xxs: 0.125,
   xs: 0.25,
@@ -258,16 +287,7 @@ const sizePads = {
 };
 
 function buttonFluid({ fluid }) {
-  return (
-    fluid &&
-    (BREAKPOINTS[fluid]
-      ? css`
-          @media screen and (max-width: ${em(BREAKPOINTS[fluid])}) {
-            width: 100%;
-          }
-        `
-      : { width: '100%' })
-  );
+  return fluid && fluidity(fluid);
 }
 
 function buttonSizes({ size }) {

@@ -1,29 +1,32 @@
 import React from 'react';
-import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
+import { Tag } from './Tag';
 
-import { Tag as T } from './Tag';
+import { Layout } from '../../../storybook';
 
-import { Story } from '../../../storybook';
+/* eslint-disable import/no-default-export */
+export default { title: 'components|chips/Tag' };
+/* eslint-enable import/no-default-export */
 
-const Tag = styled(T)`
-  margin: 0 1rem 1rem 0;
-`;
-
-storiesOf(`components|chips/Tags/`, module)
-  .add('basic', () => (
-    <Story title="Tag" subTitle="basic">
+export function Common() {
+  return (
+    <Layout.StoryVertical>
       <Tag size="xs">Documentary</Tag>
       <Tag size="sm">Animation</Tag>
       <Tag size="md">Narrative</Tag>
       <Tag size="lg">Comedy</Tag>
-      <Tag size="lg" onDismiss={() => alert('deleted this tag')}>
+      <Tag
+        size="lg"
+        onClose={{ reject: () => alert('deleted this tag') }}
+      >
         Comedy
       </Tag>
-    </Story>
-  ))
-  .add('image', () => (
-    <Story title="Tag" subTitle="image">
+    </Layout.StoryVertical>
+  );
+}
+
+export function Image() {
+  return (
+    <Layout.StoryVertical>
       <Tag
         size="xs"
         src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
@@ -48,5 +51,6 @@ storiesOf(`components|chips/Tags/`, module)
       >
         Tessa
       </Tag>
-    </Story>
-  ));
+    </Layout.StoryVertical>
+  );
+}

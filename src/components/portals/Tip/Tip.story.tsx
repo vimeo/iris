@@ -1,27 +1,49 @@
 import React, { Fragment } from 'react';
-import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
 
 import { Tip } from './Tip';
 import { ANCHOR_POINTS } from '../constants';
 
-import { Button as B } from '../../index';
-import { Story } from '../../../storybook';
+import { Header } from '../../../typography';
+import { Layout } from '../../../storybook';
+import { Button } from '../../buttons/Button/Button';
 
-storiesOf(`Components|portals/`, module).add('Tip', () => (
-  <Story title="Tip">
-    {ANCHOR_POINTS.map((attach, i) => (
-      <Fragment key={i}>
-        <Tip content="I am Tip" attach={attach}>
-          <Button>Tip {attach}</Button>
-        </Tip>
-        <br />
-      </Fragment>
-    ))}
-  </Story>
-));
+/* eslint-disable import/no-default-export */
+export default { title: 'components|portals/Tip' };
+/* eslint-enable import/no-default-export */
 
-const Button = styled(B)`
-  margin-bottom: 2rem;
-  margin-left: 12rem;
-`;
+export function Common() {
+  return (
+    <Layout.StoryVertical>
+      {ANCHOR_POINTS.map((attach, i) => (
+        <Fragment key={i}>
+          <Tip content="I am Tip" attach={attach}>
+            <Button>Tip {attach}</Button>
+          </Tip>
+          <br />
+        </Fragment>
+      ))}
+    </Layout.StoryVertical>
+  );
+}
+
+export function Fancy() {
+  const content = (
+    <>
+      <img
+        src="http://placekitten.com/480/120"
+        alt=""
+        style={{ width: '100%' }}
+      />
+      <Header size="4" style={{ margin: '1rem auto' }}>
+        I am a very fancy tip!
+      </Header>
+    </>
+  );
+  return (
+    <Layout.StoryVertical>
+      <Tip content={content} attach="top" trigger="click">
+        <Button>Tip top (click)</Button>
+      </Tip>
+    </Layout.StoryVertical>
+  );
+}

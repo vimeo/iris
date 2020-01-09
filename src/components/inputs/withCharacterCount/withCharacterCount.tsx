@@ -4,6 +4,7 @@ import { reducer } from './withCharacterCount.state';
 import { Counter } from './withCharacterCount.style';
 
 interface Props {
+  defaultValue?: string;
   maxCharacters?: number;
   onChange?: ChangeEventHandler;
   onError?: ChangeEventHandler;
@@ -15,6 +16,7 @@ interface Props {
 
 export function withCharacterCount<P = {}>(Component: FC<P>) {
   return function({
+    defaultValue,
     maxCharacters = 30,
     onChange,
     onError,
@@ -24,7 +26,11 @@ export function withCharacterCount<P = {}>(Component: FC<P>) {
     warningThreshold = 5,
     ...props
   }: Props & P) {
-    const intitialState = { remainingCharacters: maxCharacters };
+    const intitialState = {
+      remainingCharacters: defaultValue
+        ? maxCharacters - defaultValue.length
+        : maxCharacters,
+    };
 
     const [state, dispatch] = useReducer(reducer, intitialState);
     const { error, warning, remainingCharacters } = state;
@@ -78,6 +84,7 @@ export function withCharacterCount<P = {}>(Component: FC<P>) {
     return (
       <Component
         {...(props as P)}
+        defaultValue={defaultValue}
         onChange={doChange}
         messages={messages}
       />

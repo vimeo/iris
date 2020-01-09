@@ -12,6 +12,7 @@ export { CcVisa } from './payment/CcVisa';
 //
 //
 
+export { Apple } from './social/Apple';
 export { Box } from './social/Box';
 export { Drive } from './social/Drive';
 export { Dropbox } from './social/Dropbox';

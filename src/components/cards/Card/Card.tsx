@@ -14,6 +14,6 @@ type Props = IrisProps<
   HTMLDivElement
 >;
 
-function CardComponent({ forwardRef, ...props }: Props) {
-  return <Styled ref={forwardRef} {...props} />;
+function CardComponent({ forwardRef, loading, ...props }: Props) {
+  return <Styled ref={forwardRef} $loading={loading} {...props} />;
 }

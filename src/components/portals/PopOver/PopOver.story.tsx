@@ -1,194 +1,122 @@
-import React, { useState } from 'react';
+import React, { Fragment } from 'react';
+import styled from 'styled-components';
 import { storiesOf } from '@storybook/react';
-
-import { Button, PopOver, PopOverList } from '../../index';
-import { Gear } from '../../../icons';
 import { Story } from '../../../storybook';
-import { Link } from '../../../typography';
+import { Button as B } from '../../buttons/Button/Button';
+import { PopOver, Pop } from './PopOver';
+import { ANCHOR_POINTS } from '../constants';
+import { Input } from '../../inputs/Input/Input';
+import { Gear } from '../../../icons';
+import { Paragraph } from '../../../typography';
+import { rgba } from 'polished';
+import { Badge } from '../../chips/Badge/Badge';
 
-storiesOf(`components|Portals/PopOver`, module)
-  .add('basic', () => (
-    <Story title="PopOver" subTitle="basic">
-      <PopOver alignment="right" menuContent={MenuList} size="md">
-        <Button isInline isButtonElement={false} autoWidth="md">
-          Click for Medium Right Menu
-        </Button>
-      </PopOver>
-
-      <br />
-      <br />
-      <br />
-
-      <PopOver alignment="left" menuContent={MenuList} size="lg">
-        <Button
-          isInline
-          isButtonElement={false}
-          autoWidth="md"
-          format="secondary"
-        >
-          Click for Large Left Menu
-        </Button>
-      </PopOver>
-
-      <br />
-      <br />
-      <br />
-
-      <PopOver alignment="center" menuContent={MenuList} size="sm">
-        <Link element="span">Click for Small Center Menu</Link>
-      </PopOver>
-
-      <br />
-      <br />
-      <br />
-
-      <PopOver
-        alignment="left"
-        menuContent={MenuListDark}
-        size="lg"
-        theme="dark"
-      >
-        <Button
-          isInline
-          isButtonElement={false}
-          autoWidth="md"
-          format="primaryDark"
-        >
-          Click for Dark Large Left Menu
-        </Button>
-      </PopOver>
-
-      <br />
-      <br />
-      <br />
-
-      <PopOver
-        alignment="center"
-        menuContent={MenuList}
-        size="md"
-        isFluid
-      >
-        <Button isInline isButtonElement={false} autoWidth="fluid">
-          Click for Medium Center Menu
-        </Button>
-      </PopOver>
+storiesOf(`Components|portals/`, module)
+  .add('PopOver', () => (
+    <Story title="PopOver">
+      {ANCHOR_POINTS.map((attach, i) => (
+        <Fragment key={i}>
+          <PopOver content={PopList} attach={attach}>
+            <TriggerButton>PopOver {attach}</TriggerButton>
+          </PopOver>
+          <br />
+        </Fragment>
+      ))}
     </Story>
   ))
-  .add('controlled with event logs', () => {
-    function TestComponent(props: any) {
-      const [isShowing, setIsShowing] = useState(false);
-      return (
-        <PopOver isShowing={isShowing} {...props}>
-          <Button
-            isInline
-            autoWidth="fluid"
-            isButtonElement={false}
-            format="secondary"
-            onClick={() => {
-              console.log('Button click!');
-              setIsShowing(isShowing => !isShowing);
-            }}
-          >
-            {'Edit thumbnail'}
-          </Button>
-        </PopOver>
-      );
-    }
-    return (
-      <Story title="PopOver" subTitle="event logged">
-        <TestComponent
-          alignment="center"
-          className="Menu"
-          isControlled
-          isFluid
-          menuContent={MenuList}
-          onClick={() => console.log('PopOver click!')}
-          onClose={() => console.log('PopOver close!')}
-          onOpen={() => console.log('PopOver open!')}
-          size="lg"
-        />
+  .add('PopOver (scrollable)', () => (
+    <Story title="PopOver">
+      <PopOver
+        content={PopScrollable}
+        attach="bottom"
+        style={{ width: '25rem' }}
+      >
+        <TriggerButton>PopOver bottom</TriggerButton>
+      </PopOver>
+    </Story>
+  ));
 
-        <br />
-        <br />
+const TriggerButton = styled(B)`
+  margin-bottom: 2rem;
+  margin-left: 12rem;
+`;
 
-        <TestComponent
-          alignment="center"
-          className="Menu"
-          isFluid
-          menuContent={MenuList}
-          onClick={() => console.log('PopOver click!')}
-          onClose={() => console.log('PopOver close!')}
-          onOpen={() => console.log('PopOver open!')}
-          size="lg"
-        />
-      </Story>
-    );
-  });
+const Button = styled(B)`
+  margin: 0.5rem;
+`;
 
-const MenuList = (
-  <div>
-    <PopOverList
-      header="Section 1"
-      menuItems={[
-        {
-          label: 'Item 1',
-          href: '#',
-        },
-        {
-          label: 'Selected Item',
-          href: '#',
-          isSelected: true,
-        },
-      ]}
-    />
-    <PopOverList
-      hasDivider
-      menuItems={[
-        {
-          label: 'Item 3',
-          icon: <Gear />,
-          href: '#',
-        },
-        {
-          label: 'Item 4',
-          href: '#',
-        },
-      ]}
-    />
-  </div>
+const PopList = (
+  <>
+    <Pop.List>
+      <Pop.Header>Header</Pop.Header>
+      <Pop.Item href="#">Item 1</Pop.Item>
+      <Pop.Item href="#" selected>
+        Item 2 (Selected)
+      </Pop.Item>
+    </Pop.List>
+    <Pop.Divider />
+    <Pop.List>
+      <Pop.Item href="#">
+        <Gear />
+        Item 3
+      </Pop.Item>
+      <Pop.Item href="#" selected>
+        Item 4
+        <Badge format="upgrade" style={{ display: 'inline-block' }}>
+          Upgrade
+        </Badge>
+      </Pop.Item>
+    </Pop.List>
+  </>
 );
 
-const MenuListDark = (
-  <div>
-    <PopOverList
-      header="Section 1"
-      menuItems={[
-        {
-          label: 'Item 1',
-          href: '#',
-        },
-        {
-          label: 'Selected Item',
-          href: '#',
-          isSelected: true,
-        },
-      ]}
-      theme="dark"
-    />
-    <PopOverList
-      hasDivider
-      menuItems={[
-        {
-          label: 'Item 3',
-          icon: <Gear />,
-          href: '#',
-        },
-        {
-          label: 'Item 4',
-          href: '#',
-        },
-      ]}
-      theme="dark"
-    />
-  </div>
+const PopActions = styled.div`
+  display: flex;
+  padding: 0.5rem;
+  border-top: 1px dashed
+    ${({ theme }) => rgba(theme.content.color, 0.5)};
+`;
+
+const PopScrollable = (
+  <>
+    <div
+      style={{
+        padding: '1rem',
+        maxHeight: '15rem',
+        overflow: 'auto',
+      }}
+    >
+      <Paragraph size="2">
+        `Twas brillig, and the slithy toves Did gyre and gimble in the
+        wabe: All mimsy were the borogoves, And the mome raths
+        outgrabe.
+      </Paragraph>
+      <Paragraph size="2">
+        "Beware the Jabberwock, my son! The jaws that bite, the claws
+        that catch! Beware the Jubjub bird, and shun The frumious
+        Bandersnatch!"
+      </Paragraph>
+      <Paragraph size="2">
+        He took his vorpal sword in hand: Long time the manxome foe he
+        sought -- So rested he by the Tumtum tree, And stood awhile in
+        thought.
+      </Paragraph>
+      <Paragraph size="2">
+        And, as in uffish thought he stood,The Jabberwock, with eyes
+        of flame, Came whiffling through the tulgey wood, And burbled
+        as it came!
+      </Paragraph>
+      <Input
+        name="foo"
+        id="PopOver Example Input"
+        label="Jabberwocky Name"
+      />
+    </div>
+    <PopActions>
+      <Button format="secondary" fluid>
+        Cancel
+      </Button>
+      <Button fluid>Submit</Button>
+    </PopActions>
+  </>
 );

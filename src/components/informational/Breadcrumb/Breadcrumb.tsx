@@ -11,7 +11,7 @@ export const Breadcrumb = withIris<HTMLDivElement, Props>(
 type Props = IrisProps<
   {
     crumbs?: ReactNode[];
-    currentPageLabel: string;
+    currentPageLabel: ReactNode;
     noMargin?: boolean;
   },
   HTMLDivElement

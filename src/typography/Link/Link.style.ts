@@ -3,6 +3,8 @@ import { rem, tint } from 'polished';
 
 export const Link = styled.span<any>`
   ${({ decoration, theme, format }) => {
+    if (!format || !theme.formats[format]) format = 'primary';
+
     const color = theme.formats[format];
     const hoverColor = tint(0.15, color);
 

@@ -13,7 +13,7 @@ export interface IrisTheme {
 }
 
 export type Formats = 'basic' | 'soft' | 'alternative' | 'secondary' | 'primary';
-export type Statuses = 'positive' | 'negative';
+export type Statuses = 'positive' | 'negative' | 'neutral';
 
 const a11yDefaults = {
   textMultiplier: 1,
@@ -54,6 +54,12 @@ export const themes: {
     },
     shadows: {
       small: `box-shadow: 0 0 0.334rem -0.05rem ${rgba(black, 0.15)};`,
+      0: `box-shadow: 0 0 0.334rem -0.05rem ${rgba(black, 0.1)};`,
+      200: `box-shadow: 0 0 0.445rem -0.0475rem ${rgba(black, 0.15)};`,
+      400: `box-shadow: 0 0 0.556rem -0.045rem ${rgba(black, 0.2)};`,
+      600: `box-shadow: 0 0 0.667rem -0.0425rem ${rgba(black, 0.25)};`,
+      800: `box-shadow: 0 0 0.778rem -0.04rem ${rgba(black, 0.3)};`,
+      1000: `box-shadow: 0 0 0.889rem -0.0375rem ${rgba(black, 0.35)};`,
     },
   },
   dark: {
@@ -85,6 +91,12 @@ export const themes: {
     },
     shadows: {
       small: `box-shadow: 0 0 0.334rem -0.05rem ${rgba(black, 0.15)};`,
+      0: `box-shadow: 0 0 0.334rem -0.05rem ${rgba(black, 0.1)};`,
+      200: `box-shadow: 0 0 0.445rem -0.0475rem ${rgba(black, 0.15)};`,
+      400: `box-shadow: 0 0 0.556rem -0.045rem ${rgba(black, 0.2)};`,
+      600: `box-shadow: 0 0 0.667rem -0.0425rem ${rgba(black, 0.25)};`,
+      800: `box-shadow: 0 0 0.778rem -0.04rem ${rgba(black, 0.3)};`,
+      1000: `box-shadow: 0 0 0.889rem -0.0375rem ${rgba(black, 0.35)};`,
     },
   },
 };

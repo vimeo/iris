@@ -1,9 +1,8 @@
 import styled, { css } from 'styled-components';
-import { rem } from 'polished';
+import { rem, em } from 'polished';
 
 import { ChevronRight } from '../../../icons';
 import { Paragraph } from '../../../typography';
-import { mediaQuery } from '../../../layout';
 
 export const ArrowIconWidth = 24;
 export const ARROWLEFT_CLASSNAME = 'BreadcrumbLink_ArrowLeft';
@@ -23,26 +22,29 @@ export const Wrapper = styled.div<{ showOnSmall?: boolean }>`
   color: ${props => props.theme.formats.soft};
   display: ${props => (props.showOnSmall ? 'inline-block' : 'none')};
   position: relative;
-  ${mediaQuery.md(css`
+
+  @media screen and (min-width: ${em(768)}) {
     display: inline-block;
     padding-right: ${rem(ArrowIconWidth)};
-  `)};
+  }
+
   ${props =>
     props.showOnSmall &&
     css`
       ${ArrowLeftWrapper} {
         display: inline-block;
         padding-right: ${rem(8)};
-        ${mediaQuery.md(css`
+
+        @media screen and (min-width: ${em(768)}) {
           display: none;
-        `)};
+        }
       }
     `}
 `;
 
 export const Label = styled(Paragraph)`
   ${truncatewithEllipsisCSS};
-  padding-right: 1.5rem;
+  margin: 0;
 `;
 
 export const Arrow = styled(ChevronRight)`
@@ -55,38 +57,45 @@ export const Arrow = styled(ChevronRight)`
   * {
     fill: currentColor;
   }
-  ${mediaQuery.md`
+
+  @media screen and (min-width: ${em(768)}) {
     display: inline-block;
-    `};
+  }
 `;
 
 export const Current = styled(Paragraph as any)`
   width: calc(50%);
   ${truncatewithEllipsisCSS};
-  ${mediaQuery.md`
-    width: calc(33%);
-  `};
+  margin: 0;
+
+  @media screen and (min-width: ${em(768)}) {
+    width: 33%;
+  }
 `;
 
 export const ArrowLeftWrapper = styled.span`
   display: inline-block;
   position: relative;
   top: ${rem(5)};
+
   svg {
     height: ${rem(24)};
     width: ${rem(24)};
+
     * {
       fill: currentColor;
     }
   }
-  ${mediaQuery.md`
+
+  @media screen and (min-width: ${em(768)}) {
     display: none;
-  `};
+  }
 `;
 
 export const LinkLabel = styled.span`
   display: none;
-  ${mediaQuery.md`
+
+  @media screen and (min-width: ${em(768)}) {
     display: inline;
-  `};
+  }
 `;

@@ -2,10 +2,11 @@ import { IrisInputProps, Messages } from '../../../utils';
 import { ReactNode } from 'react';
 
 export type Props = IrisInputProps<{
-  autocomplete?: boolean;
+  autocomplete?: boolean | 'on' | 'off';
   floating?: boolean;
+  indeterminate?: boolean;
   inlineButton?: ReactNode;
   messages?: Messages;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  status?: 'negative' | 'positive';
+  status?: 'negative' | 'positive' | 'neutral';
 }>;

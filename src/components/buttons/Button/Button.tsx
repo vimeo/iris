@@ -21,7 +21,7 @@ export const Button = withIris<DOMElement, Props>(
 function ButtonComponent({
   element = 'button',
   children,
-  fluid = 'sm',
+  fluid,
   format = 'primary',
   forwardRef,
   icon,

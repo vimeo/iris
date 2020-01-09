@@ -4,8 +4,13 @@ import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 
 import { slate, blue } from '../../../color';
-import { withIris, IrisInputProps } from '../../../utils';
+import {
+  withIris,
+  IrisInputProps,
+  useIrisError,
+} from '../../../utils';
 import { Wrapper } from '../Wrapper/Wrapper';
+import { inputColors } from '../Shared';
 
 export const TextArea = withIris<HTMLInputElement, Props>(
   TextAreaComponent,
@@ -33,8 +38,20 @@ function TextAreaComponent({
   preMessage,
   ...props
 }) {
+  const { irisError } = useIrisError(
+    props,
+    TextArea,
+    `\`value="${props.value}"\` was specified. Did you mean to use \`defaultValue="${props.value}"\``,
+    !props.value,
+  );
+
   return (
-    <Wrapper disabled={disabled} label={label} messages={messages}>
+    <Wrapper
+      disabled={disabled}
+      label={label}
+      messages={messages}
+      {...irisError}
+    >
       <TextAreaStyled
         id={id}
         aria-label={label}
@@ -57,6 +74,7 @@ const TextAreaStyled = styled.textarea<any>`
   line-height: 1.25rem;
   height: auto;
   border-radius: 0.2rem;
+  ${inputColors};
 
   &:placeholder {
     color: ${slate(200)};

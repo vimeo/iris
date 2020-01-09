@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { rgba, rem } from 'polished';
 
-import { TRANSITIONS } from '../../../legacy';
+import { base } from '../../../motion/transitions';
 import { IrisTheme } from '../../../themes';
 
 interface Props {
@@ -21,7 +21,8 @@ export const NoticeStyled = styled.div<Props>`
   padding-bottom: ${rem(12)};
   padding-left: ${p => (p.icon ? rem(48) : rem(16))};
   border-radius: ${rem(3)};
-  transition: all ${TRANSITIONS.base};
+  transition: all ${base};
+  color: ${p => p.theme.formats[p.format]};
 
   ${themeStyles}
 

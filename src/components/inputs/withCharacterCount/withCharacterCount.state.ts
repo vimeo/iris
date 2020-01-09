@@ -11,7 +11,6 @@ export function reducer(state, { type, payload = null }) {
         warning: payload,
       };
     case 'SET_REMAINING_CHARACTERS':
-      console.log(payload);
       return {
         ...state,
         remainingCharacters: payload,

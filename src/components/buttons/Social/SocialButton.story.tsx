@@ -16,6 +16,9 @@ const Container = styled.div`
 storiesOf('Components|buttons', module).add('Social Button', () => (
   <Story title="Social Button">
     <Container>
+      <SocialButton brand="apple" fluid>
+        {text('Apple text', 'Sign in with Apple')}
+      </SocialButton>
       <SocialButton brand="facebook" fluid>
         {text('Facebook text', 'Join with Facebook')}
       </SocialButton>

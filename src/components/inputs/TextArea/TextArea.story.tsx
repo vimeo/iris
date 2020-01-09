@@ -16,6 +16,6 @@ storiesOf('Components|inputs/TextArea', module)
   ))
   .add('withCharacterCount', () => (
     <Story title="TextArea">
-      <TextAreaWCC value="lorem ipsum dolor" />
+      <TextAreaWCC defaultValue="lorem ipsum dolor" />
     </Story>
   ));

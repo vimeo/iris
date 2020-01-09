@@ -19,7 +19,7 @@ import {
 import { number } from '@storybook/addon-knobs';
 import { rgba, readableColor } from 'polished';
 
-storiesOf('Color|Colors', module)
+storiesOf('color|colors', module)
   .add('all', () => (
     <Story title="Colors" width="100%" flex>
       <Header size="3">Red</Header>

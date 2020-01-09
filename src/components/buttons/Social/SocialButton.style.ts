@@ -1,14 +1,17 @@
 import styled, { css } from 'styled-components';
 
-import { GoogleGColor, SocialChipFacebook } from '../../../icons';
-import { white } from '../../../color';
+import {
+  Apple,
+  GoogleGColor,
+  SocialChipFacebook,
+} from '../../../icons';
 import { themes } from '../../../themes';
 
 export const Icon = styled.div<{ size: number; brand: string }>`
   position: absolute;
   top: 1px;
   left: 1px;
-  background: ${white};
+  background: ${p => p.theme.content.background};
   margin: 0;
   padding: 0;
   height: ${p => p.size - 4}px;
@@ -54,5 +57,27 @@ export const brandThemes = {
         fill: ${p => p.theme.formats.primary};
       }
     `,
+  },
+  apple: {
+    light: {
+      ...themes.dark,
+      name: 'Apple',
+      icon: (Apple as any).render(),
+      formats: {
+        ...themes.dark.formats,
+        primary: '#000',
+      },
+      focus: '#000',
+    },
+    dark: {
+      ...themes.light,
+      name: 'Apple',
+      icon: (Apple as any).render(),
+      formats: {
+        ...themes.dark.formats,
+        primary: '#FFF',
+      },
+      focus: '#FFF',
+    },
   },
 };

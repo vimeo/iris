@@ -15,6 +15,7 @@ type Props = IrisProps<
     src: string;
     srcSet?: string;
     href?: string;
+    target?: '_blank';
   },
   DOMElement
 >;
@@ -25,6 +26,7 @@ function AvatarComponent({
   size = 'auto',
   href,
   style,
+  target,
   ...props
 }: Props) {
   const [layoutStyles, displayStyles] = useLayoutStyles(style);
@@ -32,6 +34,7 @@ function AvatarComponent({
   return href ? (
     <Anchor
       href={href}
+      target={target}
       className={className}
       ref={forwardRef as Ref<HTMLAnchorElement>}
       style={layoutStyles}

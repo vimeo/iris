@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { rgba } from 'polished';
 
 import { Avatar, Badge } from '../../components';
-import { ParagraphSm, Header5 } from '../../legacy';
-import { IronHeart } from '../../legacy';
+import { Header, Paragraph } from '../../typography';
+import { grayscale } from '../../color';
 
 export const UserInfo = ({ badge = 'staff', id, name }) => {
   return (
@@ -40,7 +40,7 @@ const Wrapper = styled.div`
   display: flex;
 `;
 
-const Name = styled(Header5)`
+const Name = styled(Header).attrs({ size: '5' })`
   margin: 0 0 0.2rem 0;
   display: flex;
   align-items: center;
@@ -50,9 +50,9 @@ const Name = styled(Header5)`
   }
 `;
 
-const Data = styled(ParagraphSm)`
+const Data = styled(Paragraph).attrs({ size: '3' })`
   margin: 0 0 0.1rem 0;
-  color: ${rgba(IronHeart, 0.667)};
+  color: ${rgba(grayscale(500), 0.667)};
 `;
 
 type Format =

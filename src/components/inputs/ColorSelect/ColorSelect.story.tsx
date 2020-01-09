@@ -1,30 +1,40 @@
 import React from 'react';
-import styled from 'styled-components';
+import { readableColor } from 'polished';
 import { storiesOf } from '@storybook/react';
 
 import { ColorSelect } from './ColorSelect';
 
-const $ColorPicker = styled(ColorSelect)`
-  margin: 0 1rem 1rem 0;
-`;
-
 import { Story } from '../../../storybook';
-import { ParagraphMd } from '../../../legacy';
 
-const componentName = 'ColorSelect';
-
-storiesOf(`components|inputs`, module).add('ColorSelect', () => (
-  <Story title={componentName} subTitle="Playground">
-    <ParagraphMd>Color picker below.</ParagraphMd>
+storiesOf(`Components|inputs`, module).add('Color Select', () => (
+  <Story title="Color Select" subTitle="Playground">
     <ColorSelect
-      defaultColor="#00adef"
-      resetButtonLabel="Reset"
-      resetColor="#00adef"
-      label="Color picker"
-      id="colorpicker"
-      onChangeColor={(hex: string) => {
-        // Do something on change
-      }}
+      width={320}
+      height={160}
+      onChange={HEX =>
+        console.log(
+          `onChange: %c ${HEX}`,
+          `background: ${HEX}; color: ${readableColor(HEX)}`,
+        )
+      }
+      resetLabel="reset"
+      initialColor="#FF0"
+      resetColor="#0FF"
+    />
+    <ColorSelect
+      label="XL ColorSelect"
+      width={320}
+      height={160}
+      onChange={HEX =>
+        console.log(
+          `onChange: %c ${HEX}`,
+          `background: ${HEX}; color: ${readableColor(HEX)}`,
+        )
+      }
+      resetLabel="reset"
+      initialColor="#F00"
+      resetColor="#00F"
+      size="xl"
     />
   </Story>
 ));

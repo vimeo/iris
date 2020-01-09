@@ -3,18 +3,19 @@ import styled, { css } from 'styled-components';
 import { storiesOf } from '@storybook/react';
 
 import * as Illustrations from './index';
-import { Header2 } from '../legacy';
-import { COLORS } from '../legacy';
+import { Header } from '../typography';
 import { Story } from '../storybook';
+import { slate } from '../color';
+import { em } from 'polished';
 
 storiesOf('illustration|illustrations', module).add('all', () => (
   <Story title="Illustrations" width="100%">
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-      {Object.keys(Illustrations).map(illustration => (
-        <IllustrationWrapper>
-          <Header2 style={{ marginBottom: '0.25rem' }}>
+      {Object.keys(Illustrations).map((illustration, i) => (
+        <IllustrationWrapper key={i}>
+          <Header size="2" style={{ marginBottom: '0.25rem' }}>
             {illustration}
-          </Header2>
+          </Header>
 
           <Illustration name={illustration} />
         </IllustrationWrapper>
@@ -26,7 +27,7 @@ storiesOf('illustration|illustrations', module).add('all', () => (
 const Card = css`
   border-radius: 0.125rem;
   width: 100%;
-  border: 1px solid ${COLORS.Porcelain};
+  border: 1px solid ${slate(100)};
   align-items: center;
   text-align: center;
 `;
@@ -34,7 +35,7 @@ const Card = css`
 const width = widthMap =>
   Object.keys(widthMap).map(
     minWidth => css`
-      @media (min-width: ${minWidth}rem) {
+      @media screen and (min-width: ${em(768)}) {
         width: calc(${widthMap[minWidth]}% - 4rem);
       }
     `,

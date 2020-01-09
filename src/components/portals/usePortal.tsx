@@ -33,6 +33,7 @@ interface PortalConfig {
   onClose?: EventHandler<any>;
   onOpen?: EventHandler<any>;
   screen?: boolean;
+  setParentState?: (active: boolean) => void | MouseEventHandler<any>;
   trigger?: 'click' | 'hover';
   forceActive?: boolean | null | undefined;
 }
@@ -46,6 +47,7 @@ export function usePortal(
     onClose,
     onOpen,
     screen = false,
+    setParentState,
     trigger = 'click',
     forceActive,
   }: PortalConfig,
@@ -55,6 +57,18 @@ export function usePortal(
   const ref = useRef(null);
   const UID = useMemo(() => generateUID(), []);
 
+  useEffect(() => {
+    const offClick = e =>
+      active && !outlet.contains(e.target) && close(e);
+
+    document.addEventListener('click', offClick);
+    return () => document.removeEventListener('click', offClick);
+  });
+
+  useEffect(portalCleanUp(UID), []);
+
+  if (!document) return [null, null];
+
   if (!document.getElementById(UID)) {
     const portal = document.createElement('div');
     portal.id = UID;
@@ -63,33 +77,23 @@ export function usePortal(
 
   const outlet = document.getElementById(UID);
 
-  const close = e =>
-    setActive(() => {
-      onClose && onClose(e);
-      return false;
-    });
+  function close(e) {
+    onClose && onClose(e);
+    setActive(false);
+  }
 
-  const open = e =>
-    setActive(() => {
-      onOpen && onOpen(e);
-      return true;
-    });
+  function open(e) {
+    onOpen && onOpen(e);
+    setActive(true);
+  }
 
-  const toggle = e => {
+  function toggle(e) {
+    setParentState && setParentState(false);
     setActive(active => {
-      if (active) close(e);
       if (!active) open(e);
       return !active;
     });
-  };
-
-  useEffect(() => {
-    const offClick = e =>
-      active && !outlet.contains(e.target) && close(e);
-
-    document.addEventListener('click', offClick);
-    return () => document.removeEventListener('click', offClick);
-  });
+  }
 
   const Portal = createPortal(
     <>
@@ -108,8 +112,6 @@ export function usePortal(
     </>,
     outlet,
   );
-
-  useEffect(portalCleanUp(UID), []);
 
   if (forceActive !== null && typeof forceActive !== 'undefined') {
     return [forceActive && Portal, { ref }];
@@ -157,21 +159,45 @@ function coords(attach): Attach {
   if (typeof attach === 'string') {
     switch (attach) {
       case 'top':
-        return [[0, 50], [100, 50]];
+        return [
+          [0, 50],
+          [100, 50],
+        ];
       case 'topRight':
-        return [[0, 100], [100, 0]];
+        return [
+          [0, 100],
+          [100, 0],
+        ];
       case 'right':
-        return [[50, 100], [50, 0]];
+        return [
+          [50, 100],
+          [50, 0],
+        ];
       case 'bottomRight':
-        return [[100, 100], [0, 0]];
+        return [
+          [100, 100],
+          [0, 0],
+        ];
       case 'bottom':
-        return [[100, 50], [0, 50]];
+        return [
+          [100, 50],
+          [0, 50],
+        ];
       case 'bottomLeft':
-        return [[100, 0], [0, 100]];
+        return [
+          [100, 0],
+          [0, 100],
+        ];
       case 'left':
-        return [[50, 0], [50, 100]];
+        return [
+          [50, 0],
+          [50, 100],
+        ];
       case 'topLeft':
-        return [[0, 0], [100, 100]];
+        return [
+          [0, 0],
+          [100, 100],
+        ];
     }
   }
 

@@ -3,6 +3,7 @@ import React, {
   useReducer,
   MouseEventHandler,
   useCallback,
+  ReactElement,
 } from 'react';
 
 import {
@@ -22,8 +23,8 @@ export const Notification = withIris<HTMLDivElement, Props>(
 
 type Props = IrisProps<{
   actionLabel?: string;
-  content: string;
-  format?: 'warning' | 'neutral';
+  content: ReactElement | string;
+  status?: 'negative' | 'neutral';
   duration?: number;
   automatic?: boolean;
   showing?: boolean;
@@ -37,7 +38,7 @@ function NotficationComponent({
   action,
   actionLabel,
   children = null,
-  format = 'warning',
+  status = 'negative',
   forwardRef,
   duration = 4000,
   content,
@@ -83,13 +84,20 @@ function NotficationComponent({
     return () => clearInterval(timer);
   }, [active, time, finish]);
 
+  const icon = status === 'negative' && typeof content === 'string' && (
+    <span>
+      <Icon />
+    </span>
+  );
+
   return (
     <>
       {children && <div onClick={toggle}>{children}</div>}
       {(controlled || showing) && (
         <Wrapper>
           <Styled
-            format={format}
+            icon={icon}
+            status={status}
             duration={duration}
             actionLabel={actionLabel}
             onMouseEnter={pause}
@@ -98,13 +106,8 @@ function NotficationComponent({
             {...props}
           >
             <Content>
-              {format === 'warning' && (
-                <span>
-                  <Icon />
-                </span>
-              )}
+              {icon}
               {content}
-
               {actionLabel && (
                 <span>
                   &nbsp;

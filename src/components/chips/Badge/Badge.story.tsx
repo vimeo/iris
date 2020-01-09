@@ -1,30 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
 
-import { Badge as B } from './Badge';
+import { Badge } from './Badge';
 
-import { Story } from '../../../storybook';
+import { Layout } from '../../../storybook';
 
-const BadgeOuterWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
+/* eslint-disable import/no-default-export */
+export default { title: 'components|chips/Badge' };
+/* eslint-enable import/no-default-export */
 
-const Badge = styled(B)`
-  margin: 0 1rem 1rem 0;
-`;
-
-const sizes = {
-  sm: 'sm',
-  lg: 'lg',
-};
-
-storiesOf(`components|chips/`, module).add('Badge', () => (
-  <Story title="Badge">
-    <BadgeOuterWrapper>
+export function Common() {
+  return (
+    <Layout.StoryVertical>
       <Badge href="#" size={select('size', sizes, 'sm')}>
         default
       </Badge>
@@ -145,6 +132,11 @@ storiesOf(`components|chips/`, module).add('Badge', () => (
       <Badge href="#" format="vod" size={select('size', sizes, 'sm')}>
         vod
       </Badge>
-    </BadgeOuterWrapper>
-  </Story>
-));
+    </Layout.StoryVertical>
+  );
+}
+
+const sizes = {
+  sm: 'sm',
+  lg: 'lg',
+} as const;

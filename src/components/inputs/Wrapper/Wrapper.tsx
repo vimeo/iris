@@ -1,14 +1,16 @@
 import React, { ReactNode, forwardRef, Ref } from 'react';
+import styled, { css } from 'styled-components';
+
 import { Header, Paragraph } from '../../../typography';
 import { IrisInputProps, IrisProps } from '../../../utils';
-import styled, { css } from 'styled-components';
+import { Statuses } from '../../../themes';
 
 interface Props {
   floating?: boolean;
   floatLabel?: boolean;
   icon?: ReactNode;
   label?: ReactNode;
-  status?: 'positive' | 'negative';
+  status?: Statuses;
   value?: string;
   defaultValue?: string | string[] | number | boolean;
 }
@@ -41,7 +43,10 @@ export const Wrapper = forwardRef(function(
     <div
       {...props}
       ref={ref}
-      style={{ ...style, position: 'relative' }}
+      style={{
+        ...style,
+        position: 'relative',
+      }}
     >
       {preMessage}
       {label && (
@@ -50,12 +55,14 @@ export const Wrapper = forwardRef(function(
         </Label>
       )}
       {children}
-      <MessageArea
-        error={error}
-        help={help}
-        post={postMessage}
-        theme={theme}
-      />
+      {Object.values(messages).length > 0 && (
+        <MessageArea
+          error={error}
+          help={help}
+          post={postMessage}
+          theme={theme}
+        />
+      )}
     </div>
   );
 });

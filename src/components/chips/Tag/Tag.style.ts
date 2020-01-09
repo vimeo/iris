@@ -4,6 +4,7 @@ import { rem } from 'polished';
 import { Sizes } from './Tag.types';
 
 import { Button } from '../../buttons/Button/Button';
+import { DismissX as DismissIcon } from '../../../icons';
 
 const width = (size: Sizes) => widths[size];
 const widths: { [key in Sizes]: number } = {
@@ -41,4 +42,12 @@ export const Image = styled.img<{ size: Sizes }>`
   border-radius: 50%;
   height: calc(100% - 0.03125rem);
   width: ${p => rem(width(p.size))};
+`;
+
+export const DismissX = styled(DismissIcon)`
+  transition: 120ms ease-in-out;
+
+  &:hover {
+    transform: scale(1.1) rotate(15deg);
+  }
 `;

@@ -66,6 +66,7 @@ function CheckboxSetComponent({
         checked={parentChecked}
         indeterminate={someChecked}
         onClick={parentClick}
+        readOnly
         {...props}
       />
       {(!toggled || parentChecked) && (
@@ -73,10 +74,12 @@ function CheckboxSetComponent({
           {children.map((child, i) =>
             cloneElement(child, {
               checked: checks[i],
+              key: i,
               id: `checkbox-${i}-${UIDs[i]}`,
               name: UID,
               value: UIDs[i],
               onClick: () => setChecks(toggle(i)),
+              readOnly: true,
             }),
           )}
         </div>

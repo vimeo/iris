@@ -3,21 +3,8 @@ import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 
 import { Avatar, Badge as B, Tip } from '../../components';
-import {
-  Header5,
-  Header6,
-  HeaderAltSm,
-  ParagraphAltMd,
-} from '../../legacy';
-import {
-  AshenWinter,
-  Black,
-  White,
-  Plaster,
-  RavenImperial,
-  IronHeart,
-  Porcelain,
-} from '../../legacy';
+import { Header, Paragraph } from '../../typography';
+import { black, white, grayscale, slate } from '../../color';
 
 interface Props {
   children: ReactNode;
@@ -130,7 +117,10 @@ export const Comment: SFC<Props> = ({
   );
 };
 
-const Time = styled(HeaderAltSm)`
+const Time = styled(Header).attrs({
+  format: 'alternative',
+  size: '4',
+})`
   display: inline-block;
 `;
 
@@ -150,11 +140,14 @@ const CommentTextMargin = ({ variation = '' }) => {
   }
 };
 
-const CommentText = styled(ParagraphAltMd)<{ variation?: string }>`
+const CommentText = styled(Paragraph).attrs({
+  format: 'alternative',
+  size: '2',
+})`
   width: 100%;
   display: block;
   color: ${({ theme }) =>
-    theme.name === 'dark' ? Plaster : RavenImperial};
+    theme.name === 'dark' ? grayscale(50) : grayscale(850)};
   ${CommentTextMargin};
 `;
 
@@ -173,9 +166,9 @@ const NameMargin = ({ variation = '' }) => {
   }
 };
 
-const Name = styled(Header5)<{ variation?: string }>`
+const Name = styled(Header).attrs({ size: '5' })`
   display: inline-block;
-  color: ${({ theme }) => (theme.name === 'dark' ? White : Black)};
+  color: ${({ theme }) => (theme.name === 'dark' ? white : black)};
   ${NameMargin}
 `;
 
@@ -183,7 +176,7 @@ const CommentWrapper = styled.article`
   display: flex;
   position: relative;
   padding-bottom: 2.5rem;
-  border-bottom: 1px solid ${rgba(Black, 0.1)};
+  border-bottom: 1px solid ${rgba(black, 0.1)};
   margin-bottom: 1.5rem;
 `;
 
@@ -192,25 +185,25 @@ const Badge = styled(B)`
   display: inline-block;
 `;
 
-const ReplyButton = styled(Header6)`
+const ReplyButton = styled(Header).attrs({ size: '6' })`
   position: absolute;
   right: 0;
   bottom: 0.5rem;
   color: ${({ theme }) =>
-    theme.name === 'dark' ? Porcelain : AshenWinter};
+    theme.name === 'dark' ? slate(500) : grayscale(650)};
 `;
 
-const PronounsSm = styled(Header6)`
+const PronounsSm = styled(Header).attrs({ size: '6' })`
   margin-top: 0.5rem;
   display: inline-block;
-  color: ${({ theme }) => (theme.name === 'dark' ? White : Black)};
+  color: ${({ theme }) => (theme.name === 'dark' ? white : black)};
   transform: scale(0.85) translateX(-3px);
 `;
 
-const Pronouns = styled(Header5)`
+const Pronouns = styled(Header).attrs({ size: '5' })`
   margin-right: 0.5rem;
   display: inline-block;
-  color: ${({ theme }) => (theme.name === 'dark' ? White : Black)};
+  color: ${({ theme }) => (theme.name === 'dark' ? white : black)};
 `;
 
 const InlineTipHack = styled.span`

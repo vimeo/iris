@@ -16,7 +16,8 @@ export const Wrapper = styled.div`
 `;
 
 interface Props {
-  format: 'warning' | 'neutral';
+  icon?: ReactNode;
+  status: 'negative' | 'neutral';
   duration: number;
   actionLabel?: string;
   onMouseEnter: MouseEventHandler;
@@ -56,8 +57,8 @@ export const Notification = styled.div<Props>`
   border: 1px solid
     ${({ theme }) => rgba(white, theme.name === 'dark' ? 0.25 : 0)};
 
-  ${props =>
-    props.format === 'warning' &&
+  ${p =>
+    p.icon &&
     css`
       padding-left: ${rem(42)};
       text-align: left;

@@ -1,20 +1,24 @@
 import React from 'react';
 
-import { nullStyle, Faux, radii } from './Input.style';
+import { nullStyle, Faux, radii, HiddenMark } from './Input.style';
 import { Props } from './Input.types';
 
-import { HiddenMark, Label } from '../Shared';
+import { Label } from '../Shared';
 import { Focus } from '../../../utils';
 import { Wrapper } from '../Wrapper/Wrapper';
 
 export function Mark({
   autocomplete = true,
+  className,
+  defaultValue,
   disabled,
   floating = false,
   forwardRef,
   id,
+  indeterminate,
   label,
   messages,
+  mirror,
   name,
   size = 'md',
   status,
@@ -30,32 +34,45 @@ export function Mark({
       status={status}
       messages={messages}
       onKeyUp={a11yKey}
+      className={className}
+      style={style}
     >
-      <HiddenMark
-        id={id}
-        type={type}
-        disabled={disabled}
-        ref={forwardRef}
-        {...props}
-      />
-      <Label
-        htmlFor={id}
-        format={status}
-        disabled={disabled}
-        size={size}
-        theme={theme}
-        type={type}
-        fauxMark={Faux}
-      >
-        {label}
-      </Label>
-      <Faux size={size} type={type} theme={theme} disabled={disabled}>
-        <Focus
-          parent={HiddenMark}
-          radius={radii[type]}
-          theme={theme}
+      <div style={{ position: 'relative' }}>
+        <HiddenMark
+          id={id}
+          type={type}
+          disabled={disabled}
+          ref={forwardRef}
+          defaultValue={defaultValue as string | string[]}
+          {...props}
         />
-      </Faux>
+        <Label
+          htmlFor={id}
+          format={status}
+          disabled={disabled}
+          size={size}
+          theme={theme}
+          type={type}
+          fauxMark={Faux}
+          mirror={mirror}
+        >
+          {label}
+        </Label>
+        <Faux
+          size={size}
+          indeterminate={indeterminate}
+          type={type}
+          theme={theme}
+          disabled={disabled}
+          mirror={mirror}
+        >
+          <Focus
+            parent={HiddenMark}
+            radius={radii[type]}
+            theme={theme}
+          />
+        </Faux>
+      </div>
     </Wrapper>
   );
 }

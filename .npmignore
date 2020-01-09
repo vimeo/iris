@@ -21,10 +21,13 @@ storybook-static
 storybook.png
 svg_src_files
 vimeo.png
+_tests
+_storybook
 
 CHANGELOG.md
 FAQ.md
 ROADMAP.md
+README.md
 
 node_modules
 *.log

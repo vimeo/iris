@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
-import styled, { withTheme } from 'styled-components';
+import React, { ReactNode, useContext } from 'react';
+import styled, { ThemeContext } from 'styled-components';
 
-import { White, RavenImperial } from '../legacy';
+import { white, grayscale } from '../color';
 import { Header } from '../typography';
 
 interface Props {
@@ -14,33 +14,33 @@ interface Props {
   children: ReactNode;
 }
 
-export const Story = withTheme(
-  ({
-    children,
-    title,
-    width = '700px',
-    flex = false,
-    theme,
-  }: Props) => {
-    if (!theme) console.error('No theme detected!');
+// export const Story = withTheme(
+export function Story({
+  children,
+  title,
+  width = '700px',
+  flex = false,
+}: Props) {
+  const theme = useContext(ThemeContext);
+  if (!theme) console.error('No theme detected!');
 
-    return (
-      <Wrapper>
-        <Header size="plusUltra">{title}</Header>
+  return (
+    <Wrapper>
+      <Header size="plusUltra">{title}</Header>
 
-        <Source width={width} flex={flex}>
-          {children}
-        </Source>
-      </Wrapper>
-    );
-  },
-);
+      <Source width={width} flex={flex}>
+        {children}
+      </Source>
+    </Wrapper>
+  );
+}
+// );
 
 const Wrapper = styled.div`
   padding: 2rem;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background: ${props =>
-    props.theme.name === 'light' ? White : RavenImperial};
+    props.theme.name === 'light' ? white : grayscale(850)};
 `;
 
 const Source = styled.div<{ width: string; flex: boolean }>`

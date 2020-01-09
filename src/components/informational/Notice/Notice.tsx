@@ -1,4 +1,4 @@
-import React, { ReactNode, MouseEventHandler } from 'react';
+import React, { ReactNode } from 'react';
 
 import { NoticeStyled, Icon, Dismiss } from './Notice.style';
 
@@ -11,7 +11,7 @@ import {
   DismissX,
 } from '../../../icons';
 import { Header } from '../../../typography';
-import { IrisProps, withIris } from '../../../utils';
+import { IrisProps, withIris, onClose } from '../../../utils';
 
 export const Notice = withIris<HTMLDivElement, Props>(
   NoticeComponent,
@@ -22,7 +22,7 @@ type Props = IrisProps<
     dismissButtonClassName?: string;
     header?: string;
     icon?: ReactNode;
-    onDismiss?: MouseEventHandler;
+    onClose?: onClose;
     format: 'primary' | 'positive' | 'negative';
   },
   HTMLDivElement
@@ -31,7 +31,7 @@ type Props = IrisProps<
 function NoticeComponent({
   children,
   header,
-  onDismiss,
+  onClose,
   format,
   forwardRef,
   icon = icons[format],
@@ -53,18 +53,15 @@ function NoticeComponent({
       {header && <Header size="5">{header}</Header>}
       {children}
 
-      {onDismiss && (
+      {onClose && (
         <Dismiss format={format}>
-          {/* Needs Iris 8 Button
           <Button
             title="Dismiss this notification"
             variant="minimal"
             format="basic"
-            size="xs"
+            size="sm"
             icon={<DismissX />}
           />
-          */}
-          <Button icon={<DismissX />} variant="minimalTransparent" />
         </Dismiss>
       )}
     </NoticeStyled>

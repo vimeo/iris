@@ -1,55 +1,53 @@
 import React from 'react';
-import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
 
-import { Avatar as A } from './Avatar';
+import { Avatar } from './Avatar';
+import { config } from './Avatar.config';
 
-import { Story } from '../../../storybook';
+import { Layout } from '../../../storybook';
 
-const Avatar = styled(A)`
-  display: block;
-  margin: 1rem;
-`;
+/* eslint-disable import/no-default-export */
+export default config;
+/* eslint-enable import/no-default-export */
 
-storiesOf(`components|chips/`, module).add('Avatar', () => (
-  <Story title="Avatar">
-    <Avatar
-      alt="Extra Small Avatar Example"
-      src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-      srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg 2x"
-      size="xxs"
-    />
-    <Avatar
-      alt="Extra Small Avatar Example"
-      src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-      srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg 2x"
-      size="xs"
-    />
-    <Avatar
-      alt="Small Avatar Example"
-      src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-      srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg 2x"
-      size="sm"
-    />
-    <Avatar
-      alt="Medium Avatar Example"
-      src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-      srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg 2x"
-      size="md"
-    />
-    <Avatar
-      alt="Large Avatar Example"
-      src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-      srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg 2x"
-      size="lg"
-      href="#"
-    />
-    <Avatar
-      alt="Extra Large Avatar Example"
-      src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-      srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg 2x"
-      size="xl"
-      href="#"
-    />
-  </Story>
-));
+export function Common() {
+  return (
+    <Layout.StoryVertical>
+      <Avatar
+        alt="Extra Small Avatar Example"
+        src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
+        srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg 2x"
+        size="xxs"
+      />
+      <Avatar
+        alt="Extra Small Avatar Example"
+        src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
+        srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg 2x"
+        size="xs"
+      />
+      <Avatar
+        alt="Small Avatar Example"
+        src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
+        srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg 2x"
+        size="sm"
+      />
+      <Avatar
+        alt="Medium Avatar Example"
+        src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
+        srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg 2x"
+        size="md"
+      />
+      <Avatar
+        alt="Large Avatar Example"
+        src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
+        srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg 2x"
+        size="lg"
+      />
+      <Avatar
+        alt="Extra Large Avatar Example"
+        src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
+        srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg 2x"
+        size="xl"
+      />
+    </Layout.StoryVertical>
+  );
+}

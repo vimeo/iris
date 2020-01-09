@@ -1,58 +1,57 @@
-import React, { SFC } from 'react';
-import { VimeoStyleSettings } from '../../../legacy';
-import styled from 'styled-components';
-import {
-  getBarHeight,
-  getBarRadius,
-  ProgressBarStyleSettings,
-} from './ProgressBarHelpers';
-import { ProgressBarIndicator } from './ProgressBarIndicator';
+import React from 'react';
 
-type formats = 'neutral' | 'alert' | 'warning' | 'empty' | 'disabled';
-type sizes = 'md' | 'lg' | 'xl';
+import { Wrapper, Styled } from './ProgressBar.style';
+import { Sizes, Formats } from './ProgressBar.types';
 
-interface Props {
+import { withIris, IrisProps, useIrisError } from '../../../utils';
+
+export const ProgressBar = withIris<HTMLDivElement, Props>(
+  ProgressBarComponent,
+);
+
+type Props = IrisProps<{
   animated?: boolean;
-  className?: string;
-  currentValue: number;
-  format: formats;
-  size: sizes;
-}
+  value: number;
+  format: Formats;
+  size: Sizes;
+}>;
 
-const disabledBarColor =
-  ProgressBarStyleSettings.colors.disabledTrackBackgroundColor;
-
-const bgColors = {
-  alert: VimeoStyleSettings.colors.uiColors.alertColorLight,
-  disabled: disabledBarColor,
-};
-
-const ProgressBarContainer = styled.div<{
-  format: formats;
-  size: sizes;
-}>`
-  height: ${props => getBarHeight(props.size)};
-  border-radius: ${props => getBarRadius(props.size)};
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  background-color: ${props =>
-    bgColors[props.format] || disabledBarColor};
-`;
-
-export const ProgressBar: SFC<Props> = ({
-  currentValue,
-  format = 'neutral',
+function ProgressBarComponent({
   animated,
+  value,
+  format = 'neutral',
+  forwardRef,
   size = 'md',
   ...props
-}) => (
-  <ProgressBarContainer format={format} size={size} {...props}>
-    <ProgressBarIndicator
-      animated={animated}
-      currentValue={currentValue}
+}: Props) {
+  const { irisError } = useIrisError(
+    props,
+    ProgressBar,
+    `\`value="${value}"\` was specified. Please specify a number between 0 and 100.`,
+    value >= 0 && value <= 100,
+  );
+
+  const progressWidth = format === 'empty' && animated ? 100 : value;
+
+  return (
+    <Wrapper
+      ref={forwardRef}
       format={format}
       size={size}
-    />
-  </ProgressBarContainer>
-);
+      {...props}
+      {...irisError}
+    >
+      <Styled
+        animated={animated}
+        value={value}
+        format={format}
+        size={size}
+        style={{ width: progressWidth + '%' }}
+        role="progressbar"
+        ariaValuenow={value}
+        ariaValuemin={0}
+        ariaValuemax={100}
+      />
+    </Wrapper>
+  );
+}

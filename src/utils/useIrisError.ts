@@ -14,7 +14,6 @@ export function useIrisError(
   valid,
 ) {
   if (process.env.NODE_ENV !== 'development') return {};
-
   if (valid) return {};
 
   const id = 'IrisError-' + generateUID();
@@ -30,6 +29,7 @@ export function useIrisError(
 
 function logError(errorMessage, Component: IrisComponent<any, any>) {
   return id =>
+    document &&
     console.error(`@vimeo/iris:`, errorMessage, '\n\n', {
       component: Component,
       element: document.getElementsByClassName(id)[0],
@@ -40,10 +40,7 @@ function errorUI(className, style, id) {
   className = className ? className + ' ' + id : id;
   style = { ...style, ...errorStyles };
 
-  return {
-    className,
-    style,
-  };
+  return { className, style };
 }
 
 const errorStyles = {

@@ -9,15 +9,16 @@ import { Button } from '../../buttons/Button/Button';
 import { IrisProps, withIris } from '../../../utils';
 import { reducer, initialState } from './ToggleState.state';
 
+type Fluid = true | { min?: number; max?: number };
+
 export const ButtonToggleState = withIris<HTMLButtonElement, Props>(
   ButtonToggleStateComponent,
 );
 
 type Props = IrisProps<
   {
-    autoWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'fluid';
+    fluid?: Fluid;
     format?: 'primary';
-    variant?: 'outline' | 'basic';
     isActive?: boolean;
     offIcon: ReactNode;
     offStateText: string;
@@ -26,18 +27,18 @@ type Props = IrisProps<
     style?: { margins?: string };
     turnOffActionText: string;
     turnOffIcon: ReactNode;
+    variant?: 'outline' | 'solid';
   },
   HTMLButtonElement
 >;
 
 function ButtonToggleStateComponent({
-  autoWidth = 'sm',
+  fluid,
   format = 'primary',
-  variant = 'outline',
   forwardRef,
   isActive,
   style,
-
+  variant = 'outline',
   ...props
 }: Props) {
   const [state, dispatch] = useReducer(
@@ -61,6 +62,7 @@ function ButtonToggleStateComponent({
   return (
     <Button
       children={state.children}
+      fluid={fluid}
       format={state.format}
       icon={state.icon}
       onMouseEnter={hover}

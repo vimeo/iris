@@ -1,9 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useContext } from 'react';
+import styled, { ThemeContext } from 'styled-components';
 import { storiesOf } from '@storybook/react';
 
 import { Header } from '../typography';
 import { Story } from '../storybook';
+import { hslToColorString } from 'polished';
 
 storiesOf('Iris|Welcome', module).add('Welcome to Iris!', () => (
   <Story title="Welcome to Iris!" width="50rem">
@@ -65,8 +66,31 @@ const Pre = styled.pre`
   white-space: pre-wrap;
 `;
 
-const Code = styled.code`
+function Code({ children, ...props }) {
+  const theme = useContext(ThemeContext);
+
+  const saturation = 1;
+  const lightness = theme.name === 'dark' ? 0.667 : 0.4;
+
+  const color = i =>
+    hslToColorString({
+      hue: i * (360 / (children.length - 1)),
+      saturation,
+      lightness,
+    });
+
+  children = children.map((child, i) => (
+    <span key={i} style={{ color: color(i) }}>
+      {child}
+    </span>
+  ));
+
+  return <CodeStyled {...props}>{children}</CodeStyled>;
+}
+
+const CodeStyled = styled.code`
   background-color: initial;
+  color: red;
   border: 0;
   display: inline;
   line-height: inherit;
@@ -78,6 +102,6 @@ const Code = styled.code`
   border-radius: 3px;
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo,
     Courier, monospace;
-  width: 45rem;
+  font-weight: ${({ theme }) => (theme.name === 'dark' ? 400 : 800)};
   white-space: pre-wrap;
 `;

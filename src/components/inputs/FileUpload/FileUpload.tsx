@@ -12,6 +12,7 @@ type Props = IrisInputProps;
 
 function FileUploadComponent({
   children,
+  defaultValue,
   forwardRef,
   ...props
 }: Props) {

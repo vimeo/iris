@@ -22,7 +22,7 @@ const VariantStory = ({ format }) => (
       format={format}
       icon={false}
       header="lorem ipsum header"
-      onDismiss={() => {}}
+      onClose={() => null}
     >
       <Paragraph size="2">Lorem ipsum dolor sit amet.</Paragraph>
     </Notice>
@@ -38,5 +38,5 @@ const VariantStory = ({ format }) => (
 
 storiesOf('Components|informational/Notice', module)
   .add('primary', () => <VariantStory format="primary" />)
-  .add('success', () => <VariantStory format="positive" />)
-  .add('warning', () => <VariantStory format="negative" />);
+  .add('positive', () => <VariantStory format="positive" />)
+  .add('negative', () => <VariantStory format="negative" />);

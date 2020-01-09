@@ -1,5 +1,4 @@
 import { IrisProps } from '../../utils';
-import { IrisTheme } from '../../themes';
 
 export type Props = IrisProps<
   {
@@ -10,10 +9,3 @@ export type Props = IrisProps<
   },
   HTMLHeadingElement | HTMLSpanElement
 >;
-
-export interface StyleProps {
-  variant?: Props['variant'] | 'plusUltra';
-  size?: Props['size'];
-  format?: Props['format'];
-  theme: IrisTheme;
-}

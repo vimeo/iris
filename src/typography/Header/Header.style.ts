@@ -1,66 +1,35 @@
 import styled, { css } from 'styled-components';
 
-import { StyleProps } from './Header.types';
-import { antialias, fontFamily } from '../typography';
-import { Text } from '../Text';
+import { Props } from './Header.types';
+import { antialias } from '../typography';
+import { Text } from '../Text/Text';
 
-import { themes } from '../../themes';
-
-export const Header = styled(Text)<StyleProps>`
+export const Header = styled(Text)<Props>`
   ${variantStyles};
   ${antialias};
 `;
-
-const h = {
-  font: {
-    1: '2.25rem / 2.5rem',
-    2: '1.75rem / 2rem',
-    3: '1.375rem / 1.925rem',
-    4: '1.125rem / 1.5rem',
-    5: '1rem / 1.25rem',
-    6: '0.875rem / 1.25rem',
-    7: '0.75rem / 1.125rem',
-    plusUltra: 'calc(2rem + 3.5vw) / calc(2.0625rem + 3.5125vw)',
-  },
-  letterSpacing: {
-    1: '0.04rem',
-    2: '0.02rem',
-    7: '0.033rem',
-    plusUltra: 'calc(-0.125rem - 0.0025vw)',
-  },
-  marginBottom: {
-    1: '1.25rem',
-    2: '1rem',
-    4: '0.25rem',
-    plusUltra: 'calc(1rem + 0.875vw)',
-  },
-};
 
 function variantStyles({
   variant = 'normal',
   size = '1',
   theme,
   format,
-}: StyleProps) {
-  // Remove in Iris 8.0
-  if (!theme.formats && process.env.NODE_ENV === 'development')
-    console.warn('Invalid theme:', { theme });
-  if ((theme as any) === 'light') theme = themes.light;
-  if ((theme as any) === 'dark') theme = themes.dark;
-  //
-
+}: Props) {
   const color = theme.formats[format];
 
   const sizeStyles = css`
     color: ${color};
     display: block;
-    max-width: 44rem;
-    font: 500 ${h.font[size]} ${fontFamily};
-    letter-spacing: ${h.letterSpacing[size] || '0.01rem'};
-    margin-bottom: ${h.marginBottom[size] || '0.5rem'};
+    font-size: ${fontSize[size]};
+    font-weight: 500;
+    line-height: ${lineHeight[size]};
+    letter-spacing: ${letterSpacing[size] || '0.01rem'};
+    margin-bottom: ${marginBottom[size] || '0.5rem'};
   `;
 
-  switch (variant) {
+  const sizeVariant = size === 'plusUltra' ? size : variant;
+
+  switch (sizeVariant) {
     case 'thin':
       return css`
         ${sizeStyles};
@@ -80,6 +49,42 @@ function variantStyles({
       `;
   }
 }
+
+const fontSize = {
+  1: '2.25rem',
+  2: '1.75rem',
+  3: '1.375rem',
+  4: '1.125rem',
+  5: '1rem',
+  6: '0.875rem',
+  7: '0.75rem',
+  plusUltra: 'calc(2rem + 3.5vw)',
+};
+
+const lineHeight = {
+  1: '2.5rem',
+  2: '2rem',
+  3: '1.925rem',
+  4: '1.5rem',
+  5: '1.25rem',
+  6: '1.25rem',
+  7: '1.125rem',
+  plusUltra: 'calc(2.0625rem + 3.5125vw)',
+};
+
+const letterSpacing = {
+  1: '0.04rem',
+  2: '0.02rem',
+  7: '0.033rem',
+  plusUltra: 'calc(-0.125rem - 0.0025vw)',
+};
+
+const marginBottom = {
+  1: '1.25rem',
+  2: '1rem',
+  4: '0.25rem',
+  plusUltra: 'calc(1rem + 0.875vw)',
+};
 
 // Algebraic font size experiment
 // import { rem } from 'polished';

@@ -8,18 +8,18 @@ import React, {
 import { Icon, brandThemes } from './SocialButton.style';
 import { Button } from '../Button/Button';
 
-import { IrisProps, withIris } from '../../../utils';
+import { IrisProps, withIris, geometry } from '../../../utils';
 
 export const SocialButton = withIris<HTMLButtonElement, Props>(
   SocialButtonComponent,
 );
 
-type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type Fluid = true | { min?: number; max?: number };
 
 type Props = IrisProps<
   {
-    brand: 'facebook' | 'google';
-    fluid?: true | Sizes;
+    brand: 'apple' | 'facebook' | 'google';
+    fluid?: Fluid;
   },
   HTMLButtonElement
 >;
@@ -28,18 +28,18 @@ function SocialButtonComponent({
   brand,
   children,
   forwardRef,
-  theme: _,
+  theme: irisTheme,
   ...props
 }: Props) {
   const ref = useRef(null);
   const [size, setSize] = useState(0);
-  const theme = brandThemes[brand];
+  const theme =
+    brandThemes[brand][irisTheme.name] || brandThemes[brand];
 
   useImperativeHandle(forwardRef, () => ref.current);
-  useLayoutEffect(
-    () => setSize(ref.current.getBoundingClientRect().height),
-    [],
-  );
+  useLayoutEffect(() => setSize(geometry(ref).height), []);
+
+  const paddingLeft = size / 2;
 
   const icon = (
     <Icon brand={brand} size={size} theme={theme}>
@@ -49,7 +49,7 @@ function SocialButtonComponent({
 
   return (
     <Button ref={ref} theme={theme} size="md" icon={icon} {...props}>
-      {children}
+      <span style={{ paddingLeft }}>{children}</span>
     </Button>
   );
 }

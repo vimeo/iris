@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, RefObject, useReducer } from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
+import { geometry } from '../../utils';
 
 type Point = number;
 type Coordinates = [Point, Point];
@@ -75,7 +76,7 @@ function calcRect(
   { scrollX = 0, scrollY = 0 } = {},
 ): ClientRect {
   if (ref && ref.current) {
-    const rect = ref.current.getBoundingClientRect();
+    const rect = geometry(ref);
 
     return {
       bottom: rect.bottom,
@@ -103,7 +104,14 @@ function windowRect() {
 
 function sizeChanged(a: ClientRect, b: ClientRect) {
   if (!a || !b) {
-    console.warn('ERROR: ', a, b);
+    if (process.env.NODE_ENV === 'development')
+      console.warn(
+        '@vimeo/iris: usePortal is missing a ref for size change comparison!\n',
+        '\n\tlast: ',
+        a,
+        '\n\tcurrent: ',
+        b,
+      );
     return null;
   }
   return a.width !== b.width || a.height !== b.height;

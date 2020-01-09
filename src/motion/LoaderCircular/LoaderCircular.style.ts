@@ -21,20 +21,34 @@ const rotate = keyframes`
   to   { transform: rotate(360deg) }
 `;
 
-const loaderAnimation = css`
-  animation: ${rotate} 800ms linear infinite;
-`;
+function loaderAnimation({ theme }) {
+  const speed = theme?.motion?.loaderCircular?.speed || 800;
+
+  return css`
+    animation: ${rotate} ${speed}ms linear infinite;
+  `;
+}
 
 export const LoaderCircular = styled.div<Props>`
-  border-width: ${rem(2)};
-  border-style: solid;
-  border-color: ${({ theme, format }) =>
-    format === 'adapative' ? 'currentColor' : theme.formats[format]};
-  border-bottom-color: transparent !important;
-
-  ${sizeStyles};
   ${loaderAnimation};
+  ${shapeStyles};
 `;
+
+function shapeStyles({ theme, format }) {
+  const color = theme.formats[format];
+  const borderColor = format === 'adapative' ? 'currentColor' : color;
+
+  return (
+    theme?.motion?.loaderCircular?.shape ||
+    css`
+      border-width: ${rem(2)};
+      border-style: solid;
+      border-color: ${borderColor};
+      border-bottom-color: transparent !important;
+      ${sizeStyles};
+    `
+  );
+}
 
 function sizeStyles({ size }) {
   const loaderSize = sizes[size];

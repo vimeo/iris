@@ -39,9 +39,8 @@ storiesOf(`Components|buttons/Button/props/`, module).add(
   ),
 );
 
-storiesOf(`Components|buttons/Button/props/`, module).add(
-  'fluid',
-  () => (
+storiesOf(`Components|buttons/Button/props/fluid/`, module)
+  .add('true', () => (
     <Story title="Button" width="100%">
       {formats.map((format, i) => (
         <div key={i}>
@@ -55,8 +54,60 @@ storiesOf(`Components|buttons/Button/props/`, module).add(
       ))}
       <br />
     </Story>
-  ),
-);
+  ))
+  .add('varied', () => (
+    <Story title="Button" width="100%">
+      <Button
+        fluid={{ min: 0, max: 500 }}
+        format="basic"
+        children="basic { min: 0, max: 500 }"
+        size="lg"
+      />
+      <br />
+      <Button
+        fluid={{ min: 250, max: 750 }}
+        format="soft"
+        children="soft { min: 250, max: 750 }"
+        size="lg"
+      />
+      <br />
+      <Button
+        fluid={{ min: 500, max: 1000 }}
+        format="alternative"
+        children="alternative { min: 500, max: 1000 }"
+        size="lg"
+      />
+      <br />
+      <Button
+        fluid={{ min: 750, max: 1250 }}
+        format="secondary"
+        children="secondary { min: 750, max: 1250 }"
+        size="lg"
+      />
+      <br />
+      <Button
+        fluid={{ min: 1000, max: 1500 }}
+        format="primary"
+        children="primary { min: 1000, max: 1500 }"
+        size="lg"
+      />
+      <br />
+      <Button
+        fluid={{ min: 1250, max: 1750 }}
+        status="positive"
+        children="positive { min: 1250, max: 1750 }"
+        size="lg"
+      />
+      <br />
+      <Button
+        fluid={{ min: 1500, max: 2000 }}
+        status="negative"
+        children="negative { min: 1500, max: 2000 }"
+        size="lg"
+      />
+      <br />
+    </Story>
+  ));
 
 storiesOf(
   `Components|buttons/Button/props/icon/iconPosition/`,
@@ -271,7 +322,7 @@ const formats = [
 ] as const;
 const statuses = ['positive', 'negative'] as const;
 const variants = [
-  'basic',
+  'solid',
   'transparent',
   'outline',
   'dashed',

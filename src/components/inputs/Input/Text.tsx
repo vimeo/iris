@@ -1,6 +1,5 @@
 import React, {
   FocusEventHandler,
-  ChangeEventHandler,
   useState,
   useImperativeHandle,
   useRef,
@@ -11,10 +10,11 @@ import { Props } from './Input.types';
 
 import { Wrapper } from '../Wrapper/Wrapper';
 
-import { Focus } from '../../../utils';
+import { Focus, useLayoutStyles } from '../../../utils';
 
 export function Text({
   autocomplete = true,
+  children,
   disabled,
   floating = false,
   id,
@@ -31,15 +31,13 @@ export function Text({
   ...props
 }: Props) {
   const [focused, setFocused] = useState(false);
-  const { margin, display, ...splitStyles } = style;
+  const [layoutStyles, displayStyles] = useLayoutStyles(style);
 
   const inputRef = useRef(null);
   useImperativeHandle(forwardRef as any, () => inputRef.current);
 
   const doFocus: FocusEventHandler = () => setFocused(true);
   const doBlur: FocusEventHandler = () => setFocused(false);
-  const doChange: ChangeEventHandler<HTMLInputElement> = e =>
-    console.log(e.target.value);
 
   const floatLabel =
     focused ||
@@ -53,8 +51,10 @@ export function Text({
       messages={messages}
       status={status}
       theme={theme}
+      style={layoutStyles}
     >
-      <div style={{ position: 'relative', margin, display }}>
+      <div style={{ position: 'relative' }}>
+        {children}
         <InputStyled
           aria-invalid={status === 'negative'}
           autoComplete={autocomplete ? 'on' : 'off'}
@@ -62,10 +62,9 @@ export function Text({
           format={status}
           inputSize={size}
           onBlur={doBlur}
-          onChange={doChange}
           onFocus={doFocus}
           ref={inputRef}
-          style={splitStyles}
+          style={displayStyles}
           theme={theme}
           type={type}
           value={value}

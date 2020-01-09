@@ -3,20 +3,16 @@ import { CSSProperties } from 'react';
 export function useLayoutStyles(style: CSSProperties = null) {
   if (!style) return [null];
 
-  const layoutStyles: CSSProperties = splitStyles({
-    style,
-    layout: true,
-  });
+  const layout = true;
+  const display = true;
 
-  const displayStyles: CSSProperties = splitStyles({
-    style,
-    display: true,
-  });
+  const layoutStyles: CSSProperties = split({ style, layout });
+  const displayStyles: CSSProperties = split({ style, display });
 
   return [layoutStyles, displayStyles];
 }
 
-function splitStyles({ style, layout = false, display = false }) {
+function split({ style, layout = false, display = false }) {
   const layoutStyles = {};
   const displayStyles = {};
 
@@ -32,21 +28,25 @@ function splitStyles({ style, layout = false, display = false }) {
 }
 
 const layoutProperties = [
+  'alignSelf',
   'bottom',
   'display',
+  'flex',
+  'flexBasis',
   'float',
   'height',
   'margin',
+  'marginBottom',
   'marginLeft',
   'marginRight',
   'marginTop',
-  'marginBottom',
+  'maxHeight',
+  'maxWidth',
+  'minHeight',
+  'minWidth',
   'position',
   'top',
   'width',
-  'alignSelf',
-  'flex',
-  'flexBasis',
   'flexGrow',
   'flexShrink',
   'gridArea',

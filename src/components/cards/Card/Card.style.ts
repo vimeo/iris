@@ -3,7 +3,7 @@ import { rem, rgba } from 'polished';
 import { IrisTheme } from '../../../themes';
 
 interface Props {
-  loading?: boolean;
+  $loading?: boolean;
   selected?: boolean;
   theme?: IrisTheme;
 }
@@ -23,7 +23,7 @@ export const Card = styled.div<Props>`
     display: block;
     position: absolute;
     width: 100%;
-    padding-bottom: calc(100% + ${rem(2)});
+    height: 100%;
     border-radius: ${rem(3)};
     transition: box-shadow 120ms ease-in-out,
       transform 120ms ease-in-out, opacity 120ms ease-in-out;
@@ -35,10 +35,10 @@ export const Card = styled.div<Props>`
 
 function themeStyles({
   theme: { formats, item, content },
-  loading,
+  $loading,
   selected,
 }: Props) {
-  const background = loading ? item.locked : item.background;
+  const background = $loading ? item.locked : item.bg;
   const borderColor = selected ? formats.primary : formats.secondary;
 
   return css`
@@ -50,7 +50,7 @@ function themeStyles({
 
 export function boxShadow({
   theme: { formats },
-  loading,
+  $loading,
   selected,
 }: Props) {
   const boxShadowColor = selected
@@ -58,7 +58,7 @@ export function boxShadow({
     : rem(8) + ' 0 rgba(0, 0, 0, 0.1)';
 
   return (
-    !loading &&
+    !$loading &&
     css`
       box-shadow: 0 0 0 ${boxShadowColor};
     `
@@ -67,13 +67,13 @@ export function boxShadow({
 
 export function hoverStyles({
   theme: { content },
-  loading,
+  $loading,
   selected,
 }: Props) {
   const borderColor = rgba(content.color, 0.334);
 
   return (
-    !loading &&
+    !$loading &&
     !selected &&
     css`
       &:hover {

@@ -27,7 +27,6 @@
         "importHelpers": true,
         "types": [
             "jest",
-            "lodash",
             "node",
             "react-dom",
             "react",
@@ -45,6 +44,8 @@
         "src/**/*.story.tsx",
         "src/**/*.x-story.tsx",
         "src/_docs",
-        "src/_labs"
+        "src/_labs",
+        "src/_tests",
+        "src/storybook"
     ]
 }

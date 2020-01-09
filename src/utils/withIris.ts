@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { ThemeContext } from 'styled-components';
 
-const version = '7.29.0';
+const version = '8.0.0-rc.10';
 
 type IrisMeta =
   | true
@@ -27,6 +27,35 @@ export type IrisComponent<
 > & {
   $$iris: IrisMeta;
 };
+
+// function withAnalytics({
+//   $$iris: iris,
+//   props: { onClick, href, ...props },
+// }) {
+//   if (!onClick && !href) return props;
+//   else {
+//     const clickWithAnalytics = event => {
+//       const DOMEvent = extractAnalytics(event);
+//       const timestamp = Date.now().toString();
+
+//       console.log({
+//         DOMEvent,
+//         iris,
+//         timestamp,
+//         props,
+//       });
+
+//       onClick && onClick(event);
+//     };
+//     const propsWithAnalytics = {
+//       ...props,
+//       href,
+//       onClick: clickWithAnalytics,
+//     };
+
+//     return propsWithAnalytics;
+//   }
+// }
 
 export function withIris<DOMElement, Props = {}, Minors = {}>(
   Component: FC<any>,
@@ -48,6 +77,8 @@ export function withIris<DOMElement, Props = {}, Minors = {}>(
     // const errors = useIrisError(props);
     const themeFromContext = useContext(ThemeContext);
     theme = theme || themeFromContext;
+
+    // props = withAnalytics({ $$iris, props });
 
     return Component({
       // errors,
@@ -116,3 +147,74 @@ const soPretty = `
 
 if (process.env.NODE_ENV === 'development')
   console.log(`\n\n%c @vimeo/iris: ${version}`, soPretty, '\n\n\n');
+
+// function extractAnalytics({
+//   altKey,
+//   clientX,
+//   clientY,
+//   ctrlKey,
+//   currentTarget,
+//   defaultPrevented,
+//   isTrusted,
+//   layerX,
+//   layerY,
+//   metaKey,
+//   movementX,
+//   movementY,
+//   nativeEvent,
+//   offsetX,
+//   offsetY,
+//   pageX,
+//   pageY,
+//   region,
+//   relatedTarget,
+//   returnValue,
+//   screenX,
+//   screenY,
+//   shiftKey,
+//   sourceCapabilities,
+//   srcElement,
+//   target,
+//   timeStamp,
+//   toElement,
+//   type,
+//   x,
+//   y,
+// }) {
+//   const extractedNative =
+//     nativeEvent && extractAnalytics(nativeEvent);
+
+//   return {
+//     altKey,
+//     clientX,
+//     clientY,
+//     ctrlKey,
+//     currentTarget,
+//     defaultPrevented,
+//     isTrusted,
+//     layerX,
+//     layerY,
+//     metaKey,
+//     movementX,
+//     movementY,
+//     nativeEvent: extractedNative,
+//     offsetX,
+//     offsetY,
+//     pageX,
+//     pageY,
+//     region,
+//     relatedTarget,
+//     returnValue,
+//     screenX,
+//     screenY,
+//     shiftKey,
+//     sourceCapabilities,
+//     srcElement,
+//     target,
+//     timeStamp,
+//     toElement,
+//     type,
+//     x,
+//     y,
+//   };
+// }

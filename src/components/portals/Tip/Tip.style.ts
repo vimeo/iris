@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { rem } from 'polished';
+import { rem, rgba } from 'polished';
 import { black, white } from '../../../color';
 import { maxWidth } from './Tip.settings';
 
@@ -24,6 +24,8 @@ export const Tip = styled.div<Props>`
   min-width: ${p => (p.wrap ? `${maxWidth / 2}rem` : '0')};
   max-width: ${maxWidth}rem;
   padding: 0.5rem 0.5rem;
+  border: 1px solid
+    ${({ theme }) => rgba(white, theme.name === 'dark' ? 0.25 : 0)};
   border-radius: ${rem(3)};
   text-align: center;
   color: ${white};

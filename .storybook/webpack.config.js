@@ -1,7 +1,8 @@
+const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
 const StyledTransformer = require('typescript-plugin-styled-components').default();
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
-module.exports = ({ config, mode }) => {
+module.exports = async ({ config }) => {
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
     use: [
@@ -15,23 +16,48 @@ module.exports = ({ config, mode }) => {
           }),
         },
       },
+      // {
+      //   loader: require.resolve(
+      //     '@storybook/addon-storysource/loader',
+      //   ),
+      //   options: {
+      //     parser: 'typescript',
+      //   },
+      // },
+    ],
+  });
+
+  config.module.rules.push({
+    test: /\.(stories|story)\.mdx$/,
+    use: [
       {
-        loader: require.resolve(
-          '@storybook/addon-storysource/loader',
-        ),
+        loader: 'babel-loader',
+        // may or may not need this line depending on your app's setup
+        // plugins: ['@babel/plugin-transform-react-jsx'],
+      },
+      {
+        loader: '@mdx-js/loader',
         options: {
-          parser: 'typescript',
+          compilers: [createCompiler({})],
         },
       },
     ],
   });
 
+  config.module.rules.push({
+    test: /\.(stories|story)\.[tj]sx?$/,
+    loader: require.resolve('@storybook/source-loader'),
+    exclude: [/node_modules/],
+    enforce: 'pre',
+  });
+
+  config.resolve.extensions.push('.jsx', '.ts', '.tsx');
   config.resolve.alias['styled-components'] = require.resolve(
     'styled-components',
   );
 
-  config.resolve.extensions.push('.jsx', '.ts', '.tsx');
   config.output.pathinfo = false;
+
   config.optimization.removeAvailableModules = false;
   config.optimization.removeEmptyChunks = false;
   config.optimization.splitChunks = false;

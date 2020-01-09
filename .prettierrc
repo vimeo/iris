@@ -13,7 +13,7 @@
   "useTabs": false,
   "overrides": [
     {
-      "files": [ "index.ts" ],
+      "files": [ "index.ts", "config.ts" ],
       "options": {
         "printWidth": 200
       }

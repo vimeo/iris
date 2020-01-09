@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { Props } from './Paragraph.types';
 
-import { fontFamily } from '../typography';
+import { Text } from '../Text/Text';
 import { IrisTheme } from '../../themes';
 
 interface StyleProps {
@@ -11,32 +11,37 @@ interface StyleProps {
   theme: IrisTheme;
 }
 
-export const Text = styled.p<StyleProps>`
-  ${formatStyles};
-`;
-
-const p = {
-  font: {
-    4: '0.625rem / 0.75rem',
-    3: '0.75rem / 1rem',
-    2: '0.875rem / 1.25rem',
-    1: '1rem / 1.25rem',
-  },
-  marginBottom: {
-    4: '0.75rem',
-    3: '1rem',
-    2: '1.25rem',
-    1: '1.5rem',
-  },
-};
-
-function formatStyles({ size = '4', ...props }: StyleProps) {
-  const color = props.theme.formats[props.format];
-
+function sizeStyles({ size }) {
   return css`
-    color: ${color};
-    font: 400 ${p.font[size]} ${fontFamily};
-    letter-spacing: 0.01rem;
-    margin-bottom: ${p.marginBottom[size]};
+    font-size: ${fontSize[size]};
+    line-height: ${lineHeight[size]};
+    margin-bottom: ${marginBottom[size]};
   `;
 }
+
+export const Paragraph = styled(Text)<StyleProps>`
+  font-weight: 400;
+  letter-spacing: 0.01rem;
+  ${sizeStyles};
+`;
+
+const fontSize = {
+  4: '0.625rem',
+  3: '0.75rem',
+  2: '0.875rem',
+  1: '1.0rem',
+};
+
+const lineHeight = {
+  4: '0.75rem',
+  3: '1rem',
+  2: '1.25rem',
+  1: '1.25rem',
+};
+
+const marginBottom = {
+  4: '0.75rem',
+  3: '1rem',
+  2: '1.25rem',
+  1: '1.5rem',
+};

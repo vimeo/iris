@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Props } from './Paragraph.types';
-import { Text } from './Paragraph.style';
+import { Paragraph as Styled } from './Paragraph.style';
 
 import { withIris } from '../../utils';
 
@@ -14,18 +14,15 @@ function ParagraphComponent({
   element = 'p',
   forwardRef,
   size = '4',
-  theme,
-  status,
   format = 'basic',
   ...props
 }: Props) {
   return (
-    <Text
-      as={element}
-      format={status ? status : format}
+    <Styled
+      element={element}
+      format={format}
       ref={forwardRef}
       size={size}
-      theme={theme}
       {...props}
     />
   );
