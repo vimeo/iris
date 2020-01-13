@@ -63,6 +63,21 @@ function fauxMarkChecked({ theme }) {
   `;
 }
 
+export const ToggleIcon = styled.div`
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 120ms ease-in-out;
+  width: calc(50% - 0.25rem);
+  height: calc(100% - 0.25rem);
+  margin: 0.125rem;
+  svg {
+    width: 65%;
+  }
+`;
+
 function fauxToggleChecked({ toggle, theme }) {
   return (
     toggle &&
@@ -70,7 +85,9 @@ function fauxToggleChecked({ toggle, theme }) {
       &:checked ~ ${Faux} {
         background: ${theme.formats.primary};
         border: 1px solid ${theme.formats.primary};
-
+        ${ToggleIcon} {
+          transform: scale(1) translateX(calc(100% + 4px));
+        }
         &::after {
           transform: scale(1) translateX(calc(100% + 4px));
         }

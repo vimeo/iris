@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 
 import { Input } from '../Input/Input';
 
@@ -10,6 +10,7 @@ export const Toggle = withIris<HTMLInputElement, Props>(
 
 type Props = IrisInputProps<
   {
+    icon?: ReactNode;
     size?: 'sm' | 'md' | 'lg' | 'xl';
   },
   HTMLInputElement

@@ -7,6 +7,7 @@ import { Toggle as T } from './Toggle';
 import { Button } from '../../buttons/Button/Button';
 
 import { Story } from '../../../storybook';
+import { Eye, EyeOff } from '../../../icons';
 
 const Toggle = styled(T)`
   margin: 1rem 0;
@@ -125,6 +126,23 @@ storiesOf(`Components|inputs/Marks`, module)
           id="Toggle2"
           value="2"
           size="sm"
+          checked={checked}
+        />
+      </Story>
+    );
+  })
+  .add('Toggle (with icon)', () => {
+    const [checked, setChecked] = useState(true);
+    return (
+      <Story title="Toggle">
+        <Toggle
+          onClick={() => setChecked(checked => !checked)}
+          label="Toggle with Icon"
+          name="demoToggle1"
+          icon={checked ? <Eye /> : <EyeOff />}
+          id="Toggle1"
+          value="1"
+          size="xl"
           checked={checked}
         />
       </Story>

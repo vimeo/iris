@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-import { nullStyle, Faux, radii, HiddenMark } from './Input.style';
+import {
+  nullStyle,
+  Faux,
+  radii,
+  HiddenMark,
+  ToggleIcon,
+} from './Input.style';
 import { Props } from './Input.types';
 
 import { Label } from '../Shared';
 import { Focus } from '../../../utils';
 import { Wrapper } from '../Wrapper/Wrapper';
+
+interface ToggleIconProps {
+  icon?: ReactNode;
+}
 
 export function Mark({
   autocomplete = true,
@@ -14,6 +24,7 @@ export function Mark({
   disabled,
   floating = false,
   forwardRef,
+  icon,
   id,
   indeterminate,
   label,
@@ -27,7 +38,7 @@ export function Mark({
   type,
   value,
   ...props
-}: Props) {
+}: Props & ToggleIconProps) {
   return (
     <Wrapper
       theme={theme}
@@ -71,6 +82,8 @@ export function Mark({
             radius={radii[type]}
             theme={theme}
           />
+
+          <ToggleIcon>{icon}</ToggleIcon>
         </Faux>
       </div>
     </Wrapper>
