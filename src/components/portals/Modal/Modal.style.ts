@@ -7,13 +7,19 @@ import { Button } from '../../buttons/Button/Button';
 
 const fadeIn = keyframes`
   0% {
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    transform-style: preserve-3d;
     transform: translateY(2rem) scale(0.99);
     opacity: 0;
   }
 
   100% {
+    backface-visibility: unset;
+    will-change: unset;
+    transform-style: unset;
     transform: translateY(0) scale(1) rotate(0deg);
-    opacity: 1
+    opacity: 1;
   }
 `;
 
