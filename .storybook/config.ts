@@ -7,13 +7,6 @@ import { withThemes, addThemes } from '@nox/addon-themes/dist';
 import { themes } from './themes';
 import { withGlobalStyles } from './decorators/withGlobalStyles';
 
-const configDocs = {
-  docs: {
-    container: DocsContainer,
-    page: DocsPage,
-  },
-};
-
 addThemes(themes);
 
 addDecorator(withGlobalStyles);
@@ -21,7 +14,18 @@ addDecorator(withA11y);
 addDecorator(withKnobs);
 addDecorator(withThemes);
 
-addParameters(configDocs);
+addParameters({
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+  },
+  a11y: {
+    restoreScroll: true,
+    options: {
+      restoreScroll: true,
+    },
+  },
+});
 
 configure(
   [

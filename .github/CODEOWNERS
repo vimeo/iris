@@ -1,0 +1,13 @@
+*                   @vimeo/iris
+
+.github             @vimeo/iris @vimeo/frontend-platform
+.jest               @vimeo/iris @vimeo/frontend-platform
+.storybook          @vimeo/iris @vimeo/frontend-platform
+
+.eslintrc.js        @vimeo/iris @vimeo/frontend-platform
+.gitignore          @vimeo/iris @vimeo/frontend-platform
+.npmignore          @vimeo/iris @vimeo/frontend-platform
+.npmrc              @vimeo/iris @vimeo/frontend-platform
+babel.config.js     @vimeo/iris @vimeo/frontend-platform
+Jenkinsfile         @vimeo/iris @vimeo/frontend-platform
+package.json        @vimeo/iris @vimeo/frontend-platform
