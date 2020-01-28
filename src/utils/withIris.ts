@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { ThemeContext } from 'styled-components';
 
-const version = '8.0.0';
+const version = '8.1.0';
 
 type IrisMeta =
   | true
