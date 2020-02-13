@@ -12,12 +12,14 @@ import React, {
 } from 'react';
 import { createPortal } from 'react-dom';
 import styled, { keyframes } from 'styled-components';
-import { generateUID } from '../../utils';
+
 import {
   AnchoredComponent,
   Attach,
   AttachAlias,
 } from './AnchoredComponent';
+
+import { generateUID, SSR } from '../../utils';
 
 interface AnchoredComponentProps {
   ref: RefObject<HTMLElement>;
@@ -61,21 +63,22 @@ export function usePortal(
     const offClick = e =>
       active && !outlet.contains(e.target) && close(e);
 
-    document.addEventListener('click', offClick);
-    return () => document.removeEventListener('click', offClick);
+    !SSR && document.addEventListener('click', offClick);
+    return () =>
+      !SSR && document.removeEventListener('click', offClick);
   });
 
   useEffect(portalCleanUp(UID), []);
 
-  if (!document) return [null, null];
+  if (!SSR) return [null, null];
 
-  if (!document.getElementById(UID)) {
+  if (!SSR && !document.getElementById(UID)) {
     const portal = document.createElement('div');
     portal.id = UID;
     document.body.appendChild(portal);
   }
 
-  const outlet = document.getElementById(UID);
+  const outlet = !SSR && document.getElementById(UID);
 
   function close(e) {
     onClose && onClose(e);
@@ -218,8 +221,13 @@ const invalidCoords = attach =>
 const limitCoords = coords =>
   coords.map(a => Math.min(100, Math.max(0, a)));
 
-const portalCleanUp = UID => () => () =>
-  (document.getElementById(UID).outerHTML = '');
+const portalCleanUp = UID => () => () => {
+  return (
+    !SSR &&
+    document.getElementById(UID) &&
+    (document.getElementById(UID).outerHTML = '')
+  );
+};
 
 function isForwardRef(type) {
   return (

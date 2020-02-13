@@ -89,8 +89,11 @@ function ModalComponent({
       !focusRef.current.parentNode.contains(event.relatedTarget) &&
       focusRef.current.focus();
 
-    document.addEventListener('focusin', focuser);
-    return document.removeEventListener('focusin', focuser, true);
+    document && document.addEventListener('focusin', focuser);
+    return (
+      document &&
+      document.removeEventListener('focusin', focuser, true)
+    );
   });
 
   return (

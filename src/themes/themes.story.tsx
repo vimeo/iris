@@ -60,23 +60,26 @@ function HookedStory() {
       <div style={{ marginBottom: '3rem' }}>
         <ThemeBlock block="formats" />
         <br />
-        {Object.entries(theme.formats).map(([name, format]) => (
+        {Object.entries(theme.formats).map(([name, format], i) => (
           <ContentBlock
+            key={i}
             background={theme.content.background}
             foreground={format}
           />
         ))}
         <br />
-        {Object.entries(theme.formats).map(([name, format]) => (
+        {Object.entries(theme.formats).map(([name, format], i) => (
           <ContentBlock
+            key={i}
             background={theme.content.background}
             foreground={theme.content.background}
             border={`1px solid ${format}`}
           />
         ))}
         <br />
-        {Object.entries(theme.formats).map(([name, format]) => (
+        {Object.entries(theme.formats).map(([name, format], i) => (
           <ContentBlock
+            key={i}
             background={theme.content.background}
             color={format}
             text
@@ -88,9 +91,10 @@ function HookedStory() {
           shadows
         </Header>
         {Object.entries(theme.shadows).map(
-          ([name, shadow]) =>
+          ([name, shadow], i) =>
             name.includes('0') && (
               <ContentBlock
+                key={i}
                 background={theme.content.background}
                 style={{
                   boxShadow: (shadow as string)
@@ -117,6 +121,7 @@ function ThemeBlock({ block }) {
       </Header>
       {section.map(([key, value], i) => (
         <div
+          key={i}
           style={{
             display: 'inline-flex',
             width: '33%',

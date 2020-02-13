@@ -25,8 +25,9 @@ const commentVariations = {
 
 storiesOf('Labs|Pronouns/', module).add('comments', () => (
   <Story title={componentName}>
-    {demoProps.map(comment => (
+    {demoProps.map((comment, i) => (
       <Comment
+        key={i}
         name={comment.name}
         id={comment.id}
         pronouns={comment.pronouns}

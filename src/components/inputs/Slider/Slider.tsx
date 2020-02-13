@@ -92,8 +92,9 @@ export function Slider({
   useEffect(() => {
     const mouseup = () => dragging && setDragging(false);
 
-    document.addEventListener('mouseup', mouseup);
-    return () => document.removeEventListener('mouseup', mouseup);
+    document && document.addEventListener('mouseup', mouseup);
+    return () =>
+      document && document.removeEventListener('mouseup', mouseup);
   });
 
   useEffect(() => {
@@ -109,8 +110,10 @@ export function Slider({
       }
     }
 
-    document.addEventListener('mousemove', mousemove);
-    return () => document.removeEventListener('mousemove', mousemove);
+    document && document.addEventListener('mousemove', mousemove);
+    return () =>
+      document &&
+      document.removeEventListener('mousemove', mousemove);
   });
 
   return (

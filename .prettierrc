@@ -1,16 +1,8 @@
 {
-  "arrowParens": "avoid",
-  "bracketSpacing": true,
-  "htmlWhitespaceSensitivity": "css",
-  "jsxBracketSameLine": false,
-  "jsxSingleQuote": false,
   "parser": "typescript",
   "printWidth": 70,
-  "semi": true,
   "singleQuote": true,
-  "tabWidth": 2,
   "trailingComma": "all",
-  "useTabs": false,
   "overrides": [
     {
       "files": [ "index.ts", "config.ts" ],
