@@ -70,7 +70,7 @@ export function usePortal(
 
   useEffect(portalCleanUp(UID), []);
 
-  if (!SSR) return [null, null];
+  if (SSR) return [null, null];
 
   if (!SSR && !document.getElementById(UID)) {
     const portal = document.createElement('div');
