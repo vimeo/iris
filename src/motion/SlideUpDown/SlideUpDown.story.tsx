@@ -14,15 +14,15 @@ storiesOf('Motion|animation', module).add('Slide Up Down', () => (
 ));
 
 const SlideUpDownDocs = () => {
-  const [hidden, setHidden] = useState(false);
-  const doClick = () => setHidden(hidden => !hidden);
+  const [showing, setShowing] = useState(true);
+  const doClick = () => setShowing(showing => !showing);
 
   return (
     <>
       <Button onClick={doClick} style={{ marginBottom: '1rem' }}>
         Toggle
       </Button>
-      <SlideUpDown isHidden={hidden}>
+      <SlideUpDown showing={showing}>
         <Notice format="positive">
           <Paragraph size="2">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -34,7 +34,7 @@ const SlideUpDownDocs = () => {
           </Paragraph>
         </Notice>
       </SlideUpDown>
-      <SlideUpDown animateOpenOnMount isHidden={hidden}>
+      <SlideUpDown automatic showing={showing}>
         <Notice format="positive">
           <Paragraph size="2">
             I open automatically on mount!

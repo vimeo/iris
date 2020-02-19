@@ -1,39 +1,30 @@
-import React, {
-  useState,
-  ReactNode,
-  useLayoutEffect,
-  useRef,
-} from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
 
-import { withIris, IrisProps } from '../../utils';
+import { Props } from './SlideUpDown.types';
+
+import { withIris } from '../../utils';
 
 export const SlideUpDown = withIris<HTMLDivElement, Props>(
   SlideUpDownComponent,
 );
 
-type Props = IrisProps<{
-  animateOpenOnMount?: boolean;
-  children: ReactNode;
-  isHidden: boolean;
-}>;
-
 function SlideUpDownComponent({
-  animateOpenOnMount = false,
+  automatic = false,
   forwardRef,
   children,
-  isHidden,
+  showing,
   ...props
 }: Props) {
   const ref = useRef(null);
   const [maxHeight, setMaxHeight] = useState(0);
 
   useLayoutEffect(() => {
-    if (!isHidden) setMaxHeight(ref.current.scrollHeight);
-  }, [children, isHidden]);
+    if (showing) setMaxHeight(ref.current.scrollHeight);
+  }, [children, showing]);
 
   useLayoutEffect(() => {
-    if (!animateOpenOnMount) setMaxHeight(0);
-  }, [animateOpenOnMount]);
+    if (!automatic) setMaxHeight(0);
+  }, [automatic]);
 
   return (
     <div
@@ -41,7 +32,7 @@ function SlideUpDownComponent({
       style={{
         overflowY: 'hidden',
         transition: 'all 200ms ease-in-out',
-        maxHeight: isHidden ? 0 : maxHeight,
+        maxHeight: showing ? maxHeight : 0,
       }}
       {...props}
     >

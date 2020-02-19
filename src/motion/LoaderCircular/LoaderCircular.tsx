@@ -1,17 +1,13 @@
 import React from 'react';
 
 import { LoaderCircular as Styled } from './LoaderCircular.style';
+import { Props } from './LoaderCircular.types';
 
-import { IrisProps, withIris } from '../../utils';
+import { withIris } from '../../utils';
 
 export const LoaderCircular = withIris<HTMLDivElement, Props>(
   LoaderCircularComponent,
 );
-
-type Props = IrisProps<{
-  format?: 'primary' | 'basic' | 'adaptive';
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-}>;
 
 function LoaderCircularComponent({
   format = 'primary',
