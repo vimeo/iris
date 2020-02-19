@@ -30,7 +30,7 @@ type Props = IrisProps<{
 
 function PopOverComponent({
   active,
-  attach,
+  attach = 'bottom',
   content,
   children,
   forwardRef,

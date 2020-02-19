@@ -35,7 +35,6 @@ interface PortalConfig {
   onClose?: EventHandler<any>;
   onOpen?: EventHandler<any>;
   screen?: boolean;
-  setParentState?: (active: boolean) => void | MouseEventHandler<any>;
   trigger?: 'click' | 'hover';
   forceActive?: boolean | null | undefined;
 }
@@ -49,21 +48,33 @@ export function usePortal(
     onClose,
     onOpen,
     screen = false,
-    setParentState,
     trigger = 'click',
     forceActive,
   }: PortalConfig,
 ): [false | ReactPortal, AnchoredComponentProps] {
   const [active, setActive] = useState(false);
-  const childRef = useRef(null);
-  const ref = useRef(null);
   const UID = useMemo(() => generateUID(), []);
 
+  const childRef = useRef(null);
+  const ref = useRef(null);
+
   useEffect(() => {
-    const offClick = e =>
-      active && !outlet.contains(e.target) && close(e);
+    if (trigger !== 'click') return;
+
+    function offClick(event) {
+      const { target } = event;
+      const { current } = ref;
+
+      return (
+        active &&
+        !outlet.contains(target) &&
+        !current.contains(target) &&
+        close(event)
+      );
+    }
 
     !SSR && document.addEventListener('click', offClick);
+
     return () =>
       !SSR && document.removeEventListener('click', offClick);
   });
@@ -91,7 +102,6 @@ export function usePortal(
   }
 
   function toggle(e) {
-    setParentState && setParentState(false);
     setActive(active => {
       if (!active) open(e);
       return !active;
@@ -116,23 +126,20 @@ export function usePortal(
     outlet,
   );
 
-  if (forceActive !== null && typeof forceActive !== 'undefined') {
-    return [forceActive && Portal, { ref }];
-  }
+  const clickable = trigger === 'click' && {
+    onClick: toggle,
+  };
 
-  return [
-    active && Portal,
-    {
-      ref,
-      ...(trigger === 'click' && {
-        onClick: toggle,
-      }),
-      ...(trigger === 'hover' && {
-        onMouseEnter: toggle,
-        onMouseLeave: toggle,
-      }),
-    },
-  ];
+  const hoverable = trigger === 'hover' && {
+    onMouseEnter: toggle,
+    onMouseLeave: toggle,
+  };
+
+  const controlled = forceActive === true || forceActive === false;
+
+  return controlled
+    ? [forceActive && Portal, { ref }]
+    : [active && Portal, { ref, ...clickable, ...hoverable }];
 }
 
 const fadeIn = keyframes`

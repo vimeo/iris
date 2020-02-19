@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
 import { storiesOf } from '@storybook/react';
 import { Story } from '../../../storybook';
@@ -10,13 +10,25 @@ import { Gear } from '../../../icons';
 import { Paragraph } from '../../../typography';
 import { rgba } from 'polished';
 import { Badge } from '../../chips/Badge/Badge';
+import { Header } from '../../../typography/Header/Header.style';
 
 storiesOf(`Components|portals/`, module)
   .add('PopOver', () => (
     <Story title="PopOver">
+      <PopOver content={PopList} style={{ zIndex: 5000 }}>
+        <TriggerButton>PopOver</TriggerButton>
+      </PopOver>
+    </Story>
+  ))
+  .add('PopOver (anchors)', () => (
+    <Story title="PopOver">
       {ANCHOR_POINTS.map((attach, i) => (
         <Fragment key={i}>
-          <PopOver content={PopList} attach={attach}>
+          <PopOver
+            content={PopList}
+            attach={attach}
+            style={{ zIndex: 5000 }}
+          >
             <TriggerButton>PopOver {attach}</TriggerButton>
           </PopOver>
           <br />
@@ -34,7 +46,33 @@ storiesOf(`Components|portals/`, module)
         <TriggerButton>PopOver bottom</TriggerButton>
       </PopOver>
     </Story>
+  ))
+  .add('PopOver (controlled)', () => (
+    <Story title="PopOver">
+      <PopOverControlled />
+    </Story>
   ));
+
+function PopOverControlled() {
+  const [active, setActive] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setActive(active => !active)}>
+        toggle
+      </Button>
+      <PopOver
+        content={
+          <Button onClick={() => setActive(false)}>close</Button>
+        }
+        attach="bottom"
+        active={active}
+      >
+        <TriggerButton>PopOver bottom</TriggerButton>
+      </PopOver>
+    </>
+  );
+}
 
 const TriggerButton = styled(B)`
   margin-bottom: 2rem;
