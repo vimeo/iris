@@ -51,6 +51,7 @@ export function Mark({
       <div style={{ position: 'relative' }}>
         <HiddenMark
           id={id}
+          name={name}
           type={type}
           disabled={disabled}
           ref={forwardRef}
