@@ -4,8 +4,10 @@ export { geometry } from './geometry';
 export { generateUID } from './generateUID';
 export { arrowRight, arrowLeft, enter, esc, spacebar, tab } from './KeyCodes';
 
+export { useOutsideClick } from './useOutsideClick';
 export { useIrisError } from './useIrisError';
 export { useLayoutStyles } from './useLayoutStyles';
+
 export { useClose, onClose } from './onClose';
 
 export { withIris } from './withIris';
