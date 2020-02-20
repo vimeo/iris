@@ -1,3 +1,23 @@
+import { IrisProps } from '../../../utils';
+
+export type Props = IrisProps<
+  {
+    /**
+     * [default = 'default']
+     */
+    format?: BadgeFormats;
+    href?: string;
+    label?: string;
+    /**
+     * [default = 'sm']
+     */
+    size?: 'sm' | 'lg';
+  },
+  DOMElement
+>;
+
+export type DOMElement = HTMLSpanElement | HTMLAnchorElement;
+
 export type BadgeFormats =
   | 'alum'
   | 'beta'

@@ -17,6 +17,9 @@ export const Tabs = withIris<HTMLDivElement, Props, Minors>(
 
 type Props = IrisProps<{
   children: Array<IrisElement<PanelProps>>;
+  /**
+   * [default = 'alternative']
+   */
   format?: Formats;
 }>;
 

@@ -1,23 +1,11 @@
 import React from 'react';
 
-import { BadgeFormats } from './Badge.types';
+import { DOMElement, Props } from './Badge.types';
 import { Badge as Styled, Wrapper } from './Badge.style';
 
-import { useLayoutStyles, IrisProps, withIris } from '../../../utils';
+import { useLayoutStyles, withIris } from '../../../utils';
 
 export const Badge = withIris<DOMElement, Props>(BadgeComponent);
-
-type DOMElement = HTMLSpanElement | HTMLAnchorElement;
-
-type Props = IrisProps<
-  {
-    format?: BadgeFormats;
-    href?: string;
-    label?: string;
-    size?: 'sm' | 'lg';
-  },
-  DOMElement
->;
 
 function BadgeComponent({
   className,

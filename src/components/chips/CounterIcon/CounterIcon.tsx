@@ -18,6 +18,11 @@ type Props = IrisProps<
   {
     href?: string;
     icon: ReactNode;
+    /**
+     * The action that triggers the tooltip to appear
+     *
+     * [default = 'hover']
+     */
     trigger?: 'click' | 'hover';
   },
   HTMLDivElement

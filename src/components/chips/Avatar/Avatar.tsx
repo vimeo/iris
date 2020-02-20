@@ -1,24 +1,11 @@
 import React, { Ref } from 'react';
 
+import { DOMElement, Props } from './Avatar.types';
 import { Avatar as Styled, Anchor } from './Avatar.style';
-import { Sizes } from './Avatar.types';
 
-import { IrisProps, useLayoutStyles, withIris } from '../../../utils';
+import { useLayoutStyles, withIris } from '../../../utils';
 
 export const Avatar = withIris<DOMElement, Props>(AvatarComponent);
-
-type DOMElement = HTMLImageElement | HTMLAnchorElement;
-
-type Props = IrisProps<
-  {
-    size?: Sizes;
-    src: string;
-    srcSet?: string;
-    href?: string;
-    target?: '_blank';
-  },
-  DOMElement
->;
 
 function AvatarComponent({
   className,

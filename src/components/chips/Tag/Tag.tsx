@@ -1,31 +1,11 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
+import { DOMElement, Props } from './Tag.types';
 import { Tag as Styled, Image, DismissX } from './Tag.style';
 
-import {
-  IrisProps,
-  withIris,
-  useClose,
-  onClose,
-} from '../../../utils';
+import { withIris, useClose } from '../../../utils';
 
 export const Tag = withIris<DOMElement, Props>(TagComponent);
-
-type DOMElement = HTMLButtonElement | HTMLSpanElement;
-
-type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-
-type Props = IrisProps<
-  {
-    element?: 'button' | 'span';
-    icon?: ReactNode;
-    iconPosition?: 'right' | 'left' | 'featured';
-    onClose?: onClose;
-    size?: Sizes;
-    src?: string;
-  },
-  DOMElement
->;
 
 function TagComponent({
   children,
