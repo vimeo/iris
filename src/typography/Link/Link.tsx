@@ -1,24 +1,13 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import { Props } from './Link.types';
 
-import { withIris, IrisProps } from '../../utils';
+import { withIris } from '../../utils';
 import { Link as Styled } from './Link.style';
 
 export const Link = withIris<
   HTMLAnchorElement | HTMLSpanElement,
   Props
 >(LinkComponent);
-
-type Props = IrisProps<
-  {
-    element?: 'a' | 'span';
-    format?: 'primary' | 'soft' | 'basic' | 'positive' | 'negative';
-    decoration?: 'loud' | 'inherit' | 'silent';
-    title?: ReactNode;
-    href?: string;
-    target?: string;
-  },
-  HTMLAnchorElement | HTMLSpanElement
->;
 
 function LinkComponent({
   children,

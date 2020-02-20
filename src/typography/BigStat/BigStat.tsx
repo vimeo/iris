@@ -12,6 +12,9 @@ export const BigStat = withIris<
 
 type Props = IrisProps<
   {
+    /**
+     * [default = 'p']
+     */
     element?: 'p' | 'span';
   },
   HTMLParagraphElement | HTMLSpanElement

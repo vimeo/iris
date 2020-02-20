@@ -1,25 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { HTMLTextElement, IrisTextElement } from './Text.types';
+import { HTMLTextElement, Props } from './Text.types';
 
 import { antialias } from '../typography';
-import { withIris, IrisProps } from '../../utils';
+import { withIris } from '../../utils';
 import { Statuses, Formats } from '../../themes';
 
 export const Text = withIris<
   HTMLParagraphElement | HTMLSpanElement,
   Props
 >(TextComponent);
-
-type Props = IrisProps<
-  {
-    format?: Formats;
-    status?: Statuses;
-    element?: HTMLTextElement;
-  },
-  IrisTextElement
->;
 
 function TextComponent({
   element = 'span',
