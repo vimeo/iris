@@ -17,7 +17,18 @@ export type Props = IrisProps<
   {
     circular?: boolean;
     element?: ButtonElements;
+    /**
+     * Whether the button will fill the width of its container,
+     * can also specify the min, max widths in px of when the button will be fluid
+     *
+     * Example: {{ min: 250, max: 750 }}
+     *
+     * [default = false]
+     */
     fluid?: Fluid;
+    /**
+     * [default = 'primary']
+     */
     format?:
       | 'basic'
       | 'soft'
@@ -26,14 +37,28 @@ export type Props = IrisProps<
       | 'primary';
     href?: string;
     icon?: ReactNode;
+    /**
+     * [default = 'left']
+     */
     iconPosition?: IconPositions;
     loading?: boolean;
     overflow?: boolean;
+    /**
+     * The focus radius around border of button
+     *
+     * [default = 6]
+     */
     radius?: number;
+    /**
+     * [default = 'md']
+     */
     size?: Sizes;
     status?: Statuses;
     target?: Targets;
     theme?: any;
+    /**
+     * [default = 'solid']
+     */
     variant?:
       | 'solid'
       | 'transparent'

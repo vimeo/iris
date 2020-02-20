@@ -1,36 +1,13 @@
-import React, {
-  ReactNode,
-  CSSProperties,
-  useReducer,
-  useEffect,
-} from 'react';
+import React, { CSSProperties, useReducer, useEffect } from 'react';
 
 import { Button } from '../../buttons/Button/Button';
-import { IrisProps, withIris } from '../../../utils';
+import { withIris } from '../../../utils';
+import { Props } from './ToggleState.types';
 import { reducer, initialState } from './ToggleState.state';
-
-type Fluid = true | { min?: number; max?: number };
 
 export const ButtonToggleState = withIris<HTMLButtonElement, Props>(
   ButtonToggleStateComponent,
 );
-
-type Props = IrisProps<
-  {
-    fluid?: Fluid;
-    format?: 'primary';
-    isActive?: boolean;
-    offIcon: ReactNode;
-    offStateText: string;
-    onIcon: ReactNode;
-    onStateText: string;
-    style?: { margins?: string };
-    turnOffActionText: string;
-    turnOffIcon: ReactNode;
-    variant?: 'outline' | 'solid';
-  },
-  HTMLButtonElement
->;
 
 function ButtonToggleStateComponent({
   fluid,

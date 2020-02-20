@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { ButtonToggleState as B } from '../ToggleState/ToggleState';
 import { Plus, Checkmark, DismissX } from '../../../icons';
@@ -70,7 +70,7 @@ const ButtonToggleStateDocs = () => {
         turnOffIcon={<DismissX />}
       />
       <ButtonToggleState
-        variant="basic"
+        variant="solid"
         isActive={following}
         offIcon={<Plus />}
         offStateText={followText}
@@ -81,7 +81,7 @@ const ButtonToggleStateDocs = () => {
         turnOffIcon={<DismissX />}
       />
       <ButtonToggleState
-        variant="basic"
+        variant="solid"
         isActive={following}
         offIcon={<Plus />}
         offStateText={followText}
@@ -92,7 +92,7 @@ const ButtonToggleStateDocs = () => {
         turnOffIcon={<DismissX />}
       />
       <ButtonToggleState
-        variant="basic"
+        variant="solid"
         isActive={connected}
         offIcon={<Plus />}
         offStateText={connectText}
@@ -103,7 +103,7 @@ const ButtonToggleStateDocs = () => {
         turnOffIcon={<DismissX />}
       />
       <ButtonToggleState
-        variant="basic"
+        variant="solid"
         isActive={connected}
         offIcon={<Plus />}
         offStateText={connectText}

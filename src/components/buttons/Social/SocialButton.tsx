@@ -19,6 +19,14 @@ type Fluid = true | { min?: number; max?: number };
 type Props = IrisProps<
   {
     brand: 'apple' | 'facebook' | 'google';
+    /**
+     * Whether the button will fill the width of its container,
+     * can also specify the min, max widths in px of when the button will be fluid
+     *
+     * Example: {{ min: 250, max: 750 }}
+     *
+     * [default = false]
+     */
     fluid?: Fluid;
   },
   HTMLButtonElement
