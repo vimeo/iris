@@ -18,6 +18,7 @@ import {
   withIris,
   IrisProps,
   useLayoutStyles,
+  useOutsideClick,
 } from '../../../utils';
 import { ChevronDown as CD } from '../../../icons';
 import { PopOver, Pop } from '../../portals/PopOver/PopOver';
@@ -56,35 +57,48 @@ function SelectComponent({
 }: Props) {
   const [width, setWidth] = useState(0);
   const [selected, setSelected] = useState(0);
+  const [active, setActive] = useState(false);
   const [layoutStyles, displayStyles] = useLayoutStyles(style);
   const ref = useRef(null);
+  const selectRef = useRef(null);
 
   useLayoutEffect(() => faux && setWidth(geometry(ref).width), [
     size,
     faux,
   ]);
 
+  useOutsideClick(selectRef, () => {
+    setActive(false);
+  });
+
   const options = faux
-    ? (children as ReactElement[]).map(
-        ({ props: { children } }, i) => (
+    ? (children as ReactElement[])
+        .filter(child => {
+          return child.type !== 'a';
+        })
+        .map(({ props: { children } }, i) => (
           <option key={i} value={i}>
-            {typeof children === 'string'
-              ? children
-              : children.filter(cc => typeof cc === 'string')}
+            {Array.isArray(children)
+              ? children.filter(cc => typeof cc === 'string')
+              : children}
           </option>
-        ),
-      )
+        ))
     : children;
 
   const popOverChildren = faux && (
     <div>
-      {children.map((child, i) =>
-        cloneElement(child as ReactElement, {
-          onClick: () => setSelected(i),
-          key: i,
-          faux,
-        }),
-      )}
+      {children.map((child, i) => {
+        return typeof (child as ReactElement).type === 'string'
+          ? child
+          : cloneElement(child as ReactElement, {
+              onClick: () => {
+                setSelected(i);
+                setActive(false);
+              },
+              key: i,
+              faux,
+            });
+      })}
     </div>
   );
 
@@ -99,9 +113,13 @@ function SelectComponent({
       <PopOver
         attach="bottom"
         style={{ width, maxWidth: '100%' }}
-        content={popOverChildren}
+        content={<div ref={selectRef}>{popOverChildren}</div>}
+        active={active}
       >
-        <div style={{ position: 'relative' }}>
+        <div
+          style={{ position: 'relative' }}
+          onClick={() => setActive(true)}
+        >
           <SelectStyled
             inputSize={size}
             ref={forwardRef}
@@ -147,14 +165,36 @@ interface Minors {
   Option: FunctionComponent<IrisProps<OptionProps>>;
 }
 
-Select.Option = ({ children, faux, disabled, ...props }) => {
+Select.Option = ({
+  children,
+  faux,
+  disabled,
+  href,
+  upgradeBadge,
+  ...props
+}) => {
   return faux ? (
-    <Pop.Item
-      {...props}
-      style={disabled && { pointerEvents: 'none', opacity: 0.4 }}
-    >
-      {children}
-    </Pop.Item>
+    href ? (
+      <a href={href}>
+        <Pop.Item {...props}>
+          <>
+            <span style={disabled && { opacity: 0.4 }}>
+              {children.filter(c => typeof c === 'string')}
+            </span>
+            <span style={{ pointerEvents: 'none' }}>
+              {children.filter(c => typeof c !== 'string')}
+            </span>
+          </>
+        </Pop.Item>
+      </a>
+    ) : (
+      <Pop.Item
+        {...props}
+        style={disabled && { pointerEvents: 'none', opacity: 0.4 }}
+      >
+        {children}
+      </Pop.Item>
+    )
   ) : (
     <option disabled={disabled} {...props}>
       {children}

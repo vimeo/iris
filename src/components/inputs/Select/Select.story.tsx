@@ -4,6 +4,8 @@ import { Select } from './Select';
 import { Story } from '../../../storybook';
 import { Badge } from '../../chips/Badge/Badge.style';
 import { PaperPlane } from '../../../icons';
+import { blue } from '../../../color';
+import styled from 'styled-components';
 
 storiesOf(`Components|inputs/`, module)
   .add('Select', () => (
@@ -103,8 +105,14 @@ function FauxSelectStory() {
           Option 3 <PaperPlane style={{ margin: '0 0.5rem' }} />
         </Select.Option>
         <Select.Option value="4" disabled>
-          Option 4 {UpgradeBadge}
+          Option 4
         </Select.Option>
+        <Select.Option value="5" href="#" disabled>
+          Option 5 {UpgradeBadge}
+        </Select.Option>
+        <a href="#">
+          <Notice>This is a notice. Contact Us.</Notice>
+        </a>
       </Select>
     </Story>
   );
@@ -119,3 +127,15 @@ const UpgradeBadge = (
     Upgrade
   </Badge>
 );
+
+const Notice = styled.div`
+  background: ${blue(50)};
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  color: black;
+
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+`;
