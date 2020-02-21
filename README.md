@@ -41,9 +41,9 @@
 <img width="300" alt="Screen Shot 2019-10-23 at 12 12 22 AM" src="https://github.vimeows.com/storage/user/544/files/d7882980-f529-11e9-95c7-6735d245d2cc"><img width="300" alt="Screen Shot 2019-10-23 at 12 12 17 AM" src="https://github.vimeows.com/storage/user/544/files/d8b95680-f529-11e9-858e-8453cc1040d1">
 </a>
 
-## [Wiki](https://github.vimeows.com/Vimeo/iris/wiki)
-## [Contributing to Iris](https://github.vimeows.com/Vimeo/iris/wiki/Contributing-to-Iris)
 ## [Using Iris in Your App](https://github.vimeows.com/Vimeo/iris/wiki/Using-Iris-in-Your-App)
+## [Contributing to Iris](https://github.vimeows.com/Vimeo/iris/wiki/Contributing-to-Iris)
+## [Wiki](https://github.vimeows.com/Vimeo/iris/wiki)
 
 ## Need Help?
 
