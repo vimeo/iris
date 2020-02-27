@@ -70,6 +70,7 @@ export { Person } from './Person';
 export { PersonFilled } from './PersonFilled';
 export { Pin } from './Pin';
 export { Play } from './Play';
+export { PlayFilled } from './PlayFilled';
 export { Plus } from './Plus';
 export { PopIn } from './PopIn';
 export { PopOut } from './PopOut';
