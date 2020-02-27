@@ -7,8 +7,17 @@ export const Card = withIris<HTMLDivElement, Props>(CardComponent);
 
 type Props = IrisProps<
   {
+    /**
+     * [default =  false]
+     */
     loading?: boolean;
+    /**
+     * [default = false]
+     */
     selected?: boolean;
+    /**
+     * [default = false]
+     */
     noHoverState?: boolean;
   },
   HTMLDivElement

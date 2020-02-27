@@ -20,8 +20,14 @@ export const CategoryCard = withIris<HTMLButtonElement, Props>(
 
 type Props = IrisProps<
   {
+    /**
+     * The image that appears in background of card
+     */
     src?: string;
     href?: string;
+    /**
+     * The icon that appears in center of card
+     */
     icon: ReactNode;
   },
   HTMLButtonElement

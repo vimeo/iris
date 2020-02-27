@@ -15,6 +15,11 @@ type Props = IrisProps<
     children: string;
     href?: string;
     rel?: string;
+    /**
+     * Whether to open link in new tab or window
+     *
+     * Ex: target="_blank"
+     */
     target?: string;
     onClick?: MouseEventHandler<HTMLAnchorElement>;
   },
