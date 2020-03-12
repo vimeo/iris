@@ -1,24 +1,16 @@
-import React, { cloneElement, ReactNode, ReactElement } from 'react';
+import React, { cloneElement, ReactElement } from 'react';
 
+import { Props } from './Tip.types';
 import { maxWidth } from './Tip.settings';
 import { Tip as Styled } from './Tip.style';
 
 import { usePortal, validate } from '../usePortal';
-import { Attach, AttachAlias } from '../AnchoredComponent';
 
-import { withIris, IrisProps } from '../../../utils';
+import { withIris } from '../../../utils';
 import { Paragraph } from '../../../typography';
 import { useIrisError } from '../../../utils/useIrisError';
 
 export const Tip = withIris<HTMLDivElement, Props>(TipComponent);
-
-type Props = IrisProps<{
-  attach?: Attach | AttachAlias;
-  breakWords?: boolean;
-  children: ReactElement | string;
-  content?: ReactNode;
-  trigger?: 'click' | 'hover';
-}>;
 
 function TipComponent({
   attach = 'top',

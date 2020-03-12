@@ -9,7 +9,18 @@ export const Annotation = withIris<HTMLDivElement, Props>(
   AnnotationComponent,
 );
 
-type Props = IrisProps<{ content?: string }, HTMLDivElement>;
+type Props = IrisProps<
+  {
+    /**
+     * The `content` defines what will appear inside the portal component,
+     * whereas the `children` defines what the portal component is anchored to.
+     *
+     * This portal tooltip will appear to the top of the anchor.
+     */
+    content?: string;
+  },
+  HTMLDivElement
+>;
 
 function AnnotationComponent({
   children,
