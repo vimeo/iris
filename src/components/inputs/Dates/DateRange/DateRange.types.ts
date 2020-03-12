@@ -7,6 +7,10 @@ export type Props = IrisInputProps<{
    */
   minDate?: Date;
   /**
+   * A date object that defines the maximum date a user must select
+   */
+  maxDate?: Date;
+  /**
    * In what direction should the calendar viewport open? Default: left
    */
   attach?: 'left' | 'right' | 'bottom';

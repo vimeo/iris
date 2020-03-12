@@ -11,7 +11,10 @@ interface ChangeStartAction {
 
 interface ChangeEndAction {
   type: 'CHANGE_END';
-  payload: string;
+  payload: {
+    label: string;
+    maxDate: Date;
+  };
 }
 
 interface ChangeViewportAction {

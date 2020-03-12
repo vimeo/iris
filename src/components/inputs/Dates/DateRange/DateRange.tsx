@@ -39,6 +39,7 @@ function DateRangeComponent({
   attach = 'bottom',
   children,
   minDate,
+  maxDate,
 }: Props) {
   const [state, dispatch] = useReducer(reducer, initialState, init);
 
@@ -179,7 +180,10 @@ function DateRangeComponent({
   const handleEndChange: FormEventHandler<HTMLInputElement> = event => {
     dispatch({
       type: 'CHANGE_END',
-      payload: event.currentTarget.value,
+      payload: {
+        label: event.currentTarget.value,
+        maxDate,
+      },
     });
   };
 
@@ -244,7 +248,16 @@ function DateRangeComponent({
               onMouseEnter={handleHover}
             />
             <Calendar
-              forward={<MoveRight onClick={handleGoForward} />}
+              forward={
+                <MoveRight
+                  inactive={maxDate && nextViewportDate > maxDate}
+                  onClick={
+                    !(maxDate && nextViewportDate > maxDate)
+                      ? handleGoForward
+                      : undefined
+                  }
+                />
+              }
               viewport={nextViewportDate}
               minDate={minDate}
               range={[draftStart, draftEnd]}

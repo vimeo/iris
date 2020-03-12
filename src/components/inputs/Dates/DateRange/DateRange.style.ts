@@ -64,10 +64,14 @@ export const MoveLeft = styled(ChevronRight)<{
 `;
 
 export const MoveRight = styled(ChevronRight)<{
+  inactive: boolean;
   onClick?: MouseEventHandler;
 }>`
   ${size(rem(24))};
   cursor: pointer;
+  path {
+    fill: ${props => (props.inactive ? slate(100) : black)};
+  }
 `;
 
 export const ClearButton = styled(Button)`

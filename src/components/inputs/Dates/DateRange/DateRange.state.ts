@@ -153,8 +153,9 @@ export function reducer(state: State, action: Action): State {
     }
     case 'CHANGE_END':
       const draftStart = state.draft[0];
-      const newEndDate = new Date(action.payload);
-      const label = action.payload;
+      const newEndDate = new Date(action.payload.label);
+      const maxDate = action.payload.maxDate;
+      const label = action.payload.label;
 
       if (!draftStart) {
         return {
@@ -177,6 +178,19 @@ export function reducer(state: State, action: Action): State {
           ...state,
           endLabel: label,
           endDateError: 'Invalid date',
+        };
+      }
+
+      // If the date entered is after the maximum date requirement update label and set error
+      if (
+        maxDate &&
+        new Date(maxDate.toDateString()) >
+          new Date(newEndDate.toDateString())
+      ) {
+        return {
+          ...state,
+          endLabel: action.payload.label,
+          endDateError: 'Invalid end date :(',
         };
       }
 

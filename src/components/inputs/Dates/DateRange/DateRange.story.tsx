@@ -44,12 +44,16 @@ function DateRangeButton() {
   // When implementing you can just pass `new Date()` to minDate
   const defaultDate = new Date(new Date().toDateString());
   const minDate = new Date(date('Minimum Date', defaultDate));
+  const maxDate = new Date(
+    new Date().setFullYear(new Date().getFullYear() + 1),
+  );
 
   return (
     <DateRange
       attach={select('Calendar attach', attachs, 'bottom')}
       onChange={onChange}
       minDate={minDate}
+      maxDate={maxDate}
     >
       <Button icon={<ChevronDown />} iconPosition="right">
         {buttonText}
