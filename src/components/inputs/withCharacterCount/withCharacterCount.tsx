@@ -1,18 +1,8 @@
-import React, { useReducer, ChangeEventHandler, FC } from 'react';
+import React, { useReducer, FC } from 'react';
 
+import { Props } from './withCharacterCount.types';
 import { reducer } from './withCharacterCount.state';
 import { Counter } from './withCharacterCount.style';
-
-interface Props {
-  defaultValue?: string;
-  maxCharacters?: number;
-  onChange?: ChangeEventHandler;
-  onError?: ChangeEventHandler;
-  onWarn?: ChangeEventHandler;
-  plural?: string;
-  singular?: string;
-  warningThreshold?: number;
-}
 
 export function withCharacterCount<P = {}>(Component: FC<P>) {
   return function({

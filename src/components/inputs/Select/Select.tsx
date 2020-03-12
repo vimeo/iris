@@ -1,5 +1,4 @@
 import React, {
-  ReactNode,
   useRef,
   useLayoutEffect,
   useState,
@@ -9,11 +8,12 @@ import React, {
 } from 'react';
 import styled from 'styled-components';
 
+import { Props, Sizes } from './Select.types';
+
 import { Wrapper } from '../Wrapper/Wrapper';
 import { inputShape, inputColors } from '../Shared';
 
 import {
-  IrisInputProps,
   geometry,
   withIris,
   IrisProps,
@@ -22,21 +22,6 @@ import {
 } from '../../../utils';
 import { ChevronDown as CD } from '../../../icons';
 import { PopOver, Pop } from '../../portals/PopOver/PopOver';
-
-type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-type Props = IrisInputProps<
-  {
-    defaultValue?: string | string[];
-    icon?: ReactNode;
-    options?: Array<{ label: string; value: string }>;
-    size?: Sizes;
-    value?: string | string[];
-    format?: 'basic';
-    faux?: boolean;
-    children?: ReactNode[];
-  },
-  HTMLSelectElement
->;
 
 export const Select = withIris<HTMLSelectElement, Props, Minors>(
   SelectComponent,

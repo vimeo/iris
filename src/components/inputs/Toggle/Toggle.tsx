@@ -11,6 +11,9 @@ export const Toggle = withIris<HTMLInputElement, Props>(
 type Props = IrisInputProps<
   {
     icon?: ReactNode;
+    /**
+     * [default = 'md']
+     */
     size?: 'sm' | 'md' | 'lg' | 'xl';
   },
   HTMLInputElement

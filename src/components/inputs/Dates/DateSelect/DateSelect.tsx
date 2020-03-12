@@ -14,6 +14,11 @@ type Props = IrisInputProps<{
   children: ReactElement;
   defaultValue?: string | string[];
   onSelect?: (date: Date) => void;
+  /**
+   * A date object that tells the calendar what initial month to display. If no month is provided it will default to the current month.
+   *
+   * Ex: new Date('01/01/2032')
+   */
   initialMonth?: Date;
 }>;
 

@@ -8,23 +8,13 @@ import React, {
   Ref,
 } from 'react';
 
+import { Props } from './Slider.types';
 import { initialState, reducer } from './Slider.state';
 import { Background, ActiveRange } from './Slider.style';
 import { Handle } from './Handle';
 
 import { white } from '../../../color';
 import { geometry } from '../../../utils';
-
-interface Props {
-  disabled?: boolean;
-  editableLabel?: boolean;
-  formatter?: (value: number) => string;
-  initialValues?: number[];
-  max?: number;
-  min?: number;
-  onChange?: (formattedValue: number | string) => number | string;
-  range?: boolean;
-}
 
 interface State {
   values: number[];

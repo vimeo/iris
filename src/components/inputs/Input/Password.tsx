@@ -16,11 +16,28 @@ export const Password = withIris<HTMLInputElement, Props>(
 );
 
 type Props = IrisInputProps<{
+  /**
+   * [default = 'minimalTransparent']
+   */
   variant?: 'minimal' | 'basic' | 'minimalTransparent';
+  /**
+   * [default = 'basic']
+   */
   format?: 'primary' | 'basic';
+  /**
+   * [default = 'md']
+   */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   children?: never;
+  /**
+   * The input label. Appears above the input.
+   */
   label?: ReactNode;
+  /**
+   * Should the label be inside the input and float up on focus?
+   *
+   * [default = false]
+   */
   floating?: boolean;
 }>;
 

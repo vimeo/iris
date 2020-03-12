@@ -1,26 +1,14 @@
 import React, { useState, cloneElement, useMemo } from 'react';
 
 import { Checkbox } from './Checkbox';
-import { validate, MarkInputElement } from '../Shared';
+import { validate } from '../Shared';
 
-import {
-  generateUID,
-  withIris,
-  IrisInputProps,
-} from '../../../utils';
+import { Props } from './Checkbox.types';
+import { generateUID, withIris } from '../../../utils';
 
 export const CheckboxSet = withIris<HTMLDivElement, Props>(
   CheckboxSetComponent,
 );
-
-type Props = IrisInputProps<
-  {
-    children: MarkInputElement[];
-    coupled?: boolean;
-    toggled?: boolean;
-  },
-  HTMLDivElement
->;
 
 function CheckboxSetComponent({
   children,

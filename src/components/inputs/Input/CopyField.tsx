@@ -18,11 +18,25 @@ export const CopyField = withIris<HTMLInputElement, Props>(
 );
 
 type Props = IrisInputProps<{
+  /**
+   * The format of the copy button.
+   *
+   * [default = 'primary']
+   */
   format?: 'primary' | 'alternative';
   label?: ReactNode;
+  /**
+   * The message to display when string is copied.
+   */
   messages: { success: string };
   onCopy?: ClipboardEventHandler;
+  /**
+   * [default = 'md']
+   */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  /**
+   * [default = 'basic']
+   */
   variant?: 'minimal' | 'basic';
 }>;
 

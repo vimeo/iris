@@ -16,8 +16,17 @@ export const Search = withIris<HTMLInputElement, Props>(
 );
 
 type Props = IrisInputProps<{
+  /**
+   * [default = 'basic']
+   */
   variant?: 'minimal' | 'basic';
+  /**
+   * [default = 'primary']
+   */
   format?: 'primary' | 'alternative';
+  /**
+   * [default = 'md']
+   */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   label?: ReactNode;
 }>;

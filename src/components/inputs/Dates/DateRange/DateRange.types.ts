@@ -11,7 +11,9 @@ export type Props = IrisInputProps<{
    */
   maxDate?: Date;
   /**
-   * In what direction should the calendar viewport open? Default: left
+   * In what direction should the calendar viewport open?
+   *
+   * [default = 'left']
    */
   attach?: 'left' | 'right' | 'bottom';
   /**

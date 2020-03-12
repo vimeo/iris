@@ -1,31 +1,18 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 
+import { Props } from './TextArea.types';
+
 import { slate, blue } from '../../../color';
-import {
-  withIris,
-  IrisInputProps,
-  useIrisError,
-} from '../../../utils';
+import { withIris, useIrisError } from '../../../utils';
 import { Wrapper } from '../Wrapper/Wrapper';
 import { inputColors } from '../Shared';
 
 export const TextArea = withIris<HTMLInputElement, Props>(
   TextAreaComponent,
 );
-
-type Props = IrisInputProps<{
-  disabled?: boolean;
-  errorMsg?: ReactNode;
-  format?: 'negative' | 'positive' | 'neutral';
-  helperMsg?: ReactNode;
-  id?: string;
-  label?: string;
-  preMessage?: ReactNode;
-  showLabel?: boolean;
-}>;
 
 function TextAreaComponent({
   disabled,
