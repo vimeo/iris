@@ -2,6 +2,7 @@ import React, {
   useState,
   cloneElement,
   FunctionComponent,
+  useLayoutEffect,
 } from 'react';
 import styled from 'styled-components';
 import { rgba, rem } from 'polished';
@@ -30,6 +31,23 @@ function TabsComponent({
   ...props
 }: Props) {
   const [activeTab, setActiveTab] = useState(0);
+
+  useLayoutEffect(() => {
+    const active = children
+      .map(({ props: { active } }, i) => active && i)
+      .filter(i => typeof i === 'number' && i >= 0);
+
+    const lastActive = active[active.length - 1];
+
+    if (active.length === 0) return;
+    if (active.length === 1) return setActiveTab(active[0]);
+
+
+    setActiveTab(lastActive);
+
+    const errorMessage = `Multiple tabs were specified as the intial active tab! Tabs: [${active.toString()}]. Using last 'active' tab: ${lastActive}.`;
+    console.error(`@vimeo/iris:`, errorMessage, `\n\n`);
+  }, [children]);
 
   function doKey({ key }) {
     if (key === 'ArrowRight') {
@@ -122,17 +140,19 @@ interface Minors {
 
 interface PanelProps {
   label?: string;
+  active?: boolean;
   onActivate: VoidFunction;
 }
 
 const Panel = ({
   children,
+  active,
   onActivate,
   ...props
 }: IrisProps<PanelProps>) => (
-  <div style={{ padding: '0.5rem 0' }} {...props}>
-    {children}
-  </div>
-);
+    <div style={{ padding: '0.5rem 0' }} {...props}>
+      {children}
+    </div>
+  );
 
 Tabs.Panel = Panel;

@@ -27,6 +27,7 @@ storiesOf(`Layout|Tabs/`, module).add('Tabs', () => (
       </Tabs.Panel>
       <Tabs.Panel
         label="Tab 1"
+        active
         onActivate={() => console.log('Clicked Tab 1')}
       >
         <Header size="2">I am Tab 1</Header>
