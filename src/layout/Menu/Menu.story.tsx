@@ -23,7 +23,9 @@ storiesOf('Layout|Menu', module)
     <Story title="Menu" width="100%" flex>
       <Menu style={{ padding: '1rem' }}>
         <Menu.Section title="Section 1">
-          <Menu.Item icon={<Home />}>Item 1 S1</Menu.Item>
+          <Menu.Item active icon={<Home />}>
+            Item 1 S1
+          </Menu.Item>
           <Menu.Item icon={<Gear />}>Item 2 S1</Menu.Item>
         </Menu.Section>
 

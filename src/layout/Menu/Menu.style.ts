@@ -73,7 +73,10 @@ export const Wrapper = styled.div<{
   border-radius: 0.2rem;
   position: relative;
   background: ${({ active, theme }) =>
-    active && rgba(theme.content.color, 0.0175)};
+    active &&
+    (theme.name === 'dark'
+      ? rgba(theme.content.color, 0.095)
+      : rgba(theme.content.color, 0.065))};
 
   &:hover {
     background: ${({ theme }) => rgba(theme.content.color, 0.025)};
