@@ -1,7 +1,7 @@
 import { tint, shade, saturate, adjustHue } from 'polished';
 
 export interface Color {
-  (grade?: number): string;
+  (grade: number): string;
 }
 
 export enum Colors {
