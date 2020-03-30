@@ -29,6 +29,7 @@ export { Complete } from './Complete';
 export { DismissX } from './DismissX';
 export { DotsMenu } from './DotsMenu';
 export { DownloadArrow } from './DownloadArrow';
+export { EditPlayer } from './EditPlayer';
 export { Envelope } from './Envelope';
 export { Error } from './Error';
 export { Eye } from './Eye';

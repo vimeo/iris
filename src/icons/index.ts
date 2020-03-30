@@ -66,6 +66,7 @@ export { Comment } from './ui/Comment';
 export { DismissX } from './ui/DismissX';
 export { DotsMenu } from './ui/DotsMenu';
 export { DownloadArrow } from './ui/DownloadArrow';
+export { EditPlayer } from './ui/EditPlayer';
 export { Envelope } from './ui/Envelope';
 export { Eye } from './ui/Eye';
 export { EyeOff } from './ui/EyeOff';
