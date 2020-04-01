@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Select } from './Select';
 import { Story } from '../../../storybook';
 import { Badge } from '../../chips/Badge/Badge.style';
 import { PaperPlane } from '../../../icons';
 import { blue } from '../../../color';
+import { action } from '@storybook/addon-actions';
 import styled from 'styled-components';
 
 storiesOf(`Components|inputs/`, module)
@@ -13,6 +14,7 @@ storiesOf(`Components|inputs/`, module)
       <Select
         label="Select"
         style={{ display: 'inline-block', width: 'auto' }}
+        onChange={e => action('Selected Option')(e.target.value, e)}
       >
         <Select.Option value="" disabled hidden>
           Select something...
@@ -27,7 +29,11 @@ storiesOf(`Components|inputs/`, module)
       </Select>
       <br />
       <br />
-      <Select label="I feel validated!" status="positive">
+      <Select
+        label="I feel validated!"
+        status="positive"
+        onChange={e => action('Selected Option')(e.target.value, e)}
+      >
         <Select.Option value="" disabled hidden>
           Select something...
         </Select.Option>
@@ -41,7 +47,11 @@ storiesOf(`Components|inputs/`, module)
       </Select>
       <br />
       <br />
-      <Select label="Something bad happened!" status="negative">
+      <Select
+        label="Something bad happened!"
+        status="negative"
+        onChange={e => action('Selected Option')(e.target.value, e)}
+      >
         <Select.Option value="" disabled hidden>
           Select something...
         </Select.Option>
@@ -51,40 +61,72 @@ storiesOf(`Components|inputs/`, module)
         </Select.Option>
         <Select.Option value="3" disabled>
           Value 2 (Disabled)
+        </Select.Option>
+      </Select>
+      <br />
+      <br />
+      <Select
+        label="Select with defaultValue of 2"
+        defaultValue="2"
+        onChange={e => action('Selected Option')(e.target.value, e)}
+      >
+        <Select.Option value="1">Value 1</Select.Option>
+        <Select.Option value="2">
+          Value 2 has a long label
         </Select.Option>
       </Select>
       <br />
       <br />
       <hr />
-      <Select label="Select" size="xs">
+      <Select
+        label="xs Select"
+        size="xs"
+        onChange={e => action('Selected Option')(e.target.value, e)}
+      >
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
           Value 2 has a long label
         </Select.Option>
       </Select>
       <br />
-      <Select label="Select" size="sm">
+      <Select
+        label="sm Select"
+        size="sm"
+        onChange={e => action('Selected Option')(e.target.value, e)}
+      >
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
           Value 2 has a long label
         </Select.Option>
       </Select>
       <br />
-      <Select label="Select" size="md">
+      <Select
+        label="md Select"
+        size="md"
+        onChange={e => action('Selected Option')(e.target.value, e)}
+      >
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
           Value 2 has a long label
         </Select.Option>
       </Select>
       <br />
-      <Select label="Select" size="lg">
+      <Select
+        label="lg Select"
+        size="lg"
+        onChange={e => action('Selected Option')(e.target.value, e)}
+      >
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
           Value 2 has a long label
         </Select.Option>
       </Select>
       <br />
-      <Select label="Select" size="xl">
+      <Select
+        label="xl Select"
+        size="xl"
+        onChange={e => action('Selected Option')(e.target.value, e)}
+      >
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
           Value 2 has a long label
@@ -96,9 +138,21 @@ storiesOf(`Components|inputs/`, module)
   .add('Select (faux)', () => <FauxSelectStory />);
 
 function FauxSelectStory() {
+  const selectRef = useRef(null);
   return (
     <Story title="Select">
-      <Select label="Select" faux>
+      <Select
+        label="Alert Selected"
+        onChange={e => {
+          action('Selected Option')(
+            e.target.value,
+            e,
+            selectRef.current,
+          );
+        }}
+        ref={selectRef}
+        faux
+      >
         <Select.Option value="1">Option 1</Select.Option>
         <Select.Option value="2">Option 2</Select.Option>
         <Select.Option value="3">

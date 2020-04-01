@@ -2,6 +2,8 @@ import React, {
   useRef,
   useLayoutEffect,
   useState,
+  useEffect,
+  useImperativeHandle,
   cloneElement,
   ReactElement,
   FunctionComponent,
@@ -42,19 +44,34 @@ function SelectComponent({
 }: Props) {
   const [width, setWidth] = useState(0);
   const [selected, setSelected] = useState(0);
+  const [updatedSelected, setUpdatedSelected] = useState(false);
   const [active, setActive] = useState(false);
   const [layoutStyles, displayStyles] = useLayoutStyles(style);
-  const ref = useRef(null);
+  const wrapperRef = useRef(null);
+  const popOverRef = useRef(null);
   const selectRef = useRef(null);
 
-  useLayoutEffect(() => faux && setWidth(geometry(ref).width), [
-    size,
-    faux,
-  ]);
+  useImperativeHandle(forwardRef, () => selectRef.current);
 
-  useOutsideClick(selectRef, () => {
+  useLayoutEffect(
+    () => faux && setWidth(geometry(wrapperRef).width),
+    [size, faux],
+  );
+
+  useOutsideClick(popOverRef, () => {
     setActive(false);
   });
+
+  useEffect(() => {
+    if (faux && updatedSelected) {
+      if (selectRef?.current) {
+        selectRef.current.dispatchEvent(
+          new Event('change', { bubbles: true }),
+        );
+        setUpdatedSelected(false);
+      }
+    }
+  }, [selected, faux, updatedSelected]);
 
   const options = faux
     ? (children as ReactElement[])
@@ -78,6 +95,7 @@ function SelectComponent({
           : cloneElement(child as ReactElement, {
               onClick: () => {
                 setSelected(i);
+                setUpdatedSelected(true);
                 setActive(false);
               },
               key: i,
@@ -92,13 +110,13 @@ function SelectComponent({
       className={className}
       id={id}
       label={label}
-      ref={ref}
+      ref={wrapperRef}
       style={{ ...layoutStyles }}
     >
       <PopOver
         attach="bottom"
         style={{ width, maxWidth: '100%' }}
-        content={<div ref={selectRef}>{popOverChildren}</div>}
+        content={<div ref={popOverRef}>{popOverChildren}</div>}
         active={active}
       >
         <div
@@ -107,7 +125,7 @@ function SelectComponent({
         >
           <SelectStyled
             inputSize={size}
-            ref={forwardRef}
+            ref={selectRef}
             format={status || format}
             value={selected.toString()}
             readOnly
@@ -132,7 +150,7 @@ function SelectComponent({
     >
       <SelectStyled
         inputSize={size}
-        ref={forwardRef}
+        ref={selectRef}
         format={status || format}
         style={style}
         {...props}
