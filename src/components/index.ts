@@ -31,6 +31,7 @@ export { DateRange } from './inputs/Dates/DateRange/DateRange';
 export { DateSelect } from './inputs/Dates/DateSelect/DateSelect';
 export { FileUpload } from './inputs/FileUpload/FileUpload';
 export { Input } from './inputs/Input/Input';
+export { Password } from './inputs/Input/Password';
 export { Radio } from './inputs/Radio/Radio';
 export { RadioSet } from './inputs/Radio/RadioSet';
 export { Search } from './inputs/Input/Search';
