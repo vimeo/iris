@@ -48,6 +48,7 @@ export { HamburgerMenu } from './HamburgerMenu';
 export { Heart } from './Heart';
 export { HeartBroken } from './HeartBroken';
 export { HeartFilled } from './HeartFilled';
+export { History } from './History';
 export { Home } from './Home';
 export { HomeFilled } from './HomeFilled';
 export { Image } from './Image';

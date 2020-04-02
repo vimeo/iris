@@ -82,6 +82,7 @@ export { HamburgerMenu } from './ui/HamburgerMenu';
 export { Heart } from './ui/Heart';
 export { HeartBroken } from './ui/HeartBroken';
 export { HeartFilled } from './ui/HeartFilled';
+export { History } from './ui/History';
 export { Home } from './ui/Home';
 export { HomeFilled } from './ui/HomeFilled';
 export { Image } from './ui/Image';
