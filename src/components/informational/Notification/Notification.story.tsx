@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import { Notification } from './Notification';
 import { Button } from '../../index';
@@ -24,6 +25,7 @@ storiesOf('Components|informational/', module)
           onClick: () =>
             alert('I am a demo action for Toastification 2'),
         }}
+        onComplete={action('Notification 2 onComplete called')}
       >
         <Button>Show Notification 2</Button>
       </Notification>
@@ -49,4 +51,36 @@ storiesOf('Components|informational/', module)
         <Button>Show Notification 1</Button>
       </Notification>
     </Story>
+  ))
+  .add('Controlled Notification', () => (
+    <Story title="Controlled Notification">
+      <ControlledNotification />
+    </Story>
   ));
+
+const ControlledNotification = () => {
+  const [isShowingNotification, setIsShowingNotification] = useState(
+    false,
+  );
+
+  return (
+    <>
+      <Notification
+        content="Controlled Notification"
+        showing={isShowingNotification}
+        duration={1000}
+        onComplete={() => {
+          action('Controlled Notification onComplete Called')();
+          setIsShowingNotification(false);
+        }}
+      />
+      <Button
+        onClick={() => {
+          setIsShowingNotification(true);
+        }}
+      >
+        Show Controlled Notification
+      </Button>
+    </>
+  );
+};

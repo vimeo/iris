@@ -56,7 +56,7 @@ function NotficationComponent({
     initialState,
   );
 
-  function toggle() {
+  const toggle = useCallback(() => {
     if (active) dispatch('PAUSE');
     if (!active) dispatch('RESUME');
 
@@ -64,7 +64,7 @@ function NotficationComponent({
     if (!showing) dispatch('SHOW');
 
     dispatch('RESET');
-  }
+  }, [active, showing]);
 
   const pause = () => dispatch('PAUSE');
   const resume = () => dispatch('RESUME');
@@ -83,6 +83,12 @@ function NotficationComponent({
     if (!active) clearInterval(timer);
     return () => clearInterval(timer);
   }, [active, time, finish]);
+
+  useEffect(() => {
+    if (controlled && !showing) {
+      toggle();
+    }
+  }, [controlled, showing, toggle]);
 
   const icon = status === 'negative' && typeof content === 'string' && (
     <span>
