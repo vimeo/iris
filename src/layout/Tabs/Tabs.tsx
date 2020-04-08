@@ -42,7 +42,6 @@ function TabsComponent({
     if (active.length === 0) return;
     if (active.length === 1) return setActiveTab(active[0]);
 
-
     setActiveTab(lastActive);
 
     const errorMessage = `Multiple tabs were specified as the intial active tab! Tabs: [${active.toString()}]. Using last 'active' tab: ${lastActive}.`;
@@ -150,9 +149,9 @@ const Panel = ({
   onActivate,
   ...props
 }: IrisProps<PanelProps>) => (
-    <div style={{ padding: '0.5rem 0' }} {...props}>
-      {children}
-    </div>
-  );
+  <div style={{ padding: '0.5rem 0' }} {...props}>
+    {children}
+  </div>
+);
 
 Tabs.Panel = Panel;
