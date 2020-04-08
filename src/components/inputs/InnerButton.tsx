@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { IrisProps } from '../../utils';
 
 type Props = IrisProps<{
-  format?: 'basic' | 'alternative' | 'primary';
+  format?: 'basic' | 'alternative' | 'primary' | 'secondary';
   variant?: 'minimal' | 'basic' | 'minimalTransparent';
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   tooltipText?: string;

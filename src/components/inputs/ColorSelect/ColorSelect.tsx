@@ -3,6 +3,7 @@ import React, {
   useRef,
   useState,
   useLayoutEffect,
+  useEffect,
 } from 'react';
 import { parseToHsl, hslToColorString } from 'polished';
 
@@ -20,14 +21,24 @@ import { Input } from '../Input/Input';
 import { InnerButton } from '../InnerButton';
 import { HueSlider } from './Slider';
 import { ColorInputs } from './ColorInputs';
+import { Presets, PresetsProps } from './Presets';
 
 import { PopOver } from '../../portals/PopOver/PopOver';
-import { withIris, geometry, centered } from '../../../utils';
+import {
+  withIris,
+  geometry,
+  centered,
+  MinorComponent,
+} from '../../../utils';
 import { HSVtoHSL, colorSpaces, round } from '../../../color';
 
-export const ColorSelect = withIris<HTMLInputElement, Props>(
-  ColorSelectComponent,
-);
+export const ColorSelect = withIris<
+  HTMLInputElement,
+  Props,
+  { Presets: MinorComponent<PresetsProps> }
+>(ColorSelectComponent);
+
+ColorSelect.Presets = Presets;
 
 function ColorSelectComponent({
   height = 360,
@@ -40,6 +51,7 @@ function ColorSelectComponent({
   resetLabel,
   size,
   throttleSpeed = 24,
+  value,
   width = 360,
   ...props
 }: Props) {
@@ -60,6 +72,9 @@ function ColorSelectComponent({
   const ref = useRef(null);
   const [inputHeight, setInputHeight] = useState(0);
   useLayoutEffect(() => setInputHeight(geometry(ref).height), []);
+  useEffect(() => {
+    dispatch({ type: 'SET_HEX', payload: value });
+  }, [value]);
 
   function clamp([X, Y]) {
     if (X < 0) X = 0;
@@ -110,7 +125,8 @@ function ColorSelectComponent({
     dispatch({ type: 'SET_HSL', payload });
   }
 
-  const reset = () => {
+  const reset = e => {
+    e.stopPropagation();
     const payload = [width, 0];
     dispatch({ type: 'SET_COORDS', payload });
     dispatch({ type: 'SET_HSL', payload: parseToHsl(resetColor) });
@@ -190,12 +206,18 @@ function ColorSelectComponent({
           type="text"
           ref={ref}
           label={label}
-          onChange={() => null}
+          onChange={e =>
+            dispatch({
+              type: 'SET_HEX',
+              payload: e.target.value,
+            })
+          }
         >
           <Dot style={{ background: HEX }} />
           {resetLabel && (
             <InnerButton
               format="basic"
+              variant="minimalTransparent"
               size={size}
               onClick={reset}
               height={inputHeight}
