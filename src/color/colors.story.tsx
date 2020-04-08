@@ -163,8 +163,12 @@ const GRAYSCALE = [
   'RavenImperial',
 ];
 
-
-function ColorCompare({ prior, current, title, weights = [50, 500, 600] }) {
+function ColorCompare({
+  prior,
+  current,
+  title,
+  weights = [50, 500, 600],
+}) {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}>
       <Header>{title}</Header>
@@ -197,11 +201,7 @@ function ColorCompare({ prior, current, title, weights = [50, 500, 600] }) {
 function ColorCompareStory() {
   return (
     <Story title="Compare legacy colors" width="100%" flex>
-      <ColorCompare
-        prior={REDS}
-        current={red}
-        title="red"
-      />
+      <ColorCompare prior={REDS} current={red} title="red" />
       <ColorCompare
         prior={YELLOWS}
         current={yellow}
@@ -233,7 +233,7 @@ function ColorCompareStory() {
         title="grayscale"
       />
     </Story>
-  )
+  );
 }
 
 export const ColorPalette: SFC<any> = ({
@@ -300,10 +300,10 @@ const ColorSwatchStyled = styled.div`
 `;
 
 const ColorBlock: SFC<any> = ({
-    colorName,
-    colorHex,
-    width = 'calc(13rem + 6vw)',
-    height = 'calc(12rem + 6vw)',
+  colorName,
+  colorHex,
+  width = 'calc(13rem + 6vw)',
+  height = 'calc(12rem + 6vw)',
 }) => (
   <ColorBlockStyled colorHex={colorHex} width={width} height={height}>
     <ColorHex>{colorHex}</ColorHex>
