@@ -77,17 +77,16 @@ const hidden = css`
 `;
 
 const SliderStyled = styled.input`
-  height: 0rem;
+  height: 1rem;
   width: 100%;
   margin: 0;
   position: absolute;
-  top: 0;
+  top: 1px;
+  background: rgba(0, 0, 0, 0);
   left: 0;
   appearance: none;
-  margin-top: 0.5rem;
   &:focus {
     outline: none;
-    outline: 1px solid red;
     &::-webkit-slider-thumb {
       border: 0.25rem solid ${p => p.theme.content.color};
       transform: scale(1.2) translateY(0.5px);
