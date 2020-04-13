@@ -3,7 +3,10 @@ import { storiesOf } from '@storybook/react';
 import { Input } from './Input';
 import { Story } from '../../../storybook';
 
+import { withCharacterCount } from '../withCharacterCount/withCharacterCount';
+
 const componentName = 'Input Field';
+const InputWCC = withCharacterCount(Input);
 
 storiesOf(`Components|inputs/Text/`, module)
   .add('Input (Text)', () => (
@@ -12,6 +15,17 @@ storiesOf(`Components|inputs/Text/`, module)
       <Input
         label="Input (Text)"
         messages={{ post: 'post message' }}
+      />
+      <Input
+        label="Input (Text) error"
+        status="negative"
+        messages={{ error: 'This is an error.' }}
+      />
+      <InputWCC label="Input (Text) with character count" />
+      <InputWCC
+        label="Input (Text) with character count. Error overrides character count."
+        status="negative"
+        messages={{ error: 'This is an error.' }}
       />
     </Story>
   ))

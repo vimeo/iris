@@ -50,6 +50,7 @@ storiesOf(`Components|inputs/`, module)
       <Select
         label="Something bad happened!"
         status="negative"
+        messages={{ error: 'Oops, that needs to be fixed.' }}
         onChange={e => action('Selected Option')(e.target.value, e)}
       >
         <Select.Option value="" disabled hidden>

@@ -5,10 +5,11 @@ import { rem } from 'polished';
 
 import { Props } from './TextArea.types';
 
-import { slate, blue } from '../../../color';
+import { slate, blue, red } from '../../../color';
 import { withIris, useIrisError } from '../../../utils';
 import { Wrapper } from '../Wrapper/Wrapper';
 import { inputColors } from '../Shared';
+import { CircleInfoSmall } from '../../../icons';
 
 export const TextArea = withIris<HTMLInputElement, Props>(
   TextAreaComponent,
@@ -17,7 +18,7 @@ export const TextArea = withIris<HTMLInputElement, Props>(
 function TextAreaComponent({
   disabled,
   errorMsg,
-  format = 'neutral',
+  format,
   messages,
   helperMsg,
   id,
@@ -37,17 +38,21 @@ function TextAreaComponent({
       disabled={disabled}
       label={label}
       messages={messages}
+      status={format}
       {...irisError}
     >
-      <TextAreaStyled
-        id={id}
-        aria-label={label}
-        aria-invalid={format === 'negative'}
-        disabled={disabled}
-        hasIcon={format !== 'neutral'}
-        format={format}
-        {...props}
-      />
+      <div style={{ position: 'relative' }}>
+        <TextAreaStyled
+          id={id}
+          aria-label={label}
+          aria-invalid={format === 'negative'}
+          disabled={disabled}
+          hasIcon={format === 'negative'}
+          format={format}
+          {...props}
+        />
+        {format === 'negative' ? <InfoIcon /> : null}
+      </div>
     </Wrapper>
   );
 }
@@ -77,4 +82,16 @@ const TextAreaStyled = styled.textarea<any>`
     css`
       padding-left: 2.25rem;
     `};
+`;
+
+const InfoIcon = styled(CircleInfoSmall)`
+  position: absolute;
+  top: ${rem(18)};
+  left: ${rem(10)};
+  width: ${rem(20)};
+  height: ${rem(20)};
+
+  * {
+    fill: ${red(500)};
+  }
 `;

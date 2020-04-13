@@ -37,6 +37,7 @@ function SelectComponent({
   format = 'basic',
   forwardRef,
   status,
+  messages,
   label,
   faux,
   style,
@@ -111,6 +112,8 @@ function SelectComponent({
       id={id}
       label={label}
       ref={wrapperRef}
+      messages={messages}
+      status={status}
       style={{ ...layoutStyles }}
     >
       <PopOver
@@ -146,18 +149,22 @@ function SelectComponent({
       className={className}
       id={id}
       label={label}
+      messages={messages}
+      status={status}
       style={{ ...style }}
     >
-      <SelectStyled
-        inputSize={size}
-        ref={selectRef}
-        format={status || format}
-        style={style}
-        {...props}
-      >
-        {options}
-      </SelectStyled>
-      <ChevronDown size={size} />
+      <div style={{ position: 'relative' }}>
+        <SelectStyled
+          inputSize={size}
+          ref={selectRef}
+          format={status || format}
+          style={style}
+          {...props}
+        >
+          {options}
+        </SelectStyled>
+        <ChevronDown size={size} />
+      </div>
     </Wrapper>
   );
 }
@@ -214,7 +221,7 @@ const SelectStyled = styled.select<any>`
 
 const ChevronDown = styled(CD)<{ size: Sizes }>`
   position: absolute;
-  bottom: ${p => bottom[p.size]}rem;
+  top: ${p => bottom[p.size]}rem;
   right: 0.3rem;
   width: 1.5rem;
   height: 1.5rem;

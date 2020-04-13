@@ -14,6 +14,7 @@ export function withCharacterCount<P = {}>(Component: FC<P>) {
     plural = 'characters',
     singular = 'character',
     warningThreshold = 5,
+    messages,
     ...props
   }: Props & P) {
     const intitialState = {
@@ -63,20 +64,18 @@ export function withCharacterCount<P = {}>(Component: FC<P>) {
       onChange && onChange(event);
     }
 
-    const messages = {
-      post: (
-        <Counter error={error} warning={warning}>
-          {remainingCharacters} {charactersString}
-        </Counter>
-      ),
-    };
+    const countMessage = (
+      <Counter error={error} warning={warning}>
+        {remainingCharacters} {charactersString}
+      </Counter>
+    );
 
     return (
       <Component
         {...(props as P)}
         defaultValue={defaultValue}
         onChange={doChange}
-        messages={messages}
+        messages={messages ? messages : { post: countMessage }}
       />
     );
   };

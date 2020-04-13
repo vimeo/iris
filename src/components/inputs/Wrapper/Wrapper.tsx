@@ -60,6 +60,7 @@ export const Wrapper = forwardRef(function(
           error={error}
           help={help}
           post={postMessage}
+          status={status}
           theme={theme}
         />
       )}
@@ -97,6 +98,7 @@ interface MessageAreaProps {
   post?: ReactNode;
   help?: ReactNode;
   position?: 'bottom' | 'sublabel';
+  status?: Statuses;
 }
 
 const MessageArea = forwardRef(function(
@@ -136,6 +138,7 @@ function Message({ children, status, ...props }: any) {
       size="3"
       element="span"
       role={status === 'negative' ? 'alert' : 'note'}
+      status={status}
       style={{ overflow: 'hidden' }}
     >
       {children}

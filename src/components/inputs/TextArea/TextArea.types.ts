@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { IrisInputProps } from '../../../utils';
+import { Statuses } from '../../../themes';
 
 export type Props = IrisInputProps<{
   disabled?: boolean;
@@ -7,7 +8,7 @@ export type Props = IrisInputProps<{
   /**
    * [default = 'neutral']
    */
-  format?: 'negative' | 'positive' | 'neutral';
+  format?: Statuses;
   helperMsg?: ReactNode;
   id?: string;
   /**

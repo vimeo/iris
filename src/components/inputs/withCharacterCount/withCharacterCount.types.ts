@@ -1,4 +1,5 @@
 import { ChangeEventHandler } from 'react';
+import { Messages } from '../../../utils';
 
 export interface Props {
   defaultValue?: string;
@@ -27,4 +28,5 @@ export interface Props {
    * [default = 5]
    */
   warningThreshold?: number;
+  messages?: Messages;
 }
