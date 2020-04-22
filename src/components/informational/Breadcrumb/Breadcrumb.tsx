@@ -1,6 +1,12 @@
 import React, { ReactNode } from 'react';
 
-import { Wrapper, Label, Arrow, Current } from './Breadcrumb.style';
+import {
+  BreadcrumbContainer,
+  Wrapper,
+  Label,
+  Arrow,
+  Current,
+} from './Breadcrumb.style';
 
 import { IrisProps, withIris } from '../../../utils';
 
@@ -25,34 +31,33 @@ function BreadcrumbComponent({
   theme,
   ...props
 }: Props) {
-  const crumbWidth = crumbs
-    ? `${100 / (crumbs.length + 1)}%`
-    : '100%';
-
+  const childrenLength = crumbs ? crumbs.length + 1 : 1;
   return (
-    <div ref={forwardRef} style={{ width: '100%' }} {...props}>
-      {crumbs &&
-        crumbs.map((crumb, i) => (
-          <Wrapper
-            key={`crumb-${i}`}
-            showOnSmall={i === crumbs.length - 1}
-            style={{ maxWidth: crumbWidth }}
-            theme={theme}
-          >
-            <Label size="2" theme={theme}>
-              {crumb}
-            </Label>
-            <Arrow />
-          </Wrapper>
-        ))}
-
-      <Current
-        size="2"
-        style={{ maxWidth: crumbWidth }}
-        theme={theme}
+    // This div sets display: block around the inline-grid BreadcrumbContainer so it doesn't inline with siblings
+    <div>
+      <BreadcrumbContainer
+        gridColumns={childrenLength}
+        ref={forwardRef}
+        {...props}
       >
-        {currentPageLabel}
-      </Current>
+        {crumbs &&
+          crumbs.map((crumb, i) => (
+            <Wrapper
+              key={`crumb-${i}`}
+              showOnSmall={i === crumbs.length - 1}
+              theme={theme}
+            >
+              <Label size="2" theme={theme}>
+                {crumb}
+              </Label>
+              <Arrow />
+            </Wrapper>
+          ))}
+
+        <Current size="2" theme={theme}>
+          {currentPageLabel}
+        </Current>
+      </BreadcrumbContainer>
     </div>
   );
 }

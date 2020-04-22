@@ -7,18 +7,30 @@ import { Paragraph } from '../../../typography';
 export const ArrowIconWidth = 24;
 export const ARROWLEFT_CLASSNAME = 'BreadcrumbLink_ArrowLeft';
 
-export const truncatewithEllipsisCSS = css`
+export const truncateWithCSS = css`
   display: inline-block;
   overflow: hidden;
   position: relative;
   width: auto;
-  max-width: 100%;
   white-space: nowrap;
-  text-overflow: ellipsis;
   color: ${props => props.theme.formats.soft};
 `;
 
+export const BreadcrumbContainer = styled.div<{
+  gridColumns: number;
+}>`
+  /* Fallback: IE11 [START] */
+  display: flex;
+  /* Fallback: IE11 [END] */
+  @supports (display: inline-grid) {
+    display: inline-grid;
+    grid-template-columns: ${props =>
+      `repeat(${props.gridColumns}, auto)`};
+  }
+`;
+
 export const Wrapper = styled.div<{ showOnSmall?: boolean }>`
+  ${truncateWithCSS}
   color: ${props => props.theme.formats.soft};
   display: ${props => (props.showOnSmall ? 'inline-block' : 'none')};
   position: relative;
@@ -43,8 +55,10 @@ export const Wrapper = styled.div<{ showOnSmall?: boolean }>`
 `;
 
 export const Label = styled(Paragraph)`
-  ${truncatewithEllipsisCSS};
+  ${truncateWithCSS};
+  text-overflow: ellipsis;
   margin: 0;
+  max-width: 100%;
 `;
 
 export const Arrow = styled(ChevronRight)`
@@ -64,13 +78,9 @@ export const Arrow = styled(ChevronRight)`
 `;
 
 export const Current = styled(Paragraph as any)`
-  width: calc(50%);
-  ${truncatewithEllipsisCSS};
+  ${truncateWithCSS};
+  text-overflow: ellipsis;
   margin: 0;
-
-  @media screen and (min-width: ${em(768)}) {
-    width: 33%;
-  }
 `;
 
 export const ArrowLeftWrapper = styled.span`
