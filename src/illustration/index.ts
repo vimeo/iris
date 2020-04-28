@@ -17,4 +17,5 @@ export { VimeoProBlueBoxLogo } from './VimeoProBlueBoxLogo';
 export { VimeostockBlack } from './VimeostockBlack';
 export { VimeostockDark } from './VimeostockDark';
 export { VimeostockLight } from './VimeostockLight';
+export { VimeoUpload } from './VimeoUpload';
 export { VodThumbnailBadge } from './VodThumbnailBadge';
