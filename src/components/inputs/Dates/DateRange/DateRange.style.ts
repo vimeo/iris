@@ -1,17 +1,21 @@
-import { MouseEventHandler } from 'react';
 import styled, { css } from 'styled-components';
-import { rem, size, transparentize, padding, margin } from 'polished';
+import { rem, transparentize, padding, margin } from 'polished';
 
-import { Calendar as BaseCalendar } from './Calendar';
-
+import { Menu as M } from '../../../../layout/Menu/Menu';
 import { Button } from '../../../buttons/Button/Button';
-import { ChevronRight } from '../../../../icons';
 import { black, blue } from '../../../../color';
-import { slate } from '../../../../color/colors';
 
 export const DateField = styled.div`
   padding-top: ${rem(16)};
   flex: 0 0 calc(50% - ${rem(32)});
+`;
+
+export const DateRangeContainer = styled.div`
+  display: flex;
+`;
+
+export const Menu = styled(M)`
+  flex: 0 0 200px;
 `;
 
 export const CalendarsContainer = styled.div<{ hidden?: boolean }>`
@@ -44,34 +48,6 @@ export const CalendarsFooter = styled.div`
   box-shadow: 0 -${rem(2)} ${rem(3)} ${transparentize(0.9, black)};
   ${padding(rem(8))};
   ${margin(rem(8), 0, 0)}
-`;
-
-export const Calendar = styled(BaseCalendar)`
-  flex: 0 0 calc(50% - ${rem(32)});
-  display: flex;
-`;
-
-export const MoveLeft = styled(ChevronRight)<{
-  inactive: boolean;
-  onClick?: MouseEventHandler;
-}>`
-  ${size(rem(24))};
-  transform: rotateY(180deg);
-  cursor: pointer;
-  path {
-    fill: ${props => (props.inactive ? slate(100) : black)};
-  }
-`;
-
-export const MoveRight = styled(ChevronRight)<{
-  inactive: boolean;
-  onClick?: MouseEventHandler;
-}>`
-  ${size(rem(24))};
-  cursor: pointer;
-  path {
-    fill: ${props => (props.inactive ? slate(100) : black)};
-  }
 `;
 
 export const ClearButton = styled(Button)`

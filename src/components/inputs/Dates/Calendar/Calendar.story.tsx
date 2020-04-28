@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 import { Calendar as C } from './Calendar';
 
-import { Story } from '../../../storybook';
+import { Story } from '../../../../storybook';
 import { rgba } from 'polished';
 
 storiesOf(`Components|inputs/Dates`, module).add('Calendar', () => (

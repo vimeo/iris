@@ -1,4 +1,3 @@
-import { ReactElement } from 'react';
 import { IrisInputProps } from '../../../../utils';
 
 export type Props = IrisInputProps<{
@@ -21,29 +20,31 @@ export type Props = IrisInputProps<{
    * Use to get the `Date` objects that define the selected calendar range
    */
   onChange?: (range: [Date, Date]) => void;
-  children: ReactElement;
+  /**
+   * Optional string to pass in, for example when translations are needed.
+   *
+   * [default = 'Start date']
+   */
+  startInputLabel?: string;
+  /**
+   * Optional string to pass in, for example when translations are needed.
+   *
+   * [default = 'End date']
+   */
+  endInputLabel?: string;
+  /**
+   * Optional values for presets that appear in left menu beside calendars.
+   * Negative values refer to past 'x' days. Positive values refer to next 'x' days.
+   *
+   * For example:
+   * ['today', -10, 10, -100, 100, 'custom']
+   */
+  presets?: PresetValue[];
 }>;
 
-export interface DateRangeState {
-  startLabel: string | null;
-  startDateError: string | null;
-  endLabel: string | null;
-  endDateError: string | null;
-  range: [Date, Date];
-  draft: [Date | null, null] | [Date, Date | null];
-  hoverDraft: [Date | null, Date | null];
-  viewportDate: Date;
-  open: boolean;
-}
-
-export const initialState: DateRangeState = {
-  startLabel: null,
-  startDateError: null,
-  endLabel: null,
-  endDateError: null,
-  range: [null, null],
-  draft: [null, null],
-  hoverDraft: [null, null],
-  viewportDate: null,
-  open: false,
-};
+type PresetValue =
+  | 'today'
+  | 'tomorrow'
+  | 'yesterday'
+  | 'custom'
+  | number;

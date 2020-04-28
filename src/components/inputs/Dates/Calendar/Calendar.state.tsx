@@ -1,10 +1,13 @@
 import { Action } from './Actions';
 import {
   initialState,
-  DateRangeState as State,
-} from './DateRange.types';
+  CalendarState as State,
+} from './Calendar.types';
 
-import { getDateFormat, getDateFormatRegex } from './DateFormat';
+import {
+  getDateFormat,
+  getDateFormatRegex,
+} from '../DateRange/DateFormat';
 
 /**
  * Internal component state
@@ -240,6 +243,18 @@ export function reducer(state: State, action: Action): State {
           hoverStart ? hoverStart : draftStart,
           hoverEnd ? hoverEnd : draftEnd,
         ],
+        startLabel: null,
+        startDateError: null,
+        endLabel: null,
+        endDateError: null,
+      };
+    }
+    case 'SET_DATE_FROM_PRESET': {
+      const [start, end] = action.payload;
+
+      return {
+        ...state,
+        draft: [start, end ? end : start],
         startLabel: null,
         startDateError: null,
         endLabel: null,

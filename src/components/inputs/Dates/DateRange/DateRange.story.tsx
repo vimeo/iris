@@ -6,6 +6,8 @@ import { DateRange } from './DateRange';
 import { Story } from '../../../../storybook';
 import { Button } from '../../../buttons/Button/Button';
 import { ChevronDown } from '../../../../icons';
+import { PopOver } from '../../../portals/PopOver/PopOver';
+import { Header } from '../../../../typography';
 
 const attachs = {
   left: 'left',
@@ -18,13 +20,25 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-storiesOf(`Components|inputs/Dates`, module).add('Date Range', () => (
-  <Story title="Date Range" subTitle="DateRange">
-    <Container>
-      <DateRangeButton />
-    </Container>
-  </Story>
-));
+storiesOf(`Components|inputs/Dates`, module)
+  .add('Date Range', () => (
+    <Story title="Date Range" subTitle="DateRange">
+      <Header size="2">Base component</Header>
+      <DateRange />
+      <Header size="2">Date Range as Popover</Header>
+      <Container>
+        <DateRangeButton />
+      </Container>
+    </Story>
+  ))
+  .add('Date Presets', () => (
+    <Story
+      title="Date Range with Presets"
+      subTitle="DateRangeWithPresets"
+    >
+      <DateRange presets={['today', -10, 10, -100, 100, 'custom']} />
+    </Story>
+  ));
 
 function DateRangeButton() {
   const defaultText = 'Select a date range';
@@ -49,15 +63,20 @@ function DateRangeButton() {
   );
 
   return (
-    <DateRange
+    <PopOver
       attach={select('Calendar attach', attachs, 'bottom')}
-      onChange={onChange}
-      minDate={minDate}
-      maxDate={maxDate}
+      style={{ width: '60rem' }}
+      content={
+        <DateRange
+          onChange={onChange}
+          minDate={minDate}
+          maxDate={maxDate}
+        />
+      }
     >
       <Button icon={<ChevronDown />} iconPosition="right">
         {buttonText}
       </Button>
-    </DateRange>
+    </PopOver>
   );
 }

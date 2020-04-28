@@ -1,7 +1,7 @@
 import React, { useState, ReactElement } from 'react';
 import styled from 'styled-components';
 
-import { Calendar } from '../Calendar';
+import { Calendar } from '../Calendar/Calendar';
 
 import { PopOver } from '../../../portals/PopOver/PopOver';
 import { IrisInputProps, withIris } from '../../../../utils';

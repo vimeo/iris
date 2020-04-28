@@ -27,6 +27,11 @@ interface SelectDateAction {
   payload: Date;
 }
 
+interface SetDateFromPreset {
+  type: 'SET_DATE_FROM_PRESET';
+  payload: Date[];
+}
+
 interface HoverDateAction {
   type: 'HOVER_DATE';
   payload: Date | null;
@@ -53,6 +58,7 @@ export type Action =
   | ChangeEndAction
   | ChangeViewportAction
   | SelectDateAction
+  | SetDateFromPreset
   | SaveAction
   | ClearAction
   | OpenAction

@@ -71,7 +71,8 @@ export const CalendarDayLabel = styled(Label)`
 
     if (props.isTrack && props.isControl) {
       return css`
-        background-color: ${green(50)};
+        background-color: ${({ theme }) =>
+          theme.name === 'dark' ? rgba(green(50), 0.25) : green(50)};
         z-index: 1;
         color: ${white};
         &:before {
@@ -83,7 +84,8 @@ export const CalendarDayLabel = styled(Label)`
 
     if (props.isTrack) {
       return css`
-        background-color: ${green(50)};
+        background-color: ${({ theme }) =>
+          theme.name === 'dark' ? rgba(green(50), 0.25) : green(50)};
       `;
     }
 
@@ -100,7 +102,10 @@ export const CalendarDayLabel = styled(Label)`
       if (props.isStart && !props.isEnd) {
         return css`
           ${control};
-          background-color: ${green(50)};
+          background-color: ${({ theme }) =>
+            theme.name === 'dark'
+              ? rgba(green(50), 0.25)
+              : green(50)};
           border-radius: 50% 0 0 50%;
         `;
       }
@@ -108,7 +113,10 @@ export const CalendarDayLabel = styled(Label)`
       if (props.isEnd) {
         return css`
           ${control};
-          background-color: ${green(50)};
+          background-color: ${({ theme }) =>
+            theme.name === 'dark'
+              ? rgba(green(50), 0.25)
+              : green(50)};
           border-radius: 0 50% 50% 0;
         `;
       }

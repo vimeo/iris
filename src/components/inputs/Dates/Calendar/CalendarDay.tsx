@@ -14,6 +14,7 @@ type Props = IrisProps<{
   draftRange: DateRange;
   inactive?: boolean;
   pastMinDate?: boolean;
+  pastMaxDate?: boolean;
   date: Date;
   onMouseEnter?: MouseEventHandler;
 }>;
@@ -25,6 +26,7 @@ function Day({
   onMouseEnter,
   inactive,
   pastMinDate,
+  pastMaxDate,
   date,
   range,
   draftRange,
@@ -38,13 +40,13 @@ function Day({
   const isControl = isStart || isEnd;
 
   const handleClick: MouseEventHandler<HTMLDivElement> = event => {
-    if (!inactive && !pastMinDate && onClick) {
+    if (!inactive && !pastMinDate && !pastMaxDate && onClick) {
       onClick(event);
     }
   };
 
   const handleMouseEnter: MouseEventHandler<HTMLDivElement> = event => {
-    if (!inactive && !pastMinDate && onMouseEnter) {
+    if (!inactive && !pastMinDate && !pastMaxDate && onMouseEnter) {
       onMouseEnter(event);
     }
   };
@@ -58,7 +60,7 @@ function Day({
       {!inactive && (
         <CalendarDayLabel
           isControl={isControl}
-          isPast={pastMinDate}
+          isPast={pastMinDate || pastMaxDate}
           isTrack={isTrack}
           isStart={isStart && hasEnd}
           isEnd={isEnd}
@@ -137,6 +139,7 @@ function generateCompareProps(day: Props) {
   props[i++] = isInDateRange(date, range); // isTrack
   props[i++] = day.inactive;
   props[i++] = day.pastMinDate;
+  props[i++] = day.pastMaxDate;
   return props;
 }
 
@@ -144,11 +147,13 @@ function generateCompareProps(day: Props) {
 function calendarDayEqual(prev: Props, next: Props) {
   const p = generateCompareProps(prev);
   const n = generateCompareProps(next);
+
   for (let i = 0; i < p.length; i++) {
     if (p[i] !== n[i]) {
       return false;
     }
   }
 
-  return true;
+  // TODO fix generate compare props
+  return false;
 }
