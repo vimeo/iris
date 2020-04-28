@@ -6,29 +6,19 @@ export const EditPlayer = forwardRef(
       <title>EditPlayer</title>
       {/* Player */}
       <g transform="translate(0.000000, 4.000000)">
-        <polygon
-          stroke="#1A2E3B"
-          stroke-width="1.67"
-          points="0 14 22 14 22 0 0 0"
-        />
+        <polygon stroke-width="1.67" points="0 14 22 14 22 0 0 0" />
         <line
           x1="18.9"
           y1="10.9803922"
           x2="5.6"
           y2="10.9803922"
-          stroke="#1A2E3B"
           stroke-width="1.67"
         />
-        <polygon
-          fill="#1A2E3B"
-          stroke="#1A2E3B"
-          points="4.2 10.9803922 2.1 9.75676471 2.1 12.1340196"
-        />
+        <polygon points="4.2 10.9803922 2.1 9.75676471 2.1 12.1340196" />
       </g>
       {/* Pencil */}
       <g
         transform="translate(12.000000, 0.000000)"
-        stroke="#1A2E3B"
         stroke-width="1.5"
       >
         <g transform="translate(6.147638, 6.641313) rotate(45.000000) translate(-6.147638, -6.641313) translate(4.147638, 0.641313)">
