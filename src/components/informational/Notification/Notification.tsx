@@ -34,7 +34,6 @@ type Props = IrisProps<{
 
 function NotficationComponent({
   automatic = false,
-  showing: controlled = false,
   action,
   actionLabel,
   children = null,
@@ -84,12 +83,6 @@ function NotficationComponent({
     return () => clearInterval(timer);
   }, [active, time, finish]);
 
-  useEffect(() => {
-    if (controlled && !showing) {
-      toggle();
-    }
-  }, [controlled, showing, toggle]);
-
   const icon = status === 'negative' && typeof content === 'string' && (
     <span>
       <Icon />
@@ -99,7 +92,7 @@ function NotficationComponent({
   return (
     <>
       {children && <div onClick={toggle}>{children}</div>}
-      {(controlled || showing) && (
+      {(showing || props.showing) && (
         <Wrapper>
           <Styled
             icon={icon}

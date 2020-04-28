@@ -68,7 +68,7 @@ const ControlledNotification = () => {
       <Notification
         content="Controlled Notification"
         showing={isShowingNotification}
-        duration={1000}
+        duration={3000}
         onComplete={() => {
           action('Controlled Notification onComplete Called')();
           setIsShowingNotification(false);
@@ -76,7 +76,10 @@ const ControlledNotification = () => {
       />
       <Button
         onClick={() => {
-          setIsShowingNotification(true);
+          setIsShowingNotification(false);
+          setTimeout(function() {
+            setIsShowingNotification(true);
+          }, 100);
         }}
       >
         Show Controlled Notification
