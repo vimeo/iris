@@ -18,7 +18,7 @@ export type Props = IrisProps<
     /**
      * [default = 'primary']
      */
-    format?: 'primary';
+    format?: 'primary' | 'secondary';
     isActive?: boolean;
     offIcon: ReactNode;
     /**
