@@ -13,7 +13,7 @@ const options = {
   step: 1,
 };
 
-storiesOf(`Components|Virtualized List`, module).add(
+storiesOf(`Labs|Virtualized List`, module).add(
   'Virtualized List',
   () => {
     const total = number('List length', 100, options);

@@ -21,6 +21,7 @@ export const InputStyled = styled.input<
     floating: boolean;
     disabled?: boolean;
     defaultValue?: any;
+    pill?: boolean;
     value?: any;
     format: Formats | Statuses;
   }

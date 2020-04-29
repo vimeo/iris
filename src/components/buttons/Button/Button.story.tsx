@@ -1,332 +1,184 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
+
 import { Button as B } from './Button';
-import {
-  DownloadArrow,
-  Plus,
-  PaperPlane,
-  Heart,
-  Gear,
-  ChevronDown,
-} from '../../../icons';
+import { config, formats, statuses, variants } from './Button.config';
+
+import { DownloadArrow, Plus, ArrowRight } from '../../../icons';
+
+/* eslint-disable import/no-default-export */
+export default config;
+/* eslint-enable import/no-default-export */
 
 const Button = styled(B)`
   display: flex;
   margin: 0 1rem 1rem 0;
 `;
 
-import { Story } from '../../../storybook';
-import { Header } from '../../../typography';
+export function Common() {
+  return <Button>Button</Button>;
+}
 
-const componentName = 'Button';
+export function Disabled() {
+  return <Button disabled>Button</Button>;
+}
 
-const Cols = styled.div`
-  display: flex;
-  > * {
-    flex: 1;
-  }
-`;
+export function Pill() {
+  return <Button pill>Button</Button>;
+}
 
-storiesOf(`Components|buttons/Button/props/`, module).add(
-  'circular',
-  () => (
-    <Story title="Circular" width="100%">
-      <Button circular icon={<Plus />} size="sm" />
-      <Button circular icon={<Plus />} size="md" />
-      <Button circular icon={<Plus />} size="lg" />
-    </Story>
-  ),
-);
+export function Format() {
+  return formats.map((format, i) => (
+    <Button key={i} format={format} children={format} />
+  ));
+}
 
-storiesOf(`Components|buttons/Button/props/fluid/`, module)
-  .add('true', () => (
-    <Story title="Button" width="100%">
-      {formats.map((format, i) => (
-        <div key={i}>
-          <Button fluid format={format} children={format} size="lg" />
-        </div>
-      ))}
-      {statuses.map((status, i) => (
-        <div key={i}>
-          <Button fluid status={status} children={status} size="lg" />
-        </div>
-      ))}
-      <br />
-    </Story>
-  ))
-  .add('varied', () => (
-    <Story title="Button" width="100%">
+export function Variant() {
+  return variants.map((variant, i) => (
+    <Button key={i} variant={variant} children={variant} />
+  ));
+}
+
+export function Status() {
+  return statuses.map((status, i) => (
+    <Button key={i} status={status} children={status} />
+  ));
+}
+
+export function Size() {
+  return (
+    <>
+      <Button size="xs">Button</Button>
+      <Button size="sm">Button</Button>
+      <Button size="md">Button</Button>
+      <Button size="lg">Button</Button>
+      <Button size="xl">Button</Button>
+    </>
+  );
+}
+
+export function Icon() {
+  return <Button icon={<DownloadArrow />} />;
+}
+
+export function IconPill() {
+  return <Button icon={<Plus />} pill />;
+}
+IconPill.story = { name: 'Icon (Pill)' };
+
+export function IconAndText() {
+  return (
+    <>
+      <Button icon={<DownloadArrow />}>Download</Button>
+      <Button icon={<DownloadArrow />} iconPosition="right">
+        Download
+      </Button>
+    </>
+  );
+}
+IconAndText.story = { name: 'Icon & Text' };
+
+export function IconFeatured() {
+  return (
+    <>
+      <Button icon={<DownloadArrow />} iconPosition="featured">
+        Download
+      </Button>
+    </>
+  );
+}
+IconFeatured.story = { name: 'Icon (Featured)' };
+
+export function Floating() {
+  return <Button floating>Floating Button</Button>;
+}
+
+export function FloatingPill() {
+  return (
+    <Button
+      format="secondary"
+      icon={<ArrowRight />}
+      iconPosition="right"
+      floating
+      pill
+    >
+      Floating Button
+    </Button>
+  );
+}
+FloatingPill.story = { name: 'Floating (Pill)' };
+
+export function Fluid() {
+  return <Button fluid>Fluid Button</Button>;
+}
+
+export function FluidVaried() {
+  return (
+    <>
       <Button
         fluid={{ min: 0, max: 500 }}
-        format="basic"
-        children="basic { min: 0, max: 500 }"
-        size="lg"
+        children="{ min: 0, max: 500 }"
       />
-      <br />
       <Button
         fluid={{ min: 250, max: 750 }}
-        format="soft"
-        children="soft { min: 250, max: 750 }"
-        size="lg"
+        children="{ min: 250, max: 750 }"
       />
-      <br />
       <Button
         fluid={{ min: 500, max: 1000 }}
-        format="alternative"
-        children="alternative { min: 500, max: 1000 }"
-        size="lg"
+        children="{ min: 500, max: 1000 }"
       />
-      <br />
       <Button
         fluid={{ min: 750, max: 1250 }}
-        format="secondary"
-        children="secondary { min: 750, max: 1250 }"
-        size="lg"
+        children="{ min: 750, max: 1250 }"
       />
-      <br />
       <Button
         fluid={{ min: 1000, max: 1500 }}
-        format="primary"
-        children="primary { min: 1000, max: 1500 }"
-        size="lg"
+        children="{ min: 1000, max: 1500 }"
       />
-      <br />
       <Button
         fluid={{ min: 1250, max: 1750 }}
-        status="positive"
-        children="positive { min: 1250, max: 1750 }"
-        size="lg"
+        children="{ min: 1250, max: 1750 }"
       />
-      <br />
       <Button
         fluid={{ min: 1500, max: 2000 }}
-        status="negative"
-        children="negative { min: 1500, max: 2000 }"
-        size="lg"
+        children="{ min: 1500, max: 2000 }"
       />
-      <br />
-    </Story>
-  ));
+    </>
+  );
+}
+FluidVaried.story = { name: 'Fluid (Queried)' };
 
-storiesOf(
-  `Components|buttons/Button/props/icon/iconPosition/`,
-  module,
-)
-  .add('left', () => (
-    <Story title="Button" width="100%">
-      {variants.map((variant, i) => (
-        <Cols key={i}>
-          {formats.map((format, i) => (
-            <div key={i}>
-              <Button
-                variant={variant}
-                format={format}
-                children={format}
-                icon={<Plus />}
-              />
-            </div>
-          ))}
-          {statuses.map((status, i) => (
-            <div key={i}>
-              <Button
-                variant={variant}
-                status={status}
-                children={status}
-                icon={<Plus />}
-              />
-            </div>
-          ))}
-          <br />
-        </Cols>
-      ))}
-    </Story>
-  ))
-  .add('right', () => (
-    <Story title="Button" width="100%">
-      {variants.map((variant, i) => (
-        <Cols key={i}>
-          {formats.map((format, i) => (
-            <div key={i}>
-              <Button
-                variant={variant}
-                format={format}
-                children={format}
-                icon={<ChevronDown />}
-                iconPosition="right"
-              />
-            </div>
-          ))}
-          {statuses.map((status, i) => (
-            <div key={i}>
-              <Button
-                variant={variant}
-                status={status}
-                children={status}
-                icon={<ChevronDown />}
-                iconPosition="right"
-              />
-            </div>
-          ))}
-          <br />
-        </Cols>
-      ))}
-    </Story>
-  ))
-  .add('featured', () => (
-    <Story title="Button" width="100%">
-      {formats.map((format, i) => (
-        <div key={i}>
-          <Button
-            format={format}
-            children={format}
-            icon={<PaperPlane />}
-            iconPosition="featured"
-            size="lg"
-          />
-        </div>
-      ))}
-      {statuses.map((status, i) => (
-        <div key={i}>
-          <Button
-            status={status}
-            children={status}
-            icon={<PaperPlane />}
-            iconPosition="featured"
-            size="lg"
-          />
-        </div>
-      ))}
-      <br />
-    </Story>
-  ));
+export function TextOverflow() {
+  return (
+    <Button style={{ maxWidth: '7rem' }}>
+      lorem ipsum dolor sit
+    </Button>
+  );
+}
 
-storiesOf(`Components|buttons/Button`, module)
-  .add('Button', () => (
-    <Story title={componentName} width="100%">
-      {formats.map((format, i) => (
-        <div key={i}>
-          <Button format={format} children={format} />
-        </div>
-      ))}
-      {statuses.map((status, i) => (
-        <div key={i}>
-          <Button status={status} children={status} />
-        </div>
-      ))}
-    </Story>
-  ))
-  .add('text overflow', () => (
-    <Story title="text overflow" width="100%">
-      {formats.map((format, i) => (
-        <div key={i}>
-          <Button
-            format={format}
-            children={format + ' lorem ipsum dolor'}
-            style={{ maxWidth: '6rem' }}
-          />
-        </div>
-      ))}
-      {statuses.map((status, i) => (
-        <div key={i}>
-          <Button
-            status={status}
-            children={status + ' lorem ipsum dolor'}
-            style={{ maxWidth: '6rem' }}
-          />
-        </div>
-      ))}
-    </Story>
-  ));
-
-storiesOf(`Components|buttons/Button/props/icon/`, module).add(
-  'icon',
-  () => (
-    <Story title="Icon Only" width="100%">
-      {formats.map((format, i) => (
-        <div key={i}>
-          <Button format={format} icon={<DownloadArrow />} />
-        </div>
-      ))}
-      {statuses.map((status, i) => (
-        <div key={i}>
-          <Button status={status} icon={<DownloadArrow />} />
-        </div>
-      ))}
-    </Story>
-  ),
-);
-
-storiesOf(`Components|buttons/Button/props`, module).add(
-  'loading',
-  () => <ButtonLoadingStory />,
-);
-// .add('Render Error Example', () => (
-//   <Story title="Render Error">
-//     <Button format="badFormatName" debug>
-//       hey
-//     </Button>
-//     <Button format="primary">hey</Button>
-//     <Button format="badFormatNameTwo" debug>
-//       hey
-//     </Button>
-//   </Story>
-// ));
-
-const ButtonLoadingStory = props => {
+export const Loading = () => <LoadingStory />;
+function LoadingStory() {
   const [loading, setLoading] = useState(false);
-  const doClick = () => setLoading(loading => !loading);
+  const onClick = () => setLoading(loading => !loading);
 
   return (
-    <Story title="Loading" width="100%">
-      <Button size="lg" loading={!loading} onClick={doClick}>
-        Click Me
-      </Button>
-      <Button
-        icon={<Gear />}
-        loading={loading}
-        onClick={doClick}
-        format="primary"
-        variant="outline"
-        size="md"
-      >
-        Click Me
-      </Button>
-      <Button
-        icon={<Gear />}
-        loading={!loading}
-        onClick={doClick}
-        status="positive"
-        size="sm"
-      >
-        Click Me
-      </Button>
-      <Button
-        loading={loading}
-        onClick={doClick}
-        format="secondary"
-        size="xs"
-      >
-        Click Me
-      </Button>
-    </Story>
+    <Button size="lg" loading={!loading} onClick={onClick}>
+      Click Me
+    </Button>
   );
-};
+}
 
-const formats = [
-  'basic',
-  'soft',
-  'alternative',
-  'secondary',
-  'primary',
-] as const;
-const statuses = ['positive', 'negative'] as const;
-const variants = [
-  'solid',
-  'transparent',
-  'outline',
-  'dashed',
-  'minimal',
-  'hyperminimal',
-  'minimalTransparent',
-] as const;
+// useIrisError example
+// export function Error() {
+//   return (
+//     <>
+//       <Button format="badFormatName" debug>
+//         hey
+//       </Button>
+//       <Button format="primary">hey</Button>
+//       <Button format="badFormatNameTwo" debug>
+//         hey
+//       </Button>
+//     </>
+//   );
+// }

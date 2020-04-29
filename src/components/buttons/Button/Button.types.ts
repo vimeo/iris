@@ -15,6 +15,9 @@ type Fluid = true | { min?: number; max?: number };
 
 export type Props = IrisProps<
   {
+    /**
+     * DEPRECATED! Use `pill` prop instead.
+     */
     circular?: boolean;
     element?: ButtonElements;
     /**
@@ -25,6 +28,7 @@ export type Props = IrisProps<
      *
      * [default = false]
      */
+    floating?: boolean;
     fluid?: Fluid;
     /**
      * [default = 'primary']
@@ -48,7 +52,7 @@ export type Props = IrisProps<
      *
      * [default = 6]
      */
-    radius?: number;
+    pill?: boolean;
     /**
      * [default = 'md']
      */

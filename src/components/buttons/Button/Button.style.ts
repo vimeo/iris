@@ -5,7 +5,7 @@ import { rgba, rem, tint, shade, em } from 'polished';
 import { FeaturedIcon } from './FeaturedIcon';
 
 import { a11yColor } from '../../../themes';
-import { white } from '../../../color';
+import { white, black } from '../../../color';
 
 const buttonCore = css`
   position: relative;
@@ -23,6 +23,27 @@ const buttonCore = css`
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    user-select: none;
+  }
+`;
+
+export const ButtonChildren = styled.span``;
+
+export const ButtonStyled = styled.button<any>`
+  ${buttonCore};
+  ${buttonIcon};
+  ${buttonSizes};
+  ${buttonFluid}
+  ${buttonPadding};
+  ${buttonShape};
+  ${buttonElevation};
+  ${buttonMotion};
+  ${buttonLoading};
+  ${buttonVariants};
 `;
 
 function buttonIcon({ size, iconOnly, iconPosition }) {
@@ -58,19 +79,6 @@ const iconMargin = {
   featured: '0.625rem',
 };
 
-// Is this more performant?
-// export const ButtonStyled = styled.button.attrs((p: any) => {
-//   const style = {
-//     ...buttonSizes(p),
-//     ...buttonPadding(p),
-//     ...buttonShape(p),
-//     ...buttonMotion(p),
-//   };
-//   return { style };
-// })``;
-
-export const ButtonChildren = styled.span``;
-
 function buttonLoading({ $loading }) {
   return (
     $loading &&
@@ -85,23 +93,11 @@ function buttonLoading({ $loading }) {
   );
 }
 
-export const ButtonStyled = styled.button<any>`
-  ${buttonCore};
-  ${buttonIcon};
-  ${buttonSizes};
-  ${buttonFluid}
-  ${buttonPadding};
-  ${buttonShape};
-  ${buttonMotion};
-  ${buttonLoading};
-  ${buttonVariants};
-`;
-
 function buttonMotion({ theme }) {
   return {
     transition: theme.a11y.motion
       ? 'none'
-      : 'all 200ms ease-in-out, font-size 50ms, width none',
+      : 'all 170ms ease-in-out, font-size 50ms ease-in-out, width 0ms linear',
   };
 }
 
@@ -134,9 +130,30 @@ function iconButtonPadding(icon, iconPosition, pad) {
   }
 }
 
-function buttonShape({ circular = null }) {
-  return circular
-    ? { borderRadius: '50%' }
+function buttonElevation({ floating = null }) {
+  return (
+    floating &&
+    css`
+      box-shadow: 0 ${rem(3)} ${rem(6)} 0 ${rgba(black, 0.125)};
+
+      &:active {
+        transform: translateY(0) scale(0.98);
+      }
+
+      &:hover:not(:active) {
+        transform: translateY(-1px) scale(1.01);
+        box-shadow: 0 ${rem(5)} ${rem(7)} 0 ${rgba(black, 0.175)};
+      }
+    `
+  );
+}
+
+function buttonShape({ pill, circular }) {
+  // DEPRECATED: Remove in Iris 9.0
+  if (circular) pill = true;
+
+  return pill
+    ? { borderRadius: '2rem' }
     : { borderRadius: '0.25rem' };
 }
 

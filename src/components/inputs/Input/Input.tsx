@@ -13,15 +13,16 @@ export const Input = withIris<HTMLInputElement, Props>(
 
 function InputComponent({ type = 'text', ...props }: Props) {
   const UID = useMemo(() => generateUID(), []);
-  const isText = type === 'text' || type === 'password';
-
-  if (!props.id) props.id = UID;
   if (!props.name) props.name = UID;
-  if (!props.value && !isText) props.value = UID;
+  if (!props.id) props.id = UID;
 
-  return isText ? (
-    <Text type={type} {...props} />
-  ) : (
-    <Mark type={type} {...props} />
-  );
+  switch (type) {
+    case 'text':
+    case 'password':
+    case 'email':
+      return <Text type={type} {...props} />;
+    default:
+      if (!props.value) props.value = UID;
+      return <Mark type={type} {...props} />;
+  }
 }

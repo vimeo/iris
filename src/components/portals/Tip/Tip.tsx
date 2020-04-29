@@ -18,6 +18,7 @@ function TipComponent({
   content,
   children,
   forwardRef,
+  pill,
   trigger = 'hover',
   ...props
 }: Props) {
@@ -38,6 +39,7 @@ function TipComponent({
       wrap={wrap}
       ref={forwardRef}
       breakWords={breakWords}
+      pill={pill}
       {...props}
     >
       <div>

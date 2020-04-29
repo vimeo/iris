@@ -10,6 +10,7 @@ import {
   // useIrisError,
   centered,
   Focus,
+  useDeprecate,
 } from '../../../utils';
 
 export const Button = withIris<DOMElement, Props>(
@@ -17,6 +18,11 @@ export const Button = withIris<DOMElement, Props>(
   true,
   'components/buttons/Button/Button',
 );
+
+const deprecatedProps = {
+  circular:
+    '@vimeo/iris: Button `circular` prop has been deprecated. Please use `pill`. `circular` will be removed in Iris 9.\n',
+};
 
 function ButtonComponent({
   element = 'button',
@@ -27,7 +33,7 @@ function ButtonComponent({
   icon,
   iconPosition = 'left',
   loading,
-  radius = 6,
+  pill = false,
   size = 'md',
   status,
   theme,
@@ -35,6 +41,7 @@ function ButtonComponent({
   ...props
 }: Props) {
   // const irisError = useIrisError({ format, ...props }, Button);
+  useDeprecate(props, deprecatedProps);
 
   const iconOnly = typeof children === 'undefined' && icon;
   const iconLeft = iconPosition === 'left' && icon;
@@ -50,6 +57,7 @@ function ButtonComponent({
       iconOnly={iconOnly}
       iconPosition={iconPosition}
       $loading={loading}
+      pill={pill}
       ref={forwardRef}
       size={size}
       theme={theme}
@@ -70,7 +78,7 @@ function ButtonComponent({
         />
       )}
 
-      <Focus parent={ButtonStyled} radius={radius} />
+      <Focus parent={ButtonStyled} radius={pill ? 50 : 6} />
     </ButtonStyled>
   );
 }

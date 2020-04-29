@@ -15,6 +15,7 @@ import { Focus, useLayoutStyles } from '../../../utils';
 export function Text({
   autocomplete = true,
   children,
+  className,
   disabled,
   floating = false,
   id,
@@ -22,6 +23,7 @@ export function Text({
   messages,
   forwardRef,
   name,
+  pill = false,
   size = 'md',
   status,
   style = nullStyle,
@@ -45,6 +47,7 @@ export function Text({
 
   return (
     <Wrapper
+      className={className}
       floating={floating}
       floatLabel={floatLabel}
       label={label}
@@ -60,9 +63,11 @@ export function Text({
           autoComplete={autocomplete ? 'on' : 'off'}
           floating={floating}
           format={status}
+          id={id}
           inputSize={size}
           onBlur={doBlur}
           onFocus={doFocus}
+          pill={pill}
           ref={inputRef}
           style={displayStyles}
           theme={theme}
@@ -70,7 +75,7 @@ export function Text({
           value={value}
           {...props}
         />
-        <Focus parent={InputStyled} />
+        <Focus parent={InputStyled} radius={pill ? 50 : 6} />
       </div>
     </Wrapper>
   );

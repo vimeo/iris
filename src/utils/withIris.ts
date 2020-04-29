@@ -96,7 +96,7 @@ export function withIris<DOMElement, Props = {}, Minors = {}>(
       $$iris: { version, component, dev },
       ...forwardRef<DOMElement, Props>((props: any, ref) => {
         useEffect(() => {
-          if (debug || props.debug) {
+          if (debug || (props && props.debug)) {
             if (ref) console.log({ Component, ref });
             if (!ref)
               console.warn('@vimeo/iris: bad ref\n\n', {

@@ -9,118 +9,26 @@ const ButtonToggleState = styled(B)`
   margin: 0 1rem 1rem 0;
 `;
 
-const componentName = 'Button';
+/* eslint-disable import/no-default-export */
+export default { title: 'components|buttons/' };
+/* eslint-enable import/no-default-export */
 
-storiesOf('Components|buttons/', module).add(
-  'ToggleState Button',
-  () => (
-    <Story title={componentName} subTitle="Toggle State">
-      <ButtonToggleStateDocs />
-    </Story>
-  ),
-);
-
-const ButtonToggleStateDocs = () => {
+export const StateToggle = () => <StateToggleStory />;
+function StateToggleStory() {
   const [following, setFollowing] = useState(false);
   const toggleFollowing = () => setFollowing(following => !following);
 
-  const [connected, setConnected] = useState(false);
-  const toggleConnected = () => setConnected(connected => !connected);
-
   return (
-    <>
-      <ButtonToggleState
-        isActive={following}
-        offIcon={<Plus />}
-        offStateText={followText}
-        onIcon={<Checkmark />}
-        onStateText={followingText}
-        onClick={toggleFollowing}
-        turnOffActionText={unfollowText}
-        turnOffIcon={<DismissX />}
-      />
-      <ButtonToggleState
-        isActive={following}
-        offIcon={<Plus />}
-        offStateText={followText}
-        onIcon={<Checkmark />}
-        onStateText={followingText}
-        onClick={toggleFollowing}
-        turnOffActionText={unfollowText}
-        turnOffIcon={<DismissX />}
-      />
-      <ButtonToggleState
-        isActive={connected}
-        offIcon={<Plus />}
-        offStateText={connectText}
-        onIcon={<Checkmark />}
-        onStateText={connectedText}
-        onClick={toggleConnected}
-        turnOffActionText={disconnectText}
-        turnOffIcon={<DismissX />}
-      />
-      <ButtonToggleState
-        isActive={connected}
-        offIcon={<Plus />}
-        offStateText={connectText}
-        onIcon={<Checkmark />}
-        onStateText={connectedText}
-        onClick={toggleConnected}
-        turnOffActionText={disconnectText}
-        turnOffIcon={<DismissX />}
-      />
-      <ButtonToggleState
-        variant="solid"
-        isActive={following}
-        offIcon={<Plus />}
-        offStateText={followText}
-        onIcon={<Checkmark />}
-        onStateText={followingText}
-        onClick={toggleFollowing}
-        turnOffActionText={unfollowText}
-        turnOffIcon={<DismissX />}
-      />
-      <ButtonToggleState
-        variant="solid"
-        isActive={following}
-        offIcon={<Plus />}
-        offStateText={followText}
-        onIcon={<Checkmark />}
-        onStateText={followingText}
-        onClick={toggleFollowing}
-        turnOffActionText={unfollowText}
-        turnOffIcon={<DismissX />}
-      />
-      <ButtonToggleState
-        variant="solid"
-        isActive={connected}
-        offIcon={<Plus />}
-        offStateText={connectText}
-        onIcon={<Checkmark />}
-        onStateText={connectedText}
-        onClick={toggleConnected}
-        turnOffActionText={disconnectText}
-        turnOffIcon={<DismissX />}
-      />
-      <ButtonToggleState
-        variant="solid"
-        isActive={connected}
-        offIcon={<Plus />}
-        offStateText={connectText}
-        onIcon={<Checkmark />}
-        onStateText={connectedText}
-        onClick={toggleConnected}
-        turnOffActionText={disconnectText}
-        turnOffIcon={<DismissX />}
-      />
-    </>
+    <ButtonToggleState
+      variant="solid"
+      isActive={following}
+      onClick={toggleFollowing}
+      offStateText="Follow"
+      onStateText="Following"
+      turnOffActionText="Unfollow"
+      offIcon={<Plus />}
+      onIcon={<Checkmark />}
+      turnOffIcon={<DismissX />}
+    />
   );
-};
-
-const followText = 'Follow';
-const unfollowText = 'Unfollow';
-const followingText = 'Following';
-
-const connectText = 'Connect';
-const disconnectText = 'Disconnect';
-const connectedText = 'Connected';
+}

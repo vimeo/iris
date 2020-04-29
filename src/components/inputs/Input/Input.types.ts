@@ -7,6 +7,7 @@ export type Props = IrisInputProps<{
   indeterminate?: boolean;
   inlineButton?: ReactNode;
   messages?: Messages;
+  pill?: boolean;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   status?: 'negative' | 'positive' | 'neutral';
 }>;

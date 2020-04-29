@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { rem, rgba } from 'polished';
+import { rgba } from 'polished';
 import { black, white } from '../../../color';
 import { maxWidth } from './Tip.settings';
 
@@ -18,15 +18,16 @@ const fadeIn = keyframes`
 interface Props {
   wrap: boolean;
   breakWords: boolean;
+  pill?: boolean;
 }
 
 export const Tip = styled.div<Props>`
   min-width: ${p => (p.wrap ? `${maxWidth / 2}rem` : '0')};
   max-width: ${maxWidth}rem;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem ${p => (p.pill ? '1rem' : '0.5rem')};
   border: 1px solid
     ${({ theme }) => rgba(white, theme.name === 'dark' ? 0.25 : 0)};
-  border-radius: ${rem(3)};
+  border-radius: ${p => (p.pill ? '2rem' : '0.25rem')};
   text-align: center;
   color: ${white};
   background-color: ${black};

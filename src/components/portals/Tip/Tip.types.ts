@@ -28,4 +28,5 @@ export type Props = IrisProps<{
    * [default = 'hover']
    */
   trigger?: 'click' | 'hover';
+  pill?: boolean;
 }>;

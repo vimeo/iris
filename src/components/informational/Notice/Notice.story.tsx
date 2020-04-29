@@ -1,42 +1,62 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { Paragraph } from '../../../typography';
+
 import { Notice } from './Notice';
+
 import { Gear } from '../../../icons';
 import { Story } from '../../../storybook';
+import { Paragraph } from '../../../typography';
 
-const VariantStory = ({ format }) => (
-  <Story title="Notice">
-    <Notice
-      format={format}
-      id="someOptionalId"
-      className="someOptionalClass"
-    >
-      <Paragraph size="2">Lorem ipsum dolor sit amet.</Paragraph>
-    </Notice>
+/* eslint-disable import/no-default-export */
+export default { title: 'components|informational/Notice/' };
+/* eslint-enable import/no-default-export */
 
-    <br />
-    <br />
+export function Primary() {
+  return <VariantStory format="primary" />;
+}
 
-    <Notice
-      format={format}
-      icon={false}
-      header="lorem ipsum header"
-      onClose={() => null}
-    >
-      <Paragraph size="2">Lorem ipsum dolor sit amet.</Paragraph>
-    </Notice>
+export function PrimaryPill() {
+  return <VariantStory format="primary" pill />;
+}
+PrimaryPill.story = { name: 'Primary (Pill)' };
 
-    <br />
-    <br />
+export function Positive() {
+  return <VariantStory format="positive" />;
+}
 
-    <Notice format={format} icon={<Gear />}>
-      <Paragraph size="2">Lorem ipsum dolor sit amet.</Paragraph>
-    </Notice>
-  </Story>
-);
+export function PositivePill() {
+  return <VariantStory format="positive" pill />;
+}
+PositivePill.story = { name: 'Positive (Pill)' };
 
-storiesOf('Components|informational/Notice', module)
-  .add('primary', () => <VariantStory format="primary" />)
-  .add('positive', () => <VariantStory format="positive" />)
-  .add('negative', () => <VariantStory format="negative" />);
+export function Negative() {
+  return <VariantStory format="negative" />;
+}
+
+export function NegativePill() {
+  return <VariantStory format="negative" pill />;
+}
+NegativePill.story = { name: 'Negative (Pill)' };
+
+function VariantStory({ format, pill = null }) {
+  return (
+    <Story title="Notice">
+      <Notice format={format} pill={pill}>
+        Lorem ipsum dolor sit amet.
+      </Notice>
+
+      <Notice
+        format={format}
+        icon={false}
+        header="lorem ipsum header"
+        onClose={() => null}
+        pill={pill}
+      >
+        Lorem ipsum dolor sit amet.
+      </Notice>
+
+      <Notice format={format} icon={<Gear />} pill={pill}>
+        Lorem ipsum dolor sit amet.
+      </Notice>
+    </Story>
+  );
+}

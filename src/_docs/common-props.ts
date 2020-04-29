@@ -122,3 +122,7 @@ export type AttachAlias =
   | 'bottomLeft'
   | 'left'
   | 'topLeft';
+
+// SHAPES
+// create shape specs for themes
+// pill: 2rem or ratio of height

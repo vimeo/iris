@@ -10,7 +10,7 @@ import {
   CircleWarning,
   DismissX,
 } from '../../../icons';
-import { Header } from '../../../typography';
+import { Header, Paragraph } from '../../../typography';
 import { IrisProps, withIris, onClose } from '../../../utils';
 
 export const Notice = withIris<HTMLDivElement, Props>(
@@ -19,42 +19,48 @@ export const Notice = withIris<HTMLDivElement, Props>(
 
 type Props = IrisProps<
   {
-    dismissButtonClassName?: string;
+    format: 'primary' | 'positive' | 'negative';
     header?: string;
     icon?: ReactNode;
     onClose?: onClose;
-    format: 'primary' | 'positive' | 'negative';
+    pill?: boolean;
   },
   HTMLDivElement
 >;
 
 function NoticeComponent({
   children,
-  header,
-  onClose,
   format,
   forwardRef,
+  header,
   icon = icons[format],
+  onClose,
+  pill,
   ...props
 }: Props) {
   return (
     <NoticeStyled
-      icon={icon}
       format={format}
+      icon={icon}
+      pill={pill}
       ref={forwardRef}
       {...props}
     >
       {icon && (
-        <Icon header={header} format={format}>
+        <Icon header={header} format={format} pill={pill}>
           {icon}
         </Icon>
       )}
 
       {header && <Header size="5">{header}</Header>}
-      {children}
+      {typeof children === 'string' ? (
+        <Paragraph size="2">{children}</Paragraph>
+      ) : (
+        children
+      )}
 
       {onClose && (
-        <Dismiss format={format}>
+        <Dismiss format={format} pill={pill}>
           <Button
             title="Dismiss this notification"
             variant="minimal"

@@ -1,21 +1,21 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { Story } from '../../../storybook';
-import { text } from '@storybook/addon-knobs';
 import styled from 'styled-components';
-import { SocialButton } from './SocialButton';
+import { text } from '@storybook/addon-knobs';
 
-const Container = styled.div`
-  width: 300px;
+import { SocialButton as SB } from './SocialButton';
 
-  > * {
-    margin: 1rem 0;
-  }
+/* eslint-disable import/no-default-export */
+export default { title: 'components|buttons/' };
+/* eslint-enable import/no-default-export */
+
+const SocialButton = styled(SB)`
+  width: 20rem;
+  margin: 0 1rem 1rem 0;
 `;
 
-storiesOf('Components|buttons', module).add('Social Button', () => (
-  <Story title="Social Button">
-    <Container>
+export function Social() {
+  return (
+    <>
       <SocialButton brand="apple" fluid>
         {text('Apple text', 'Sign in with Apple')}
       </SocialButton>
@@ -25,6 +25,6 @@ storiesOf('Components|buttons', module).add('Social Button', () => (
       <SocialButton brand="google" fluid>
         {text('Google text', 'Join with Google')}
       </SocialButton>
-    </Container>
-  </Story>
-));
+    </>
+  );
+}

@@ -1,12 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
 import { storiesOf } from '@storybook/react';
-import { Input } from './Input';
+
+import { Input as I } from './Input';
+
 import { Story } from '../../../storybook';
 
 import { withCharacterCount } from '../withCharacterCount/withCharacterCount';
 
 const componentName = 'Input Field';
-const InputWCC = withCharacterCount(Input);
 
 storiesOf(`Components|inputs/Text/`, module)
   .add('Input (Text)', () => (
@@ -16,6 +18,7 @@ storiesOf(`Components|inputs/Text/`, module)
         label="Input (Text)"
         messages={{ post: 'post message' }}
       />
+      <Input label="Input (Text)" pill />
       <Input
         label="Input (Text) error"
         status="negative"
@@ -37,5 +40,12 @@ storiesOf(`Components|inputs/Text/`, module)
         messages={{ post: 'post message' }}
         floating
       />
+      <Input label="Input (Text)" floating pill />
     </Story>
   ));
+
+const Input = styled(I)`
+  margin-bottom: 2rem;
+`;
+
+const InputWCC = withCharacterCount(Input);

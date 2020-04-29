@@ -1,15 +1,10 @@
 import styled, { css } from 'styled-components';
 
-const flexVertical = css`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
-
 export const Layout = {
-  StoryVertical: styled.div`
+  StoryVertical: styled.div<{ center?: boolean }>`
     ${flexVertical};
     padding: 0.5rem 0;
+    padding: ${p => (p.center ? '4rem' : '0.5rem 0')};
 
     > * {
       display: block;
@@ -17,6 +12,14 @@ export const Layout = {
     }
   `,
 };
+
+function flexVertical({ center = false }) {
+  return css`
+    display: flex;
+    flex-direction: column;
+    align-items: ${center ? 'center' : 'flex-start'};
+  `;
+}
 
 // function VerticalStory({ kind = null }) {
 //   return (

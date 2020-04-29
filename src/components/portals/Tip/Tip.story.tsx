@@ -13,10 +13,25 @@ export default { title: 'components|portals/Tip' };
 
 export function Common() {
   return (
-    <Layout.StoryVertical>
+    <Layout.StoryVertical center>
       {ANCHOR_POINTS.map((attach, i) => (
         <Fragment key={i}>
           <Tip content="I am Tip" attach={attach}>
+            <Button>Tip {attach}</Button>
+          </Tip>
+          <br />
+        </Fragment>
+      ))}
+    </Layout.StoryVertical>
+  );
+}
+
+export function Pill() {
+  return (
+    <Layout.StoryVertical center>
+      {ANCHOR_POINTS.map((attach, i) => (
+        <Fragment key={i}>
+          <Tip content="I am Tip" attach={attach} pill>
             <Button>Tip {attach}</Button>
           </Tip>
           <br />
@@ -40,7 +55,7 @@ export function Fancy() {
     </>
   );
   return (
-    <Layout.StoryVertical>
+    <Layout.StoryVertical center style={{ paddingTop: '12rem' }}>
       <Tip content={content} attach="top" trigger="click">
         <Button>Tip top (click)</Button>
       </Tip>

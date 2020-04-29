@@ -68,11 +68,11 @@ const paddings = {
 //   xl: 3.75,
 // };
 
-export function inputShape({ inputSize, floating }) {
+export function inputShape({ inputSize, floating, pill = false }) {
   const padding = paddings[inputSize] / 2 - 0.175;
 
   return css`
-    border-radius: 0.25rem;
+    border-radius: ${pill ? '2rem' : '0.25rem'};
     padding: ${padding}rem;
     width: 100%;
     font-size: ${sizes[inputSize]}rem;

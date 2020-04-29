@@ -4,6 +4,7 @@ export { geometry } from './geometry';
 export { generateUID } from './generateUID';
 export { arrowRight, arrowLeft, enter, esc, spacebar, tab } from './KeyCodes';
 
+export { useDeprecate } from './useDeprecate';
 export { useOutsideClick } from './useOutsideClick';
 export { useIrisError } from './useIrisError';
 export { useLayoutStyles } from './useLayoutStyles';
