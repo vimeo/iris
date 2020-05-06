@@ -1,5 +1,6 @@
 import { IrisInputProps } from '../../../utils';
 import { ReactNode } from 'react';
+import { Attach, AttachAlias } from '../../portals/AnchoredComponent';
 
 export type Props = IrisInputProps<{
   defaultValue?: string | string[];
@@ -42,4 +43,8 @@ export type Props = IrisInputProps<{
    */
   resetColor?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
+  /**
+   * [default = 'bottom']
+   */
+  attach?: Attach | AttachAlias;
 }>;

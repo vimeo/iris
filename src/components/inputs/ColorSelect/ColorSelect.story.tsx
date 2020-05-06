@@ -5,6 +5,7 @@ import { storiesOf } from '@storybook/react';
 import { ColorSelect } from './ColorSelect';
 
 import { Story } from '../../../storybook';
+import { select } from '@storybook/addon-knobs';
 
 const ColorSelectWithPresetColors = () => {
   const [accentColor, setAccentColor] = useState('#00adef');
@@ -29,6 +30,7 @@ const ColorSelectWithPresetColors = () => {
       resetLabel="reset"
       resetColor="#00adef"
       value={accentColor}
+      attach={select('attach', positions, 'bottom')}
     />
   );
 };
@@ -37,6 +39,7 @@ storiesOf(`Components|inputs/Color Select`, module)
   .add('Color Select', () => (
     <Story title="Color Select" subTitle="Playground">
       <ColorSelect
+        attach={select('attach', positions, 'bottom')}
         width={320}
         height={160}
         onChange={HEX =>
@@ -63,6 +66,7 @@ storiesOf(`Components|inputs/Color Select`, module)
         initialColor="#F00"
         resetColor="#00F"
         size="xl"
+        attach={select('attach', positions, 'bottom')}
       />
     </Story>
   ))
@@ -71,3 +75,14 @@ storiesOf(`Components|inputs/Color Select`, module)
       <ColorSelectWithPresetColors />
     </Story>
   ));
+
+const positions = {
+  top: 'top',
+  'top right': 'topRight',
+  right: 'right',
+  'bottom right': 'bottomRight',
+  bottom: 'bottom',
+  'bottom left': 'bottomLeft',
+  left: 'left',
+  'top left': 'topLeft',
+} as const;

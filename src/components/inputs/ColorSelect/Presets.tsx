@@ -21,6 +21,7 @@ const Swab = styled.button<{ color: string }>`
   position: relative;
   outline: none;
   transition: transform 0.2s ease-in-out;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.2);

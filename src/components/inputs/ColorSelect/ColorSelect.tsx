@@ -53,6 +53,7 @@ function ColorSelectComponent({
   throttleSpeed = 24,
   value,
   width = 360,
+  attach = 'bottom',
   ...props
 }: Props) {
   const defaultColor = parseToHsl(initialColor);
@@ -149,7 +150,7 @@ function ColorSelectComponent({
 
   return (
     <PopOver
-      attach="bottom"
+      attach={attach}
       content={
         <Wrapper width={width}>
           <SpectrumWrapper
