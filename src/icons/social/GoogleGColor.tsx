@@ -21,13 +21,12 @@ export const GoogleGColor = forwardRef(
           id="google_g_color_svg__g"
         />
       </defs>
-      <g fill="none" fillRule="evenodd">
+      <g fill="none">
         <mask id="google_g_color_svg__b" fill="#fff">
           <use xlinkHref="#google_g_color_svg__a" />
         </mask>
         <path
           fill="#FBBC05"
-          fillRule="nonzero"
           mask="url(#google_g_color_svg__b)"
           d="M-.89 15.826V4.07l7.563 5.878z"
         />
@@ -36,7 +35,6 @@ export const GoogleGColor = forwardRef(
         </mask>
         <path
           fill="#EA4335"
-          fillRule="nonzero"
           mask="url(#google_g_color_svg__d)"
           d="M-.89 4.07l7.563 5.878L9.788 7.19l10.677-1.764v-6.33H-.89z"
         />
@@ -45,7 +43,6 @@ export const GoogleGColor = forwardRef(
         </mask>
         <path
           fill="#34A853"
-          fillRule="nonzero"
           mask="url(#google_g_color_svg__f)"
           d="M-.89 15.826l13.347-10.4 3.515.452 4.493-6.782V20.8H-.89z"
         />
@@ -55,7 +52,6 @@ export const GoogleGColor = forwardRef(
           </mask>
           <path
             fill="#4285F4"
-            fillRule="nonzero"
             mask="url(#google_g_color_svg__h)"
             d="M20.465 20.8L6.673 9.948 4.893 8.59l15.573-4.52z"
           />

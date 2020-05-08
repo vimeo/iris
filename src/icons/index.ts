@@ -16,10 +16,9 @@ export { Apple } from './social/Apple';
 export { Box } from './social/Box';
 export { Drive } from './social/Drive';
 export { Dropbox } from './social/Dropbox';
-export { Facebook } from './social/Facebook';
 export { GoogleGColor } from './social/GoogleGColor';
 export { Instagram } from './social/Instagram';
-export { Linkedin } from './social/Linkedin';
+export { SocialChipLinkedIn } from './social/SocialChipLinkedIn';
 export { Onedrive } from './social/Onedrive';
 export { SlackMark } from './social/SlackMark';
 export { SocialChipFacebook } from './social/SocialChipFacebook';
@@ -27,6 +26,13 @@ export { SocialChipTwitter } from './social/SocialChipTwitter';
 export { SocialChipYoutube } from './social/SocialChipYoutube';
 export { Twitter } from './social/Twitter';
 export { Youtube } from './social/Youtube';
+export { Reddit } from './social/Reddit';
+export { Behance } from './social/Behance';
+export { Tumblr } from './social/Tumblr';
+export { Soundcloud } from './social/Soundcloud';
+export { Pinterest } from './social/Pinterest';
+export { Linkedin } from './social/Linkedin';
+export { Facebook } from './social/Facebook';
 
 //
 //

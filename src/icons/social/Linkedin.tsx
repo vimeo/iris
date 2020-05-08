@@ -1,16 +1,14 @@
-import React, { forwardRef, Ref, SVGAttributes } from 'react';
+import React, { Ref, SVGAttributes, forwardRef } from 'react';
 
 export const Linkedin = forwardRef(
-  (props: SVGAttributes<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
-    <svg viewBox="0 0 20 20" ref={ref} {...props}>
-      <path
-        d="M18.5 0h-17C.7 0 0 .6 0 1.4v17.1c0 .9.7 1.5 1.5 1.5h17c.8 0 1.5-.6 1.5-1.4V1.4c0-.8-.7-1.4-1.5-1.4z"
-        fill="#007bb5"
-      />
-      <path
-        d="M3 7.5h3V17H3V7.5zm1.4-4.7c.9 0 1.7.8 1.7 1.7 0 .9-.8 1.7-1.7 1.7-1 0-1.7-.8-1.7-1.7 0-1 .8-1.7 1.7-1.7m3.4 4.7h2.8v1.3C11 8 12 7.3 13.4 7.3c3 0 3.6 2 3.6 4.5V17h-3v-4.6c0-1.1 0-2.5-1.5-2.5s-1.8 1.2-1.8 2.5V17h-3V7.5z"
-        fill="#fff"
-      />
-    </svg>
-  ),
+  (props: SVGAttributes<SVGSVGElement>, ref: Ref<SVGSVGElement>) => {
+    return (
+      <svg viewBox="0 0 20 20" ref={ref} {...props}>
+        <path
+          fill="#474747"
+          d="M3 5.104C3 3.942 3.934 3 5.087 3c1.152 0 2.086.942 2.086 2.104a2.095 2.095 0 01-2.086 2.103A2.095 2.095 0 013 5.104zM15.944 8.352c2.417 0 4.147 1.476 4.147 4.53V20.1H16.58v-5.984c0-1.641-.624-2.557-1.921-2.557-1.413 0-2.15.954-2.15 2.557V20.1H9.123V8.7h3.384v1.535s1.018-1.883 3.436-1.883zM3.34 20.1h3.528V8.7H3.339z"
+        />
+      </svg>
+    );
+  },
 );
