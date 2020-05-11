@@ -129,6 +129,7 @@ function ColorSelectComponent({
   const reset = e => {
     e.stopPropagation();
     const payload = [width, 0];
+    onChange && onChange(hslToColorString(parseToHsl(resetColor)));
     dispatch({ type: 'SET_COORDS', payload });
     dispatch({ type: 'SET_HSL', payload: parseToHsl(resetColor) });
   };
@@ -194,6 +195,7 @@ function ColorSelectComponent({
             HSL={HSL}
             RGB={RGB}
             HSV={HSV}
+            onChange={onChange}
           />
         </Wrapper>
       }
@@ -207,15 +209,16 @@ function ColorSelectComponent({
           type="text"
           ref={ref}
           label={label}
-          onChange={e =>
+          onChange={e => {
+            onChange && onChange(e.target.value);
             dispatch({
               type: 'SET_HEX',
               payload: e.target.value,
-            })
-          }
+            });
+          }}
         >
           <Dot style={{ background: HEX }} />
-          {resetLabel && (
+          {resetLabel && HEX !== resetColor.toLowerCase() && (
             <InnerButton
               format="basic"
               variant="minimalTransparent"
