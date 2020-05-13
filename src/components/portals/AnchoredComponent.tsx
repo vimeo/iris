@@ -64,6 +64,7 @@ export function AnchoredComponent({
       margin={margin}
       rect={rect}
       childRect={childRect}
+      anchorToWindow={anchorToWindow}
       {...props}
     >
       {children}
@@ -122,10 +123,11 @@ interface StyledProps {
   margin: number;
   rect: ClientRect;
   childRect: ClientRect;
+  anchorToWindow: boolean;
 }
 
 const AnchoredComponentStyled = styled.div<StyledProps>`
-  position: absolute;
+  position: ${p => (p.anchorToWindow ? 'fixed' : 'absolute')};
   margin: ${p => rem(p.margin)};
   overflow: visible;
   z-index: 1000;
