@@ -91,6 +91,7 @@ function FeatureTourPanelComponent({
       onClose={doClose}
       onOpen={doOpen}
       attach={attach}
+      style={{ background: 'transparent' }}
       content={
         <FeatureTourPanelContent
           actionArea={actionArea}
