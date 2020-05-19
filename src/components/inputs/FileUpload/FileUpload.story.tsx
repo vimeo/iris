@@ -16,9 +16,10 @@ const FileUpload = styled(FU)`
 storiesOf(`Components|inputs/`, module).add('File Upload ', () => (
   <Story title="File Upload" subTitle="File Upload Icon Only">
     <FileUpload
+      accept=".jpg"
       onChange={e => action('Uploaded file 1')(e.target.files, e)}
     >
-      <Button icon={<UploadCloud />}>Upload</Button>
+      <Button icon={<UploadCloud />}>Upload JPG</Button>
     </FileUpload>
     <FileUpload
       onChange={e => action('Uploaded file 2')(e.target.files, e)}

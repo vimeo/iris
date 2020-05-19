@@ -15,6 +15,8 @@ function FileUploadComponent({
   defaultValue,
   forwardRef,
   onChange,
+  disabled,
+  accept,
   ...props
 }: Props) {
   const ref = useRef(null);
@@ -27,7 +29,13 @@ function FileUploadComponent({
       style={{ display: 'inline-flex' }}
       {...props}
     >
-      <Hidden ref={ref} type="file" onChange={onChange}></Hidden>
+      <Hidden
+        ref={ref}
+        type="file"
+        accept={accept}
+        disabled={disabled}
+        onChange={onChange}
+      ></Hidden>
       {children}
     </div>
   );
