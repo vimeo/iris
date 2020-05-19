@@ -56,6 +56,7 @@ export function Mark({
           disabled={disabled}
           ref={forwardRef}
           defaultValue={defaultValue as string | string[]}
+          value={value as string | string[]}
           {...props}
         />
         <Label
