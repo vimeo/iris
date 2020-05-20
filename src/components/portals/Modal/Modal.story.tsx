@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
-import { Story } from '../../../storybook';
-import { Button as B } from '../../index';
-import { Modal } from './Modal';
-import { Paragraph } from '../../../typography';
+import { rgba } from 'polished';
 
-storiesOf(`Components|portals/Modal`, module)
-  .add('child element trigger', () => (
-    <Story title="Modal">
+import { Modal } from './Modal';
+
+import { Button } from '../../index';
+import { DismissX } from '../../../icons';
+import { Layout } from '../../../storybook';
+import { Paragraph, Header } from '../../../typography';
+
+/* eslint-disable import/no-default-export */
+export default { title: 'components|portals/Modal' };
+/* eslint-enable import/no-default-export */
+
+export function Common() {
+  return (
+    <Layout.StoryVertical>
       <Modal
         content={ModalContent}
         onOpen={() => console.log('open')}
@@ -16,26 +23,32 @@ storiesOf(`Components|portals/Modal`, module)
       >
         <Button>Open Modal</Button>
       </Modal>
+    </Layout.StoryVertical>
+  );
+}
+
+export function Featured() {
+  return (
+    <Layout.StoryVertical>
       <Modal content={FeatureModalContent} feature>
         <Button>Open Feature Update Modal</Button>
       </Modal>
-    </Story>
-  ))
-  .add('external state trigger', () => (
-    <Story title="Modal">
+    </Layout.StoryVertical>
+  );
+}
+
+export function ExternalState() {
+  return (
+    <Layout.StoryVertical>
       <Modal
         active={true}
         content={ModalContent}
         onOpen={() => console.log('open')}
         onClose={() => console.log('close')}
       />
-    </Story>
-  ));
-
-const Button = styled(B)`
-  display: block;
-  margin-bottom: 2rem;
-`;
+    </Layout.StoryVertical>
+  );
+}
 
 const ModalStyled = styled.div`
   padding: 2rem;
@@ -77,3 +90,70 @@ const FeatureModalContent = (
     </Paragraph>
   </ModalStyled>
 );
+
+export function Custom() {
+  const [active, activeSet] = useState(false);
+
+  return (
+    <Layout.StoryVertical>
+      <Button onClick={() => activeSet(active => !active)}>
+        Open Custom Modal
+      </Button>
+      <Modal
+        active={active}
+        style={{ maxWidth: '35rem' }}
+        content={
+          <CustomModalStyled>
+            <Dismiss onClick={() => activeSet(false)} />
+            <div style={{ padding: '1.5rem' }}>
+              <Header size="5" style={{ marginBottom: '2rem' }}>
+                Send a Message
+              </Header>
+              <Paragraph size="2">
+                Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit. Consectetur ipsam tenetur illum eius expedita
+                cum ipsa distinctio harum ut alias, praesentium
+                suscipit vel soluta natus repudiandae omnis
+                reiciendis! Eos, beatae.
+              </Paragraph>
+            </div>
+            <CustomModalFooter>
+              <Button
+                format="secondary"
+                style={{ marginRight: '0.5rem' }}
+                onClick={() => activeSet(false)}
+              >
+                Cancel
+              </Button>
+              <Button onClick={() => activeSet(false)}>Send</Button>
+            </CustomModalFooter>
+          </CustomModalStyled>
+        }
+      />
+    </Layout.StoryVertical>
+  );
+}
+
+const CustomModalStyled = styled.div`
+  border-radius: 0.25rem;
+  background: ${({ theme }) => theme.content.background};
+`;
+
+const Dismiss = styled(Button).attrs({
+  size: 'sm',
+  format: 'basic',
+  variant: 'minimalTransparent',
+  icon: <DismissX />,
+})`
+  top: 1rem;
+  right: 1rem;
+  position: absolute;
+`;
+
+const CustomModalFooter = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.75rem;
+  border-top: 1px solid ${p => rgba(p.theme.content.color, 0.1)};
+`;
