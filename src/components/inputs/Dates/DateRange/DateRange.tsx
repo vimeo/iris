@@ -26,6 +26,7 @@ import {
   Menu,
 } from './DateRange.style';
 
+import { slate } from '../../../../color';
 import { withIris } from '../../../../utils';
 
 export const DateRange = withIris<HTMLInputElement, Props>(
@@ -229,7 +230,10 @@ function DateRangeComponent({
   return (
     <DateRangeContainer>
       {presets ? (
-        <Menu>
+        <Menu
+          format="basic"
+          style={{ borderRight: `1px solid ${slate(100)}` }}
+        >
           <Menu.Section title="Presets">
             {presets.map(preset => {
               const label =

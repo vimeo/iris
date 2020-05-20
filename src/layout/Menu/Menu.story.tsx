@@ -1,5 +1,4 @@
-import React, { SFC, useState } from 'react';
-import { storiesOf } from '@storybook/react';
+import React from 'react';
 
 import { Menu } from './Menu';
 import {
@@ -8,7 +7,7 @@ import {
 } from '../../components/portals/PopOver/PopOver';
 
 import { Tip } from '../../components/portals/Tip/Tip';
-import { Story } from '../../storybook';
+import { Layout } from '../../storybook';
 import {
   Folder,
   Home,
@@ -18,9 +17,15 @@ import {
   Gear,
 } from '../../icons';
 
-storiesOf('Layout|Menu', module)
-  .add('simple', () => (
-    <Story title="Menu" width="100%" flex>
+/* eslint-disable import/no-default-export */
+export default {
+  title: 'layout|Menu/',
+};
+/* eslint-enable import/no-default-export */
+
+export function Simple() {
+  return (
+    <Layout.StoryVertical>
       <Menu style={{ padding: '1rem' }}>
         <Menu.Section title="Section 1">
           <Menu.Item active icon={<Home />}>
@@ -34,10 +39,13 @@ storiesOf('Layout|Menu', module)
           <Menu.Item icon={<Grid />}>Item 2 S2</Menu.Item>
         </Menu.Section>
       </Menu>
-    </Story>
-  ))
-  .add('complex', () => (
-    <Story title="Menu" width="100%" flex>
+    </Layout.StoryVertical>
+  );
+}
+
+export function Complex() {
+  return (
+    <Layout.StoryVertical>
       <Menu style={{ padding: '1rem' }}>
         <Menu.Section title="Section 1">
           <Menu.Item toggle>
@@ -99,8 +107,46 @@ storiesOf('Layout|Menu', module)
           </Menu.Section>
         </Menu.Section>
       </Menu>
-    </Story>
-  ));
+    </Layout.StoryVertical>
+  );
+}
+
+export function Format() {
+  return (
+    <Layout.StoryVertical>
+      <Menu
+        format="basic"
+        style={{ marginBottom: '1rem', padding: '1rem' }}
+      >
+        <Menu.Section title="Section 1">
+          <Menu.Item active icon={<Home />}>
+            Item 1 S1
+          </Menu.Item>
+          <Menu.Item icon={<Gear />}>Item 2 S1</Menu.Item>
+        </Menu.Section>
+
+        <Menu.Section title="Section 2">
+          <Menu.Item icon={<Folder />}>Item 1 S2</Menu.Item>
+          <Menu.Item icon={<Grid />}>Item 2 S2</Menu.Item>
+        </Menu.Section>
+      </Menu>
+
+      <Menu format="secondary" style={{ padding: '1rem' }}>
+        <Menu.Section title="Section 1">
+          <Menu.Item active icon={<Home />}>
+            Item 1 S1
+          </Menu.Item>
+          <Menu.Item icon={<Gear />}>Item 2 S1</Menu.Item>
+        </Menu.Section>
+
+        <Menu.Section title="Section 2">
+          <Menu.Item icon={<Folder />}>Item 1 S2</Menu.Item>
+          <Menu.Item icon={<Grid />}>Item 2 S2</Menu.Item>
+        </Menu.Section>
+      </Menu>
+    </Layout.StoryVertical>
+  );
+}
 
 const PopList = (
   <>

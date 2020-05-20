@@ -135,13 +135,19 @@ export const ItemStyled = styled.button`
   }
 `;
 
-export const MenuStyled = styled.div`
+export const MenuStyled = styled.div<{
+  format: 'basic' | 'secondary';
+}>`
   display: block;
   width: 20rem;
   border-radius: 0.25rem;
   color: ${({ theme }) => theme.content.color};
-  background: ${({ theme }) =>
-    theme.name === 'dark' ? grayscale(970) : slate(30)};
+  background: ${({ theme, format }) =>
+    format === 'secondary'
+      ? theme.name === 'dark'
+        ? grayscale(970)
+        : slate(30)
+      : 'none'};
 `;
 
 export const SubMenu = styled.div`

@@ -15,13 +15,22 @@ Menu.Item = Item;
 type Props = IrisProps<
   {
     children: any;
+    /**
+     * [default = 'secondary']
+     */
+    format?: 'basic' | 'secondary';
   },
   HTMLDivElement
 >;
 
-function MenuComponent({ children, forwardRef, ...props }: Props) {
+function MenuComponent({
+  children,
+  format = 'secondary',
+  forwardRef,
+  ...props
+}: Props) {
   return (
-    <MenuStyled ref={forwardRef} {...props}>
+    <MenuStyled ref={forwardRef} format={format} {...props}>
       {children}
     </MenuStyled>
   );
