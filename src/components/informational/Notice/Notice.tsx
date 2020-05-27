@@ -1,17 +1,19 @@
 import React, { ReactNode } from 'react';
-
-import { NoticeStyled, Icon, Dismiss } from './Notice.style';
-
-import { Button } from '../../buttons/Button/Button';
-
 import {
-  CircleInfo,
   Checkmark,
+  CircleInfo,
   CircleWarning,
   DismissX,
 } from '../../../icons';
 import { Header, Paragraph } from '../../../typography';
-import { IrisProps, withIris, onClose } from '../../../utils';
+import {
+  IrisProps,
+  onClose,
+  useClose,
+  withIris,
+} from '../../../utils';
+import { Button } from '../../buttons/Button/Button';
+import { Dismiss, Icon, NoticeStyled } from './Notice.style';
 
 export const Notice = withIris<HTMLDivElement, Props>(
   NoticeComponent,
@@ -38,6 +40,21 @@ function NoticeComponent({
   pill,
   ...props
 }: Props) {
+  const {
+    reject: onCloseReject,
+    complete: onCloseComplete,
+  } = useClose(onClose);
+
+  const doClick = event => {
+    event.preventDefault();
+    if (onCloseReject) {
+      onCloseReject(event);
+    }
+    if (onCloseComplete) {
+      onCloseComplete(event);
+    }
+  };
+
   return (
     <NoticeStyled
       format={format}
@@ -67,6 +84,7 @@ function NoticeComponent({
             format="basic"
             size="sm"
             icon={<DismissX />}
+            onClick={doClick}
           />
         </Dismiss>
       )}
