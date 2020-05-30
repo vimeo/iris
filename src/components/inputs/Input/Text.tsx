@@ -73,6 +73,7 @@ export function Text({
           theme={theme}
           type={type}
           value={value}
+          disabled={disabled}
           {...props}
         />
         <Focus parent={InputStyled} radius={pill ? 50 : 6} />

@@ -36,6 +36,7 @@ export function inputColors({ theme, disabled = false, format }) {
       css`
         background-color: ${theme.content.disabled};
         border-color: ${rgba(color, 0.1 + opacity)};
+        pointer-events: none;
       `}
   `;
 }

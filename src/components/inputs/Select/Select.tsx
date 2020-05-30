@@ -41,6 +41,7 @@ function SelectComponent({
   label,
   faux,
   style,
+  disabled,
   ...props
 }: Props) {
   const [width, setWidth] = useState(0);
@@ -120,7 +121,7 @@ function SelectComponent({
         attach="bottom"
         style={{ width, maxWidth: '100%' }}
         content={<div ref={popOverRef}>{popOverChildren}</div>}
-        active={active}
+        active={disabled ? false : active}
       >
         <div
           style={{ position: 'relative' }}
@@ -136,6 +137,7 @@ function SelectComponent({
               ...displayStyles,
               pointerEvents: 'none',
             }}
+            disabled={disabled}
             {...props}
           >
             {selected} {options}
@@ -159,6 +161,7 @@ function SelectComponent({
           ref={selectRef}
           format={status || format}
           style={style}
+          disabled={disabled}
           {...props}
         >
           {options}

@@ -1,51 +1,94 @@
 import React from 'react';
-import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
 
-import { Input as I } from './Input';
+import { Input } from './Input';
 
-import { Story } from '../../../storybook';
-
+import { Layout } from '../../../storybook';
 import { withCharacterCount } from '../withCharacterCount/withCharacterCount';
 
-const componentName = 'Input Field';
+/* eslint-disable import/no-default-export */
+export default {
+  title: 'components|inputs/Text/',
+};
+/* eslint-enable import/no-default-export */
 
-storiesOf(`Components|inputs/Text/`, module)
-  .add('Input (Text)', () => (
-    <Story title={componentName}>
+export function Common() {
+  return (
+    <Layout.StoryVertical>
       <Input label="Input (Text)" />
+      <Input label="Input (Text) disabled" disabled />
       <Input
-        label="Input (Text)"
+        label="Input (Text) with post messagge"
         messages={{ post: 'post message' }}
       />
-      <Input label="Input (Text)" pill />
       <Input
-        label="Input (Text) error"
+        label="Input (Text) with error message"
         status="negative"
-        messages={{ error: 'This is an error.' }}
+        messages={{ error: 'error message' }}
       />
+    </Layout.StoryVertical>
+  );
+}
+
+export function Pill() {
+  return (
+    <Layout.StoryVertical>
+      <Input pill label="Input (Text)" />
+      <Input pill label="Input (Text) disabled" disabled />
+      <Input
+        pill
+        label="Input (Text) with post message"
+        messages={{ post: 'post message' }}
+      />
+      <Input
+        pill
+        label="Input (Text) with error message"
+        status="negative"
+        messages={{ error: 'error message' }}
+      />
+    </Layout.StoryVertical>
+  );
+}
+
+export function CharacterCount() {
+  return (
+    <Layout.StoryVertical>
       <InputWCC label="Input (Text) with character count" />
+      <Input
+        label="Input (Text) with character count disabled"
+        disabled
+      />
+      <InputWCC
+        label="Input (Text) with character count. Post message overrides character count."
+        messages={{ post: 'post message' }}
+      />
       <InputWCC
         label="Input (Text) with character count. Error overrides character count."
         status="negative"
-        messages={{ error: 'This is an error.' }}
+        messages={{ error: 'error message' }}
       />
-    </Story>
-  ))
-  .add('Input (floating)', () => (
-    <Story title={componentName}>
+    </Layout.StoryVertical>
+  );
+}
+
+export function FloatingInput() {
+  return (
+    <Layout.StoryVertical>
       <Input label="Input (Text)" floating />
+      <Input label="Input (Text) disabled" floating disabled />
       <Input
         label="Input (Text)"
         messages={{ post: 'post message' }}
         floating
       />
+      <Input
+        floating
+        label="Input (Text)"
+        status="negative"
+        messages={{ error: 'error message' }}
+      />
       <Input label="Input (Text)" floating pill />
-    </Story>
-  ));
-
-const Input = styled(I)`
-  margin-bottom: 2rem;
-`;
+    </Layout.StoryVertical>
+  );
+}
 
 const InputWCC = withCharacterCount(Input);
