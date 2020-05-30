@@ -48,6 +48,7 @@ export const Toggle = styled.div<{ open?: boolean }>`
 export const Header = styled.div`
   display: block;
   padding: 0.5rem 1.25rem;
+  text-transform: uppercase;
   margin: 0.2rem 0 0;
   color: ${p => rgba(p.theme.content.color, 0.5)};
   font-size: 0.75rem;

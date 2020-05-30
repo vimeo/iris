@@ -36,7 +36,9 @@ storiesOf(`Components|inputs/Dates`, module)
       title="Date Range with Presets"
       subTitle="DateRangeWithPresets"
     >
-      <DateRange presets={['today', -10, 10, -100, 100, 'custom']} />
+      <DateRange
+        presets={['today', 'yesterday', -10, 10, -100, 100, 'custom']}
+      />
     </Story>
   ));
 

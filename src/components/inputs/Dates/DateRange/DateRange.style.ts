@@ -16,6 +16,7 @@ export const DateRangeContainer = styled.div`
 
 export const Menu = styled(M)`
   flex: 0 0 200px;
+  padding-top: ${rem(8)};
 `;
 
 export const CalendarsContainer = styled.div<{ hidden?: boolean }>`

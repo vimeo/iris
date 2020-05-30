@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { rem, rgba } from 'polished';
 
-import { white, green, blue } from '../../../../color';
+import { white, blue } from '../../../../color';
 import { IrisProps } from '../../../../utils';
 import { Paragraph } from '../../../../typography';
 
@@ -50,7 +50,8 @@ export const CalendarDayLabel = styled(Label)`
         &:hover {
           color: ${white};
           z-index: 1;
-          &:before {
+
+          &::before {
             pointer-events: none;
             background-color: ${blue(600)};
             border-radius: 50%;
@@ -69,23 +70,28 @@ export const CalendarDayLabel = styled(Label)`
       `;
     }
 
+    const backgroundColor = ({ theme }) =>
+      theme.name === 'dark' ? blue(850) : blue(50);
+
+    const controlStyle = css`
+      &::before {
+        background-color: ${blue(500)};
+        border-radius: 50%;
+      }
+    `;
+
     if (props.isTrack && props.isControl) {
       return css`
-        background-color: ${({ theme }) =>
-          theme.name === 'dark' ? rgba(green(50), 0.25) : green(50)};
-        z-index: 1;
+        background-color: ${backgroundColor};
         color: ${white};
-        &:before {
-          background-color: ${blue(500)};
-          border-radius: 50%;
-        }
+        z-index: 1;
+        ${controlStyle};
       `;
     }
 
     if (props.isTrack) {
       return css`
-        background-color: ${({ theme }) =>
-          theme.name === 'dark' ? rgba(green(50), 0.25) : green(50)};
+        background-color: ${backgroundColor};
       `;
     }
 
@@ -93,19 +99,13 @@ export const CalendarDayLabel = styled(Label)`
       const control = css`
         z-index: 1;
         color: ${white};
-        &:before {
-          background-color: ${blue(500)};
-          border-radius: 50%;
-        }
+        ${controlStyle};
       `;
 
       if (props.isStart && !props.isEnd) {
         return css`
           ${control};
-          background-color: ${({ theme }) =>
-            theme.name === 'dark'
-              ? rgba(green(50), 0.25)
-              : green(50)};
+          background-color: ${backgroundColor};
           border-radius: 50% 0 0 50%;
         `;
       }
@@ -113,10 +113,7 @@ export const CalendarDayLabel = styled(Label)`
       if (props.isEnd) {
         return css`
           ${control};
-          background-color: ${({ theme }) =>
-            theme.name === 'dark'
-              ? rgba(green(50), 0.25)
-              : green(50)};
+          background-color: ${backgroundColor};
           border-radius: 0 50% 50% 0;
         `;
       }

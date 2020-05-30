@@ -67,15 +67,15 @@ function DateRangeComponent({
     open,
   } = state;
 
-  // Get the viewport for the second calendar in our range picker.
-  const nextViewportDate = useMemo(() => {
+  // Get the viewport for the first calendar in our range picker.
+  const getDateForFirstCalendar = useMemo(() => {
     const year = viewportDate.getFullYear();
     const month = viewportDate.getMonth();
-    const nextDate = new Date();
+    const dateForFirstCalendar = new Date();
 
-    nextDate.setFullYear(year, month + 1, 1);
+    dateForFirstCalendar.setFullYear(year, month - 1, 1);
 
-    return nextDate;
+    return dateForFirstCalendar;
   }, [viewportDate]);
 
   // Derive the value for the input that represents our start date.
@@ -193,27 +193,26 @@ function DateRangeComponent({
 
   const handleSelectPreset = preset => {
     const payload = [];
-    const currentDate = new Date();
+    const { today, yesterday } = getDates();
 
     setPresetOption(preset);
     dispatch({ type: 'CLEAR' });
 
     switch (typeof preset) {
       case 'string':
-        if (preset === 'today') {
-          payload.push(currentDate);
-        }
+        if (preset === 'today') payload.push(today);
+        if (preset === 'yesterday') payload.push(yesterday);
         break;
       case 'number':
         const date = new Date(
           new Date().setDate(new Date().getDate() + preset),
         );
         if (preset > 0) {
-          payload.push(currentDate);
+          payload.push(today);
           payload.push(date);
         } else {
           payload.push(date);
-          payload.push(currentDate);
+          payload.push(today);
         }
 
         break;
@@ -293,7 +292,7 @@ function DateRangeComponent({
             isRange
             backOnly
             backOnClick={handleGoBackward}
-            initialMonth={viewportDate}
+            initialMonth={getDateForFirstCalendar}
             minDate={minDate}
             maxDate={maxDate}
             range={[draftStart, draftEnd]}
@@ -307,7 +306,7 @@ function DateRangeComponent({
             isRange
             forwardOnly
             forwardOnClick={handleGoForward}
-            initialMonth={nextViewportDate}
+            initialMonth={viewportDate}
             minDate={minDate}
             maxDate={maxDate}
             range={[draftStart, draftEnd]}
@@ -345,4 +344,13 @@ function DateRangeComponent({
       </CalendarsContainer>
     </DateRangeContainer>
   );
+}
+
+function getDates() {
+  const today = new Date();
+  const yesterday = new Date(today);
+
+  yesterday.setDate(yesterday.getDate() - 1);
+
+  return { today, yesterday };
 }
