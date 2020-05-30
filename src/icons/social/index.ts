@@ -18,3 +18,4 @@ export { Soundcloud } from './Soundcloud';
 export { Pinterest } from './Pinterest';
 export { Linkedin } from './Linkedin';
 export { Facebook } from './Facebook';
+export { Dribbble } from './Dribbble';

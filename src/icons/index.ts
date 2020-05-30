@@ -33,6 +33,7 @@ export { Soundcloud } from './social/Soundcloud';
 export { Pinterest } from './social/Pinterest';
 export { Linkedin } from './social/Linkedin';
 export { Facebook } from './social/Facebook';
+export { Dribbble } from './social/Dribbble';
 
 //
 //
