@@ -17,15 +17,32 @@ module.exports = {
     'object-curly-newline': 0,
     'operator-linebreak': 1,
 
+    //
     // import rules
+    //
     'import/order': 0, // 1,
     // 'import/named': 2,
     'import/no-default-export': 2,
     'import/no-extraneous-dependencies': 1,
     'import/no-unresolved': 0, // 2,
     'import/prefer-default-export': 0,
+    'no-restricted-imports': [
+      'warn',
+      {
+        paths: [
+          {
+            name: '@storybook/react',
+            importNames: ['storiesOf'],
+            message:
+              'Please use the CSF (Component Story Format) API instead: https://storybook.js.org/docs/formats/component-story-format/',
+          },
+        ],
+      },
+    ],
 
+    //
     // @typescript rules
+    //
     '@typescript-eslint/array-type': 0, // [1, 'array-simple'],
     '@typescript-eslint/ban-ts-ignore': 1,
     '@typescript-eslint/indent': 0, // ['warn', 2],
@@ -38,12 +55,16 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': 0,
     '@typescript-eslint/prefer-interface': 0,
 
+    //
     // immutable rules
+    //
     'immutable/no-let': 0, // 1,
     'immutable/no-this': 0, // 1,
     'immutable/no-mutation': 0, // 1,
 
+    //
     // react rules
+    //
     // 'react/destructuring-assignment': 1,
     'react/jsx-filename-extension': 0,
     'react/prop-types': 0,

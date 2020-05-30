@@ -14,7 +14,16 @@ addDecorator(withA11y);
 addDecorator(withKnobs);
 addDecorator(withThemes);
 
+const storySort = (cur, next) => {
+  const a = stripCategory(cur);
+  const b = stripCategory(next);
+
+  if (a !== b) return getOrder(a) - getOrder(b);
+  return defaultSort(cur, next);
+};
+
 addParameters({
+  options: { storySort },
   docs: {
     container: DocsContainer,
     page: DocsPage,
@@ -46,3 +55,9 @@ configure(
   ],
   module,
 );
+
+const categoryOrder = ['iris', 'color', 'components', 'typography', 'layout', 'icons', 'illustration', 'motion', 'utilties', 'themes', 'labs'];
+
+const getOrder = header => categoryOrder.findIndex(h => h === header);
+const defaultSort = (a, b) => a[1].id.localeCompare(b[1].id, undefined, { numeric: true });
+const stripCategory = story => story[1].kind.substr(0, story[1].kind.indexOf('|')).toLowerCase();

@@ -119,6 +119,9 @@
         "typecheck": "npx tsc --noEmit"
     },
     "jest": {
+        "roots": [
+            "./src"
+        ],
         "setupFiles": [
             "./.jest/register-context.js"
         ],

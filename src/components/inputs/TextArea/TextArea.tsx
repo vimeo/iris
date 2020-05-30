@@ -18,6 +18,7 @@ export const TextArea = withIris<HTMLInputElement, Props>(
 function TextAreaComponent({
   disabled,
   errorMsg,
+  forwardRef,
   format,
   messages,
   helperMsg,
@@ -49,6 +50,7 @@ function TextAreaComponent({
           disabled={disabled}
           hasIcon={format === 'negative'}
           format={format}
+          ref={forwardRef}
           {...props}
         />
         {format === 'negative' ? <InfoIcon /> : null}
