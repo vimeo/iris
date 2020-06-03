@@ -44,11 +44,21 @@ function NotficationComponent({
   onComplete,
   ...props
 }: Props) {
+  const controlled = typeof props.showing !== 'undefined';
+
   const initialState = {
     active: automatic,
     showing: automatic,
     time: duration,
   };
+
+  useEffect(() => {
+    if (controlled) {
+      dispatch(props.showing ? 'SHOW' : 'HIDE');
+      dispatch(props.showing ? 'RESUME' : 'PAUSE');
+      dispatch('RESET');
+    }
+  }, [controlled, props.showing]);
 
   const [{ showing, time, active }, dispatch] = useReducer(
     reducer(duration),

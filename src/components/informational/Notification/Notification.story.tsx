@@ -76,10 +76,7 @@ const ControlledNotification = () => {
       />
       <Button
         onClick={() => {
-          setIsShowingNotification(false);
-          setTimeout(function() {
-            setIsShowingNotification(true);
-          }, 100);
+          setIsShowingNotification(true);
         }}
       >
         Show Controlled Notification
