@@ -55,6 +55,7 @@ export { HomeFilled } from './HomeFilled';
 export { Image } from './Image';
 export { InProgress } from './InProgress';
 export { LifePreserver } from './LifePreserver';
+export { LightDark } from './LightDark';
 export { LineChartOutlined } from './LineChartOutlined';
 export { Link } from './Link';
 export { List } from './List';

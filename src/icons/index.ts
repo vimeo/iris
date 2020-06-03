@@ -96,6 +96,7 @@ export { Home } from './ui/Home';
 export { HomeFilled } from './ui/HomeFilled';
 export { Image } from './ui/Image';
 export { LifePreserver } from './ui/LifePreserver';
+export { LightDark } from './ui/LightDark';
 export { LineChartOutlined } from './ui/LineChartOutlined';
 export { Link } from './ui/Link';
 export { List } from './ui/List';
