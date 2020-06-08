@@ -31,6 +31,7 @@ export { DismissX } from './DismissX';
 export { DotsMenu } from './DotsMenu';
 export { DownloadArrow } from './DownloadArrow';
 export { EditPlayer } from './EditPlayer';
+export { Enterprise } from './Enterprise';
 export { Envelope } from './Envelope';
 export { Error } from './Error';
 export { Eye } from './Eye';

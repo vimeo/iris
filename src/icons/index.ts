@@ -77,6 +77,7 @@ export { DismissX } from './ui/DismissX';
 export { DotsMenu } from './ui/DotsMenu';
 export { DownloadArrow } from './ui/DownloadArrow';
 export { EditPlayer } from './ui/EditPlayer';
+export { Enterprise } from './ui/Enterprise';
 export { Envelope } from './ui/Envelope';
 export { Error } from './ui/Error';
 export { Eye } from './ui/Eye';
