@@ -5,9 +5,7 @@ import { config } from './Avatar.config';
 
 import { Layout } from '../../../storybook';
 
-/* eslint-disable import/no-default-export */
 export default config;
-/* eslint-enable import/no-default-export */
 
 export function Common() {
   return (

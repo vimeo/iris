@@ -3,11 +3,7 @@ import React from 'react';
 import { Search } from './Search';
 import { Layout } from '../../../storybook';
 
-/* eslint-disable import/no-default-export */
-export default {
-  title: 'components|inputs/Text/',
-};
-/* eslint-enable import/no-default-export */
+export default { title: 'components|inputs/Text/' };
 
 export function SearchInput() {
   return (

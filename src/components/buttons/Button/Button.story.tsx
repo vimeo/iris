@@ -6,9 +6,7 @@ import { config, formats, statuses, variants } from './Button.config';
 
 import { DownloadArrow, Plus, ArrowRight } from '../../../icons';
 
-/* eslint-disable import/no-default-export */
 export default config;
-/* eslint-enable import/no-default-export */
 
 const Button = styled(B)`
   display: flex;

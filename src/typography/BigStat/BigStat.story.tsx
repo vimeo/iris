@@ -4,9 +4,7 @@ import { BigStat } from './BigStat';
 
 import { Layout } from '../../storybook';
 
-/* eslint-disable import/no-default-export */
 export default { title: 'typography|BigStat/' };
-/* eslint-enable import/no-default-export */
 
 export function Common() {
   return (

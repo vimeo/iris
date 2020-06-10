@@ -4,9 +4,7 @@ import { Header } from './Header';
 
 import { Layout } from '../../storybook';
 
-/* eslint-disable import/no-default-export */
 export default { title: 'typography|Headers' };
-/* eslint-enable import/no-default-export */
 
 export function Size() {
   return (

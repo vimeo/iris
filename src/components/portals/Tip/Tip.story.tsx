@@ -7,9 +7,7 @@ import { Header } from '../../../typography';
 import { Layout } from '../../../storybook';
 import { Button } from '../../buttons/Button/Button';
 
-/* eslint-disable import/no-default-export */
 export default { title: 'components|portals/Tip' };
-/* eslint-enable import/no-default-export */
 
 export function Common() {
   return (

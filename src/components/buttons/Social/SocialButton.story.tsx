@@ -4,9 +4,7 @@ import { text } from '@storybook/addon-knobs';
 
 import { SocialButton as SB } from './SocialButton';
 
-/* eslint-disable import/no-default-export */
 export default { title: 'components|buttons/' };
-/* eslint-enable import/no-default-export */
 
 const SocialButton = styled(SB)`
   width: 20rem;

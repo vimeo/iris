@@ -4,11 +4,7 @@ import { Password } from './Password';
 
 import { Layout } from '../../../storybook';
 
-/* eslint-disable import/no-default-export */
-export default {
-  title: 'components|inputs/Text/',
-};
-/* eslint-enable import/no-default-export */
+export default { title: 'components|inputs/Text/' };
 
 export function PasswordInput() {
   return (

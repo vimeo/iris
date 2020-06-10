@@ -9,9 +9,7 @@ const ButtonToggleState = styled(B)`
   margin: 0 1rem 1rem 0;
 `;
 
-/* eslint-disable import/no-default-export */
 export default { title: 'components|buttons/' };
-/* eslint-enable import/no-default-export */
 
 export const StateToggle = () => <StateToggleStory />;
 function StateToggleStory() {

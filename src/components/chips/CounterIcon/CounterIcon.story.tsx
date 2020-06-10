@@ -5,9 +5,7 @@ import { CounterIcon } from './CounterIcon';
 import { Layout } from '../../../storybook';
 import { Play, Collections } from '../../../icons';
 
-/* eslint-disable import/no-default-export */
 export default { title: 'components|chips/CounterIcon' };
-/* eslint-enable import/no-default-export */
 
 export function Common() {
   return (

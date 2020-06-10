@@ -5,9 +5,7 @@ import { Badge } from './Badge';
 
 import { Layout } from '../../../storybook';
 
-/* eslint-disable import/no-default-export */
 export default { title: 'components|chips/Badge' };
-/* eslint-enable import/no-default-export */
 
 export function Common() {
   return (

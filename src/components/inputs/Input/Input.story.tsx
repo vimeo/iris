@@ -5,11 +5,7 @@ import { Input } from './Input';
 import { Layout } from '../../../storybook';
 import { withCharacterCount } from '../withCharacterCount/withCharacterCount';
 
-/* eslint-disable import/no-default-export */
-export default {
-  title: 'components|inputs/Text/',
-};
-/* eslint-enable import/no-default-export */
+export default { title: 'components|inputs/Text/' };
 
 export function Common() {
   return (

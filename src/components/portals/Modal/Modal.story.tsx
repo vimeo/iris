@@ -9,9 +9,7 @@ import { DismissX } from '../../../icons';
 import { Layout } from '../../../storybook';
 import { Paragraph, Header } from '../../../typography';
 
-/* eslint-disable import/no-default-export */
 export default { title: 'components|portals/Modal' };
-/* eslint-enable import/no-default-export */
 
 export function Common() {
   return (

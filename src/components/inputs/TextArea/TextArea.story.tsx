@@ -7,9 +7,7 @@ import { Button } from '../../buttons/Button/Button';
 import { Layout } from '../../../storybook';
 import { withCharacterCount } from '../withCharacterCount/withCharacterCount';
 
-/* eslint-disable import/no-default-export */
 export default { title: 'components|inputs/TextArea' };
-/* eslint-enable import/no-default-export */
 
 const TextArea = styled(TA)`
   min-width: 24rem;

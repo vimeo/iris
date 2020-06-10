@@ -3,9 +3,7 @@ import { Tag } from './Tag';
 
 import { Layout } from '../../../storybook';
 
-/* eslint-disable import/no-default-export */
 export default { title: 'components|chips/Tag' };
-/* eslint-enable import/no-default-export */
 
 export function Common() {
   return (

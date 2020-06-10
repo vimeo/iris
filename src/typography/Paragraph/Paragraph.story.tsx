@@ -5,9 +5,7 @@ import { Paragraph } from './Paragraph';
 
 import { Layout } from '../../storybook';
 
-/* eslint-disable import/no-default-export */
 export default { title: 'typography|Paragraph/' };
-/* eslint-enable import/no-default-export */
 
 const formats = {
   alternative: 'alternative',

@@ -7,9 +7,7 @@ import { readableColor, rgba } from 'polished';
 
 // import { Layout } from '../../../storybook';
 
-/* eslint-disable import/no-default-export */
 export default { title: 'themes|theme' };
-/* eslint-enable import/no-default-export */
 
 const padding = '2rem';
 

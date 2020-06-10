@@ -23,11 +23,7 @@ import { Header as H, Paragraph as P } from '../../typography';
 import { LoaderCircular as LC } from '../../motion';
 import { Gear } from '../../icons';
 
-/* eslint-disable import/no-default-export */
-export default {
-  title: 'labs|themekit/',
-};
-/* eslint-enable import/no-default-export */
+export default { title: 'labs|themekit/' };
 
 export function Common() {
   return <ThemeKit />;

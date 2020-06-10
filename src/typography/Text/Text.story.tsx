@@ -5,9 +5,7 @@ import { Text as T } from './Text';
 
 import { Layout } from '../../storybook';
 
-/* eslint-disable import/no-default-export */
 export default { title: 'typography|Text' };
-/* eslint-enable import/no-default-export */
 
 const Text = styled(T)`
   display: block;

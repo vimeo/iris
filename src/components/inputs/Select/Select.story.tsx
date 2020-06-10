@@ -7,11 +7,7 @@ import { blue } from '../../../color';
 import { action } from '@storybook/addon-actions';
 import styled from 'styled-components';
 
-/* eslint-disable import/no-default-export */
-export default {
-  title: 'components|inputs/Select/',
-};
-/* eslint-enable import/no-default-export */
+export default { title: 'components|inputs/Select/' };
 
 export function Common() {
   return (

@@ -6,9 +6,7 @@ import { Gear } from '../../../icons';
 import { Story } from '../../../storybook';
 import { Paragraph } from '../../../typography';
 
-/* eslint-disable import/no-default-export */
 export default { title: 'components|informational/Notice/' };
-/* eslint-enable import/no-default-export */
 
 export function Primary() {
   return <VariantStory format="primary" />;

@@ -1,89 +1,82 @@
 import React, {
   useState,
   cloneElement,
-  FunctionComponent,
   useLayoutEffect,
 } from 'react';
-import styled from 'styled-components';
-import { rgba, rem } from 'polished';
 
-import { Formats } from '../../themes';
-import { blue } from '../../color';
-import { Button } from '../../components/';
-import { withIris, IrisElement, IrisProps } from '../../utils';
+import { Props, Minors } from './Tabs.types';
+import { Nav, Indicator } from './Tabs.style';
+import { Panel } from './Tabs.minors';
+import { NavItem } from './NavItem';
+
+import { withIris } from '../../utils';
 
 export const Tabs = withIris<HTMLDivElement, Props, Minors>(
   TabsComponent,
 );
 
-type Props = IrisProps<{
-  children: Array<IrisElement<PanelProps>>;
-  /**
-   * [default = 'alternative']
-   */
-  format?: Formats;
-}>;
+Tabs.Panel = Panel;
 
 function TabsComponent({
   children,
   forwardRef,
   format = 'alternative',
+  variant = 'minimalTransparent',
   ...props
 }: Props) {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, activeTabSet] = useState(0);
 
   useLayoutEffect(() => {
     const active = children
       .map(({ props: { active } }, i) => active && i)
       .filter(i => typeof i === 'number' && i >= 0);
 
-    const lastActive = active[active.length - 1];
-
     if (active.length === 0) return;
-    if (active.length === 1) return setActiveTab(active[0]);
+    if (active.length === 1) return activeTabSet(active[0]);
 
-    setActiveTab(lastActive);
-
-    const errorMessage = `Multiple tabs were specified as the intial active tab! Tabs: [${active.toString()}]. Using last 'active' tab: ${lastActive}.`;
-    console.error(`@vimeo/iris:`, errorMessage, `\n\n`);
+    const lastActive = active[active.length - 1];
+    errorMessage(active, lastActive);
+    activeTabSet(lastActive);
   }, [children]);
 
-  function doKey({ key }) {
-    if (key === 'ArrowRight') {
-      setActiveTab(
-        activeTab === children.length - 1 ? 0 : activeTab + 1,
-      );
-    }
-    if (key === 'ArrowLeft') {
-      setActiveTab(
-        activeTab === 0 ? children.length - 1 : activeTab - 1,
-      );
-    }
+  function onKeyUp({ key }) {
+    const { length } = children;
+
+    const next = activeTab === length - 1 ? 0 : activeTab + 1;
+    const prev = activeTab === 0 ? length - 1 : activeTab - 1;
+
+    if (key === 'ArrowRight') activeTabSet(next);
+    if (key === 'ArrowLeft') activeTabSet(prev);
   }
 
   return (
     <div ref={forwardRef} {...props}>
-      <NavStyled>
+      <Nav variant={variant}>
         {children.map(({ props }, i) => (
           <li
             style={{ flex: '1 0 0' }}
             key={i}
             onClick={() => {
-              setActiveTab(i);
+              activeTabSet(i);
               props.onActivate();
             }}
           >
             <NavItem
-              onKeyUp={doKey}
+              onKeyUp={onKeyUp}
               format={format}
               index={i}
               label={props.label}
               selected={activeTab === i}
+              variant={variant}
             />
           </li>
         ))}
-      </NavStyled>
-      <Indicator width={children.length} position={activeTab} />
+      </Nav>
+
+      {variant !== 'inlay' && (
+        <Indicator width={children.length} position={activeTab} />
+      )}
+
       {children.map(
         (child, i) =>
           activeTab === i &&
@@ -93,65 +86,10 @@ function TabsComponent({
   );
 }
 
-const NavStyled = styled.ol`
-  display: flex;
-  width: 100%;
-  margin: 0 0 0.25rem;
-  padding: 0;
-  list-style-type: none;
-`;
+const irisError = message =>
+  console.error(`@vimeo/iris:`, message, `\n\n`);
 
-const NavItem = ({ format, index, label, selected, ...props }) => (
-  <Button
-    aria-selected={selected}
-    element="a"
-    href={`#tab-${index}`}
-    target="_self"
-    format="alternative"
-    id={`tab-${index}`}
-    onClick={event => event.preventDefault()}
-    size="md"
-    style={{ width: '100%' }}
-    variant="minimalTransparent"
-    {...props}
-  >
-    {label}
-  </Button>
-);
-
-const Indicator = styled.div<{ width: number; position: number }>`
-  width: 100%;
-  background: ${props => rgba(props.theme.content.color, 0.1)};
-  &:after {
-    content: '';
-    display: block;
-    width: ${props => 100 / props.width}%;
-    height: ${rem(2)};
-    background-color: ${blue(500)};
-    transform: translateX(${props => props.position * 100}%);
-    transition: 120ms ease-in-out;
-  }
-`;
-
-interface Minors {
-  Panel: FunctionComponent<IrisProps<PanelProps>>;
-}
-
-interface PanelProps {
-  label?: string;
-  active?: boolean;
-  onActivate: VoidFunction;
-}
-
-const Panel = ({
-  children,
-  active,
-  onActivate,
-  ...props
-}: IrisProps<PanelProps>) => (
-  <div style={{ padding: '0.5rem 0' }} {...props}>
-    {children}
-  </div>
-);
-
-Tabs.Panel = Panel;
+const errorMessage = (active, lastActive) =>
+  irisError(
+    `Multiple tabs were specified as the intial active tab! Tabs: [${active.toString()}]. Using last 'active' tab: ${lastActive}.`,
+  );

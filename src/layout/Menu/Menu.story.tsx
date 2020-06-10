@@ -17,11 +17,7 @@ import {
   Gear,
 } from '../../icons';
 
-/* eslint-disable import/no-default-export */
-export default {
-  title: 'layout|Menu/',
-};
-/* eslint-enable import/no-default-export */
+export default { title: 'layout|Menu/' };
 
 export function Simple() {
   return (

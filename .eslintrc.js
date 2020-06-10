@@ -8,6 +8,21 @@ module.exports = {
     '@typescript-eslint',
     'prettier',
   ],
+  settings: {
+    'import/resolver': {
+      node: {
+        paths: ['src'],
+      },
+    },
+  },
+  overrides: [
+    {
+      files: ['*.story.tsx'],
+      rules: {
+        'import/no-default-export': 0,
+      },
+    },
+  ],
   rules: {
     'arrow-parens': 0,
     'implicit-arrow-linebreak': 0,
@@ -70,12 +85,5 @@ module.exports = {
     'react/prop-types': 0,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-  },
-  settings: {
-    'import/resolver': {
-      node: {
-        paths: ['src'],
-      },
-    },
   },
 };
