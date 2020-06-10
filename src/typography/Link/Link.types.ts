@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 
 export type Props = IrisProps<
   {
+    contentEditable?: never;
     /**
      * [default = 'a']
      */

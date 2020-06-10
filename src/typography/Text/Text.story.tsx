@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
 
 import { Text as T } from './Text';
 
-import { Story } from '../../storybook';
+import { Layout } from '../../storybook';
+
+/* eslint-disable import/no-default-export */
+export default { title: 'typography|Text' };
+/* eslint-enable import/no-default-export */
 
 const Text = styled(T)`
   display: block;
@@ -32,77 +35,100 @@ const CustomText3 = styled(Text)`
   letter-spacing: -0.075rem;
 `;
 
-storiesOf('Typography|Text/', module).add('Text', () => (
-  <Story title="Text">
-    <Text format="basic">Text Primitive Component</Text>
-    <Text format="soft">Text Primitive Component</Text>
-    <Text format="alternative">Text Primitive Component</Text>
-    <Text format="secondary">Text Primitive Component</Text>
-    <Text format="primary">Text Primitive Component</Text>
-    <Text status="positive">Text Primitive Component</Text>
-    <Text status="negative">Text Primitive Component</Text>
+const EditableText = styled(CustomText3)`
+  display: inline-block;
+`;
 
-    <br />
-    <br />
+export function Editable() {
+  return (
+    <Layout.StoryVertical>
+      <EditableText placeholder="Edit me!" contentEditable>
+        Text Primitive Component
+      </EditableText>
+    </Layout.StoryVertical>
+  );
+}
 
-    <CustomText1 format="basic">Text Primitive Component</CustomText1>
-    <CustomText1 format="soft">Text Primitive Component</CustomText1>
-    <CustomText1 format="alternative">
-      Text Primitive Component
-    </CustomText1>
-    <CustomText1 format="secondary">
-      Text Primitive Component
-    </CustomText1>
-    <CustomText1 format="primary">
-      Text Primitive Component
-    </CustomText1>
-    <CustomText1 status="positive">
-      Text Primitive Component
-    </CustomText1>
-    <CustomText1 status="negative">
-      Text Primitive Component
-    </CustomText1>
+export function CustomExample1() {
+  return (
+    <Layout.StoryVertical>
+      <CustomText1 format="basic">
+        Text Primitive Component
+      </CustomText1>
+      <CustomText1 format="soft">
+        Text Primitive Component
+      </CustomText1>
+      <CustomText1 format="alternative">
+        Text Primitive Component
+      </CustomText1>
+      <CustomText1 format="secondary">
+        Text Primitive Component
+      </CustomText1>
+      <CustomText1 format="primary">
+        Text Primitive Component
+      </CustomText1>
+      <CustomText1 status="positive">
+        Text Primitive Component
+      </CustomText1>
+      <CustomText1 status="negative">
+        Text Primitive Component
+      </CustomText1>
+    </Layout.StoryVertical>
+  );
+}
 
-    <br />
-    <br />
+export function CustomExample2() {
+  return (
+    <Layout.StoryVertical>
+      <CustomText2 format="basic">
+        Text Primitive Component
+      </CustomText2>
+      <CustomText2 format="soft">
+        Text Primitive Component
+      </CustomText2>
+      <CustomText2 format="alternative">
+        Text Primitive Component
+      </CustomText2>
+      <CustomText2 format="secondary">
+        Text Primitive Component
+      </CustomText2>
+      <CustomText2 format="primary">
+        Text Primitive Component
+      </CustomText2>
+      <CustomText2 status="positive">
+        Text Primitive Component
+      </CustomText2>
+      <CustomText2 status="negative">
+        Text Primitive Component
+      </CustomText2>
+    </Layout.StoryVertical>
+  );
+}
 
-    <CustomText2 format="basic">Text Primitive Component</CustomText2>
-    <CustomText2 format="soft">Text Primitive Component</CustomText2>
-    <CustomText2 format="alternative">
-      Text Primitive Component
-    </CustomText2>
-    <CustomText2 format="secondary">
-      Text Primitive Component
-    </CustomText2>
-    <CustomText2 format="primary">
-      Text Primitive Component
-    </CustomText2>
-    <CustomText2 status="positive">
-      Text Primitive Component
-    </CustomText2>
-    <CustomText2 status="negative">
-      Text Primitive Component
-    </CustomText2>
-
-    <br />
-    <br />
-
-    <CustomText3 format="basic">Text Primitive Component</CustomText3>
-    <CustomText3 format="soft">Text Primitive Component</CustomText3>
-    <CustomText3 format="alternative">
-      Text Primitive Component
-    </CustomText3>
-    <CustomText3 format="secondary">
-      Text Primitive Component
-    </CustomText3>
-    <CustomText3 format="primary">
-      Text Primitive Component
-    </CustomText3>
-    <CustomText3 status="positive">
-      Text Primitive Component
-    </CustomText3>
-    <CustomText3 status="negative">
-      Text Primitive Component
-    </CustomText3>
-  </Story>
-));
+export function CustomExample3() {
+  return (
+    <Layout.StoryVertical>
+      <CustomText3 format="basic">
+        Text Primitive Component
+      </CustomText3>
+      <CustomText3 format="soft">
+        Text Primitive Component
+      </CustomText3>
+      <CustomText3 format="alternative">
+        Text Primitive Component
+      </CustomText3>
+      <CustomText3 format="secondary">
+        Text Primitive Component
+      </CustomText3>
+      <CustomText3 format="primary">
+        Text Primitive Component
+      </CustomText3>
+      <CustomText3 status="positive">
+        Text Primitive Component
+      </CustomText3>
+      <CustomText3 status="negative">
+        Text Primitive Component
+      </CustomText3>
+    </Layout.StoryVertical>
+  );
+}

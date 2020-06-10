@@ -3,6 +3,10 @@ import { IrisProps } from '../../utils';
 export type Props = IrisProps<
   {
     /**
+     * Converts the text to an input when focused to allow user editing.
+     */
+    contentEditable?: boolean;
+    /**
      * Default is calculated based on size. If no size is specified:
      *
      * [default = 'h1']

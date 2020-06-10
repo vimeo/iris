@@ -1,20 +1,25 @@
-import { IrisProps } from '../../utils';
+import { IrisInputProps, IrisProps } from '../../utils';
 import { Statuses, Formats } from '../../themes';
 
-export type Props = IrisProps<
-  {
-    /**
-     * [default = 'span']
-     */
-    element?: HTMLTextElement;
-    /**
-     * [default = 'soft']
-     */
-    format?: Formats;
-    status?: Statuses;
-  },
-  IrisTextElement
->;
+export interface CommonProps {
+  /**
+   * Converts the text to an input when focused to allow user editing.
+   */
+  contentEditable?: boolean;
+  /**
+   * [default = 'span']
+   */
+  element?: HTMLTextElement;
+  /**
+   * [default = 'soft']
+   */
+  format?: Formats;
+  placeholder?: string;
+  status?: Statuses;
+}
+
+export type InputProps = IrisInputProps<CommonProps, IrisTextElement>;
+export type Props = IrisProps<CommonProps, IrisTextElement>;
 
 export type IrisTextElement =
   | HTMLHeadingElement

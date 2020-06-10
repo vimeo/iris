@@ -13,6 +13,10 @@ export const BigStat = withIris<
 type Props = IrisProps<
   {
     /**
+     * Converts the text to an input when focused to allow user editing.
+     */
+    contentEditable?: boolean;
+    /**
      * [default = 'p']
      */
     element?: 'p' | 'span';

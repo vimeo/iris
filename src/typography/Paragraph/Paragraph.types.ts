@@ -3,6 +3,7 @@ import { Statuses } from '../../themes';
 
 export type Props = IrisProps<
   {
+    contentEditable?: never;
     /**
      * [default = 'p']
      */

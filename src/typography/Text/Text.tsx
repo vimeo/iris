@@ -1,44 +1,25 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import { HTMLTextElement, Props } from './Text.types';
+import { InputProps, Props } from './Text.types';
+import { Text as Styled } from './Text.style';
+import { EditableText } from './EditableText';
 
-import { antialias } from '../typography';
 import { withIris } from '../../utils';
-import { Statuses, Formats } from '../../themes';
 
 export const Text = withIris<
   HTMLParagraphElement | HTMLSpanElement,
-  Props
+  InputProps
 >(TextComponent);
 
 function TextComponent({
+  contentEditable,
   element = 'span',
   format = 'soft',
   ...props
 }: Props) {
-  return <Styled as={element} format={format} {...props} />;
-}
-
-const Styled = styled.span<{
-  format?: Formats;
-  status?: Statuses;
-  element?: HTMLTextElement;
-}>`
-  font: 400 0.875rem / 1.375rem ${fontFamily};
-  letter-spacing: 0.0125rem;
-  color: ${color};
-  ${antialias};
-`;
-
-function fontFamily({ theme }) {
-  return (
-    theme?.typography?.fontFamily ||
-    `'Helvetica Neue', Helvetica, Arial,
-  sans-serif`
+  return contentEditable ? (
+    <EditableText format={format} {...props} />
+  ) : (
+    <Styled as={element} format={format} {...props} />
   );
-}
-
-function color({ format, status, theme }) {
-  return theme.formats[status || format];
 }

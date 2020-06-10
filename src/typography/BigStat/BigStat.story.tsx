@@ -1,14 +1,25 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import { BigStat } from './BigStat';
 
-import { Story } from '../../storybook';
+import { Layout } from '../../storybook';
 
-storiesOf('Typography|Big Stat/', module).add('Big Stat', () => (
-  <Story title="Big Stat" subTitle="BigStat" width="100%">
-    <div style={{ padding: '2rem' }}>
+/* eslint-disable import/no-default-export */
+export default { title: 'typography|BigStat/' };
+/* eslint-enable import/no-default-export */
+
+export function Common() {
+  return (
+    <Layout.StoryVertical>
       <BigStat>12.2k</BigStat>
-    </div>
-  </Story>
-));
+    </Layout.StoryVertical>
+  );
+}
+
+export function ContentEditable() {
+  return (
+    <Layout.StoryVertical>
+      <BigStat contentEditable>12.2k</BigStat>
+    </Layout.StoryVertical>
+  );
+}
