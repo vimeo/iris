@@ -86,6 +86,7 @@ export { Replay } from './Replay';
 export { ReviewCheck } from './ReviewCheck';
 export { Search } from './Search';
 export { Showcase } from './Showcase';
+export { SmilingFace } from './SmilingFace';
 export { SpeechBubbleRounded } from './SpeechBubbleRounded';
 export { SpeechBubbleSquared } from './SpeechBubbleSquared';
 export { Split } from './Split';

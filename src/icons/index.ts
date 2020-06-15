@@ -128,6 +128,7 @@ export { Replay } from './ui/Replay';
 export { ReviewCheck } from './ui/ReviewCheck';
 export { Search } from './ui/Search';
 export { Showcase } from './ui/Showcase';
+export { SmilingFace } from './ui/SmilingFace';
 export { SpeechBubbleRounded } from './ui/SpeechBubbleRounded';
 export { SpeechBubbleSquared } from './ui/SpeechBubbleSquared';
 export { Split } from './ui/Split';
