@@ -43,7 +43,7 @@ export function Text({
 
   const floatLabel =
     focused ||
-    (inputRef.current && inputRef.current.value.length > 0);
+    (inputRef.current && inputRef.current.value?.length > 0);
 
   return (
     <Wrapper
