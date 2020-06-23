@@ -36,6 +36,7 @@ export { PinterestColor } from './social/PinterestColor';
 export { Linkedin } from './social/Linkedin';
 export { Facebook } from './social/Facebook';
 export { Dribbble } from './social/Dribbble';
+export { Tiktok } from './social/Tiktok';
 
 //
 //

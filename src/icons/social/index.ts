@@ -21,3 +21,4 @@ export { PinterestColor } from './PinterestColor';
 export { Linkedin } from './Linkedin';
 export { Facebook } from './Facebook';
 export { Dribbble } from './Dribbble';
+export { Tiktok } from './Tiktok';
