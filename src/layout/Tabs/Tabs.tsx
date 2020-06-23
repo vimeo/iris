@@ -22,6 +22,7 @@ function TabsComponent({
   forwardRef,
   format = 'alternative',
   variant = 'minimalTransparent',
+  pill = false,
   ...props
 }: Props) {
   const [activeTab, activeTabSet] = useState(0);
@@ -51,7 +52,7 @@ function TabsComponent({
 
   return (
     <div ref={forwardRef} {...props}>
-      <Nav variant={variant}>
+      <Nav variant={variant} pill={pill}>
         {children.map(({ props }, i) => (
           <li
             style={{ flex: '1 0 0' }}
@@ -68,6 +69,7 @@ function TabsComponent({
               label={props.label}
               selected={activeTab === i}
               variant={variant}
+              pill={pill}
             />
           </li>
         ))}

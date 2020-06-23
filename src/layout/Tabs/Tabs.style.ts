@@ -5,6 +5,7 @@ import { blue } from '../../color';
 
 interface NavProps {
   variant?: 'minimalTransparent' | 'inlay';
+  pill?: boolean;
 }
 
 export const Nav = styled.ol<NavProps>`
@@ -13,7 +14,7 @@ export const Nav = styled.ol<NavProps>`
   margin: 0 0 0.25rem;
   padding: 0;
   list-style-type: none;
-  border-radius: 0.25rem;
+  border-radius: ${p => (p.pill ? '2rem' : '0.25rem')};
 
   ${variant};
 `;

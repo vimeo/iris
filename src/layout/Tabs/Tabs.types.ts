@@ -13,6 +13,10 @@ export type Props = IrisProps<{
    * [default = 'minimalTransparent']
    */
   variant?: 'minimalTransparent' | 'inlay';
+  /**
+   * [default = false]
+   */
+  pill?: boolean;
 }>;
 
 export interface Minors {
