@@ -11,7 +11,15 @@ export type Props = IrisProps<
      *
      * [default = 'h1']
      */
-    element?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span';
+    element?:
+      | 'h1'
+      | 'h2'
+      | 'h3'
+      | 'h4'
+      | 'h5'
+      | 'h6'
+      | 'span'
+      | 'label';
     /**
      * [default = '1']
      */

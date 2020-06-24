@@ -9,6 +9,8 @@ interface Props {
   floating?: boolean;
   floatLabel?: boolean;
   icon?: ReactNode;
+  id?: string;
+  disabled?: boolean;
   label?: ReactNode;
   status?: Statuses;
   value?: string;
@@ -19,9 +21,11 @@ export const Wrapper = forwardRef(function(
   {
     children,
     defaultValue,
+    disabled,
     floating,
     floatLabel,
     icon,
+    id,
     label,
     messages = {},
     status,
@@ -50,7 +54,13 @@ export const Wrapper = forwardRef(function(
     >
       {preMessage}
       {label && (
-        <Label floating={floating} active={active} size="6">
+        <Label
+          floating={floating}
+          active={active}
+          size="6"
+          htmlFor={id}
+          disabled={disabled}
+        >
           {label}
         </Label>
       )}
@@ -68,8 +78,10 @@ export const Wrapper = forwardRef(function(
   );
 });
 
-const Label = styled(Header)<any>`
+const Label = styled(Header).attrs({ element: 'label' })<any>`
   transition: 120ms ease-in-out;
+  cursor: ${p => (p.disabled ? 'not-allowed' : 'pointer')};
+
   ${p =>
     p.floating &&
     !p.active &&

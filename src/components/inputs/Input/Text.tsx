@@ -55,6 +55,8 @@ export function Text({
       status={status}
       theme={theme}
       style={layoutStyles}
+      id={id}
+      disabled={disabled}
     >
       <div style={{ position: 'relative' }}>
         {children}

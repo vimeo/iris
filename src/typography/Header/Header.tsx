@@ -6,7 +6,7 @@ import { Header as Styled } from './Header.style';
 import { withIris } from '../../utils';
 
 export const Header = withIris<
-  HTMLHeadingElement | HTMLSpanElement,
+  HTMLHeadingElement | HTMLSpanElement | HTMLLabelElement,
   Props
 >(HeaderComponent);
 
