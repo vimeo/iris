@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
 import { number } from '@storybook/addon-knobs';
 
-// import { contour } from '../Theme/themes';
 import { elevation } from './elevation';
 
-import { Story } from '../../storybook';
+import { StoryCard } from '../../storybook';
 
-storiesOf(`Labs|Elevation`, module).add('Elevation', () => (
-  <Story title="Annotation" width="100%">
+export default { title: 'labs|elevation/' };
+
+export function Common() {
+  return (
     <Box
       elevation={number(
         'elevation',
@@ -20,13 +20,13 @@ storiesOf(`Labs|Elevation`, module).add('Elevation', () => (
     >
       {number('elevation', defaultValue, options, 'elevation')}
     </Box>
-    {[0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000].map(e => (
-      <Box elevation={e}>{e}</Box>
-    ))}
-  </Story>
-));
+  );
+}
 
-const label = 'Temperature';
+export function Scale() {
+  return elevations.map(e => <Box elevation={e}>{e}</Box>);
+}
+
 const defaultValue = 500;
 const options = {
   range: true,
@@ -35,13 +35,27 @@ const options = {
   step: 100,
 };
 
-const Box = styled.div<any>`
+const Box = styled(StoryCard)<any>`
   width: 10rem;
   height: 10rem;
   border-radius: 0.25rem;
   transition: box-shadow 50ms, transform 50ms;
   ${elevation};
   margin: 2rem;
-  display: inline-block;
+  display: inline-flex;
   background: ${p => p.theme.background};
 `;
+
+const elevations = [
+  0,
+  100,
+  200,
+  300,
+  400,
+  500,
+  600,
+  700,
+  800,
+  900,
+  1000,
+];

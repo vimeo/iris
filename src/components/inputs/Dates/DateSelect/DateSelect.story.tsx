@@ -1,32 +1,38 @@
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
+
 import { DateSelect } from './DateSelect';
-import { Story } from '../../../../storybook';
+
 import { Input } from '../../Input/Input';
+import { Layout } from '../../../../storybook';
 
-storiesOf(`Components|inputs/Dates`, module).add(
-  'Date Select',
-  () => <DateSelectStory />,
-);
+export default { title: 'components|inputs/DateSelect' };
 
-const DateSelectStory = ({}) => {
-  const [date1, setDate1] = useState(new Date());
-
-  const initialMonth = new Date('01/01/2032');
-  const [date2, setDate2] = useState(initialMonth);
+export const Common = () => <CommonStory />;
+const CommonStory = () => {
+  const [date, dateSet] = useState(new Date());
 
   return (
-    <Story title="Date Select">
-      <DateSelect onSelect={date => setDate1(date)}>
-        <Input value={date1.toLocaleDateString()} readOnly />
+    <Layout.StoryVertical>
+      <DateSelect onSelect={date => dateSet(date)}>
+        <Input value={date.toLocaleDateString()} readOnly />
       </DateSelect>
-      <br />
-      <DateSelect
-        onSelect={date => setDate2(date)}
-        initialMonth={initialMonth}
-      >
-        <Input value={date2.toLocaleDateString()} readOnly />
-      </DateSelect>
-    </Story>
+    </Layout.StoryVertical>
   );
 };
+
+export const InitialMonth = () => <InitialMonthStory />;
+function InitialMonthStory() {
+  const initialMonth = new Date('01/01/2032');
+  const [date, dateSet] = useState(initialMonth);
+
+  return (
+    <Layout.StoryVertical>
+      <DateSelect
+        onSelect={date => dateSet(date)}
+        initialMonth={initialMonth}
+      >
+        <Input value={date.toLocaleDateString()} readOnly />
+      </DateSelect>
+    </Layout.StoryVertical>
+  );
+}

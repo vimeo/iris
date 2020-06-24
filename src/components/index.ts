@@ -15,13 +15,15 @@ export { Badge } from './chips/Badge/Badge';
 export { CounterIcon } from './chips/CounterIcon/CounterIcon';
 export { Tag } from './chips/Tag/Tag';
 
-// informational
-export { Breadcrumb } from './informational/Breadcrumb/Breadcrumb';
-export { BreadcrumbLink } from './informational/Breadcrumb/BreadcrumbLink';
-export { FeatureTourPanel } from './informational/FeatureTour/FeatureTourPanel';
-export { Notice } from './informational/Notice/Notice';
-export { Notification } from './informational/Notification/Notification';
-export { ProgressBar } from './informational/ProgressBar/ProgressBar';
+// info
+export { Annotation } from './info/Annotation/Annotation';
+export { Breadcrumb } from './info/Breadcrumb/Breadcrumb';
+export { BreadcrumbLink } from './info/Breadcrumb/BreadcrumbLink';
+export { FeatureTourPanel } from './info/FeatureTour/FeatureTourPanel';
+export { Notice } from './info/Notice/Notice';
+export { Notification } from './info/Notification/Notification';
+export { ProgressBar } from './info/ProgressBar/ProgressBar';
+export { Tip } from './info/Tip/Tip';
 
 // inputs
 export { Checkbox } from './inputs/Checkbox/Checkbox';
@@ -41,9 +43,6 @@ export { TextArea } from './inputs/TextArea/TextArea';
 export { Toggle } from './inputs/Toggle/Toggle';
 export { withCharacterCount } from './inputs/withCharacterCount/withCharacterCount';
 
-// portals
-export { Annotation } from './portals/Annotation/Annotation';
-export { Modal } from './portals/Modal/Modal';
-export { Pop } from './portals/PopOver/PopOver';
-export { PopOver } from './portals/PopOver/PopOver';
-export { Tip } from './portals/Tip/Tip';
+// REMOVE IN IRIS 9
+export { Modal } from '../layout';
+export { Pop, PopOver } from '../layout';

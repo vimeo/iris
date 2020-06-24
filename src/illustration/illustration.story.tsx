@@ -1,35 +1,47 @@
-import React, { SFC, useState } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
-import { storiesOf } from '@storybook/react';
+import { em } from 'polished';
 
 import * as Illustrations from './index';
 import { Header } from '../typography';
-import { Story } from '../storybook';
 import { slate } from '../color';
-import { em } from 'polished';
 
-storiesOf('illustration|illustrations', module).add('all', () => (
-  <Story title="Illustrations" width="100%">
+export default { title: 'illustration|Illustrations/' };
+
+export function All() {
+  return (
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
       {Object.keys(Illustrations).map((illustration, i) => (
-        <IllustrationWrapper key={i}>
+        <Card key={i}>
           <Header size="2" style={{ marginBottom: '0.25rem' }}>
             {illustration}
           </Header>
 
           <Illustration name={illustration} />
-        </IllustrationWrapper>
+        </Card>
       ))}
     </div>
-  </Story>
-));
+  );
+}
 
-const Card = css`
-  border-radius: 0.125rem;
-  width: 100%;
-  border: 1px solid ${slate(100)};
-  align-items: center;
-  text-align: center;
+function Illustration({ name }) {
+  const Illustration = Illustrations[name];
+  if (!Illustration) return null;
+
+  return (
+    <Wrap>
+      <Illustration />
+    </Wrap>
+  );
+}
+
+const Wrap = styled.div`
+  svg {
+    width: 20rem;
+    height: 20rem;
+    display: block;
+    margin: 3rem auto;
+  }
 `;
 
 const width = widthMap =>
@@ -41,8 +53,12 @@ const width = widthMap =>
     `,
   );
 
-const IllustrationWrapper = styled.div`
-  ${Card};
+const Card = styled.div`
+  border-radius: 0.125rem;
+  width: 100%;
+  border: 1px solid ${slate(100)};
+  align-items: center;
+  text-align: center;
   padding: 1rem;
   margin: 1.25rem;
   display: inline-block;
@@ -51,15 +67,3 @@ const IllustrationWrapper = styled.div`
     70: 50,
   })};
 `;
-
-const Illustration: SFC<any> = ({ name }) =>
-  Illustrations[name]
-    ? React.createElement(
-        styled(Illustrations[name])`
-          width: 20rem;
-          height: 20rem;
-          display: block;
-          margin: 3rem auto;
-        `,
-      )
-    : null;

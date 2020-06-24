@@ -23,7 +23,7 @@ import { HueSlider } from './Slider';
 import { ColorInputs } from './ColorInputs';
 import { Presets, PresetsProps } from './Presets';
 
-import { PopOver } from '../../portals/PopOver/PopOver';
+import { PopOver } from '../../../layout';
 import {
   withIris,
   geometry,

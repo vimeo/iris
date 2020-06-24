@@ -1,28 +1,27 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
-
-import { Calendar as C } from './Calendar';
-
-import { Story } from '../../../../storybook';
 import { rgba } from 'polished';
 
-storiesOf(`Components|inputs/Dates`, module).add('Calendar', () => (
-  <CalendarStory />
-));
+import { Calendar } from './Calendar';
 
-const CalendarStory = ({}) => {
+import { Story } from '../../../../storybook';
+
+export default { title: 'components|inputs/Calendar' };
+
+export const Common = () => <CommonStory />;
+function CommonStory() {
   const [date, setDate] = useState(new Date());
 
   return (
     <Story title="Calendar">
-      <Calendar selected={date} onClick={date => setDate(date)} />
+      <Calendar
+        selected={date}
+        onClick={date => setDate(date)}
+        css={`
+          width: 20rem;
+          border: 1px dashed ${p => rgba(p.theme.content.color, 0.25)};
+          border-radius: 0.25rem;
+        `}
+      />
     </Story>
   );
-};
-
-const Calendar = styled(C)`
-  width: 20rem;
-  border: 1px dashed ${({ theme }) => rgba(theme.content.color, 0.25)};
-  border-radius: 0.25rem;
-`;
+}

@@ -10,7 +10,10 @@ import {
   ReactElement,
   FunctionComponent,
 } from 'react';
+import { CSSProp } from 'styled-components';
+
 import { Override } from './types';
+
 import { IrisTheme } from '../themes';
 
 export interface IrisSVG<T = SVGSVGElement> {
@@ -33,6 +36,7 @@ type IrisElementProps<DOMElement = HTMLDivElement> = {
   as?: never;
   children?: ReactNode;
   className?: string;
+  css?: CSSProp;
   data?: string;
   debug?: boolean;
   disabled?: boolean;

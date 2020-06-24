@@ -1,12 +1,8 @@
 import React from 'react';
 
 import { Menu } from './Menu';
-import {
-  PopOver,
-  Pop,
-} from '../../components/portals/PopOver/PopOver';
 
-import { Tip } from '../../components/portals/Tip/Tip';
+import { Tip, PopOver, Pop } from '../../components/';
 import { Layout } from '../../storybook';
 import {
   Folder,

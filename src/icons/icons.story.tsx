@@ -1,7 +1,6 @@
-import React, { createElement, useState } from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
-import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
 
 import * as UI_ICONS from './ui';
@@ -10,9 +9,11 @@ import * as PAYMENT_ICONS from './payment';
 import * as VIMEO_ICONS from './vimeo';
 
 import { Header } from '../typography';
-import { Input } from '../components/inputs/Input/Input';
+import { Input } from '../components';
 import { Story } from '../storybook';
 import { black, white } from '../color';
+
+export default { title: 'icons|Icons/' };
 
 const ICONS = {
   ...VIMEO_ICONS,
@@ -21,22 +22,11 @@ const ICONS = {
   ...PAYMENT_ICONS,
 };
 
-storiesOf('Icons|icons/', module)
-  .add('all', () => {
-    return <IconStory icons={ICONS} />;
-  })
-  .add('ui', () => {
-    return <IconStory icons={UI_ICONS} />;
-  })
-  .add('social', () => {
-    return <IconStory icons={SOCIAL_ICONS} preserve />;
-  })
-  .add('payment', () => {
-    return <IconStory icons={PAYMENT_ICONS} preserve />;
-  })
-  .add('vimeo', () => {
-    return <IconStory icons={VIMEO_ICONS} />;
-  });
+export const All = () => <IconStory icons={ICONS} />;
+export const UI = () => <IconStory icons={UI_ICONS} />;
+export const Socail = () => <IconStory icons={SOCIAL_ICONS} />;
+export const Payment = () => <IconStory icons={PAYMENT_ICONS} />;
+export const Vimeo = () => <IconStory icons={VIMEO_ICONS} />;
 
 function IconStory({ icons, preserve = false, ...props }) {
   const [searchText, setSearchText] = useState('');
@@ -52,6 +42,17 @@ function IconStory({ icons, preserve = false, ...props }) {
     'iconSizes',
   );
 
+  function checkPreserve(icon) {
+    if (SOCIAL_ICONS[icon]) return true;
+    if (PAYMENT_ICONS[icon]) return true;
+
+    return preserve;
+  }
+
+  const validIcons = Object.keys(icons).filter(icon =>
+    icon.toLowerCase().includes(searchText.toLowerCase()),
+  );
+
   return (
     <Story title="Icons" width="100%">
       <Search
@@ -60,38 +61,39 @@ function IconStory({ icons, preserve = false, ...props }) {
         placeholder="Search for icons"
       />
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {Object.keys(icons)
-          .filter(icon =>
-            icon.toLowerCase().includes(searchText.toLowerCase()),
-          )
-          .map((icon, i) => (
-            <IconWrapper key={i}>
-              <Icon size={size} name={icon} preserve={preserve} />
-              <Header
-                size="6"
-                style={{
-                  margin: '1rem',
-                  display: 'inline-flex',
-                }}
-              >
-                {icon}
-              </Header>
-            </IconWrapper>
-          ))}
+        {validIcons.map((icon, i) => (
+          <Card key={i}>
+            <Icon
+              size={size}
+              name={icon}
+              preserve={checkPreserve(icon)}
+            />
+            <Header
+              size="6"
+              style={{
+                margin: '1rem',
+                display: 'inline-flex',
+              }}
+            >
+              {icon}
+            </Header>
+          </Card>
+        ))}
       </div>
     </Story>
   );
 }
 
-const Card = css`
-  border-radius: 0.25rem;
-  width: 100%;
-  border: 1px solid
-    ${({ theme }) =>
-      theme.name === 'dark' ? rgba(white, 0.3) : rgba(black, 0.3)};
-  align-items: center;
-  text-align: center;
-`;
+function Icon({ size, name, preserve = false }) {
+  const Icon = ICONS[name];
+  if (!Icon) return null;
+
+  return (
+    <Wrap size={size} preserve={preserve}>
+      <Icon />
+    </Wrap>
+  );
+}
 
 const width = widthMap =>
   Object.keys(widthMap).map(
@@ -113,8 +115,14 @@ const Search = styled(Input)`
   })};
 `;
 
-const IconWrapper = styled.div`
-  ${Card};
+const Card = styled.div`
+  border-radius: 0.25rem;
+  width: 100%;
+  border: 1px solid
+    ${({ theme }) =>
+      theme.name === 'dark' ? rgba(white, 0.3) : rgba(black, 0.3)};
+  align-items: center;
+  text-align: center;
   padding: 0.5rem;
   margin: 0.5rem;
   display: flex;
@@ -126,25 +134,19 @@ const IconWrapper = styled.div`
   })};
 `;
 
-function Icon({ size, name, preserve }) {
-  return (
-    ICONS[name] &&
-    createElement(
-      styled(ICONS[name])`
-        width: ${size}rem;
-        height: ${size}rem;
-        display: inline-flex;
-        margin: 1rem;
+const Wrap = styled.div<any>`
+  svg {
+    width: ${p => p.size}rem;
+    height: ${p => p.size}rem;
+    display: inline-flex;
+    margin: 1rem;
 
-        ${p =>
-          !preserve &&
-          css`
-            * {
-              fill: ${({ theme }) =>
-                theme.name === 'dark' ? white : black};
-            }
-          `}
-      `,
-    )
-  );
-}
+    ${p =>
+      !p.preserve &&
+      css`
+        * {
+          fill: ${p.theme.name === 'dark' ? white : black};
+        }
+      `}
+  }
+`;

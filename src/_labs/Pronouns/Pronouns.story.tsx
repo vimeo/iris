@@ -62,6 +62,7 @@ storiesOf(`Labs|Pronouns/`, module)
         .filter(user => !user.name.includes('Vim'))
         .map(comment => (
           <Comment
+            key={comment.id}
             name={comment.name}
             id={comment.id}
             pronouns={comment.pronouns}

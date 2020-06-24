@@ -9,7 +9,7 @@ import React, {
 import { InnerButton } from '../InnerButton';
 import { Input } from './Input';
 
-import { Notification } from '../../informational/Notification/Notification';
+import { Notification } from '../../info/Notification/Notification';
 import { Clipboard } from '../../../icons';
 import { withIris, IrisInputProps, geometry } from '../../../utils';
 

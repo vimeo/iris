@@ -24,6 +24,11 @@ module.exports = async ({ config }) => {
       //     parser: 'typescript',
       //   },
       // },
+      {
+        loader: 'babel-loader',
+        // may or may not need this line depending on your app's setup
+        // plugins: ['@babel/plugin-transform-react-jsx'],
+      },
     ],
   });
 

@@ -33,6 +33,7 @@ function RadioSetComponent({
     <div ref={forwardRef} {...props}>
       {children.map((child, i) =>
         cloneElement(child, {
+          key: `radio-${i}-${UIDs[i]}`,
           id: `radio-${i}-${UIDs[i]}`,
           name: UID,
         }),

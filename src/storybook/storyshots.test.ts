@@ -3,7 +3,7 @@ import initStoryshots, {
 } from '@storybook/addon-storyshots';
 
 initStoryshots({
-  storyKindRegex: /^((?!.*?portals|Marks).)*$/,
+  storyKindRegex: /^((?!.*?Modal|PopOver|Tip|Annotation|withGlobalStyles).)*$/,
   test: snapshotWithOptions(() => ({
     createNodeMock: () => document.createElement('div'),
   })),

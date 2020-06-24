@@ -6,7 +6,8 @@ import {
   Content,
 } from './CounterIcon.style';
 
-import { Tip } from '../../portals/Tip/Tip';
+import { Tip } from '../../info/Tip/Tip';
+
 import { Paragraph } from '../../../typography';
 import { withIris, IrisProps } from '../../../utils';
 

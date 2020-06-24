@@ -23,7 +23,7 @@ import {
   useOutsideClick,
 } from '../../../utils';
 import { ChevronDown as CD } from '../../../icons';
-import { PopOver, Pop } from '../../portals/PopOver/PopOver';
+import { PopOver, Pop } from '../../../layout';
 
 export const Select = withIris<HTMLSelectElement, Props, Minors>(
   SelectComponent,

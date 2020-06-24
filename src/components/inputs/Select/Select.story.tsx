@@ -80,6 +80,7 @@ export function Sizes() {
       {['xs', 'sm', 'md', 'lg', 'xl'].map((size, i) => {
         return (
           <Select
+            key={i}
             label={`${size} Select`}
             size={size}
             onChange={e =>

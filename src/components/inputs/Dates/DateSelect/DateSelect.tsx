@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Calendar } from '../Calendar/Calendar';
 
-import { PopOver } from '../../../portals/PopOver/PopOver';
+import { PopOver } from '../../../../layout';
 import { IrisInputProps, withIris } from '../../../../utils';
 
 export const DateSelect = withIris<HTMLInputElement, Props>(

@@ -1,25 +1,21 @@
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
 
 import { SlideUpDown } from './SlideUpDown';
 
-import { Story } from '../../storybook';
 import { Paragraph } from '../../typography';
 import { Button, Notice } from '../../components';
+import { Layout } from '../../storybook';
 
-storiesOf('Motion|animation', module).add('Slide Up Down', () => (
-  <Story title="Slide Up Down">
-    <SlideUpDownDocs />
-  </Story>
-));
+export default { title: 'motion|SlideUpDown/' };
 
-const SlideUpDownDocs = () => {
-  const [showing, setShowing] = useState(true);
-  const doClick = () => setShowing(showing => !showing);
+export const Common = () => <CommonStory />;
+function CommonStory() {
+  const [showing, setShowing] = useState(false);
+  const onClick = () => setShowing(showing => !showing);
 
   return (
-    <>
-      <Button onClick={doClick} style={{ marginBottom: '1rem' }}>
+    <Layout.StoryVertical>
+      <Button onClick={onClick} style={{ marginBottom: '1rem' }}>
         Toggle
       </Button>
       <SlideUpDown showing={showing}>
@@ -34,6 +30,20 @@ const SlideUpDownDocs = () => {
           </Paragraph>
         </Notice>
       </SlideUpDown>
+    </Layout.StoryVertical>
+  );
+}
+
+export const Automatic = () => <AutomaticStory />;
+function AutomaticStory() {
+  const [showing, setShowing] = useState(true);
+  const onClick = () => setShowing(showing => !showing);
+
+  return (
+    <Layout.StoryVertical>
+      <Button onClick={onClick} style={{ marginBottom: '1rem' }}>
+        Toggle
+      </Button>
       <SlideUpDown automatic showing={showing}>
         <Notice format="positive">
           <Paragraph size="2">
@@ -49,6 +59,6 @@ const SlideUpDownDocs = () => {
           </Paragraph>
         </Notice>
       </SlideUpDown>
-    </>
+    </Layout.StoryVertical>
   );
-};
+}

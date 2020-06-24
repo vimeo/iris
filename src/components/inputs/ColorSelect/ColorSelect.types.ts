@@ -1,6 +1,7 @@
 import { IrisInputProps } from '../../../utils';
 import { ReactNode } from 'react';
-import { Attach, AttachAlias } from '../../portals/AnchoredComponent';
+
+import { Attach, AttachAlias } from '../../../utils';
 
 export type Props = IrisInputProps<{
   defaultValue?: string | string[];
