@@ -14,13 +14,16 @@ export function useOutsideClick(
   useEffect(() => {
     function click(event) {
       const targeted = ref => ref?.current?.contains(event.target);
-      // @ts-ignore
       const outside = ![refs].flat().some(targeted);
 
       if (outside) onClick(event);
     }
 
     document.addEventListener('mousedown', click);
-    return () => document.removeEventListener('mousedown', click);
+    document.addEventListener('touchstart', click);
+    return () => {
+      document.removeEventListener('mousedown', click);
+      document.removeEventListener('touchstart', click);
+    };
   }, [refs, onClick]);
 }
