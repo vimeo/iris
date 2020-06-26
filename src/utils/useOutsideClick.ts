@@ -4,8 +4,9 @@ import {
   MouseEventHandler,
 } from 'react';
 
-type Ref = MutableRefObject<HTMLElement>;
-type Refs = MutableRefObject<HTMLElement>[];
+type Element = HTMLElement | null;
+type Ref = MutableRefObject<Element>;
+type Refs = MutableRefObject<Element>[];
 
 export function useOutsideClick(
   refs: Ref | Refs,
