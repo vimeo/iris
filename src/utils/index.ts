@@ -8,7 +8,7 @@ export { useDeprecate } from './useDeprecate';
 export { useOutsideClick } from './useOutsideClick';
 export { useIrisError } from './useIrisError';
 export { useLayoutStyles } from './useLayoutStyles';
-export { usePortal, validate, ANCHOR_POINTS, Attach, AttachAlias, AnchoredComponent } from './usePortal';
+export { usePortal, validate, ANCHOR_POINTS, Attach, AttachAlias } from './usePortal';
 
 export { useClose, onClose } from './onClose';
 

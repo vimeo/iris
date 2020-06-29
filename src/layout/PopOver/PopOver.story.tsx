@@ -15,9 +15,38 @@ export default { title: 'layout|PopOver/' };
 export function Common() {
   return (
     <>
-      <PopOver content={PopList} style={{ zIndex: 5000 }}>
+      <PopOver active content={PopList} style={{ zIndex: 5000 }}>
         <TriggerButton>PopOver</TriggerButton>
       </PopOver>
+    </>
+  );
+}
+
+export function DynamicSize() {
+  return <DynamicSizeStory />;
+}
+function DynamicSizeStory() {
+  const [width, widthSet] = useState(240);
+  return (
+    <>
+      <PopOver
+        active
+        content={
+          <div style={{ padding: '2rem', width }}>
+            PopOvers dynamically adjust when their contents resize.
+          </div>
+        }
+        style={{
+          zIndex: 5000,
+          transition: '80ms ease-in-out',
+          width,
+        }}
+      >
+        <TriggerButton>PopOver</TriggerButton>
+      </PopOver>
+      <Button onClick={() => widthSet(width => width + 40)}>
+        resize
+      </Button>
     </>
   );
 }

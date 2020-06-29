@@ -1,3 +1,2 @@
 export { usePortal, validate } from './usePortal';
-export { ANCHOR_POINTS } from './constants';
-export { Attach, AttachAlias, AnchoredComponent } from './AnchoredComponent';
+export { Attach, AttachAlias, ANCHOR_POINTS } from './usePortal.types';

@@ -34,6 +34,7 @@ export const Focus = styled.div<any>`
       border-radius: ${rem(radius)};
       border: ${rem(1)} solid ${rgba(focus, 0)};
       transition: 150ms ease-in-out;
+
       ${parent}:focus > &,
       ${parent}:focus ~ &,
       ${parent}:focus ~ div > & {
