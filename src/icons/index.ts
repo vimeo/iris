@@ -107,6 +107,7 @@ export { List } from './ui/List';
 export { Lock } from './ui/Lock';
 export { LockChecked } from './ui/LockChecked';
 export { LockFilled } from './ui/LockFilled';
+export { Masonry } from './ui/Masonry';
 export { Mevo } from './ui/Mevo';
 export { Mic } from './ui/Mic';
 export { MicOff } from './ui/MicOff';

@@ -63,6 +63,7 @@ export { List } from './List';
 export { Lock } from './Lock';
 export { LockChecked } from './LockChecked';
 export { LockFilled } from './LockFilled';
+export { Masonry } from './Masonry';
 export { Mevo } from './Mevo';
 export { Mic } from './Mic';
 export { MicOff } from './MicOff';
