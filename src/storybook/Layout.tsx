@@ -11,6 +11,10 @@ export const Layout = {
       margin: 0.5rem 1rem;
     }
   `,
+  StoryPadded: styled.div<{ center?: boolean }>`
+    margin: 0 2rem;
+    padding: 0.5rem 0;
+  `,
 };
 
 function flexVertical({ center = false }) {

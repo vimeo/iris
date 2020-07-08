@@ -43,35 +43,25 @@ export function Slider({
 
   function setDragging(payload) {
     setFocus(payload);
-    return dispatch({
-      type: 'SET_DRAGGING',
-      payload,
-    });
+    return dispatch({ type: 'SET_DRAGGING', payload });
   }
 
   function setValue(payload) {
-    return dispatch({
-      type: 'SET_VALUES',
-      payload,
-    });
+    return dispatch({ type: 'SET_VALUES', payload });
   }
 
   function setFocus(payload) {
     return () => dispatch({ type: 'SET_FOCUS', payload });
   }
 
-  function setStartValue({ target: { value } }) {
+  function setStartValue(value) {
     const newValue = constrain(min, max)(value);
-    onChange && onChange(formatter(newValue));
-
-    return setValue([newValue, values[1]]);
+    setValue([newValue, values[1]]);
   }
 
-  function setEndValue({ target: { value } }) {
+  function setEndValue(value) {
     const newValue = constrain(min, max)(value);
-    onChange && onChange(formatter(newValue));
-
-    return setValue([values[0], newValue]);
+    setValue([values[0], newValue]);
   }
 
   useLayoutEffect(() => {
@@ -90,13 +80,9 @@ export function Slider({
   useEffect(() => {
     function mousemove(event) {
       if (dragging) {
-        const pos = constrainedPosition(event, trackRect);
-
-        if (dragging === 'startHandle')
-          dispatch({ type: 'SET_VALUES', payload: [pos, values[1]] });
-
-        if (dragging === 'endHandle')
-          dispatch({ type: 'SET_VALUES', payload: [values[0], pos] });
+        const pos = constrainedPosition(event, trackRect, min, max);
+        if (dragging === 'startHandle') setStartValue(pos);
+        if (dragging === 'endHandle') setEndValue(pos);
       }
     }
 
@@ -113,11 +99,12 @@ export function Slider({
           disabled={disabled}
           dragging={dragging}
           editableLabel={editableLabel}
-          formatter={formatter}
           focused={focused}
+          formatter={formatter}
           handle="startHandle"
           max={max}
           min={min}
+          onChange={onChange}
           setDragging={setDragging}
           setFocus={setFocus}
           setValue={setStartValue}
@@ -129,11 +116,12 @@ export function Slider({
             disabled={disabled}
             dragging={dragging}
             editableLabel={editableLabel}
-            formatter={formatter}
             focused={focused}
+            formatter={formatter}
             handle="endHandle"
             max={max}
             min={min}
+            onChange={onChange}
             setDragging={setDragging}
             setFocus={setFocus}
             setValue={setEndValue}
@@ -163,11 +151,11 @@ const Track = forwardRef(
   },
 );
 
-function constrainedPosition(event, element) {
+function constrainedPosition(event, element, min, max) {
   const left = event.clientX - element.left;
   const pos = Math.round((left / element.width) * 100);
 
-  return constrain(0, 100)(pos);
+  return constrain(min, max)(pos);
 }
 
 function constrain(min, max) {

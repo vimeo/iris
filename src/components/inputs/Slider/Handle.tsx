@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import {
   HandleStyled,
@@ -18,12 +18,21 @@ export function Handle({
   handle,
   max,
   min,
+  onChange,
   setDragging,
   setFocus,
   setValue,
   value,
   ...props
 }) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const event = new Event('change', { bubbles: true });
+    ref?.current?.dispatchEvent(event);
+    onChange && onChange(event);
+  }, [onChange, value]);
+
   return (
     <HandleStyled
       focused={focused === handle || dragging === handle}
@@ -35,9 +44,10 @@ export function Handle({
         min={min}
         max={max}
         value={value}
-        onChange={setValue}
         onFocus={setFocus(handle)}
         onBlur={setFocus(false)}
+        ref={ref}
+        readOnly
       />
       <Focus
         parent={Hidden}
@@ -50,7 +60,7 @@ export function Handle({
           <>
             <LabelInput
               value={value}
-              onChange={setValue}
+              onChange={e => setValue(e.target.value)}
               onFocus={setFocus(handle)}
               onBlur={setFocus(false)}
               focused={focused === handle}
