@@ -60,6 +60,7 @@ export { LightDark } from './LightDark';
 export { LineChartOutlined } from './LineChartOutlined';
 export { Link } from './Link';
 export { List } from './List';
+export { Location } from './Location';
 export { Lock } from './Lock';
 export { LockChecked } from './LockChecked';
 export { LockFilled } from './LockFilled';

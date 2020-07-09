@@ -104,6 +104,7 @@ export { LightDark } from './ui/LightDark';
 export { LineChartOutlined } from './ui/LineChartOutlined';
 export { Link } from './ui/Link';
 export { List } from './ui/List';
+export { Location } from './ui/Location';
 export { Lock } from './ui/Lock';
 export { LockChecked } from './ui/LockChecked';
 export { LockFilled } from './ui/LockFilled';
