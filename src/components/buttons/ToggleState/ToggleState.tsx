@@ -1,9 +1,12 @@
 import React, { CSSProperties, useReducer, useEffect } from 'react';
 
-import { Button } from '../../buttons/Button/Button';
-import { withIris } from '../../../utils';
 import { Props } from './ToggleState.types';
 import { reducer, initialState } from './ToggleState.state';
+
+import { Button } from '../../buttons/Button/Button';
+
+import { withIris } from '../../../utils';
+import { grayscale } from '../../../color';
 
 export const ButtonToggleState = withIris<HTMLButtonElement, Props>(
   ButtonToggleStateComponent,
@@ -16,6 +19,7 @@ function ButtonToggleStateComponent({
   isActive,
   style,
   variant = 'outline',
+  theme,
   ...props
 }: Props) {
   const [state, dispatch] = useReducer(
@@ -48,6 +52,18 @@ function ButtonToggleStateComponent({
       variant={variant}
       style={style as CSSProperties}
       {...forwardProps}
+      // Temporary custom theme to account for secondary active color
+      theme={
+        format === 'secondary'
+          ? {
+              ...theme,
+              formats: {
+                ...theme.formats,
+                positive: grayscale(500),
+              },
+            }
+          : theme
+      }
     />
   );
 }
