@@ -91,7 +91,7 @@ function ModalComponent({
       document &&
       document.removeEventListener('focusin', focuser, true)
     );
-  });
+  }, [focusRef]);
 
   return (
     <>

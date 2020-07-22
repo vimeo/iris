@@ -231,6 +231,7 @@ export type IrisInputProps<
     capture?: boolean | string; // https://www.w3.org/TR/html-media-capture/#the-capture-attribute
     checked?: boolean;
     crossOrigin?: string;
+    css?: CSSProp;
     defaultChecked?: boolean;
     defaultValue?: string | string[] | number | boolean;
     label?: ReactNode;

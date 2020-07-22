@@ -4,7 +4,7 @@ import { rgba } from 'polished';
 
 import { Modal } from './Modal';
 
-import { Button } from '../../components';
+import { Button, Input } from '../../components';
 import { DismissX } from '../../icons';
 import { Layout } from '../../storybook';
 import { Paragraph, Header } from '../../typography';
@@ -44,6 +44,34 @@ export function ExternalState() {
         onOpen={() => console.log('open')}
         onClose={() => console.log('close')}
       />
+    </Layout.StoryVertical>
+  );
+}
+
+export function WithInputContent() {
+  const [text, setText] = useState('');
+
+  return (
+    <Layout.StoryVertical>
+      <Modal
+        content={
+          <ModalStyled>
+            <Modal.Header>Type something!</Modal.Header>
+            <Input
+              value={text}
+              onChange={e => setText(e.currentTarget.value)}
+            />
+            <Modal.Footer>
+              <Modal.SecondaryAction>Cancel</Modal.SecondaryAction>
+              <Modal.PrimaryAction>Submit</Modal.PrimaryAction>
+            </Modal.Footer>
+          </ModalStyled>
+        }
+        onOpen={() => console.log('open')}
+        onClose={() => console.log('close')}
+      >
+        <Button>Open Modal</Button>
+      </Modal>
     </Layout.StoryVertical>
   );
 }
