@@ -66,7 +66,7 @@ export const themes: {
     name: 'dark',
     a11y: a11yDefaults,
     content: {
-      background: black,
+      background: grayscale(910),
       color: white,
       disabled: grayscale(850),
       focus: blue(400),
