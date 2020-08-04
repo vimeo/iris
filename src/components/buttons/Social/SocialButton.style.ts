@@ -1,10 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import {
-  Apple,
-  GoogleGColor,
-  SocialChipFacebook,
-} from '../../../icons';
+import { Apple, GoogleGColor, Facebook } from '../../../icons';
 import { themes } from '../../../themes';
 
 export const Icon = styled.div<{ size: number; brand: string }>`
@@ -42,7 +38,7 @@ export const brandThemes = {
   facebook: {
     ...themes.light,
     name: 'Facebook',
-    icon: (SocialChipFacebook as any).render(),
+    icon: (Facebook as any).render(),
     formats: {
       ...themes.light.formats,
       primary: '#4267b2',
