@@ -1,3 +1,4 @@
+/// <reference types="styled-components/cssprop" />
 import React, { useState } from 'react';
 import { rgba } from 'polished';
 

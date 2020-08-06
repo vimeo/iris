@@ -10,7 +10,6 @@ import {
   ReactElement,
   FunctionComponent,
 } from 'react';
-import { CSSProp } from 'styled-components';
 
 import { Override } from './types';
 
@@ -36,7 +35,6 @@ type IrisElementProps<DOMElement = HTMLDivElement> = {
   as?: never;
   children?: ReactNode;
   className?: string;
-  css?: CSSProp;
   data?: string;
   debug?: boolean;
   disabled?: boolean;
@@ -231,7 +229,6 @@ export type IrisInputProps<
     capture?: boolean | string; // https://www.w3.org/TR/html-media-capture/#the-capture-attribute
     checked?: boolean;
     crossOrigin?: string;
-    css?: CSSProp;
     defaultChecked?: boolean;
     defaultValue?: string | string[] | number | boolean;
     label?: ReactNode;

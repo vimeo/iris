@@ -1,3 +1,4 @@
+/// <reference types="styled-components/cssprop" />
 import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
 import { rgba } from 'polished';

@@ -39,7 +39,8 @@
         ]
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "@types/styled-components/cssprop"
     ],
     "exclude": [
         ".storybook",
