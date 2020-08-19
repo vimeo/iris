@@ -239,6 +239,7 @@ export type IrisInputProps<
     min?: number | string;
     minLength?: number;
     mirror?: boolean;
+    multiple?: boolean;
     name?: string;
     onChange?: ChangeEventHandler<DOMElement>;
     onKeyDown?: KeyboardEventHandler<DOMElement>;
