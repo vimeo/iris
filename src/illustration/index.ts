@@ -19,4 +19,6 @@ export { VimeostockDark } from './VimeostockDark';
 export { VimeostockLight } from './VimeostockLight';
 export { VimeoUpload } from './VimeoUpload';
 export { VodThumbnailBadge } from './VodThumbnailBadge';
+export { Wand } from './Wand';
+export { Yay } from './Yay';
 export { MessageSent } from './MessageSent';

@@ -43,6 +43,8 @@ export { Flag } from './Flag';
 export { FlagFilled } from './FlagFilled';
 export { Folder } from './Folder';
 export { FolderFilled } from './FolderFilled';
+export { ForHireYes } from './ForHireYes';
+export { ForHireNo } from './ForHireNo';
 export { Gear } from './Gear';
 export { Globe } from './Globe';
 export { Grid } from './Grid';

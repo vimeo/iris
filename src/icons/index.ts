@@ -88,6 +88,8 @@ export { FileTransfer } from './ui/FileTransfer';
 export { Filters } from './ui/Filters';
 export { Folder } from './ui/Folder';
 export { FolderFilled } from './ui/FolderFilled';
+export { ForHireYes } from './ui/ForHireYes';
+export { ForHireNo } from './ui/ForHireNo';
 export { Gear } from './ui/Gear';
 export { Globe } from './ui/Globe';
 export { Grid } from './ui/Grid';
