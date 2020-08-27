@@ -40,26 +40,27 @@ export function usePortal(
     forceActive,
   } = portalConfig;
 
-  const onClick = () => trigger === 'click' && setActive(false);
-
-  useEffect(() => () => !SSR && removeElementByID(UID), [UID]);
-  useOutsideClick([ref, childRef], onClick);
-
-  if (SSR) return [null, null];
-
-  const outlet = createPortalOutlet(UID);
+  const controlled = forceActive === true || forceActive === false;
+  const uncontrolled = method => !controlled && trigger === method;
 
   const open = onEvent(() => setActive(true), onOpen);
   const close = onEvent(() => setActive(false), onClose);
-  const toggle = e => (active ? close(e) : open(e));
+  const toggle = e => !controlled && (active ? close(e) : open(e));
 
   const clickProps = { onClick: toggle };
   const hoverProps = { onMouseEnter: open, onMouseLeave: close };
 
-  const controlled = forceActive === true || forceActive === false;
-  const clickable = !controlled && trigger === 'click' && clickProps;
-  const hoverable = !controlled && trigger === 'hover' && hoverProps;
+  const clickable = uncontrolled('click') && clickProps;
+  const hoverable = uncontrolled('hover') && hoverProps;
 
+  const onOutsideClick = e => uncontrolled('click') && close(e);
+
+  useEffect(() => () => !SSR && removeElementByID(UID), [UID]);
+  useOutsideClick([ref, childRef], onOutsideClick);
+
+  if (SSR) return [null, null];
+
+  const outlet = createPortalOutlet(UID);
   const children = cloneElement(Component, { ref: childRef });
 
   const Portal = createPortal(

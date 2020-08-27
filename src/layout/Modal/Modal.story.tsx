@@ -4,7 +4,7 @@ import { rgba } from 'polished';
 
 import { Modal } from './Modal';
 
-import { Button, Input } from '../../components';
+import { Button, Input, TextArea } from '../../components';
 import { DismissX } from '../../icons';
 import { Layout } from '../../storybook';
 import { Paragraph, Header } from '../../typography';
@@ -48,8 +48,15 @@ export function ExternalState() {
   );
 }
 
-export function WithInputContent() {
-  const [text, setText] = useState('');
+export const WithInputContent = () => <WithInputContentStory />;
+function WithInputContentStory() {
+  const [value, valueSet] = useState('');
+
+  const props = {
+    value,
+    onChange: e => valueSet(e.currentTarget.value),
+    style: { marginBottom: '1rem' },
+  };
 
   return (
     <Layout.StoryVertical>
@@ -57,10 +64,9 @@ export function WithInputContent() {
         content={
           <ModalStyled>
             <Modal.Header>Type something!</Modal.Header>
-            <Input
-              value={text}
-              onChange={e => setText(e.currentTarget.value)}
-            />
+            <Input {...props} />
+            <TextArea {...props} />
+            <Input {...props} />
             <Modal.Footer>
               <Modal.SecondaryAction>Cancel</Modal.SecondaryAction>
               <Modal.PrimaryAction>Submit</Modal.PrimaryAction>
@@ -72,6 +78,86 @@ export function WithInputContent() {
       >
         <Button>Open Modal</Button>
       </Modal>
+      <Input
+        value="I will not be focused while the modal is open."
+        style={{ width: '100%' }}
+        readOnly
+      />
+    </Layout.StoryVertical>
+  );
+}
+
+export const ControlledWithDynamicContent = () => (
+  <ControlledWithDynamicContentStory />
+);
+function ControlledWithDynamicContentStory() {
+  const [toggled, toggledSet] = useState(false);
+  const [value, valueSet] = useState('');
+
+  const props = {
+    value,
+    onChange: e => valueSet(e.currentTarget.value),
+    style: { marginBottom: '1rem' },
+  };
+
+  const contentA = (
+    <ModalStyled>
+      <Modal.Header>Type something!</Modal.Header>
+      <Input {...props} />
+      <TextArea {...props} />
+      <Input {...props} />
+      <Button
+        status="positive"
+        onClick={() => toggledSet(s => !s)}
+        fluid
+      >
+        Toggle Content
+      </Button>
+      <Modal.Footer>
+        <Modal.SecondaryAction>Cancel</Modal.SecondaryAction>
+        <Modal.PrimaryAction>Submit</Modal.PrimaryAction>
+      </Modal.Footer>
+    </ModalStyled>
+  );
+
+  const contentB = (
+    <ModalStyled>
+      <Modal.Header>Type something!</Modal.Header>
+      <Input {...props} />
+      <img
+        src="http://placekitten.com/480/230"
+        alt=""
+        style={{ width: '100%' }}
+      />
+      <Button
+        status="positive"
+        onClick={() => toggledSet(s => !s)}
+        fluid
+      >
+        Toggle Content
+      </Button>
+      <Modal.Footer>
+        <Modal.SecondaryAction>Cancel</Modal.SecondaryAction>
+        <Modal.PrimaryAction>Submit</Modal.PrimaryAction>
+      </Modal.Footer>
+    </ModalStyled>
+  );
+
+  return (
+    <Layout.StoryVertical>
+      <Modal
+        active={true}
+        content={toggled ? contentB : contentA}
+        onOpen={() => console.log('open')}
+        onClose={() => console.log('close')}
+      >
+        <Button>Open Modal</Button>
+      </Modal>
+      <Input
+        value="I will not be focused while the modal is open."
+        style={{ width: '100%' }}
+        readOnly
+      />
     </Layout.StoryVertical>
   );
 }

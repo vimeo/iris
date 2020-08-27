@@ -6,7 +6,10 @@ import { rem } from 'polished';
 import { Props } from './TextArea.types';
 
 import { slate, blue, red } from '../../../color';
-import { withIris, useIrisError } from '../../../utils';
+import {
+  withIris,
+  // useIrisError
+} from '../../../utils';
 import { Wrapper } from '../Wrapper/Wrapper';
 import { inputColors } from '../Shared';
 import { CircleInfoSmall } from '../../../icons';
@@ -27,12 +30,12 @@ function TextAreaComponent({
   preMessage,
   ...props
 }) {
-  const { irisError } = useIrisError(
-    props,
-    TextArea,
-    `\`value="${props.value}"\` was specified. Did you mean to use \`defaultValue="${props.value}"\``,
-    !props.value,
-  );
+  // const { irisError } = useIrisError(
+  //   props,
+  //   TextArea,
+  //   `\`value="${props.value}"\` was specified. Did you mean to use \`defaultValue="${props.value}"\``,
+  //   !props.value,
+  // );
 
   return (
     <Wrapper
@@ -40,7 +43,7 @@ function TextAreaComponent({
       label={label}
       messages={messages}
       status={format}
-      {...irisError}
+      // {...irisError}
     >
       <div style={{ position: 'relative' }}>
         <TextAreaStyled

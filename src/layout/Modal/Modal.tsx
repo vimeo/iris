@@ -35,8 +35,6 @@ function ModalComponent({
   onClose,
   ...props
 }: Props) {
-  const focusRef = useRef(null);
-
   const attach: Attach = feature
     ? [
         [97, 97],
@@ -61,10 +59,7 @@ function ModalComponent({
             onClick={event => anchor.onClick(event)}
           />
         )}
-        <div>
-          <a href="#" ref={focusRef} />
-          {content}
-        </div>
+        <ModalContent>{content}</ModalContent>
       </>
     </ModalStyled>,
     {
@@ -77,22 +72,6 @@ function ModalComponent({
     },
   );
 
-  useLayoutEffect(() => {
-    focusRef.current && focusRef.current.focus();
-
-    const focuser = event =>
-      focusRef.current &&
-      focusRef.current.parentNode &&
-      !focusRef.current.parentNode.contains(event.relatedTarget) &&
-      focusRef.current.focus();
-
-    document && document.addEventListener('focusin', focuser);
-    return (
-      document &&
-      document.removeEventListener('focusin', focuser, true)
-    );
-  }, [focusRef]);
-
   return (
     <>
       {Modal && (
@@ -104,3 +83,36 @@ function ModalComponent({
     </>
   );
 }
+
+function ModalContent({ children }) {
+  const ref = useRef(null);
+
+  // If focus leaves the modal, reset focus to the first
+  // element of the modal. This ensure that so long as
+  // the modal is active, elements outside the modal cannot
+  // be focused.
+  useLayoutEffect(() => {
+    const { addEventListener, removeEventListener } = document;
+    const firstFocusable = ref.current.querySelectorAll(focusable)[0];
+
+    function captureFocus({ target }) {
+      const focusOutOfModal = !ref.current?.contains(target);
+      if (focusOutOfModal) firstFocusable?.focus();
+    }
+
+    addEventListener('focusin', captureFocus);
+    return removeEventListener('focusin', captureFocus, true);
+  }, [ref, children]);
+
+  return <div ref={ref}>{children}</div>;
+}
+
+const focusable = [
+  'a[href]',
+  'area[href]',
+  'input:not([disabled])',
+  'select:not([disabled])',
+  'textarea:not([disabled])',
+  'button:not([disabled])',
+  '[tabindex="0"]',
+].join(', ');
