@@ -36,6 +36,7 @@ function SelectComponent({
   size = 'md',
   format = 'basic',
   forwardRef,
+  defaultValue,
   status,
   messages,
   label,
@@ -45,7 +46,7 @@ function SelectComponent({
   ...props
 }: Props) {
   const [width, setWidth] = useState(0);
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(defaultValue || 0);
   const [updatedSelected, setUpdatedSelected] = useState(false);
   const [active, setActive] = useState(false);
   const [layoutStyles, displayStyles] = useLayoutStyles(style);
@@ -80,8 +81,8 @@ function SelectComponent({
         .filter(child => {
           return child.type !== 'a';
         })
-        .map(({ props: { children } }, i) => (
-          <option key={i} value={i}>
+        .map(({ props: { value, children } }, i) => (
+          <option key={i} value={value}>
             {Array.isArray(children)
               ? children.filter(cc => typeof cc === 'string')
               : children}
@@ -91,12 +92,16 @@ function SelectComponent({
 
   const popOverChildren = faux && (
     <div>
-      {children.map((child, i) => {
+      {children.map((child: ReactElement, i) => {
         return typeof (child as ReactElement).type === 'string'
           ? child
           : cloneElement(child as ReactElement, {
               onClick: () => {
-                setSelected(i);
+                const {
+                  props: { value },
+                } = child;
+
+                setSelected(value);
                 setUpdatedSelected(true);
                 setActive(false);
               },
@@ -157,6 +162,7 @@ function SelectComponent({
     >
       <div style={{ position: 'relative' }}>
         <SelectStyled
+          defaultValue={defaultValue}
           inputSize={size}
           ref={selectRef}
           format={status || format}

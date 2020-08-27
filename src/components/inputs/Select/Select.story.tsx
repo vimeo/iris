@@ -129,6 +129,24 @@ export function FauxSelect() {
         <Select.Option value="1">Option 1</Select.Option>
         <Select.Option value="2">Option 2</Select.Option>
       </Select>
+      <Select
+        defaultValue="2"
+        label="Faux Select with Default Value 2"
+        onChange={e => {
+          action('Selected Option')(e.target.value, e);
+        }}
+        faux
+        style={{ width: '50%' }}
+      >
+        <Select.Option value="1">Option 1</Select.Option>
+        <Select.Option value="2">Option 2</Select.Option>
+        <Select.Option value="3">
+          Option 3 <PaperPlane style={{ margin: '0 0.5rem' }} />
+        </Select.Option>
+        <Select.Option value="4" disabled>
+          Option 4
+        </Select.Option>
+      </Select>
     </Layout.StoryVertical>
   );
 }
