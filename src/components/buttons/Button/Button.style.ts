@@ -17,6 +17,7 @@ const buttonCore = css`
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
+  font-family: inherit;
 
   > span {
     overflow: hidden;
