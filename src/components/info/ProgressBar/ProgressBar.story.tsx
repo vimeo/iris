@@ -1,18 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
 
 import { ProgressBar as PB } from './ProgressBar';
 
 import { Story } from '../../../storybook';
 
-const ProgressBar = styled(PB)`
-  margin: 3rem 0;
-`;
+export default { title: 'Components|Info/Progress Bar' };
 
-storiesOf('Components|info/Progress Bar', module).add(
-  'Examples',
-  () => (
+export function Common() {
+  return (
     <Story title="Progress Bar">
       <ProgressBar value={25} format="neutral" size="md" />
       <ProgressBar
@@ -32,5 +28,8 @@ storiesOf('Components|info/Progress Bar', module).add(
       <ProgressBar value={80} format="alert" size="xl" />
       <ProgressBar value={25} format="disabled" size="lg" />
     </Story>
-  ),
-);
+  );
+}
+const ProgressBar = styled(PB)`
+  margin: 3rem 0;
+`;

@@ -93,6 +93,7 @@ export const ControlledWithDynamicContent = () => (
 function ControlledWithDynamicContentStory() {
   const [toggled, toggledSet] = useState(false);
   const [value, valueSet] = useState('');
+  const [show, setShow] = useState(false);
 
   const props = {
     value,
@@ -114,7 +115,9 @@ function ControlledWithDynamicContentStory() {
         Toggle Content
       </Button>
       <Modal.Footer>
-        <Modal.SecondaryAction>Cancel</Modal.SecondaryAction>
+        <Modal.SecondaryAction onClick={() => setShow(false)}>
+          Cancel
+        </Modal.SecondaryAction>
         <Modal.PrimaryAction>Submit</Modal.PrimaryAction>
       </Modal.Footer>
     </ModalStyled>
@@ -137,7 +140,9 @@ function ControlledWithDynamicContentStory() {
         Toggle Content
       </Button>
       <Modal.Footer>
-        <Modal.SecondaryAction>Cancel</Modal.SecondaryAction>
+        <Modal.SecondaryAction onClick={() => setShow(false)}>
+          Cancel
+        </Modal.SecondaryAction>
         <Modal.PrimaryAction>Submit</Modal.PrimaryAction>
       </Modal.Footer>
     </ModalStyled>
@@ -146,12 +151,12 @@ function ControlledWithDynamicContentStory() {
   return (
     <Layout.StoryVertical>
       <Modal
-        active={true}
+        active={show}
         content={toggled ? contentB : contentA}
         onOpen={() => console.log('open')}
-        onClose={() => console.log('close')}
+        onClose={() => setShow(false)}
       >
-        <Button>Open Modal</Button>
+        <Button onClick={() => setShow(true)}>Open Modal</Button>
       </Modal>
       <Input
         value="I will not be focused while the modal is open."

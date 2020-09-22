@@ -5,6 +5,7 @@ import React, {
   ReactNode,
   ClipboardEventHandler,
 } from 'react';
+import styled from 'styled-components';
 
 import { InnerButton } from '../InnerButton';
 import { Input } from './Input';
@@ -70,7 +71,7 @@ function CopyFieldComponent({
   return (
     <>
       <Input {...props} size={size} ref={ref} label={label} readOnly>
-        <InnerButton
+        <InnerButtonStyled
           format={format}
           variant={variant}
           label={label}
@@ -79,7 +80,7 @@ function CopyFieldComponent({
           onClick={doCopy}
         >
           {children}
-        </InnerButton>
+        </InnerButtonStyled>
       </Input>
       <Notification
         showing={copied as boolean}
@@ -88,3 +89,9 @@ function CopyFieldComponent({
     </>
   );
 }
+
+const InnerButtonStyled = styled(InnerButton)`
+  & > button {
+    padding: 0 0.5rem;
+  }
+`;

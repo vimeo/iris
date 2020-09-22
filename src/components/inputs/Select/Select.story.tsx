@@ -7,7 +7,7 @@ import { blue } from '../../../color';
 import { action } from '@storybook/addon-actions';
 import styled from 'styled-components';
 
-export default { title: 'components|inputs/Select/' };
+export default { title: 'Components|Inputs/Select/' };
 
 export function Common() {
   return (

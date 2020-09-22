@@ -4,9 +4,7 @@ import { Slider } from './Slider';
 
 import { Layout } from '../../../storybook';
 
-/* eslint-disable import/no-default-export */
-export default { title: 'components|inputs/Slider' };
-/* eslint-enable import/no-default-export */
+export default { title: 'Components|Inputs/Slider' };
 
 export function Basic() {
   return (

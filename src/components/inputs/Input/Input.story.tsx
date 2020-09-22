@@ -5,7 +5,7 @@ import { Input } from './Input';
 import { Layout } from '../../../storybook';
 import { withCharacterCount } from '../withCharacterCount/withCharacterCount';
 
-export default { title: 'components|inputs/Text/' };
+export default { title: 'Components|Inputs/Text/' };
 
 export function Common() {
   return (

@@ -1,20 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
 
-import { Checkbox as C } from './Checkbox';
+import { Checkbox } from './Checkbox';
 import { CheckboxSet } from './CheckboxSet';
 
-import { Story } from '../../../storybook';
+import { Layout } from '../../../storybook';
 import { Header } from '../../../typography';
 
-const Checkbox = styled(C)`
-  margin: 1rem 0;
-`;
+export default { title: 'Components|Inputs/Marks/Checkbox' };
 
-storiesOf(`Components|inputs/Marks/`, module)
-  .add('Checkbox', () => (
-    <Story title="Checkbox">
+export function Common() {
+  return (
+    <Layout.StoryVertical>
       <Checkbox
         label="Checkbox 1 (Medium)"
         name="demoCheckbox1"
@@ -62,10 +59,13 @@ storiesOf(`Components|inputs/Marks/`, module)
         id="Checkbox6"
         value="6"
       />
-    </Story>
-  ))
-  .add('Checkbox Set', () => (
-    <Story title="Checkbox Set">
+    </Layout.StoryVertical>
+  );
+}
+
+export function Set() {
+  return (
+    <Layout.StoryVertical>
       <Header size="5">
         The default {'<CheckboxSet />'} will set children deselect
         children, but it will not select them.
@@ -93,5 +93,6 @@ storiesOf(`Components|inputs/Marks/`, module)
         <Checkbox label="toggled" />
         <Checkbox label="toggled" />
       </CheckboxSet>
-    </Story>
-  ));
+    </Layout.StoryVertical>
+  );
+}

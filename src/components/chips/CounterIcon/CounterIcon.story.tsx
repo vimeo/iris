@@ -5,7 +5,7 @@ import { CounterIcon } from './CounterIcon';
 import { Layout } from '../../../storybook';
 import { Play, Collections } from '../../../icons';
 
-export default { title: 'components|chips/CounterIcon' };
+export default { title: 'Components|Chips/CounterIcon' };
 
 export function Common() {
   return (

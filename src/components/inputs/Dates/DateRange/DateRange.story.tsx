@@ -10,7 +10,7 @@ import { ChevronDown } from '../../../../icons';
 import { PopOver } from '../../../../layout';
 import { AttachAlias } from '../../../../utils';
 
-export default { title: 'components|inputs/DateRange' };
+export default { title: 'Components|Inputs/DateRange' };
 
 export function Common() {
   return (

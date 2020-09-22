@@ -5,7 +5,7 @@ import { Annotation } from './Annotation';
 import { Layout } from '../../../storybook';
 import { Header } from '../../../typography';
 
-export default { title: 'components|info/Annotation' };
+export default { title: 'Components|Info/Annotation' };
 
 export function Common() {
   return (

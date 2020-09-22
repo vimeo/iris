@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs';
 import { Story } from '../../storybook';
 
@@ -10,6 +9,8 @@ import { UserInfo } from './UserInfoSettings';
 import { AutoplayList } from './AutoplayList';
 
 import { Header } from '../../typography';
+
+export default { title: 'Labs|Pronouns/' };
 
 const componentName = 'Comment';
 
@@ -23,40 +24,43 @@ const commentVariations = {
   'text below avatar': 'G',
 };
 
-storiesOf('Labs|Pronouns/', module).add('comments', () => (
-  <Story title={componentName}>
-    {demoProps.map((comment, i) => (
-      <Comment
-        key={i}
-        name={comment.name}
-        id={comment.id}
-        pronouns={comment.pronouns}
-        href={comment.href}
-        badge={comment.badge}
-        variation={select('variation', commentVariations, 'A')}
-      >
-        {comment.children}
-      </Comment>
-    ))}
-  </Story>
-));
+export function Comments() {
+  return (
+    <Story title={componentName}>
+      {demoProps.map((comment, i) => (
+        <Comment
+          key={i}
+          name={comment.name}
+          id={comment.id}
+          pronouns={comment.pronouns}
+          href={comment.href}
+          badge={comment.badge}
+          variation={select('variation', commentVariations, 'A')}
+        >
+          {comment.children}
+        </Comment>
+      ))}
+    </Story>
+  );
+}
 
-storiesOf('Labs|Pronouns/settings/', module)
-  // https://vimeo.com/settings/account/general
-  .add('general settings', () => (
+export function GeneralSettings() {
+  return (
     <Story title="Settings">
       <AccountSettings />
     </Story>
-  ))
-  // https://vimeo.com/settings/account/general
-  .add('user info', () => (
+  );
+}
+
+export function UserSettings() {
+  return (
     <Story title="Settings">
       <UserInfo name="Sean McIntyre" badge="staff" id="26000555" />
     </Story>
-  ));
-
-storiesOf(`Labs|Pronouns/`, module)
-  .add('autocomplete', () => (
+  );
+}
+export function Autocomplete() {
+  return (
     <Story title="Autocomplete">
       {demoProps
         .filter(user => !user.name.includes('Vim'))
@@ -78,15 +82,20 @@ storiesOf(`Labs|Pronouns/`, module)
         people={demoProps.filter(user => !user.name.includes('Vim'))}
       />
     </Story>
-  ))
-  .add('autoplay list', () => (
+  );
+}
+
+export function VideoList() {
+  return (
     <Story title="Video List">
       <AutoplayList
         videos={staffPicks}
         variation={select('variation', autoplayVariations, 'A')}
       />
     </Story>
-  ));
+  );
+}
+
 // .add('profile page', () => (
 //   <Story title="Profile">
 //     <div />

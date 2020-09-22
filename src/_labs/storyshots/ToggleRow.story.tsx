@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { rgba } from 'polished';
-import { storiesOf } from '@storybook/react';
 
 import { Toggle } from '../../components';
 
-storiesOf(`Labs|storyshots/showcases`, module).add(
-  'ToggleRow',
-  () => (
+export default { title: 'Labs|Storyshots/' };
+
+export function ShowcaseToggleRow() {
+  return (
     <>
       <Div>
         <ToggleRow label="Hide Vimeo navigation" id="A1" mirror />
@@ -29,8 +29,8 @@ storiesOf(`Labs|storyshots/showcases`, module).add(
         <ToggleRow label="Allow video downloads" id="B5" disabled />
       </Div>
     </>
-  ),
-);
+  );
+}
 
 const Div = styled.div`
   margin: 5rem;

@@ -5,7 +5,7 @@ import { DateSelect } from './DateSelect';
 import { Input } from '../../Input/Input';
 import { Layout } from '../../../../storybook';
 
-export default { title: 'components|inputs/DateSelect' };
+export default { title: 'Components|Inputs/DateSelect' };
 
 export const Common = () => <CommonStory />;
 const CommonStory = () => {

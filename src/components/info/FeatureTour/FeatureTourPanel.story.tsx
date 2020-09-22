@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { color } from '@storybook/addon-knobs';
 import { PositionProperty } from 'csstype';
 
@@ -10,6 +9,8 @@ import { Link } from '../../../typography';
 import { Header, Paragraph } from '../../../typography';
 import { red, yellow, green } from '../../../color';
 
+export default { title: 'Components|Info/Feature Tour Panel' };
+
 const buttonProps = {
   format: 'basic',
   variant: 'outline',
@@ -18,8 +19,8 @@ const buttonProps = {
   style: { marginTop: '1rem' },
 } as const;
 
-storiesOf('Components|info/Feature Tour Panel', module)
-  .add('default', () => (
+export function Common() {
+  return (
     <div
       style={{
         position: 'relative',
@@ -138,8 +139,11 @@ storiesOf('Components|info/Feature Tour Panel', module)
         beautiful way to share videos with their friends.
       </FeatureTourPanel>
     </div>
-  ))
-  .add('colored', () => (
+  );
+}
+
+export function Colors() {
+  return (
     <div
       style={{
         position: 'relative',
@@ -220,8 +224,11 @@ storiesOf('Components|info/Feature Tour Panel', module)
         beautiful way to share videos with their friends.
       </FeatureTourPanel>
     </div>
-  ))
-  .add('fancy', () => (
+  );
+}
+
+export function Fancy() {
+  return (
     <div
       style={{
         position: 'relative',
@@ -383,7 +390,8 @@ storiesOf('Components|info/Feature Tour Panel', module)
         </Button>
       </FeatureTourPanel>
     </div>
-  ));
+  );
+}
 
 const dotStyles = pos => ({
   position: 'absolute' as PositionProperty,

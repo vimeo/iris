@@ -1,28 +1,41 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import styled from 'styled-components';
 
 import { LoaderCircular as LC } from './LoaderCircular';
+import { Layout } from '../../storybook';
 
-import { Story } from '../../storybook';
-import styled from 'styled-components';
+export default { title: 'motion|Loaders/' };
 
 const LoaderCircular = styled(LC)`
   margin: 1rem;
 `;
 
-storiesOf('Motion|loaders', module).add('Loader Circular', () => (
-  <Story title="Loader Circular">
-    <LoaderCircular size="xs" />
-    <LoaderCircular size="sm" />
-    <LoaderCircular size="md" />
-    <LoaderCircular size="lg" />
-    <LoaderCircular size="xl" />
-    <br />
-    <br />
-    <LoaderCircular size="xs" format="basic" />
-    <LoaderCircular size="sm" format="basic" />
-    <LoaderCircular size="md" format="basic" />
-    <LoaderCircular size="lg" format="basic" />
-    <LoaderCircular size="xl" format="basic" />
-  </Story>
-));
+export function Common() {
+  return (
+    <Layout.StoryVertical>
+      <LoaderCircular />
+    </Layout.StoryVertical>
+  );
+}
+
+export function Size() {
+  return (
+    <Layout.StoryVertical>
+      <LoaderCircular size="xs" />
+      <LoaderCircular size="sm" />
+      <LoaderCircular size="md" />
+      <LoaderCircular size="lg" />
+      <LoaderCircular size="xl" />
+    </Layout.StoryVertical>
+  );
+}
+
+export function Format() {
+  return (
+    <Layout.StoryVertical>
+      <LoaderCircular format="primary" />
+      <LoaderCircular format="basic" />
+      <LoaderCircular format="adaptive" />
+    </Layout.StoryVertical>
+  );
+}

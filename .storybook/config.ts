@@ -19,6 +19,12 @@ const storySort = (cur, next) => {
   const b = stripCategory(next);
 
   if (a !== b) return getOrder(a) - getOrder(b);
+  // order Common stories first
+  if (cur[1]?.id.includes('common')) return -1;
+  if (next[1]?.id.includes('common')) return 1;
+  // order Index stories last
+  if (cur[1]?.id.includes('index')) return 1;
+  if (next[1]?.id.includes('index')) return -1;
   return defaultSort(cur, next);
 };
 

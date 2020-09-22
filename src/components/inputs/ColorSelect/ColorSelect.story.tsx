@@ -6,7 +6,7 @@ import { ColorSelect } from './ColorSelect';
 
 import { Layout } from '../../../storybook';
 
-export default { title: 'components|inputs/ColorSelect/' };
+export default { title: 'Components|Inputs/ColorSelect/' };
 
 export function Common() {
   return (

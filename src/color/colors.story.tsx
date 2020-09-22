@@ -1,5 +1,4 @@
 import React, { SFC } from 'react';
-import { storiesOf } from '@storybook/react';
 import styled from 'styled-components';
 
 import { Story } from '../storybook';
@@ -19,8 +18,10 @@ import {
 import { number } from '@storybook/addon-knobs';
 import { rgba, readableColor } from 'polished';
 
-storiesOf('color|colors', module)
-  .add('all', () => (
+export default { title: 'Color|Colors/' };
+
+export function All() {
+  return (
     <Story title="Colors" width="100%" flex>
       <Header size="3">Red</Header>
       <ColorPalette color={red} />
@@ -40,70 +41,86 @@ storiesOf('color|colors', module)
       <Header size="3">Grayscale</Header>
       <ColorPalette color={grayscale} />
     </Story>
-  ))
-  .add('red', ColorStory('red', red))
-  .add('yellow', ColorStory('yellow', yellow))
-  .add('green', ColorStory('blue', green))
-  .add('blue', ColorStory('blue', blue))
-  .add('slate', ColorStory('slate', slate))
-  .add('grayscale', ColorStory('grayscale', grayscale))
-  .add('compare', ColorCompareStory);
-
-function ColorStory(colorName, colorFn) {
-  return () => {
-    const value = number(
-      'color grade',
-      500,
-      {
-        range: true,
-        min: 0,
-        max: 1000,
-        step: 10,
-      },
-      'BLUE',
-    );
-
-    const hex = colorFn(value);
-
-    const color = {
-      grade: value,
-      hex,
-      rgb: rgba(hex, 1),
-    };
-
-    return (
-      <Story title="Colors" width="100%" flex>
-        <Header size="3" style={{ textTransform: 'capitalize' }}>
-          {colorName}
-        </Header>
-        <div
-          style={{
-            background: color.hex,
-            border: `3px solid ${readableColor(color.hex)}`,
-            borderRadius: '0.2rem',
-            padding: '1rem',
-            margin: '1rem 0',
-            width: '100%',
-          }}
-        >
-          <h1 style={{ color: readableColor(color.hex) }}>
-            {color.grade}
-          </h1>
-          <h1 style={{ color: readableColor(color.hex) }}>
-            {color.hex}
-          </h1>
-          <h1 style={{ color: readableColor(color.hex) }}>
-            {color.rgb}
-          </h1>
-        </div>
-
-        <ColorPalette color={colorFn} />
-      </Story>
-    );
-  };
+  );
 }
 
-const LEGCAY_COLORS = {
+export function Red() {
+  return ColorStory('red', red);
+}
+
+export function Yellow() {
+  return ColorStory('yellow', yellow);
+}
+
+export function Green() {
+  return ColorStory('green', green);
+}
+
+export function Blue() {
+  return ColorStory('blue', blue);
+}
+
+export function Slate() {
+  return ColorStory('slate', slate);
+}
+
+export function Grayscale() {
+  return ColorStory('grayscale', grayscale);
+}
+
+function ColorStory(colorName, colorFn) {
+  const value = number(
+    'color grade',
+    500,
+    {
+      range: true,
+      min: 0,
+      max: 1000,
+      step: 10,
+    },
+    'BLUE',
+  );
+
+  const hex = colorFn(value);
+
+  const color = {
+    grade: value,
+    hex,
+    rgb: rgba(hex, 1),
+  };
+
+  return (
+    <Story title="Colors" width="100%" flex>
+      <Header size="3" style={{ textTransform: 'capitalize' }}>
+        {colorName}
+      </Header>
+      <div
+        style={{
+          background: color.hex,
+          border: `3px solid ${readableColor(color.hex)}`,
+          borderRadius: '0.2rem',
+          padding: '1rem',
+          margin: '1rem 0',
+          width: '100%',
+        }}
+      >
+        <h1 style={{ color: readableColor(color.hex) }}>
+          {color.grade}
+        </h1>
+        <h1 style={{ color: readableColor(color.hex) }}>
+          {color.hex}
+        </h1>
+        <h1 style={{ color: readableColor(color.hex) }}>
+          {color.rgb}
+        </h1>
+      </div>
+
+      <ColorPalette color={colorFn} />
+    </Story>
+  );
+}
+
+const LEGACY_COLORS = {
   VimeoBlue: '#00adef',
   VimeoBlueDarkened: '#0088cc',
   VimeoBlueLightened: '#36C5FC',
@@ -176,7 +193,7 @@ function ColorCompare({
         {prior.map((colorName, i) => (
           <ColorBlock
             colorName={colorName}
-            colorHex={LEGCAY_COLORS[colorName]}
+            colorHex={LEGACY_COLORS[colorName]}
             width="calc(10rem + 3vw)"
             height="calc(10rem + 3vw)"
             key={i}
@@ -198,7 +215,7 @@ function ColorCompare({
   );
 }
 
-function ColorCompareStory() {
+export function Index() {
   return (
     <Story title="Compare legacy colors" width="100%" flex>
       <ColorCompare prior={REDS} current={red} title="red" />
@@ -236,7 +253,7 @@ function ColorCompareStory() {
   );
 }
 
-export const ColorPalette: SFC<any> = ({
+const ColorPalette: SFC<any> = ({
   color,
   baseHue = 0,
   baseSaturate = 0.1,
@@ -275,11 +292,7 @@ const titles = [
   'disabled',
 ];
 
-export const ColorSwatch = ({
-  color,
-  title = color,
-  ...props
-}: any) => (
+const ColorSwatch = ({ color, title = color, ...props }: any) => (
   <div
     style={{
       display: 'inline-block',

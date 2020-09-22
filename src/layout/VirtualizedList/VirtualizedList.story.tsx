@@ -1,10 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
 import { number } from '@storybook/addon-knobs';
 
 import { Story } from '../../storybook';
 import { VirtualizedList } from './VirtualizedList';
+
+export default { title: 'Labs|Virtualized List/' };
+
+export function Common() {
+  const total = number('List length', 100, options);
+  const buffer = number('Buffer', 1);
+  const height = number('Item height', 60);
+  const width = number('Item width', 600);
+
+  return (
+    <Story title={'Virtualized List'}>
+      <div style={{ height: '400px' }}>
+        <VirtualizedList buffer={buffer}>
+          {Array.from({ length: total }, (_, i) => (
+            <div key={i} style={{ padding: '5px' }}>
+              <Item
+                height={height}
+                width={width}
+                style={{ backgroundColor: randomHex() }}
+              >
+                Item {i}
+              </Item>
+            </div>
+          ))}
+        </VirtualizedList>
+      </div>
+    </Story>
+  );
+}
 
 const options = {
   range: true,
@@ -12,36 +40,6 @@ const options = {
   max: 1000,
   step: 1,
 };
-
-storiesOf(`Labs|Virtualized List`, module).add(
-  'Virtualized List',
-  () => {
-    const total = number('List length', 100, options);
-    const buffer = number('Buffer', 1);
-    const height = number('Item height', 60);
-    const width = number('Item width', 600);
-
-    return (
-      <Story title={'Virtualized List'}>
-        <div style={{ height: '400px' }}>
-          <VirtualizedList buffer={buffer}>
-            {Array.from({ length: total }, (_, i) => (
-              <div key={i} style={{ padding: '5px' }}>
-                <Item
-                  height={height}
-                  width={width}
-                  style={{ backgroundColor: randomHex() }}
-                >
-                  Item {i}
-                </Item>
-              </div>
-            ))}
-          </VirtualizedList>
-        </div>
-      </Story>
-    );
-  },
-);
 
 interface ItemProps {
   height: number;

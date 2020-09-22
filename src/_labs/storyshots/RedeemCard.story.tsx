@@ -1,16 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
 
 import { Button as B, Card } from '../../components';
 import { Header } from '../../typography';
 import { rgba } from 'polished';
 
-storiesOf(`Labs|storyshots/growth`, module).add('RedeemCard', () => (
-  <Div>
-    <RedeemCard code="12345ABCDE" />
-  </Div>
-));
+export default { title: 'Labs|Storyshots/' };
+
+export function GrowthRedeemCard() {
+  return (
+    <Div>
+      <RedeemCard code="12345ABCDE" />
+    </Div>
+  );
+}
 
 const Div = styled.div`
   padding: 10rem 5rem;

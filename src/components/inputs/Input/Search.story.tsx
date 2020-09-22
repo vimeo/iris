@@ -3,7 +3,7 @@ import React from 'react';
 import { Search } from './Search';
 import { Layout } from '../../../storybook';
 
-export default { title: 'components|inputs/Text/' };
+export default { title: 'Components|Inputs/Text/' };
 
 export function SearchInput() {
   return (

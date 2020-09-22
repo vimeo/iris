@@ -243,7 +243,7 @@ function compareNames(string, comparison) {
 function compareMetas(inputType: string) {
   return ({ type: { displayName, $$iris } }: any) =>
     compareNames(displayName, inputType) ||
-    compareNames($$iris.component, inputType);
+    compareNames($$iris?.component, inputType);
 }
 
 export function validate(

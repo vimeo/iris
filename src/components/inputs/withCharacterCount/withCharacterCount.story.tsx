@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
 
 import { withCharacterCount } from './withCharacterCount';
 import { TextArea } from '../TextArea/TextArea';
@@ -8,9 +7,10 @@ import { TextArea } from '../TextArea/TextArea';
 import { Story } from '../../../storybook';
 import { Input } from '../../index';
 
-storiesOf('Utilties|Character Count', module).add(
-  'Character Count',
-  () => (
+export default { title: 'Utilties|Character Count' };
+
+export function Common() {
+  return (
     <Story title="Character Count">
       <InputWithCharacterCount
         id="someId1"
@@ -27,8 +27,8 @@ storiesOf('Utilties|Character Count', module).add(
         warningThreshold={10}
       />
     </Story>
-  ),
-);
+  );
+}
 
 const TextAreaStyled = styled(TextArea)`
   min-height: 5rem;

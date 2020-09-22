@@ -1,39 +1,34 @@
 import React from 'react';
-import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { FileUpload as FU } from './FileUpload';
+import { FileUpload } from './FileUpload';
 
 import { Button } from '../../buttons/Button/Button';
-import { Story } from '../../../storybook';
+import { Layout } from '../../../storybook';
 import { UploadCloud } from '../../../icons';
 
-const FileUpload = styled(FU)`
-  margin: 0 1rem 1rem 0;
-`;
+export default { title: 'Components|Inputs/FileUpload' };
 
-storiesOf(`Components|inputs/`, module).add('File Upload ', () => (
-  <Story title="File Upload" subTitle="File Upload Icon Only">
-    <FileUpload
-      accept=".jpg"
-      onChange={e => action('Uploaded file 1')(e.target.files, e)}
-    >
-      <Button icon={<UploadCloud />}>Upload JPG</Button>
-    </FileUpload>
-    <FileUpload
-      onChange={e => action('Uploaded file 2')(e.target.files, e)}
-    >
-      <Button icon={<UploadCloud />} variant="outline" />
-    </FileUpload>
-    <FileUpload
-      onChange={e => action('Uploaded file 3')(e.target.files, e)}
-    >
-      <Button
-        icon={<UploadCloud />}
-        format="alternative"
-        variant="minimal"
-      />
-    </FileUpload>
-  </Story>
-));
+export function Common() {
+  return (
+    <Layout.StoryVertical>
+      <FileUpload
+        onChange={e => action('Uploaded file')(e.target.files, e)}
+      >
+        <Button icon={<UploadCloud />}>Upload any file</Button>
+      </FileUpload>
+      <FileUpload
+        accept=".jpg"
+        onChange={e => action('Uploaded JPG')(e.target.files, e)}
+      >
+        <Button icon={<UploadCloud />}>Upload JPG only</Button>
+      </FileUpload>
+      <FileUpload
+        multiple
+        onChange={e => action('Uploaded file(s)')(e.target.files, e)}
+      >
+        <Button icon={<UploadCloud />}>Upload multiple files</Button>
+      </FileUpload>
+    </Layout.StoryVertical>
+  );
+}

@@ -1,7 +1,6 @@
 import React, { Component, SFC } from 'react';
 import styled from 'styled-components';
 import { rgb, rem } from 'polished';
-import { storiesOf } from '@storybook/react';
 
 import { ToggleDrop } from './ToggleDrop';
 
@@ -9,12 +8,12 @@ import { red, blue, yellow, green } from '../../color';
 import { Header, Paragraph } from '../../typography';
 import { Story } from '../../storybook';
 import { themes } from '../../themes';
-// import SettingsIcon from '../icons/gear.svg';
 
-storiesOf('Labs|Toggle Drop', module).add(
-  'basic',
-  () => (
-    <Story>
+export default { title: 'Labs|ToggleDrop/' };
+
+export function Common() {
+  return (
+    <Story title="Toggle Drop">
       <ToggleDropExampleA />
 
       <br />
@@ -23,15 +22,16 @@ storiesOf('Labs|Toggle Drop', module).add(
 
       <ToggleDropExampleB />
     </Story>
-  ),
-  {
-    info: {
-      inline: true,
-      propTables: [ToggleDrop],
-    },
-    notes: 'test notes for button',
-  },
-);
+  );
+}
+
+//   {
+//     info: {
+//       inline: true,
+//       propTables: [ToggleDrop],
+//     },
+//     notes: 'test notes for button',
+//   }
 
 // const WhateverDiv = styled.div<{
 //     name: string;

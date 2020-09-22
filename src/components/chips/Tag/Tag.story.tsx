@@ -3,7 +3,7 @@ import { Tag } from './Tag';
 
 import { Layout } from '../../../storybook';
 
-export default { title: 'components|chips/Tag' };
+export default { title: 'Components|Chips/Tag' };
 
 export function Common() {
   return (

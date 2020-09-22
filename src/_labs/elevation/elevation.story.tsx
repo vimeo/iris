@@ -6,7 +6,7 @@ import { elevation } from './elevation';
 
 import { StoryCard } from '../../storybook';
 
-export default { title: 'labs|elevation/' };
+export default { title: 'Labs|Elevation/' };
 
 export function Common() {
   return (

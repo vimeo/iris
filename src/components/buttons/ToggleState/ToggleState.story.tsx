@@ -10,7 +10,7 @@ const ButtonToggleState = styled(B)`
   margin: 0 1rem 1rem 0;
 `;
 
-export default { title: 'components|buttons/ToggleState' };
+export default { title: 'Components|Buttons/ToggleState' };
 
 export const Common = () => <CommonStory />;
 function CommonStory() {

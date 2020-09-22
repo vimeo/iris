@@ -4,7 +4,7 @@ import { Password } from './Password';
 
 import { Layout } from '../../../storybook';
 
-export default { title: 'components|inputs/Text/' };
+export default { title: 'Components|Inputs/Text/' };
 
 export function PasswordInput() {
   return (

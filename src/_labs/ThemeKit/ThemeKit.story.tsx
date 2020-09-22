@@ -23,7 +23,7 @@ import { Header as H, Paragraph as P } from '../../typography';
 import { LoaderCircular as LC } from '../../motion';
 import { Gear } from '../../icons';
 
-export default { title: 'labs|themekit/' };
+export default { title: 'Labs|Themekit/' };
 
 export function Common() {
   return <ThemeKit />;

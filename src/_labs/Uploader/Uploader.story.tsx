@@ -1,17 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled, { keyframes, css } from 'styled-components';
-import { storiesOf } from '@storybook/react';
 import { rem } from 'polished';
 
 import { Checkmark } from '../../icons';
 import { Story } from '../../storybook';
 import { blue, green } from '../../color';
 
-storiesOf(`Labs|Uploader`, module).add('test', () => (
-  <Story title="test" width="100%" style={{ display: 'flex' }}>
-    <FakeUpload />
-  </Story>
-));
+export default { title: 'Labs|Uploader/' };
+
+export function Test() {
+  return (
+    <Story title="test" width="100%" style={{ display: 'flex' }}>
+      <FakeUpload />
+    </Story>
+  );
+}
 
 const FakeUpload = ({ children, ...props }) => {
   const [paused, setPaused] = useState(false);

@@ -1,10 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
-import { storiesOf } from '@storybook/react';
 
 import { Card as C } from './Card';
 
-import { Story } from '../../../storybook';
+import { Layout } from '../../../storybook';
+
+export default { title: 'Components|Cards/Card' };
+
+export function Common() {
+  return (
+    <Layout.StoryVertical>
+      <Grid>
+        <Card>Card</Card>
+        <Card loading>Card (loading)</Card>
+        <Card selected>Card (selected)</Card>
+      </Grid>
+    </Layout.StoryVertical>
+  );
+}
 
 const Card = styled(C)`
   display: flex;
@@ -15,19 +28,10 @@ const Card = styled(C)`
   font-size: 1.25rem;
 `;
 
-storiesOf(`Components|cards/`, module).add('Card', () => (
-  <Story title="Card" width="100%">
-    <Grid>
-      <Card>Card</Card>
-      <Card loading>Card (loading)</Card>
-      <Card selected>Card (selected)</Card>
-    </Grid>
-  </Story>
-));
-
 const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 
   > * {
     flex: 0 0 calc(25% - 2rem);

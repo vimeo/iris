@@ -6,7 +6,7 @@ import { Calendar } from './Calendar';
 
 import { Story } from '../../../../storybook';
 
-export default { title: 'components|inputs/Calendar' };
+export default { title: 'Components|Inputs/Calendar' };
 
 export const Common = () => <CommonStory />;
 function CommonStory() {

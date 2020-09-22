@@ -1,7 +1,7 @@
 import { description, scratch } from './Avatar.notes';
 
 export const config = {
-  title: 'components|chips/Avatar',
+  title: 'Components|Chips/Avatar',
   parameters: {
     notes: {
       description,

@@ -36,6 +36,7 @@ function RadioSetComponent({
           key: `radio-${i}-${UIDs[i]}`,
           id: `radio-${i}-${UIDs[i]}`,
           name: UID,
+          defaultChecked: defaultValue === child.props?.value,
         }),
       )}
     </div>

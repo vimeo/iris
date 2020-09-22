@@ -1,15 +1,15 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
-import { Radio as R } from './Radio';
+import { Radio } from './Radio';
 import { RadioSet } from './RadioSet';
 
-import { Story } from '../../../storybook';
-import styled from 'styled-components';
+import { Layout } from '../../../storybook';
 
-storiesOf(`Components|inputs/Marks/`, module)
-  .add('Radio', () => (
-    <Story title="Radio">
+export default { title: 'Components|Inputs/Marks/Radio' };
+
+export function Common() {
+  return (
+    <Layout.StoryVertical>
       <Radio label="Sample Radio 1" name="r" id="r1" value="r1" />
       <Radio label="Sample Radio 2" name="r" id="r2" value="r2" />
       <Radio
@@ -28,23 +28,23 @@ storiesOf(`Components|inputs/Marks/`, module)
         status="negative"
         messages={demoMessages}
       />
-    </Story>
-  ))
-  .add('Radio Set', () => (
-    <Story title="Radio Set">
-      <RadioSet>
-        <Radio />
-        <Radio />
-        <Radio />
+    </Layout.StoryVertical>
+  );
+}
+
+export function Set() {
+  return (
+    <Layout.StoryVertical>
+      <RadioSet defaultValue="r2">
+        <Radio label="Sample Radio 1" value="r1" />
+        <Radio label="Sample Radio 2" value="r2" />
+        <Radio label="Sample Radio 3" value="r3" />
       </RadioSet>
-    </Story>
-  ));
+    </Layout.StoryVertical>
+  );
+}
 
 const demoMessages = {
   error: 'Something is wrong!',
   help: 'Hey! Listen!',
 };
-
-const Radio = styled(R)`
-  margin: 1rem;
-`;

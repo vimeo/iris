@@ -32,12 +32,14 @@ export function Header({ children, ...props }: IrisProps) {
 type ActionButtonProps = IrisProps<{
   format?: 'primary' | 'secondary';
   variant?: 'outline';
+  onClick?: MouseEventHandler;
 }>;
 
 const ActionButton = ({
   children,
   format,
   // variant,
+  onClick,
   ...props
 }: ActionButtonProps) => {
   const { close } = useContext(Controls);
@@ -47,7 +49,10 @@ const ActionButton = ({
       {...props}
       format={format}
       // variant={variant}
-      onClick={event => close && close(event)}
+      onClick={event => {
+        close && close(event);
+        onClick && onClick(event);
+      }}
     >
       {children}
     </ActionButtonStyled>

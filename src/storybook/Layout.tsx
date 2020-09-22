@@ -3,12 +3,14 @@ import styled, { css } from 'styled-components';
 export const Layout = {
   StoryVertical: styled.div<{ center?: boolean }>`
     ${flexVertical};
+
     padding: 0.5rem 0;
     padding: ${p => (p.center ? '4rem' : '0.5rem 0')};
 
     > * {
       display: block;
       margin: 0.5rem 1rem;
+      min-width: 20rem;
     }
   `,
   StoryPadded: styled.div<{ center?: boolean }>`

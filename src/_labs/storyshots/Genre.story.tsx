@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { rgba } from 'polished';
-import { storiesOf } from '@storybook/react';
 
 import { Checkbox } from '../../components';
 
-storiesOf(`Labs|storyshots/showcases`, module).add('Genres', () => (
-  <>
+export default { title: 'Labs|Storyshots/' };
+
+export function ShowcaseGenres() {
+  return (
     <Div>
       {genres.map((genre, i) => (
         <Checkbox
@@ -19,8 +20,8 @@ storiesOf(`Labs|storyshots/showcases`, module).add('Genres', () => (
         />
       ))}
     </Div>
-  </>
-));
+  );
+}
 
 const Div = styled.div`
   margin: 5rem;
