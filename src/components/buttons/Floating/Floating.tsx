@@ -6,10 +6,10 @@ import { ArrowRight } from '../../../icons';
 import { withIris, IrisProps } from '../../../utils';
 
 export const FloatingButton = withIris<HTMLButtonElement, Props>(
-  FloatingButtonComponent,
+  FloatingButtonComponent
 );
 
-type Props = IrisProps<{}, HTMLButtonElement>;
+type Props = IrisProps<unknown, HTMLButtonElement>;
 
 function FloatingButtonComponent({
   children,

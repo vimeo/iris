@@ -7,7 +7,7 @@ import { Button } from '../../buttons/Button/Button';
 import { Layout } from '../../../storybook';
 import { withCharacterCount } from '../withCharacterCount/withCharacterCount';
 
-export default { title: 'Components|Inputs/TextArea' };
+export default { title: 'Components/Inputs/TextArea' };
 
 const TextArea = styled(TA)`
   min-width: 24rem;

@@ -1,50 +1,108 @@
 import React from 'react';
+import styled, { css } from 'styled-components';
 
-import { Radio } from './Radio';
+import { Radio as R } from './Radio';
 import { RadioSet } from './RadioSet';
+import { Eye, EyeOff } from '../../../icons';
+import { rgba } from 'polished';
 
-import { Layout } from '../../../storybook';
+export default { title: 'Components/inputs/Radio' };
 
-export default { title: 'Components|Inputs/Marks/Radio' };
+const Radio = styled(R)`
+  margin: 1rem;
+`;
 
 export function Common() {
-  return (
-    <Layout.StoryVertical>
-      <Radio label="Sample Radio 1" name="r" id="r1" value="r1" />
-      <Radio label="Sample Radio 2" name="r" id="r2" value="r2" />
-      <Radio
-        label="Sample Radio 3"
-        name="r"
-        id="r3"
-        value="r3"
-        status="positive"
-        messages={demoMessages}
-      />
-      <Radio
-        label="Sample Radio 4"
-        name="r"
-        id="r4"
-        value="r4"
-        status="negative"
-        messages={demoMessages}
-      />
-    </Layout.StoryVertical>
-  );
+  return <Radio label="Sample Radio 1" name="r" id="r1" value="r1" />;
 }
 
-export function Set() {
+export function RadioSetStory() {
   return (
-    <Layout.StoryVertical>
-      <RadioSet defaultValue="r2">
-        <Radio label="Sample Radio 1" value="r1" />
-        <Radio label="Sample Radio 2" value="r2" />
-        <Radio label="Sample Radio 3" value="r3" />
+    <>
+      <RadioSet>
+        <Radio />
+        <Radio />
+        <Radio />
       </RadioSet>
-    </Layout.StoryVertical>
+    </>
+  );
+}
+RadioSetStory.story = { name: 'RadioSet' };
+
+export function Labels() {
+  return (
+    <>
+      <RadioSet>
+        <Radio label="Radio 1" />
+        <Radio label="Radio 2" />
+        <Radio label="Radio 3" />
+      </RadioSet>
+    </>
   );
 }
 
-const demoMessages = {
-  error: 'Something is wrong!',
-  help: 'Hey! Listen!',
-};
+export function Horizontal() {
+  const style = { display: 'inline-flex' };
+
+  return (
+    <>
+      <RadioSet>
+        <Radio style={style} />
+        <Radio style={style} />
+        <Radio style={style} />
+      </RadioSet>
+    </>
+  );
+}
+
+export function CustomElement() {
+  return (
+    <>
+      <RadioSet>
+        <Radio>
+          <Custom />
+        </Radio>
+        <Radio>
+          <Custom />
+        </Radio>
+        <Radio>
+          <Custom />
+        </Radio>
+      </RadioSet>
+    </>
+  );
+}
+
+function Custom({ checked = null, ...props }) {
+  return (
+    <CustomStyled checked={checked} {...props}>
+      {!checked && <Eye />}
+      {checked && <EyeOff />}
+    </CustomStyled>
+  );
+}
+
+const customCSS = (n) => ({ theme }) => css`
+  border: 3px solid ${rgba(theme.formats.soft, n)};
+
+  svg * {
+    fill: ${rgba(theme.formats.soft, n)};
+    transition: 120ms ease-in-out;
+  }
+`;
+
+const CustomStyled = styled.div`
+  width: 3rem;
+  height: 3rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  transition: 120ms ease-in-out;
+
+  ${(p) => p.checked && customCSS(1)(p)};
+  ${(p) => !p.checked && customCSS(0.5)(p)};
+
+  &:hover {
+    background: ${(p) => rgba(p.theme.formats.soft, 0.1)};
+    ${(p) => !p.checked && customCSS(0.75)(p)};
+  }
+`;

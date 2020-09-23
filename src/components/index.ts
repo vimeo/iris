@@ -17,26 +17,24 @@ export { Tag } from './chips/Tag/Tag';
 
 // info
 export { Annotation } from './info/Annotation/Annotation';
-export { Breadcrumb } from './info/Breadcrumb/Breadcrumb';
-export { BreadcrumbLink } from './info/Breadcrumb/BreadcrumbLink';
 export { FeatureTourPanel } from './info/FeatureTour/FeatureTourPanel';
 export { Notice } from './info/Notice/Notice';
 export { Notification } from './info/Notification/Notification';
-export { ProgressBar } from './info/ProgressBar/ProgressBar';
+export { Path } from './info/Path/Path';
 export { Tip } from './info/Tip/Tip';
 
 // inputs
 export { Checkbox } from './inputs/Checkbox/Checkbox';
 export { ColorSelect } from './inputs/ColorSelect/ColorSelect';
-export { CopyField } from './inputs/Input/CopyField';
+export { CopyField } from './inputs/CopyField/CopyField';
 export { DateRange } from './inputs/Dates/DateRange/DateRange';
 export { DateSelect } from './inputs/Dates/DateSelect/DateSelect';
 export { FileUpload } from './inputs/FileUpload/FileUpload';
 export { Input } from './inputs/Input/Input';
-export { Password } from './inputs/Input/Password';
+export { Password } from './inputs/Password/Password';
 export { Radio } from './inputs/Radio/Radio';
 export { RadioSet } from './inputs/Radio/RadioSet';
-export { Search } from './inputs/Input/Search';
+export { Search } from './inputs/Search/Search';
 export { Select } from './inputs/Select/Select';
 export { Slider } from './inputs/Slider/Slider';
 export { TextArea } from './inputs/TextArea/TextArea';

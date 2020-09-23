@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { hsl } from 'polished';
 
-export const HueSlider = props => (
+export const HueSlider = (props) => (
   <Slider kind="hue" max="36000" step="100" {...props} />
 );
 
@@ -88,7 +88,7 @@ const SliderStyled = styled.input`
   &:focus {
     outline: none;
     &::-webkit-slider-thumb {
-      border: 0.25rem solid ${p => p.theme.content.color};
+      border: 0.25rem solid ${(p) => p.theme.content.color};
       transform: scale(1.2) translateY(0.5px);
     }
   }
@@ -100,7 +100,7 @@ const SliderStyled = styled.input`
   }
   &::-webkit-slider-thumb {
     box-shadow: none;
-    border: 0.25rem solid ${p => p.theme.content.color};
+    border: 0.25rem solid ${(p) => p.theme.content.color};
     height: 23px;
     width: 23px;
     border-radius: 15px;

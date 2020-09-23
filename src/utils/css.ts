@@ -18,9 +18,25 @@ export const hidden = {
 };
 
 export const Focus = styled.div<any>`
-  ${({ parent, focused, radius = 6, distance = 4 }) => {
-    // const { focus } = readTheme(props);
-    const focus = blue(500);
+  ${({ parent, focused, variant, radius = 6, distance = 4 }) => {
+    // These are basically quick hacks to support a different focus
+    // style for the underline inputs until VDS has time to rebuild
+    // the focus component.
+    const focus =
+      variant === 'underline' ? rgba(blue(300), 0.9) : blue(500);
+
+    const expanded =
+      variant === 'underline' ? 'scale(0.975);' : 'scale(1);';
+
+    const underline =
+      variant === 'underline' &&
+      css`
+        border-radius: 0;
+        border-top-color: rgba(0, 0, 0, 0) !important;
+        border-left-color: rgba(0, 0, 0, 0) !important;
+        border-right-color: rgba(0, 0, 0, 0) !important;
+        border-bottom-width: ${rem(6)};
+      `;
 
     return css`
       z-index: 1;
@@ -38,14 +54,17 @@ export const Focus = styled.div<any>`
       ${parent}:focus > &,
       ${parent}:focus ~ &,
       ${parent}:focus ~ div > & {
-        transform: scale(1);
+        transform: ${expanded};
         border: ${rem(2)} solid ${focus};
       }
+
       ${focused &&
-        css`
-          transform: scale(1);
-          border: ${rem(2)} solid ${focus};
-        `}
+      css`
+        transform: ${expanded};
+        border: ${rem(2)} solid ${focus};
+      `}
+
+      ${underline};
     `;
   }}
 `;

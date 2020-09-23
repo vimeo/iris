@@ -1,7 +1,7 @@
 import { Button } from './Button';
 
 export const config = {
-  title: 'Components|Buttons/',
+  title: 'Components/Buttons',
   component: Button,
 };
 

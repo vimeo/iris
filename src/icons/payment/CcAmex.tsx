@@ -29,5 +29,5 @@ export const CcAmex = forwardRef(
         />
       </g>
     </svg>
-  ),
+  )
 );

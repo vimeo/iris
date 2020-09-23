@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { rgba } from 'polished';
 
 import {
   FauxMark,
@@ -13,7 +14,6 @@ import {
 import { blue } from '../../../color';
 import { IrisInputProps } from '../../../utils';
 import { Formats, Statuses } from '../../../themes';
-import { rgba } from 'polished';
 
 export const InputStyled = styled.input<
   IrisInputProps & {
@@ -24,6 +24,7 @@ export const InputStyled = styled.input<
     pill?: boolean;
     value?: any;
     format: Formats | Statuses;
+    variant?: 'underline';
   }
 >`
   ${inputColors};

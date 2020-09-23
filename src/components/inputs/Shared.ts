@@ -26,18 +26,18 @@ export function inputColors({ theme, disabled = false, format }) {
     }
 
     ${!disabled &&
-      css`
-        &:hover {
-          border: 1px solid ${rgba(color, 0.5 + opacity)};
-        }
-      `}
+    css`
+      &:hover {
+        border: 1px solid ${rgba(color, 0.5 + opacity)};
+      }
+    `}
 
     ${disabled &&
-      css`
-        background-color: ${theme.content.disabled};
-        border-color: ${rgba(color, 0.1 + opacity)};
-        pointer-events: none;
-      `}
+    css`
+      background-color: ${theme.content.disabled};
+      border-color: ${rgba(color, 0.1 + opacity)};
+      pointer-events: none;
+    `}
   `;
 }
 
@@ -69,8 +69,14 @@ const paddings = {
 //   xl: 3.75,
 // };
 
-export function inputShape({ inputSize, floating, pill = false }) {
-  const padding = paddings[inputSize] / 2 - 0.175;
+export function inputShape({
+  inputSize,
+  floating,
+  variant = null,
+  pill = false,
+}) {
+  const variantPadding = variant === 'underline' ? 2.5 : 1;
+  const padding = (paddings[inputSize] / 2 - 0.175) / variantPadding;
 
   return css`
     border-radius: ${pill ? '2rem' : '0.25rem'};
@@ -78,15 +84,38 @@ export function inputShape({ inputSize, floating, pill = false }) {
     width: 100%;
     font-size: ${sizes[inputSize]}rem;
     outline: none;
+    ${inputVariant};
 
     ${floating &&
-      css`
-        padding-top: ${padding * 3}rem;
-      `};
+    css`
+      padding-top: ${padding * 3}rem;
+    `};
   `;
 }
 
-export const SquareInput = size => css`
+const underline = css`
+  border-radius: 0;
+  border-top-color: rgba(0, 0, 0, 0);
+  border-left-color: rgba(0, 0, 0, 0);
+  border-right-color: rgba(0, 0, 0, 0);
+  border-bottom-width: 0.125rem;
+  transition: all 120ms ease-in-out, border 60ms ease-in-out;
+`;
+
+function inputVariant({ variant = null }) {
+  return (
+    variant === 'underline' &&
+    css`
+      ${underline};
+
+      &:hover {
+        ${underline};
+      }
+    `
+  );
+}
+
+export const SquareInput = (size) => css`
   width: ${rem(size)};
   height: ${rem(size)};
   border-width: ${rem(1)};
@@ -94,12 +123,12 @@ export const SquareInput = size => css`
   border-radius: ${rem(2)};
 `;
 
-export const RoundInput = size => css`
+export const RoundInput = (size) => css`
   ${SquareInput(size)};
   border-radius: 50%;
 `;
 
-export const ToggleInput = size => css`
+export const ToggleInput = (size) => css`
   ${SquareInput(size)};
   width: ${rem(size * 2)};
   border-radius: 3rem;
@@ -119,12 +148,12 @@ export const FauxMark = (type, mirror) =>
     ${fauxPositioning(mirror)};
 
     ${type === 'toggle' &&
-      css`
-        background: ${({ theme }) =>
-          theme.name === 'dark'
-            ? theme.content.background
-            : theme.formats.alternative};
-      `};
+    css`
+      background: ${({ theme }) =>
+        theme.name === 'dark'
+          ? theme.content.background
+          : theme.formats.alternative};
+    `};
 
     &:after {
       content: '';
@@ -135,13 +164,13 @@ export const FauxMark = (type, mirror) =>
       transform: scale(0);
 
       ${type === 'toggle' &&
-        css`
-          background: ${white};
-          opacity: 1;
-          transition: 120ms ease-in-out;
-          transform: scale(1);
-          width: 50%;
-        `};
+      css`
+        background: ${white};
+        opacity: 1;
+        transition: 120ms ease-in-out;
+        transform: scale(1);
+        width: 50%;
+      `};
     }
   `;
 
@@ -196,7 +225,7 @@ export const Label = styled.label<LabelProps>`
   ${typePadding};
   ${formatStyles};
 
-  ${p =>
+  ${(p) =>
     !p.disabled
       ? css`
           cursor: pointer;
@@ -218,7 +247,9 @@ const paddingSizes = {
   xl: 24,
 };
 
-function typePadding({ size, type, mirror = null }) {
+function typePadding({ children = null, size, type, mirror = null }) {
+  if (!children) return;
+
   switch (type) {
     case 'toggle':
       return mirror
@@ -248,7 +279,7 @@ function compareMetas(inputType: string) {
 
 export function validate(
   children: MarkInputElement[],
-  type: 'checkbox' | 'radio' | 'toggle',
+  type: 'checkbox' | 'radio' | 'toggle'
 ) {
   const Name = type.charAt(0).toUpperCase() + type.slice(1);
   const valid = children.every(compareMetas(type));
@@ -256,7 +287,7 @@ export function validate(
   if (!valid) {
     console.warn(
       `<${Name}Set /> children must be <${Name} />.`,
-      children,
+      children
     );
   }
 

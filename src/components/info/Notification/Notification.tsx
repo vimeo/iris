@@ -18,7 +18,7 @@ import { reducer } from './Notification.state';
 import { withIris, IrisProps } from '../../../utils';
 
 export const Notification = withIris<HTMLDivElement, Props>(
-  NotficationComponent,
+  NotficationComponent
 );
 
 type Props = IrisProps<{
@@ -62,7 +62,7 @@ function NotficationComponent({
 
   const [{ showing, time, active }, dispatch] = useReducer(
     reducer(duration),
-    initialState,
+    initialState
   );
 
   const toggle = useCallback(() => {

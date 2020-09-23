@@ -1,13 +1,15 @@
-import React, { cloneElement, useMemo } from 'react';
+import React, { cloneElement, useMemo, useState } from 'react';
+
+import { validate, MarkInputElement } from '../Shared';
+
 import {
   generateUID,
   IrisInputProps,
   withIris,
 } from '../../../utils';
-import { validate, MarkInputElement } from '../Shared';
 
 export const RadioSet = withIris<HTMLDivElement, Props>(
-  RadioSetComponent,
+  RadioSetComponent
 );
 
 interface Props {
@@ -19,6 +21,7 @@ function RadioSetComponent({
   children,
   defaultValue,
   forwardRef,
+  onChange: doChange,
   label,
   ...props
 }: IrisInputProps<Props>) {
@@ -27,18 +30,39 @@ function RadioSetComponent({
     children,
   ]);
 
+  const [checkedIndex, checkedIndexSet] = useState(null);
+
   if (!validate(children, 'radio')) return null;
+
+  function onChange(event) {
+    if (event.target.checked) {
+      const i = UIDs.indexOf(event.target.id.slice(-6));
+      checkedIndexSet(i);
+    }
+
+    doChange && doChange(event);
+  }
+
+  function cloneChildren(child, i) {
+    const checked = checkedIndex === i;
+    const defaultChecked = defaultValue === child.props?.value;
+    const id = `radio-${i}-${UIDs[i]}`;
+    const key = id;
+    const name = UID;
+
+    return cloneElement(child, {
+      checked,
+      defaultChecked,
+      id,
+      key,
+      name,
+      onChange,
+    });
+  }
 
   return (
     <div ref={forwardRef} {...props}>
-      {children.map((child, i) =>
-        cloneElement(child, {
-          key: `radio-${i}-${UIDs[i]}`,
-          id: `radio-${i}-${UIDs[i]}`,
-          name: UID,
-          defaultChecked: defaultValue === child.props?.value,
-        }),
-      )}
+      {children.map(cloneChildren)}
     </div>
   );
 }

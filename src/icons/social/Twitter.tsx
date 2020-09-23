@@ -8,5 +8,5 @@ export const Twitter = forwardRef(
         fill="#00aced"
       />
     </svg>
-  ),
+  )
 );

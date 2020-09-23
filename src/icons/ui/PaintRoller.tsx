@@ -8,5 +8,5 @@ export const PaintRoller = forwardRef(
         fill="#1a2e3b"
       />
     </svg>
-  ),
+  )
 );

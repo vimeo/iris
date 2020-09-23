@@ -29,6 +29,7 @@ import {
   geometry,
   centered,
   MinorComponent,
+  throttle,
 } from '../../../utils';
 import { HSVtoHSL, colorSpaces, round } from '../../../color';
 
@@ -72,7 +73,10 @@ function ColorSelectComponent({
 
   const ref = useRef(null);
   const [inputHeight, setInputHeight] = useState(0);
-  useLayoutEffect(() => setInputHeight(geometry(ref).height), []);
+  useLayoutEffect(
+    () => setInputHeight(geometry(ref.current).height),
+    []
+  );
   useEffect(() => {
     dispatch({ type: 'SET_HEX', payload: value });
   }, [value]);
@@ -92,7 +96,7 @@ function ColorSelectComponent({
   };
 
   const setHue = useRef(
-    throttle(e => {
+    throttle((e) => {
       const newHSL = {
         ...HSL,
         hue: parseInt(e.target.value, 10) / 100,
@@ -102,7 +106,7 @@ function ColorSelectComponent({
         onChange && onChange(hslToColorString(newHSL));
         dispatch({ type: 'SET_HSL', payload: newHSL });
       }
-    }, throttleSpeed / 4),
+    }, throttleSpeed / 4)
   ).current;
 
   const setCoords = useRef(
@@ -111,14 +115,14 @@ function ColorSelectComponent({
 
       dispatch({ type: 'SET_COORDS', payload });
       setHSLfromCoords({ offsetX, offsetY }, hue);
-    }, throttleSpeed),
+    }, throttleSpeed)
   ).current;
 
   function setHSLfromCoords(nativeEvent, hue) {
     const { saturation, lightness } = coordsToSL(
       nativeEvent,
       width,
-      height,
+      height
     );
 
     const payload = { hue, saturation, lightness };
@@ -126,7 +130,7 @@ function ColorSelectComponent({
     dispatch({ type: 'SET_HSL', payload });
   }
 
-  const reset = e => {
+  const reset = (e) => {
     e.stopPropagation();
     const payload = [width, 0];
     onChange && onChange(hslToColorString(parseToHsl(resetColor)));
@@ -146,8 +150,8 @@ function ColorSelectComponent({
     setHSLfromCoords({ offsetX, offsetY }, HSL.hue);
   };
 
-  const doMouseMove = e => dragging && persist(e, setLoupe);
-  const setLoupe = e => setCoords(e, HSL.hue);
+  const doMouseMove = (e) => dragging && persist(e, setLoupe);
+  const setLoupe = (e) => setCoords(e, HSL.hue);
 
   return (
     <PopOver
@@ -209,7 +213,7 @@ function ColorSelectComponent({
           type="text"
           ref={ref}
           label={label}
-          onChange={e => {
+          onChange={(e) => {
             onChange && onChange(e.target.value);
             dispatch({
               type: 'SET_HEX',
@@ -235,7 +239,7 @@ function ColorSelectComponent({
   );
 }
 
-const cursorPosition = coords => ({
+const cursorPosition = (coords) => ({
   transform: `translate(${coords[0]}px, ${coords[1]}px)`,
 });
 
@@ -246,12 +250,6 @@ function coordsToSL(nativeEvent, width, height) {
     value: round((nativeEvent.offsetY / height - 1) * -1),
   });
   return { saturation, lightness };
-}
-
-function throttle(fn, dur) {
-  let halt;
-  const reset = () => (halt = setTimeout(() => (halt = false), dur));
-  return (...args) => !halt && reset() && fn(...args);
 }
 
 function persist(e, fn) {

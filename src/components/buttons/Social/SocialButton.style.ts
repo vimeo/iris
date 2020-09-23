@@ -7,11 +7,11 @@ export const Icon = styled.div<{ size: number; brand: string }>`
   position: absolute;
   top: 1px;
   left: 1px;
-  background: ${p => p.theme.content.background};
+  background: ${(p) => p.theme.content.background};
   margin: 0;
   padding: 0;
-  height: ${p => p.size - 4}px;
-  width: ${p => p.size - 4}px;
+  height: ${(p) => p.size - 4}px;
+  width: ${(p) => p.size - 4}px;
   border-radius: 0.125rem;
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@ export const Icon = styled.div<{ size: number; brand: string }>`
   svg {
     margin: 0;
     transform: scale(0.75);
-    ${p => p.theme.iconStyles};
+    ${(p) => p.theme.iconStyles};
   }
 `;
 
@@ -50,7 +50,7 @@ export const brandThemes = {
         display: none;
       }
       path {
-        fill: ${p => p.theme.formats.primary};
+        fill: ${(p) => p.theme.formats.primary};
       }
     `,
   },

@@ -5,7 +5,7 @@ import { Button as B, Card } from '../../components';
 import { Header } from '../../typography';
 import { rgba } from 'polished';
 
-export default { title: 'Labs|Storyshots/' };
+export default { title: 'Labs/Storyshots' };
 
 export function GrowthRedeemCard() {
   return (

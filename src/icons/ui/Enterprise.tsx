@@ -14,5 +14,5 @@ export const Enterprise = forwardRef(
         fillRule="evenodd"
       />
     </svg>
-  ),
+  )
 );

@@ -9,5 +9,5 @@ export const SocialChipYoutube = forwardRef(
         fill="#fff"
       />
     </svg>
-  ),
+  )
 );

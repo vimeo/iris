@@ -20,5 +20,5 @@ export const AppleAppStoreJaJp = forwardRef(
         />
       </g>
     </svg>
-  ),
+  )
 );

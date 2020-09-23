@@ -4,12 +4,12 @@ import { Slider } from './Slider';
 
 import { Layout } from '../../../storybook';
 
-export default { title: 'Components|Inputs/Slider' };
+export default { title: 'Components/Inputs/Slider' };
 
 export function Basic() {
   return (
     <Layout.StoryPadded>
-      <Slider onChange={n => console.log(n?.target?.value)} />
+      <Slider onChange={(n) => console.log(n?.target?.value)} />
     </Layout.StoryPadded>
   );
 }
@@ -20,8 +20,8 @@ export function Range() {
       <Slider
         range
         initialValues={[20, 50]}
-        formatter={value => value + 'm'}
-        onChange={n => console.log(n?.target?.value)}
+        formatter={(value) => value + 'm'}
+        onChange={(n) => console.log(n?.target?.value)}
       />
     </Layout.StoryPadded>
   );
@@ -35,7 +35,7 @@ export function MinMax() {
         min={10}
         max={90}
         initialValues={[10, 90]}
-        onChange={n => console.log(n?.target?.value)}
+        onChange={(n) => console.log(n?.target?.value)}
       />
     </Layout.StoryPadded>
   );
@@ -47,7 +47,7 @@ export function EditableLabel() {
       <Slider
         editableLabel
         range
-        onChange={n => console.log(n?.target?.value)}
+        onChange={(n) => console.log(n?.target?.value)}
       />
     </Layout.StoryPadded>
   );

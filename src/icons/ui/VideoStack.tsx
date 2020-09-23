@@ -13,5 +13,5 @@ export const VideoStack = forwardRef(
         fillRule="evenodd"
       />
     </svg>
-  ),
+  )
 );

@@ -72,8 +72,8 @@ const MenuContentStyled = styled.div<{
   footer: ReactNode;
   theme: 'dark' | 'light';
 }>`
-  padding: ${props => (props.footer ? `1rem 1rem 0` : '1rem')};
-  ${props =>
+  padding: ${(props) => (props.footer ? `1rem 1rem 0` : '1rem')};
+  ${(props) =>
     props.theme === 'dark' && `background: ${grayscale(850)}`}
 `;
 
@@ -82,7 +82,7 @@ const Footer = styled.div<{ theme: 'dark' | 'light' }>`
   width: calc(100% + 2rem);
   padding: 1rem 2rem 0;
   border-top: 1px solid
-    ${props =>
+    ${(props) =>
       props.theme === 'light' ? slate(200) : grayscale(650)};
-  color: ${props => (props.theme === 'light' ? black : white)};
+  color: ${(props) => (props.theme === 'light' ? black : white)};
 `;

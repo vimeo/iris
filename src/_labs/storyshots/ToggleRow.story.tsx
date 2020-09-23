@@ -4,7 +4,7 @@ import { rgba } from 'polished';
 
 import { Toggle } from '../../components';
 
-export default { title: 'Labs|Storyshots/' };
+export default { title: 'Labs/Storyshots' };
 
 export function ShowcaseToggleRow() {
   return (

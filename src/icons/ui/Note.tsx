@@ -9,5 +9,5 @@ export const Note = forwardRef(
       />
       <path fill="#1a2e3b" d="M6 5h8v2H6zm0 4h8v2H6zm0 4h5v2H6z" />
     </svg>
-  ),
+  )
 );

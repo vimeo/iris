@@ -13,7 +13,7 @@ export const ColorInputs = ({
 }) => {
   const [inputType, setInputType] = useState('HEX');
 
-  const setHEX = e => {
+  const setHEX = (e) => {
     onChange && onChange(e.target.value);
     dispatch({
       type: 'SET_HEX',
@@ -21,7 +21,7 @@ export const ColorInputs = ({
     });
   };
 
-  const setRGB = e =>
+  const setRGB = (e) =>
     dispatch({
       type: 'SET_RGB',
       payload: {
@@ -30,7 +30,7 @@ export const ColorInputs = ({
       },
     });
 
-  const setHSL = e =>
+  const setHSL = (e) =>
     dispatch({
       type: 'SET_HSL',
       payload: {

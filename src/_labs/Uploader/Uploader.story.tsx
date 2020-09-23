@@ -6,7 +6,7 @@ import { Checkmark } from '../../icons';
 import { Story } from '../../storybook';
 import { blue, green } from '../../color';
 
-export default { title: 'Labs|Uploader/' };
+export default { title: 'Labs/Uploader' };
 
 export function Test() {
   return (
@@ -22,7 +22,7 @@ const FakeUpload = ({ children, ...props }) => {
 
   useInterval(() => {
     if (!paused && progress > 0) {
-      setProgress(progress => progress - 1);
+      setProgress((progress) => progress - 1);
     }
   }, 3);
 
@@ -32,7 +32,7 @@ const FakeUpload = ({ children, ...props }) => {
         if (progress <= 0) {
           setProgress(1000);
         } else {
-          setPaused(paused => !paused);
+          setPaused((paused) => !paused);
         }
       }}
     >
@@ -121,14 +121,14 @@ const Loader = ({
 };
 
 const LoaderStyled = styled.svg<any>`
-  width: ${p => rem(p.size * 2)};
-  height: ${p => rem(p.size * 2)};
+  width: ${(p) => rem(p.size * 2)};
+  height: ${(p) => rem(p.size * 2)};
   transform: rotate(-90deg);
 
   circle {
     fill: none;
-    stroke: ${p => (p.success ? green(500) : blue(500))};
-    stroke-width: ${p => rem(p.size * 0.1666)};
+    stroke: ${(p) => (p.success ? green(500) : blue(500))};
+    stroke-width: ${(p) => rem(p.size * 0.1666)};
     stroke-linecap: round;
     transition: opacity 230ms ease-in-out;
   }
@@ -158,8 +158,8 @@ const CircleAnimation = keyframes`
 
 const CircleStyled = styled(Circle)`
   display: inline-block;
-  width: ${p => rem(p.size * 2)};
-  height: ${p => rem(p.size * 2)};
+  width: ${(p) => rem(p.size * 2)};
+  height: ${(p) => rem(p.size * 2)};
   position: relative;
   cursor: pointer;
 `;
@@ -170,14 +170,14 @@ const PauseButton = styled.div<any>`
   background: ${blue(500)};
   top: 0rem;
   left: 0rem;
-  width: ${p => rem(p.size * 2)};
-  height: ${p => rem(p.size * 2)};
+  width: ${(p) => rem(p.size * 2)};
+  height: ${(p) => rem(p.size * 2)};
   transform-origin: 50 50;
   opacity: 0;
   transition: 230ms ease-in-out;
   border-radius: 50%;
 
-  ${p =>
+  ${(p) =>
     p.paused &&
     css`
       background: transparent;
@@ -197,7 +197,7 @@ const PauseButton = styled.div<any>`
       }
     `};
 
-  ${p =>
+  ${(p) =>
     !p.success &&
     css`
       ${CircleStyled}:hover & {
@@ -206,9 +206,9 @@ const PauseButton = styled.div<any>`
         border-radius: 10%;
 
         ${p.paused &&
-          css`
-            background: transparent;
-          `};
+        css`
+          background: transparent;
+        `};
       }
     `};
 `;

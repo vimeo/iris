@@ -5,7 +5,7 @@ import { Input } from '../Input/Input';
 import { withIris, IrisInputProps } from '../../../utils';
 
 export const Checkbox = withIris<HTMLInputElement, Props>(
-  CheckboxComponent,
+  CheckboxComponent
 );
 
 type Props = IrisInputProps<

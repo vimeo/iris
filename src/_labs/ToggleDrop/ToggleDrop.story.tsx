@@ -9,7 +9,7 @@ import { Header, Paragraph } from '../../typography';
 import { Story } from '../../storybook';
 import { themes } from '../../themes';
 
-export default { title: 'Labs|ToggleDrop/' };
+export default { title: 'Labs/ToggleDrop' };
 
 export function Common() {
   return (
@@ -75,12 +75,12 @@ const StatusButtonStyled = styled.button<any>`
   background: rgba(255, 255, 255, 0.1);
 
   &:hover {
-    border: 1px solid ${props => props.color};
+    border: 1px solid ${(props) => props.color};
     background: rgba(255, 255, 255, 0.15);
 
     .icon {
       transition: 120ms ease-in-out;
-      background: ${props => props.color};
+      background: ${(props) => props.color};
     }
   }
 
@@ -204,7 +204,7 @@ const Fruit = styled.li<{
   font-weight: 400;
 
   &:hover {
-    background: ${props => props.color};
+    background: ${(props) => props.color};
     color: white;
   }
 `;

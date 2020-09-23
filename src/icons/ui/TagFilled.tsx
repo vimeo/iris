@@ -22,5 +22,5 @@ export const TagFilled = forwardRef(
         />
       </g>
     </svg>
-  ),
+  )
 );

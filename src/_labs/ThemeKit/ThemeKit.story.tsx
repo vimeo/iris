@@ -23,7 +23,7 @@ import { Header as H, Paragraph as P } from '../../typography';
 import { LoaderCircular as LC } from '../../motion';
 import { Gear } from '../../icons';
 
-export default { title: 'Labs|Themekit/' };
+export default { title: 'Labs/Themekit' };
 
 export function Common() {
   return <ThemeKit />;
@@ -44,7 +44,7 @@ function ThemeKit(props) {
     .filter(([_, theme]) => theme.dark?.formats || theme.formats)
     .map(([brand, theme]) => ({ name: brand, theme }));
 
-  const doClick = name => () => setTheme(themes[name]);
+  const doClick = (name) => () => setTheme(themes[name]);
 
   return (
     <>
@@ -162,34 +162,34 @@ const Button = styled(B)`
   display: inline-block;
   margin: 0 0.5rem 0.5rem 0;
   min-width: 7rem;
-  font-size: ${p => rem(p.theme?.typography?.fontSize)};
-  text-transform: ${p => p.theme?.typography?.textTransform};
-  border-radius: ${p => rem(p.theme?.geometry?.borderRadius)};
-  font-family: ${p => p.theme?.typography?.fontFamily};
-  letter-spacing: ${p => rem(p.theme?.typography?.letterSpacing)};
-  font-weight: ${p => p.theme?.typography?.fontWeight};
+  font-size: ${(p) => rem(p.theme?.typography?.fontSize)};
+  text-transform: ${(p) => p.theme?.typography?.textTransform};
+  border-radius: ${(p) => rem(p.theme?.geometry?.borderRadius)};
+  font-family: ${(p) => p.theme?.typography?.fontFamily};
+  letter-spacing: ${(p) => rem(p.theme?.typography?.letterSpacing)};
+  font-weight: ${(p) => p.theme?.typography?.fontWeight};
 `;
 
 const Header = styled(H)`
-  font-family: ${p => p.theme?.typography?.fontFamily};
-  font-family: ${p => p.theme?.typography?.serif};
-  letter-spacing: ${p => rem(p.theme?.typography?.letterSpacing)};
+  font-family: ${(p) => p.theme?.typography?.fontFamily};
+  font-family: ${(p) => p.theme?.typography?.serif};
+  letter-spacing: ${(p) => rem(p.theme?.typography?.letterSpacing)};
 `;
 
 const Paragraph = styled(P)`
-  font-family: ${p => p.theme?.typography?.fontFamily};
-  font-family: ${p => p.theme?.typography?.serif};
-  letter-spacing: ${p => rem(p.theme?.typography?.letterSpacing)};
+  font-family: ${(p) => p.theme?.typography?.fontFamily};
+  font-family: ${(p) => p.theme?.typography?.serif};
+  letter-spacing: ${(p) => rem(p.theme?.typography?.letterSpacing)};
 `;
 
 const Input = styled(I)`
   max-width: 20rem;
   margin: 0 0.5rem 0.5rem 0;
-  font-family: ${p => p.theme?.typography?.fontFamily};
-  font-size: ${p => rem(p.theme?.typography?.fontSize)};
-  letter-spacing: ${p => rem(p.theme?.typography?.letterSpacing)};
-  ${p => p.theme?.inputs};
-  border-radius: ${p => p.theme?.components?.inputs?.borderRadius};
+  font-family: ${(p) => p.theme?.typography?.fontFamily};
+  font-size: ${(p) => rem(p.theme?.typography?.fontSize)};
+  letter-spacing: ${(p) => rem(p.theme?.typography?.letterSpacing)};
+  ${(p) => p.theme?.inputs};
+  border-radius: ${(p) => p.theme?.components?.inputs?.borderRadius};
 `;
 
 const Checkbox = styled(C)`
@@ -207,15 +207,15 @@ const Toggle = styled(T)`
 
 const Notice = styled(N)`
   max-width: 40rem;
-  font-family: ${p => p.theme?.typography?.fontFamily};
-  letter-spacing: ${p => rem(p.theme?.typography?.letterSpacing)};
+  font-family: ${(p) => p.theme?.typography?.fontFamily};
+  letter-spacing: ${(p) => rem(p.theme?.typography?.letterSpacing)};
 `;
 
 const LoaderCircular = styled(LC)``;
 
 const Badge = styled(Bg)`
-  font-family: ${p => p.theme?.typography?.fontFamily};
-  font-size: ${p => rem(p.theme?.typography?.fontSize * 0.75)};
+  font-family: ${(p) => p.theme?.typography?.fontFamily};
+  font-size: ${(p) => rem(p.theme?.typography?.fontSize * 0.75)};
 `;
 
 const PopList = () => (

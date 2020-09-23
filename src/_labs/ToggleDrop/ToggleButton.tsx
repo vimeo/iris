@@ -25,7 +25,7 @@ export const ToggleButton = forwardRef(
         <Chevron />
       </ButtonStyled>
     );
-  },
+  }
 );
 
 const Chevron = styled(ChevronDown)`
@@ -44,8 +44,8 @@ const StatusDot = styled.div<{ color: string }>`
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  color: ${props => saturate(0.1, lighten(0.05, props.color))};
-  background: ${props => saturate(0.1, lighten(0.05, props.color))};
+  color: ${(props) => saturate(0.1, lighten(0.05, props.color))};
+  background: ${(props) => saturate(0.1, lighten(0.05, props.color))};
   position: absolute;
   top: calc(50% - 4px);
   left: 20px;
@@ -56,20 +56,20 @@ const ButtonStyled = styled(Button)`
   min-width: 200px;
   border: 0;
   color: white !important;
-  background: ${props =>
+  background: ${(props) =>
     setSaturation(0.49, shade(0.31, darken(0.11, props.color)))};
 
   &:hover {
-    background: ${props =>
+    background: ${(props) =>
       setSaturation(0.6, shade(0.25, darken(0.05, props.color)))};
 
     ${StatusDot} {
-      color: ${props => lighten(0.15, props.color)};
-      background: ${props => lighten(0.15, props.color)};
+      color: ${(props) => lighten(0.15, props.color)};
+      background: ${(props) => lighten(0.15, props.color)};
     }
   }
 
   &:active {
-    background: ${props => shade(0.2, darken(0.05, props.color))};
+    background: ${(props) => shade(0.2, darken(0.05, props.color))};
   }
 `;

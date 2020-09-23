@@ -9,7 +9,7 @@ import { withIris } from '../../../utils';
 import { grayscale } from '../../../color';
 
 export const ButtonToggleState = withIris<HTMLButtonElement, Props>(
-  ButtonToggleStateComponent,
+  ButtonToggleStateComponent
 );
 
 function ButtonToggleStateComponent({
@@ -24,7 +24,7 @@ function ButtonToggleStateComponent({
 }: Props) {
   const [state, dispatch] = useReducer(
     reducer({ format, ...props }),
-    initialState({ format, isActive, ...props }),
+    initialState({ format, isActive, ...props })
   );
 
   const hover = () => isActive && dispatch('hovering');

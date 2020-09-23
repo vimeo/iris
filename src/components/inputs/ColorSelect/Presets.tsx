@@ -17,7 +17,7 @@ const Swab = styled.button<{ color: string }>`
   border: ${rem(1)} solid rgba(0, 0, 0, 0.15);
   border-radius: 50%;
   margin: 0 0 0 0.75rem;
-  background-color: ${p => p.color};
+  background-color: ${(p) => p.color};
   position: relative;
   outline: none;
   transition: transform 0.2s ease-in-out;
@@ -70,7 +70,7 @@ export const Presets = ({
           aria-label={color}
           color={color}
           key={color}
-          onClick={event => {
+          onClick={(event) => {
             event.stopPropagation();
             onColorClick(color);
           }}

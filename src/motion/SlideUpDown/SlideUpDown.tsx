@@ -5,7 +5,7 @@ import { Props } from './SlideUpDown.types';
 import { withIris } from '../../utils';
 
 export const SlideUpDown = withIris<HTMLDivElement, Props>(
-  SlideUpDownComponent,
+  SlideUpDownComponent
 );
 
 function SlideUpDownComponent({

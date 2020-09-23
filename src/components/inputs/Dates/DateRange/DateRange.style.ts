@@ -22,7 +22,7 @@ export const Menu = styled(M)`
 export const CalendarsContainer = styled.div<{ hidden?: boolean }>`
   flex: 0 0 100%;
   flex-flow: row wrap;
-  display: ${props => (props.hidden ? 'hidden' : 'flex')};
+  display: ${(props) => (props.hidden ? 'hidden' : 'flex')};
   background-color: ${({ theme }) => theme.item.bg};
   border-radius: ${rem(3)};
 `;
@@ -63,7 +63,7 @@ export const ClearButton = styled(Button)`
 
   transition: opacity ease 300ms;
 
-  ${props => {
+  ${(props) => {
     if (props.hidden) {
       return css`
         opacity: 0;
@@ -80,7 +80,7 @@ export const ClearButton = styled(Button)`
 
 export const ApplyButton = styled(Button)`
   padding: 0 ${rem(32)};
-  ${props =>
+  ${(props) =>
     props.disabled &&
     css`
       cursor: not-allowed;

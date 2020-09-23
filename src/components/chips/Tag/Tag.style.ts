@@ -43,7 +43,7 @@ export const Image = styled.img<{ size: Sizes }>`
   left: 0.03125rem;
   border-radius: 50%;
   height: calc(100% - 0.03125rem);
-  width: ${p => rem(width(p.size))};
+  width: ${(p) => rem(width(p.size))};
 `;
 
 export const DismissX = styled(DismissIcon)`

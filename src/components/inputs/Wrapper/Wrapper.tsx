@@ -17,7 +17,7 @@ interface Props {
   defaultValue?: string | string[] | number | boolean;
 }
 
-export const Wrapper = forwardRef(function(
+export const Wrapper = forwardRef(function (
   {
     children,
     defaultValue,
@@ -34,7 +34,7 @@ export const Wrapper = forwardRef(function(
     value,
     ...props
   }: IrisInputProps<Props>,
-  ref: Ref<HTMLDivElement>,
+  ref: Ref<HTMLDivElement>
 ) {
   const active = floating && floatLabel;
 
@@ -78,11 +78,15 @@ export const Wrapper = forwardRef(function(
   );
 });
 
-const Label = styled(Header).attrs({ element: 'label' })<any>`
+const Label = styled(Header).attrs({ element: 'label' })<{
+  active?: boolean;
+  floating?: boolean;
+  htmlFor?: string;
+}>`
   transition: 120ms ease-in-out;
-  cursor: ${p => (p.disabled ? 'not-allowed' : 'pointer')};
+  cursor: ${(p) => (p.disabled ? 'not-allowed' : 'pointer')};
 
-  ${p =>
+  ${(p) =>
     p.floating &&
     !p.active &&
     css`
@@ -94,7 +98,7 @@ const Label = styled(Header).attrs({ element: 'label' })<any>`
       left: 0.5rem;
     `};
 
-  ${p =>
+  ${(p) =>
     p.floating &&
     p.active &&
     css`
@@ -113,7 +117,7 @@ interface MessageAreaProps {
   status?: Statuses;
 }
 
-const MessageArea = forwardRef(function(
+const MessageArea = forwardRef(function (
   {
     error,
     position = 'bottom',
@@ -122,7 +126,7 @@ const MessageArea = forwardRef(function(
     theme,
     ...props
   }: IrisProps<MessageAreaProps>,
-  ref: Ref<HTMLParagraphElement>,
+  ref: Ref<HTMLParagraphElement>
 ) {
   if (post) props.children = post;
   if (help) props.children = help;

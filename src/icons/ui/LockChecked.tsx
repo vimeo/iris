@@ -8,5 +8,5 @@ export const LockChecked = forwardRef(
         <path d="M15 7V5A5 5 0 0 0 5 5v2a3 3 0 0 0-3 3v7a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-7a3 3 0 0 0-3-3zM7 5a3 3 0 0 1 6 0v2H7zm9 12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1z" />
       </g>
     </svg>
-  ),
+  )
 );

@@ -18,7 +18,7 @@ import {
 import { number } from '@storybook/addon-knobs';
 import { rgba, readableColor } from 'polished';
 
-export default { title: 'Color|Colors/' };
+export default { title: 'Color/Colors' };
 
 export function All() {
   return (
@@ -78,7 +78,7 @@ function ColorStory(colorName, colorFn) {
       max: 1000,
       step: 10,
     },
-    'BLUE',
+    'BLUE'
   );
 
   const hex = colorFn(value);
@@ -355,9 +355,9 @@ const ColorHex = styled.span`
 `;
 
 const ColorBlockStyled = styled.div<any>`
-  background: ${p => p.colorHex};
-  width: ${p => p.width};
-  height: ${p => p.height};
+  background: ${(p) => p.colorHex};
+  width: ${(p) => p.width};
+  height: ${(p) => p.height};
   margin: 1rem;
   float: left;
   border-radius: 3px;

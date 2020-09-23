@@ -14,5 +14,5 @@ export const Pause = forwardRef(
         fill-rule="evenodd"
       />
     </svg>
-  ),
+  )
 );

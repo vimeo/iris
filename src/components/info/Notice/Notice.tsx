@@ -16,7 +16,7 @@ import { Button } from '../../buttons/Button/Button';
 import { Dismiss, Icon, NoticeStyled } from './Notice.style';
 
 export const Notice = withIris<HTMLDivElement, Props>(
-  NoticeComponent,
+  NoticeComponent
 );
 
 type Props = IrisProps<
@@ -45,7 +45,7 @@ function NoticeComponent({
     complete: onCloseComplete,
   } = useClose(onClose);
 
-  const doClick = event => {
+  const doClick = (event) => {
     event.preventDefault();
     if (onCloseReject) {
       onCloseReject(event);

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, cloneElement } from 'react';
 
 import {
   nullStyle,
@@ -19,19 +19,16 @@ interface ToggleIconProps {
 
 export function Mark({
   autocomplete = true,
+  checked,
+  children,
   className,
   defaultValue,
   disabled,
-  floating = false,
   forwardRef,
-  icon,
   id,
-  indeterminate,
-  label,
   messages,
-  mirror,
   name,
-  size = 'md',
+  onChange,
   status,
   style = nullStyle,
   theme,
@@ -41,54 +38,105 @@ export function Mark({
 }: Props & ToggleIconProps) {
   return (
     <Wrapper
-      theme={theme}
-      status={status}
+      className={className}
       messages={messages}
       onKeyUp={a11yKey}
-      className={className}
+      status={status}
       style={style}
+      theme={theme}
     >
       <div style={{ position: 'relative' }}>
         <HiddenMark
+          defaultValue={defaultValue as string | string[]}
+          disabled={disabled}
           id={id}
           name={name}
-          type={type}
-          disabled={disabled}
+          onChange={onChange}
           ref={forwardRef}
-          defaultValue={defaultValue as string | string[]}
+          type={type}
           value={value as string | string[]}
-          {...props}
         />
-        <Label
-          htmlFor={id}
-          format={status}
-          disabled={disabled}
-          size={size}
-          theme={theme}
-          type={type}
-          fauxMark={Faux}
-          mirror={mirror}
-        >
-          {label}
-        </Label>
-        <Faux
-          size={size}
-          indeterminate={indeterminate}
-          type={type}
-          theme={theme}
-          disabled={disabled}
-          mirror={mirror}
-        >
-          <Focus
-            parent={HiddenMark}
-            radius={radii[type]}
-            theme={theme}
-          />
 
-          <ToggleIcon>{icon}</ToggleIcon>
-        </Faux>
+        {children && (
+          <CustomMark
+            checked={checked}
+            children={children}
+            disabled={disabled}
+            htmlFor={id}
+            {...props}
+          />
+        )}
+
+        {!children && (
+          <DefaultMark
+            disabled={disabled}
+            id={id}
+            status={status}
+            type={type}
+            {...props}
+          />
+        )}
       </div>
     </Wrapper>
+  );
+}
+
+function DefaultMark({
+  disabled,
+  icon,
+  id,
+  indeterminate,
+  label,
+  mirror,
+  size = 'md',
+  status,
+  theme,
+  type,
+}: Props & ToggleIconProps) {
+  return (
+    <>
+      <Label
+        disabled={disabled}
+        fauxMark={Faux}
+        format={status}
+        htmlFor={id}
+        mirror={mirror}
+        size={size}
+        theme={theme}
+        type={type}
+      >
+        {label}
+      </Label>
+      <Faux
+        disabled={disabled}
+        indeterminate={indeterminate}
+        mirror={mirror}
+        size={size}
+        theme={theme}
+        type={type}
+      >
+        <Focus
+          parent={HiddenMark}
+          radius={radii[type]}
+          theme={theme}
+        />
+
+        <ToggleIcon>{icon}</ToggleIcon>
+      </Faux>
+    </>
+  );
+}
+
+function CustomMark({ children, htmlFor, checked, disabled }) {
+  return (
+    children && (
+      <label
+        htmlFor={htmlFor}
+        style={!disabled && { cursor: 'pointer' }}
+      >
+        {cloneElement(children, { disabled, checked })}
+      </label>
+    )
   );
 }
 

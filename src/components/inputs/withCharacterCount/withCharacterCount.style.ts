@@ -19,6 +19,6 @@ export const Counter = styled(Paragraph as any).attrs(attrs)<Props>`
   margin-top: 0.25rem;
   margin-bottom: 0;
 
-  ${p => p.warning && { fontWeight: 800, color: yellow(600) }};
-  ${p => p.error && { fontWeight: 600, color: red(500) }};
+  ${(p) => p.warning && { fontWeight: 800, color: yellow(600) }};
+  ${(p) => p.error && { fontWeight: 600, color: red(500) }};
 `;

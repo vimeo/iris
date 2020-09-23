@@ -23,7 +23,7 @@ export const Dot = forwardRef(
       clear,
       ...props
     }: IrisProps<Props, HTMLSpanElement>,
-    ref: Ref<HTMLSpanElement>,
+    ref: Ref<HTMLSpanElement>
   ) => {
     const adjustedColor = setLightness(0.4, saturate(0.1, color));
 
@@ -32,7 +32,7 @@ export const Dot = forwardRef(
         ref={ref}
         {...props}
         mode={mode}
-        onClick={e => {
+        onClick={(e) => {
           onClick(e);
           clear();
         }}
@@ -48,7 +48,7 @@ export const Dot = forwardRef(
         </HaloStyled>
       </WrapperStyled>
     );
-  },
+  }
 );
 
 const beaconSize = 14;
@@ -85,9 +85,9 @@ const DotStyled = styled.span<{
   border-radius: ${rem(beaconSize / 2)};
   transition: all 0.1s ease-in-out;
   text-indent: -9999px;
-  background-color: ${props => props.color};
+  background-color: ${(props) => props.color};
 
-  ${props =>
+  ${(props) =>
     props.mode === 'open' &&
     css`
       background-color: ${white};
@@ -129,7 +129,7 @@ const HaloStyled = styled.span<{
   padding: ${rem((haloSize - beaconSize) / 2)};
   border-radius: ${rem(haloSize / 2)};
 
-  ${props =>
+  ${(props) =>
     props.isActive &&
     css`
       background-image: radial-gradient(

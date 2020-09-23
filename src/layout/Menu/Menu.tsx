@@ -6,7 +6,7 @@ import { Section, Item, Minors } from './Menu.minors';
 import { withIris, IrisProps } from '../../utils';
 
 export const Menu = withIris<HTMLDivElement, Props, Minors>(
-  MenuComponent,
+  MenuComponent
 );
 
 Menu.Section = Section;

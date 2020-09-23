@@ -6,7 +6,7 @@ import { elevation } from './elevation';
 
 import { StoryCard } from '../../storybook';
 
-export default { title: 'Labs|Elevation/' };
+export default { title: 'Labs/Elevation' };
 
 export function Common() {
   return (
@@ -15,7 +15,7 @@ export function Common() {
         'elevation',
         defaultValue,
         options,
-        'elevation',
+        'elevation'
       )}
     >
       {number('elevation', defaultValue, options, 'elevation')}
@@ -24,7 +24,7 @@ export function Common() {
 }
 
 export function Scale() {
-  return elevations.map(e => <Box elevation={e}>{e}</Box>);
+  return elevations.map((e) => <Box elevation={e}>{e}</Box>);
 }
 
 const defaultValue = 500;
@@ -43,7 +43,7 @@ const Box = styled(StoryCard)<any>`
   ${elevation};
   margin: 2rem;
   display: inline-flex;
-  background: ${p => p.theme.background};
+  background: ${(p) => p.theme.background};
 `;
 
 const elevations = [

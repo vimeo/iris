@@ -8,7 +8,7 @@ import { Mark } from './Mark';
 import { generateUID, withIris } from '../../../utils';
 
 export const Input = withIris<HTMLInputElement, Props>(
-  InputComponent,
+  InputComponent
 );
 
 function InputComponent({ type = 'text', ...props }: Props) {

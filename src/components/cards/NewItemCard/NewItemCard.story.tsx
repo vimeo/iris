@@ -5,7 +5,7 @@ import { NewItemCard } from './NewItemCard';
 
 import { Layout } from '../../../storybook';
 
-export default { title: 'Components|Cards/NewItem' };
+export default { title: 'Components/Cards/NewItem' };
 
 export function Common() {
   return (

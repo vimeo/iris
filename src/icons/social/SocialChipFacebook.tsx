@@ -8,5 +8,5 @@ export const SocialChipFacebook = forwardRef(
         fill="#3c5a99"
       />
     </svg>
-  ),
+  )
 );

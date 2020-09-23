@@ -22,7 +22,7 @@ export function NavItem({
     element: 'a',
     href: '#' + id,
     id,
-    onClick: event => event.preventDefault(),
+    onClick: (event) => event.preventDefault(),
     size: 'md',
     target: '_self',
     ...props,
@@ -52,7 +52,7 @@ function InlayButton({ selected, ...props }) {
 const InlayButtonStyled = styled(Button)<{ selected: boolean }>`
   width: calc(100% - 0.667rem);
   margin: 0 0.334rem;
-  box-shadow: ${p =>
+  box-shadow: ${(p) =>
     p.selected
       ? `0 ${rem(3)} ${rem(6)} 0 ${rgba(black, 0.125)}`
       : 'none'};

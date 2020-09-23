@@ -22,20 +22,20 @@ interface Props {
 }
 
 export const Tip = styled.div<Props>`
-  min-width: ${p => (p.wrap ? `${maxWidth / 2}rem` : '0')};
+  min-width: ${(p) => (p.wrap ? `${maxWidth / 2}rem` : '0')};
   max-width: ${maxWidth}rem;
-  padding: 0.5rem ${p => (p.pill ? '1rem' : '0.5rem')};
+  padding: 0.5rem ${(p) => (p.pill ? '1rem' : '0.5rem')};
   border: 1px solid
     ${({ theme }) => rgba(white, theme.name === 'dark' ? 0.25 : 0)};
-  border-radius: ${p => (p.pill ? '2rem' : '0.25rem')};
+  border-radius: ${(p) => (p.pill ? '2rem' : '0.25rem')};
   text-align: center;
   color: ${white};
   background-color: ${black};
-  animation: ${fadeIn} 230ms ease-in-out;
+  animation: ${fadeIn} 120ms ease-in-out;
 
   p {
     color: ${white};
-    white-space: ${p => (p.wrap ? 'normal' : 'nowrap')};
-    word-break: ${p => (p.breakWords ? 'break-all' : 'normal')};
+    white-space: ${(p) => (p.wrap ? 'normal' : 'nowrap')};
+    word-break: ${(p) => (p.breakWords ? 'break-all' : 'normal')};
   }
 `;

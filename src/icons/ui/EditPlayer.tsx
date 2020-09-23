@@ -36,5 +36,5 @@ export const EditPlayer = forwardRef(
         </g>
       </g>
     </svg>
-  ),
+  )
 );

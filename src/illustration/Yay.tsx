@@ -110,5 +110,5 @@ export const Yay = forwardRef(
         </g>
       </g>
     </svg>
-  ),
+  )
 );

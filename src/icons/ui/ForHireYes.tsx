@@ -42,5 +42,5 @@ export const ForHireYes = forwardRef(
         </g>
       </g>
     </svg>
-  ),
+  )
 );

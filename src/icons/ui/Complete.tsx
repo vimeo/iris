@@ -10,5 +10,5 @@ export const Complete = forwardRef(
         fill="#4ec437"
       />
     </svg>
-  ),
+  )
 );

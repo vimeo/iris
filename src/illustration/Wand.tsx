@@ -38,5 +38,5 @@ export const Wand = forwardRef(
         </g>
       </g>
     </svg>
-  ),
+  )
 );

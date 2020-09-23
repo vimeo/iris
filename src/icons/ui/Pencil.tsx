@@ -8,5 +8,5 @@ export const Pencil = forwardRef(
         fill="#1A2E3B"
       />
     </svg>
-  ),
+  )
 );

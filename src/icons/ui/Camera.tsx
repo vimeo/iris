@@ -9,5 +9,5 @@ export const Camera = forwardRef(
         fillRule="evenodd"
       />
     </svg>
-  ),
+  )
 );

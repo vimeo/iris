@@ -4,7 +4,7 @@ import React, {
   ReactElement,
   EventHandler,
 } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { rem } from 'polished';
 
 import { Minors } from './PopOver.minors';
@@ -16,10 +16,11 @@ import {
   Attach,
   AttachAlias,
   usePortal,
+  SimpleAnimation,
 } from '../../utils';
 
 export const PopOver = withIris<HTMLDivElement, Props, Minors>(
-  PopOverComponent,
+  PopOverComponent
 );
 
 type Props = IrisProps<{
@@ -42,6 +43,17 @@ type Props = IrisProps<{
   onOpen?: EventHandler<any>;
 }>;
 
+const animation: SimpleAnimation = {
+  enter: {
+    opacity: 1,
+    transform: 'translateY(0) scale(1)',
+  },
+  exit: {
+    opacity: 0,
+    transform: `translateY(-0.25rem) scale(0.98)`,
+  },
+};
+
 function PopOverComponent({
   active,
   attach = 'bottom',
@@ -56,7 +68,7 @@ function PopOverComponent({
     <PopOverStyled ref={forwardRef} {...props}>
       <div>{content}</div>
     </PopOverStyled>,
-    { attach, forceActive: active, onClose, onOpen },
+    { attach, animation, forceActive: active, onClose, onOpen }
   );
 
   return (
@@ -67,12 +79,26 @@ function PopOverComponent({
   );
 }
 
+const fadeIn = keyframes`
+  0% {
+    transform: translateY(-0.25rem) scale(0.98);
+    opacity: 0;
+
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+`;
+
 const PopOverStyled = styled.div<Props>`
   background: ${({ theme }) => theme.content.background};
   min-width: 10rem;
-  min-height: 5rem;
+  min-height: 2rem;
   max-width: 40rem;
   border-radius: 0.25rem;
   box-shadow: 0 0 ${rem(1)} 0 rgba(0, 0, 0, 0.15),
     0 ${rem(4)} ${rem(8)} 0 rgba(0, 0, 0, 0.15);
+  animation: ${fadeIn} 150ms ease-in-out;
 `;

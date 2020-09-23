@@ -12,7 +12,7 @@ import { NavItem } from './NavItem';
 import { withIris } from '../../utils';
 
 export const Tabs = withIris<HTMLDivElement, Props, Minors>(
-  TabsComponent,
+  TabsComponent
 );
 
 Tabs.Panel = Panel;
@@ -30,7 +30,7 @@ function TabsComponent({
   useLayoutEffect(() => {
     const active = children
       .map(({ props: { active } }, i) => active && i)
-      .filter(i => typeof i === 'number' && i >= 0);
+      .filter((i) => typeof i === 'number' && i >= 0);
 
     if (active.length === 0) return;
     if (active.length === 1) return activeTabSet(active[0]);
@@ -82,16 +82,16 @@ function TabsComponent({
       {children.map(
         (child, i) =>
           activeTab === i &&
-          cloneElement(child, { id: `#tab-${i}`, key: i }),
+          cloneElement(child, { id: `#tab-${i}`, key: i })
       )}
     </div>
   );
 }
 
-const irisError = message =>
+const irisError = (message) =>
   console.error(`@vimeo/iris:`, message, `\n\n`);
 
 const errorMessage = (active, lastActive) =>
   irisError(
-    `Multiple tabs were specified as the intial active tab! Tabs: [${active.toString()}]. Using last 'active' tab: ${lastActive}.`,
+    `Multiple tabs were specified as the intial active tab! Tabs: [${active.toString()}]. Using last 'active' tab: ${lastActive}.`
   );

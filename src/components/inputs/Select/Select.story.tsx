@@ -7,7 +7,7 @@ import { blue } from '../../../color';
 import { action } from '@storybook/addon-actions';
 import styled from 'styled-components';
 
-export default { title: 'Components|Inputs/Select/' };
+export default { title: 'Components/Inputs/Select' };
 
 export function Common() {
   return (
@@ -15,7 +15,7 @@ export function Common() {
       <Select
         label="Select"
         style={{ display: 'inline-block', width: 'auto' }}
-        onChange={e => action('Selected Option')(e.target.value, e)}
+        onChange={(e) => action('Selected Option')(e.target.value, e)}
       >
         <Select.Option value="" disabled hidden>
           Select something...
@@ -32,7 +32,7 @@ export function Common() {
         label="Select disabled"
         disabled
         style={{ display: 'inline-block', width: 'auto' }}
-        onChange={e => action('Selected Option')(e.target.value, e)}
+        onChange={(e) => action('Selected Option')(e.target.value, e)}
       >
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
@@ -42,7 +42,7 @@ export function Common() {
       <Select
         label="I feel validated!"
         status="positive"
-        onChange={e => action('Selected Option')(e.target.value, e)}
+        onChange={(e) => action('Selected Option')(e.target.value, e)}
       >
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
@@ -53,7 +53,7 @@ export function Common() {
         label="Something bad happened!"
         status="negative"
         messages={{ error: 'Oops, that needs to be fixed.' }}
-        onChange={e => action('Selected Option')(e.target.value, e)}
+        onChange={(e) => action('Selected Option')(e.target.value, e)}
       >
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
@@ -63,7 +63,7 @@ export function Common() {
       <Select
         label="Select with defaultValue of 2"
         defaultValue="2"
-        onChange={e => action('Selected Option')(e.target.value, e)}
+        onChange={(e) => action('Selected Option')(e.target.value, e)}
       >
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
@@ -83,7 +83,7 @@ export function Sizes() {
             key={i}
             label={`${size} Select`}
             size={size}
-            onChange={e =>
+            onChange={(e) =>
               action('Selected Option')(e.target.value, e)
             }
           >
@@ -103,7 +103,7 @@ export function FauxSelect() {
     <Layout.StoryVertical>
       <Select
         label="Alert Selected"
-        onChange={e => {
+        onChange={(e) => {
           action('Selected Option')(e.target.value, e);
         }}
         faux
@@ -132,7 +132,7 @@ export function FauxSelect() {
       <Select
         defaultValue="2"
         label="Faux Select with Default Value 2"
-        onChange={e => {
+        onChange={(e) => {
           action('Selected Option')(e.target.value, e);
         }}
         faux

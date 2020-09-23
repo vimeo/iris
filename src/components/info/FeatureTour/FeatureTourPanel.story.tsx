@@ -9,7 +9,7 @@ import { Link } from '../../../typography';
 import { Header, Paragraph } from '../../../typography';
 import { red, yellow, green } from '../../../color';
 
-export default { title: 'Components|Info/Feature Tour Panel' };
+export default { title: 'Components/Info/Feature Tour Panel' };
 
 const buttonProps = {
   format: 'basic',
@@ -393,7 +393,7 @@ export function Fancy() {
   );
 }
 
-const dotStyles = pos => ({
+const dotStyles = (pos) => ({
   position: 'absolute' as PositionProperty,
   top: `${pos}rem`,
   left: `${pos}rem`,

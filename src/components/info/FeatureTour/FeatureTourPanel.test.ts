@@ -6,7 +6,7 @@ const p = path.resolve(__dirname);
 describe('FeatureTourPanel', () => {
   test('component has correct structure', () => {
     expect(correctComponentStructure(p, 'FeatureTourPanel')).toBe(
-      true,
+      true
     );
   });
 });

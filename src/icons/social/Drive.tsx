@@ -51,5 +51,5 @@ export const Drive = forwardRef(
       />
       <path fill="#0c9b57" d="M8.47 9.66L10 7.03 6.52 1l1.95 8.66z" />
     </svg>
-  ),
+  )
 );

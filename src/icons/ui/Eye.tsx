@@ -9,5 +9,5 @@ export const Eye = forwardRef(
       />
       <circle cx={10} cy={10} r={3} fill="#1a2e3b" />
     </svg>
-  ),
+  )
 );

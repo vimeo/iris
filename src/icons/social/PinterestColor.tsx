@@ -16,5 +16,5 @@ export const PinterestColor = forwardRef(
         />
       </svg>
     );
-  },
+  }
 );

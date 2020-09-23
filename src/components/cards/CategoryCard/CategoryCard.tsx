@@ -15,7 +15,7 @@ import { Focus, IrisProps, withIris } from '../../../utils';
 import { themes } from '../../../themes';
 
 export const CategoryCard = withIris<HTMLButtonElement, Props>(
-  CategoryCardComponent,
+  CategoryCardComponent
 );
 
 type Props = IrisProps<

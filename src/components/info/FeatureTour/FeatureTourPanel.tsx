@@ -16,7 +16,7 @@ import { withIris, IrisProps, useClose } from '../../../utils';
 const BLUE = adjustHue(30, setSaturation(0.9, blue(600)));
 
 export const FeatureTourPanel = withIris<HTMLDivElement, Props>(
-  FeatureTourPanelComponent,
+  FeatureTourPanelComponent
 );
 
 type Props = IrisProps<
@@ -30,7 +30,7 @@ type Props = IrisProps<
     color?: string;
     contextualInfo?: ReactNode;
     dismissButtonA11yLabel: string;
-    dismissButtonProps?: {};
+    dismissButtonProps?: unknown;
     dotZIndex?: number;
     headerText?: string;
     isOpen?: boolean;
@@ -78,7 +78,7 @@ function FeatureTourPanelComponent({
     onOpen && onOpen(e);
   }
 
-  const doClose = event => {
+  const doClose = (event) => {
     event.preventDefault();
     setMode('inactive');
 

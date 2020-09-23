@@ -6,12 +6,12 @@ import { Paragraph } from '../../typography';
 import { Button, Notice } from '../../components';
 import { Layout } from '../../storybook';
 
-export default { title: 'motion|SlideUpDown/' };
+export default { title: 'motion/SlideUpDown' };
 
 export const Common = () => <CommonStory />;
 function CommonStory() {
   const [showing, setShowing] = useState(false);
-  const onClick = () => setShowing(showing => !showing);
+  const onClick = () => setShowing((showing) => !showing);
 
   return (
     <Layout.StoryVertical>
@@ -37,7 +37,7 @@ function CommonStory() {
 export const Automatic = () => <AutomaticStory />;
 function AutomaticStory() {
   const [showing, setShowing] = useState(true);
-  const onClick = () => setShowing(showing => !showing);
+  const onClick = () => setShowing((showing) => !showing);
 
   return (
     <Layout.StoryVertical>

@@ -30,7 +30,7 @@ import { slate } from '../../../../color';
 import { withIris } from '../../../../utils';
 
 export const DateRange = withIris<HTMLInputElement, Props>(
-  DateRangeComponent,
+  DateRangeComponent
 );
 
 const dateFormat = getDateFormat();
@@ -126,7 +126,7 @@ function DateRangeComponent({
     const payload = new Date(
       viewportDate.getFullYear(),
       viewportDate.getMonth() + 1,
-      1,
+      1
     );
     dispatch({ type: 'CHANGE_VIEWPORT', payload });
   }
@@ -137,13 +137,13 @@ function DateRangeComponent({
     const payload = new Date(
       viewportDate.getFullYear(),
       viewportDate.getMonth() - 1,
-      1,
+      1
     );
     dispatch({ type: 'CHANGE_VIEWPORT', payload });
   }
 
   function handleKeyDown(
-    event: React.KeyboardEvent<HTMLInputElement>,
+    event: React.KeyboardEvent<HTMLInputElement>
   ) {
     event.stopPropagation();
     switch (event.key) {
@@ -171,7 +171,9 @@ function DateRangeComponent({
     dispatch({ type: 'HOVER_DATE', payload });
   }
 
-  const handleStartChange: FormEventHandler<HTMLInputElement> = event => {
+  const handleStartChange: FormEventHandler<HTMLInputElement> = (
+    event
+  ) => {
     dispatch({
       type: 'CHANGE_START',
       payload: {
@@ -181,7 +183,9 @@ function DateRangeComponent({
     });
   };
 
-  const handleEndChange: FormEventHandler<HTMLInputElement> = event => {
+  const handleEndChange: FormEventHandler<HTMLInputElement> = (
+    event
+  ) => {
     dispatch({
       type: 'CHANGE_END',
       payload: {
@@ -191,7 +195,7 @@ function DateRangeComponent({
     });
   };
 
-  const handleSelectPreset = preset => {
+  const handleSelectPreset = (preset) => {
     const payload = [];
     const { today, yesterday } = getDates();
 
@@ -205,7 +209,7 @@ function DateRangeComponent({
         break;
       case 'number':
         const date = new Date(
-          new Date().setDate(new Date().getDate() + preset),
+          new Date().setDate(new Date().getDate() + preset)
         );
         if (preset > 0) {
           payload.push(today);
@@ -234,7 +238,7 @@ function DateRangeComponent({
           style={{ borderRight: `1px solid ${slate(100)}` }}
         >
           <Menu.Section title="Presets">
-            {presets.map(preset => {
+            {presets.map((preset) => {
               const label =
                 typeof preset === 'number'
                   ? preset < 0

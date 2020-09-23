@@ -21,7 +21,7 @@ export interface FeatureTourPanelContentProps {
   children: ReactNode;
   contextualInfo?: ReactNode;
   dismissButtonA11yLabel: string;
-  dismissButtonProps?: {};
+  dismissButtonProps?: unknown;
   headerText?: string;
   onClose?: onClose;
   color?: string;
@@ -41,7 +41,7 @@ export const FeatureTourPanelContent = ({
 }: FeatureTourPanelContentProps) => {
   const { reject, complete } = useClose(onClose);
 
-  const onClick = event => {
+  const onClick = (event) => {
     event.preventDefault();
     if (reject) reject(event);
     if (complete) complete(event);
@@ -96,8 +96,8 @@ const FeatureTourPanelContentStyled = styled.div<{
 }>`
   padding: ${rem(24)} ${rem(24)} ${rem(16)};
   border-radius: ${rem(5)};
-  background: ${props => (props.color ? props.color : BLUE)};
-  max-width: ${p => sizes[p.size]}rem;
+  background: ${(props) => (props.color ? props.color : BLUE)};
+  max-width: ${(p) => sizes[p.size]}rem;
 
   img {
     display: none;

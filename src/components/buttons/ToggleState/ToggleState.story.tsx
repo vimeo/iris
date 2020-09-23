@@ -10,12 +10,13 @@ const ButtonToggleState = styled(B)`
   margin: 0 1rem 1rem 0;
 `;
 
-export default { title: 'Components|Buttons/ToggleState' };
+export default { title: 'Components/Buttons/ToggleState' };
 
 export const Common = () => <CommonStory />;
 function CommonStory() {
   const [following, setFollowing] = useState(false);
-  const toggleFollowing = () => setFollowing(following => !following);
+  const toggleFollowing = () =>
+    setFollowing((following) => !following);
 
   return (
     <ButtonToggleState
@@ -81,7 +82,8 @@ function AllStatesStory() {
 export const Format = () => <FormatStory />;
 function FormatStory() {
   const [following, setFollowing] = useState(false);
-  const toggleFollowing = () => setFollowing(following => !following);
+  const toggleFollowing = () =>
+    setFollowing((following) => !following);
 
   return (
     <>

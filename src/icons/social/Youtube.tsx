@@ -8,5 +8,5 @@ export const Youtube = forwardRef(
         fill="#d9252a"
       />
     </svg>
-  ),
+  )
 );

@@ -19,7 +19,7 @@ function TagComponent({
 }: Props) {
   const { reject, complete } = useClose(onClose);
 
-  const onClick = event => {
+  const onClick = (event) => {
     event.preventDefault();
     if (reject) reject(event);
     if (complete) complete(event);

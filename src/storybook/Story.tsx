@@ -39,19 +39,19 @@ export function Story({
 const Wrapper = styled.div`
   padding: 2rem;
   /* min-height: 100vh; */
-  background: ${props =>
+  background: ${(props) =>
     props.theme.name === 'light' ? white : grayscale(850)};
 `;
 
 const Source = styled.div<{ width: string; flex: boolean }>`
   padding: 2rem;
-  border: ${props =>
+  border: ${(props) =>
     props.theme.name === 'light'
       ? '1px solid rgba(0, 0, 0, 0.1)'
       : '1px solid rgba(255, 255, 255, 0.2)'};
   border-radius: 0.25rem;
-  max-width: ${props => props.width};
+  max-width: ${(props) => props.width};
   margin: 3rem 0;
-  display: ${props => (props.flex ? 'flex' : 'block')};
-  flex-wrap: ${props => (props.flex ? 'wrap' : 'nowrap')};
+  display: ${(props) => (props.flex ? 'flex' : 'block')};
+  flex-wrap: ${(props) => (props.flex ? 'wrap' : 'nowrap')};
 `;

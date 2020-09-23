@@ -10,5 +10,5 @@ export const Masonry = forwardRef(
         <rect x="12" y="9" width="7" height="10" rx="2" />
       </g>
     </svg>
-  ),
+  )
 );

@@ -8,5 +8,5 @@ export const HeartBroken = forwardRef(
         fill="#1a2e3b"
       />
     </svg>
-  ),
+  )
 );

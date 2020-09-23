@@ -5,7 +5,7 @@ import { Paragraph } from './Paragraph';
 
 import { Layout } from '../../storybook';
 
-export default { title: 'typography|Paragraph/' };
+export default { title: 'typography/Paragraph' };
 
 const formats = {
   alternative: 'alternative',

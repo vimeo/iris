@@ -14,5 +14,5 @@ export const Error = forwardRef(
       />
       <circle cx="10" cy="13" r="0.5" fill="#ff4d4d" />
     </svg>
-  ),
+  )
 );

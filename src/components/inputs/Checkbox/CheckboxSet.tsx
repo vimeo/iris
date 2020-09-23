@@ -7,7 +7,7 @@ import { Props } from './Checkbox.types';
 import { generateUID, withIris } from '../../../utils';
 
 export const CheckboxSet = withIris<HTMLDivElement, Props>(
-  CheckboxSetComponent,
+  CheckboxSetComponent
 );
 
 function CheckboxSetComponent({
@@ -26,7 +26,7 @@ function CheckboxSetComponent({
     children,
   ]);
 
-  const all = boolean =>
+  const all = (boolean) =>
     coupled
       ? children.map(() => boolean)
       : [...children.map(() => boolean), boolean];
@@ -35,8 +35,8 @@ function CheckboxSetComponent({
 
   if (!validate(children, 'checkbox')) return null;
 
-  const allChecked = checks.every(check => check);
-  const someChecked = !allChecked && checks.some(check => check);
+  const allChecked = checks.every((check) => check);
+  const someChecked = !allChecked && checks.some((check) => check);
   const parentChecked = toggled
     ? [...checks].pop()
     : allChecked || someChecked;
@@ -68,7 +68,7 @@ function CheckboxSetComponent({
               value: UIDs[i],
               onClick: () => setChecks(toggle(i)),
               readOnly: true,
-            }),
+            })
           )}
         </div>
       )}
@@ -76,5 +76,5 @@ function CheckboxSetComponent({
   );
 }
 
-const toggle = index => checked =>
+const toggle = (index) => (checked) =>
   checked.map((val, i) => (index === i ? !val : val));

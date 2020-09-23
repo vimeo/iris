@@ -15,7 +15,7 @@ import { inputColors } from '../Shared';
 import { CircleInfoSmall } from '../../../icons';
 
 export const TextArea = withIris<HTMLInputElement, Props>(
-  TextAreaComponent,
+  TextAreaComponent
 );
 
 function TextAreaComponent({
@@ -82,7 +82,7 @@ const TextAreaStyled = styled.textarea<any>`
     border: 1.5px solid ${blue(500)};
   }
 
-  ${props =>
+  ${(props) =>
     props.hasIcon &&
     css`
       padding-left: 2.25rem;

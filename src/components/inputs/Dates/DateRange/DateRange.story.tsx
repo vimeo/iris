@@ -10,7 +10,7 @@ import { ChevronDown } from '../../../../icons';
 import { PopOver } from '../../../../layout';
 import { AttachAlias } from '../../../../utils';
 
-export default { title: 'Components|Inputs/DateRange' };
+export default { title: 'Components/Inputs/DateRange' };
 
 export function Common() {
   return (
@@ -39,7 +39,7 @@ const attachs = {
 const attachKnob = select<AttachAlias>(
   'Calendar attach',
   attachs,
-  'bottom',
+  'bottom'
 );
 
 function DateRangeButton({ presets = null }) {
@@ -74,7 +74,7 @@ function DateRangeButton({ presets = null }) {
 }
 
 function locale(range) {
-  const [start, end] = range.map(d => d.toLocaleDateString());
+  const [start, end] = range.map((d) => d.toLocaleDateString());
   return `${start} - ${end}`;
 }
 
@@ -83,5 +83,5 @@ function locale(range) {
 const defaultDate = new Date(new Date().toDateString());
 const minDate = new Date(date('Minimum Date', defaultDate));
 const maxDate = new Date(
-  new Date().setFullYear(new Date().getFullYear() + 1),
+  new Date().setFullYear(new Date().getFullYear() + 1)
 );

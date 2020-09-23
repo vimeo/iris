@@ -16,5 +16,5 @@ export const Location = forwardRef(
         />
       </svg>
     );
-  },
+  }
 );

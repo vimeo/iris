@@ -8,5 +8,5 @@ export const Envelope = forwardRef(
         fill="#1a2e3b"
       />
     </svg>
-  ),
+  )
 );

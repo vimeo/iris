@@ -5,7 +5,7 @@ import { Input } from '../Input/Input';
 import { withIris, IrisInputProps } from '../../../utils';
 
 export const Radio = withIris<HTMLInputElement, Props>(
-  RadioComponent,
+  RadioComponent
 );
 
 type Props = IrisInputProps;

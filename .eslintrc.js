@@ -59,9 +59,10 @@ module.exports = {
     // @typescript rules
     //
     '@typescript-eslint/array-type': 0, // [1, 'array-simple'],
-    '@typescript-eslint/ban-ts-ignore': 1,
+    '@typescript-eslint/ban-ts-comment': 1,
     '@typescript-eslint/indent': 0, // ['warn', 2],
     '@typescript-eslint/explicit-member-accessibility': 0, // 2,
+    '@typescript-eslint/explicit-module-boundary-types': 0, // 2
     '@typescript-eslint/explicit-function-return-type': 0, // 1,
     '@typescript-eslint/no-explicit-any': 0, // 2,
     '@typescript-eslint/no-object-literal-type-assertion': 0,

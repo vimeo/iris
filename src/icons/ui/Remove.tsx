@@ -9,5 +9,5 @@ export const Remove = forwardRef(
         fill="#474747"
       ></path>
     </svg>
-  ),
+  )
 );

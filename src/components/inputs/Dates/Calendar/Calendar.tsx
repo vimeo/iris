@@ -83,7 +83,7 @@ export const Calendar = ({
     const payload = new Date(
       viewportDate.getFullYear(),
       viewportDate.getMonth() + 1,
-      1,
+      1
     );
     dispatch({ type: 'CHANGE_VIEWPORT', payload });
   };
@@ -92,7 +92,7 @@ export const Calendar = ({
     const payload = new Date(
       viewportDate.getFullYear(),
       viewportDate.getMonth() - 1,
-      1,
+      1
     );
     dispatch({ type: 'CHANGE_VIEWPORT', payload });
   };
@@ -106,10 +106,10 @@ export const Calendar = ({
     };
   }
 
-  const inCurrentMonth = date =>
+  const inCurrentMonth = (date) =>
     date.getMonth() === actualDate.getMonth();
 
-  const inCurrentYear = date =>
+  const inCurrentYear = (date) =>
     date.getFullYear() === actualDate.getFullYear();
 
   function isCurrentDate(date) {
@@ -143,10 +143,12 @@ export const Calendar = ({
   const maxMonth = new Date(
     actualDate.getFullYear(),
     actualDate.getMonth() + 1,
-    1,
+    1
   );
 
-  useLayoutEffect(() => setWidth(geometry(ref).width), [setWidth]);
+  useLayoutEffect(() => setWidth(geometry(ref.current).width), [
+    setWidth,
+  ]);
 
   return (
     <Wrapper {...props} onMouseOut={handleMouseOut}>
@@ -249,7 +251,7 @@ function gotoMonth(viewingMonth, i) {
   return new Date(
     viewingMonth.getFullYear(),
     viewingMonth.getMonth() + i,
-    1,
+    1
   );
 }
 
@@ -287,7 +289,7 @@ const NextMonth = styled(ChevronRight)<{
   pointer-events: ${({ inactive, hidden }) =>
     inactive || hidden ? 'none' : 'default'};
 
-  ${props => {
+  ${(props) => {
     if (props.hidden) {
       return css`
         opacity: 0;
@@ -315,7 +317,7 @@ const Days = styled.div<{ width?: number }>`
   align-items: flex-start;
   align-content: flex-start;
   padding: 0 0.5rem 0.5rem;
-  height: ${p => rem(p.width)};
+  height: ${(p) => rem(p.width)};
   width: 100%;
 `;
 
@@ -336,11 +338,11 @@ const Day = styled.div<DayProps>`
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  font-size: ${p => rem(14 + (p.size > 45.8 && p.size / 7))};
+  font-size: ${(p) => rem(14 + (p.size > 45.8 && p.size / 7))};
   font-weight: 500;
   padding: 0.75rem 0.25rem;
   color: ${({ theme }) => theme.content.color};
-  opacity: ${p => (p.inCurrentMonth && !p.disabled ? 1 : 0.125)};
+  opacity: ${(p) => (p.inCurrentMonth && !p.disabled ? 1 : 0.125)};
   z-index: 0;
   background: transparent;
 
@@ -358,7 +360,7 @@ const Day = styled.div<DayProps>`
     z-index: -1;
   }
 
-  ${p =>
+  ${(p) =>
     p.isCurrentDate &&
     p.inCurrentMonth &&
     !p.disabled &&

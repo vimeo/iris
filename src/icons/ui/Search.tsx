@@ -8,5 +8,5 @@ export const Search = forwardRef(
         fill="#1a2e3b"
       />
     </svg>
-  ),
+  )
 );

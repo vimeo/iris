@@ -10,4 +10,6 @@ export type Props = IrisInputProps<{
   pill?: boolean;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   status?: 'negative' | 'positive' | 'neutral';
+  variant?: 'underline';
+  autosuggest?: string[];
 }>;

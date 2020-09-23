@@ -20,7 +20,7 @@ type Props = IrisProps<{
 
 type Ref = RRef<HTMLButtonElement>;
 
-export const InnerButton = forwardRef(function(
+export const InnerButton = forwardRef(function (
   {
     children,
     className,
@@ -36,7 +36,7 @@ export const InnerButton = forwardRef(function(
     variant,
     ...props
   }: Props,
-  ref: Ref,
+  ref: Ref
 ) {
   const button = (
     <ButtonStyled
@@ -77,7 +77,7 @@ export const InnerButton = forwardRef(function(
 const ButtonStyled = styled(Button)<any>`
   font-weight: 400;
   border-radius: 0 0.2rem 0.2rem 0;
-  min-width: ${p => p.height}px;
+  min-width: ${(p) => p.height}px;
   height: calc(100% - 2px);
   transition: background 120ms ease-in-out;
 
@@ -96,5 +96,5 @@ const Wrapper = styled.div<any>`
   position: absolute;
   top: 1px;
   right: 1px;
-  height: ${p => p.height}px;
+  height: ${(p) => p.height}px;
 `;

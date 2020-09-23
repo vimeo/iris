@@ -23,5 +23,5 @@ export const AppleAppStorePtBr = forwardRef(
         data-name="<Group>"
       />
     </svg>
-  ),
+  )
 );

@@ -7,7 +7,7 @@ import { Paragraph } from '../../../typography';
 import { Focus, IrisProps, withIris } from '../../../utils';
 
 export const NewItemCard = withIris<HTMLDivElement, Props>(
-  NewItemCardComponent,
+  NewItemCardComponent
 );
 
 type Props = IrisProps<

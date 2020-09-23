@@ -60,7 +60,7 @@ export function Handle({
           <>
             <LabelInput
               value={value}
-              onChange={e => setValue(e.target.value)}
+              onChange={(e) => setValue(e.target.value)}
               onFocus={setFocus(handle)}
               onBlur={setFocus(false)}
               focused={focused === handle}

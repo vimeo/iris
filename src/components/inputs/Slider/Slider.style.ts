@@ -16,7 +16,7 @@ export const Label = styled.div<{ focused: boolean }>`
   background: ${({ theme }) => theme.item.bg};
   color: ${({ theme }) => theme.content.color};
 
-  ${p =>
+  ${(p) =>
     p.focused &&
     css`
       transform: translate(-25%, 0.75rem) scale(1.075);
@@ -78,7 +78,7 @@ export const ActiveRange = styled.div.attrs<{ values?: number[] }>(
       width: values[1] - values[0] + '%',
       left: values[0] + '%',
     },
-  }),
+  })
 )<{ values?: number[] }>`
   pointer-events: none;
   position: absolute;

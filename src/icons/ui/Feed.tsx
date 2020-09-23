@@ -10,5 +10,5 @@ export const Feed = forwardRef(
       <path fill="#1a2e3b" d="M8 14h9v2H8z" />
       <circle cx={5} cy={15} r={2} fill="#1a2e3b" />
     </svg>
-  ),
+  )
 );

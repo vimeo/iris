@@ -8,5 +8,5 @@ export const Lock = forwardRef(
         fill="#1a2e3b"
       />
     </svg>
-  ),
+  )
 );

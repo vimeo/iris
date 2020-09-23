@@ -7,18 +7,12 @@ import { Button } from '../../components/buttons/Button/Button';
 
 const fadeIn = keyframes`
   0% {
-    backface-visibility: hidden;
-    will-change: transform, opacity;
-    transform-style: preserve-3d;
-    transform: translateY(2rem) scale(0.99);
+    transform: translateY(2rem) scale(0.98);
     opacity: 0;
   }
 
   100% {
-    backface-visibility: unset;
-    will-change: unset;
-    transform-style: unset;
-    transform: translateY(0) scale(1) rotate(0deg);
+    transform: translateY(0) scale(1);
     opacity: 1;
   }
 `;
@@ -28,7 +22,7 @@ export const Modal = styled.div<Props>`
   border-radius: 0.25rem;
   z-index: 2000;
   ${modalSize};
-  animation: ${fadeIn} 200ms ease-in-out;
+  animation: ${fadeIn} 300ms ease-in-out;
 `;
 
 const sizes = {

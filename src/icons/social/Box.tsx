@@ -12,5 +12,5 @@ export const Box = forwardRef(
         fill="#22a7f0"
       />
     </svg>
-  ),
+  )
 );

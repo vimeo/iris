@@ -9,5 +9,5 @@ export const DismissX = forwardRef(
         fillRule="evenodd"
       />
     </svg>
-  ),
+  )
 );

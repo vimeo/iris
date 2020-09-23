@@ -1,6 +1,6 @@
 import React, { SVGProps } from 'react';
 export const VimeoPlusBlueBoxLogo = (
-  props: SVGProps<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>
 ) => (
   <svg viewBox="0 0 96 64" {...props}>
     <defs>

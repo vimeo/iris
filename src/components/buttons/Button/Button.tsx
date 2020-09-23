@@ -4,7 +4,11 @@ import { ButtonStyled, ButtonChildren } from './Button.style';
 import { FeaturedIcon } from './FeaturedIcon';
 import { Props, DOMElement } from './Button.types';
 
-import { LoaderCircular } from '../../../motion';
+// Iris submodule organization needs to be reconsidered.
+// This creates a circular dependency.
+// import { LoaderCircular } from '../../../motion';
+import { LoaderCircular } from '../../../motion/LoaderCircular/LoaderCircular';
+
 import {
   withIris,
   // useIrisError,
@@ -16,7 +20,7 @@ import {
 export const Button = withIris<DOMElement, Props>(
   ButtonComponent,
   true,
-  'components/buttons/Button/Button',
+  'components/buttons/Button/Button'
 );
 
 const deprecatedProps = {

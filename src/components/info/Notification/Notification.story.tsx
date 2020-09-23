@@ -6,7 +6,7 @@ import { Notification } from './Notification';
 import { Button } from '../../index';
 import { Header } from '../../../typography';
 
-export default { title: 'Components|Info/Notification' };
+export default { title: 'Components/Info/Notification' };
 
 export function Common() {
   return (

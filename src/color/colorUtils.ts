@@ -18,13 +18,13 @@ export function HSLtoHSV({ hue, saturation, lightness }) {
   };
 }
 
-export const colorSpaces = HSL => ({
+export const colorSpaces = (HSL) => ({
   HSV: HSLtoHSV(HSL),
   HEX: toColorString(HSL),
   RGB: parseToRgb(toColorString(HSL)),
 });
 
-export const round = num => Math.round(num * 1000) / 1000;
+export const round = (num) => Math.round(num * 1000) / 1000;
 
-export const roundValues = obj =>
-  Object.keys(obj).map(key => (obj[key] = round(obj[key])));
+export const roundValues = (obj) =>
+  Object.keys(obj).map((key) => (obj[key] = round(obj[key])));

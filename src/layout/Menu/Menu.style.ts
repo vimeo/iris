@@ -32,7 +32,7 @@ export const Toggle = styled.div<{ open?: boolean }>`
   left: -0.5rem;
   transition: 120ms ease-in-out;
 
-  transform: ${p => (p.open ? 'rotate(0deg)' : 'rotate(-90deg)')};
+  transform: ${(p) => (p.open ? 'rotate(0deg)' : 'rotate(-90deg)')};
 
   &:focus {
     outline: none;
@@ -50,7 +50,7 @@ export const Header = styled.div`
   padding: 0.5rem 1.25rem;
   text-transform: uppercase;
   margin: 0.2rem 0 0;
-  color: ${p => rgba(p.theme.content.color, 0.5)};
+  color: ${(p) => rgba(p.theme.content.color, 0.5)};
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.025rem;
@@ -83,7 +83,7 @@ export const Wrapper = styled.div<{
     background: ${({ theme }) => rgba(theme.content.color, 0.025)};
   }
 
-  ${p =>
+  ${(p) =>
     p.$height &&
     css`
       transition: 230ms ease-in-out;
@@ -159,11 +159,11 @@ export const SubMenu = styled.div`
     animation: ${fade} 140ms ease-in-out both;
 
     ${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(
-      i => css`
+      (i) => css`
         &:nth-child(${i}) {
           animation-delay: ${i * 60}ms;
         }
-      `,
+      `
     )};
   }
 `;

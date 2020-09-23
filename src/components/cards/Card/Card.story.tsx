@@ -5,7 +5,7 @@ import { Card as C } from './Card';
 
 import { Layout } from '../../../storybook';
 
-export default { title: 'Components|Cards/Card' };
+export default { title: 'Components/Cards/Card' };
 
 export function Common() {
   return (

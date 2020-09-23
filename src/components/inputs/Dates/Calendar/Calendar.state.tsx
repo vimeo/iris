@@ -119,7 +119,7 @@ export function reducer(state: State, action: Action): State {
       const tempViewportDate = new Date(
         newStartDate.getFullYear(),
         newStartDate.getMonth(),
-        1,
+        1
       );
 
       // If chosen date is in a previous month switch viewport to that month

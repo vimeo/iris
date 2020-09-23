@@ -1,4 +1,4 @@
-export const initialState = initialValues => ({
+export const initialState = (initialValues) => ({
   values: [initialValues[0], initialValues[1]],
   dragging: false,
 });

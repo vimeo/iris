@@ -4,7 +4,7 @@ import { BigStat } from './BigStat';
 
 import { Layout } from '../../storybook';
 
-export default { title: 'typography|BigStat/' };
+export default { title: 'typography/BigStat' };
 
 export function Common() {
   return (

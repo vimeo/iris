@@ -5,7 +5,7 @@ import { Hidden } from './FileUpload.style';
 import { withIris, IrisInputProps } from '../../../utils';
 
 export const FileUpload = withIris<HTMLInputElement, Props>(
-  FileUploadComponent,
+  FileUploadComponent
 );
 
 type Props = IrisInputProps;

@@ -280,7 +280,7 @@ const mediaQuery = ({ min = 0, max, type = 'only screen' }) =>
   !max || min === max
     ? `@media ${type} and (min-width: ${em(min)})`
     : `@media ${type} and (min-width: ${em(
-        min,
+        min
       )}) and (max-width: ${em(max)})`;
 
 type MediaQuerySize = { min?: number; max?: number };

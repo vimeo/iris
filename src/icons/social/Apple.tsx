@@ -8,5 +8,5 @@ export const Apple = forwardRef(
         id="path4"
       />
     </svg>
-  ),
+  )
 );

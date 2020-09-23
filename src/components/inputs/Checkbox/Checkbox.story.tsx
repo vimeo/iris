@@ -7,7 +7,7 @@ import { CheckboxSet } from './CheckboxSet';
 import { Layout } from '../../../storybook';
 import { Header } from '../../../typography';
 
-export default { title: 'Components|Inputs/Marks/Checkbox' };
+export default { title: 'Components/Inputs/Checkbox' };
 
 export function Common() {
   return (

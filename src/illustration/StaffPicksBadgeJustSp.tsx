@@ -1,6 +1,6 @@
 import React, { SVGProps } from 'react';
 export const StaffPicksBadgeJustSp = (
-  props: SVGProps<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>
 ) => (
   <svg viewBox="0 0 32 32" {...props}>
     <circle cx={16} cy={16} r={16} />

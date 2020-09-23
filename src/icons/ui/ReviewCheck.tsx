@@ -17,5 +17,5 @@ export const ReviewCheck = forwardRef(
         d="M13.5 5.5l-4.39 4.75L6.5 7.5"
       />
     </svg>
-  ),
+  )
 );

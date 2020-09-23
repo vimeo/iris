@@ -26,7 +26,7 @@ import { ChevronDown as CD } from '../../../icons';
 import { PopOver, Pop } from '../../../layout';
 
 export const Select = withIris<HTMLSelectElement, Props, Minors>(
-  SelectComponent,
+  SelectComponent
 );
 
 function SelectComponent({
@@ -57,8 +57,8 @@ function SelectComponent({
   useImperativeHandle(forwardRef, () => selectRef.current);
 
   useLayoutEffect(
-    () => faux && setWidth(geometry(wrapperRef).width),
-    [size, faux],
+    () => faux && setWidth(geometry(wrapperRef.current).width),
+    [size, faux]
   );
 
   useOutsideClick(popOverRef, () => {
@@ -69,7 +69,7 @@ function SelectComponent({
     if (faux && updatedSelected) {
       if (selectRef?.current) {
         selectRef.current.dispatchEvent(
-          new Event('change', { bubbles: true }),
+          new Event('change', { bubbles: true })
         );
         setUpdatedSelected(false);
       }
@@ -78,13 +78,13 @@ function SelectComponent({
 
   const options = faux
     ? (children as ReactElement[])
-        .filter(child => {
+        .filter((child) => {
           return child.type !== 'a';
         })
         .map(({ props: { value, children } }, i) => (
           <option key={i} value={value}>
             {Array.isArray(children)
-              ? children.filter(cc => typeof cc === 'string')
+              ? children.filter((cc) => typeof cc === 'string')
               : children}
           </option>
         ))
@@ -198,10 +198,10 @@ Select.Option = ({
         <Pop.Item {...props}>
           <>
             <span style={disabled && { opacity: 0.4 }}>
-              {children.filter(c => typeof c === 'string')}
+              {children.filter((c) => typeof c === 'string')}
             </span>
             <span style={{ pointerEvents: 'none' }}>
-              {children.filter(c => typeof c !== 'string')}
+              {children.filter((c) => typeof c !== 'string')}
             </span>
           </>
         </Pop.Item>
@@ -230,7 +230,7 @@ const SelectStyled = styled.select<any>`
 
 const ChevronDown = styled(CD)<{ size: Sizes }>`
   position: absolute;
-  top: ${p => bottom[p.size]}rem;
+  top: ${(p) => bottom[p.size]}rem;
   right: 0.3rem;
   width: 1.5rem;
   height: 1.5rem;

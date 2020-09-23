@@ -8,5 +8,5 @@ export const Dropbox = forwardRef(
         fill="#0061ff"
       />
     </svg>
-  ),
+  )
 );

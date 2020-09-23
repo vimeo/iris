@@ -13,5 +13,5 @@ export const InProgress = forwardRef(
         fill="#00adef"
       />
     </svg>
-  ),
+  )
 );

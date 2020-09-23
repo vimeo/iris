@@ -14,19 +14,28 @@ addDecorator(withA11y);
 addDecorator(withKnobs);
 addDecorator(withThemes);
 
-const storySort = (cur, next) => {
+const categoryOrder = ['iris', 'color', 'components', 'typography', 'layout', 'icons', 'illustration', 'motion', 'utilties', 'themes', 'labs'];
+
+const getOrder = (header) => categoryOrder.findIndex((h) => h === header);
+const defaultSort = (a, b) => a[1].id.localeCompare(b[1].id, undefined, { numeric: true });
+const stripCategory = (story) => story[1].kind.substr(0, story[1].kind.indexOf('/')).toLowerCase();
+
+function storySort(cur, next) {
   const a = stripCategory(cur);
   const b = stripCategory(next);
 
   if (a !== b) return getOrder(a) - getOrder(b);
+
   // order Common stories first
   if (cur[1]?.id.includes('common')) return -1;
   if (next[1]?.id.includes('common')) return 1;
+
   // order Index stories last
   if (cur[1]?.id.includes('index')) return 1;
   if (next[1]?.id.includes('index')) return -1;
+
   return defaultSort(cur, next);
-};
+}
 
 addParameters({
   options: { storySort },
@@ -59,11 +68,5 @@ configure(
 
     require.context('../src/_labs', true, /\.(stories|story)\.tsx$/),
   ],
-  module,
+  module
 );
-
-const categoryOrder = ['iris', 'color', 'components', 'typography', 'layout', 'icons', 'illustration', 'motion', 'utilties', 'themes', 'labs'];
-
-const getOrder = header => categoryOrder.findIndex(h => h === header);
-const defaultSort = (a, b) => a[1].id.localeCompare(b[1].id, undefined, { numeric: true });
-const stripCategory = story => story[1].kind.substr(0, story[1].kind.indexOf('|')).toLowerCase();

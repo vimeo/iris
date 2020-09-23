@@ -11,7 +11,7 @@ import { Gear, DismissX } from '../../icons';
 import { Paragraph } from '../../typography';
 import { blue } from '../../color';
 
-export default { title: 'layout|PopOver/' };
+export default { title: 'layout/PopOver' };
 
 export function Common() {
   return (
@@ -45,7 +45,7 @@ function DynamicSizeStory() {
       >
         <TriggerButton>PopOver</TriggerButton>
       </PopOver>
-      <Button onClick={() => widthSet(width => width + 40)}>
+      <Button onClick={() => widthSet((width) => width + 40)}>
         resize
       </Button>
     </>
@@ -88,7 +88,7 @@ function PopOverControlled() {
 
   return (
     <>
-      <Button onClick={() => setActive(active => !active)}>
+      <Button onClick={() => setActive((active) => !active)}>
         toggle
       </Button>
       <PopOver

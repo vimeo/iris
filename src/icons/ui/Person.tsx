@@ -8,5 +8,5 @@ export const Person = forwardRef(
         fill="#b3bfc8"
       />
     </svg>
-  ),
+  )
 );

@@ -6,7 +6,7 @@ import { Props } from './LoaderCircular.types';
 import { withIris } from '../../utils';
 
 export const LoaderCircular = withIris<HTMLDivElement, Props>(
-  LoaderCircularComponent,
+  LoaderCircularComponent
 );
 
 function LoaderCircularComponent({

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { Button as B } from './Button';
+import { Header as H } from '../../../typography';
 import { config, formats, statuses, variants } from './Button.config';
 
 import { DownloadArrow, Plus, ArrowRight } from '../../../icons';
@@ -24,6 +25,44 @@ export function Disabled() {
 export function Pill() {
   return <Button pill>Button</Button>;
 }
+
+export function Index() {
+  return (
+    <Flex>
+      {formats.map((format, i) => (
+        <div>
+          <H size="4"> format: {format} </H>
+          {variants.map((variant, j) => (
+            <Button
+              key={`${i}-${j}`}
+              variant={variant}
+              format={format}
+              children={variant}
+            />
+          ))}
+        </div>
+      ))}
+      {statuses.map((status, i) => (
+        <div>
+          <H size="4"> status: {status} </H>
+          {variants.map((variant, j) => (
+            <Button
+              key={`${i}-${j}`}
+              variant={variant}
+              status={status}
+              children={variant}
+            />
+          ))}
+        </div>
+      ))}
+    </Flex>
+  );
+}
+
+const Flex = styled.div`
+  display: flex;
+  margin: 0 1rem 1rem 0;
+`;
 
 export function Format() {
   return formats.map((format, i) => (
@@ -157,7 +196,7 @@ export function TextOverflow() {
 export const Loading = () => <LoadingStory />;
 function LoadingStory() {
   const [loading, setLoading] = useState(false);
-  const onClick = () => setLoading(loading => !loading);
+  const onClick = () => setLoading((loading) => !loading);
 
   return (
     <Button size="lg" loading={!loading} onClick={onClick}>

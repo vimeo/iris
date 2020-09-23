@@ -20,5 +20,5 @@ export const SlackMark = forwardRef(
         fill="#ecb22e"
       />
     </svg>
-  ),
+  )
 );

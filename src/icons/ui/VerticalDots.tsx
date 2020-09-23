@@ -12,5 +12,5 @@ export const VerticalDots = forwardRef(
         <circle cx="2" cy="10" r="2.5" />
       </g>
     </svg>
-  ),
+  )
 );

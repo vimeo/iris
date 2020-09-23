@@ -49,7 +49,7 @@ const ActionButton = ({
       {...props}
       format={format}
       // variant={variant}
-      onClick={event => {
+      onClick={(event) => {
         close && close(event);
         onClick && onClick(event);
       }}
@@ -74,10 +74,10 @@ export const Footer = styled.div<IrisProps>`
   padding-top: 1.5rem;
 `;
 
-export const PrimaryAction = props => (
+export const PrimaryAction = (props) => (
   <ActionButton format="primary" {...props} />
 );
 
-export const SecondaryAction = props => (
+export const SecondaryAction = (props) => (
   <ActionButton format="secondary" {...props} />
 );

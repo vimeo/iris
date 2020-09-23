@@ -45,5 +45,5 @@ export const BarChartOutlined = forwardRef(
         rx="1"
       ></rect>
     </svg>
-  ),
+  )
 );

@@ -8,5 +8,5 @@ export const Tiktok = forwardRef(
         fill="#3b5162"
       />
     </svg>
-  ),
+  )
 );

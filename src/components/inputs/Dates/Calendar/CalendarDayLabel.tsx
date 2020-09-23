@@ -44,7 +44,7 @@ export const CalendarDayLabel = styled(Label)`
     z-index: -1;
   }
 
-  ${props => {
+  ${(props) => {
     if (!props.isPast) {
       return css`
         &:hover {
@@ -62,7 +62,7 @@ export const CalendarDayLabel = styled(Label)`
     }
   }}
 
-  ${props => {
+  ${(props) => {
     if (props.isPast) {
       return css`
         cursor: default;

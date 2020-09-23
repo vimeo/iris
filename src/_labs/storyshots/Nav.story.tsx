@@ -3,16 +3,10 @@ import styled from 'styled-components';
 import { rgba } from 'polished';
 
 import { VimeoLogo } from '../../illustration';
-import {
-  Button,
-  Breadcrumb,
-  BreadcrumbLink,
-  Avatar,
-  Search,
-} from '../../components';
+import { Button, Path, Avatar, Search } from '../../components';
 import { ChevronDown, Bell as B } from '../../icons';
 
-export default { title: 'Labs|Storyshots/' };
+export default { title: 'Labs/Storyshots' };
 
 export function Nav() {
   return (
@@ -36,14 +30,11 @@ export function Nav() {
         <Button style={{ minWidth: '3rem' }}>Upload</Button>
       </TopNav>
       <SubNav>
-        <Breadcrumb
-          currentPageLabel="My Showcase"
-          style={{ width: '75%' }}
-          crumbs={[
-            <BreadcrumbLink href="#">Home</BreadcrumbLink>,
-            <BreadcrumbLink href="#">Showcases</BreadcrumbLink>,
-          ]}
-        />
+        <Path style={{ width: '75%' }}>
+          <Path.Link href="#">Home</Path.Link>
+          <Path.Link href="#">Showcases</Path.Link>
+          <Path.Current href="#">My Showcase</Path.Current>
+        </Path>
         <Button
           format="alternative"
           icon={<ChevronDown />}

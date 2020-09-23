@@ -15,5 +15,5 @@ export const Behance = forwardRef(
         <path fill="#474747" d="M12.7 5.8h4.6V4.6h-4.6z" />
       </svg>
     );
-  },
+  }
 );

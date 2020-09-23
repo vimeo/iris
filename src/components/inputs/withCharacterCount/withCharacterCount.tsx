@@ -4,8 +4,8 @@ import { Props } from './withCharacterCount.types';
 import { reducer } from './withCharacterCount.state';
 import { Counter } from './withCharacterCount.style';
 
-export function withCharacterCount<P = {}>(Component: FC<P>) {
-  return function({
+export function withCharacterCount<P = unknown>(Component: FC<P>) {
+  return function ({
     defaultValue,
     maxCharacters = 30,
     onChange,

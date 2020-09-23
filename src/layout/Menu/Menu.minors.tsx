@@ -38,7 +38,7 @@ export function Item({
 }) {
   const [open, setOpen] = useState(!toggle);
 
-  const doToggle = () => toggle && setOpen(open => !open);
+  const doToggle = () => toggle && setOpen((open) => !open);
 
   const doAction = (e: MouseEvent) => {
     action.onClick && action.onClick(e);
@@ -46,12 +46,12 @@ export function Item({
 
   const simpleKids =
     typeof children === 'object'
-      ? children.filter(child => typeof child === 'string')
+      ? children.filter((child) => typeof child === 'string')
       : children;
 
   const complexKids =
     typeof children === 'object' &&
-    children.filter(child => typeof child !== 'string');
+    children.filter((child) => typeof child !== 'string');
 
   const text = (
     <>

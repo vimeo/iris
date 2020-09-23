@@ -9,10 +9,16 @@ import {
   usePortal,
   validate,
   useIrisError,
+  SimpleAnimation,
 } from '../../../utils';
 import { Paragraph } from '../../../typography';
 
 export const Tip = withIris<HTMLDivElement, Props>(TipComponent);
+
+const animation: SimpleAnimation = {
+  enter: { opacity: 1, transform: 'translateY(0)' },
+  exit: { opacity: 0, transform: `translateY(5%)` },
+};
 
 function TipComponent({
   attach = 'top',
@@ -33,7 +39,7 @@ function TipComponent({
     { ...props },
     Tip,
     'usePortal components require children to accept refs! Please pass correct children to <Tip />!',
-    validate(children as any),
+    validate(children as any)
   );
 
   const [TipElement, anchor] = usePortal(
@@ -50,7 +56,7 @@ function TipComponent({
         </Paragraph>
       </div>
     </Styled>,
-    { attach, margin: 8, trigger },
+    { attach, animation, margin: 8, trigger }
   );
 
   if (irisError) return <div {...irisError}>{children}</div>;

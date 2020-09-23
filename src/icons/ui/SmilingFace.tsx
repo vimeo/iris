@@ -10,5 +10,5 @@ export const SmilingFace = forwardRef(
         <circle cx={23} cy={19} r={2} />
       </svg>
     );
-  },
+  }
 );

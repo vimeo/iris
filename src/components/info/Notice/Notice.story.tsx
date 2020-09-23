@@ -6,7 +6,7 @@ import { Gear } from '../../../icons';
 import { Story } from '../../../storybook';
 import { Paragraph } from '../../../typography';
 
-export default { title: 'Components|Info/Notice/' };
+export default { title: 'Components/Info/Notice' };
 
 export function Primary() {
   return <VariantStory format="primary" />;

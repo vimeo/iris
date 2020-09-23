@@ -19,7 +19,7 @@ export const AccountSettings = ({ email = '', name = '' }) => {
   const [preferredPronoun, setPreferredPronoun] = useState('');
   const [displayPronouns, setDisplayPronouns] = useState(false);
 
-  const updatePronouns = changedPronoun => event =>
+  const updatePronouns = (changedPronoun) => (event) =>
     setPronouns({
       ...pronouns,
       [changedPronoun]: event.target.checked,
@@ -38,7 +38,7 @@ export const AccountSettings = ({ email = '', name = '' }) => {
           id="name"
           showLabel={false}
           value={userName}
-          onChange={e =>
+          onChange={(e) =>
             setUserName((e.target as HTMLInputElement).value)
           }
         />
@@ -55,7 +55,7 @@ export const AccountSettings = ({ email = '', name = '' }) => {
           id="email"
           showLabel={false}
           value={userEmail}
-          onChange={e =>
+          onChange={(e) =>
             setUserEmail((e.target as HTMLInputElement).value)
           }
         />
@@ -91,9 +91,9 @@ export const AccountSettings = ({ email = '', name = '' }) => {
                   type="text"
                   id="neopronouns"
                   value={neoPronouns}
-                  onChange={e =>
+                  onChange={(e) =>
                     setNeoPronouns(
-                      (e.target as HTMLInputElement).value,
+                      (e.target as HTMLInputElement).value
                     )
                   }
                 />
@@ -107,8 +107,8 @@ export const AccountSettings = ({ email = '', name = '' }) => {
             <SubHeader>However, I prefer (optional)</SubHeader>
             <PronounCheckboxes>
               {Object.keys(pronouns)
-                .filter(pronoun => pronouns[pronoun])
-                .map(p => (
+                .filter((pronoun) => pronouns[pronoun])
+                .map((p) => (
                   <Radio
                     key={p}
                     id={`radio-${p}`}
@@ -116,7 +116,7 @@ export const AccountSettings = ({ email = '', name = '' }) => {
                     checked={preferredPronoun === p}
                     onClick={() =>
                       setPreferredPronoun(
-                        preferredPronoun === p ? '' : p,
+                        preferredPronoun === p ? '' : p
                       )
                     }
                     readOnly
@@ -136,7 +136,7 @@ export const AccountSettings = ({ email = '', name = '' }) => {
                 label="display"
                 checked={displayPronouns}
                 onClick={() =>
-                  setDisplayPronouns(display => !display)
+                  setDisplayPronouns((display) => !display)
                 }
                 readOnly
               />
@@ -145,7 +145,7 @@ export const AccountSettings = ({ email = '', name = '' }) => {
                 label="hide"
                 checked={!displayPronouns}
                 onClick={() =>
-                  setDisplayPronouns(display => !display)
+                  setDisplayPronouns((display) => !display)
                 }
                 readOnly
               />
@@ -195,8 +195,8 @@ const Summary = ({
   );
 
   const pronounArray = Object.keys(pronouns)
-    .filter(p => pronouns[p])
-    .map(p => duo[p]);
+    .filter((p) => pronouns[p])
+    .map((p) => duo[p]);
 
   const pronounText = hasAtLeast(1, pronouns) && (
     <>
@@ -209,7 +209,7 @@ const Summary = ({
               ...pronounArray.splice(0, pronounArray.length - 1),
               `and ${pronounArray.slice(-1)}`,
             ]
-              .map(p => {
+              .map((p) => {
                 return p !== 'he/him' &&
                   p !== 'she/her' &&
                   p !== 'they/them'
@@ -225,7 +225,7 @@ const Summary = ({
           My pronouns are{' '}
           <em>
             {pronounArray
-              .map(p => {
+              .map((p) => {
                 return p !== 'he/him' &&
                   p !== 'she/her' &&
                   p !== 'they/them'
@@ -241,7 +241,7 @@ const Summary = ({
             {' '}
             My pronouns are{' '}
             <em>
-              {pronounArray.map(p => {
+              {pronounArray.map((p) => {
                 return p !== 'he/him' &&
                   p !== 'she/her' &&
                   p !== 'they/them'
@@ -305,7 +305,7 @@ const PronounCheckboxes = styled.div`
 `;
 
 const hasAtLeast = (x, pronouns) =>
-  Object.keys(pronouns).filter(p => pronouns[p]).length > x - 1;
+  Object.keys(pronouns).filter((p) => pronouns[p]).length > x - 1;
 
 const duo = {
   they: 'they/them',

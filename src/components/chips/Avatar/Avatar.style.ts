@@ -15,7 +15,7 @@ const sizes = {
 };
 
 export const Avatar = styled.img<{ size: Sizes }>`
-  ${p => size(sizes[p.size])}
+  ${(p) => size(sizes[p.size])}
   position: relative;
   border-radius: 100%;
 `;

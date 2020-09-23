@@ -20,5 +20,5 @@ export const CirclePlus = forwardRef(
         d="M14 9h-3V6H9v3H6v2h3v3h2v-3h3z"
       />
     </svg>
-  ),
+  )
 );

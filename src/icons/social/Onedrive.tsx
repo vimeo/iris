@@ -12,5 +12,5 @@ export const Onedrive = forwardRef(
         fill="#094ab2"
       />
     </svg>
-  ),
+  )
 );

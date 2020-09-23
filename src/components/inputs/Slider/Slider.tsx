@@ -26,7 +26,7 @@ interface State {
 export function Slider({
   disabled,
   editableLabel,
-  formatter = value => (value as unknown) as string,
+  formatter = (value) => (value as unknown) as string,
   initialValues = [0, 100],
   max = 100,
   min = 0,
@@ -37,7 +37,7 @@ export function Slider({
   const ref = useRef(null);
   const [state, dispatch] = useReducer(
     reducer,
-    initialState(initialValues),
+    initialState(initialValues)
   );
   const { values, trackRect, focused, dragging }: State = state;
 
@@ -65,7 +65,7 @@ export function Slider({
   }
 
   useLayoutEffect(() => {
-    const { left, width } = geometry(ref);
+    const { left, width } = geometry(ref.current);
     dispatch({ type: 'SET_TRACK_RECT', payload: { left, width } });
   }, []);
 
@@ -148,7 +148,7 @@ const Track = forwardRef(
         <ActiveRange values={values}></ActiveRange>
       </Background>
     );
-  },
+  }
 );
 
 function constrainedPosition(event, element, min, max) {
@@ -159,7 +159,7 @@ function constrainedPosition(event, element, min, max) {
 }
 
 function constrain(min, max) {
-  return val => {
+  return (val) => {
     if (val > max) return max;
     if (val < min) return min;
     return val;

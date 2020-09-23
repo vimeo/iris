@@ -1,6 +1,6 @@
 import React, { SVGProps } from 'react';
 export const AlbumsPlaybackEmptystateLight = (
-  props: SVGProps<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>
 ) => (
   <svg viewBox="0 0 200 96" {...props}>
     <g fill="none" fillRule="evenodd">

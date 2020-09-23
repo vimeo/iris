@@ -10,5 +10,5 @@ export const Linkedin = forwardRef(
         />
       </svg>
     );
-  },
+  }
 );

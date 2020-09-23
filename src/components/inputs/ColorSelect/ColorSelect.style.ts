@@ -23,7 +23,7 @@ export const Wrapper = styled.div<{ width?: number }>`
   padding: 0;
   position: relative;
   /* background: ${({ theme }) => theme.content.background}; */
-  width: ${p => p.width}px;
+  width: ${(p) => p.width}px;
   border-radius: 0.25rem;
   box-shadow: 0 0 ${rem(1)} 0 rgba(0, 0, 0, 0.15),
     0 ${rem(4)} ${rem(8)} 0 rgba(0, 0, 0, 0.15);
@@ -61,8 +61,8 @@ export const lightRay = (color, dir, el) => css`
 `;
 
 export const HueSpectrum = styled.div<any>`
-  width: ${props => rem(props.width)};
-  height: ${props => rem(props.height + 1)};
+  width: ${(props) => rem(props.width)};
+  height: ${(props) => rem(props.height + 1)};
   position: relative;
   border-radius: 0.25rem 0.25rem 0 0;
   cursor: pointer;

@@ -69,12 +69,12 @@ function basicBadge(color, hover = true) {
     background-color: ${rgba(color, 0.15)};
 
     ${hover &&
-      css`
-        &:hover {
-          color: ${darken(0.1, color)};
-          background-color: ${rgba(color, 0.2)};
-        }
-      `};
+    css`
+      &:hover {
+        color: ${darken(0.1, color)};
+        background-color: ${rgba(color, 0.2)};
+      }
+    `};
   `;
 }
 
@@ -132,14 +132,14 @@ function badgeColorsCSS({ format, href = null }) {
         background-color: transparent;
 
         ${href &&
-          css`
-            &:focus,
-            &:active,
-            &:hover {
-              color: ${red(600)};
-              background-color: ${red(50)};
-            }
-          `}
+        css`
+          &:focus,
+          &:active,
+          &:hover {
+            color: ${red(600)};
+            background-color: ${red(50)};
+          }
+        `}
       `;
     case 'featured':
       return css`

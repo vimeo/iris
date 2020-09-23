@@ -7,7 +7,7 @@ import { Header } from '../../../typography';
 import { Layout } from '../../../storybook';
 import { ANCHOR_POINTS } from '../../../utils';
 
-export default { title: 'Components|Info/Tip' };
+export default { title: 'Components/Info/Tip' };
 
 export function Common() {
   return (

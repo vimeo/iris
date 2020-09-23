@@ -6,7 +6,7 @@ import { Calendar } from './Calendar';
 
 import { Story } from '../../../../storybook';
 
-export default { title: 'Components|Inputs/Calendar' };
+export default { title: 'Components/Inputs/Calendar' };
 
 export const Common = () => <CommonStory />;
 function CommonStory() {
@@ -16,10 +16,11 @@ function CommonStory() {
     <Story title="Calendar">
       <Calendar
         selected={date}
-        onClick={date => setDate(date)}
+        onClick={(date) => setDate(date)}
         css={`
           width: 20rem;
-          border: 1px dashed ${p => rgba(p.theme.content.color, 0.25)};
+          border: 1px dashed
+            ${(p) => rgba(p.theme.content.color, 0.25)};
           border-radius: 0.25rem;
         `}
       />

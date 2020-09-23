@@ -6,7 +6,7 @@ import * as Illustrations from './index';
 import { Header } from '../typography';
 import { slate } from '../color';
 
-export default { title: 'illustration|Illustrations/' };
+export default { title: 'illustration/Illustrations' };
 
 export function All() {
   return (
@@ -44,13 +44,13 @@ const Wrap = styled.div`
   }
 `;
 
-const width = widthMap =>
+const width = (widthMap) =>
   Object.keys(widthMap).map(
-    minWidth => css`
+    (minWidth) => css`
       @media screen and (min-width: ${em(768)}) {
         width: calc(${widthMap[minWidth]}% - 4rem);
       }
-    `,
+    `
   );
 
 const Card = styled.div`

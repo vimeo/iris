@@ -2,7 +2,7 @@ import React from 'react';
 import { Story } from '../storybook';
 import { Header } from '../typography';
 
-export default { title: 'Labs|About/' };
+export default { title: 'Labs/About' };
 
 const componentName = 'Iris Labs 🧬';
 

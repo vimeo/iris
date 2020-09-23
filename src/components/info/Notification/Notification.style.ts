@@ -53,11 +53,11 @@ export const Notification = styled.div<Props>`
   transform: translateX(-50%);
   text-align: center;
   transform-origin: 50 50;
-  animation: ${p => p.duration}ms ${animation} ease-in-out both;
+  animation: ${(p) => p.duration}ms ${animation} ease-in-out both;
   border: 1px solid
     ${({ theme }) => rgba(white, theme.name === 'dark' ? 0.25 : 0)};
 
-  ${p =>
+  ${(p) =>
     p.icon &&
     css`
       padding-left: ${rem(42)};

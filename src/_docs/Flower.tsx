@@ -67,7 +67,7 @@ function Code({ children, ...props }) {
   const saturation = 1;
   const lightness = theme.name === 'dark' ? 0.667 : 0.4;
 
-  const color = i =>
+  const color = (i) =>
     hslToColorString({
       hue: i * (360 / (children.length - 1)),
       saturation,

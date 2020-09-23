@@ -9,5 +9,5 @@ export const SocialChipTwitter = forwardRef(
         fill="#fff"
       />
     </svg>
-  ),
+  )
 );

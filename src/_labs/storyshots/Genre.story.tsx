@@ -4,7 +4,7 @@ import { rgba } from 'polished';
 
 import { Checkbox } from '../../components';
 
-export default { title: 'Labs|Storyshots/' };
+export default { title: 'Labs/Storyshots' };
 
 export function ShowcaseGenres() {
   return (

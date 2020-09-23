@@ -13,7 +13,7 @@ import {
   Gear,
 } from '../../icons';
 
-export default { title: 'layout|Menu/' };
+export default { title: 'layout/Menu' };
 
 export function Simple() {
   return (
@@ -54,7 +54,7 @@ export function Complex() {
           <Menu.Item
             action={{
               icon: <CirclePlus />,
-              onClick: e => console.log(e),
+              onClick: (e) => console.log(e),
             }}
             icon={<Folder />}
             toggle
@@ -74,7 +74,7 @@ export function Complex() {
                   <Grid />
                 </Tip>
               ),
-              onClick: e => console.log(e),
+              onClick: (e) => console.log(e),
             }}
           >
             Item 1 NoS
@@ -88,10 +88,12 @@ export function Complex() {
               action={{
                 icon: (
                   <PopOver content={PopList} attach="right">
-                    <DotsMenu onClick={e => console.log(e.target)} />
+                    <DotsMenu
+                      onClick={(e) => console.log(e.target)}
+                    />
                   </PopOver>
                 ),
-                onClick: e => console.log(e.target),
+                onClick: (e) => console.log(e.target),
               }}
             >
               Item 2 S3

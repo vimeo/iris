@@ -7,5 +7,5 @@ export const DotsMenu = forwardRef(
       <circle cx={10} cy={10} r={2} fill="#1a2e3b" />
       <circle cx={17} cy={10} r={2} fill="#1a2e3b" />
     </svg>
-  ),
+  )
 );

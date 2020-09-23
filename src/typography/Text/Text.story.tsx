@@ -5,7 +5,7 @@ import { Text as T } from './Text';
 
 import { Layout } from '../../storybook';
 
-export default { title: 'typography|Text' };
+export default { title: 'typography/Text' };
 
 const Text = styled(T)`
   display: block;

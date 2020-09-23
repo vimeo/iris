@@ -11,7 +11,7 @@ export const Link = withIris<
 
 function LinkComponent({
   children,
-  decoration,
+  variant,
   element = 'a',
   format = 'primary',
   href,
@@ -21,7 +21,7 @@ function LinkComponent({
     <Styled
       as={element}
       href={href}
-      decoration={decoration}
+      variant={variant}
       format={format}
       {...props}
     >

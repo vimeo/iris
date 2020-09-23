@@ -5,7 +5,7 @@ import { number } from '@storybook/addon-knobs';
 import { Story } from '../../storybook';
 import { VirtualizedList } from './VirtualizedList';
 
-export default { title: 'Labs|Virtualized List/' };
+export default { title: 'Labs/Virtualized List' };
 
 export function Common() {
   const total = number('List length', 100, options);
@@ -47,8 +47,8 @@ interface ItemProps {
 }
 
 const Item = styled.div<ItemProps>`
-  height: ${props => props.height}px;
-  width: ${props => props.width}px;
+  height: ${(props) => props.height}px;
+  width: ${(props) => props.width}px;
   font-size: 1.5rem;
   font-weight: 600;
   padding: 1rem;

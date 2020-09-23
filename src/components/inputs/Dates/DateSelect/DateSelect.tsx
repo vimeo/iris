@@ -7,7 +7,7 @@ import { PopOver } from '../../../../layout';
 import { IrisInputProps, withIris } from '../../../../utils';
 
 export const DateSelect = withIris<HTMLInputElement, Props>(
-  DateSelectComponent,
+  DateSelectComponent
 );
 
 type Props = IrisInputProps<{

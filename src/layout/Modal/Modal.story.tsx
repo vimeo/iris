@@ -9,7 +9,7 @@ import { DismissX } from '../../icons';
 import { Layout } from '../../storybook';
 import { Paragraph, Header } from '../../typography';
 
-export default { title: 'layout|Modal/' };
+export default { title: 'layout/Modal' };
 
 export function Common() {
   return (
@@ -54,7 +54,7 @@ function WithInputContentStory() {
 
   const props = {
     value,
-    onChange: e => valueSet(e.currentTarget.value),
+    onChange: (e) => valueSet(e.currentTarget.value),
     style: { marginBottom: '1rem' },
   };
 
@@ -97,7 +97,7 @@ function ControlledWithDynamicContentStory() {
 
   const props = {
     value,
-    onChange: e => valueSet(e.currentTarget.value),
+    onChange: (e) => valueSet(e.currentTarget.value),
     style: { marginBottom: '1rem' },
   };
 
@@ -109,7 +109,7 @@ function ControlledWithDynamicContentStory() {
       <Input {...props} />
       <Button
         status="positive"
-        onClick={() => toggledSet(s => !s)}
+        onClick={() => toggledSet((s) => !s)}
         fluid
       >
         Toggle Content
@@ -134,7 +134,7 @@ function ControlledWithDynamicContentStory() {
       />
       <Button
         status="positive"
-        onClick={() => toggledSet(s => !s)}
+        onClick={() => toggledSet((s) => !s)}
         fluid
       >
         Toggle Content
@@ -214,7 +214,7 @@ function CustomStory() {
 
   return (
     <Layout.StoryVertical>
-      <Button onClick={() => activeSet(active => !active)}>
+      <Button onClick={() => activeSet((active) => !active)}>
         Open Custom Modal
       </Button>
       <Modal
@@ -273,5 +273,5 @@ const CustomModalFooter = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: 0.75rem;
-  border-top: 1px solid ${p => rgba(p.theme.content.color, 0.1)};
+  border-top: 1px solid ${(p) => rgba(p.theme.content.color, 0.1)};
 `;

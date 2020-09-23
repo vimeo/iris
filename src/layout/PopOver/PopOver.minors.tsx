@@ -49,7 +49,7 @@ const PopItemStyled = styled(Text)`
     background: ${({ theme }) =>
       rgba(
         theme.content.color,
-        theme.name === 'light' ? 0.075 : 0.125,
+        theme.name === 'light' ? 0.075 : 0.125
       )};
   }
 

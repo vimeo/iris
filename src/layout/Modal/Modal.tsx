@@ -11,18 +11,34 @@ import {
   SecondaryAction,
 } from './Modal.minors';
 
-import { withIris, Attach, usePortal } from '../../utils';
+import {
+  withIris,
+  Attach,
+  usePortal,
+  SimpleAnimation,
+} from '../../utils';
 import { DismissX } from '../../icons';
 import { themes } from '../../themes';
 
 export const Modal = withIris<HTMLDivElement, Props, Minors>(
-  ModalComponent,
+  ModalComponent
 );
 
 Modal.Header = Header;
 Modal.Footer = Footer;
 Modal.PrimaryAction = PrimaryAction;
 Modal.SecondaryAction = SecondaryAction;
+
+const animation: SimpleAnimation = {
+  enter: {
+    opacity: 1,
+    transform: 'translateY(0)',
+  },
+  exit: {
+    opacity: 0,
+    transform: `translateY(-15%)`,
+  },
+};
 
 function ModalComponent({
   active,
@@ -56,7 +72,7 @@ function ModalComponent({
             format="basic"
             theme={themes.dark}
             title={dismissLabel}
-            onClick={event => anchor.onClick(event)}
+            onClick={(event) => anchor.onClick(event)}
           />
         )}
         <ModalContent>{content}</ModalContent>
@@ -64,12 +80,13 @@ function ModalComponent({
     </ModalStyled>,
     {
       attach,
+      animation,
       screen: true,
       anchorToWindow: true,
       onOpen,
       onClose,
       forceActive: active,
-    },
+    }
   );
 
   return (

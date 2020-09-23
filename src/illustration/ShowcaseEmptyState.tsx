@@ -1,6 +1,6 @@
 import React, { SVGProps } from 'react';
 export const ShowcaseEmptyState = (
-  props: SVGProps<SVGSVGElement>,
+  props: SVGProps<SVGSVGElement>
 ) => (
   <svg viewBox="0 0 160 138" {...props}>
     <g fill="none" fill-rule="evenodd">

@@ -14,6 +14,7 @@ export interface IrisTheme {
 
 export type Formats = 'basic' | 'soft' | 'alternative' | 'secondary' | 'primary';
 export type Statuses = 'positive' | 'negative' | 'neutral';
+export type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 const a11yDefaults = {
   textMultiplier: 1,

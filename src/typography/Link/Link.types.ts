@@ -12,7 +12,7 @@ export type Props = IrisProps<
      * [default = 'primary']
      */
     format?: 'primary' | 'soft' | 'basic' | 'positive' | 'negative';
-    decoration?: 'loud' | 'inherit' | 'silent';
+    variant?: 'minimal';
     title?: ReactNode;
     href?: string;
     target?: string;

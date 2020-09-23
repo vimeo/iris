@@ -29,7 +29,7 @@ const RedCache = {
   '800': '#711313',
 };
 
-export const red: Color = grade =>
+export const red: Color = (grade) =>
   RedCache[grade] || irisColor(Colors.Red, grade);
 
 const YellowCache = {
@@ -43,7 +43,7 @@ const YellowCache = {
   '800': '#6f4a03',
 };
 
-export const yellow: Color = grade =>
+export const yellow: Color = (grade) =>
   YellowCache[grade] || irisColor(Colors.Yellow, grade);
 
 const GreenCache = {
@@ -57,7 +57,7 @@ const GreenCache = {
   '800': '#1f5113',
 };
 
-export const green: Color = grade =>
+export const green: Color = (grade) =>
   GreenCache[grade] || irisColor(Colors.Green, grade);
 
 const BlueCache = {
@@ -71,7 +71,7 @@ const BlueCache = {
   '800': '#00405f',
 };
 
-export const blue: Color = grade =>
+export const blue: Color = (grade) =>
   BlueCache[grade] || irisColor(Colors.Blue, grade);
 
 const SlateCache = {
@@ -85,7 +85,7 @@ const SlateCache = {
   '800': '#23313b',
 };
 
-export const slate: Color = grade =>
+export const slate: Color = (grade) =>
   SlateCache[grade] || irisColor(Colors.Slate, grade);
 
 const GrayscaleCache = {
@@ -99,13 +99,13 @@ const GrayscaleCache = {
   '800': '#282828',
 };
 
-export const grayscale: Color = grade =>
+export const grayscale: Color = (grade) =>
   GrayscaleCache[grade] || irisColor(Colors.Grayscale, grade, true);
 
 export const irisColor = (
   color: any,
   grade: number,
-  grayscale = false,
+  grayscale = false
 ) => {
   let newColor;
   if (grade === 500) newColor = color;
@@ -135,10 +135,10 @@ export function irisDarken({ color, grade, grayscale = false }) {
 
 function polish(color) {
   return {
-    tint: amount => polish(tint(amount, color)),
-    shade: amount => polish(shade(amount, color)),
-    saturate: amount => polish(saturate(amount, color)),
-    adjustHue: amount => polish(adjustHue(amount, color)),
+    tint: (amount) => polish(tint(amount, color)),
+    shade: (amount) => polish(shade(amount, color)),
+    saturate: (amount) => polish(saturate(amount, color)),
+    adjustHue: (amount) => polish(adjustHue(amount, color)),
     end: () => color,
   };
 }

@@ -13,7 +13,7 @@ import { Input } from '../components';
 import { Story } from '../storybook';
 import { black, white } from '../color';
 
-export default { title: 'icons|Icons/' };
+export default { title: 'icons/Icons' };
 
 const ICONS = {
   ...VIMEO_ICONS,
@@ -31,7 +31,7 @@ export const Vimeo = () => <IconStory icons={VIMEO_ICONS} />;
 function IconStory({ icons, preserve = false, ...props }) {
   const [searchText, setSearchText] = useState('');
 
-  const doChange = event => {
+  const doChange = (event) => {
     setSearchText(event.target.value);
   };
 
@@ -39,7 +39,7 @@ function IconStory({ icons, preserve = false, ...props }) {
     'Size',
     { XS: 0.625, SM: 0.875, MD: 1, LG: 1.125, XL: 2 },
     2,
-    'iconSizes',
+    'iconSizes'
   );
 
   function checkPreserve(icon) {
@@ -49,8 +49,8 @@ function IconStory({ icons, preserve = false, ...props }) {
     return preserve;
   }
 
-  const validIcons = Object.keys(icons).filter(icon =>
-    icon.toLowerCase().includes(searchText.toLowerCase()),
+  const validIcons = Object.keys(icons).filter((icon) =>
+    icon.toLowerCase().includes(searchText.toLowerCase())
   );
 
   return (
@@ -95,13 +95,13 @@ function Icon({ size, name, preserve = false }) {
   );
 }
 
-const width = widthMap =>
+const width = (widthMap) =>
   Object.keys(widthMap).map(
-    minWidth => css`
+    (minWidth) => css`
       @media (min-width: ${minWidth}rem) {
         width: calc(${widthMap[minWidth]}% - 4rem);
       }
-    `,
+    `
   );
 
 const Search = styled(Input)`
@@ -136,12 +136,12 @@ const Card = styled.div`
 
 const Wrap = styled.div<any>`
   svg {
-    width: ${p => p.size}rem;
-    height: ${p => p.size}rem;
+    width: ${(p) => p.size}rem;
+    height: ${(p) => p.size}rem;
     display: inline-flex;
     margin: 1rem;
 
-    ${p =>
+    ${(p) =>
       !p.preserve &&
       css`
         * {

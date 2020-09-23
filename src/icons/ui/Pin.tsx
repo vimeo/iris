@@ -8,5 +8,5 @@ export const Pin = forwardRef(
         fill="#1A2F3B"
       />
     </svg>
-  ),
+  )
 );

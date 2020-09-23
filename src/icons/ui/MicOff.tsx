@@ -8,5 +8,5 @@ export const MicOff = forwardRef(
         fillRule="evenodd"
       />
     </svg>
-  ),
+  )
 );

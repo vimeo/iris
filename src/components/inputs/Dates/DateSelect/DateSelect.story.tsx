@@ -5,7 +5,7 @@ import { DateSelect } from './DateSelect';
 import { Input } from '../../Input/Input';
 import { Layout } from '../../../../storybook';
 
-export default { title: 'Components|Inputs/DateSelect' };
+export default { title: 'Components/Inputs/DateSelect' };
 
 export const Common = () => <CommonStory />;
 const CommonStory = () => {
@@ -13,7 +13,7 @@ const CommonStory = () => {
 
   return (
     <Layout.StoryVertical>
-      <DateSelect onSelect={date => dateSet(date)}>
+      <DateSelect onSelect={(date) => dateSet(date)}>
         <Input value={date.toLocaleDateString()} readOnly />
       </DateSelect>
     </Layout.StoryVertical>
@@ -28,7 +28,7 @@ function InitialMonthStory() {
   return (
     <Layout.StoryVertical>
       <DateSelect
-        onSelect={date => dateSet(date)}
+        onSelect={(date) => dateSet(date)}
         initialMonth={initialMonth}
       >
         <Input value={date.toLocaleDateString()} readOnly />

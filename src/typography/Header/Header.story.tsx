@@ -4,7 +4,7 @@ import { Header } from './Header';
 
 import { Layout } from '../../storybook';
 
-export default { title: 'typography|Headers' };
+export default { title: 'typography/Headers' };
 
 export function Size() {
   return (
@@ -56,7 +56,7 @@ export function Editable() {
         size="plusUltra"
         placeholder="Edit me!"
         contentEditable
-        onFocus={e => console.log(e)}
+        onFocus={(e) => console.log(e)}
       >
         Editable Header plusUltra
       </Header>
@@ -64,7 +64,7 @@ export function Editable() {
         size="1"
         placeholder="Edit me!"
         contentEditable
-        onFocus={e => console.log(e)}
+        onFocus={(e) => console.log(e)}
       >
         Editable Header 1
       </Header>
@@ -72,7 +72,7 @@ export function Editable() {
         size="3"
         placeholder="Edit me!"
         contentEditable
-        onFocus={e => console.log(e)}
+        onFocus={(e) => console.log(e)}
       >
         Editable Header 3
       </Header>
@@ -80,7 +80,7 @@ export function Editable() {
         size="6"
         placeholder="Edit me!"
         contentEditable
-        onFocus={e => console.log(e)}
+        onFocus={(e) => console.log(e)}
       >
         Editable Header 6
       </Header>

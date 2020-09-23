@@ -17,9 +17,9 @@ export const NoticeStyled = styled.div<Props>`
   position: relative;
   width: 100%;
   margin-bottom: ${rem(16)};
-  border-radius: ${p => (p.pill ? '2rem' : rem(3))};
+  border-radius: ${(p) => (p.pill ? '2rem' : rem(3))};
   transition: all ${base};
-  color: ${p => p.theme.formats[p.format]};
+  color: ${(p) => p.theme.formats[p.format]};
 
   ${padding};
   ${themeStyles};
@@ -62,15 +62,15 @@ function themeStyles({ theme, format }: Props) {
 
 export const Icon = styled.span<Props>`
   position: absolute;
-  top: ${p => (p.header ? rem(14) : rem(12))};
-  left: ${p => (p.pill ? '1.5rem' : '1rem')};
+  top: ${(p) => (p.header ? rem(14) : rem(12))};
+  left: ${(p) => (p.pill ? '1.5rem' : '1rem')};
 
   svg {
     width: ${rem(20)};
     height: ${rem(20)};
 
     * {
-      fill: ${p => themeColor(p)};
+      fill: ${(p) => themeColor(p)};
     }
   }
 `;
@@ -78,15 +78,15 @@ export const Icon = styled.span<Props>`
 export const Dismiss = styled.div<Props>`
   position: absolute;
   top: ${rem(4)};
-  right: ${p => (p.pill ? '0.75rem' : '0.25rem')};
+  right: ${(p) => (p.pill ? '0.75rem' : '0.25rem')};
 
   svg * {
-    fill: ${p => themeColor(p)} !important;
+    fill: ${(p) => themeColor(p)} !important;
   }
 
   &:hover {
     button {
-      background: ${p => themeColor(p, 0.1)} !important;
+      background: ${(p) => themeColor(p, 0.1)} !important;
     }
   }
 `;

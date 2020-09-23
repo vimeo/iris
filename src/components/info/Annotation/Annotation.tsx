@@ -7,7 +7,7 @@ import { Tip } from '../Tip/Tip';
 import { withIris, IrisProps } from '../../../utils';
 
 export const Annotation = withIris<HTMLDivElement, Props>(
-  AnnotationComponent,
+  AnnotationComponent
 );
 
 type Props = IrisProps<

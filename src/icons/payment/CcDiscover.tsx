@@ -67,5 +67,5 @@ export const CcDiscover = forwardRef(
         />
       </g>
     </svg>
-  ),
+  )
 );

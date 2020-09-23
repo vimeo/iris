@@ -11,7 +11,7 @@ import { Container, Scrollable } from './VirtualizedList.style';
 import { geometry, IrisProps, withIris } from '../../utils';
 
 export const VirtualizedList = withIris<HTMLDivElement, Props>(
-  VirtualizedListComponent,
+  VirtualizedListComponent
 );
 
 type Props = IrisProps<
@@ -36,14 +36,14 @@ function VirtualizedListComponent({ buffer = 1, children }: Props) {
 
   function updateItemHeight() {
     const currentSize = state.visibleRange[1] - state.visibleRange[0];
-    const payload = geometry(listRef).height / currentSize;
+    const payload = geometry(listRef.current).height / currentSize;
     dispatch({ type: 'SET_ITEM_HEIGHT', payload });
   }
 
   function updateVisibleRange() {
     const itemHeight = state.itemHeight;
     if (itemHeight) {
-      const height = geometry(containerRef).height;
+      const height = geometry(containerRef.current).height;
       const percentScrolled =
         containerRef.current.scrollTop / (length * itemHeight);
 

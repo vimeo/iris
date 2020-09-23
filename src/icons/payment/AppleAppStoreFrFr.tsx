@@ -25,5 +25,5 @@ export const AppleAppStoreFrFr = forwardRef(
         fill="#fff"
       />
     </svg>
-  ),
+  )
 );

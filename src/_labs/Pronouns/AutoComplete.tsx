@@ -11,7 +11,7 @@ export const TextArea = ({ people }) => {
   const [pronounFound, setPronounFound] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({});
   // const [pronouns, setPronouns] = useState([]);
-  const doChange = e => {
+  const doChange = (e) => {
     const text = e.target.value;
     const currentWord = getCurrentWord(text);
 
@@ -74,7 +74,7 @@ const UserComplete = ({
         {people.map((person, i) => (
           <User
             key={i}
-            onClick={e => {
+            onClick={(e) => {
               setValue(selectPronoun(value, person.pronounKey));
               setPronounFound(false);
             }}
@@ -133,8 +133,8 @@ const UCWAnimation = css`
 
 const UserCompleteWrapper = styled.div<any>`
   position: absolute;
-  top: ${props => props.cursorPosition.top}px;
-  left: ${props => props.cursorPosition.left}px;
+  top: ${(props) => props.cursorPosition.top}px;
+  left: ${(props) => props.cursorPosition.left}px;
   padding: 0rem;
   border-radius: 0.125rem;
   border: 1px solid ${rgba(black, 0.2)});
@@ -146,7 +146,7 @@ const UserCompleteWrapper = styled.div<any>`
   cursor: pointer;
 `;
 
-const isPronoun = string => pronouns.includes(string.toLowerCase());
+const isPronoun = (string) => pronouns.includes(string.toLowerCase());
 
 const pronouns = [
   'they',
@@ -161,7 +161,7 @@ const pronouns = [
   'his',
 ];
 
-const getCurrentWord = string => {
+const getCurrentWord = (string) => {
   //const textArray = string.split(/[.,\/#!$%\^&\*;:{}=\-_`~() ]/g);
   const textArray = string.match(/\w+|\s+|[^\s\w]+/g);
   return textArray ? textArray[textArray.length - 1] : '';
@@ -185,7 +185,7 @@ const selectPronoun = (text, pronoun) => {
   return newText;
 };
 
-const pronounCase = string => {
+const pronounCase = (string) => {
   switch (string) {
     case 'they':
     case 'she':

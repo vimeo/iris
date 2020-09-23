@@ -31,5 +31,5 @@ export const CartEmpty = forwardRef(
         fill="#00adef"
       />
     </svg>
-  ),
+  )
 );

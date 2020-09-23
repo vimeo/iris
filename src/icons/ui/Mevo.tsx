@@ -13,5 +13,5 @@ export const Mevo = forwardRef(
       />
       <circle cx={10} cy={8} r={1} fill="#1a2e3b" />
     </svg>
-  ),
+  )
 );

@@ -15,5 +15,5 @@ export const Previous = forwardRef(
         </g>
       </g>
     </svg>
-  ),
+  )
 );

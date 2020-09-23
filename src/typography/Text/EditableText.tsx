@@ -29,7 +29,7 @@ export function EditableText({
   const inputRef = useRef(null);
 
   useEffect(() => {
-    const { width: payload } = geometry(textRef);
+    const { width: payload } = geometry(textRef.current);
     if (width !== payload) dispatch(['widthSet', payload]);
   }, [text, width]);
 
@@ -95,4 +95,4 @@ function reducer(state, [type, payload]) {
   }
 }
 
-const withSpaces = string => string.replace(/ /g, '\u00a0');
+const withSpaces = (string) => string.replace(/ /g, '\u00a0');

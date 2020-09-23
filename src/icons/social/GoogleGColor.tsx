@@ -58,5 +58,5 @@ export const GoogleGColor = forwardRef(
         </g>
       </g>
     </svg>
-  ),
+  )
 );

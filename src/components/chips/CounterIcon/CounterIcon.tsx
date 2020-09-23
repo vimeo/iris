@@ -12,7 +12,7 @@ import { Paragraph } from '../../../typography';
 import { withIris, IrisProps } from '../../../utils';
 
 export const CounterIcon = withIris<HTMLDivElement, Props>(
-  CounterIconComponent,
+  CounterIconComponent
 );
 
 type Props = IrisProps<

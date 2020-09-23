@@ -11,7 +11,7 @@ const formats = {
   alternative: 'alternative',
 };
 
-export default { title: 'layout|Tabs/' };
+export default { title: 'layout/Tabs' };
 
 export function Common() {
   return (

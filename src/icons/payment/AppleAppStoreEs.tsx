@@ -23,5 +23,5 @@ export const AppleAppStoreEs = forwardRef(
         data-name="<Group>"
       />
     </svg>
-  ),
+  )
 );

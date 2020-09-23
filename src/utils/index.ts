@@ -1,19 +1,28 @@
 export { centered, hidden, Focus } from './css';
-export { geometry } from './geometry';
+export { generateUID } from './general/generateUID';
+export { throttle } from './general/throttle';
 
-export { generateUID } from './generateUID';
-export { arrowRight, arrowLeft, enter, esc, spacebar, tab } from './KeyCodes';
+// hooks
+export { useDeprecate } from './hooks/useDeprecate';
+export { useFlip } from './hooks/useFlip';
+export { useIrisError } from './hooks/useIrisError';
+export { useLayoutStyles } from './hooks/useLayoutStyles';
+export { useMeasure } from './hooks/useMeasure';
+export { useOutsideClick } from './hooks/useOutsideClick';
+export { usePortal, validate, ANCHOR_POINTS, Attach, AttachAlias, SimpleAnimation } from './hooks/usePortal';
 
-export { useDeprecate } from './useDeprecate';
-export { useOutsideClick } from './useOutsideClick';
-export { useIrisError } from './useIrisError';
-export { useLayoutStyles } from './useLayoutStyles';
-export { usePortal, validate, ANCHOR_POINTS, Attach, AttachAlias } from './usePortal';
+// events
+export { useClose, onClose } from './events/onClose';
+export { arrowRight, arrowLeft, enter, esc, spacebar, tab } from './events/KeyCodes';
 
-export { useClose, onClose } from './onClose';
+// HOCs
+export { withIris } from './HOCs/withIris';
+export { IrisProps, IrisInputProps, Messages, MinorComponent } from './HOCs/IrisProps';
+export { CSSProps, ExtractProps, Override, IrisElement } from './HOCs/types';
 
-export { withIris } from './withIris';
-export { IrisProps, IrisInputProps, Messages, MinorComponent } from './IrisProps';
-export { CSSProps, ExtractProps, Override, IrisElement } from './types';
-
-export { SSR } from './SSR';
+// DOM
+export { createPortalOutlet } from './DOM/createPortalOutlet';
+export { geometry } from './DOM/geometry';
+export { getComputedStyles } from './DOM/getComputedStyles';
+export { removeElementByID } from './DOM/removeElementByID';
+export { SSR } from './DOM/SSR';

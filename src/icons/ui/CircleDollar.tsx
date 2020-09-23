@@ -12,5 +12,5 @@ export const CircleDollar = forwardRef(
         fill="#1a2e3b"
       />
     </svg>
-  ),
+  )
 );

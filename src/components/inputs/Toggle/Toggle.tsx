@@ -5,7 +5,7 @@ import { Input } from '../Input/Input';
 import { withIris, IrisInputProps } from '../../../utils';
 
 export const Toggle = withIris<HTMLInputElement, Props>(
-  ToggleComponent,
+  ToggleComponent
 );
 
 type Props = IrisInputProps<

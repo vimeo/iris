@@ -5,7 +5,7 @@ import { Badge } from './Badge';
 
 import { Layout } from '../../../storybook';
 
-export default { title: 'Components|Chips/Badge' };
+export default { title: 'Components/Chips/Badge' };
 
 export function Common() {
   return (

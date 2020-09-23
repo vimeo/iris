@@ -10,7 +10,7 @@ import { AutoplayList } from './AutoplayList';
 
 import { Header } from '../../typography';
 
-export default { title: 'Labs|Pronouns/' };
+export default { title: 'Labs/Pronouns' };
 
 const componentName = 'Comment';
 
@@ -63,8 +63,8 @@ export function Autocomplete() {
   return (
     <Story title="Autocomplete">
       {demoProps
-        .filter(user => !user.name.includes('Vim'))
-        .map(comment => (
+        .filter((user) => !user.name.includes('Vim'))
+        .map((comment) => (
           <Comment
             key={comment.id}
             name={comment.name}
@@ -79,7 +79,9 @@ export function Autocomplete() {
         ))}
       <Header size="4">Add a new comment</Header>
       <TextArea
-        people={demoProps.filter(user => !user.name.includes('Vim'))}
+        people={demoProps.filter(
+          (user) => !user.name.includes('Vim')
+        )}
       />
     </Story>
   );

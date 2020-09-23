@@ -11,7 +11,7 @@ import { Button } from '../Button/Button';
 import { IrisProps, withIris, geometry } from '../../../utils';
 
 export const SocialButton = withIris<HTMLButtonElement, Props>(
-  SocialButtonComponent,
+  SocialButtonComponent
 );
 
 type Fluid = true | { min?: number; max?: number };
@@ -45,7 +45,7 @@ function SocialButtonComponent({
     brandThemes[brand][irisTheme.name] || brandThemes[brand];
 
   useImperativeHandle(forwardRef, () => ref.current);
-  useLayoutEffect(() => setSize(geometry(ref).height), []);
+  useLayoutEffect(() => setSize(geometry(ref.current).height), []);
 
   const paddingLeft = size / 2;
 

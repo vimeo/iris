@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { LoaderCircular as LC } from './LoaderCircular';
 import { Layout } from '../../storybook';
 
-export default { title: 'motion|Loaders/' };
+export default { title: 'motion/Loaders' };
 
 const LoaderCircular = styled(LC)`
   margin: 1rem;

@@ -10,5 +10,5 @@ export const VimeoV = forwardRef(
         transform="translate(.395833 .5625)"
       />
     </svg>
-  ),
+  )
 );

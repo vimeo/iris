@@ -6,7 +6,7 @@ import { CategoryCard as CC } from './CategoryCard';
 import { Layout } from '../../../storybook';
 import { Gear, Camera, Heart } from '../../../icons';
 
-export default { title: 'Components|Cards/Category' };
+export default { title: 'Components/Cards/Category' };
 
 export function Common() {
   return (

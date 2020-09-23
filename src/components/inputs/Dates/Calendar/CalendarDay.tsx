@@ -39,13 +39,15 @@ function Day({
   const isTrack = isInDateRange(date, range);
   const isControl = isStart || isEnd;
 
-  const handleClick: MouseEventHandler<HTMLDivElement> = event => {
+  const handleClick: MouseEventHandler<HTMLDivElement> = (event) => {
     if (!inactive && !pastMinDate && !pastMaxDate && onClick) {
       onClick(event);
     }
   };
 
-  const handleMouseEnter: MouseEventHandler<HTMLDivElement> = event => {
+  const handleMouseEnter: MouseEventHandler<HTMLDivElement> = (
+    event
+  ) => {
     if (!inactive && !pastMinDate && !pastMaxDate && onMouseEnter) {
       onMouseEnter(event);
     }
@@ -92,7 +94,7 @@ const DayStyled = styled(Day)`
     height: 0;
     padding-bottom: 100%;
   }
-  cursor: ${props =>
+  cursor: ${(props) =>
     props.onClick && !props.inactive ? 'pointer' : 'default'};
 `;
 

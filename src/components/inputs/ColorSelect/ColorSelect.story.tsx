@@ -6,7 +6,7 @@ import { ColorSelect } from './ColorSelect';
 
 import { Layout } from '../../../storybook';
 
-export default { title: 'Components|Inputs/ColorSelect/' };
+export default { title: 'Components/Inputs/ColorSelect' };
 
 export function Common() {
   return (
@@ -15,10 +15,10 @@ export function Common() {
         attach={select('attach', positions, 'bottom')}
         width={320}
         height={160}
-        onChange={HEX =>
+        onChange={(HEX) =>
           console.log(
             `onChange: %c ${HEX}`,
-            `background: ${HEX}; color: ${readableColor(HEX)}`,
+            `background: ${HEX}; color: ${readableColor(HEX)}`
           )
         }
         resetLabel="reset"
@@ -40,14 +40,14 @@ function PresetsStory() {
           <ColorSelect.Presets
             palette={['#909CDC', '#7BD8DB', '#78DD89', '#CCE190']}
             label="Accent Color"
-            onColorClick={color => {
+            onColorClick={(color) => {
               setAccentColor(color);
             }}
           />
         }
         width={237}
         height={172}
-        onChange={color => {
+        onChange={(color) => {
           setAccentColor(color);
         }}
         initialColor="#00adef"

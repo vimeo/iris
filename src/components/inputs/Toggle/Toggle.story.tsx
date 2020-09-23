@@ -7,7 +7,7 @@ import { Button } from '../../buttons/Button/Button';
 import { Layout } from '../../../storybook';
 import { Eye, EyeOff } from '../../../icons';
 
-export default { title: 'Components|Inputs/Marks/Toggle' };
+export default { title: 'Components/Inputs/Toggle' };
 
 export function Common() {
   return (
@@ -77,7 +77,7 @@ export function Controlled() {
   const [checked, setChecked] = useState(true);
   return (
     <Layout.StoryVertical>
-      <Button onClick={() => setChecked(checked => !checked)}>
+      <Button onClick={() => setChecked((checked) => !checked)}>
         Toggle is {checked.toString()}
       </Button>
       <Toggle
@@ -96,7 +96,7 @@ export function Icon() {
   return (
     <Layout.StoryVertical>
       <Toggle
-        onClick={() => setChecked(checked => !checked)}
+        onClick={() => setChecked((checked) => !checked)}
         label="Toggle with Icon"
         name="demoToggle1"
         icon={checked ? <Eye /> : <EyeOff />}

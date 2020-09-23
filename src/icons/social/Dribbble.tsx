@@ -10,5 +10,5 @@ export const Dribbble = forwardRef(
         />
       </svg>
     );
-  },
+  }
 );

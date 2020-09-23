@@ -7,7 +7,7 @@ import { readableColor, rgba } from 'polished';
 
 // import { Layout } from '../../../storybook';
 
-export default { title: 'themes|theme' };
+export default { title: 'Themes/Theme' };
 
 const padding = '2rem';
 
@@ -100,7 +100,7 @@ function HookedStory() {
                     .replace(';', ''),
                 }}
               />
-            ),
+            )
         )}
       </div>
       {/* <ThemeJSON /> */}

@@ -9,5 +9,5 @@ export const Share = forwardRef(
         <path d="M4.625 8v2H3a1 1 0 00-1 1v6a1 1 0 001 1h10a1 1 0 001-1v-6a1 1 0 00-1-1h-1.625V8H13a3 3 0 013 3v6a3 3 0 01-3 3H3a3 3 0 01-3-3v-6a3 3 0 013-3h1.625z" />
       </g>
     </svg>
-  ),
+  )
 );

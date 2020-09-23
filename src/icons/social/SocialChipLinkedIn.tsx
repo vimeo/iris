@@ -12,5 +12,5 @@ export const SocialChipLinkedIn = forwardRef(
         fill="#fff"
       />
     </svg>
-  ),
+  )
 );
