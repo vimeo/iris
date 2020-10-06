@@ -7,16 +7,12 @@ import { Layout } from '../../storybook';
 export default { title: 'typography/Link' };
 
 export function Common() {
-  return (
-    <Layout.StoryVertical>
-      <Link>Click me!</Link>
-    </Layout.StoryVertical>
-  );
+  return <Link>Click me!</Link>;
 }
 
 export function Format() {
   return (
-    <Layout.StoryVertical>
+    <Layout.StoryVertical defaultWidth>
       <Link format="basic">Click me!</Link>
       <Link format="soft">Click me!</Link>
       <Link format="primary">Click me!</Link>
@@ -28,7 +24,7 @@ export function Format() {
 
 export function Variant() {
   return (
-    <Layout.StoryVertical>
+    <Layout.StoryVertical defaultWidth>
       <Link>Click me!</Link>
       <Link variant="minimal">Click me!</Link>
     </Layout.StoryVertical>
@@ -37,7 +33,7 @@ export function Variant() {
 
 export function Custom() {
   return (
-    <Layout.StoryVertical>
+    <Layout.StoryVertical defaultWidth>
       <Link
         css={`
           font-weight: 800;

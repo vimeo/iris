@@ -1,7 +1,10 @@
 import styled, { css } from 'styled-components';
 
 export const Layout = {
-  StoryVertical: styled.div<{ center?: boolean }>`
+  StoryVertical: styled.div<{
+    center?: boolean;
+    defaultWidth?: boolean;
+  }>`
     ${flexVertical};
 
     padding: 0.5rem 0;
@@ -10,7 +13,7 @@ export const Layout = {
     > * {
       display: block;
       margin: 0.5rem 1rem;
-      min-width: 20rem;
+      min-width: ${(p) => (p.defaultWidth ? 'unset' : '20rem')};
     }
   `,
   StoryPadded: styled.div<{ center?: boolean }>`

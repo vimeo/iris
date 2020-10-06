@@ -9,6 +9,7 @@ import { rem } from 'polished';
 
 import { Minors } from './PopOver.minors';
 export { Pop } from './PopOver.minors';
+import { ErrorBoundary } from './PopOver.error';
 
 import {
   IrisProps,
@@ -72,10 +73,10 @@ function PopOverComponent({
   );
 
   return (
-    <>
+    <ErrorBoundary>
       {PopOver}
       {cloneElement(children, anchor)}
-    </>
+    </ErrorBoundary>
   );
 }
 

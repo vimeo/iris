@@ -7,6 +7,7 @@ import React, {
 
 import { AnchorStyled } from './Anchor.style';
 import { Attach } from './usePortal.types';
+import { throttle } from '../../general/throttle';
 
 interface Props {
   anchor: RefObject<HTMLElement>;
@@ -36,7 +37,7 @@ export function Anchor({
   useLayoutEffect(() => {
     const childElement: HTMLElement = childRef?.current;
 
-    function onResize() {
+    const onResize = throttle(() => {
       if (!childElement) return;
 
       const viewport = anchorToWindow && windowRect();
@@ -44,8 +45,11 @@ export function Anchor({
       const rect = viewport || calcRect(anchor, window);
 
       const changed = compare(state, rect, childRect);
-      if (changed) setState({ rect, childRect });
-    }
+
+      if (changed) {
+        setState({ rect, childRect });
+      }
+    }, 5);
 
     onResize();
 
@@ -87,16 +91,12 @@ function calcRect(
   { scrollX = 0, scrollY = 0 } = {}
 ): ClientRect {
   if (ref && ref.current) {
-    const {
-      offsetHeight,
-      offsetLeft,
-      offsetTop,
-      offsetWidth,
-    } = ref.current;
+    const { offsetHeight, offsetWidth } = ref.current;
+    const { x, y } = ref.current.getBoundingClientRect();
 
     const height = offsetHeight;
-    const left = offsetLeft + scrollX;
-    const top = offsetTop + scrollY;
+    const left = x + scrollX;
+    const top = y + scrollY;
     const width = offsetWidth;
 
     return {

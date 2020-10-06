@@ -5,6 +5,7 @@ import { rgba } from 'polished';
 
 import { PopOver, Pop } from './PopOver';
 
+import { Dock } from '../Dock/Dock';
 import { Button as B, Badge, Input } from '../../components';
 import { ANCHOR_POINTS } from '../../utils';
 import { Gear, DismissX } from '../../icons';
@@ -78,6 +79,22 @@ export function Scrollable() {
         <TriggerButton>PopOver bottom</TriggerButton>
       </PopOver>
     </>
+  );
+}
+
+export function Fixed() {
+  return (
+    <div style={{ height: '150vh' }}>
+      <Dock attach="bottom" style={{ height: '7rem' }}>
+        <PopOver
+          content={PopScrollable}
+          attach="top"
+          style={{ width: '25rem' }}
+        >
+          <TriggerButton>PopOver bottom</TriggerButton>
+        </PopOver>
+      </Dock>
+    </div>
   );
 }
 
