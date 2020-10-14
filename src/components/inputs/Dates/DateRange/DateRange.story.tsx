@@ -56,7 +56,12 @@ function DateRangeButton({ presets = null }) {
   return (
     <PopOver
       attach={attachKnob}
-      style={{ width: '60rem' }}
+      style={
+        presets && {
+          width: 'calc(12rem + 40rem)', // 12rem is size of Preset Menu
+          maxWidth: 'calc(12rem + 40rem)',
+        }
+      }
       content={
         <DateRange
           onChange={onChange}

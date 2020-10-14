@@ -15,12 +15,12 @@ export const DateRangeContainer = styled.div`
 `;
 
 export const Menu = styled(M)`
-  flex: 0 0 200px;
+  flex: 0 0 12rem;
   padding-top: ${rem(8)};
 `;
 
 export const CalendarsContainer = styled.div<{ hidden?: boolean }>`
-  flex: 0 0 100%;
+  flex: 0 0 40rem;
   flex-flow: row wrap;
   display: ${(props) => (props.hidden ? 'hidden' : 'flex')};
   background-color: ${({ theme }) => theme.item.bg};
