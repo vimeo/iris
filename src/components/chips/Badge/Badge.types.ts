@@ -7,6 +7,7 @@ export type Props = IrisProps<
      */
     format?: BadgeFormats;
     href?: string;
+    target?: string;
     label?: string;
     /**
      * [default = 'sm']
