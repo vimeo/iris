@@ -1,4 +1,9 @@
-import React, { cloneElement, useMemo, useState } from 'react';
+import React, {
+  cloneElement,
+  useMemo,
+  useState,
+  ChangeEventHandler,
+} from 'react';
 
 import { validate, MarkInputElement } from '../Shared';
 
@@ -15,6 +20,7 @@ export const RadioSet = withIris<HTMLDivElement, Props>(
 interface Props {
   children: MarkInputElement[];
   defaultValue?: string | string[] | number | boolean;
+  onChange?: ChangeEventHandler;
 }
 
 function RadioSetComponent({
@@ -30,7 +36,12 @@ function RadioSetComponent({
     children,
   ]);
 
-  const [checkedIndex, checkedIndexSet] = useState(null);
+  const initialCheckedIndex = children.findIndex(
+    (child) => child.props.checked
+  );
+  const [checkedIndex, checkedIndexSet] = useState(
+    initialCheckedIndex
+  );
 
   if (!validate(children, 'radio')) return null;
 
@@ -45,13 +56,14 @@ function RadioSetComponent({
 
   function cloneChildren(child, i) {
     const checked = checkedIndex === i;
-    const defaultChecked = defaultValue === child.props?.value;
+    const defaultChecked =
+      defaultValue && defaultValue === child.props?.value;
     const id = `radio-${i}-${UIDs[i]}`;
     const key = id;
     const name = UID;
 
     return cloneElement(child, {
-      checked,
+      checked: defaultChecked ? null : checked,
       defaultChecked,
       id,
       key,

@@ -96,7 +96,7 @@ export function Icon() {
   return (
     <Layout.StoryVertical>
       <Toggle
-        onClick={() => setChecked((checked) => !checked)}
+        onChange={() => setChecked((checked) => !checked)}
         label="Toggle with Icon"
         name="demoToggle1"
         icon={checked ? <Eye /> : <EyeOff />}

@@ -53,7 +53,7 @@ function CheckboxSetComponent({
       <Checkbox
         checked={parentChecked}
         indeterminate={someChecked}
-        onClick={parentClick}
+        onChange={parentClick}
         readOnly
         {...props}
       />
@@ -66,7 +66,7 @@ function CheckboxSetComponent({
               id: `checkbox-${i}-${UIDs[i]}`,
               name: UID,
               value: UIDs[i],
-              onClick: () => setChecks(toggle(i)),
+              onChange: () => setChecks(toggle(i)),
               readOnly: true,
             })
           )}

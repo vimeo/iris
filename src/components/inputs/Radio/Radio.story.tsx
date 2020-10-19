@@ -1,9 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { useState } from '@storybook/addons';
 
 import { Radio as R } from './Radio';
 import { RadioSet } from './RadioSet';
 import { Eye, EyeOff } from '../../../icons';
+import { Button } from '../../buttons/Button/Button';
 import { rgba } from 'polished';
 
 export default { title: 'Components/inputs/Radio' };
@@ -19,10 +21,13 @@ export function Common() {
 export function RadioSetStory() {
   return (
     <>
-      <RadioSet>
-        <Radio />
-        <Radio />
-        <Radio />
+      <RadioSet
+        defaultValue="2"
+        onChange={(e) => console.log(e.currentTarget)}
+      >
+        <Radio value="1" />
+        <Radio value="2" />
+        <Radio value="3" />
       </RadioSet>
     </>
   );
@@ -36,6 +41,25 @@ export function Labels() {
         <Radio label="Radio 1" />
         <Radio label="Radio 2" />
         <Radio label="Radio 3" />
+      </RadioSet>
+    </>
+  );
+}
+
+export function Controlled() {
+  const [checked, setChecked] = useState('2');
+
+  return (
+    <>
+      <Button onClick={() => setChecked(checked === '1' ? '2' : '1')}>
+        Radio is {checked}
+      </Button>
+      <RadioSet
+        defaultValue={checked}
+        onChange={(e) => setChecked(e.currentTarget.value)}
+      >
+        <Radio value="1" label="Radio 1" />
+        <Radio value="2" label="Radio 2" />
       </RadioSet>
     </>
   );
@@ -59,7 +83,7 @@ export function CustomElement() {
   return (
     <>
       <RadioSet>
-        <Radio>
+        <Radio checked>
           <Custom />
         </Radio>
         <Radio>

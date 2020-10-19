@@ -1,9 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import { useState } from '@storybook/addons';
 
 import { Checkbox } from './Checkbox';
 import { CheckboxSet } from './CheckboxSet';
 
+import { Button } from '../../buttons/Button/Button';
 import { Layout } from '../../../storybook';
 import { Header } from '../../../typography';
 
@@ -58,6 +59,26 @@ export function Common() {
         name="demoCheckbox6"
         id="Checkbox6"
         value="6"
+      />
+    </Layout.StoryVertical>
+  );
+}
+
+export function Controlled() {
+  const [checked, setChecked] = useState(true);
+
+  return (
+    <Layout.StoryVertical>
+      <Button onClick={() => setChecked(!checked)}>
+        Checkbox is {checked.toString()}
+      </Button>
+      <Checkbox
+        label="Checkbox 1 (Medium)"
+        name="demoCheckbox1"
+        id="Checkbox1"
+        value="1"
+        onChange={() => setChecked(!checked)}
+        checked={checked}
       />
     </Layout.StoryVertical>
   );

@@ -20,6 +20,7 @@ interface ToggleIconProps {
 export function Mark({
   autocomplete = true,
   checked,
+  defaultChecked,
   children,
   className,
   defaultValue,
@@ -48,6 +49,8 @@ export function Mark({
       <div style={{ position: 'relative' }}>
         <HiddenMark
           defaultValue={defaultValue as string | string[]}
+          checked={checked}
+          defaultChecked={defaultChecked}
           disabled={disabled}
           id={id}
           name={name}
