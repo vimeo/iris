@@ -10,7 +10,7 @@ export default { title: 'Components/Info/Annotation' };
 export function Common() {
   return (
     <Layout.StoryVertical>
-      <Annotation content="I am a tooltip">
+      <Annotation content="I am a tooltip" attach="right">
         <Header size="3">Tooltip</Header>
       </Annotation>
     </Layout.StoryVertical>

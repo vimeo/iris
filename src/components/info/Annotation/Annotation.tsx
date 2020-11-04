@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { Annotation as Styled, Icon } from './Annotation.style';
+import { Annotation as Styled } from './Annotation.style';
 
 import { Tip } from '../Tip/Tip';
+import { CircleInfo } from '../../../icons';
+import { Button } from '../../buttons/Button/Button';
 
-import { withIris, IrisProps } from '../../../utils';
+import { withIris, IrisProps, AttachAlias } from '../../../utils';
 
 export const Annotation = withIris<HTMLDivElement, Props>(
   AnnotationComponent
@@ -19,6 +21,12 @@ type Props = IrisProps<
      * This portal tooltip will appear to the top of the anchor.
      */
     content?: string;
+    /**
+     * Position where tooltip appears.
+     *
+     * [default = 'top']
+     */
+    attach?: AttachAlias;
   },
   HTMLDivElement
 >;
@@ -26,14 +34,21 @@ type Props = IrisProps<
 function AnnotationComponent({
   children,
   content,
+  attach = 'top',
   forwardRef,
   ...props
 }: Props) {
   return (
     <Styled ref={forwardRef}>
       {children}
-      <Tip attach="top" content={content} {...props}>
-        <Icon />
+      <Tip attach={attach} content={content} {...props}>
+        <Button
+          element="span"
+          size="xs"
+          format="basic"
+          variant="hyperminimal"
+          icon={<CircleInfo />}
+        />
       </Tip>
     </Styled>
   );
