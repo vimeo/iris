@@ -61,11 +61,17 @@ function buttonIcon({ size, iconOnly, iconPosition }) {
         }
       `
     : css`
+        position: relative;
+
         svg {
           width: ${sizePads[size] / 1.5 + 1}rem;
-          height: ${sizePads[size] / 1.5 + 1}rem;
+          min-width: ${sizePads[size] / 1.5 + 1}rem;
+          height: 100%;
+          min-height: 100%;
           display: inline-flex;
-          margin: ${iconMargin[iconPosition]};
+          margin: auto ${iconMargin[iconPosition]};
+          position: ${iconPosition === 'action' && 'absolute'};
+          right: ${iconPosition === 'action' && '0.5rem'};
 
           > * {
             fill: currentColor;
@@ -122,10 +128,12 @@ function iconButtonPadding(icon, iconPosition, pad) {
       return { padding: '0 0.5rem 0 1rem', minHeight, minWidth };
     case 'featured':
       return {
-        padding: `0 ${pad}rem 0 ${pad + 2}rem`,
+        padding: `0 ${pad}rem 0 ${pad + 2.5}rem`,
         minHeight,
         minWidth: `${pad * 12}rem`,
       };
+    case 'action':
+      return { padding: '0 2rem 0 0.5rem', minHeight, minWidth };
     default:
       return { padding: `0 ${pad}rem`, minHeight, minWidth };
   }

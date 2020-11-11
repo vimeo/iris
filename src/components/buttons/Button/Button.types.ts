@@ -8,7 +8,7 @@ export type DOMElement =
   | HTMLSpanElement;
 
 type ButtonElements = 'button' | 'span' | 'a';
-type IconPositions = 'left' | 'right' | 'featured';
+type IconPositions = 'left' | 'right' | 'featured' | 'action';
 type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 type Targets = '_blank' | '_self' | '_parent' | '_top';
 type Fluid = true | { min?: number; max?: number };

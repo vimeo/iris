@@ -51,6 +51,7 @@ function ButtonComponent({
   const iconLeft = iconPosition === 'left' && icon;
   const iconRight = iconPosition === 'right' && icon;
   const iconFeatured = iconPosition === 'featured' && icon;
+  const iconAction = iconPosition === 'action' && icon;
 
   return (
     <ButtonStyled
@@ -73,6 +74,7 @@ function ButtonComponent({
       {iconLeft}
       {children && <ButtonChildren>{children}</ButtonChildren>}
       {iconRight}
+      {iconAction}
 
       {loading && (
         <LoaderCircular

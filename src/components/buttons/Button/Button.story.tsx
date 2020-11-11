@@ -1,11 +1,23 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { select } from '@storybook/addon-knobs';
 
 import { Button as B } from './Button';
 import { Header as H } from '../../../typography';
-import { config, formats, statuses, variants } from './Button.config';
+import {
+  config,
+  formats,
+  statuses,
+  variants,
+  sizes,
+} from './Button.config';
 
-import { DownloadArrow, Plus, ArrowRight } from '../../../icons';
+import {
+  DownloadArrow,
+  Plus,
+  ArrowRight,
+  ChevronDown,
+} from '../../../icons';
 
 export default config;
 
@@ -103,28 +115,60 @@ export function IconPill() {
 }
 IconPill.story = { name: 'Icon (Pill)' };
 
-export function IconAndText() {
+export function IconPosition() {
   return (
     <>
-      <Button icon={<DownloadArrow />}>Download</Button>
-      <Button icon={<DownloadArrow />} iconPosition="right">
-        Download
+      <Button
+        icon={<ChevronDown />}
+        iconPosition="left"
+        size={select('Size', sizes, 'md')}
+        style={{ maxWidth: '10rem' }}
+      >
+        {select(
+          'Text length',
+          ['Short text', 'Long long text goes here'],
+          'Short text'
+        )}
+      </Button>
+      <Button
+        icon={<ChevronDown />}
+        iconPosition="right"
+        size={select('Size', sizes, 'md')}
+        style={{ maxWidth: '10rem' }}
+      >
+        {select(
+          'Text length',
+          ['Short text', 'Long long text goes here'],
+          'Short text'
+        )}
+      </Button>
+      <Button
+        icon={<ChevronDown />}
+        iconPosition="featured"
+        size={select('Size', sizes, 'md')}
+        style={{ maxWidth: '10rem' }}
+      >
+        {select(
+          'Text length',
+          ['Short text', 'Long long text goes here'],
+          'Short text'
+        )}
+      </Button>
+      <Button
+        icon={<ChevronDown />}
+        iconPosition="action"
+        size={select('Size', sizes, 'md')}
+        style={{ maxWidth: '10rem' }}
+      >
+        {select(
+          'Text length',
+          ['Short text', 'Long long text goes here'],
+          'Short text'
+        )}
       </Button>
     </>
   );
 }
-IconAndText.story = { name: 'Icon & Text' };
-
-export function IconFeatured() {
-  return (
-    <>
-      <Button icon={<DownloadArrow />} iconPosition="featured">
-        Download
-      </Button>
-    </>
-  );
-}
-IconFeatured.story = { name: 'Icon (Featured)' };
 
 export function Floating() {
   return <Button floating>Floating Button</Button>;

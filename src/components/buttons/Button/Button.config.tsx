@@ -22,3 +22,4 @@ export const variants = [
   'minimalTransparent',
   'hyperminimal',
 ] as const;
+export const sizes = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
