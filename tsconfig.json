@@ -49,6 +49,7 @@
         "node_modules",
         "src/**/*.story.tsx",
         "src/**/*.x-story.tsx",
+        "src/**/*.test.ts",
         "src/_docs",
         "src/_labs",
         "src/_tests",

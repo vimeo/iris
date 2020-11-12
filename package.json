@@ -27,8 +27,13 @@
         "@babel/plugin-proposal-export-default-from": "^7.10.4",
         "@babel/plugin-proposal-nullish-coalescing-operator": "^7.10.4",
         "@babel/plugin-proposal-optional-chaining": "^7.11.0",
+        "@babel/plugin-transform-runtime": "^7.12.1",
         "@babel/preset-typescript": "^7.10.4",
+        "@babel/runtime": "^7.12.1",
         "@nox/addon-themes": "^1.0.1",
+        "@rollup/plugin-babel": "^5.2.1",
+        "@rollup/plugin-node-resolve": "^9.0.0",
+        "@rollup/plugin-typescript": "^6.0.0",
         "@storybook/addon-a11y": "^6.0.21",
         "@storybook/addon-actions": "^6.0.21",
         "@storybook/addon-design-assets": "^6.0.21",
@@ -53,12 +58,14 @@
         "@types/webpack": "^4.41.22",
         "@typescript-eslint/eslint-plugin": "^4.2.0",
         "@typescript-eslint/parser": "^4.2.0",
+        "@vimeo/rv-cli": "3.0.0",
         "babel-jest": "^26.3.0",
         "babel-loader": "^8.1.0",
         "babel-plugin-polished": "^1.1.0",
         "babel-plugin-require-context-hook": "^1.0.0",
         "babel-plugin-styled-components": "^1.11.1",
         "circular-dependency-plugin": "^5.2.0",
+        "core-js": "^3.6.5",
         "eslint": "^7.9.0",
         "eslint-config-airbnb": "^18.2.0",
         "eslint-config-prettier": "^6.11.0",
@@ -78,6 +85,8 @@
         "react-dom": "16.10.2",
         "react-is": "^16.13.1",
         "react-test-renderer": "16.13.1",
+        "rollup-plugin-multi-input": "^1.1.1",
+        "rollup-plugin-terser": "^7.0.2",
         "styled-components": "5.0.1",
         "stylelint": "^13.7.1",
         "stylelint-config-recommended": "^3.0.0",
@@ -92,6 +101,7 @@
         "@vimeo/deploy-storybook": "^1.1.1"
     },
     "peerDependencies": {
+        "@babel/runtime": "^7.12.1",
         "polished": "^3.6.7",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
@@ -104,22 +114,23 @@
     },
     "scripts": {
         "build-styleguide": "build-storybook -c .storybook -o build-styleguide",
-        "build": "npm run clean && npx tsc",
+        "build": "npx rv build",
         "checkup": "npx npm-check-updates -x @vimeo/deploy-storybook",
         "clean": "rm -rf build",
         "dev": "npm run storybook",
         "lint-pretty": "eslint 'src/**/*.{ts,tsx}' -f codeFrame && npm run prettier && npm run stylelint",
         "lint": "eslint 'src/**/*.{ts,tsx}' && npm run prettier && npm run stylelint",
         "postpublish": "git clean -fd",
-        "prettier": "prettier --list-different 'src/**/*.{ts,tsx}'",
+        "prettier": "npx rv format --file src --ext ts,tsx --diff",
         "prepublishOnly": "npm run typecheck && npm run lint && npm run build && cp -r ./build/* ./ && npm run clean",
         "start": "npm run typecheck && npm run lint && npm run test && npm run storybook",
-        "storybook": "start-storybook -p 9001 -c .storybook --ci",
+        "storybook": "npx rv storybook --start -p 9001",
         "deploy-storybook": "deploy-storybook -a iris",
         "stylelint": "npx stylelint 'src/**/*.ts'",
         "test-publish": "npm run prepublishOnly && npm run postpublish",
         "test": "jest --updateSnapshot; rm -rf src/storybook/__snapshots__",
-        "typecheck": "npx tsc --noEmit"
+        "typecheck": "npx tsc --noEmit",
+        "inspect": "npx rv inspect --context src --log --entry"
     },
     "jest": {
         "roots": [
@@ -159,5 +170,13 @@
         "JavaScript",
         "React",
         "styled-components"
-    ]
+    ],
+    "rv": {
+        "mode": "library",
+        "dist": "./build",
+        "storybook": {
+            "configDir": ".storybook",
+            "ci": true
+        }
+    }
 }
