@@ -63,3 +63,22 @@ export function getDateFormatRegex(format: string) {
   }
   return new RegExp(`^${f}$`);
 }
+
+export function getMonthFromDate(dateObj: Date) {
+  const monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+  return monthNames[dateObj.getMonth()];
+}

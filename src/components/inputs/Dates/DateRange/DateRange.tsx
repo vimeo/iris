@@ -1,19 +1,21 @@
 import React, {
-  useReducer,
+  FormEventHandler,
   useEffect,
   useMemo,
+  useReducer,
   useState,
-  FormEventHandler,
 } from 'react';
-
+import { slate } from '../../../../color';
+import { withIris } from '../../../../utils';
 import { Input } from '../../Input/Input';
-
-import { reducer, init } from '../Calendar/Calendar.state';
-import { initialState } from '../Calendar/Calendar.types';
-import { Props } from './DateRange.types';
-import { getDateFormat, formatDate } from './DateFormat';
 import { Calendar } from '../Calendar/Calendar';
-
+import { init, reducer } from '../Calendar/Calendar.state';
+import { initialState } from '../Calendar/Calendar.types';
+import {
+  formatDate,
+  getDateFormat,
+  getMonthFromDate,
+} from './DateFormat';
 import {
   ApplyButton,
   CalendarHeader,
@@ -25,9 +27,7 @@ import {
   DateRangeContainer,
   Menu,
 } from './DateRange.style';
-
-import { slate } from '../../../../color';
-import { withIris } from '../../../../utils';
+import { PresetValue, Props } from './DateRange.types';
 
 export const DateRange = withIris<HTMLInputElement, Props>(
   DateRangeComponent
@@ -43,6 +43,7 @@ function DateRangeComponent({
   startInputLabel = 'Start date',
   endInputLabel = 'End date',
   presets,
+  onPresetClick,
 }: Props) {
   const [state, dispatch] = useReducer(reducer, initialState, init);
   const [presetOption, setPresetOption] = useState('');
@@ -206,6 +207,26 @@ function DateRangeComponent({
       case 'string':
         if (preset === 'today') payload.push(today);
         if (preset === 'yesterday') payload.push(yesterday);
+        if (preset === 'current month') {
+          const firstDayOfMonth = new Date();
+          firstDayOfMonth.setDate(1);
+
+          payload.push(firstDayOfMonth);
+          payload.push(new Date());
+        }
+        if (preset === 'last month') {
+          const firstDayOfLastMonth = new Date();
+          firstDayOfLastMonth.setDate(1);
+          firstDayOfLastMonth.setMonth(
+            firstDayOfLastMonth.getMonth() - 1
+          );
+
+          const lastDateOfLastMonth = new Date();
+          lastDateOfLastMonth.setDate(0);
+
+          payload.push(firstDayOfLastMonth);
+          payload.push(lastDateOfLastMonth);
+        }
         break;
       case 'number':
         const date = new Date(
@@ -229,6 +250,23 @@ function DateRangeComponent({
     }
   };
 
+  const getPresetLabel = (preset: PresetValue) => {
+    if (typeof preset === 'number') {
+      return preset < 0
+        ? `Last ${Math.abs(preset)} days`
+        : `Next ${preset} days`;
+    } else if (preset === 'current month') {
+      return getMonthFromDate(new Date());
+    } else if (preset === 'last month') {
+      const dateOfLastMonth = new Date();
+      dateOfLastMonth.setDate(1);
+      dateOfLastMonth.setMonth(dateOfLastMonth.getMonth() - 1);
+      return getMonthFromDate(dateOfLastMonth);
+    }
+
+    return preset;
+  };
+
   // Generate the styles to pin the portal to the parent node.
   return (
     <DateRangeContainer>
@@ -239,16 +277,17 @@ function DateRangeComponent({
         >
           <Menu.Section title="Presets">
             {presets.map((preset) => {
-              const label =
-                typeof preset === 'number'
-                  ? preset < 0
-                    ? `Last ${Math.abs(preset)} days`
-                    : `Next ${preset} days`
-                  : preset;
+              const label = getPresetLabel(preset);
+
               return (
                 <Menu.Item
                   active={presetOption === preset}
-                  onClick={() => handleSelectPreset(preset)}
+                  onClick={() => {
+                    handleSelectPreset(preset);
+                    if (Boolean(onPresetClick)) {
+                      onPresetClick(preset);
+                    }
+                  }}
                   style={{ textTransform: 'capitalize' }}
                 >
                   {label}

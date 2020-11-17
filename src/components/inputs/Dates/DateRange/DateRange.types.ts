@@ -40,11 +40,19 @@ export type Props = IrisInputProps<{
    * ['today', -10, 10, -100, 100, 'custom']
    */
   presets?: PresetValue[];
+  /**
+   * Pass a callback function to run when date presets are clicked.
+   *
+   * @presetValue is the value of preset which is clicked.
+   */
+  onPresetClick?: (presetValue: PresetValue) => void;
 }>;
 
-type PresetValue =
+export type PresetValue =
   | 'today'
   | 'tomorrow'
   | 'yesterday'
+  | 'current month'
+  | 'last month'
   | 'custom'
   | number;
