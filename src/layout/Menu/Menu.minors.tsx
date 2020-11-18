@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent, cloneElement } from 'react';
+import React, { useState, MouseEvent } from 'react';
 
 import {
   Header,
@@ -31,7 +31,6 @@ export function Item({
   active,
   children,
   href,
-  route,
   toggle = false,
   icon,
   ...props
@@ -45,29 +44,25 @@ export function Item({
   };
 
   const simpleKids =
-    typeof children === 'object'
+    typeof children === 'object' && !children.props
       ? children.filter((child) => typeof child === 'string')
       : children;
 
   const complexKids =
     typeof children === 'object' &&
+    !children.props &&
     children.filter((child) => typeof child !== 'string');
 
-  const text = (
-    <>
-      {icon && icon}
-      {simpleKids}
-    </>
-  );
-
-  const link = simpleKids && href && <a href={href}>{text}</a>;
-
-  const routerLink =
-    simpleKids && route && cloneElement(route, { children: text });
+  const link = simpleKids && href;
 
   return (
     <Wrapper active={active} $height={open && complexKids.length}>
-      <ItemStyled onClick={doToggle} {...props}>
+      <ItemStyled
+        onClick={doToggle}
+        as={link ? 'a' : 'button'}
+        href={href}
+        {...props}
+      >
         {action && (
           <Action onClick={doAction}>
             {action.icon}
@@ -75,9 +70,8 @@ export function Item({
           </Action>
         )}
 
-        {link}
-        {routerLink}
-        {text}
+        {icon && icon}
+        {simpleKids}
         <Focus parent={ItemStyled} />
       </ItemStyled>
 

@@ -2,6 +2,7 @@ import React, {
   useRef,
   useState,
   useLayoutEffect,
+  useImperativeHandle,
   ReactNode,
 } from 'react';
 
@@ -43,6 +44,7 @@ function SearchComponent({
   const ref = useRef(null);
   const [height, setHeight] = useState(0);
 
+  useImperativeHandle(forwardRef, () => ref.current);
   useLayoutEffect(() => setHeight(geometry(ref.current).height), []);
 
   return (

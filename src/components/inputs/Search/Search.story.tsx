@@ -1,8 +1,6 @@
 import React from 'react';
-import { css } from 'styled-components';
 
 import { Search } from './Search';
-import { Layout } from '../../../storybook';
 
 export default { title: 'Components/inputs/Search' };
 

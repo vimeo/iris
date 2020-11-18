@@ -102,7 +102,7 @@ export const Wrapper = styled.div<{
   }
 `;
 
-export const ItemStyled = styled.button`
+export const ItemStyled = styled.button<any>`
   padding: 0.5rem 1.25rem;
   display: flex;
   flex-wrap: wrap;
