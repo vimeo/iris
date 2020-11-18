@@ -1,37 +1,19 @@
-import React, {
-  useReducer,
-  useRef,
-  useState,
-  useLayoutEffect,
-  useEffect,
-} from 'react';
+import React, { useReducer, useRef, useEffect } from 'react';
 import { parseToHsl, hslToColorString } from 'polished';
 
-import {
-  Wrapper,
-  SpectrumWrapper,
-  HueSpectrum,
-  Cursor,
-  Dot,
-} from './ColorSelect.style';
+import { Wrapper } from './ColorSelect.style';
 import { Props } from './ColorSelect.types';
-import { reducer } from './ColorSelect.state';
+import { State, reducer } from './ColorSelect.state';
 
-import { Input } from '../Input/Input';
-import { InnerButton } from '../InnerButton';
 import { HueSlider } from './Slider';
-import { ColorInputs } from './ColorInputs';
-import { Presets, PresetsProps } from './Presets';
+import { ColorInputs } from './Inputs';
+import { ColorSelectInput } from './ColorSelectInput';
+import { ColorSelectSpectrum } from './ColorSelectSpectrum';
+import { Presets, Props as PresetsProps } from './Presets';
 
 import { PopOver } from '../../../layout';
-import {
-  withIris,
-  geometry,
-  centered,
-  MinorComponent,
-  throttle,
-} from '../../../utils';
-import { HSVtoHSL, colorSpaces, round } from '../../../color';
+import { withIris, MinorComponent, throttle } from '../../../utils';
+import { colorSpaces } from '../../../color';
 
 export const ColorSelect = withIris<
   HTMLInputElement,
@@ -43,12 +25,22 @@ ColorSelect.Presets = Presets;
 
 function ColorSelectComponent({
   height = 360,
+  initial = { color: '#F00', colorSpace: 'HEX' },
+
+  // DEPRECATED
   initialColor = '#F00',
+  //
+
   label,
   onChange,
   onClose,
   onOpen,
-  resetColor = initialColor,
+  reset = { color: initial.color, label: null },
+
+  // DEPRECATED
+  resetColor = initialColor || initial.color,
+  //
+
   resetLabel,
   size,
   throttleSpeed = 24,
@@ -57,37 +49,31 @@ function ColorSelectComponent({
   attach = 'bottom',
   ...props
 }: Props) {
-  const defaultColor = parseToHsl(initialColor);
+  // deprecation handling
+  if (initialColor) initial.color = initialColor;
+  if (resetColor) reset.color = resetColor;
+  if (resetLabel) reset.label = resetLabel;
+
+  const defaultColor = parseToHsl(initial.color);
   const initialColors = colorSpaces(defaultColor);
 
-  const initialState = {
+  const initialState: State = {
     open: false,
     dragging: false,
+    editing: false,
+    error: false,
     coords: [width, 0],
-    HSL: defaultColor,
-    ...initialColors,
+    colorMeta: { HSL: defaultColor, ...initialColors },
+    colorSpace: 'HEX',
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { open, dragging, coords, HSL, HSV, RGB, HEX } = state;
+  const { open, dragging, colorMeta } = state;
+  const { HSL } = colorMeta;
 
-  const ref = useRef(null);
-  const [inputHeight, setInputHeight] = useState(0);
-  useLayoutEffect(
-    () => setInputHeight(geometry(ref.current).height),
-    []
-  );
   useEffect(() => {
     dispatch({ type: 'SET_HEX', payload: value });
   }, [value]);
-
-  function clamp([X, Y]) {
-    if (X < 0) X = 0;
-    if (Y < 0) Y = 0;
-    if (X > width) X = width;
-    if (Y > height) Y = height;
-    return [X, Y];
-  }
 
   const toggle = () => {
     open && onClose && onClose();
@@ -97,162 +83,66 @@ function ColorSelectComponent({
 
   const setHue = useRef(
     throttle((e) => {
-      const newHSL = {
-        ...HSL,
-        hue: parseInt(e.target.value, 10) / 100,
-      };
+      const hue = parseInt(e.target.value, 10) / 100;
+      const newHSL = { ...HSL, hue };
 
       if (HSL.hue !== newHSL.hue) {
-        onChange && onChange(hslToColorString(newHSL));
+        const color = hslToColorString(newHSL);
+        onChange && onChange(color);
         dispatch({ type: 'SET_HSL', payload: newHSL });
       }
     }, throttleSpeed / 4)
   ).current;
 
-  const setCoords = useRef(
-    throttle(({ nativeEvent: { offsetX, offsetY } }, hue) => {
-      const payload = clamp([offsetX, offsetY]);
-
-      dispatch({ type: 'SET_COORDS', payload });
-      setHSLfromCoords({ offsetX, offsetY }, hue);
-    }, throttleSpeed)
-  ).current;
-
-  function setHSLfromCoords(nativeEvent, hue) {
-    const { saturation, lightness } = coordsToSL(
-      nativeEvent,
-      width,
-      height
-    );
-
-    const payload = { hue, saturation, lightness };
-    onChange && onChange(hslToColorString(payload));
-    dispatch({ type: 'SET_HSL', payload });
-  }
-
-  const reset = (e) => {
-    e.stopPropagation();
-    const payload = [width, 0];
-    onChange && onChange(hslToColorString(parseToHsl(resetColor)));
-    dispatch({ type: 'SET_COORDS', payload });
-    dispatch({ type: 'SET_HSL', payload: parseToHsl(resetColor) });
-  };
-
-  const doMouseActive = (dragging: boolean) => ({
-    nativeEvent: { offsetX, offsetY },
-  }) => {
-    const payload = clamp([offsetX, offsetY]);
-
-    if (dragging) dispatch({ type: 'DRAG_START' });
-    else dispatch({ type: 'DRAG_END' });
-    dispatch({ type: 'SET_COORDS', payload });
-
-    setHSLfromCoords({ offsetX, offsetY }, HSL.hue);
-  };
-
-  const doMouseMove = (e) => dragging && persist(e, setLoupe);
-  const setLoupe = (e) => setCoords(e, HSL.hue);
+  const onMouseDown = () =>
+    !dragging && dispatch({ type: 'DRAG_START' });
+  const onMouseUp = () => dragging && dispatch({ type: 'DRAG_END' });
 
   return (
     <PopOver
       attach={attach}
+      active={open}
       content={
         <Wrapper width={width}>
-          <SpectrumWrapper
-            onMouseDown={doMouseActive(true)}
-            onMouseUp={doMouseActive(false)}
-            onMouseLeave={() => dispatch({ type: 'DRAG_END' })}
+          <ColorSelectSpectrum
+            dispatch={dispatch}
+            dragging={dragging}
+            height={height}
+            onChange={onChange}
+            throttleSpeed={throttleSpeed}
+            width={width}
+            {...state}
             {...props}
-          >
-            <HueSpectrum
-              hue={HSL.hue}
-              onMouseMove={doMouseMove}
-              width={width}
-              height={height}
-              style={{
-                background: hslToColorString({
-                  hue: HSL.hue,
-                  saturation: 1,
-                  lightness: 0.5,
-                }),
-              }}
-            >
-              <Cursor style={cursorPosition(coords)} />
-            </HueSpectrum>
-          </SpectrumWrapper>
+          />
 
           <HueSlider
-            onMouseDown={() =>
-              !dragging && dispatch({ type: 'DRAG_START' })
-            }
-            onMouseUp={() =>
-              dragging && dispatch({ type: 'DRAG_END' })
-            }
+            dragging={dragging}
             onChange={setHue}
-            HEX={HEX}
-            width={width}
+            onMouseDown={onMouseDown}
+            onMouseUp={onMouseUp}
             value={HSL.hue * 100}
+            width={width}
+            {...state}
           />
           <ColorInputs
             dispatch={dispatch}
-            HEX={HEX}
-            HSL={HSL}
-            RGB={RGB}
-            HSV={HSV}
             onChange={onChange}
+            {...state}
           />
         </Wrapper>
       }
     >
-      <div style={{ position: 'relative' }}>
-        <Input
-          value={HEX}
-          style={{ paddingLeft: '2.25rem' }}
-          onClick={toggle}
-          size={size}
-          type="text"
-          ref={ref}
+      <div>
+        <ColorSelectInput
+          colorMeta={colorMeta}
+          dispatch={dispatch}
           label={label}
-          onChange={(e) => {
-            onChange && onChange(e.target.value);
-            dispatch({
-              type: 'SET_HEX',
-              payload: e.target.value,
-            });
-          }}
-        >
-          <Dot style={{ background: HEX }} />
-          {resetLabel && HEX !== resetColor.toLowerCase() && (
-            <InnerButton
-              format="basic"
-              variant="minimalTransparent"
-              size={size}
-              onClick={reset}
-              height={inputHeight}
-            >
-              <span style={centered}>{resetLabel}</span>
-            </InnerButton>
-          )}
-        </Input>
+          onChange={onChange}
+          reset={reset}
+          size={size}
+          toggle={toggle}
+        />
       </div>
     </PopOver>
   );
-}
-
-const cursorPosition = (coords) => ({
-  transform: `translate(${coords[0]}px, ${coords[1]}px)`,
-});
-
-function coordsToSL(nativeEvent, width, height) {
-  const { saturation, lightness } = HSVtoHSL({
-    hue: 360,
-    saturation: round(nativeEvent.offsetX / width),
-    value: round((nativeEvent.offsetY / height - 1) * -1),
-  });
-  return { saturation, lightness };
-}
-
-function persist(e, fn) {
-  e.persist();
-  fn(e);
 }

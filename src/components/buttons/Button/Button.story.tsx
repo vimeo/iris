@@ -21,6 +21,8 @@ import {
 
 export default config;
 
+export { Social } from '../Social/SocialButton.story';
+
 const Button = styled(B)`
   display: flex;
   margin: 0 1rem 1rem 0;
@@ -113,7 +115,7 @@ export function Icon() {
 export function IconPill() {
   return <Button icon={<Plus />} pill />;
 }
-IconPill.story = { name: 'Icon (Pill)' };
+IconPill.storyName = 'Icon (Pill)';
 
 export function IconPosition() {
   return (
@@ -187,7 +189,7 @@ export function FloatingPill() {
     </Button>
   );
 }
-FloatingPill.story = { name: 'Floating (Pill)' };
+FloatingPill.storyName = 'Floating (Pill)';
 
 export function Fluid() {
   return <Button fluid>Fluid Button</Button>;
@@ -227,7 +229,7 @@ export function FluidVaried() {
     </>
   );
 }
-FluidVaried.story = { name: 'Fluid (Queried)' };
+FluidVaried.storyName = 'Fluid (Queried)';
 
 export function TextOverflow() {
   return (

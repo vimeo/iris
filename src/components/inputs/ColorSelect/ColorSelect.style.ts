@@ -22,19 +22,26 @@ export const Dot = styled.div`
 export const Wrapper = styled.div<{ width?: number }>`
   padding: 0;
   position: relative;
-  /* background: ${({ theme }) => theme.content.background}; */
   width: ${(p) => p.width}px;
   border-radius: 0.25rem;
-  box-shadow: 0 0 ${rem(1)} 0 rgba(0, 0, 0, 0.15),
-    0 ${rem(4)} ${rem(8)} 0 rgba(0, 0, 0, 0.15);
 `;
 
-export const SpectrumWrapper = styled.div`
-  padding: 2rem 4rem 1rem;
+export const SpectrumWrapper = styled.div<{ dragging?: boolean }>`
   position: relative;
-  top: -2rem;
-  left: -4rem;
   width: calc(100% + 8rem);
+
+  ${(p) =>
+    p.dragging
+      ? css`
+          padding: 4rem 8rem;
+          top: -4rem;
+          left: -8rem;
+        `
+      : css`
+          padding: 0 0;
+          top: 0;
+          left: 0;
+        `};
 `;
 
 export const Cursor = styled.div<any>`

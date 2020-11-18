@@ -15,7 +15,7 @@ export function Primary() {
 export function PrimaryPill() {
   return <VariantStory format="primary" pill />;
 }
-PrimaryPill.story = { name: 'Primary (Pill)' };
+PrimaryPill.storyName = 'Primary (Pill)';
 
 export function Positive() {
   return <VariantStory format="positive" />;
@@ -24,7 +24,7 @@ export function Positive() {
 export function PositivePill() {
   return <VariantStory format="positive" pill />;
 }
-PositivePill.story = { name: 'Positive (Pill)' };
+PositivePill.storyName = 'Positive (Pill)';
 
 export function Negative() {
   return <VariantStory format="negative" />;
@@ -33,7 +33,7 @@ export function Negative() {
 export function NegativePill() {
   return <VariantStory format="negative" pill />;
 }
-NegativePill.story = { name: 'Negative (Pill)' };
+NegativePill.storyName = 'Negative (Pill)';
 
 function VariantStory({ format, pill = null }) {
   return (

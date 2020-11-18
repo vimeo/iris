@@ -32,7 +32,7 @@ export function RadioSetStory() {
     </>
   );
 }
-RadioSetStory.story = { name: 'RadioSet' };
+RadioSetStory.storyName = 'RadioSet';
 
 export function Labels() {
   return (

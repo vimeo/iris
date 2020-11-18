@@ -6,11 +6,6 @@ import { HorizontalDock } from '../Dock/Dock.story';
 import { Header } from '../../typography';
 import { VideoList } from './VideoList.story';
 
-export default {
-  title: 'layout/Grid/Examples',
-  parameters: { a11y: { disabled: true } },
-};
-
 export function Showcase() {
   return (
     <Layout>

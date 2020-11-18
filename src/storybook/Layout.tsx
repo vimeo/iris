@@ -7,8 +7,8 @@ export const Layout = {
   }>`
     ${flexVertical};
 
-    padding: 0.5rem 0;
-    padding: ${(p) => (p.center ? '4rem' : '0.5rem 0')};
+    padding: 1rem 0.5rem;
+    padding: ${(p) => (p.center ? '4rem' : '1rem 0.5rem')};
 
     > * {
       display: block;

@@ -9,8 +9,8 @@ import { withGlobalStyles } from './decorators/withGlobalStyles';
 
 addThemes(themes);
 
+// addDecorator(withA11y);
 addDecorator(withGlobalStyles);
-addDecorator(withA11y);
 addDecorator(withKnobs);
 addDecorator(withThemes);
 

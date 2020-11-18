@@ -2,38 +2,47 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { hsl } from 'polished';
 
-export const HueSlider = (props) => (
-  <Slider kind="hue" max="36000" step="100" {...props} />
-);
+import { SliderStyled } from './Slider.style';
 
-export const Slider = ({ kind, HEX, HSL, ...props }) => (
-  <div
-    style={{
-      display: 'flex',
-      alignItems: 'center',
-      marginTop: '-1.5rem',
-    }}
-  >
-    <Dot style={{ background: HEX }} />
-    <Wrapper kind={kind} HSL={HSL}>
-      <SliderStyled type="range" min="0.01" {...props} />
-    </Wrapper>
-  </div>
-);
+export function HueSlider(props) {
+  return <Slider kind="hue" max="36000" step="100" {...props} />;
+}
+
+export function Slider({ dragging, kind, colorMeta, ...props }) {
+  const { HEX, HSL } = colorMeta;
+
+  const style = {
+    display: 'flex',
+    alignItems: 'center',
+    marginTop: dragging ? '-6.5rem' : '1.5rem',
+    padding: '0 1.5rem',
+  };
+
+  return (
+    <div style={style}>
+      <Dot style={{ background: HEX }} />
+      <Wrapper kind={kind} HSL={HSL}>
+        <SliderStyled type="range" min="0.01" {...props} />
+      </Wrapper>
+    </div>
+  );
+}
 
 export const Dot = styled.div`
   border-radius: 50%;
-  width: 1rem;
-  height: 1rem;
-  margin: 0 1rem;
+  width: 2rem;
+  height: 2rem;
+  min-width: 2rem;
+  min-height: 2rem;
+  margin: 0 1rem 0 0;
   display: inline-flex;
 `;
 
 const Wrapper = styled.div`
-  height: 1rem;
-  width: calc(100% - 4rem);
+  height: 1.9rem;
+  width: calc(100% - 1.5rem);
   border-radius: 0.25rem;
-  margin: 1rem 0;
+  margin: 0;
   position: relative;
   display: inline-flex;
   ${sliderBackground};
@@ -68,87 +77,3 @@ function sliderBackground({ kind, HSL }) {
       `;
   }
 }
-
-const hidden = css`
-  border: none;
-  box-shadow: none;
-  border-radius: 0px;
-  background: transparent;
-`;
-
-const SliderStyled = styled.input`
-  height: 1rem;
-  width: 100%;
-  margin: 0;
-  position: absolute;
-  top: 1px;
-  background: rgba(0, 0, 0, 0);
-  left: 0;
-  appearance: none;
-  &:focus {
-    outline: none;
-    &::-webkit-slider-thumb {
-      border: 0.25rem solid ${(p) => p.theme.content.color};
-      transform: scale(1.2) translateY(0.5px);
-    }
-  }
-  &::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 0px;
-    cursor: pointer;
-    ${hidden};
-  }
-  &::-webkit-slider-thumb {
-    box-shadow: none;
-    border: 0.25rem solid ${(p) => p.theme.content.color};
-    height: 23px;
-    width: 23px;
-    border-radius: 15px;
-    background: transparent;
-    cursor: pointer;
-    appearance: none;
-    margin-top: -12.5px;
-  }
-  &:focus::-webkit-slider-runnable-track {
-    background: #050505;
-  }
-  &::-moz-range-track {
-    width: 100%;
-    height: 1px;
-    cursor: pointer;
-    box-shadow: none;
-    ${hidden};
-  }
-  &::-moz-range-thumb {
-    ${hidden};
-    height: 26px;
-    width: 26px;
-    cursor: pointer;
-  }
-  &::-ms-track {
-    width: 100%;
-    height: 1px;
-    cursor: pointer;
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-  }
-  &::-ms-fill-lower {
-    ${hidden};
-  }
-  &::-ms-fill-upper {
-    ${hidden};
-  }
-  &::-ms-thumb {
-    ${hidden};
-    height: 26px;
-    width: 26px;
-    cursor: pointer;
-  }
-  &:focus::-ms-fill-lower {
-    background: #000000;
-  }
-  &:focus::-ms-fill-upper {
-    background: #050505;
-  }
-`;

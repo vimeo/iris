@@ -10,6 +10,14 @@ export type Props = IrisInputProps<{
    *
    * [default = '#F00']
    */
+  initial?: {
+    color?: string;
+    colorSpace?: 'HEX' | 'HSL' | 'RGB';
+  };
+  /**
+   * DEPRECATED: see `initial` prop!
+   *
+   */
   initialColor?: string;
   /**
    * Throttle update rate in milliseconds.
@@ -35,12 +43,21 @@ export type Props = IrisInputProps<{
   label?: ReactNode;
   /**
    * Text for reset button. If no text is provided the reset button will not appear.
+   *
+   * Color to reset the picker too.
+   */
+  reset?: {
+    color?: string;
+    label?: string;
+  };
+  /**
+   * DEPRECATED: see `reset` prop!
+   *
    */
   resetLabel?: string;
   /**
-   * Color to reset the picker too.
+   * DEPRECATED: see `reset` prop!
    *
-   * [default = initialColor]
    */
   resetColor?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';

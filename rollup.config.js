@@ -4,7 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 
-export default args => {
+export default (args) => {
   // Usage: npx rv build --debug OR npx rollup -c rollup.config.js --config-debug
   const debug = args['config-debug'];
 
@@ -16,7 +16,7 @@ export default args => {
       dir: './build',
       format: 'cjs',
     },
-    external: id => id.includes('@babel/runtime'),
+    external: (id) => id.includes('@babel/runtime'),
     plugins: [
       resolve(),
       typescript(),
@@ -26,6 +26,6 @@ export default args => {
       }),
       !debug && terser(),
       multiInput(),
-    ].filter(p => p),
+    ].filter((p) => p),
   };
 };

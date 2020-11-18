@@ -52,7 +52,7 @@ export function withCharacterCountStory() {
     </Layout.StoryVertical>
   );
 }
-withCharacterCountStory.story = { name: 'withCharacterCount' };
+withCharacterCountStory.storyname = 'withCharacterCount';
 
 export const Reset = () => <ResetStory />;
 function ResetStory() {

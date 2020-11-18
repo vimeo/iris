@@ -13,8 +13,8 @@ export function Common() {
     <Layout.StoryVertical>
       <ColorSelect
         attach={select('attach', positions, 'bottom')}
-        width={320}
-        height={160}
+        width={360}
+        height={180}
         onChange={(HEX) =>
           console.log(
             `onChange: %c ${HEX}`,
@@ -45,8 +45,8 @@ function PresetsStory() {
             }}
           />
         }
-        width={237}
-        height={172}
+        width={300}
+        height={150}
         onChange={(color) => {
           setAccentColor(color);
         }}

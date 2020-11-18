@@ -4,8 +4,8 @@ import React, {
   ReactElement,
   EventHandler,
 } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { rem } from 'polished';
+import styled, { css, keyframes } from 'styled-components';
+import { rem, rgba } from 'polished';
 
 import { Minors } from './PopOver.minors';
 export { Pop } from './PopOver.minors';
@@ -99,7 +99,15 @@ const PopOverStyled = styled.div<Props>`
   min-height: 2rem;
   max-width: 40rem;
   border-radius: 0.25rem;
-  box-shadow: 0 0 ${rem(1)} 0 rgba(0, 0, 0, 0.15),
-    0 ${rem(4)} ${rem(8)} 0 rgba(0, 0, 0, 0.15);
   animation: ${fadeIn} 150ms ease-in-out;
+
+  ${(p) =>
+    p.theme.name === 'dark'
+      ? css`
+          border: 1px solid ${rgba(255, 255, 255, 0.125)};
+        `
+      : css`
+          box-shadow: 0 0 ${rem(1)} 0 rgba(0, 0, 0, 0.15),
+            0 ${rem(4)} ${rem(8)} 0 rgba(0, 0, 0, 0.15);
+        `};
 `;

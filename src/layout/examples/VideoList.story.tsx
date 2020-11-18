@@ -5,10 +5,6 @@ import { em } from 'polished';
 import { Grid } from '../Grid/Grid';
 import { Header } from '../../typography';
 
-export default {
-  title: 'layout/Grid/Examples',
-};
-
 export function VideoList() {
   const children = repeat(12, (key) => (
     <div>

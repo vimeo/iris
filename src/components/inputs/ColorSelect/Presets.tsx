@@ -5,6 +5,51 @@ import { rem } from 'polished';
 import { Header } from '../../../typography';
 import { Focus } from '../../../utils';
 
+export type Props = {
+  palette: string[];
+  label: string;
+  onColorClick: (color: string) => void;
+};
+
+export function Presets({ palette, label, onColorClick }: Props) {
+  const [index, indexSet] = useState(0);
+
+  const onKeyUp = ({ key }) => {
+    if (key !== 'ArrowRight' && key !== 'ArrowLeft') return;
+
+    let indexNext;
+    if (key === 'ArrowRight') indexNext = index === 3 ? 0 : index + 1;
+    if (key === 'ArrowLeft') indexNext = index === 0 ? 3 : index - 1;
+
+    indexSet(indexNext);
+    onColorClick(palette[indexNext]);
+  };
+
+  return (
+    <Swabs>
+      {label && (
+        <Header size="6" style={{ margin: '0 auto 0 0' }}>
+          {label}
+        </Header>
+      )}
+      {palette.map((color: string) => (
+        <Swab
+          aria-label={color}
+          color={color}
+          key={color}
+          onClick={(event) => {
+            event.stopPropagation();
+            onColorClick(color);
+          }}
+          onKeyUp={onKeyUp}
+        >
+          <Focus parent={Swab} radius={12} />
+        </Swab>
+      ))}
+    </Swabs>
+  );
+}
+
 const Swabs = styled.div`
   display: flex;
   align-items: center;
@@ -31,54 +76,3 @@ const Swab = styled.button<{ color: string }>`
     transform: scale(1);
   }
 `;
-
-export type PresetsProps = {
-  palette: string[];
-  label: string;
-  onColorClick: (color: string) => void;
-};
-
-export const Presets = ({
-  palette,
-  label,
-  onColorClick,
-}: PresetsProps) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleKeyUp = ({ key }) => {
-    if (key === 'ArrowRight') {
-      const newIndex = activeIndex === 3 ? 0 : activeIndex + 1;
-      setActiveIndex(newIndex);
-      onColorClick(palette[newIndex]);
-    }
-    if (key === 'ArrowLeft') {
-      const newIndex = activeIndex === 0 ? 3 : activeIndex - 1;
-      setActiveIndex(newIndex);
-      onColorClick(palette[newIndex]);
-    }
-  };
-
-  return (
-    <Swabs>
-      {label && (
-        <Header size="6" style={{ margin: '0 auto 0 0' }}>
-          {label}
-        </Header>
-      )}
-      {palette.map((color: string) => (
-        <Swab
-          aria-label={color}
-          color={color}
-          key={color}
-          onClick={(event) => {
-            event.stopPropagation();
-            onColorClick(color);
-          }}
-          onKeyUp={handleKeyUp}
-        >
-          <Focus parent={Swab} radius={12} />
-        </Swab>
-      ))}
-    </Swabs>
-  );
-};

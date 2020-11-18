@@ -6,8 +6,6 @@ import { VimeoLogo } from '../../illustration';
 import { Button, Path, Avatar, Search } from '../../components';
 import { ChevronDown, Bell as B } from '../../icons';
 
-export default { title: 'Labs/Storyshots' };
-
 export function Nav() {
   return (
     <div>

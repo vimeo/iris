@@ -8,11 +8,6 @@ import { Header } from '../../typography';
 import { Button } from '../../components';
 import { slate, blue } from '../../color';
 
-export default {
-  title: 'layout/Dock/Examples',
-  parameters: { a11y: { disabled: true } },
-};
-
 export function SingleVideo() {
   return (
     <Layout>

@@ -7,10 +7,6 @@ import { Button, Avatar as A } from '../../components';
 import { Link, Plus, ArrowLeft } from '../../icons';
 import { slate } from '../../color';
 
-export default {
-  title: 'layout/Dock/Examples',
-};
-
 export function Nav() {
   return (
     <TopNav>
