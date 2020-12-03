@@ -3,6 +3,7 @@ import multiInput from 'rollup-plugin-multi-input';
 import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
+import pkg from './package.json';
 
 export default (args) => {
   // Usage: npx rv build --debug OR npx rollup -c rollup.config.js --config-debug
@@ -16,13 +17,18 @@ export default (args) => {
       dir: './build',
       format: 'cjs',
     },
-    external: (id) => id.includes('@babel/runtime'),
+    external: [
+      ...Object.keys(pkg.dependencies || {}),
+      ...Object.keys(pkg.peerDependencies || {}),
+      (id) => id.includes('@babel/runtime'),
+    ],
     plugins: [
       resolve(),
       typescript(),
       babel({
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
         babelHelpers: 'runtime',
+        exclude: /node_modules/,
       }),
       !debug && terser(),
       multiInput(),
