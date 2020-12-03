@@ -86,7 +86,7 @@
         "react-test-renderer": "17.0.1",
         "rollup-plugin-multi-input": "^1.1.1",
         "rollup-plugin-terser": "^7.0.2",
-        "styled-components": "5.0.1",
+        "styled-components": "^5.2.1",
         "stylelint": "^13.7.2",
         "stylelint-config-recommended": "^3.0.0",
         "stylelint-config-styled-components": "^0.1.1",
@@ -94,11 +94,11 @@
         "ts-loader": "^8.0.11",
         "typescript": "4.0.5",
         "typescript-plugin-styled-components": "^1.4.4",
-        "webpack": "^5.4.0"
+        "webpack": "^5.4.0",
+        "@vimeo/rv-cli": "3.0.0"
     },
     "optionalDependencies": {
-        "@vimeo/deploy-storybook": "^1.1.1",
-        "@vimeo/rv-cli": "3.0.0"
+        "@vimeo/deploy-storybook": "^1.1.1"
     },
     "peerDependencies": {
         "@babel/runtime": "^7.12.5",
