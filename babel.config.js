@@ -1,14 +1,13 @@
 module.exports = {
   presets: [
-    ['babel-preset-react-app', { typescript: true }],
+    ['@babel/preset-typescript'],
+    '@babel/preset-react',
     [
       '@babel/preset-env',
       {
         targets: {
           node: 'current',
         },
-        useBuiltIns: 'usage',
-        corejs: 3,
       },
     ],
   ],
@@ -18,7 +17,6 @@ module.exports = {
     '@babel/plugin-proposal-object-rest-spread',
     '@babel/plugin-proposal-optional-chaining',
     'babel-plugin-styled-components',
-    '@babel/plugin-transform-runtime',
   ],
   env: {
     test: {
