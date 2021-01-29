@@ -16,7 +16,9 @@ type Fluid = true | { min?: number; max?: number };
 export type Props = IrisProps<
   {
     /**
-     * DEPRECATED! Use `pill` prop instead.
+     * @deprecated
+     *
+     * Use `pill` prop instead.
      */
     circular?: boolean;
     element?: ButtonElements;

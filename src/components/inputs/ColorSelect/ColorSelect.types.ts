@@ -15,7 +15,9 @@ export type Props = IrisInputProps<{
     colorSpace?: 'HEX' | 'HSL' | 'RGB';
   };
   /**
-   * DEPRECATED: see `initial` prop!
+   * @deprecated
+   *
+   * see `initial` prop!
    *
    */
   initialColor?: string;
@@ -51,12 +53,16 @@ export type Props = IrisInputProps<{
     label?: string;
   };
   /**
-   * DEPRECATED: see `reset` prop!
+   * @deprecated
+   *
+   * see `reset` prop!
    *
    */
   resetLabel?: string;
   /**
-   * DEPRECATED: see `reset` prop!
+   * @deprecated
+   *
+   * see `reset` prop!
    *
    */
   resetColor?: string;
