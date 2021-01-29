@@ -40,7 +40,7 @@ export function withIris<
 ): IrisComponent<DOMElement, Props> & Minors {
   const { name } = Component;
 
-  const component = name.replace('Component', '');
+  const component = name?.replace('Component', '');
   const dev = { path };
 
   if ($$iris === true && process.env.NODE_ENV === 'development') {
@@ -64,7 +64,8 @@ export function withIris<
 
   if (process.env.NODE_ENV === 'development') {
     const { name } = Component;
-    const component = name.replace('Component', '');
+
+    const component = name?.replace('Component', '');
     const dev = { path, debug };
 
     const RefComponentWithIris = {

@@ -126,7 +126,7 @@
         "prepublishOnly": "npm run typecheck && npm run lint && npm run build && cp -r ./build/* ./ && npm run clean",
         "start": "npm run typecheck && npm run lint && npm run test && npm run storybook",
         "storybook": "npx rv storybook --start -p 9001",
-        "deploy-storybook": "deploy-storybook -a iris",
+        "deploy-storybook": "deploy-storybook --user paul-mendoza --pass 11e95b90be13e414b6b52e1094e052a5b1 -a iris",
         "stylelint": "npx stylelint 'src/**/*.ts'",
         "test-publish": "npm run prepublishOnly && npm run postpublish",
         "test": "jest --updateSnapshot; rm -rf src/storybook/__snapshots__",
