@@ -5,7 +5,13 @@ module.exports = {
       '@babel/preset-env',
       {
         targets: {
-          node: 'current',
+          browsers: [
+            '>2%',
+            'last 1 Edge version',
+            'last 2 Safari version',
+            'last 1 Firefox version',
+            'IE 11',
+          ],
         },
         useBuiltIns: 'usage',
         corejs: 3,
@@ -19,6 +25,7 @@ module.exports = {
     '@babel/plugin-proposal-optional-chaining',
     'babel-plugin-styled-components',
     '@babel/plugin-transform-runtime',
+    'babel-plugin-transform-class-properties',
   ],
   env: {
     test: {
