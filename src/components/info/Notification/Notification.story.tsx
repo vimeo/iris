@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { action } from '@storybook/addon-actions';
 
 import { Notification } from './Notification';
 
@@ -34,7 +33,7 @@ export function WithAction() {
         onClick: () =>
           alert('I am a demo action for the Notification'),
       }}
-      onComplete={action('Notification onComplete called')}
+      onComplete={() => console.log('Notification onComplete called')}
     >
       <Button>Show Notification</Button>
     </Notification>
@@ -46,7 +45,7 @@ function ControlledStory() {
   const [showing, showingSet] = useState(false);
 
   function onComplete() {
-    action('controlled Notification onComplete called')();
+    console.log('controlled Notification onComplete called');
     showingSet(false);
   }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 
 import { FileUpload } from './FileUpload';
 
@@ -13,20 +12,24 @@ export function Common() {
   return (
     <Layout.StoryVertical>
       <FileUpload
-        onChange={(e) => action('Uploaded file')(e.target.files, e)}
+        onChange={(e) =>
+          console.log('Uploaded file', e.target.files, e)
+        }
       >
         <Button icon={<UploadCloud />}>Upload any file</Button>
       </FileUpload>
       <FileUpload
         accept=".jpg"
-        onChange={(e) => action('Uploaded JPG')(e.target.files, e)}
+        onChange={(e) =>
+          console.log('Uploaded JPG', e.target.files, e)
+        }
       >
         <Button icon={<UploadCloud />}>Upload JPG only</Button>
       </FileUpload>
       <FileUpload
         multiple
         onChange={(e) =>
-          action('Uploaded file(s)')(e.target.files, e)
+          console.log('Uploaded file(s)', e.target.files, e)
         }
       >
         <Button icon={<UploadCloud />}>Upload multiple files</Button>
