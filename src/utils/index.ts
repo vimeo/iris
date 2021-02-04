@@ -5,8 +5,10 @@ export { throttle } from './general/throttle';
 // hooks
 export { useDeprecate } from './hooks/useDeprecate';
 export { useFlip } from './hooks/useFlip';
+export { useForwardRef } from './hooks/useForwardRef';
 export { useIrisError } from './hooks/useIrisError';
 export { useLayoutStyles } from './hooks/useLayoutStyles';
+export { useLocalTheme } from './hooks/useLocalTheme';
 export { useMeasure } from './hooks/useMeasure';
 export { useOutsideClick } from './hooks/useOutsideClick';
 export { usePortal, validate, ANCHOR_POINTS, Attach, AttachAlias, SimpleAnimation } from './hooks/usePortal';
@@ -14,6 +16,7 @@ export { usePortal, validate, ANCHOR_POINTS, Attach, AttachAlias, SimpleAnimatio
 // events
 export { useClose, onClose } from './events/onClose';
 export { arrowRight, arrowLeft, enter, esc, spacebar, tab } from './events/KeyCodes';
+export { stopPrevent } from './events/stopPrevent';
 
 // HOCs
 export { withIris } from './HOCs/withIris';
