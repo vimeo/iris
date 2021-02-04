@@ -137,6 +137,19 @@ export const data = [
         ],
       },
       {
+        name: 'Developer Experience',
+        items: [
+          {
+            name: 'dev-env console errors',
+            goals: [{ year: 2021, quarters: [2, 3] }],
+          },
+          {
+            name: 'dev-env visual errors',
+            goals: [{ year: 2021, quarters: [4, 1] }],
+          },
+        ],
+      },
+      {
         name: 'Standards',
         items: [
           { name: 'ESLint', goals: [{ year: 2021, quarters: [3] }] },
@@ -497,6 +510,14 @@ export const data = [
       {
         name: 'Systems',
         items: [
+          {
+            name: 'Iris',
+            events: [
+              { year: 2021, quarters: [3], partial: true },
+              { year: 2022, quarters: [3], partial: true },
+              { year: 2023, quarters: [3], partial: true },
+            ],
+          },
           {
             name: 'Animation',
             goals: [{ year: 2021, quarters: [3, 4] }],

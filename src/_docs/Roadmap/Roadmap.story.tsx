@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { data } from './Roadmap.data';
@@ -12,13 +12,22 @@ export default {
   title: 'Roadmap',
 };
 
-export function Common() {
+export const Common = () => <CommonStory />;
+function CommonStory() {
+  const state = useState({ year: null, quarter: null });
+  const { year, quarter } = state[0];
+
   return (
     <Roadmap>
       <Markers />
-      <Header />
+      <Header state={state} />
       {data.map((props, i) => (
-        <Category color={colors[i]} weight={600} {...props} />
+        <Category
+          color={colors[i]}
+          weight={600}
+          state={state}
+          {...props}
+        />
       ))}
     </Roadmap>
   );
@@ -86,6 +95,7 @@ function Category({
   subCategories,
   color,
   weight,
+  state,
   ...props
 }) {
   return (
@@ -93,7 +103,12 @@ function Category({
       {name}
       {subCategories &&
         subCategories.map((props) => (
-          <SubCategory color={color} weight={weight} {...props} />
+          <SubCategory
+            color={color}
+            weight={weight}
+            state={state}
+            {...props}
+          />
         ))}
     </CatCell>
   );
@@ -109,15 +124,47 @@ function SubCategory({
   items,
   color,
   weight,
+  state,
   ...props
 }) {
-  return (
+  let { year, quarter } = state[0];
+  quarter =
+    quarter === null ? null : parseInt(quarter.replace('Q', ''));
+  year = year === null ? null : parseInt(year);
+
+  const selected = items.some((item) =>
+    item.goals?.some((goal) => {
+      console.log(item.name, goal.quarters[0]);
+      return goal.year === year && goal.quarters.includes(quarter);
+    })
+  );
+
+  if (!year && !quarter)
+    return (
+      <Cell style={{ paddingLeft: '2rem' }}>
+        {name}
+
+        {items &&
+          items.map((props) => {
+            return <Item color={color} weight={weight} {...props} />;
+          })}
+      </Cell>
+    );
+
+  return selected ? (
     <Cell style={{ paddingLeft: '2rem' }}>
       {name}
+
       {items &&
-        items.map((props) => (
-          <Item color={color} weight={weight} {...props} />
-        ))}
+        items.map((props) => {
+          const selected =
+            props.goals?.[0].quarters.includes(quarter) &&
+            props.goals?.[0].year === year;
+
+          return selected ? (
+            <Item color={color} weight={weight} {...props} />
+          ) : null;
+        })}
     </Cell>
-  );
+  ) : null;
 }
