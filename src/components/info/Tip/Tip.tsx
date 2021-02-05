@@ -31,8 +31,8 @@ function TipComponent({
   ...props
 }: Props) {
   const wrap =
-    typeof children === 'string'
-      ? children.length > maxWidth - 2
+    typeof content === 'string'
+      ? content.length > maxWidth - 2
       : null;
 
   const { irisError } = useIrisError(
