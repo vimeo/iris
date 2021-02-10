@@ -1,10 +1,11 @@
-import {
+import React, {
   forwardRef,
   ForwardRefExoticComponent,
   RefAttributes,
   PropsWithoutRef,
   useContext,
   useEffect,
+  createContext,
   FC,
 } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -53,7 +54,8 @@ export function withIris<
     const themeFromContext = useContext(ThemeContext);
     theme = theme || themeFromContext;
 
-    // props = withAnalytics({ $$iris, props });
+    console.log({ props });
+    props = useAnalytics({ $$iris, props });
 
     return Component({
       // errors,
@@ -123,3 +125,56 @@ const soPretty = `
 
 if (process.env.NODE_ENV === 'development')
   console.log(`\n\n%c @vimeo/iris: ${version}`, soPretty, '\n\n\n');
+
+const BigPictureContext = createContext({});
+
+export function BigPicture({ children, config, ...props }) {
+  return (
+    <BigPictureContext.Provider value={config}>
+      {children}
+    </BigPictureContext.Provider>
+  );
+}
+
+function useAnalytics({ $$iris, props: { children, ...props } }) {
+  const {
+    location: { href },
+  } = window;
+  const { area } = useContext(BigPictureContext);
+  const { component, version } = $$iris;
+
+  const now = new Date();
+  const date = now.toDateString();
+  const time = now.toTimeString();
+
+  const dataProps = props;
+  if (typeof children === 'string') dataProps.children = children;
+
+  const data = {
+    component,
+    props: dataProps,
+    iris: version,
+    location: href,
+    trackingArea: area,
+    date,
+    time,
+  };
+
+  const onClick = (event) => {
+    props.onClick && props.onClick(event);
+    console.log({ trigger: 'click', ...data });
+  };
+
+  return { ...props, onClick };
+}
+
+function cleanProps({ children, ...props }) {
+  console.log({ props });
+  children = children === 'string' ? children : null;
+  // console.log({ props });
+  // Object.entries(props).map((prop) => {
+  //   console.log({ prop });
+  //   prop[1] === null && delete props[prop[0]];
+  // });
+  return { children, ...props };
+}

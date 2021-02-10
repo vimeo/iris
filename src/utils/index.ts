@@ -19,7 +19,7 @@ export { arrowRight, arrowLeft, enter, esc, spacebar, tab } from './events/KeyCo
 export { stopPrevent } from './events/stopPrevent';
 
 // HOCs
-export { withIris } from './HOCs/withIris';
+export { withIris, BigPicture } from './HOCs/withIris';
 export { IrisProps, IrisInputProps, Messages, MinorComponent } from './HOCs/IrisProps';
 export { CSSProps, ExtractProps, Override, IrisElement } from './HOCs/types';
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Card as C } from './Card';
 
-import { Layout } from '../../../storybook';
+import { Layout, vimeos } from '../../../storybook';
 
 export default { title: 'Components/Cards/Card' };
 
