@@ -20,53 +20,59 @@ const animation: SimpleAnimation = {
   exit: { opacity: 0, transform: `translateY(5%)` },
 };
 
+const error =
+  'usePortal components require children to accept refs! Please pass correct children to <Tip />!';
+
 function TipComponent({
   attach = 'top',
-  breakWords = false,
   content,
   children,
   forwardRef,
-  pill,
   trigger = 'hover',
+  variant = 'simple',
   ...props
 }: Props) {
-  const wrap =
-    typeof content === 'string'
-      ? content.length > maxWidth - 2
-      : null;
-
-  const { irisError } = useIrisError(
-    { ...props },
-    Tip,
-    'usePortal components require children to accept refs! Please pass correct children to <Tip />!',
-    validate(children as any)
-  );
+  const margin = variant === 'speech-bubble' ? 18 : 8;
+  const [wrap, tipContent] = contentStyle(content);
 
   const [TipElement, anchor] = usePortal(
     <Styled
-      wrap={wrap}
+      attach={attach}
       ref={forwardRef}
-      breakWords={breakWords}
-      pill={pill}
+      variant={variant}
+      wrap={wrap}
       {...props}
-    >
-      <div>
-        <Paragraph size="2" style={{ margin: 0 }}>
-          {content}
-        </Paragraph>
-      </div>
-    </Styled>,
-    { attach, animation, margin: 8, trigger }
+      children={tipContent}
+    />,
+    { attach, animation, margin, trigger }
   );
 
+  const validity = validate(children as any);
+  const { irisError } = useIrisError(props, Tip, error, validity);
   if (irisError) return <div {...irisError}>{children}</div>;
 
   return (
     <>
       {TipElement}
-      {cloneElement(children as ReactElement, {
-        ...anchor,
-      })}
+      {cloneElement(children as ReactElement, anchor)}
     </>
   );
+}
+
+function contentStyle(content) {
+  switch (typeof content) {
+    case 'string': {
+      const wrap = content.length > maxWidth - 2;
+      const children = (
+        <Paragraph size="2" style={{ margin: 0 }}>
+          {content}
+        </Paragraph>
+      );
+
+      return [wrap, children];
+    }
+    default: {
+      return [null, content];
+    }
+  }
 }

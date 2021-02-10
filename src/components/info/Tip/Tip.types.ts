@@ -23,10 +23,19 @@ export type Props = IrisProps<{
    */
   content?: ReactNode;
   /**
-   * The action that trigers the tooltip
+   * The action that triggers the tooltip
    *
    * [default = 'hover']
    */
   trigger?: 'click' | 'hover';
+  /**
+   * Specifies rounded corners on the tip.
+   *
+   * [default = 'false']
+   */
   pill?: boolean;
+  /**
+   * [default = 'simple']
+   */
+  variant?: 'simple' | 'speech-bubble';
 }>;
