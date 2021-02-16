@@ -126,7 +126,11 @@ const soPretty = `
 if (process.env.NODE_ENV === 'development')
   console.log(`\n\n%c @vimeo/iris: ${version}`, soPretty, '\n\n\n');
 
-const BigPictureContext = createContext({});
+interface BigPictureConfig {
+  area?: string;
+}
+
+const BigPictureContext = createContext<BigPictureConfig>({});
 
 export function BigPicture({ children, config, ...props }) {
   return (
@@ -137,11 +141,11 @@ export function BigPicture({ children, config, ...props }) {
 }
 
 function useAnalytics({ $$iris, props: { children, ...props } }) {
-  const {
-    location: { href },
-  } = window;
-  const { area } = useContext(BigPictureContext);
+  const { location } = window;
+  const { area = null } = useContext(BigPictureContext);
   const { component, version } = $$iris;
+
+  if (!area) return { children, ...props };
 
   const now = new Date();
   const date = now.toDateString();
@@ -150,12 +154,24 @@ function useAnalytics({ $$iris, props: { children, ...props } }) {
   const dataProps = props;
   if (typeof children === 'string') dataProps.children = children;
 
+  const { hostname, pathname } = location;
+  const address =
+    hostname +
+    pathname +
+    '/' +
+    area +
+    '/' +
+    component.toLowerCase() +
+    '/' +
+    dataProps.children.replace(/\s/g, '-').toLowerCase();
+
   const data = {
     component,
+    address,
     props: dataProps,
     iris: version,
-    location: href,
-    trackingArea: area,
+    // location: location.href,
+    area,
     date,
     time,
   };

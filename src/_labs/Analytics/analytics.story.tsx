@@ -1,6 +1,6 @@
 import { rgba } from 'polished';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
 import { Button } from '../../components';
 import { VimeoLogo } from '../../illustration';
@@ -8,13 +8,14 @@ import { Menu } from '../../layout';
 import { BigPicture } from '../../utils';
 import { Header } from '../../typography';
 import { Folder, Gear, Grid, Home } from '../../icons';
+import { themes } from '../../themes';
 
 export default { title: 'Labs/Analytics' };
 
 export function Common() {
   return (
     <div>
-      <BigPicture config={{ area: 'content' }}>
+      <BigPicture config={{ area: 'nav' }}>
         <Nav>
           <Logo />
           <Button style={{ float: 'right', margin: '0 1rem' }}>
@@ -47,6 +48,7 @@ const Nav = styled.header`
   justify-content: space-between;
   height: 3.75rem;
   align-items: center;
+  background-color: ${(p) => p.theme.content.background};
   padding: 0.5rem 1rem;
   border-bottom: 1px solid
     ${({ theme }) => rgba(theme.content.color, 0.1)};
