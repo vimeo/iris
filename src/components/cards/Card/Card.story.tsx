@@ -1,41 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Story } from '@storybook/react';
 
-import { Card as C } from './Card';
+import { Card as C, Props } from './Card';
+import { Grid } from '../../../layout';
+import { Header } from '../../../typography';
 
-import { Layout } from '../../../storybook';
+export default {
+  title: 'Components/Cards',
+  component: C,
+  argTypes: {
+    noHoverState: { table: { disable: true } },
+  },
+};
 
-export default { title: 'Components/Cards/Card' };
-
-export function Common() {
+const Template: Story<Props> = (args) => {
   return (
-    <Layout.StoryVertical>
-      <Grid>
-        <Card>Card</Card>
-        <Card loading>Card (loading)</Card>
-        <Card selected>Card (selected)</Card>
-      </Grid>
-    </Layout.StoryVertical>
+    <Grid>
+      <Card {...args}>
+        <Header>Card 1</Header>
+      </Card>
+      <Card {...args}>
+        <Header>Card 2</Header>
+      </Card>
+      <Card {...args}>
+        <Header>Card 3</Header>
+      </Card>
+    </Grid>
   );
-}
+};
+
+export const Controls = Template.bind({});
+Controls.storyName = 'Card';
 
 const Card = styled(C)`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  letter-spacing: 0.005rem;
-  font-size: 1.25rem;
-`;
-
-const Grid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-
-  > * {
-    flex: 0 0 calc(25% - 2rem);
-    margin: 1rem;
-    min-height: 20vw;
-  }
+  min-height: 20vw;
 `;

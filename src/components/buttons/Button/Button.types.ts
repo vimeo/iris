@@ -1,6 +1,12 @@
 import { ReactNode } from 'react';
 import { IrisProps } from '../../../utils';
 import { Statuses } from '../../../themes';
+import {
+  formats,
+  variants,
+  sizes,
+  iconPositions,
+} from './Button.config';
 
 export type DOMElement =
   | HTMLButtonElement
@@ -8,10 +14,8 @@ export type DOMElement =
   | HTMLSpanElement;
 
 type ButtonElements = 'button' | 'span' | 'a';
-type IconPositions = 'left' | 'right' | 'featured' | 'action';
-type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 type Targets = '_blank' | '_self' | '_parent' | '_top';
-type Fluid = true | { min?: number; max?: number };
+type Fluid = true | false | { min?: number; max?: number };
 
 export type Props = IrisProps<
   {
@@ -22,6 +26,7 @@ export type Props = IrisProps<
      */
     circular?: boolean;
     element?: ButtonElements;
+    floating?: boolean;
     /**
      * Whether the button will fill the width of its container,
      * can also specify the min, max widths in px of when the button will be fluid
@@ -30,23 +35,17 @@ export type Props = IrisProps<
      *
      * [default = false]
      */
-    floating?: boolean;
     fluid?: Fluid;
     /**
      * [default = 'primary']
      */
-    format?:
-      | 'basic'
-      | 'soft'
-      | 'alternative'
-      | 'secondary'
-      | 'primary';
+    format?: typeof formats[number];
     href?: string;
     icon?: ReactNode;
     /**
      * [default = 'left']
      */
-    iconPosition?: IconPositions;
+    iconPosition?: typeof iconPositions[number];
     loading?: boolean;
     overflow?: boolean;
     /**
@@ -58,21 +57,14 @@ export type Props = IrisProps<
     /**
      * [default = 'md']
      */
-    size?: Sizes;
+    size?: typeof sizes[number];
     status?: Statuses;
     target?: Targets;
     theme?: any;
     /**
      * [default = 'solid']
      */
-    variant?:
-      | 'solid'
-      | 'transparent'
-      | 'outline'
-      | 'dashed'
-      | 'minimal'
-      | 'hyperminimal'
-      | 'minimalTransparent';
+    variant?: typeof variants[number];
   },
   DOMElement
 >;

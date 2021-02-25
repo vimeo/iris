@@ -14,16 +14,25 @@ import { Paragraph } from '../../../typography';
 import { Focus, IrisProps, withIris } from '../../../utils';
 import { themes } from '../../../themes';
 
-export const CategoryCard = withIris<HTMLButtonElement, Props>(
+type DOMElement =
+  | HTMLButtonElement
+  | HTMLAnchorElement
+  | HTMLSpanElement;
+
+export const CategoryCard = withIris<DOMElement, Props>(
   CategoryCardComponent
 );
 
-type Props = IrisProps<
+export type Props = IrisProps<
   {
     /**
      * The image that appears in background of card
      */
     src?: string;
+    /**
+     * @deprecated
+     * Use element prop to create link instead
+     */
     href?: string;
     /**
      * The icon that appears in center of card

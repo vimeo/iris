@@ -4,6 +4,11 @@ import { text } from '@storybook/addon-knobs';
 
 import { SocialButton as SB } from './SocialButton';
 
+export default {
+  title: 'Components/Buttons/SocialButton',
+  component: SB,
+};
+
 const SocialButton = styled(SB)`
   width: 20rem;
   margin: 0 1rem 1rem 0;

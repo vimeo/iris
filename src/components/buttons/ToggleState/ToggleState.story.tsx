@@ -10,9 +10,12 @@ const ButtonToggleState = styled(B)`
   margin: 0 1rem 1rem 0;
 `;
 
-export default { title: 'Components/Buttons/ToggleState' };
+export default {
+  title: 'Components/Buttons/ToggleState',
+  component: B,
+};
 
-export const Common = () => <CommonStory />;
+export const ToggleState = () => <CommonStory />;
 function CommonStory() {
   const [following, setFollowing] = useState(false);
   const toggleFollowing = () =>

@@ -1,34 +1,40 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Story } from '@storybook/react';
 
-import { NewItemCard } from './NewItemCard';
+import { NewItemCard, Props } from './NewItemCard';
 
-import { Layout } from '../../../storybook';
+import { Grid } from '../../../layout';
 
-export default { title: 'Components/Cards/NewItem' };
+export default {
+  title: 'Components/Cards/NewItemCard',
+  component: NewItemCard,
+  argTypes: {
+    rel: { control: { disable: true } },
+    target: { control: { disable: true } },
+    href: { control: { disable: true } },
+  },
+};
 
-export function Common() {
+const Template: Story<Props> = (args) => {
   return (
-    <Layout.StoryVertical>
-      <Grid>
-        <NewItemCard
-          onClick={() => console.log('add new item')}
-          href="#"
-        >
-          Add New Item
-        </NewItemCard>
-      </Grid>
-    </Layout.StoryVertical>
+    <Grid>
+      <NewItemCard
+        {...args}
+        onClick={() => console.log('add new item')}
+        href="#"
+      >
+        Add New Item
+      </NewItemCard>
+      <NewItemCard
+        {...args}
+        onClick={() => console.log('add new item')}
+        href="#"
+      >
+        Add New Item
+      </NewItemCard>
+    </Grid>
   );
-}
+};
 
-const Grid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-
-  > * {
-    flex: 0 0 calc(25% - 2rem);
-    margin: 1rem;
-  }
-`;
+export const Controls = Template.bind({});
+Controls.storyName = 'NewItemCard';

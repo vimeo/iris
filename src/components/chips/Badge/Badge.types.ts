@@ -8,6 +8,9 @@ export type Props = IrisProps<
     format?: BadgeFormats;
     href?: string;
     target?: string;
+    /**
+     * @deprecated
+     */
     label?: string;
     /**
      * [default = 'sm']

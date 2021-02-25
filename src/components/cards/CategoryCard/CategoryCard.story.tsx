@@ -1,53 +1,53 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Story } from '@storybook/react';
 
-import { CategoryCard as CC } from './CategoryCard';
+import { CategoryCard as CC, Props } from './CategoryCard';
 
-import { Layout } from '../../../storybook';
+import { Grid } from '../../../layout';
 import { Gear, Camera, Heart } from '../../../icons';
 
-export default { title: 'Components/Cards/Category' };
+export default {
+  title: 'Components/Cards/CategoryCard',
+  component: CC,
+  argTypes: {
+    icon: { control: { disable: true } },
+    src: { control: { disable: true } },
+    href: { table: { disable: true } },
+  },
+};
 
-export function Common() {
+const Template: Story<Props> = (args) => {
   return (
-    <Layout.StoryVertical>
-      <Grid>
-        <CategoryCard
-          icon={<Gear />}
-          src="https://i.vimeocdn.com/custom_asset/26.jpg"
-          href="#"
-        >
-          Sports
-        </CategoryCard>
-        <CategoryCard
-          icon={<Camera />}
-          src="https://i.vimeocdn.com/custom_asset/13.jpg"
-          href="#"
-        >
-          Animation
-        </CategoryCard>
-        <CategoryCard
-          icon={<Heart />}
-          src="https://i.vimeocdn.com/custom_asset/28.jpg"
-        >
-          Travel
-        </CategoryCard>
-      </Grid>
-    </Layout.StoryVertical>
+    <Grid columns={6}>
+      <CategoryCard
+        {...args}
+        icon={<Gear />}
+        src="https://i.vimeocdn.com/custom_asset/26.jpg"
+      >
+        Sports
+      </CategoryCard>
+      <CategoryCard
+        {...args}
+        icon={<Camera />}
+        src="https://i.vimeocdn.com/custom_asset/13.jpg"
+      >
+        Animation
+      </CategoryCard>
+      <CategoryCard
+        {...args}
+        icon={<Heart />}
+        src="https://i.vimeocdn.com/custom_asset/28.jpg"
+      >
+        Travel
+      </CategoryCard>
+    </Grid>
   );
-}
+};
+
+export const Controls = Template.bind({});
+Controls.storyName = 'CategoryCard';
 
 const CategoryCard = styled(CC)`
-  min-width: 12rem;
-  min-height: 12rem;
-`;
-
-const Grid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-
-  > * {
-    flex: 0 0 calc(25% - 2rem);
-    margin: 1rem;
-  }
+  aspect-ratio: 1 / 1;
 `;

@@ -1,54 +1,69 @@
 import React from 'react';
+import { Story } from '@storybook/react';
+
 import { Tag } from './Tag';
+import { Props } from './Tag.types';
 
 import { Layout } from '../../../storybook';
 
-export default { title: 'Components/Chips/Tag' };
+export default {
+  title: 'Components/Chips/Tag',
+  component: Tag,
+  argTypes: {
+    icon: { table: { disable: true } },
+    src: {
+      control: {
+        type: 'select',
+        options: [
+          'https://i.vimeocdn.com/video/562859486_270x270.jpg',
+          undefined,
+        ],
+      },
+    },
+    onClose: { control: { disable: true } },
+  },
+};
 
-export function Common() {
+const Template: Story<Props> = (args) => {
   return (
-    <Layout.StoryVertical>
+    <Layout.StoryVertical defaultWidth>
+      <Tag {...args}>Documentary</Tag>
+    </Layout.StoryVertical>
+  );
+};
+
+export const Controls = Template.bind({});
+Controls.storyName = 'Tag';
+
+export function Size() {
+  return (
+    <Layout.StoryVertical defaultWidth>
       <Tag size="xs">Documentary</Tag>
       <Tag size="sm">Animation</Tag>
       <Tag size="md">Narrative</Tag>
       <Tag size="lg">Comedy</Tag>
-      <Tag
-        size="lg"
-        onClose={{ reject: () => alert('deleted this tag') }}
-      >
-        Comedy
-      </Tag>
     </Layout.StoryVertical>
   );
 }
 
-export function Image() {
+export function Src() {
   return (
-    <Layout.StoryVertical>
-      <Tag
-        size="xs"
-        src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-      >
-        Beyonce
-      </Tag>
-      <Tag
-        size="sm"
-        src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-      >
-        Janelle
-      </Tag>
-      <Tag
-        size="md"
-        src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-      >
-        Michelle
-      </Tag>
-      <Tag
-        size="md"
-        src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-      >
-        Tessa
-      </Tag>
-    </Layout.StoryVertical>
+    <Tag
+      size="lg"
+      src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
+    >
+      Comedy
+    </Tag>
+  );
+}
+
+export function onClose() {
+  return (
+    <Tag
+      size="lg"
+      onClose={{ reject: () => alert('deleted this tag') }}
+    >
+      Comedy
+    </Tag>
   );
 }

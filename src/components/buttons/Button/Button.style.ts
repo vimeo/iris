@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { rgba, rem, tint, shade, em } from 'polished';
-// import memoize from 'lodash.memoize';
 
 import { FeaturedIcon } from './FeaturedIcon';
 
@@ -69,7 +68,7 @@ function buttonIcon({ size, iconOnly, iconPosition }) {
           height: 100%;
           min-height: 100%;
           display: inline-flex;
-          margin: auto ${iconMargin[iconPosition]};
+          margin: ${iconMargin[iconPosition]};
           position: ${iconPosition === 'action' && 'absolute'};
           right: ${iconPosition === 'action' && '0.5rem'};
 
@@ -81,9 +80,9 @@ function buttonIcon({ size, iconOnly, iconPosition }) {
 }
 
 const iconMargin = {
-  left: '0.25rem 0.25rem 0.25rem 0',
-  right: '0.25rem 0 0.25rem 0.25rem',
-  featured: '0.625rem',
+  left: 'auto 0.25rem auto 0',
+  right: 'auto 0 auto 0.25rem',
+  featured: 'auto 0.625rem',
 };
 
 function buttonLoading({ $loading }) {
@@ -133,7 +132,7 @@ function iconButtonPadding(icon, iconPosition, pad) {
         minWidth: `${pad * 12}rem`,
       };
     case 'action':
-      return { padding: '0 2rem 0 0.5rem', minHeight, minWidth };
+      return { padding: '0 2.5rem 0 0.5rem', minHeight, minWidth };
     default:
       return { padding: `0 ${pad}rem`, minHeight, minWidth };
   }

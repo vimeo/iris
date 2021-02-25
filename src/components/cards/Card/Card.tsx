@@ -5,7 +5,7 @@ import { Card as Styled } from './Card.style';
 
 export const Card = withIris<HTMLDivElement, Props>(CardComponent);
 
-type Props = IrisProps<
+export type Props = IrisProps<
   {
     /**
      * [default =  false]
@@ -15,10 +15,6 @@ type Props = IrisProps<
      * [default = false]
      */
     selected?: boolean;
-    /**
-     * [default = false]
-     */
-    noHoverState?: boolean;
   },
   HTMLDivElement
 >;

@@ -1,10 +1,3 @@
-import { Button } from './Button';
-
-export const config = {
-  title: 'Components/Buttons',
-  component: Button,
-};
-
 export const formats = [
   'basic',
   'soft',
@@ -23,3 +16,9 @@ export const variants = [
   'hyperminimal',
 ] as const;
 export const sizes = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
+export const iconPositions = [
+  'left',
+  'right',
+  'featured',
+  'action',
+] as const;

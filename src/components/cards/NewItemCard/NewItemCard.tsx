@@ -10,7 +10,7 @@ export const NewItemCard = withIris<HTMLDivElement, Props>(
   NewItemCardComponent
 );
 
-type Props = IrisProps<
+export type Props = IrisProps<
   {
     children: string;
     href?: string;

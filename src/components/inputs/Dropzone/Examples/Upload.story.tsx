@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { action } from '@storybook/addon-actions';
 
 import { Dropzone } from '../Dropzone';
 
@@ -23,9 +22,8 @@ export function Upload() {
         position: 'relative',
       }}
       onChange={(e) => {
-        console.log('here');
-        action('File uploaded')(
-          // @ts-ignore :: dataTransfer property not recognized
+        console.log(
+          'File uploaded',
           e.target.files || e.dataTransfer.files,
           e
         );

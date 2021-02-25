@@ -79,10 +79,8 @@ export function hoverStyles({
       &:hover {
         border: ${rem(1)} solid ${borderColor};
 
-        &:after {
-          box-shadow: rgba(0, 0, 0, 0.16667) 0 0.5rem 1rem -0.5rem,
-            rgba(0, 0, 0, 0.3334) 0 0 0.25rem -0.0625rem;
-        }
+        box-shadow: rgba(0, 0, 0, 0.16667) 0 0.5rem 1rem -0.5rem,
+          rgba(0, 0, 0, 0.3334) 0 0 0.25rem -0.0625rem;
       }
     `
   );

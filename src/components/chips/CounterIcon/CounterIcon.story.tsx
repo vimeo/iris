@@ -5,9 +5,12 @@ import { CounterIcon } from './CounterIcon';
 import { Layout } from '../../../storybook';
 import { Play, Collections } from '../../../icons';
 
-export default { title: 'Components/Chips/CounterIcon' };
+export default {
+  title: 'Components/Chips/CounterIcon',
+  component: CounterIcon,
+};
 
-export function Common() {
+export function CounterIconStory() {
   return (
     <Layout.StoryVertical>
       <CounterIcon icon={<Play />} title="Download Count">
@@ -19,3 +22,4 @@ export function Common() {
     </Layout.StoryVertical>
   );
 }
+CounterIconStory.storyName = 'CounterIcon';
