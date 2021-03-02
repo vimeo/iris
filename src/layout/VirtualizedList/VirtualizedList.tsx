@@ -30,9 +30,17 @@ function VirtualizedListComponent({ buffer = 1, children }: Props) {
   const containerRef = useRef(null);
   const listRef = useRef(null);
 
-  useEffect(updateItemHeight, [children]);
-  useEffect(updateVisibleRange, [state.itemHeight]);
-  useEffect(updateScrollDistance, [state.visibleRange]);
+  useEffect(updateItemHeight, [children, state.visibleRange]);
+  useEffect(updateVisibleRange, [
+    buffer,
+    length,
+    state.itemHeight,
+    state.visibleRange,
+  ]);
+  useEffect(updateScrollDistance, [
+    state.itemHeight,
+    state.visibleRange,
+  ]);
 
   function updateItemHeight() {
     const currentSize = state.visibleRange[1] - state.visibleRange[0];

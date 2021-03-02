@@ -12,6 +12,7 @@ interface Props {
   flex?: boolean;
   theme?: any;
   children: ReactNode;
+  style?: any;
 }
 
 // export const Story = withTheme(
@@ -20,12 +21,13 @@ export function Story({
   title,
   width = '700px',
   flex = false,
+  ...props
 }: Props) {
   const theme = useContext(ThemeContext);
   if (!theme) console.error('No theme detected!');
 
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <Header size="plusUltra">{title}</Header>
 
       <Source width={width} flex={flex}>

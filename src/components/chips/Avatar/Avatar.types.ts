@@ -5,7 +5,7 @@ export type Props = IrisProps<
     /**
      * [default = 'auto']
      */
-    size?: Sizes;
+    size?: Size;
     src: string;
     srcSet?: string;
     href?: string;
@@ -16,12 +16,14 @@ export type Props = IrisProps<
 
 export type DOMElement = HTMLImageElement | HTMLAnchorElement;
 
-export type Sizes =
-  | 'xxs'
-  | 'xs'
-  | 'sm'
-  | 'md'
-  | 'lg'
-  | 'xl'
-  | 'xxl'
-  | 'auto';
+export type Size = keyof typeof sizes;
+export const sizes = {
+  auto: '100%',
+  xxs: '0.75rem',
+  xs: '1rem',
+  sm: '2rem',
+  md: '2.5rem',
+  lg: '4rem',
+  xl: '9.375rem',
+  xxl: '15rem',
+} as const;

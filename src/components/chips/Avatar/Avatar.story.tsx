@@ -2,10 +2,9 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 import { Avatar } from './Avatar';
-import { config, sizes } from './Avatar.config';
-import { Props } from './Avatar.types';
+import { Props, sizes } from './Avatar.types';
 
-export default config;
+export default { title: 'Components/Chips/Avatar' };
 
 const Template: Story<Props> = (args) => {
   return (

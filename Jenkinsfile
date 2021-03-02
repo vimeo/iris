@@ -26,11 +26,6 @@ pipeline {
                         sh 'yarn typecheck'
                     }
                 }
-                stage('test') {
-                    steps {
-                        sh 'yarn test'
-                    }
-                }
                 stage('build') {
                     steps {
                         sh 'yarn build'

@@ -1,7 +1,7 @@
 import { ReactEventHandler } from 'react';
 
-type Close = ReactEventHandler;
-type ClosePromise = {
+export type Close = ReactEventHandler;
+export type ClosePromise = {
   reject?: ReactEventHandler; // reject, aka. onDismiss
   accept?: ReactEventHandler; // resolve, aka. onClose
   complete?: ReactEventHandler; // finally

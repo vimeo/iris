@@ -16,7 +16,7 @@ export function Test() {
   );
 }
 
-const FakeUpload = ({ children, ...props }) => {
+const FakeUpload = ({ children = null, ...props }) => {
   const [paused, setPaused] = useState(false);
   const [progress, setProgress] = useState(1000);
 
@@ -213,20 +213,14 @@ const PauseButton = styled.div<any>`
     `};
 `;
 
-function useInterval(callback, delay) {
-  const savedCallback = useRef();
+function useInterval(callback: VoidFunction, delay: number | null) {
+  const savedCallback = useRef<VoidFunction>();
 
-  // Remember the latest callback.
-  useEffect(() => {
-    savedCallback.current = callback;
-  }, [callback]);
+  useEffect(() => (savedCallback.current = callback), [callback]);
 
-  // Set up the interval.
   useEffect(() => {
-    function tick() {
-      // @ts-ignore
-      savedCallback.current();
-    }
+    const tick = () => savedCallback.current();
+
     if (delay !== null) {
       const id = setInterval(tick, delay);
       return () => clearInterval(id);
