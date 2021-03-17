@@ -40,6 +40,7 @@ export function usePortal(
     margin = 8,
     screen = false,
     trigger = 'click',
+    onClick: onChildClick,
   } = portalConfig;
 
   const {
@@ -52,6 +53,12 @@ export function usePortal(
   const controlled = forceActive === true || forceActive === false;
 
   const toggle = (e) => (!controlled && active ? close(e) : open(e));
+
+  const toggleWithChildClick = (e) => {
+    onChildClick && onChildClick(e);
+    toggle(e);
+  };
+
   const onClick = !controlled && trigger === 'click' && close;
 
   useEffect(() => () => !SSR && removeElementByID(UID), [UID]);
@@ -61,7 +68,7 @@ export function usePortal(
 
   const outlet = createPortalOutlet(UID);
 
-  const clickProps = { onClick: toggle };
+  const clickProps = { onClick: toggleWithChildClick };
   const hoverProps = { onMouseEnter: open, onMouseLeave: close };
 
   const clickable = !controlled && trigger === 'click' && clickProps;

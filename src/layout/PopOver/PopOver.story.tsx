@@ -6,6 +6,7 @@ import { rgba } from 'polished';
 import { PopOver, Pop } from './PopOver';
 
 import { Dock } from '../Dock/Dock';
+import { Grid } from '../Grid/Grid';
 import { Button as B, Badge, Input } from '../../components';
 import { ANCHOR_POINTS } from '../../utils';
 import { Gear, DismissX } from '../../icons';
@@ -138,6 +139,72 @@ function PopOverControlled() {
     </>
   );
 }
+
+export function OnClick() {
+  const [active, setActive] = useState(false);
+
+  return (
+    <Grid
+      css={`
+        padding: 2rem;
+      `}
+    >
+      <Card
+        href="#"
+        key="1"
+        onClick={(event) => {
+          event.stopPropagation();
+        }}
+      >
+        <Paragraph size="1">This whole card is a link</Paragraph>
+        <PopOver content={PopList} style={{ zIndex: 5000 }}>
+          <B
+            onClick={(event) => {
+              event.preventDefault();
+            }}
+          >
+            PopOver
+          </B>
+        </PopOver>
+      </Card>
+      <Card
+        href="#"
+        key="2"
+        onClick={(event) => {
+          event.stopPropagation();
+        }}
+      >
+        <Paragraph size="1">This whole card is a link</Paragraph>
+        <PopOver
+          active={active}
+          content={PopList}
+          style={{ zIndex: 5000 }}
+        >
+          <B
+            onClick={(event) => {
+              event.preventDefault();
+              setActive(!active);
+            }}
+          >
+            Controlled PopOver
+          </B>
+        </PopOver>
+      </Card>
+    </Grid>
+  );
+}
+
+const Card = styled.a`
+  width: 20rem;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  border: 0.2rem solid ${blue(500)};
+  border-radius: 0.5rem;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Dot = styled.div`
   width: 1rem;
