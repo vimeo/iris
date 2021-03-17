@@ -9,7 +9,7 @@ export const Progress = withIris<HTMLDivElement, Props>(
   ProgressComponent
 );
 
-type Props = IrisProps<{
+export type Props = IrisProps<{
   /**
    * Looping cycle animation of gradient background.
    *

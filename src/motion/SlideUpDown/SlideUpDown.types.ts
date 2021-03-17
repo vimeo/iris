@@ -9,5 +9,8 @@ export type Props = IrisProps<{
    */
   automatic?: boolean;
   children: ReactNode;
+  /**
+   * Whether the children are visible
+   */
   showing: boolean;
 }>;
