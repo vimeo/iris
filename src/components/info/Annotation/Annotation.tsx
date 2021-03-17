@@ -12,7 +12,7 @@ export const Annotation = withIris<HTMLDivElement, Props>(
   AnnotationComponent
 );
 
-type Props = IrisProps<
+export type Props = IrisProps<
   {
     /**
      * The `content` defines what will appear inside the portal component,

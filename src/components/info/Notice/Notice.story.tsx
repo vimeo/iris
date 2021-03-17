@@ -1,60 +1,25 @@
 import React from 'react';
 
-import { Notice } from './Notice';
+import { Notice, Props } from './Notice';
 
-import { Gear } from '../../../icons';
-import { Story } from '../../../storybook';
-import { Paragraph } from '../../../typography';
+import { Story } from '@storybook/react';
 
-export default { title: 'Components/Info/Notice' };
+export default {
+  title: 'Components/Info/Notice',
+  component: Notice,
+  argTypes: {
+    icon: { control: { disable: true } },
+    onClose: { control: { disable: true } },
+    target: { control: { disable: true } },
+  },
+};
 
-export function Primary() {
-  return <VariantStory format="primary" />;
-}
+const Template: Story<Props> = (args) => {
+  return <Notice {...args}>This is a notice.</Notice>;
+};
 
-export function PrimaryPill() {
-  return <VariantStory format="primary" pill />;
-}
-PrimaryPill.storyName = 'Primary (Pill)';
-
-export function Positive() {
-  return <VariantStory format="positive" />;
-}
-
-export function PositivePill() {
-  return <VariantStory format="positive" pill />;
-}
-PositivePill.storyName = 'Positive (Pill)';
-
-export function Negative() {
-  return <VariantStory format="negative" />;
-}
-
-export function NegativePill() {
-  return <VariantStory format="negative" pill />;
-}
-NegativePill.storyName = 'Negative (Pill)';
-
-function VariantStory({ format, pill = null }) {
-  return (
-    <Story title="Notice">
-      <Notice format={format} pill={pill}>
-        Lorem ipsum dolor sit amet.
-      </Notice>
-
-      <Notice
-        format={format}
-        icon={false}
-        header="lorem ipsum header"
-        onClose={() => console.log('Notice Closed.')}
-        pill={pill}
-      >
-        Lorem ipsum dolor sit amet.
-      </Notice>
-
-      <Notice format={format} icon={<Gear />} pill={pill}>
-        Lorem ipsum dolor sit amet.
-      </Notice>
-    </Story>
-  );
-}
+export const Controls = Template.bind({});
+Controls.storyName = 'Notice';
+Controls.args = {
+  format: 'positive',
+};
