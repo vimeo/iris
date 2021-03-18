@@ -9,7 +9,14 @@ import { Link } from '../../../typography';
 import { Header, Paragraph } from '../../../typography';
 import { red, yellow, green } from '../../../color';
 
-export default { title: 'Components/Info/Feature Tour Panel' };
+/**
+ * This component will be deprecated so not adding controls
+ * Prop documentation will still be generated.
+ */
+export default {
+  title: 'Components/Info/FeatureTourPanel',
+  component: FeatureTourPanel,
+};
 
 const buttonProps = {
   format: 'basic',
@@ -141,6 +148,7 @@ export function Common() {
     </div>
   );
 }
+Common.storyName = 'FeatureTourPanel';
 
 export function Colors() {
   return (

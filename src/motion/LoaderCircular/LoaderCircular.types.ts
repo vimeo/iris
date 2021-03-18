@@ -1,4 +1,5 @@
 import { IrisProps } from '../../utils';
+import { Sizes } from '../../themes';
 
 export type Props = IrisProps<{
   /**
@@ -8,5 +9,5 @@ export type Props = IrisProps<{
   /**
    * [default = 'md']
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: Sizes;
 }>;

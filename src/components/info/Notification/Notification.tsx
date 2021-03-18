@@ -21,7 +21,7 @@ export const Notification = withIris<HTMLDivElement, Props>(
   NotficationComponent
 );
 
-type Props = IrisProps<{
+export type Props = IrisProps<{
   actionLabel?: string;
   content: ReactElement | string;
   status?: 'negative' | 'neutral';

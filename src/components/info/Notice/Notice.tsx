@@ -19,7 +19,7 @@ export const Notice = withIris<HTMLDivElement, Props>(
   NoticeComponent
 );
 
-type Props = IrisProps<
+export type Props = IrisProps<
   {
     format: 'primary' | 'positive' | 'negative';
     header?: string;

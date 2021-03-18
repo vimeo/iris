@@ -69,7 +69,14 @@ function PopOverComponent({
     <PopOverStyled ref={forwardRef} {...props}>
       <div>{content}</div>
     </PopOverStyled>,
-    { attach, animation, forceActive: active, onClose, onOpen }
+    {
+      attach,
+      animation,
+      forceActive: active,
+      onClose,
+      onOpen,
+      onClick: children.props.onClick,
+    }
   );
 
   return (

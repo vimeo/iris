@@ -1,18 +1,28 @@
 import React from 'react';
+import { Story } from '@storybook/react';
 
-import { Annotation } from './Annotation';
+import { Annotation, Props } from './Annotation';
 
 import { Layout } from '../../../storybook';
 import { Header } from '../../../typography';
 
-export default { title: 'Components/Info/Annotation' };
+export default {
+  title: 'Components/Info/Annotation',
+  component: Annotation,
+  argTypes: {
+    content: { control: { disable: true } },
+  },
+};
 
-export function Common() {
+const Template: Story<Props> = (args) => {
   return (
-    <Layout.StoryVertical>
-      <Annotation content="I am a tooltip" attach="right">
-        <Header size="3">Tooltip</Header>
+    <Layout.StoryVertical center>
+      <Annotation content="I am a tooltip" {...args}>
+        <Header size="3">Annotation</Header>
       </Annotation>
     </Layout.StoryVertical>
   );
-}
+};
+
+export const Controls = Template.bind({});
+Controls.storyName = 'Annotation';

@@ -27,6 +27,7 @@ export interface PortalConfig {
   margin?: number;
   onClose?: MouseEventHandler;
   onOpen?: MouseEventHandler;
+  onClick?: MouseEventHandler;
   screen?: boolean;
   trigger?: 'click' | 'hover';
 }

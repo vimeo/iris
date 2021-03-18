@@ -1,58 +1,20 @@
-import React, {
-  useEffect,
-  useState,
-  Dispatch,
-  SetStateAction,
-} from 'react';
-import { css } from 'styled-components';
+import React from 'react';
+import { Story } from '@storybook/react';
 
-import { Progress } from './Progress';
+import { Progress, Props } from './Progress';
 
-export default { title: 'motion/Progress' };
+export default { title: 'motion/Progress', component: Progress };
 
-const style = css`
+const style = `
   margin: 1rem 1rem;
   width: 50%;
 `;
 
-export function Common() {
-  const [progress] = useSimulateProgress();
-
-  return <Progress css={style} value={progress} />;
-}
-
-export function Variant() {
-  const [progress] = useSimulateProgress();
-
-  return (
-    <>
-      <Progress css={style} value={progress} variant="rainbow" />
-      <Progress css={style} value={progress} variant="primary" />
-      <Progress css={style} value={progress} variant="success" />
-    </>
-  );
-}
-
-export function Custom() {
-  const [progress] = useSimulateProgress();
-  const background = 'linear-gradient(to right, red, yellow, red)';
-
-  return (
-    <Progress css={style} value={progress} style={{ background }} />
-  );
-}
-
-function useSimulateProgress(): [
-  number,
-  Dispatch<SetStateAction<number>>
-] {
-  const [progress, progressSet] = useState(0);
-
-  useEffect(() => {
-    const cycle = () => progressSet((p) => (p === 100 ? 0 : p + 1));
-    const timer = setTimeout(cycle, 30);
-    return () => clearTimeout(timer);
-  });
-
-  return [progress, progressSet];
-}
+const Template: Story<Props> = (args) => {
+  return <Progress {...args} css={style} />;
+};
+export const Controls = Template.bind({});
+Controls.storyName = 'Progress';
+Controls.args = {
+  value: 50,
+};
