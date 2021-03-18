@@ -4,7 +4,7 @@ import { BigStat } from './BigStat';
 
 import { Layout } from '../../storybook';
 
-export default { title: 'typography/BigStat' };
+export default { title: 'typography/BigStat', component: BigStat };
 
 export function Common() {
   return (
@@ -13,6 +13,7 @@ export function Common() {
     </Layout.StoryVertical>
   );
 }
+Common.storyName = 'BigStat';
 
 export function ContentEditable() {
   return (

@@ -1,66 +1,23 @@
 import React from 'react';
+import { Story } from '@storybook/react';
 
 import { Link } from './Link';
+import { Props } from './Link.types';
 
-import { Layout } from '../../storybook';
+export default {
+  title: 'typography/Link',
+  component: Link,
+  argTypes: {
+    target: { control: { disable: true } },
+    href: { control: { disable: true } },
+    variant: {
+      control: { type: 'select', options: ['minimal', undefined] },
+    },
+  },
+};
 
-export default { title: 'typography/Link' };
-
-export function Common() {
-  return <Link>Click me!</Link>;
-}
-
-export function Format() {
-  return (
-    <Layout.StoryVertical defaultWidth>
-      <Link format="basic">Click me!</Link>
-      <Link format="soft">Click me!</Link>
-      <Link format="primary">Click me!</Link>
-      <Link format="positive">Click me!</Link>
-      <Link format="negative">Click me!</Link>
-    </Layout.StoryVertical>
-  );
-}
-
-export function Variant() {
-  return (
-    <Layout.StoryVertical defaultWidth>
-      <Link>Click me!</Link>
-      <Link variant="minimal">Click me!</Link>
-    </Layout.StoryVertical>
-  );
-}
-
-export function Custom() {
-  return (
-    <Layout.StoryVertical defaultWidth>
-      <Link
-        css={`
-          font-weight: 800;
-        `}
-      >
-        Click me!
-      </Link>
-      <Link
-        css={`
-          font-weight: 300;
-          color: inherit;
-        `}
-      >
-        Click me!
-      </Link>
-      <Link
-        variant="minimal"
-        css={`
-          font-weight: 600;
-          color: inherit;
-          text-transform: uppercase;
-          font-size: 0.75rem;
-          letter-spacing: 0.02rem;
-        `}
-      >
-        Click me!
-      </Link>
-    </Layout.StoryVertical>
-  );
-}
+const Template: Story<Props> = (args) => {
+  return <Link {...args}>Click me!</Link>;
+};
+export const Controls = Template.bind({});
+Controls.storyName = 'Link';

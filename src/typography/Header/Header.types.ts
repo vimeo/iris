@@ -32,6 +32,10 @@ export type Props = IrisProps<
      * [default = 'normal']
      */
     variant?: 'normal' | 'thin';
+    /**
+     * Text placeholder when set to contentEditable.
+     */
+    placeholder?: string;
   },
   HTMLHeadingElement | HTMLSpanElement
 >;
