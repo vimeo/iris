@@ -73,6 +73,7 @@ export const Wrapper = styled.div<{
 }>`
   border-radius: 0.2rem;
   position: relative;
+  transition: 80ms ease-in-out;
   background: ${({ active, theme }) =>
     active &&
     (theme.name === 'dark'
@@ -87,7 +88,7 @@ export const Wrapper = styled.div<{
     p.$height &&
     css`
       transition: 230ms ease-in-out;
-      height: ${(p.$height + 1) * 2.5 + 0.25}rem;
+      height: ${(p.$height + 1) * 2.5 + 0.75}rem;
     `}
 
   > svg {
