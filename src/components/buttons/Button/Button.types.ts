@@ -47,6 +47,11 @@ export type Props = IrisProps<
      */
     iconPosition?: typeof iconPositions[number];
     loading?: boolean;
+    /**
+     * @deprecated
+     *
+     * Text overflow will always truncate.
+     */
     overflow?: boolean;
     /**
      * The focus radius around border of button

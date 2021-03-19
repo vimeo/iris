@@ -11,6 +11,7 @@ export default {
   component: B,
   argTypes: {
     circular: { table: { disable: true } },
+    overflow: { table: { disable: true } },
     href: { control: { disable: true } },
     icon: { control: { disable: true } },
     target: { control: { disable: true } },
