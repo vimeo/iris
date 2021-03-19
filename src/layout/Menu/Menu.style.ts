@@ -151,20 +151,23 @@ export const MenuStyled = styled.div<{
       : 'none'};
 `;
 
-export const SubMenu = styled.div<{ total: number }>`
+const animation = css`
+  animation: ${fade} 140ms ease-in-out both;
+
+  ${[...Array(30)].map(
+    (_, i) => css`
+      &:nth-child(${i + 1}) {
+        animation-delay: ${(i + 1) * 40}ms;
+      }
+    `
+  )};
+`;
+
+export const SubMenu = styled.div`
   width: 100%;
-  padding-top: 0.25rem;
+  padding-left: 0.5rem;
 
   > div {
-    animation: ${fade} 120ms ease-in-out both;
-
-    ${(p) =>
-      [...new Array(30)].map(
-        (_, i) => css`
-          &:nth-child(${i}) {
-            animation-delay: ${i * (20 + 100 / p.total)}ms;
-          }
-        `
-      )};
+    ${animation};
   }
 `;
