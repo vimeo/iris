@@ -39,6 +39,42 @@ export function Simple() {
   );
 }
 
+export function Recursive() {
+  return (
+    <Layout.StoryVertical>
+      <Menu style={{ padding: '1rem' }}>
+        <Menu.Section title="Section 1">
+          <Menu.Item>Item 1</Menu.Item>
+          <Menu.Item toggle>
+            {'Item 2'}
+            <Menu.Item>Nested 1</Menu.Item>
+            <Menu.Item>Nested 1</Menu.Item>
+            <Menu.Item toggle>
+              {'Nested 1'}
+              <Menu.Item>Nested 2</Menu.Item>
+              <Menu.Item toggle>
+                {'Nested 2'}
+                <Menu.Item>Nested 3</Menu.Item>
+                <Menu.Item toggle>
+                  {'Nested 3'}
+                  <Menu.Item>Nested 4</Menu.Item>
+                  <Menu.Item>Nested 4</Menu.Item>
+                  <Menu.Item>Nested 4</Menu.Item>
+                  <Menu.Item toggle>
+                    {'Nested 4'}
+                    <Menu.Item>Nested 5</Menu.Item>
+                  </Menu.Item>
+                </Menu.Item>
+              </Menu.Item>
+            </Menu.Item>
+          </Menu.Item>
+          <Menu.Item>Item 3</Menu.Item>
+        </Menu.Section>
+      </Menu>
+    </Layout.StoryVertical>
+  );
+}
+
 export function Complex() {
   return (
     <Layout.StoryVertical>
