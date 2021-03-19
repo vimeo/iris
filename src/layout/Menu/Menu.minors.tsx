@@ -91,16 +91,26 @@ function ComplexItem({
 
   return (
     <Wrapper active={active} $height={open && children.length}>
-      <ItemStyled onClick={onClick} {...props}>
+      <ItemStyled
+        onClick={onClick}
+        {...props}
+        style={{
+          marginLeft: '-0.5rem',
+          width: 'calc(100% + 0.5rem)',
+          paddingLeft: '1.75rem',
+        }}
+      >
         {icon && icon}
         {children.simple}
-        <Focus parent={ItemStyled} />
+        <Focus
+          parent={ItemStyled}
+          // style={{ left: '-0.75rem', width: 'calc(100% + 1rem)' }}
+        />
       </ItemStyled>
 
       {toggle && (
         <Toggle open={open}>
           <ChevronDown />
-          <Focus parent={Toggle} />
         </Toggle>
       )}
 

@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 
 import { grayscale, slate } from '../../color';
-import { rgba } from 'polished';
+import { lighten, rgba } from 'polished';
 
 export const Action = styled.button`
   position: absolute;
@@ -74,6 +74,8 @@ export const Wrapper = styled.div<{
   border-radius: 0.2rem;
   position: relative;
   transition: 80ms ease-in-out;
+
+  /*
   background: ${({ active, theme }) =>
     active &&
     (theme.name === 'dark'
@@ -83,6 +85,7 @@ export const Wrapper = styled.div<{
   &:hover {
     background: ${({ theme }) => rgba(theme.content.color, 0.025)};
   }
+  */
 
   ${(p) =>
     p.$height &&
@@ -117,9 +120,10 @@ export const ItemStyled = styled.button<any>`
   color: ${({ theme }) => theme.content.color};
   border: 0;
   cursor: pointer;
+  background: ${({ theme }) => lighten(0.96, theme.content.color)};
 
   &:hover {
-    background: ${({ theme }) => rgba(theme.content.color, 0.05)};
+    background: ${({ theme }) => lighten(0.92, theme.content.color)};
   }
 
   &:focus {
