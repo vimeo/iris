@@ -31,7 +31,7 @@ export function Size() {
         maxWidth: '20rem',
       }}
     >
-      {sizes.map((size) => (
+      {SIZES.map((size) => (
         <Avatar
           alt={`${size} Avatar Example`}
           src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
@@ -45,3 +45,5 @@ export function Size() {
     </div>
   );
 }
+
+const SIZES = Object.keys(sizes) as (keyof typeof sizes)[];
