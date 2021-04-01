@@ -156,14 +156,24 @@ function buttonElevation({ floating = null }) {
   );
 }
 
-function buttonShape({ pill, circular }) {
+// 1. Deprecate pill Buttons (discuss with Design)
+// 2. Consolidate buttonShape and buttonSize
+function buttonShape({ size, pill, circular }) {
   // DEPRECATED: Remove in Iris 9.0
   if (circular) pill = true;
 
-  return pill
-    ? { borderRadius: '2rem' }
-    : { borderRadius: '0.25rem' };
+  const borderRadius = pill ? '2rem' : rem(borderRadiusSizes[size]);
+
+  return { borderRadius };
 }
+
+export const borderRadiusSizes = {
+  xs: 4,
+  sm: 6,
+  md: 8,
+  lg: 10,
+  xl: 12,
+};
 
 // const buttonVariants = memoize(buttonVariantsFn);
 // function buttonVariantsFn({ format, variant, theme }) {
@@ -184,6 +194,7 @@ function buttonVariants({ format, variant, theme }) {
         border: ${borderWidth} solid ${borderColor};
         background: transparent;
         color: ${color};
+
         &:hover {
           color: ${theme.name === 'light'
             ? shade(0.1, color)
@@ -198,6 +209,7 @@ function buttonVariants({ format, variant, theme }) {
         border: ${borderWidth} dashed ${borderColor};
         background: transparent;
         color: ${color};
+
         &:hover {
           color: ${shade(0.2, color)};
           background: ${rgba(activeColor, 0.2)};
@@ -208,6 +220,7 @@ function buttonVariants({ format, variant, theme }) {
         border: ${borderWidth} solid transparent;
         background: transparent;
         color: ${color};
+
         &:hover {
           color: ${a11yColor(color)};
           background: ${color};
@@ -218,6 +231,7 @@ function buttonVariants({ format, variant, theme }) {
         border: ${borderWidth} solid transparent;
         background: transparent;
         color: ${color};
+
         &:hover {
           border: ${borderWidth} solid transparent;
           /* color: hoverColorDark */
@@ -229,6 +243,7 @@ function buttonVariants({ format, variant, theme }) {
         border: ${borderWidth} solid transparent;
         background: transparent;
         color: ${color};
+
         &:hover {
           border: ${borderWidth} solid transparent;
           background: ${rgba(color, 0.1)};
@@ -240,10 +255,12 @@ function buttonVariants({ format, variant, theme }) {
       return css`
         background: ${rgba(color, 0.35)};
         color: ${white};
+
         &:active {
           background: ${rgba(shade(0.2, activeColor), 0.55)};
           transform: scale(0.98);
         }
+
         &:hover:not(:active) {
           background: ${rgba(tint(0.2, hoverColor), 0.55)};
           /* if: grow */
@@ -256,10 +273,12 @@ function buttonVariants({ format, variant, theme }) {
         border: ${borderWidth} solid ${borderColor};
         background: ${color};
         color: ${a11yColor(color)};
+
         &:active {
           background: ${activeColor};
           transform: scale(0.98);
         }
+
         &:hover:not(:active) {
           background: ${hoverColor};
           border: ${borderWidth} solid ${hoverColor};
