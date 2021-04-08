@@ -1,4 +1,12 @@
 import React, { ReactNode } from 'react';
+
+import {
+  Dismiss,
+  Icon,
+  NoticeChildren,
+  NoticeStyled,
+} from './Notice.style';
+
 import {
   Checkmark,
   CircleInfo,
@@ -13,7 +21,6 @@ import {
   withIris,
 } from '../../../utils';
 import { Button } from '../../buttons/Button/Button';
-import { Dismiss, Icon, NoticeStyled } from './Notice.style';
 
 export const Notice = withIris<HTMLDivElement, Props>(
   NoticeComponent
@@ -73,7 +80,7 @@ function NoticeComponent({
       {typeof children === 'string' ? (
         <Paragraph size="2">{children}</Paragraph>
       ) : (
-        children
+        <NoticeChildren>{children}</NoticeChildren>
       )}
 
       {onClose && (

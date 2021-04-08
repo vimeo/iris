@@ -1,9 +1,16 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { HTMLTextElement } from './Text.types';
 
 import { antialias } from '../typography';
 import { Statuses, Formats } from '../../themes';
+
+export const baseTextStyle = css`
+  font: 400 0.875rem / 1.375rem ${fontFamily};
+  letter-spacing: 0.0125rem;
+  color: ${color};
+  ${antialias};
+`;
 
 export const Text = styled.span<{
   format?: Formats;
@@ -11,26 +18,20 @@ export const Text = styled.span<{
   element?: HTMLTextElement;
 }>`
   display: inline;
-  font: 400 0.875rem / 1.375rem ${fontFamily};
-  letter-spacing: 0.0125rem;
-  color: ${color};
-  ${antialias};
+  ${baseTextStyle};
 `;
 
 export const Input = styled.input`
+  background: transparent;
   display: inline;
   position: absolute;
   top: 0;
   left: 0;
-  font: 400 0.875rem / 1.375rem ${fontFamily};
-  letter-spacing: 0.0125rem;
-  color: ${color};
-  background: transparent;
   padding: 0;
   margin: 0;
   outline: 0;
   border: 0;
-  ${antialias};
+  ${baseTextStyle};
 `;
 
 export function fontFamily({ theme }) {
