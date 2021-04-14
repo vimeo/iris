@@ -19,7 +19,7 @@ import { Header } from '../../../../typography';
 import { IrisProps, geometry } from '../../../../utils';
 import { rgba, rem } from 'polished';
 
-interface Props {
+export interface Props {
   selected?: Date;
   initialMonth?: Date;
   minDate?: Date;

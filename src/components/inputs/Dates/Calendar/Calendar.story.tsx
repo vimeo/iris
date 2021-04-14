@@ -1,19 +1,24 @@
-/// <reference types="styled-components/cssprop" />
 import React, { useState } from 'react';
 import { rgba } from 'polished';
 
 import { Calendar } from './Calendar';
 
-import { Story } from '../../../../storybook';
+import { Header } from '../../../../typography';
+import { Layout } from '../../../../storybook';
 
-export default { title: 'Components/Inputs/Calendar' };
+export default {
+  title: 'Components/Inputs/Dates/Calendar',
+};
 
-export const Common = () => <CommonStory />;
-function CommonStory() {
+export function CalendarStory() {
   const [date, setDate] = useState(new Date());
 
   return (
-    <Story title="Calendar">
+    <Layout.StoryVertical>
+      <Header size="5">
+        This component is consumed by DateRange and DateSelect, but it
+        is not exported by itself.
+      </Header>
       <Calendar
         selected={date}
         onClick={(date) => setDate(date)}
@@ -24,6 +29,7 @@ function CommonStory() {
           border-radius: 0.25rem;
         `}
       />
-    </Story>
+    </Layout.StoryVertical>
   );
 }
+CalendarStory.storyName = 'Calendar';

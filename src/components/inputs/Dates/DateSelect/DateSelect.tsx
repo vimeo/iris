@@ -10,7 +10,11 @@ export const DateSelect = withIris<HTMLInputElement, Props>(
   DateSelectComponent
 );
 
-type Props = IrisInputProps<{
+export type Props = IrisInputProps<{
+  /**
+   * Defines the element that the DateSelect PopOver will attach to.
+   * Typically, this would be an Input
+   */
   children: ReactElement;
   /**
    * The default date selected in the calendar
@@ -18,7 +22,8 @@ type Props = IrisInputProps<{
   defaultValue?: Date;
   onSelect?: (date: Date) => void;
   /**
-   * A date object that tells the calendar what initial month to display. If no month is provided it will default to the current month.
+   * A date object that tells the calendar what initial month to display.
+   * If no month is provided it will default to the current month.
    *
    * Ex: new Date('01/01/2032')
    */

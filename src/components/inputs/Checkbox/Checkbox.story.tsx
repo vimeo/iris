@@ -1,119 +1,47 @@
 import React from 'react';
-import { useState } from '@storybook/addons';
+import { Story } from '@storybook/react';
 
-import { Checkbox } from './Checkbox';
-import { CheckboxSet } from './CheckboxSet';
+import { Checkbox, Props } from './Checkbox';
 
-import { Button } from '../../buttons/Button/Button';
 import { Layout } from '../../../storybook';
-import { Header } from '../../../typography';
 
-export default { title: 'Components/Inputs/Checkbox' };
+export default {
+  title: 'Components/Inputs/Checkbox',
+  component: Checkbox,
+  argTypes: {
+    messages: { table: { disable: true } }, // not relevant
+    src: { table: { disable: true } }, // not relevant
+    checked: {
+      table: { disable: false },
+    },
+    disabled: {
+      table: { disable: false },
+    },
+    mirror: {
+      table: { disable: false },
+    },
+    readOnly: {
+      table: { disable: false },
+    },
+    indeterminate: {
+      table: { disable: false },
+    },
+    required: {
+      table: { disable: false },
+    },
+  },
+};
 
-export function Common() {
+const Template: Story<Props> = (args) => {
   return (
     <Layout.StoryVertical>
-      <Checkbox
-        label="Checkbox 1 (Medium)"
-        name="demoCheckbox1"
-        id="Checkbox1"
-        value="1"
-      />
-      <Checkbox
-        label="Checkbox 2 (Medium)"
-        name="demoCheckbox2"
-        id="Checkbox2"
-        value="2"
-      />
-      <Checkbox
-        label="Checkbox 3 has a very long label. Sometimes we need to tell people that they must agree to terms and conditions before they submit a form."
-        name="demoCheckbox3"
-        id="Checkbox3"
-        value="3"
-      />
-      <Checkbox
-        label="Errored Field"
-        name="demoCheckbox4"
-        status="negative"
-        id="Checkbox4"
-        value="4"
-        required
-      />
-      <Checkbox
-        label="DisabledField"
-        name="demoCheckboxDisabled"
-        id="CheckboxDisabled"
-        value="disabled"
-        disabled
-      />
-      <Checkbox
-        label="Checkbox has a very long label. Sometimes we need to tell people that they must agree to terms and conditions before they submit a form."
-        name="demoCheckbox5"
-        status="negative"
-        id="Checkbox5"
-        value="5"
-        required
-      />
-      <Checkbox
-        label={false}
-        name="demoCheckbox6"
-        id="Checkbox6"
-        value="6"
-      />
+      <Checkbox {...args} />
     </Layout.StoryVertical>
   );
-}
-
-export function Controlled() {
-  const [checked, setChecked] = useState(true);
-
-  return (
-    <Layout.StoryVertical>
-      <Button onClick={() => setChecked(!checked)}>
-        Checkbox is {checked.toString()}
-      </Button>
-      <Checkbox
-        label="Checkbox 1 (Medium)"
-        name="demoCheckbox1"
-        id="Checkbox1"
-        value="1"
-        onChange={() => setChecked(!checked)}
-        checked={checked}
-      />
-    </Layout.StoryVertical>
-  );
-}
-
-export function Set() {
-  return (
-    <Layout.StoryVertical>
-      <Header size="5">
-        The default {'<CheckboxSet />'} will set children deselect
-        children, but it will not select them.
-      </Header>
-
-      <CheckboxSet label="default">
-        <Checkbox label="default" />
-        <Checkbox label="default" />
-      </CheckboxSet>
-      <br />
-      <Header size="5">
-        The `coupled` prop will override the children when the parent
-        value changes.
-      </Header>
-      <CheckboxSet label="coupled" coupled>
-        <Checkbox label="coupled" />
-        <Checkbox label="coupled" />
-      </CheckboxSet>
-      <br />
-      <Header size="5">
-        The `toggled` prop will hide the children unless the parent is
-        selected.
-      </Header>
-      <CheckboxSet label="toggled" toggled>
-        <Checkbox label="toggled" />
-        <Checkbox label="toggled" />
-      </CheckboxSet>
-    </Layout.StoryVertical>
-  );
-}
+};
+export const Controls = Template.bind({});
+Controls.storyName = 'Checkbox';
+Controls.args = {
+  label: 'Checkbox label',
+  value: 'checkbox1',
+};
