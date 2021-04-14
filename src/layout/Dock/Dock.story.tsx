@@ -1,182 +1,54 @@
 import React from 'react';
 import styled from 'styled-components';
 import { rem } from 'polished';
+import { Story } from '@storybook/react';
 
-import { Dock as D } from './Dock';
-import { Lock, Gear, Stats, ReviewCheck } from '../../icons';
+import { Dock as D, Props } from './Dock';
+import { Gear } from '../../icons';
 import { Header } from '../../typography';
-import { Button } from '../../components';
-import { slate } from '../../color';
 
 export default {
   title: 'layout/Dock',
+  component: D,
+  argTypes: {
+    attach: {
+      control: {
+        type: 'select',
+        options: [
+          'top',
+          'topRight',
+          'right',
+          'bottomRight',
+          'bottom',
+          'bottomLeft',
+          'left',
+          'topLeft',
+        ],
+      },
+    },
+  },
 };
 
-export function Common() {
+const Template: Story<Props> = (args) => {
   return (
-    <Dock
-      css={`
-        margin: 1rem;
-      `}
-    >
+    <Dock {...args}>
       <Content>
         <IconSection>
           <Gear />
         </IconSection>
-        <Header size="6">Settings</Header>
+        <Header size="6">Custom dock</Header>
       </Content>
     </Dock>
   );
-}
-
-export function Attach() {
-  return (
-    <>
-      <Dock attach="left">
-        <Content>
-          <Header size="6">left</Header>
-          <Header size="6">
-            [50, 0],
-            <br />
-            [100, 0]
-          </Header>
-        </Content>
-      </Dock>
-      <Dock attach="right">
-        <Content>
-          <Header size="6">right</Header>
-          <Header size="6">
-            [50, 100],
-            <br />
-            [100, 100]
-          </Header>
-        </Content>
-      </Dock>
-      <Dock attach="bottom">
-        <Content>
-          <Header size="6">bottom</Header>
-          <Header size="6">
-            [100, 50],
-            <br />
-            [100, 50]
-          </Header>
-        </Content>
-      </Dock>
-      <Dock attach="top">
-        <Content>
-          <Header size="6">top</Header>
-          <Header size="6">
-            [0, 50],
-            <br />
-            [0, 50]
-          </Header>
-        </Content>
-      </Dock>
-      <Dock attach="topRight">
-        <Content>
-          <Header size="6">topRight</Header>
-          <Header size="6">
-            [0, 100], <br />
-            [100, 100]
-          </Header>
-        </Content>
-      </Dock>
-      <Dock attach="bottomLeft">
-        <Content>
-          <Header size="6">bottomLeft</Header>
-          <Header size="6">
-            [100, 0], <br />
-            [100, 0]
-          </Header>
-        </Content>
-      </Dock>
-      <Dock attach="bottomRight">
-        <Content>
-          <Header size="6">bottomRight</Header>
-          <Header size="6">
-            [100, 100], <br />
-            [100, 100]
-          </Header>
-        </Content>
-      </Dock>
-      <Dock attach="topLeft">
-        <Content>
-          <Header size="6">topLeft</Header>
-          <Header size="6">
-            [0, 0], <br />
-            [0, 0]
-          </Header>
-        </Content>
-      </Dock>
-    </>
-  );
-}
-
-export function VerticalDock() {
-  return (
-    <D
-      attach="right"
-      css={`
-        margin-top: 10rem;
-      `}
-    >
-      <Content>
-        <IconSection>
-          <Lock />
-        </IconSection>
-        <Header size="6">Privacy</Header>
-        <IconSection>
-          <ReviewCheck />
-        </IconSection>
-        <Header size="6">Review</Header>
-        <IconSection>
-          <Stats />
-        </IconSection>
-        <Header size="6">Analytics</Header>
-        <IconSection>
-          <Gear />
-        </IconSection>
-        <Header size="6">Settings</Header>
-      </Content>
-    </D>
-  );
-}
-
-export function HorizontalDock() {
-  return (
-    <Dock attach="bottom">
-      <Content2>
-        <Header size="6" style={{ color: 'white' }}>
-          This is a dock.
-        </Header>
-        <div style={{ display: 'flex' }}>
-          <Button format="secondary" style={{ marginLeft: '1rem' }}>
-            Edit
-          </Button>
-          <Button format="secondary" style={{ marginLeft: '1rem' }}>
-            Share
-          </Button>
-        </div>
-      </Content2>
-    </Dock>
-  );
-}
+};
+export const Controls = Template.bind({});
+Controls.storyName = 'Dock';
 
 const Content = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 6rem;
-`;
-
-const Content2 = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100vw;
-  background: ${slate(800)};
-  padding: 0.5rem 2rem;
-  color: white;
+  width: 7rem;
 `;
 
 const IconSection = styled.div`

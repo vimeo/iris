@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { rem } from 'polished';
 
 import { Nav } from './Nav.story';
-import { VerticalDock } from '../Dock/Dock.story';
 import { Dock } from '../Dock/Dock';
 import { Header } from '../../typography';
 import { Button } from '../../components';
 import { slate, blue } from '../../color';
+import { Lock, Gear, Stats, ReviewCheck } from '../../icons';
 
 export function SingleVideo() {
   return (
@@ -78,12 +79,60 @@ export function SingleVideo() {
   );
 }
 
+export function VerticalDock() {
+  return (
+    <DockStyled
+      attach="right"
+      css={`
+        margin-top: 10rem;
+      `}
+    >
+      <DockContent>
+        <IconSection>
+          <Lock />
+        </IconSection>
+        <Header size="6">Privacy</Header>
+        <IconSection>
+          <ReviewCheck />
+        </IconSection>
+        <Header size="6">Review</Header>
+        <IconSection>
+          <Stats />
+        </IconSection>
+        <Header size="6">Analytics</Header>
+        <IconSection>
+          <Gear />
+        </IconSection>
+        <Header size="6">Settings</Header>
+      </DockContent>
+    </DockStyled>
+  );
+}
+
+const DockContent = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 6rem;
+`;
+
+const IconSection = styled.div`
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 1.5rem 0 0.5rem;
+`;
+
+const DockStyled = styled(Dock)`
+  box-shadow: 0 0 ${rem(1)} 0 rgba(0, 0, 0, 0.15),
+    0 ${rem(4)} ${rem(8)} 0 rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+`;
+
 const Layout = styled.div`
   display: grid;
 `;
 
 const VideoWrapper = styled.div`
-  height: 100%;
   position: relative;
   width: 60rem;
 
