@@ -6,6 +6,8 @@ import { IrisProps, IrisElement } from '../../utils';
 export type Props = IrisProps<{
   children: Array<IrisElement<PanelProps>>;
   /**
+   * The format of the panel tab label
+   *
    * [default = 'alternative']
    */
   format?: Formats;

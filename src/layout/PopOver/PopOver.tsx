@@ -24,7 +24,7 @@ export const PopOver = withIris<HTMLDivElement, Props, Minors>(
   PopOverComponent
 );
 
-type Props = IrisProps<{
+export type Props = IrisProps<{
   /**
    * The popover's open/close state can be controlled with this prop.
    * If not defined, it will use the internal state.

@@ -1,41 +1,29 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { rgba } from 'polished';
+import React from 'react';
+import { Story } from '@storybook/react';
 
-import { Panel } from './Panel';
+import { Panel, Props } from './Panel';
 
 import { Button } from '../../components';
-import { Layout } from '../../storybook';
 
-export default { title: 'layout/Panel' };
+export default {
+  title: 'layout/Panel',
+  component: Panel,
+  argTypes: {
+    content: { control: { disable: true } },
+    onClose: { control: { disable: true } },
+    onOpen: { control: { disable: true } },
+  },
+};
 
-export function Right() {
+const Template: Story<Props> = (args) => {
   return (
-    <Layout.StoryVertical>
-      <Panel
-        content={PanelContent}
-        onOpen={() => console.log('open')}
-        onClose={() => console.log('close')}
-      >
-        <Button>Open Panel</Button>
-      </Panel>
-    </Layout.StoryVertical>
+    <Panel content={PanelContent} {...args}>
+      <Button>Open Panel</Button>
+    </Panel>
   );
-}
+};
 
-export function Left() {
-  return (
-    <Layout.StoryVertical>
-      <Panel
-        attach="left"
-        content={PanelContent}
-        onOpen={() => console.log('open')}
-        onClose={() => console.log('close')}
-      >
-        <Button>Open Panel</Button>
-      </Panel>
-    </Layout.StoryVertical>
-  );
-}
+export const Controls = Template.bind({});
+Controls.storyName = 'Panel';
 
 const PanelContent = <div />;
