@@ -1,48 +1,15 @@
-import React, {
-  cloneElement,
-  ReactNode,
-  ReactElement,
-  EventHandler,
-} from 'react';
-import styled, { css, keyframes } from 'styled-components';
-import { rem, rgba } from 'polished';
+import React, { cloneElement } from 'react';
 
-import { Minors } from './PopOver.minors';
-export { Pop } from './PopOver.minors';
+import { Props } from './PopOver.types';
+import { PopOverStyled } from './PopOver.style';
 import { ErrorBoundary } from './PopOver.error';
+import { Minors } from './PopOver.minors';
 
-import {
-  IrisProps,
-  withIris,
-  Attach,
-  AttachAlias,
-  usePortal,
-  SimpleAnimation,
-} from '../../utils';
+import { withIris, usePortal, SimpleAnimation } from '../../utils';
 
 export const PopOver = withIris<HTMLDivElement, Props, Minors>(
   PopOverComponent
 );
-
-export type Props = IrisProps<{
-  /**
-   * The popover's open/close state can be controlled with this prop.
-   * If not defined, it will use the internal state.
-   */
-  active?: boolean;
-  /**
-   * [default = 'bottom']
-   */
-  attach?: Attach | AttachAlias;
-  /**
-   * The `content` defines what will appear inside the portal component,
-   * whereas the `children` defines what the portal component is anchored to.
-   */
-  content?: ReactNode;
-  children: ReactElement;
-  onClose?: EventHandler<any>;
-  onOpen?: EventHandler<any>;
-}>;
 
 const animation: SimpleAnimation = {
   enter: {
@@ -86,35 +53,3 @@ function PopOverComponent({
     </ErrorBoundary>
   );
 }
-
-const fadeIn = keyframes`
-  0% {
-    transform: translateY(-0.25rem) scale(0.98);
-    opacity: 0;
-
-  }
-
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-`;
-
-const PopOverStyled = styled.div<Props>`
-  background: ${({ theme }) => theme.content.background};
-  min-width: 10rem;
-  min-height: 2rem;
-  max-width: 40rem;
-  border-radius: 0.25rem;
-  animation: ${fadeIn} 150ms ease-in-out;
-
-  ${(p) =>
-    p.theme.name === 'dark'
-      ? css`
-          border: 1px solid ${rgba(255, 255, 255, 0.125)};
-        `
-      : css`
-          box-shadow: 0 0 ${rem(1)} 0 rgba(0, 0, 0, 0.15),
-            0 ${rem(4)} ${rem(8)} 0 rgba(0, 0, 0, 0.15);
-        `};
-`;

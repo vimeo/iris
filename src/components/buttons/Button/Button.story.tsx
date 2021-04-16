@@ -31,7 +31,9 @@ const ButtonStyled = styled(B)`
 const Template: Story<Props> = (args) => {
   return (
     <>
-      <ButtonStyled {...args}>{args.children}</ButtonStyled>
+      <ButtonStyled {...args} size="md">
+        {args.children}
+      </ButtonStyled>
       <ButtonStyled icon={<DownloadArrow />} {...args}>
         {args.children}
       </ButtonStyled>

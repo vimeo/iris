@@ -8,10 +8,10 @@ module.exports = {
         targets: {
           browsers: [
             '>5%',
-            'last 1 Edge version',
-            'last 2 Safari version',
-            'last 1 Firefox version',
-            'IE 11',
+            'last 2 Chrome versions',
+            'last 2 Edge versions',
+            'last 2 Firefox versions',
+            'last 2 Safari versions',
           ],
         },
         useBuiltIns: 'usage',

@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Story } from '@storybook/react';
 
-import { PopOver, Pop, Props } from './PopOver';
+import { PopOver } from './PopOver';
+import { Props } from './PopOver.types';
+import { Pop } from './PopOver.minors';
 
 import { Button as B, Badge } from '../../components';
 import { ANCHOR_POINTS } from '../../utils';

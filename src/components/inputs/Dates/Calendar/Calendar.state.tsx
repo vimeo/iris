@@ -1,5 +1,5 @@
-import { Action } from './Actions';
 import {
+  Action,
   initialState,
   CalendarState as State,
 } from './Calendar.types';
