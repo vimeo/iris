@@ -5,7 +5,7 @@ export type Props = IrisInputProps<
   {
     defaultValue?: string | string[];
     /**
-     * [default = 'basic']
+     * @deprecated
      */
     icon?: ReactNode;
     options?: Array<{ label: string; value: string }>;

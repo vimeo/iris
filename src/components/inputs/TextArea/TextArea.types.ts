@@ -17,7 +17,8 @@ export type Props = IrisInputProps<{
   label?: string;
   preMessage?: ReactNode;
   /**
-   * [default = false]
+   * @deprecated
+   * No label will be shown if `label` is undefined
    */
   showLabel?: boolean;
 }>;
