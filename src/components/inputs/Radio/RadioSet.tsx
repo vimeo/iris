@@ -17,7 +17,7 @@ export const RadioSet = withIris<HTMLDivElement, Props>(
   RadioSetComponent
 );
 
-interface Props {
+export interface Props {
   children: MarkInputElement[];
   defaultValue?: string | string[] | number | boolean;
   onChange?: ChangeEventHandler;

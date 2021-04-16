@@ -15,7 +15,7 @@ export const Password = withIris<HTMLInputElement, Props>(
   PasswordComponent
 );
 
-type Props = IrisInputProps<{
+export type Props = IrisInputProps<{
   /**
    * [default = 'minimalTransparent']
    */
