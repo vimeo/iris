@@ -262,7 +262,7 @@ function buttonVariants({ format, variant, theme }) {
         }
 
         &:hover:not(:active) {
-          background: ${rgba(tint(0.2, hoverColor), 0.55)};
+          background: ${rgba(color, 0.45)};
           /* if: grow */
           /* transform: scale(1.01); */
           /* box-shadow: 0 0 0 0 rgba(black, 0.1); */
