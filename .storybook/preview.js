@@ -15,6 +15,7 @@ const categoryOrder = [
   'motion',
   'utilties',
   'themes',
+  'process',
   'labs',
 ];
 
