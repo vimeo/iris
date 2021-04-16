@@ -15,7 +15,6 @@ export function Common() {
     <Layout.StoryVertical>
       <Select
         label="Select"
-        style={{ display: 'inline-block', width: 'auto' }}
         onChange={(e) =>
           console.log('Selected Option', e.target.value, e)
         }
@@ -34,7 +33,6 @@ export function Common() {
       <Select
         label="Select disabled"
         disabled
-        style={{ display: 'inline-block', width: 'auto' }}
         onChange={(e) =>
           console.log('Selected Option', e.target.value, e)
         }
