@@ -1,13 +1,1 @@
 *                   @vimeo/design-systems-core
-
-.github             @vimeo/design-systems-core @vimeo/frontend-platform
-.jest               @vimeo/design-systems-core @vimeo/frontend-platform
-.storybook          @vimeo/design-systems-core @vimeo/frontend-platform
-
-.eslintrc.js        @vimeo/design-systems-core @vimeo/frontend-platform
-.gitignore          @vimeo/design-systems-core @vimeo/frontend-platform
-.npmignore          @vimeo/design-systems-core @vimeo/frontend-platform
-.npmrc              @vimeo/design-systems-core @vimeo/frontend-platform
-babel.config.js     @vimeo/design-systems-core @vimeo/frontend-platform
-Jenkinsfile         @vimeo/design-systems-core @vimeo/frontend-platform
-package.json        @vimeo/design-systems-core @vimeo/frontend-platform

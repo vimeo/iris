@@ -26,6 +26,5 @@ export const withThemes = makeDecorator({
 
 function ThemedStory(props) {
   const theme = useLocal()[0];
-
   return <ThemeProvider theme={theme} {...props} />;
 }

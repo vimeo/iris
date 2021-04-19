@@ -31,6 +31,7 @@ export const themes: {
     content: {
       background: white,
       color: black,
+      color2: slate(800),
       disabled: grayscale(50),
       focus: blue(500),
       // focus: rgba(blue(500), 0.5),
@@ -69,6 +70,7 @@ export const themes: {
     content: {
       background: grayscale(910),
       color: white,
+      color2: grayscale(50),
       disabled: grayscale(850),
       focus: blue(400),
     },

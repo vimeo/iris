@@ -43,8 +43,8 @@ function storySort(cur, next) {
 }
 
 addThemes(themes);
-addDecorator(withThemes);
 addDecorator(withGlobalStyles);
+addDecorator(withThemes);
 
 export const parameters = {
   options: { storySort },
