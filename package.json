@@ -2,7 +2,7 @@
     "name": "@vimeo/iris",
     "homepage": "https://github.vimeows.com/pages/vimeo/iris/master/",
     "bugs": "https://github.vimeows.com/Vimeo/iris/issues",
-    "version": "0.96.0-test",
+    "version": "0.96.0",
     "private": false,
     "license": "ISC",
     "description": "Iris UI Pattern Framework",
