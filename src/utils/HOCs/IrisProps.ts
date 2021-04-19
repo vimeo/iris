@@ -224,7 +224,30 @@ export type IrisInputProps<
 > = Override<
   {
     accept?: string;
-    autocomplete?: boolean | 'on' | 'off'; // iris specific variation of native
+    autocomplete?:
+      | boolean
+      | 'bday'
+      | 'cc-csc'
+      | 'cc-exp'
+      | 'cc-name'
+      | 'cc-type'
+      | 'country-name'
+      | 'country'
+      | 'current-password'
+      | 'email'
+      | 'language'
+      | 'name'
+      | 'new-password'
+      | 'off'
+      | 'on'
+      | 'one-time-code'
+      | 'organization'
+      | 'password'
+      | 'photo'
+      | 'postal-code'
+      | 'tel'
+      | 'url'
+      | 'username';
     autoFocus?: boolean;
     capture?: boolean | string; // https://www.w3.org/TR/html-media-capture/#the-capture-attribute
     checked?: boolean;
