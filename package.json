@@ -4,7 +4,7 @@
     "bugs": "https://github.vimeows.com/Vimeo/iris/issues",
     "version": "0.96.0",
     "private": false,
-    "license": "ISC",
+    "license": "MIT",
     "description": "Iris UI Pattern Framework",
     "author": {
         "name": "Vimeo",
