@@ -16,7 +16,7 @@ export const Search = withIris<HTMLInputElement, Props>(
   SearchComponent
 );
 
-type Props = IrisInputProps<{
+export type Props = IrisInputProps<{
   /**
    * [default = 'basic']
    */

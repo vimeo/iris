@@ -8,7 +8,7 @@ export const Radio = withIris<HTMLInputElement, Props>(
   RadioComponent
 );
 
-type Props = IrisInputProps;
+export type Props = IrisInputProps;
 
 function RadioComponent(props: Props) {
   return <Input type="radio" {...props} />;

@@ -24,7 +24,7 @@ const ICONS = {
 
 export const All = () => <IconStory icons={ICONS} />;
 export const UI = () => <IconStory icons={UI_ICONS} />;
-export const Socail = () => <IconStory icons={SOCIAL_ICONS} />;
+export const Social = () => <IconStory icons={SOCIAL_ICONS} />;
 export const Payment = () => <IconStory icons={PAYMENT_ICONS} />;
 export const Vimeo = () => <IconStory icons={VIMEO_ICONS} />;
 

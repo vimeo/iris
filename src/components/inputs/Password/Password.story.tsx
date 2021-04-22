@@ -1,44 +1,36 @@
 import React from 'react';
+import { Story } from '@storybook/react';
 
-import { Password } from './Password';
+import { Password, Props } from './Password';
 
-export default { title: 'Components/inputs/Password' };
+export default {
+  title: 'Components/inputs/Password',
+  component: Password,
+  argTypes: {
+    src: { table: { disable: true } },
+    messages: { table: { disable: true } },
+    status: { table: { disable: true } },
+    label: {
+      control: {
+        type: 'select',
+        options: ['Password', undefined],
+      },
+    },
+  },
+};
 
-export function Common() {
+const Template: Story<Props> = (args) => {
   return (
-    <div
+    <Password
+      {...args}
       css={`
-        padding: 2rem;
-        max-width: 30rem;
+        max-width: 20rem;
       `}
-    >
-      <Password />
-    </div>
+    />
   );
-}
-
-export function Label() {
-  return (
-    <div
-      css={`
-        padding: 2rem;
-        max-width: 30rem;
-      `}
-    >
-      <Password label="Input (Password)" />
-    </div>
-  );
-}
-
-export function Floating() {
-  return (
-    <div
-      css={`
-        padding: 2rem;
-        max-width: 30rem;
-      `}
-    >
-      <Password label="Input (Password)" floating />
-    </div>
-  );
-}
+};
+export const Controls = Template.bind({});
+Controls.storyName = 'Password';
+Controls.args = {
+  label: 'Password',
+};

@@ -1,74 +1,41 @@
-import React, { useRef } from 'react';
-import styled from 'styled-components';
+import React from 'react';
+import { Story } from '@storybook/react';
 
 import { TextArea as TA } from './TextArea';
-import { Button } from '../../buttons/Button/Button';
+import { Props } from './TextArea.types';
 
 import { Layout } from '../../../storybook';
 import { withCharacterCount } from '../withCharacterCount/withCharacterCount';
+export default {
+  title: 'Components/Inputs/TextArea',
+  component: TA,
+  argTypes: {
+    status: { table: { disable: true } },
+    messages: { table: { disable: true } },
+    src: { table: { disable: true } },
+    showLabel: { table: { disable: true } },
+    helperMsg: { control: { disable: true } },
+    errorMsg: { control: { disable: true } },
+    preMessage: { control: { disable: true } },
+  },
+};
 
-export default { title: 'Components/Inputs/TextArea' };
+const TextAreaWCC = withCharacterCount(TA);
 
-const TextArea = styled(TA)`
-  min-width: 24rem;
-  min-height: 12rem;
-`;
-
-const TextAreaWCC = withCharacterCount(TextArea);
-
-export function Common() {
+const Template: Story<Props> = (args) => {
   return (
     <Layout.StoryVertical>
-      <TextArea label="Text area" />
-    </Layout.StoryVertical>
-  );
-}
-
-export function Error() {
-  return (
-    <Layout.StoryVertical>
-      <TextArea
-        label="Text area with error message"
-        format="negative"
-        messages={{ error: 'This is an error.' }}
-      />
-    </Layout.StoryVertical>
-  );
-}
-
-export function withCharacterCountStory() {
-  return (
-    <Layout.StoryVertical>
+      <TA {...args} />
       <TextAreaWCC
+        {...args}
         label="Text area with character count"
         defaultValue="lorem ipsum dolor"
       />
-      <TextAreaWCC
-        label="Error message overrides character count"
-        defaultValue="lorem ipsum dolor"
-        format="negative"
-        messages={{ error: 'This is an error.' }}
-      />
     </Layout.StoryVertical>
   );
-}
-withCharacterCountStory.storyname = 'withCharacterCount';
-
-export const Reset = () => <ResetStory />;
-function ResetStory() {
-  const ref = useRef(null);
-  const resetText =
-    'Click the button to reset the TextArea to its default value.';
-  const reset = () => (ref.current.value = resetText);
-
-  return (
-    <Layout.StoryVertical>
-      <Button onClick={reset}>Reset</Button>
-      <TextArea
-        label="Click the button to reset"
-        defaultValue={resetText}
-        ref={ref}
-      />
-    </Layout.StoryVertical>
-  );
-}
+};
+export const Controls = Template.bind({});
+Controls.storyName = 'TextArea';
+Controls.args = {
+  label: 'Text area label',
+};

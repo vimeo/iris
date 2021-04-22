@@ -1,4 +1,4 @@
-import React, { useState, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
 import { Calendar } from '../Calendar/Calendar';
@@ -10,42 +10,72 @@ export const DateSelect = withIris<HTMLInputElement, Props>(
   DateSelectComponent
 );
 
-type Props = IrisInputProps<{
+export type Props = IrisInputProps<{
+  /**
+   * Defines the element that the DateSelect PopOver will attach to.
+   * Typically, this would be an Input
+   */
   children: ReactElement;
-  defaultValue?: string | string[];
+  /**
+   * The default date selected in the calendar
+   */
+  defaultValue?: Date;
   onSelect?: (date: Date) => void;
   /**
-   * A date object that tells the calendar what initial month to display. If no month is provided it will default to the current month.
+   * A date object that tells the calendar what initial month to display.
+   * If no month is provided it will default to the current month.
    *
    * Ex: new Date('01/01/2032')
    */
   initialMonth?: Date;
+  /**
+   * A date object that defines the minimum date a user can select
+   */
+  min?: Date;
+  /**
+   * A date object that defines the maximum date a user can select
+   */
+  max?: Date;
+  /**
+   * The selected date in the calendar
+   */
+  value?: Date;
+  /**
+   * Controls the PopOver state
+   */
+  active?: boolean;
 }>;
 
 function DateSelectComponent({
   onSelect = null,
+  value,
+  defaultValue,
   initialMonth = new Date(),
   children = null,
+  min,
+  max,
+  active,
   style,
+  forwardRef,
   ...props
 }: IrisInputProps<Props>) {
-  const [date, setDate] = useState(initialMonth);
-
-  function select(date: Date) {
-    setDate(date);
+  const select = (date: Date) => {
     onSelect && onSelect(date);
-  }
+  };
 
   return (
     <PopOver
       attach="bottom"
+      active={active ?? undefined}
       style={{ width: (style && style.width) || '20rem' }}
       content={
-        <Wrapper style={style} {...props}>
+        <Wrapper style={style} ref={forwardRef} {...props}>
           <Calendar
-            selected={date}
+            selected={value ?? defaultValue ?? undefined}
             onClick={select}
             initialMonth={initialMonth}
+            minDate={min}
+            maxDate={max}
           />
         </Wrapper>
       }

@@ -1,73 +1,37 @@
 import React from 'react';
+import { Story } from '@storybook/react';
 
-import { Search } from './Search';
+import { Search, Props } from './Search';
 
-export default { title: 'Components/inputs/Search' };
+export default {
+  title: 'Components/Inputs/Search',
+  component: Search,
+  argTypes: {
+    src: { table: { disable: true } },
+    messages: { table: { disable: true } },
+    status: { table: { disable: true } },
+    label: {
+      control: {
+        type: 'select',
+        options: ['Search', undefined],
+      },
+    },
+  },
+};
 
-export function Common() {
+const Template: Story<Props> = (args) => {
   return (
-    <div
+    <Search
       css={`
-        padding: 2rem;
-        max-width: 30rem;
+        max-width: 40rem;
       `}
-    >
-      <Search label="Search" placeholder="Search our videos" />
-    </div>
+      {...args}
+      placeholder="Search our videos"
+    />
   );
-}
-
-export function Size() {
-  return sizes.map((size) => (
-    <div
-      css={`
-        padding: 1rem;
-        max-width: 40rem;
-      `}
-    >
-      <Search
-        label={'search size ' + size}
-        placeholder="Search our videos"
-        size={size}
-      />
-    </div>
-  ));
-}
-
-export function Format() {
-  return formats.map((format) => (
-    <div
-      css={`
-        padding: 1rem;
-        max-width: 40rem;
-      `}
-    >
-      <Search
-        label={'search format ' + format}
-        placeholder="Search our videos"
-        format={format}
-      />
-    </div>
-  ));
-}
-
-export function Variant() {
-  return variants.map((variant) => (
-    <div
-      css={`
-        padding: 1rem;
-        max-width: 40rem;
-      `}
-    >
-      <Search
-        label={'search variant ' + variant}
-        placeholder="Search our videos"
-        variant={variant}
-      />
-    </div>
-  ));
-}
-
-const sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
-const formats = ['primary', 'alternative'];
-const variants = ['minimal', 'basic'];
+};
+export const Controls = Template.bind({});
+Controls.storyName = 'Search';
+Controls.args = {
+  label: 'Search',
+};

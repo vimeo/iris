@@ -1,4 +1,4 @@
-import React, { createElement, ReactNode } from 'react';
+import React, { createElement } from 'react';
 import styled from 'styled-components';
 
 import {
@@ -11,8 +11,7 @@ import {
 
 export const Dock = withIris<HTMLDivElement, Props>(DockComponent);
 
-type Props = IrisProps<{
-  children: ReactNode;
+export type Props = IrisProps<{
   /**
    * [default = 'left']
    */

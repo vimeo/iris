@@ -1,4 +1,4 @@
-export { centered, hidden, Focus } from './css';
+export { centered, hidden, Focus, GlobalStyles } from './css';
 export { generateUID } from './general/generateUID';
 export { throttle } from './general/throttle';
 

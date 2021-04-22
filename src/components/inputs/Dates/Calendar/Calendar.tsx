@@ -9,7 +9,7 @@ import React, {
 import styled, { css } from 'styled-components';
 
 import { useDaysFromViewport } from './useDaysFromViewport';
-import { reducer, init } from './Calendar.state';
+import { reducer } from './Calendar.state';
 import { initialState, DateRange } from './Calendar.types';
 import { CalendarDay } from './CalendarDay';
 
@@ -19,7 +19,7 @@ import { Header } from '../../../../typography';
 import { IrisProps, geometry } from '../../../../utils';
 import { rgba, rem } from 'polished';
 
-interface Props {
+export interface Props {
   selected?: Date;
   initialMonth?: Date;
   minDate?: Date;
@@ -53,7 +53,22 @@ export const Calendar = ({
   initialMonth = new Date(),
   ...props
 }: IrisProps<Props>) => {
-  const [state, dispatch] = useReducer(reducer, initialState, init);
+  const date = initialMonth;
+  const initialViewportDate = new Date(
+    date.getFullYear(),
+    date.getMonth(),
+    1
+  );
+
+  const initialStateWithMonth = {
+    ...initialState,
+    viewportDate: initialViewportDate,
+  };
+
+  const [state, dispatch] = useReducer(
+    reducer,
+    initialStateWithMonth
+  );
 
   const { viewportDate } = state;
 
@@ -146,6 +161,12 @@ export const Calendar = ({
     1
   );
 
+  const minMonth = new Date(
+    actualDate.getFullYear(),
+    actualDate.getMonth(),
+    1
+  );
+
   useLayoutEffect(() => setWidth(geometry(ref.current).width), [
     setWidth,
   ]);
@@ -155,7 +176,7 @@ export const Calendar = ({
       <MonthNav>
         <PrevMonth
           onClick={!forwardOnly && (backOnClick ? backOnClick : prev)}
-          inactive={minDate && initialMonth < minDate}
+          inactive={minDate && minMonth < minDate}
           hidden={forwardOnly}
         />
 
@@ -214,7 +235,7 @@ export const Calendar = ({
             <Day
               key={i}
               size={width / 7}
-              onClick={select(day)}
+              onClick={!pastMinDate && !pastMaxDate && select(day)}
               isCurrentDate={isCurrentDate(day)}
               inCurrentMonth={inCurrentMonth(day)}
               disabled={pastMinDate || pastMaxDate}
@@ -330,7 +351,7 @@ interface DayProps {
 
 const Day = styled.div<DayProps>`
   position: relative;
-  cursor: pointer;
+  cursor: default;
   flex: 0 0 calc(100% / 7);
   width: calc(100% / 7);
   height: calc(100% / 7);
@@ -372,13 +393,19 @@ const Day = styled.div<DayProps>`
       }
     `};
 
-  &:hover {
-    color: ${white};
+  ${(p) =>
+    !p.disabled &&
+    css`
+      cursor: pointer;
 
-    &::after {
-      background: ${rgba(blue(500), 1)};
-    }
-  }
+      &:hover {
+        color: ${white};
+
+        &::after {
+          background: ${rgba(blue(500), 1)};
+        }
+      }
+    `}
 `;
 
 const DayLabel = styled(Day)`

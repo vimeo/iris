@@ -1,4 +1,8 @@
 module.exports = {
+  reactOptions: {
+    fastRefresh: true,
+    strictMode: true,
+  },
   stories: [
     '../src/**/*.story.mdx',
     '../src/**/*.story.@(js|jsx|ts|tsx)',

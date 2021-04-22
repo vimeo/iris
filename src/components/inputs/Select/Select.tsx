@@ -1,35 +1,29 @@
-import React, {
-  useRef,
-  useLayoutEffect,
-  useState,
-  useEffect,
-  useImperativeHandle,
-  cloneElement,
-  ReactElement,
-  FunctionComponent,
-} from 'react';
-import styled from 'styled-components';
+import React from 'react';
 
-import { Props, Sizes } from './Select.types';
+import { Props } from './Select.types';
+import { Minors, Option } from './Select.minors';
+import { ChevronDown, SelectStyled } from './Select.style';
+import { SelectFaux } from './SelectFaux';
 
 import { Wrapper } from '../Wrapper/Wrapper';
-import { inputShape, inputColors } from '../Shared';
 
-import {
-  geometry,
-  withIris,
-  IrisProps,
-  useLayoutStyles,
-  useOutsideClick,
-} from '../../../utils';
-import { ChevronDown as CD } from '../../../icons';
-import { PopOver, Pop } from '../../../layout';
+import { withIris, useLayoutStyles } from '../../../utils';
 
 export const Select = withIris<HTMLSelectElement, Props, Minors>(
   SelectComponent
 );
 
-function SelectComponent({
+Select.Option = Option;
+
+function SelectComponent({ forwardRef, faux, ...props }: Props) {
+  return faux ? (
+    <SelectFaux forwardRef={forwardRef} {...props} />
+  ) : (
+    <SelectNative forwardRef={forwardRef} {...props} />
+  );
+}
+
+function SelectNative({
   children,
   className,
   id,
@@ -40,210 +34,35 @@ function SelectComponent({
   status,
   messages,
   label,
-  faux,
   style,
   disabled,
   ...props
 }: Props) {
-  const [width, setWidth] = useState(0);
-  const [selected, setSelected] = useState(defaultValue || 0);
-  const [updatedSelected, setUpdatedSelected] = useState(false);
-  const [active, setActive] = useState(false);
   const [layoutStyles, displayStyles] = useLayoutStyles(style);
-  const wrapperRef = useRef(null);
-  const popOverRef = useRef(null);
-  const selectRef = useRef(null);
 
-  useImperativeHandle(forwardRef, () => selectRef.current);
-
-  useLayoutEffect(
-    () => faux && setWidth(geometry(wrapperRef.current).width),
-    [size, faux]
-  );
-
-  useOutsideClick(popOverRef, () => {
-    setActive(false);
-  });
-
-  useEffect(() => {
-    if (faux && updatedSelected) {
-      if (selectRef?.current) {
-        selectRef.current.dispatchEvent(
-          new Event('change', { bubbles: true })
-        );
-        setUpdatedSelected(false);
-      }
-    }
-  }, [selected, faux, updatedSelected]);
-
-  const options = faux
-    ? (children as ReactElement[])
-        .filter((child) => {
-          return child.type !== 'a';
-        })
-        .map(({ props: { value, children } }, i) => (
-          <option key={i} value={value}>
-            {Array.isArray(children)
-              ? children.filter((cc) => typeof cc === 'string')
-              : children}
-          </option>
-        ))
-    : children;
-
-  const popOverChildren = faux && (
-    <div>
-      {children.map((child: ReactElement, i) => {
-        return typeof (child as ReactElement).type === 'string'
-          ? child
-          : cloneElement(child as ReactElement, {
-              onClick: () => {
-                const {
-                  props: { value },
-                } = child;
-
-                setSelected(value);
-                setUpdatedSelected(true);
-                setActive(false);
-              },
-              key: i,
-              faux,
-            });
-      })}
-    </div>
-  );
-
-  return faux ? (
+  return (
     <Wrapper
       className={className}
       id={id}
       label={label}
-      ref={wrapperRef}
       messages={messages}
       status={status}
       style={{ ...layoutStyles }}
-    >
-      <PopOver
-        attach="bottom"
-        style={{ width, maxWidth: '100%' }}
-        content={<div ref={popOverRef}>{popOverChildren}</div>}
-        active={disabled ? false : active}
-      >
-        <div
-          style={{ position: 'relative' }}
-          onClick={() => setActive(true)}
-        >
-          <SelectStyled
-            inputSize={size}
-            ref={selectRef}
-            format={status || format}
-            value={selected.toString()}
-            readOnly
-            style={{
-              ...displayStyles,
-              pointerEvents: 'none',
-            }}
-            disabled={disabled}
-            {...props}
-          >
-            {selected} {options}
-          </SelectStyled>
-          <ChevronDown size={size} />
-        </div>
-      </PopOver>
-    </Wrapper>
-  ) : (
-    <Wrapper
-      className={className}
-      id={id}
-      label={label}
-      messages={messages}
-      status={status}
-      style={{ ...style }}
     >
       <div style={{ position: 'relative' }}>
         <SelectStyled
           defaultValue={defaultValue}
           inputSize={size}
-          ref={selectRef}
+          ref={forwardRef}
           format={status || format}
-          style={style}
+          style={{ ...displayStyles }}
           disabled={disabled}
           {...props}
         >
-          {options}
+          {children}
         </SelectStyled>
         <ChevronDown size={size} />
       </div>
     </Wrapper>
   );
 }
-
-type OptionProps = any;
-
-interface Minors {
-  Option: FunctionComponent<IrisProps<OptionProps>>;
-}
-
-Select.Option = ({
-  children,
-  faux,
-  disabled,
-  href,
-  upgradeBadge,
-  ...props
-}) => {
-  return faux ? (
-    href ? (
-      <a href={href}>
-        <Pop.Item {...props}>
-          <>
-            <span style={disabled && { opacity: 0.4 }}>
-              {children.filter((c) => typeof c === 'string')}
-            </span>
-            <span style={{ pointerEvents: 'none' }}>
-              {children.filter((c) => typeof c !== 'string')}
-            </span>
-          </>
-        </Pop.Item>
-      </a>
-    ) : (
-      <Pop.Item
-        {...props}
-        style={disabled && { pointerEvents: 'none', opacity: 0.4 }}
-      >
-        {children}
-      </Pop.Item>
-    )
-  ) : (
-    <option disabled={disabled} {...props}>
-      {children}
-    </option>
-  );
-};
-
-const SelectStyled = styled.select<any>`
-  appearance: none;
-  ${inputColors};
-  ${inputShape};
-  padding-right: 2rem;
-`;
-
-const ChevronDown = styled(CD)<{ size: Sizes }>`
-  position: absolute;
-  top: ${(p) => bottom[p.size]}rem;
-  right: 0.3rem;
-  width: 1.5rem;
-  height: 1.5rem;
-
-  * {
-    fill: ${({ theme }) => theme.content.color};
-  }
-`;
-
-const bottom = {
-  xs: 0.1,
-  sm: 0.2,
-  md: 0.3,
-  lg: 0.8,
-  xl: 1.1,
-};

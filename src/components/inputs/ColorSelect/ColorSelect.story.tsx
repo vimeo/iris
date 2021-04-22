@@ -1,72 +1,57 @@
 import React, { useState } from 'react';
 import { readableColor } from 'polished';
-import { select } from '@storybook/addon-knobs';
+import { Story } from '@storybook/react';
 
 import { ColorSelect } from './ColorSelect';
+import { Props } from './ColorSelect.types';
 
 import { Layout } from '../../../storybook';
+import { ANCHOR_POINTS } from '../../../utils';
 
-export default { title: 'Components/Inputs/ColorSelect' };
+export default {
+  title: 'Components/Inputs/ColorSelect',
+  component: ColorSelect,
+  argTypes: {
+    status: { table: { disable: true } }, // not relevant
+    messages: { table: { disable: true } }, // not relevant
+    src: { table: { disable: true } }, // not relevant
+    value: { table: { disable: true } }, // not relevant
+    initialColor: { table: { disable: true } }, // deprecated
+    resetLabel: { table: { disable: true } }, // deprecated
+    resetColor: { table: { disable: true } }, // deprecated
+    onChange: { control: { disable: true } },
+    attach: {
+      control: {
+        type: 'select',
+        options: ANCHOR_POINTS,
+      },
+    },
+  },
+};
 
-export function Common() {
+const Template: Story<Props> = (args) => {
   return (
     <Layout.StoryVertical>
       <ColorSelect
-        attach={select('attach', positions, 'bottom')}
-        width={360}
-        height={180}
+        {...args}
         onChange={(HEX) =>
           console.log(
             `onChange: %c ${HEX}`,
             `background: ${HEX}; color: ${readableColor(HEX)}`
           )
         }
-        resetLabel="reset"
-        initialColor="#FF0"
-        resetColor="#0FF"
       />
     </Layout.StoryVertical>
   );
-}
+};
 
-export const Presets = () => <PresetsStory />;
-function PresetsStory() {
-  const [accentColor, setAccentColor] = useState('#00adef');
-
-  return (
-    <Layout.StoryVertical>
-      <ColorSelect
-        label={
-          <ColorSelect.Presets
-            palette={['#909CDC', '#7BD8DB', '#78DD89', '#CCE190']}
-            label="Accent Color"
-            onColorClick={(color) => {
-              setAccentColor(color);
-            }}
-          />
-        }
-        width={300}
-        height={150}
-        onChange={(color) => {
-          setAccentColor(color);
-        }}
-        initialColor="#00adef"
-        resetLabel="reset"
-        resetColor="#00adef"
-        value={accentColor}
-        attach={select('attach', positions, 'bottom')}
-      />
-    </Layout.StoryVertical>
-  );
-}
-
-const positions = {
-  top: 'top',
-  'top right': 'topRight',
-  right: 'right',
-  'bottom right': 'bottomRight',
-  bottom: 'bottom',
-  'bottom left': 'bottomLeft',
-  left: 'left',
-  'top left': 'topLeft',
-} as const;
+export const Controls = Template.bind({});
+Controls.storyName = 'ColorSelect';
+Controls.args = {
+  width: 360,
+  height: 180,
+  initial: { color: '#FF0' },
+  reset: { color: '#0FF', label: 'reset' },
+  label: 'ColorSelect',
+  throttleSpeed: 40,
+};

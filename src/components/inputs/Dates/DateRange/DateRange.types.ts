@@ -10,9 +10,8 @@ export type Props = IrisInputProps<{
    */
   maxDate?: Date;
   /**
-   * In what direction should the calendar viewport open?
-   *
-   * [default = 'left']
+   * @deprecated
+   * Not in use anymore since popover logic was separated from DateRange
    */
   attach?: 'left' | 'right' | 'bottom';
   /**

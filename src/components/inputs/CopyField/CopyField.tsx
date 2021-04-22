@@ -18,7 +18,7 @@ export const CopyField = withIris<HTMLInputElement, Props>(
   CopyFieldComponent
 );
 
-type Props = IrisInputProps<{
+export type Props = IrisInputProps<{
   /**
    * The format of the copy button.
    *
@@ -39,6 +39,13 @@ type Props = IrisInputProps<{
    * [default = 'basic']
    */
   variant?: 'minimal' | 'basic';
+  /**
+   * Option to pass in a custom element to replace the content
+   * of the copy button on the right side of the CopyField.
+   *
+   * The default is the Clipboard icon.
+   */
+  children?: ReactNode;
 }>;
 
 function CopyFieldComponent({

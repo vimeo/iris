@@ -15,6 +15,7 @@ const categoryOrder = [
   'motion',
   'utilties',
   'themes',
+  'process',
   'labs',
 ];
 
@@ -38,15 +39,12 @@ function storySort(cur, next) {
   if (cur[1]?.id.includes('examples')) return 1;
   if (next[1]?.id.includes('examples')) return -1;
 
-  if (cur[1]?.id.includes('props')) return 1;
-  if (next[1]?.id.includes('props')) return -1;
-
   return defaultSort(cur, next);
 }
 
 addThemes(themes);
-addDecorator(withThemes);
 addDecorator(withGlobalStyles);
+addDecorator(withThemes);
 
 export const parameters = {
   options: { storySort },
@@ -525,11 +523,6 @@ export const parameters = {
       },
     },
     type: {
-      table: {
-        disable: true,
-      },
-    },
-    value: {
       table: {
         disable: true,
       },

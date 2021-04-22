@@ -20,7 +20,7 @@ import { white } from '../../color';
 
 export const Panel = withIris<HTMLDivElement, Props>(PanelComponent);
 
-type Props = IrisProps<{
+export type Props = IrisProps<{
   /**
    * The Panel's open/close state can be controlled with this prop.
    * If not defined, it will use the internal state.

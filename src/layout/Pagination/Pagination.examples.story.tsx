@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { rgba } from 'polished';
 
@@ -9,7 +9,7 @@ import { Button } from '../../components';
 import { Header } from '../../typography';
 import { Player, vimeos, useFakeQuery } from '../../storybook';
 
-export default { title: 'layout/Pagination/examples' };
+export default { title: 'layout/Pagination/Examples' };
 
 const total = 96;
 const pageSize = 12;

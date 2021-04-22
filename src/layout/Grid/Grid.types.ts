@@ -19,9 +19,12 @@ export type Props = IrisProps<
      * Can either set a fixed column, or specify columns at various breakpoints
      *
      * Usage examples
+     *
      * 4 = set number of columns to 4
+     *
      * [{minWidth: 250 }] = set min width of columns to 250px
-     * [[1080, 5], [720, 3], [480, 2], [360, 1]] = At min screen width 1080px, set 5 columns, and etc
+     *
+     * [[1080, 5], [720, 3], [480, 2], [360, 1]] =
      *
      * [default = 4]
      */

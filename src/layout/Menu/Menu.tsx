@@ -12,7 +12,7 @@ export const Menu = withIris<HTMLDivElement, Props, Minors>(
 Menu.Section = Section;
 Menu.Item = Item;
 
-type Props = IrisProps<
+export type Props = IrisProps<
   {
     children: any;
     /**

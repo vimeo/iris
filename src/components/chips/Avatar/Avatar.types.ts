@@ -18,7 +18,6 @@ export type DOMElement = HTMLImageElement | HTMLAnchorElement;
 
 export type Size = keyof typeof sizes;
 export const sizes = {
-  auto: '100%',
   xxs: '0.75rem',
   xs: '1rem',
   sm: '2rem',
@@ -26,4 +25,5 @@ export const sizes = {
   lg: '4rem',
   xl: '9.375rem',
   xxl: '15rem',
+  auto: '100%',
 } as const;

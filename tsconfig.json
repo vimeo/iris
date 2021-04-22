@@ -21,7 +21,7 @@
             "dom"
         ],
         "forceConsistentCasingInFileNames": true,
-        "module": "commonjs",
+        "module": "esnext",
         "moduleResolution": "node",
         "noFallthroughCasesInSwitch": true,
         "noUnusedLocals": true,
@@ -46,6 +46,7 @@
         "build-styleguide",
         "build",
         "node_modules",
+        "src/**/*.types.ts",
         "src/**/*.story.tsx",
         "src/**/*.x-story.tsx",
         "src/**/*.test.ts",

@@ -1,68 +1,12 @@
-# node / npm
-node_modules
-*.log
-*.orig
-package-lock.json
-
-########################
-# node.js / npm
-########################
-
-lib-cov
-*.seed
-*.log
-*.csv
-*.dat
-*.out
-*.pid
-*.gz
-
-pids
-results
-
-npm-debug.log
-
-
-########################
-# misc / editors
-########################
-
-*~
-*#
-.DS_STORE
-.DS_Store
-.netbeans
-nbproject
-.idea
-.settings
-*.sublime-project
-*.sublime-workspace
-.vscode
 .cache
-
-
-########################
-# Caches
-########################
-
-.sass-cache
-
-
-########################
-# Build artifacts
-########################
-data/*
-!data/README.md
-build-styleguide
-storybook-static
-data
-docs/main.jsx
+.DS_Store
+.gh-pages/*
+.vscode
+*.log
+build
 dist
 dist-*
-tsdocsHTML
-build
-
-########################
-# Github Pages
-########################
-.gh-pages/*
+node_modules
+npm-debug.log
+storybook-static
+yarn-error.log

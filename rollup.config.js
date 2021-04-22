@@ -1,29 +1,30 @@
+import { terser } from 'rollup-plugin-terser';
+
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import multiInput from 'rollup-plugin-multi-input';
 import resolve from '@rollup/plugin-node-resolve';
-import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 
 import pkg from './package.json';
 
-export default (args) => {
-  // Usage: npx rv build --debug OR npx rollup -c rollup.config.js --config-debug
-  const debug = args['config-debug'];
+const dependencies = Object.keys(pkg.dependencies || {});
+const peerDependencies = Object.keys(pkg.peerDependencies || {});
+const babelRuntime = (id) => id.includes('@babel/runtime');
 
+export default (args) => {
+  const debug = args['config-debug'];
   process.env.NODE_ENV = 'production';
 
   return {
-    input: ['./src/!(_|storybook)*/**/!(*.story.tsx|*.test.ts)'],
+    input: [
+      './src/!(_|storybook)*/**/!(*.story.tsx|*.test.ts|*.types.ts)',
+    ],
     output: {
       dir: './build',
       format: 'cjs',
     },
-    external: [
-      ...Object.keys(pkg.dependencies || {}),
-      ...Object.keys(pkg.peerDependencies || {}),
-      (id) => id.includes('@babel/runtime'),
-    ],
+    external: [...dependencies, ...peerDependencies, babelRuntime],
     plugins: [
       resolve(),
       commonjs(),

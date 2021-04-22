@@ -1,54 +1,28 @@
 import React from 'react';
+import { Story } from '@storybook/react';
 
 import { Slider } from './Slider';
+import { Props } from './Slider.types';
 
 import { Layout } from '../../../storybook';
 
-export default { title: 'Components/Inputs/Slider' };
+export default {
+  title: 'Components/Inputs/Slider',
+  component: Slider,
+};
 
-export function Basic() {
-  return (
-    <Layout.StoryPadded>
-      <Slider onChange={(n) => console.log(n?.target?.value)} />
-    </Layout.StoryPadded>
-  );
-}
-
-export function Range() {
+const Template: Story<Props> = (args) => {
+  const { formatter, ...argsWithoutFormatter } = args;
   return (
     <Layout.StoryPadded>
       <Slider
-        range
-        initialValues={[20, 50]}
-        formatter={(value) => value + 'm'}
-        onChange={(n) => console.log(n?.target?.value)}
+        {...argsWithoutFormatter}
+        css={`
+          width: 50%;
+        `}
       />
     </Layout.StoryPadded>
   );
-}
-
-export function MinMax() {
-  return (
-    <Layout.StoryPadded>
-      <Slider
-        range
-        min={10}
-        max={90}
-        initialValues={[10, 90]}
-        onChange={(n) => console.log(n?.target?.value)}
-      />
-    </Layout.StoryPadded>
-  );
-}
-
-export function EditableLabel() {
-  return (
-    <Layout.StoryPadded>
-      <Slider
-        editableLabel
-        range
-        onChange={(n) => console.log(n?.target?.value)}
-      />
-    </Layout.StoryPadded>
-  );
-}
+};
+export const Controls = Template.bind({});
+Controls.storyName = 'Slider';

@@ -6,7 +6,16 @@ import { Button } from '../../buttons/Button/Button';
 import { Layout } from '../../../storybook';
 import { UploadCloud } from '../../../icons';
 
-export default { title: 'Components/Inputs/FileUpload' };
+export default {
+  title: 'Components/Inputs/FileUpload',
+  component: FileUpload,
+  argTypes: {
+    label: { table: { disable: true } },
+    status: { table: { disable: true } },
+    messages: { table: { disable: true } },
+    src: { table: { disable: true } },
+  },
+};
 
 export function Common() {
   return (
@@ -37,3 +46,4 @@ export function Common() {
     </Layout.StoryVertical>
   );
 }
+Common.storyName = 'FileUpload';

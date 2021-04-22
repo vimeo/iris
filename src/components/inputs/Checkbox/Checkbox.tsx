@@ -8,7 +8,7 @@ export const Checkbox = withIris<HTMLInputElement, Props>(
   CheckboxComponent
 );
 
-type Props = IrisInputProps<
+export type Props = IrisInputProps<
   {
     indeterminate?: boolean;
   },

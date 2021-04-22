@@ -8,7 +8,7 @@ export const Toggle = withIris<HTMLInputElement, Props>(
   ToggleComponent
 );
 
-type Props = IrisInputProps<
+export type Props = IrisInputProps<
   {
     icon?: ReactNode;
     /**

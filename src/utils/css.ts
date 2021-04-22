@@ -1,6 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled, { css, createGlobalStyle } from 'styled-components';
 import { rgba, rem } from 'polished';
+
 import { blue } from '../color';
+import { IrisTheme } from '../themes';
 
 export const centered = {
   position: 'absolute',
@@ -67,4 +69,42 @@ export const Focus = styled.div<any>`
       ${underline};
     `;
   }}
+`;
+
+// const systemFont = `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;`;
+const vimeoFont = `'Helvetica Neue', Helvetica, Arial, sans-serif;`;
+
+export const GlobalStyles = createGlobalStyle<{ theme: IrisTheme }>`
+  html {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    font-family: ${vimeoFont};
+    min-height: 100%;
+    color: ${({ theme }) => theme.content.color2};
+    background: ${({ theme }) => theme.content.background};
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit
+  }
+
+  blockquote, dl, dd, h1, h2, h3, h4, h5, h6, figure, p, pre, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+
+  button {
+    background: transparent;
+    border-color: transparent;
+    padding: 0;
+    margin: 0;
+  }
 `;

@@ -1,8 +1,12 @@
 import React from 'react';
 
-import { ButtonStyled, ButtonChildren } from './Button.style';
-import { FeaturedIcon } from './FeaturedIcon';
+import {
+  ButtonStyled,
+  ButtonChildren,
+  borderRadiusSizes,
+} from './Button.style';
 import { Props, DOMElement } from './Button.types';
+import { FeaturedIcon } from './FeaturedIcon';
 
 // Iris submodule organization needs to be reconsidered.
 // This creates a circular dependency.
@@ -53,6 +57,8 @@ function ButtonComponent({
   const iconFeatured = iconPosition === 'featured' && icon;
   const iconAction = iconPosition === 'action' && icon;
 
+  const radius = pill ? 50 : borderRadiusSizes[size] + 2;
+
   return (
     <ButtonStyled
       as={element}
@@ -84,7 +90,7 @@ function ButtonComponent({
         />
       )}
 
-      <Focus parent={ButtonStyled} radius={pill ? 50 : 6} />
+      <Focus parent={ButtonStyled} radius={radius} />
     </ButtonStyled>
   );
 }
