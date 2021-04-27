@@ -1,4 +1,7 @@
 import styled, { keyframes } from 'styled-components';
+import { rgba } from 'polished';
+
+import { white } from '../../color';
 
 import { Props } from './Panel.types';
 

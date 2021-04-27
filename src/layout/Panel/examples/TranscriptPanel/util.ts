@@ -1,7 +1,7 @@
 export function mockTranscriptSegments() {
   let seconds = 0;
 
-  const data = [...new Array(500)].map(() => {
+  const data = [...new Array(5000)].map(() => {
     seconds = seconds + randomInteger(10);
 
     const start = secondsToMinutes(seconds);
