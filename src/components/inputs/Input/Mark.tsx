@@ -18,7 +18,7 @@ interface ToggleIconProps {
 }
 
 export function Mark({
-  autocomplete = true,
+  autoComplete = true,
   checked,
   defaultChecked,
   children,

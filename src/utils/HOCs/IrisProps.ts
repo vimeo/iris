@@ -224,7 +224,7 @@ export type IrisInputProps<
 > = Override<
   {
     accept?: string;
-    autocomplete?:
+    autoComplete?:
       | boolean
       | 'bday'
       | 'cc-csc'

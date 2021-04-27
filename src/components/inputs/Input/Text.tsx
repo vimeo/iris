@@ -22,7 +22,7 @@ import {
 } from '../../../utils';
 
 export function Text({
-  autocomplete = true,
+  autoComplete = true,
   autosuggest,
   children,
   className,
@@ -90,7 +90,7 @@ export function Text({
       {children}
       <InputStyled
         aria-invalid={status === 'negative'}
-        autoComplete={autocomplete ? 'on' : 'off'}
+        autoComplete={autoComplete ? 'on' : 'off'}
         disabled={disabled}
         floating={floating}
         format={status}
