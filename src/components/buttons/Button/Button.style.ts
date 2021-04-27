@@ -13,6 +13,7 @@ const buttonCore = css`
   justify-content: center;
   outline: none;
   border: none;
+  text-decoration: none;
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;

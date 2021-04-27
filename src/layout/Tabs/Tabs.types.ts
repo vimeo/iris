@@ -28,5 +28,12 @@ export interface Minors {
 export interface PanelProps {
   label?: string;
   active?: boolean;
-  onActivate: VoidFunction;
+  /**
+   * @deprecated
+   *
+   * use `onOpen`
+   *
+   */
+  onActivate?: VoidFunction;
+  onOpen?: VoidFunction;
 }

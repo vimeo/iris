@@ -20,7 +20,7 @@ Tabs.Panel = Panel;
 function TabsComponent({
   children,
   forwardRef,
-  format = 'alternative',
+  format = 'soft',
   variant = 'minimalTransparent',
   pill = false,
   ...props
@@ -50,40 +50,41 @@ function TabsComponent({
     if (key === 'ArrowLeft') activeTabSet(prev);
   }
 
+  const childrenNavItems = children.map(({ props }, i) => (
+    <li
+      key={i}
+      onClick={() => activeTabSet(i)}
+      style={{ flex: '1 0 0' }}
+    >
+      <NavItem
+        onKeyUp={onKeyUp}
+        format={format}
+        index={i}
+        label={props.label}
+        selected={activeTab === i}
+        variant={variant}
+        pill={pill}
+      />
+    </li>
+  ));
+
+  const childrenPanels = children.map(
+    (child, i) =>
+      activeTab === i &&
+      cloneElement(child, { id: `#tab-${i}`, key: i })
+  );
+
   return (
     <div ref={forwardRef} {...props}>
       <Nav variant={variant} pill={pill}>
-        {children.map(({ props }, i) => (
-          <li
-            style={{ flex: '1 0 0' }}
-            key={i}
-            onClick={() => {
-              activeTabSet(i);
-              props.onActivate();
-            }}
-          >
-            <NavItem
-              onKeyUp={onKeyUp}
-              format={format}
-              index={i}
-              label={props.label}
-              selected={activeTab === i}
-              variant={variant}
-              pill={pill}
-            />
-          </li>
-        ))}
+        {childrenNavItems}
       </Nav>
 
       {variant !== 'inlay' && (
         <Indicator width={children.length} position={activeTab} />
       )}
 
-      {children.map(
-        (child, i) =>
-          activeTab === i &&
-          cloneElement(child, { id: `#tab-${i}`, key: i })
-      )}
+      {childrenPanels}
     </div>
   );
 }

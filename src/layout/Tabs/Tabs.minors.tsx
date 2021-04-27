@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
 
 import { PanelProps } from './Tabs.types';
 
@@ -8,11 +9,16 @@ export function Panel({
   children,
   active,
   onActivate,
+  onOpen,
   ...props
 }: IrisProps<PanelProps>) {
-  return (
-    <div style={{ padding: '0.5rem 0' }} {...props}>
-      {children}
-    </div>
-  );
+  if (onActivate) onOpen = onActivate;
+  useEffect(() => onOpen?.(), [onOpen]);
+
+  return <PanelStyled {...props}>{children}</PanelStyled>;
 }
+
+const PanelStyled = styled.div`
+  position: relative;
+  padding: 0.5rem 0;
+`;
