@@ -4,7 +4,8 @@ import { Menu } from './Menu';
 
 import { Header } from '../../typography';
 import { Tip } from '../../components';
-import { PopOver, Pop } from '../PopOver/PopOver';
+import { PopOver } from '../PopOver/PopOver';
+import { Pop } from '../PopOver/PopOver.minors';
 import { Layout } from '../../storybook';
 import {
   Folder,

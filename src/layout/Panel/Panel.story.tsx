@@ -1,7 +1,8 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 
-import { Panel, Props } from './Panel';
+import { Panel } from './Panel';
+import { Props } from './Panel.types';
 
 import { Button } from '../../components';
 

@@ -9,7 +9,7 @@ interface Props {
 
 export function useIrisError(
   { className, style }: Props,
-  Component: IrisComponent<any, any>,
+  Component: IrisComponent<any, any> | string,
   errorMessage = null,
   valid
 ) {
@@ -24,10 +24,13 @@ export function useIrisError(
   useLayoutEffect(() => (error ? error(id) : undefined));
   /* eslint-enable react-hooks/rules-of-hooks */
 
-  return { irisError };
+  return { irisError, valid };
 }
 
-function logError(errorMessage, Component: IrisComponent<any, any>) {
+function logError(
+  errorMessage,
+  Component: IrisComponent<any, any> | string
+) {
   return (id) =>
     document &&
     console.error(`@vimeo/iris:`, errorMessage, '\n\n', {

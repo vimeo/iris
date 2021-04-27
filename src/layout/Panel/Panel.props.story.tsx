@@ -6,10 +6,10 @@ import { Button } from '../../components';
 import { Layout } from '../../storybook';
 
 export default {
-  title: 'layout/Panel/Props',
+  title: 'layout/Panel/props',
 };
 
-export function Attach() {
+export function attach() {
   return (
     <Layout.StoryVertical>
       <Panel
@@ -30,5 +30,20 @@ export function Attach() {
     </Layout.StoryVertical>
   );
 }
+attach.storyName = 'attach';
+
+export function active() {
+  return (
+    <Layout.StoryVertical>
+      <Panel
+        active
+        content={PanelContent}
+        onOpen={() => console.log('open')}
+        onClose={() => console.log('close')}
+      />
+    </Layout.StoryVertical>
+  );
+}
+active.storyName = 'active';
 
 const PanelContent = <div />;
