@@ -11,8 +11,6 @@ import { slate, blue } from '../../../color';
 import { DismissX, Play } from '../../../icons';
 import { vimeos, useFakeQuery } from '../../../storybook';
 
-export default { title: 'layout/ModalCarousel/Examples' };
-
 export function CreatePage() {
   const [active, setActive] = useState(false);
   const [activeModal, setActiveModal] = useState(0);

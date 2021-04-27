@@ -9,8 +9,6 @@ import { Avatar } from '../../../components';
 import { Paragraph, Header } from '../../../typography';
 import { Grid } from '../..';
 
-export default { title: 'layout/ModalCarousel/Examples' };
-
 export function ForHirePage() {
   const [active, setActive] = useState(false);
   const [activeModal, setActiveModal] = useState(0);

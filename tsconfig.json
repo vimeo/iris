@@ -53,6 +53,7 @@
         "src/_docs",
         "src/_labs",
         "src/_tests",
+        "src/_process",
         "src/storybook"
     ]
 }

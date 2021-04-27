@@ -8,8 +8,6 @@ import { Input, TextArea, Checkbox } from '../components';
 
 import { initialState, reducer } from './PullReqest.state';
 
-export default { title: 'Process/Templates' };
-
 export function PullRequest() {
   const [state, dispatch] = useReducer(reducer, initialState());
   const { branchName, description, comments, meta } = state;

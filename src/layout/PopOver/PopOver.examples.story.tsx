@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { rgba } from 'polished';
 
-import { PopOver, Pop } from './PopOver';
+import { PopOver } from './PopOver';
+import { Pop } from './PopOver.minors';
 import { Grid } from '../Grid/Grid';
 import { Dock } from '../Dock/Dock';
 import { Button as B, Badge, Input } from '../../components';

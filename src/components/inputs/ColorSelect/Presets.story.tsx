@@ -7,7 +7,7 @@ import { Props } from './Presets';
 import { Layout } from '../../../storybook';
 
 export default {
-  title: 'Components/Inputs/ColorSelect',
+  title: 'Components/Inputs/ColorSelect/minors',
   component: ColorSelect.Presets,
   argTypes: {
     attach: { table: { disable: true } }, // not relevant
@@ -42,7 +42,7 @@ const Template: Story<Props> = (args) => {
 };
 
 export const PresetControls = Template.bind({});
-PresetControls.storyName = 'Presets';
+PresetControls.storyName = 'ColorSelect.Presets';
 PresetControls.args = {
   palette: ['#909CDC', '#7BD8DB', '#78DD89', '#CCE190'],
   label: 'Presets',

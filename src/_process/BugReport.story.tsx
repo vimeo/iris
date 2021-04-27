@@ -8,8 +8,6 @@ import { Input, TextArea, Checkbox, Tag } from '../components';
 
 import { initialState, reducer } from './BugReport.state';
 
-export default { title: 'Process/Templates' };
-
 export function BugReport() {
   const [state, dispatch] = useReducer(reducer, initialState());
   const {

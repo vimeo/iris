@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
 
-import { PopOver, Pop } from './PopOver';
+import { PopOver } from './PopOver';
+import { Pop } from './PopOver.minors';
 import { Button as B, Badge } from '../../components';
 import { ANCHOR_POINTS } from '../../utils';
 import { Gear, DismissX } from '../../icons';

@@ -8,8 +8,6 @@ import { Input, TextArea, Checkbox, Tag } from '../components';
 
 import { initialState, reducer } from './NewSvg.state';
 
-export default { title: 'Process/Templates' };
-
 export function SVG() {
   const [state, dispatch] = useReducer(reducer, initialState());
   const { iconName, description, meta } = state;
