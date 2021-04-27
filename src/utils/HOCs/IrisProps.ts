@@ -47,7 +47,6 @@ type IrisElementProps<DOMElement = HTMLDivElement> = {
   tabIndex?: number;
   theme?: IrisTheme;
   title?: string;
-  test?: 'foo';
 };
 
 type IrisEventProps<DOMElement = HTMLDivElement> = {
