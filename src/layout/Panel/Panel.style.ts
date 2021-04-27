@@ -1,6 +1,9 @@
 import styled, { keyframes } from 'styled-components';
+import { rgba } from 'polished';
 
 import { Props } from './Panel.types';
+
+import { white } from '../../color';
 
 const fadeIn = ({ attach }) => keyframes`
   0% {
