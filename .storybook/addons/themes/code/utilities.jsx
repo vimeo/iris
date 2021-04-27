@@ -7,6 +7,8 @@ import { themes as defaults } from '@storybook/theming';
 import { useLocal } from './useLocal';
 
 export function addThemes(themes) {
+  initialThemeFallback();
+
   const dark = (themes && themes.dark) || {};
   const light = (themes && themes.light) || {};
 
@@ -27,4 +29,9 @@ export const withThemes = makeDecorator({
 function ThemedStory(props) {
   const theme = useLocal()[0];
   return <ThemeProvider theme={theme} {...props} />;
+}
+
+function initialThemeFallback() {
+  const current = localStorage.getItem('nox-addon-theme');
+  if (!current) localStorage.setItem('nox-addon-theme', 'light');
 }
