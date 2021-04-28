@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Button as ButtonIris } from '../../../../../components';
-import { PopOut } from '../../../../../icons';
-import { Paragraph } from '../../../../../typography';
+import { Button as ButtonIris } from '../../../../../../components';
+import { PopOut } from '../../../../../../icons';
+import { Paragraph } from '../../../../../../typography';
 
 export function TabSettings() {
   return (
