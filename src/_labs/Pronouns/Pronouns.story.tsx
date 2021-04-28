@@ -59,9 +59,9 @@ export function UserSettings() {
     </Story>
   );
 }
-export function Autocomplete() {
+export function AutoComplete() {
   return (
-    <Story title="Autocomplete">
+    <Story title="AutoComplete">
       {demoProps
         .filter((user) => !user.name.includes('Vim'))
         .map((comment) => (

@@ -85,12 +85,15 @@ export function Text({
   const refs = [inputRef, suggestionsRef];
   useOutsideClick(refs, (e: MouseEvent) => doBlur(e));
 
+  if (autoComplete === true) autoComplete = 'on';
+  if (autoComplete === false) autoComplete = 'off';
+
   const inputComponent = (
     <div style={{ position: 'relative' }}>
       {children}
       <InputStyled
         aria-invalid={status === 'negative'}
-        autoComplete={autoComplete ? 'on' : 'off'}
+        autoComplete={autoComplete}
         disabled={disabled}
         floating={floating}
         format={status}

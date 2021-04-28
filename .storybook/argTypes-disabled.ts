@@ -355,7 +355,7 @@ export const disabled = {
       disable: true,
     },
   },
-  autocomplete: {
+  autoComplete: {
     table: {
       disable: true,
     },
@@ -421,11 +421,6 @@ export const disabled = {
     },
   },
   multiple: {
-    table: {
-      disable: true,
-    },
-  },
-  name: {
     table: {
       disable: true,
     },

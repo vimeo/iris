@@ -12,8 +12,8 @@ export default {
   argTypes: {
     messages: { control: { disable: true } },
     autosuggest: { control: { disable: true } },
-    autocomplete: {
-      control: { disable: true },
+    autoComplete: {
+      control: { disable: false },
       table: { disable: false },
     },
     indeterminate: {
