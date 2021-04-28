@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Story } from '@storybook/react';
 
 import { DateRange } from './DateRange';
@@ -8,6 +8,7 @@ import { ChevronDown } from '../../../../icons';
 import { PopOver } from '../../../../layout';
 import { Layout } from '../../../../storybook';
 import { Button } from '../../../buttons/Button/Button';
+import { useOutsideClick } from '../../../../utils';
 
 const presets = ['today', 10, -100, 100, 'custom'];
 
@@ -32,7 +33,7 @@ export default {
 
 const Template: Story<Props> = (args) => {
   return (
-    <Layout.StoryVertical>
+    <Layout.StoryVertical center>
       <DateRangeButton
         {...args}
         minDate={new Date(args.minDate)}
@@ -78,6 +79,11 @@ function DateRangeButton({ ...args }) {
     if (!validRange) setButtonText(defaultText);
   };
 
+  const childrenRef = useRef();
+  useOutsideClick([childrenRef], () => {
+    if (active) setActive(false);
+  });
+
   return (
     <PopOver
       active={active}
@@ -93,6 +99,7 @@ function DateRangeButton({ ...args }) {
         icon={<ChevronDown />}
         iconPosition="right"
         onClick={() => setActive(!active)}
+        ref={childrenRef}
       >
         {buttonText}
       </Button>

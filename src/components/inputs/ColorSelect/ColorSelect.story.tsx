@@ -31,7 +31,7 @@ export default {
 
 const Template: Story<Props> = (args) => {
   return (
-    <Layout.StoryVertical>
+    <Layout.StoryVertical defaultWidth>
       <ColorSelect
         {...args}
         onChange={(HEX) =>

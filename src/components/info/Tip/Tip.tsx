@@ -40,7 +40,7 @@ function TipComponent({
       attach={attach}
       ref={forwardRef}
       variant={variant}
-      wrap={wrap}
+      $wrap={wrap}
       {...props}
       children={tipContent}
     />,

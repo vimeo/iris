@@ -12,7 +12,12 @@ import { ColorSelectSpectrum } from './ColorSelectSpectrum';
 import { Presets, Props as PresetsProps } from './Presets';
 
 import { PopOver } from '../../../layout';
-import { withIris, MinorComponent, throttle } from '../../../utils';
+import {
+  withIris,
+  MinorComponent,
+  throttle,
+  useOutsideClick,
+} from '../../../utils';
 import { colorSpaces } from '../../../color';
 
 export const ColorSelect = withIris<
@@ -24,6 +29,7 @@ export const ColorSelect = withIris<
 ColorSelect.Presets = Presets;
 
 function ColorSelectComponent({
+  children,
   height = 360,
   initial = { color: '#F00', colorSpace: 'HEX' },
 
@@ -49,6 +55,13 @@ function ColorSelectComponent({
   attach = 'bottom',
   ...props
 }: Props) {
+  const childrenRef = useRef();
+  const popOverRef = useRef();
+
+  useOutsideClick([childrenRef, popOverRef], () => {
+    if (state.open) dispatch({ type: 'CLOSE', payload: true });
+  });
+
   // deprecation handling
   if (initialColor) initial.color = initialColor;
   if (resetColor) reset.color = resetColor;
@@ -76,8 +89,8 @@ function ColorSelectComponent({
   }, [value]);
 
   const toggle = () => {
-    open && onClose && onClose();
-    !open && onOpen && onOpen();
+    if (open) onClose?.();
+    if (!open) onOpen?.();
     dispatch({ type: 'TOGGLE' });
   };
 
@@ -98,12 +111,14 @@ function ColorSelectComponent({
     !dragging && dispatch({ type: 'DRAG_START' });
   const onMouseUp = () => dragging && dispatch({ type: 'DRAG_END' });
 
+  console.log({ open });
+
   return (
     <PopOver
       attach={attach}
       active={open}
       content={
-        <Wrapper width={width}>
+        <Wrapper width={width} ref={popOverRef}>
           <ColorSelectSpectrum
             dispatch={dispatch}
             dragging={dragging}
@@ -132,17 +147,23 @@ function ColorSelectComponent({
         </Wrapper>
       }
     >
-      <div>
-        <ColorSelectInput
-          colorMeta={colorMeta}
-          dispatch={dispatch}
-          label={label}
-          onChange={onChange}
-          reset={reset}
-          size={size}
-          toggle={toggle}
-        />
-      </div>
+      {children ? (
+        <div onClick={toggle} ref={childrenRef}>
+          {children}
+        </div>
+      ) : (
+        <div ref={childrenRef}>
+          <ColorSelectInput
+            colorMeta={colorMeta}
+            dispatch={dispatch}
+            label={label}
+            onChange={onChange}
+            reset={reset}
+            size={size}
+            toggle={toggle}
+          />
+        </div>
+      )}
     </PopOver>
   );
 }

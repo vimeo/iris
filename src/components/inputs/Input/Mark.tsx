@@ -37,6 +37,9 @@ export function Mark({
   value,
   ...props
 }: Props & ToggleIconProps) {
+  if (autoComplete === true) autoComplete = 'on';
+  if (autoComplete === false) autoComplete = 'off';
+
   return (
     <Wrapper
       className={className}
@@ -48,6 +51,7 @@ export function Mark({
     >
       <div style={{ position: 'relative' }}>
         <HiddenMark
+          autoComplete={autoComplete}
           defaultValue={defaultValue as string | string[]}
           checked={checked}
           defaultChecked={defaultChecked}

@@ -47,16 +47,16 @@ export type Props = IrisInputProps<{
 }>;
 
 function DateSelectComponent({
-  onSelect = null,
-  value,
-  defaultValue,
-  initialMonth = new Date(),
-  children = null,
-  min,
-  max,
   active,
-  style,
+  children = null,
+  defaultValue,
   forwardRef,
+  initialMonth = new Date(),
+  max,
+  min,
+  onSelect = null,
+  style,
+  value,
   ...props
 }: IrisInputProps<Props>) {
   const select = (date: Date) => {

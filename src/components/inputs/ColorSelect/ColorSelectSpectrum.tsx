@@ -39,7 +39,8 @@ export function ColorSelectSpectrum({
       width,
       height
     );
-    const payload = { hue, saturation, lightness };
+
+    const payload = safeHSL({ hue, saturation, lightness });
     onChange && onChange(hslToColorString(payload));
 
     dispatch({ type: 'SET_HSL', payload });
@@ -118,4 +119,15 @@ function useClamp(width, height) {
 
     return [X, Y];
   };
+}
+
+function safeHSL({ hue, saturation, lightness }) {
+  if (hue < 0) hue = 0;
+  if (hue > 360) hue = 360;
+  if (saturation < 0) saturation = 0;
+  if (saturation > 1) saturation = 1;
+  if (lightness < 0) lightness = 0;
+  if (lightness > 1) lightness = 1;
+
+  return { hue, saturation, lightness };
 }

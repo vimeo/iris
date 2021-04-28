@@ -19,7 +19,7 @@ const fadeIn = keyframes`
 `;
 
 interface Props {
-  wrap: boolean;
+  $wrap: boolean;
   pill?: TipProps['pill'];
   variant?: TipProps['variant'];
   attach?: TipProps['attach'];
@@ -51,11 +51,11 @@ function pill({ pill = false }) {
   `;
 }
 
-function variants({ theme, wrap, variant = 'simple' }) {
+function variants({ theme, $wrap, variant = 'simple' }) {
   switch (variant) {
     case 'simple':
       return css`
-        min-width: ${wrap ? `${maxWidth / 2}rem` : '0'};
+        min-width: ${$wrap ? `${maxWidth / 2}rem` : '0'};
         background-color: ${black};
         color: ${white};
         text-align: center;

@@ -144,6 +144,7 @@ function InputHEX({ colorMeta, onClick }) {
       value={HEX}
       style={{ display: 'inline-block' }}
       {...props}
+      readOnly
     />
   );
 }
@@ -163,9 +164,9 @@ function InputRGB({ colorMeta, onClick }) {
 
   return (
     <>
-      <ColorInput value={red} {...props} />
-      <ColorInput value={green} {...props} />
-      <ColorInput value={blue} {...props} />
+      <ColorInput value={red} {...props} readOnly />
+      <ColorInput value={green} {...props} readOnly />
+      <ColorInput value={blue} {...props} readOnly />
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { ReactNode, ReactElement, EventHandler } from 'react';
+import { ReactNode, ReactElement, EventHandler, Ref } from 'react';
 
 export { Pop } from './PopOver.minors';
 
@@ -19,7 +19,7 @@ export type Props = IrisProps<{
    * whereas the `children` defines what the portal component is anchored to.
    */
   content?: ReactNode;
-  children: ReactElement;
+  children: ReactElement & { ref?: Ref<any> };
   onClose?: EventHandler<any>;
   onOpen?: EventHandler<any>;
 }>;

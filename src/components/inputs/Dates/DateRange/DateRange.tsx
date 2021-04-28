@@ -5,12 +5,11 @@ import React, {
   useReducer,
   useState,
 } from 'react';
-import { slate } from '../../../../color';
-import { withIris } from '../../../../utils';
-import { Input } from '../../Input/Input';
+
 import { Calendar } from '../Calendar/Calendar';
 import { init, reducer } from '../Calendar/Calendar.state';
 import { initialState } from '../Calendar/Calendar.types';
+
 import {
   formatDate,
   getDateFormat,
@@ -28,6 +27,10 @@ import {
   Menu,
 } from './DateRange.style';
 import { PresetValue, Props } from './DateRange.types';
+
+import { slate } from '../../../../color';
+import { withIris } from '../../../../utils';
+import { Input } from '../../Input/Input';
 
 export const DateRange = withIris<HTMLInputElement, Props>(
   DateRangeComponent
@@ -81,42 +84,22 @@ function DateRangeComponent({
 
   // Derive the value for the input that represents our start date.
   const startDateLabel = useMemo(() => {
-    if (typeof startLabel === 'string') {
-      return startLabel;
-    }
+    if (typeof startLabel === 'string') startLabel;
 
-    if (hoverStart) {
-      return formatDate(hoverStart);
-    }
-
-    if (draftStart) {
-      return formatDate(draftStart);
-    }
-
-    if (!open && rangeStart) {
-      return formatDate(rangeStart);
-    }
+    if (hoverStart) return formatDate(hoverStart);
+    if (draftStart) return formatDate(draftStart);
+    if (!open && rangeStart) return formatDate(rangeStart);
 
     return '';
   }, [open, draftStart, startLabel, hoverStart, rangeStart]);
 
   // Derive the value for the input that represents our end date.
   const endDateLabel = useMemo(() => {
-    if (typeof endLabel === 'string') {
-      return endLabel;
-    }
+    if (typeof endLabel === 'string') return endLabel;
 
-    if (hoverEnd) {
-      return formatDate(hoverEnd);
-    }
-
-    if (draftEnd) {
-      return formatDate(draftEnd);
-    }
-
-    if (!open && rangeEnd) {
-      return formatDate(rangeEnd);
-    }
+    if (hoverEnd) formatDate(hoverEnd);
+    if (draftEnd) formatDate(draftEnd);
+    if (!open && rangeEnd) formatDate(rangeEnd);
 
     return '';
   }, [open, draftEnd, endLabel, hoverEnd, rangeEnd]);

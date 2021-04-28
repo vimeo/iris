@@ -175,8 +175,14 @@ export const Calendar = ({
     <Wrapper {...props} onMouseOut={handleMouseOut}>
       <MonthNav>
         <PrevMonth
-          onClick={!forwardOnly && (backOnClick ? backOnClick : prev)}
-          inactive={minDate && minMonth < minDate}
+          onClick={
+            !forwardOnly
+              ? backOnClick
+                ? backOnClick
+                : prev
+              : undefined
+          }
+          inactive={minDate ? minMonth < minDate : undefined}
           hidden={forwardOnly}
         />
 
@@ -185,9 +191,13 @@ export const Calendar = ({
         </MonthLabel>
         <NextMonth
           onClick={
-            !backOnly && (forwardOnClick ? forwardOnClick : next)
+            !backOnly
+              ? forwardOnClick
+                ? forwardOnClick
+                : next
+              : undefined
           }
-          inactive={maxDate && maxMonth > maxDate}
+          inactive={maxDate ? maxMonth > maxDate : undefined}
           hidden={backOnly}
         />
       </MonthNav>
@@ -235,7 +245,9 @@ export const Calendar = ({
             <Day
               key={i}
               size={width / 7}
-              onClick={!pastMinDate && !pastMaxDate && select(day)}
+              onClick={
+                !pastMinDate ? !pastMaxDate && select(day) : undefined
+              }
               isCurrentDate={isCurrentDate(day)}
               inCurrentMonth={inCurrentMonth(day)}
               disabled={pastMinDate || pastMaxDate}

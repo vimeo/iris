@@ -16,6 +16,8 @@ export function reducer(state: State, { type, payload = null }) {
   switch (type) {
     case 'TOGGLE':
       return { ...state, open: !state.open };
+    case 'CLOSE':
+      return { ...state, open: false };
     case 'DRAG_START':
       return { ...state, dragging: true };
     case 'DRAG_END':

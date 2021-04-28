@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react';
+import React, { cloneElement, useImperativeHandle } from 'react';
 
 import { Props } from './PopOver.types';
 import { PopOverStyled } from './PopOver.style';
@@ -45,6 +45,10 @@ function PopOverComponent({
       onClick: children.props.onClick,
     }
   );
+
+  // It doesn't seem like there's any official guidance on
+  // preserving overwritten Refs from cloneElement ¯\_(ツ)_/¯
+  useImperativeHandle(children?.ref, () => anchor.ref.current);
 
   return (
     <ErrorBoundary>

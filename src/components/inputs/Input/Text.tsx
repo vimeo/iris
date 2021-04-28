@@ -85,12 +85,15 @@ export function Text({
   const refs = [inputRef, suggestionsRef];
   useOutsideClick(refs, (e: MouseEvent) => doBlur(e));
 
+  if (autoComplete === true) autoComplete = 'on';
+  if (autoComplete === false) autoComplete = 'off';
+
   const inputComponent = (
     <div style={{ position: 'relative' }}>
       {children}
       <InputStyled
         aria-invalid={status === 'negative'}
-        autoComplete={autoComplete ? 'on' : 'off'}
+        autoComplete={autoComplete}
         disabled={disabled}
         floating={floating}
         format={status}
@@ -118,7 +121,11 @@ export function Text({
   const inputComponentWithAutoSuggest = (
     <PopOver
       active={focused && suggestions?.show}
-      content={<div ref={suggestionsRef}>{suggestions}</div>}
+      content={
+        <div ref={suggestionsRef}>
+          {suggestions?.[0] && suggestions}
+        </div>
+      }
     >
       {inputComponent}
     </PopOver>
