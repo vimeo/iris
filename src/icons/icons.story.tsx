@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import { select } from '@storybook/addon-knobs';
 
+import * as BRAND_ICONS from './brand';
 import * as UI_ICONS from './ui';
 import * as SOCIAL_ICONS from './social';
 import * as PAYMENT_ICONS from './payment';
@@ -18,6 +19,7 @@ export default { title: 'icons/Icons' };
 const ICONS = {
   ...VIMEO_ICONS,
   ...UI_ICONS,
+  ...BRAND_ICONS,
   ...SOCIAL_ICONS,
   ...PAYMENT_ICONS,
 };
@@ -26,6 +28,7 @@ export const All = () => <IconStory icons={ICONS} />;
 export const UI = () => <IconStory icons={UI_ICONS} />;
 export const Social = () => <IconStory icons={SOCIAL_ICONS} />;
 export const Payment = () => <IconStory icons={PAYMENT_ICONS} />;
+export const Brand = () => <IconStory icons={BRAND_ICONS} />;
 export const Vimeo = () => <IconStory icons={VIMEO_ICONS} />;
 
 function IconStory({ icons, preserve = false, ...props }) {
