@@ -59,10 +59,10 @@ export function usePortal(
     toggle(e);
   };
 
-  const onClick = !controlled && trigger === 'click' && close;
-
   useEffect(() => () => !SSR && removeElementByID(UID), [UID]);
-  useOutsideClick([ref, childRef], onClick);
+  useOutsideClick([ref, childRef], (event) => {
+    if (!controlled && trigger === 'click') close(event);
+  });
 
   if (SSR) return [null, null];
 

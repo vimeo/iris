@@ -121,7 +121,11 @@ export function Text({
   const inputComponentWithAutoSuggest = (
     <PopOver
       active={focused && suggestions?.show}
-      content={<div ref={suggestionsRef}>{suggestions}</div>}
+      content={
+        <div ref={suggestionsRef}>
+          {suggestions?.[0] && suggestions}
+        </div>
+      }
     >
       {inputComponent}
     </PopOver>

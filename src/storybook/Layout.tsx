@@ -11,7 +11,6 @@ export const Layout = {
     padding: ${(p) => (p.center ? '4rem' : '1rem 0.5rem')};
 
     > * {
-      display: block;
       margin: 0.5rem 1rem;
       min-width: ${(p) => (p.defaultWidth ? 'unset' : '20rem')};
     }
