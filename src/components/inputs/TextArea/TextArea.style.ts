@@ -3,7 +3,7 @@ import { rem } from 'polished';
 
 import { inputColors } from '../Shared';
 
-import { slate, blue, red } from '../../../color';
+import { slate, red } from '../../../color';
 import { CircleInfoSmall } from '../../../icons';
 
 export const TextAreaStyled = styled.textarea<any>`
