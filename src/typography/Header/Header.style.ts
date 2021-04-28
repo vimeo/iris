@@ -21,7 +21,7 @@ function variantStyles({
     color: ${color};
     display: block;
     font-size: ${fontSize[size]};
-    font-weight: 500;
+    font-weight: 700;
     line-height: ${lineHeight[size]};
     letter-spacing: ${letterSpacing[size] || '0.01rem'};
     margin-bottom: ${marginBottom[size] || '0.5rem'};
