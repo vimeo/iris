@@ -11,9 +11,9 @@ export const Container = styled.div`
 `;
 
 const PhaseInSegment = keyframes`
-  /* 0% { opacity: 0; }
-  100% { opacity: 1; } */
-   0% {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+   /* 0% {
      transform: translateX(0.334rem);
      opacity: 0;
    }
@@ -26,7 +26,7 @@ const PhaseInSegment = keyframes`
    100% {
      transform: translateX(0);
      opacity: 1;
-   }
+   } */
 `;
 
 export const Segment = styled.div<any>`

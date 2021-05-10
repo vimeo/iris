@@ -15,10 +15,13 @@ export function rowRender({
   style,
 }) {
   const segment = data[index];
+  if (!segment) return <div />;
 
   if (segment.spacer) return <div />;
 
-  const active = currentTime === segment.start;
+  const active =
+    currentTime >= segment.start && currentTime <= segment.end;
+
   const onClick = () => gotoTimecode(segment);
 
   const delay =

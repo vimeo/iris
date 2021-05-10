@@ -1,7 +1,7 @@
 interface DataCaption {
   height: number;
-  start: string;
-  end: string;
+  start: number;
+  end: number;
   text: string;
 }
 
@@ -18,8 +18,10 @@ export function mockTranscriptSegments(number = 500) {
   const data: Data = [...new Array(number)].map(() => {
     seconds = seconds + randomInteger(10);
 
-    const start = secondsToMinutes(seconds);
-    const end = secondsToMinutes(seconds + randomInteger(7));
+    const start = seconds;
+    const end = seconds + randomInteger(7);
+    // const start = secondsToMinutes(seconds);
+    // const end = secondsToMinutes(seconds + randomInteger(7));
     const text = loremIpsum();
 
     // This is a very rough estimate that assumes a
