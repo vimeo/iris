@@ -1,7 +1,0 @@
-contact_links:
-    - name: 📚 Storybook
-      url: https://github.vimeows.com/pages/Vimeo/sb/iris/master/
-      about: Many questions can be answered be reviewing the component examples and documentation on the Iris Storybook!
-    - name: 🤔 Questions & Help
-      url: https://github.vimeows.com/Vimeo/iris/wiki
-      about: Please consult the Iris Wiki before asking general questions. The #design-systems Slack channel is also a great resource!

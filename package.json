@@ -1,7 +1,7 @@
 {
     "name": "@vimeo/iris",
-    "homepage": "https://github.vimeows.com/pages/vimeo/iris/master/",
-    "bugs": "https://github.vimeows.com/Vimeo/iris/issues",
+    "homepage": "https://github.com/vimeo/iris/tree/main",
+    "bugs": "https://github.com/vimeo/iris/issues",
     "version": "0.97.0",
     "private": false,
     "license": "MIT",
@@ -125,7 +125,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.vimeows.com/Vimeo/iris.git"
+        "url": "https://github.com/vimeo/iris.git"
     },
     "engines": {
         "node": ">=12.0.0",
