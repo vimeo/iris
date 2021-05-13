@@ -186,3 +186,16 @@ const Notice = styled.div`
     text-decoration: underline;
   }
 `;
+
+export function Pill() {
+  return (
+    <Layout.StoryVertical>
+      <Select label="Select disabled" pill>
+        <Select.Option value="1">Value 1</Select.Option>
+        <Select.Option value="2">
+          Value 2 has a long label
+        </Select.Option>
+      </Select>
+    </Layout.StoryVertical>
+  );
+}

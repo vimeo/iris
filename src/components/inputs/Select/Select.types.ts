@@ -3,28 +3,29 @@ import { IrisInputProps } from '../../../utils';
 
 export type Props = IrisInputProps<
   {
+    children?: ReactNode[];
     defaultValue?: string | string[];
-    /**
-     * @deprecated
-     */
-    icon?: ReactNode;
-    options?: Array<{ label: string; value: string }>;
-    /**
-     * [default = 'md']
-     */
-    size?: Sizes;
-    value?: string | string[];
-    /**
-     * [default = 'basic']
-     */
-    format?: 'basic';
     /**
      * Whether to use the native select dropdown or the styled faux dropdown
      *
      * [default = false]
      */
     faux?: boolean;
-    children?: ReactNode[];
+    /**
+     * [default = 'basic']
+     */
+    format?: 'basic';
+    /**
+     * @deprecated
+     */
+    icon?: ReactNode;
+    options?: Array<{ label: string; value: string }>;
+    pill?: boolean;
+    /**
+     * [default = 'md']
+     */
+    size?: Sizes;
+    value?: string | string[];
   },
   HTMLSelectElement
 >;

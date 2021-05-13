@@ -7,7 +7,7 @@ import { SelectFaux } from './SelectFaux';
 
 import { Wrapper } from '../Wrapper/Wrapper';
 
-import { withIris, useLayoutStyles } from '../../../utils';
+import { withIris, useLayoutStyles, Focus } from '../../../utils';
 
 export const Select = withIris<HTMLSelectElement, Props, Minors>(
   SelectComponent
@@ -26,16 +26,17 @@ function SelectComponent({ forwardRef, faux, ...props }: Props) {
 function SelectNative({
   children,
   className,
-  id,
-  size = 'md',
+  defaultValue,
+  disabled,
   format = 'basic',
   forwardRef,
-  defaultValue,
-  status,
-  messages,
+  id,
   label,
+  messages,
+  pill,
+  size = 'md',
+  status,
   style,
-  disabled,
   ...props
 }: Props) {
   const [layoutStyles, displayStyles] = useLayoutStyles(style);
@@ -52,15 +53,17 @@ function SelectNative({
       <div style={{ position: 'relative' }}>
         <SelectStyled
           defaultValue={defaultValue}
-          inputSize={size}
-          ref={forwardRef}
-          format={status || format}
-          style={{ ...displayStyles }}
           disabled={disabled}
+          format={status || format}
+          inputSize={size}
+          pill={pill}
+          ref={forwardRef}
+          style={{ ...displayStyles }}
           {...props}
         >
           {children}
         </SelectStyled>
+        <Focus parent={SelectStyled} radius={pill ? 50 : 6} />
         <ChevronDown size={size} />
       </div>
     </Wrapper>
