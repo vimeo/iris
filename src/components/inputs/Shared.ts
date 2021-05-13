@@ -82,6 +82,7 @@ export function inputShape({
     border-radius: ${pill ? '2rem' : '0.25rem'};
     padding: ${padding}rem;
     width: 100%;
+    margin: 0;
     font-size: ${sizes[inputSize]}rem;
     outline: none;
     ${inputVariant};
