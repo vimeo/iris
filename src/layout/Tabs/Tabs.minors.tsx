@@ -13,7 +13,7 @@ export function Panel({
   ...props
 }: IrisProps<PanelProps>) {
   if (onActivate) onOpen = onActivate;
-  useEffect(() => onOpen?.(), [onOpen]);
+  useEffect(() => onOpen?.(), []);
 
   return <PanelStyled {...props}>{children}</PanelStyled>;
 }
