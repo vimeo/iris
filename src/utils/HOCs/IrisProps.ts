@@ -266,6 +266,7 @@ export type IrisInputProps<
     onChange?: ChangeEventHandler<DOMElement>;
     onKeyDown?: KeyboardEventHandler<DOMElement>;
     onKeyUp?: KeyboardEventHandler<DOMElement>;
+    onKeyPress?: KeyboardEventHandler<DOMElement>;
     pattern?: string;
     placeholder?: string;
     readOnly?: boolean;
