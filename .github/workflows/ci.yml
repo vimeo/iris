@@ -49,4 +49,4 @@ jobs:
         with:
           node-version: 12
       - run: yarn --frozen-lockfile
-      - run: yarn storybook
+      - run: yarn build-storybook
