@@ -1,0 +1,33 @@
+name: Deploy Storybook
+
+on:
+  push:
+    branches:
+      - '**'
+    branches-ignore:
+      - 'docs'
+
+jobs:
+
+  storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+
+      - name: Read branch name
+        id: vars
+        run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
+
+      - run: yarn --frozen-lockfile
+      - run: yarn build-storybook
+
+      - name: Deploy Storybook
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: docs
+          publish_dir: ./storybook-static
+          destination_dir: ./sb/${{ steps.vars.outputs.short_ref }}

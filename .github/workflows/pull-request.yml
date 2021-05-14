@@ -1,11 +1,6 @@
-name: CI
+name: CI (Pull Request)
 
 on:
-  push:
-    branches:
-      - 'main'
-      - 'workflows'
-
   pull_request:
     branches:
       - 'main'
@@ -53,17 +48,5 @@ jobs:
         with:
           node-version: 12
 
-      - name: Read branch name
-        id: vars
-        run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
-
       - run: yarn --frozen-lockfile
       - run: yarn build-storybook
-
-      - name: Deploy Storybook
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: docs
-          publish_dir: ./storybook-static
-          destination_dir: ./sb/${{ steps.vars.outputs.short_ref }}
