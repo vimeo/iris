@@ -7,7 +7,7 @@ import { Button } from '../../components';
 import { Layout } from '../../storybook';
 import { Paragraph } from '../../typography';
 
-export default { title: 'layout/Modal/Props' };
+export default { title: 'layout/Modal/props' };
 
 export function Feature() {
   return (
@@ -28,6 +28,37 @@ export function Active() {
         onOpen={() => console.log('open')}
         onClose={() => console.log('close')}
       />
+    </Layout.StoryVertical>
+  );
+}
+
+export function Screen() {
+  return (
+    <Layout.StoryVertical>
+      <Modal
+        content={ModalContent}
+        onOpen={() => console.log('open')}
+        onClose={() => console.log('close')}
+      >
+        <Button>Open Modal</Button>
+      </Modal>
+      <Modal
+        screen={false}
+        content={ModalContent}
+        onOpen={() => console.log('open')}
+        onClose={() => console.log('close')}
+      >
+        <Button>Open Modal (no screen)</Button>
+      </Modal>
+      <Modal
+        screen={false}
+        content={ModalContent}
+        onOpen={() => console.log('open')}
+        onClose={() => console.log('close')}
+        feature
+      >
+        <Button>Open feature Modal (no screen)</Button>
+      </Modal>
     </Layout.StoryVertical>
   );
 }

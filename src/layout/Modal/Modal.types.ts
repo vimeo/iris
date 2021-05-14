@@ -13,13 +13,9 @@ export type Props = IrisProps<
      * The `content` defines what will appear inside the portal component,
      * whereas the `children` defines what the portal component is anchored to.
      */
-    content?: ReactNode;
     children?: ReactElement;
+    content?: ReactNode;
     dismissLabel?: string;
-    /**
-     * [default = 'md']
-     */
-    size?: 'sm' | 'md' | 'lg';
     /**
      * Whether the modal should be featured in lower right corner of viewport.
      *
@@ -28,6 +24,17 @@ export type Props = IrisProps<
     feature?: boolean;
     onOpen?: VoidFunction;
     onClose?: VoidFunction;
+    /**
+     * Places a translucent screen behind the Modal and above background
+     * content to prevent user interaction outside the modal.
+     *
+     * [default = true]
+     */
+    screen?: boolean;
+    /**
+     * [default = 'md']
+     */
+    size?: 'sm' | 'md' | 'lg';
   },
   HTMLDivElement
 >;

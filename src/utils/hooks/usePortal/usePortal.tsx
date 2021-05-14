@@ -34,13 +34,14 @@ export function usePortal(
   const ref = useRef(null);
 
   const {
+    allowPageInteraction = false,
     anchorToWindow = false,
     attach = null,
     forceActive,
     margin = 8,
+    onClick: onChildClick,
     screen = false,
     trigger = 'click',
-    onClick: onChildClick,
   } = portalConfig;
 
   const {
@@ -61,6 +62,7 @@ export function usePortal(
 
   useEffect(() => () => !SSR && removeElementByID(UID), [UID]);
   useOutsideClick([ref, childRef], (event) => {
+    if (allowPageInteraction) return;
     if (!controlled && trigger === 'click') close(event);
   });
 
