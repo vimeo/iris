@@ -20,14 +20,15 @@ export type SimpleAnimation = {
 };
 
 export interface PortalConfig {
+  allowPageInteraction?: boolean;
   anchorToWindow?: boolean;
   animation?: SimpleAnimation;
   attach?: Attach | AttachAlias;
   forceActive?: boolean | null | undefined;
   margin?: number;
+  onClick?: MouseEventHandler;
   onClose?: MouseEventHandler;
   onOpen?: MouseEventHandler;
-  onClick?: MouseEventHandler;
   screen?: boolean;
   trigger?: 'click' | 'hover';
 }

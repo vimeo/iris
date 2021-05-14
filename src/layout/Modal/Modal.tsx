@@ -42,13 +42,14 @@ const animation: SimpleAnimation = {
 
 function ModalComponent({
   active,
-  content,
   children,
+  content,
   dismissLabel,
-  forwardRef,
   feature,
-  onOpen,
+  forwardRef,
   onClose,
+  onOpen,
+  screen = true,
   ...props
 }: Props) {
   const attach: Attach = feature
@@ -60,6 +61,9 @@ function ModalComponent({
         [50, 50],
         [50, 50],
       ];
+
+  const allowPageInteraction = feature && !screen;
+  const anchorToWindow = true;
 
   const [Modal, anchor] = usePortal(
     <ModalStyled ref={forwardRef} {...props}>
@@ -79,13 +83,14 @@ function ModalComponent({
       </>
     </ModalStyled>,
     {
-      attach,
+      allowPageInteraction,
+      anchorToWindow,
       animation,
-      screen: true,
-      anchorToWindow: true,
-      onOpen,
-      onClose,
+      attach,
       forceActive: active,
+      onClose,
+      onOpen,
+      screen,
     }
   );
 
