@@ -1,0 +1,1 @@
+export { LogoZeit } from './LogoZeit';
