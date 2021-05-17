@@ -136,13 +136,13 @@ const Expander = styled(ChevronRight)<any>`
   transform: ${(p) => (p.collapsed ? 'rotate(180deg)' : 'rotate(0)')};
 
   opacity: 0.334;
-  pointer-event: none;
+  pointer-events: none;
 
   ${(p) =>
     p.visible &&
     css`
       opacity: 1;
-      pointer-event: auto;
+      pointer-events: auto;
     `}
 `;
 
