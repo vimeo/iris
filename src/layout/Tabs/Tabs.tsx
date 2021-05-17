@@ -25,14 +25,14 @@ function TabsComponent({
   pill = false,
   ...props
 }: Props) {
-  const [activeTab, activeTabSet] = useState(0);
+  const [activeTab, activeTabSet] = useState(-1);
 
   useLayoutEffect(() => {
     const active = children
       .map(({ props: { active } }, i) => active && i)
       .filter((i) => typeof i === 'number' && i >= 0);
 
-    if (active.length === 0) return;
+    if (active.length === 0) return activeTabSet(0);
     if (active.length === 1) return activeTabSet(active[0]);
 
     const lastActive = active[active.length - 1];
