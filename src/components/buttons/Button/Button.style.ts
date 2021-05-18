@@ -24,12 +24,6 @@ const buttonCore = css`
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-
-  &:disabled {
-    opacity: 0.5;
-    pointer-events: none;
-    user-select: none;
-  }
 `;
 
 export const ButtonChildren = styled.span``;
@@ -45,6 +39,7 @@ export const ButtonStyled = styled.button<any>`
   ${buttonMotion};
   ${buttonLoading};
   ${buttonVariants};
+  ${buttonDisabled};
 `;
 
 function buttonIcon({ size, iconOnly, iconPosition }) {
@@ -377,3 +372,18 @@ function buttonSizes({ size }) {
       };
   }
 }
+
+function buttonDisabled({ disabled }) {
+  return css`
+    &:disabled {
+      ${disabledCSS}
+    }
+    ${disabled && disabledCSS}
+  `;
+}
+
+const disabledCSS = css`
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+`;
