@@ -80,14 +80,17 @@ function DateRangeButton({ ...args }) {
   };
 
   const childrenRef = useRef();
-  useOutsideClick([childrenRef], () => {
+  const popOverRef = useRef();
+  useOutsideClick([childrenRef, popOverRef], () => {
     if (active) setActive(false);
   });
 
   return (
     <PopOver
       active={active}
-      content={<DateRange onChange={onChange} {...args} />}
+      content={
+        <DateRange ref={popOverRef} onChange={onChange} {...args} />
+      }
       style={
         args.presets && {
           width: 'calc(12rem + 40rem)', // 12rem is size of Preset Menu

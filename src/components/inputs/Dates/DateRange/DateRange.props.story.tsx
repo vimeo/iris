@@ -14,7 +14,7 @@ export default {
 
 export function Presets() {
   return (
-    <Layout.StoryVertical>
+    <Layout.StoryVertical center>
       <DateRangeButton
         presets={presets}
         onPresetClick={(presetValue: PresetValue) => {
@@ -27,7 +27,7 @@ export function Presets() {
 
 export function InputLabel() {
   return (
-    <Layout.StoryVertical>
+    <Layout.StoryVertical center>
       <DateRangeButton
         startInputLabel="Fecha de inicio"
         endInputLabel="Fecha final"
@@ -38,7 +38,7 @@ export function InputLabel() {
 
 export function MinDate() {
   return (
-    <Layout.StoryVertical>
+    <Layout.StoryVertical center>
       <DateRangeButton minDate={new Date()} />
     </Layout.StoryVertical>
   );
@@ -46,7 +46,7 @@ export function MinDate() {
 
 export function MaxDate() {
   return (
-    <Layout.StoryVertical>
+    <Layout.StoryVertical center>
       <DateRangeButton maxDate={new Date()} />
     </Layout.StoryVertical>
   );
@@ -87,6 +87,7 @@ function DateRangeButton({ ...props }) {
   return (
     <PopOver
       active={active}
+      attach="bottom"
       style={
         props.presets && {
           width: 'calc(12rem + 40rem)', // 12rem is size of Preset Menu

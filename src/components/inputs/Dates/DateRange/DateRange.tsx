@@ -40,12 +40,13 @@ const dateFormat = getDateFormat();
 
 function DateRangeComponent({
   className,
-  onChange,
-  minDate,
-  maxDate,
-  startInputLabel = 'Start date',
   endInputLabel = 'End date',
+  forwardRef,
+  maxDate,
+  minDate,
+  onChange,
   presets,
+  startInputLabel = 'Start date',
   onPresetClick,
 }: Props) {
   const [state, dispatch] = useReducer(reducer, initialState, init);
@@ -252,7 +253,7 @@ function DateRangeComponent({
 
   // Generate the styles to pin the portal to the parent node.
   return (
-    <DateRangeContainer>
+    <DateRangeContainer ref={forwardRef}>
       {presets ? (
         <Menu
           format="basic"
