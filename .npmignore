@@ -6,6 +6,7 @@
 build
 dist
 dist-*
+examples
 node_modules
 npm-debug.log
 storybook-static
