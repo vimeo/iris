@@ -12,7 +12,6 @@ Toolbar.Break = Break;
 export function Toolbar({ children, active, ...props }) {
   const [collapsed, collapsedSet] = useState(true);
 
-  console.log(children.flat());
   const panel = children
     .flat()
     .filter((child) => child.props.label === active)[0]?.props

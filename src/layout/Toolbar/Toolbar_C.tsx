@@ -12,7 +12,6 @@ Toolbar_C.Break = Break;
 export function Toolbar_C({ children, active, ...props }) {
   const [collapsed, collapsedSet] = useState(true);
 
-  console.log(children.flat());
   const panel = children
     .flat()
     .filter((child) => child.props.label === active)[0]?.props
@@ -28,7 +27,6 @@ export function Toolbar_C({ children, active, ...props }) {
   return (
     <div style={{ position: 'relative' }}>
       <ToolbarStyled collapsed={panel || collapsed} {...props}>
-        {/* <ToolbarStyled collapsed={collapsed} {...props}> */}
         {children}
         <Expander
           collapsed={collapsed}
@@ -39,12 +37,20 @@ export function Toolbar_C({ children, active, ...props }) {
           }}
         />
       </ToolbarStyled>
-      <PanelStyled
-        visible={!collapsed || panel}
-        // style={{ zIndex: panel ? 2000 : 1000 }}
-      >
-        <PanelContent>{panel}</PanelContent>
-      </PanelStyled>
+      {children.map((child) => (
+        <PanelStyled visible={active === child.props.label}>
+          <div
+            style={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              padding: '1rem',
+            }}
+          >
+            {child.props.children}
+          </div>
+        </PanelStyled>
+      ))}
     </div>
   );
 }
@@ -113,7 +119,8 @@ const PanelStyled = styled.div<any>`
 
   /* background-color: ${(p) =>
     p.visible ? 'pink' : 'transparent'}; */
-  transition: transform 180ms ease-in-out 120ms;
+  transition: transform 180ms ease-in-out
+    ${(p) => (p.visible ? '120ms' : '0ms')};
   background: ${(p) => p.theme.content.background};
   border: 1px solid ${(p) => rgba(p.theme.content.color, 0.25)};
   border-left: none;

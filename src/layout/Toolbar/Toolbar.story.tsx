@@ -162,7 +162,7 @@ export function PrototypeB() {
           display: 'flex',
           padding: 0,
           margin: '-1rem',
-          minHeight: '67vh',
+          minHeight: 'calc(100vh - 15rem)',
         }}
       >
         <Toolbar_B active={active}>
@@ -241,7 +241,7 @@ export function PrototypeC() {
           display: 'flex',
           padding: 0,
           margin: '-1rem',
-          minHeight: '67vh',
+          minHeight: 'calc(100vh - 15rem)',
         }}
       >
         <Toolbar_C active={active}>
@@ -320,7 +320,7 @@ export function PrototypeD() {
           display: 'flex',
           padding: 0,
           margin: '-1rem',
-          minHeight: '67vh',
+          minHeight: 'calc(100vh - 15rem)',
         }}
       >
         <Toolbar_D active={active}>

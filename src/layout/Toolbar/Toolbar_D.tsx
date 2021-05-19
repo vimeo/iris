@@ -1,3 +1,4 @@
+import { rgba } from 'polished';
 import React, { cloneElement } from 'react';
 import styled from 'styled-components';
 
@@ -29,7 +30,7 @@ export function Toolbar_D({ children, active, ...props }) {
             padding: '1rem',
           }}
         >
-          {panel}
+          {children}
         </div>
       </PanelStyled>
     </div>
@@ -46,7 +47,8 @@ const ToolbarStyled = styled.div<any>`
   transition: all 90ms ease-in-out, width 150ms ease-in-out,
     background-color 0ms;
   color: ${(p) => p.theme.content.color};
-  border: 1px solid white;
+  border: 1px solid ${(p) => rgba(p.theme.content.color, 0.25)};
+  border-left: none;
   display: flex;
   flex-direction: column;
 
@@ -77,7 +79,8 @@ const PanelStyled = styled.div<any>`
 
   transition: transform 180ms ease-in-out;
   background: ${(p) => p.theme.content.background};
-  border: 1px solid white;
+  border: 1px solid ${(p) => rgba(p.theme.content.color, 0.25)};
+  border-left: none;
   border-left: 0;
 
   transform: ${(p) =>
