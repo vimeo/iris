@@ -1,5 +1,5 @@
 import React, { cloneElement, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { rem } from 'polished';
 import { Story } from '@storybook/react';
 
@@ -29,46 +29,46 @@ const Template: Story<any> = (args) => {
     <div style={{ display: 'flex' }}>
       <Toolbar active={active}>
         <Toolbar.Item
-          label="Sources"
-          onClick={onClick('Sources')}
+          label="Item 1"
+          onClick={onClick('Item 1')}
           icon={<Gear />}
           children={panelContent}
         />
         <Toolbar.Item
-          label="Videos"
-          onClick={onClick('Videos')}
+          label="Item 2"
+          onClick={onClick('Item 2')}
           icon={<Gear />}
           children={panelContent}
         />
         <Toolbar.Item
-          label="Images"
-          onClick={onClick('Images')}
-          icon={<Gear />}
-          children={panelContent}
-        />
-        <Toolbar.Break />
-        <Toolbar.Item
-          label="Lower-thirds"
-          onClick={onClick('Lower-thirds')}
-          icon={<Gear />}
-          children={panelContent}
-        />
-        <Toolbar.Item
-          label="Logo"
-          onClick={onClick('Logo')}
-          icon={<Gear />}
-          children={panelContent}
-        />
-        <Toolbar.Item
-          label="Closed Captions"
-          onClick={onClick('Closed Captions')}
+          label="Item 3"
+          onClick={onClick('Item 3')}
           icon={<Gear />}
           children={panelContent}
         />
         <Toolbar.Break />
         <Toolbar.Item
-          label="Other"
-          onClick={onClick('Other')}
+          label="Item 4"
+          onClick={onClick('Item 4')}
+          icon={<Gear />}
+          children={panelContent}
+        />
+        <Toolbar.Item
+          label="Item 5"
+          onClick={onClick('Item 5')}
+          icon={<Gear />}
+          children={panelContent}
+        />
+        <Toolbar.Item
+          label="Item 6"
+          onClick={onClick('Item 16')}
+          icon={<Gear />}
+          children={panelContent}
+        />
+        <Toolbar.Break />
+        <Toolbar.Item
+          label="Item 7"
+          onClick={onClick('Item 7')}
           icon={<Gear />}
           children={panelContent}
         />
@@ -91,7 +91,7 @@ function Toolbar({ children, active, ...props }) {
   );
 
   return (
-    <>
+    <div style={{ position: 'relative' }}>
       <ToolbarStyled collapsed={panel || collapsed} {...props}>
         {children}
         <Expander
@@ -106,26 +106,45 @@ function Toolbar({ children, active, ...props }) {
       <PanelStyled visible={panel}>
         <div style={{ position: 'absolute' }}>{panel}</div>
       </PanelStyled>
-    </>
+    </div>
   );
 }
 
 const ToolbarStyled = styled.div<any>`
+  position: relative;
+  z-index: 2500;
   width: ${(p) => (p.collapsed ? '4.5rem' : '21rem')};
   height: 100%;
-  background: ${white};
-  border: 1px solid ${black};
+  background: ${(p) => p.theme.content.background};
   padding: 0.75rem;
-  transition: 120ms ease-in-out;
+  transition: all 90ms ease-in-out, width 150ms ease-in-out,
+    background-color 0ms;
+  color: ${(p) => p.theme.content.color};
+  background: green;
+
+  svg {
+    path {
+      fill: ${(p) => p.theme.content.color};
+    }
+  }
 `;
 
 const PanelStyled = styled.div<any>`
-  position: relative;
-  width: ${(p) => (p.visible ? '17.5rem' : '0rem')};
+  position: absolute;
+  z-index: 2000;
+  height: 100%;
+  top: 0;
+  left: 4.5rem;
+  width: 17.5rem;
   padding: 1rem;
-  border: 2px solid pink;
-  border-color: ${(p) => (p.visible ? 'pink' : 'transparent')};
-  transition: 120ms ease-in-out;
+
+  /* background-color: ${(p) =>
+    p.visible ? 'pink' : 'transparent'}; */
+  transition: transform 180ms ease-in-out 120ms;
+  background-color: pink;
+
+  transform: ${(p) =>
+    p.visible ? 'translateX(0rem)' : 'translateX(-20rem)'};
 `;
 
 const Expander = styled(ChevronRight)<any>`
@@ -148,7 +167,7 @@ const Expander = styled(ChevronRight)<any>`
 
 function Item({
   children = null,
-  collapsed,
+  collapsed = null,
   icon,
   label,
   onClick,
@@ -164,10 +183,24 @@ function Item({
     <ItemStyled onClick={onClick} {...props}>
       {icon}
       <Label>{label}</Label>
-      <ChevronRight style={{ marginLeft: 'auto' }} />
+      <Chevron style={{ marginLeft: 'auto' }} />
     </ItemStyled>
   );
 }
+
+const fadeIn = keyframes`
+  0% { 
+    opacity: 0; 
+  }
+
+  100% {
+    opacity: 1; 
+  }
+`;
+
+const Chevron = styled(ChevronRight)`
+  animation: ${fadeIn} 90ms ease-in-out 120ms both;
+`;
 
 const ItemStyled = styled.div`
   width: 100%;
@@ -188,6 +221,7 @@ const Label = styled.span`
   padding: 0 2rem 0 0.5rem;
   line-height: 2rem;
   min-width: 11rem;
+  animation: ${fadeIn} 90ms ease-in-out 30ms both;
 `;
 
 Toolbar.Item = Item;
