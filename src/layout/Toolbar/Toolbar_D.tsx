@@ -30,7 +30,7 @@ export function Toolbar_D({ children, active, ...props }) {
             padding: '1rem',
           }}
         >
-          {children}
+          {panel}
         </div>
       </PanelStyled>
     </div>
