@@ -26,7 +26,7 @@ const Template: Story<any> = (args) => {
   );
 
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', padding: 0, margin: '-1rem' }}>
       <Toolbar active={active}>
         <Toolbar.Item
           label="Item 1"
@@ -112,7 +112,7 @@ function Toolbar({ children, active, ...props }) {
 
 const ToolbarStyled = styled.div<any>`
   position: relative;
-  z-index: 2500;
+  z-index: 1500;
   width: ${(p) => (p.collapsed ? '4.5rem' : '21rem')};
   height: 100%;
   background: ${(p) => p.theme.content.background};
@@ -131,7 +131,7 @@ const ToolbarStyled = styled.div<any>`
 
 const PanelStyled = styled.div<any>`
   position: absolute;
-  z-index: 2000;
+  z-index: 1400;
   height: 100%;
   top: 0;
   left: 4.5rem;
