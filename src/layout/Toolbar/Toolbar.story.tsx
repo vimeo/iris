@@ -87,12 +87,16 @@ function Toolbar({ children, active, ...props }) {
   )[0]?.props?.children;
 
   children = children.map((child) =>
-    cloneElement(child, { collapsed: panel || collapsed })
+    cloneElement(child, {
+      collapsed: panel || collapsed,
+      // collapsed
+    })
   );
 
   return (
     <div style={{ position: 'relative' }}>
       <ToolbarStyled collapsed={panel || collapsed} {...props}>
+        {/* <ToolbarStyled collapsed={collapsed} {...props}> */}
         {children}
         <Expander
           collapsed={collapsed}
@@ -103,7 +107,10 @@ function Toolbar({ children, active, ...props }) {
           }}
         />
       </ToolbarStyled>
-      <PanelStyled visible={panel}>
+      <PanelStyled
+        visible={!collapsed || panel}
+        // style={{ zIndex: panel ? 2000 : 1000 }}
+      >
         <div style={{ position: 'absolute' }}>{panel}</div>
       </PanelStyled>
     </div>
@@ -113,6 +120,7 @@ function Toolbar({ children, active, ...props }) {
 const ToolbarStyled = styled.div<any>`
   position: relative;
   z-index: 1500;
+  /* z-index: 1300; */
   width: ${(p) => (p.collapsed ? '4.5rem' : '21rem')};
   height: 100%;
   background: ${(p) => p.theme.content.background};
@@ -120,7 +128,7 @@ const ToolbarStyled = styled.div<any>`
   transition: all 90ms ease-in-out, width 150ms ease-in-out,
     background-color 0ms;
   color: ${(p) => p.theme.content.color};
-  background: green;
+  border-right: 1px solid white;
 
   svg {
     path {
@@ -135,13 +143,14 @@ const PanelStyled = styled.div<any>`
   height: 100%;
   top: 0;
   left: 4.5rem;
-  width: 17.5rem;
+  width: 16rem;
   padding: 1rem;
 
   /* background-color: ${(p) =>
     p.visible ? 'pink' : 'transparent'}; */
   transition: transform 180ms ease-in-out 120ms;
-  background-color: pink;
+  background: ${(p) => p.theme.content.background};
+  border: 1px solid white;
 
   transform: ${(p) =>
     p.visible ? 'translateX(0rem)' : 'translateX(-20rem)'};
@@ -170,6 +179,7 @@ function Item({
   collapsed = null,
   icon,
   label,
+  panel,
   onClick,
   ...props
 }) {
@@ -182,7 +192,7 @@ function Item({
   ) : (
     <ItemStyled onClick={onClick} {...props}>
       {icon}
-      <Label>{label}</Label>
+      <Label style={{ opacity: panel ? 0 : 1 }}>{label}</Label>
       <Chevron style={{ marginLeft: 'auto' }} />
     </ItemStyled>
   );
