@@ -38,7 +38,7 @@ const VideoCard = styled.div`
 const panelContent = (header, num, activeSet) => (
   <div
     style={{
-      padding: '1rem',
+      padding: '0.334rem 1rem 1rem',
       display: 'flex',
       flexDirection: 'column',
       position: 'relative',
@@ -57,7 +57,9 @@ const panelContent = (header, num, activeSet) => (
         zIndex: 5000,
       }}
     />
-    <Header size="3">{header}</Header>
+    <Header size="3" style={{ marginTop: 0 }}>
+      {header}
+    </Header>
     {[...new Array(num)].map(() => (
       <VideoCard />
     ))}
