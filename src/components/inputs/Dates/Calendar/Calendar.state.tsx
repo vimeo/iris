@@ -187,7 +187,7 @@ export function reducer(state: State, action: Action): State {
       // If the date entered is after the maximum date requirement update label and set error
       if (
         maxDate &&
-        new Date(maxDate.toDateString()) >
+        new Date(maxDate.toDateString()) <
           new Date(newEndDate.toDateString())
       ) {
         return {

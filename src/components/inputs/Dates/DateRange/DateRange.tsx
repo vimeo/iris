@@ -85,7 +85,7 @@ function DateRangeComponent({
 
   // Derive the value for the input that represents our start date.
   const startDateLabel = useMemo(() => {
-    if (typeof startLabel === 'string') startLabel;
+    if (typeof startLabel === 'string') return startLabel;
 
     if (hoverStart) return formatDate(hoverStart);
     if (draftStart) return formatDate(draftStart);
@@ -98,9 +98,9 @@ function DateRangeComponent({
   const endDateLabel = useMemo(() => {
     if (typeof endLabel === 'string') return endLabel;
 
-    if (hoverEnd) formatDate(hoverEnd);
-    if (draftEnd) formatDate(draftEnd);
-    if (!open && rangeEnd) formatDate(rangeEnd);
+    if (hoverEnd) return formatDate(hoverEnd);
+    if (draftEnd) return formatDate(draftEnd);
+    if (!open && rangeEnd) return formatDate(rangeEnd);
 
     return '';
   }, [open, draftEnd, endLabel, hoverEnd, rangeEnd]);
