@@ -3,7 +3,7 @@ import styled, { css, keyframes } from 'styled-components';
 
 import { Item, Break } from './Toolbar.minors';
 
-import { ChevronRight } from '../../icons';
+import { ArrowRight, ChevronRight } from '../../icons';
 import { rgba } from 'polished';
 
 Toolbar_B.Item = Item;
@@ -134,10 +134,10 @@ const PanelStyled = styled.div<any>`
     p.visible ? 'translateX(0rem)' : 'translateX(-20rem)'};
 `;
 
-const Expander = styled(ChevronRight)<any>`
-  margin-top: auto;
+const Expander = styled(ArrowRight)<any>`
+  margin: auto auto 0 0.25rem;
   cursor: pointer;
-  width: 3rem;
+  width: 2.5rem;
   transition: 120ms ease-in-out;
   transform: ${(p) => (p.collapsed ? 'rotate(180deg)' : 'rotate(0)')};
   opacity: 1;

@@ -54,6 +54,7 @@ const panelContent = (header, num, activeSet) => (
         position: 'absolute',
         top: '0',
         right: '0',
+        zIndex: 5000,
       }}
     />
     <Header size="3">{header}</Header>
@@ -72,12 +73,11 @@ const panelContent = (header, num, activeSet) => (
 export function PrototypeA() {
   const [active, activeSet] = useState('Sources');
 
-  const onClick = (label) => () =>
-    activeSet((active) => (active === label ? false : label));
+  const onClick = (label) => () => activeSet(label);
 
   return (
     <>
-      <Header>A: Indepedent Expansion State</Header>
+      <Header>A: Independent Expansion State</Header>
       <br />
       <div
         style={{
@@ -226,84 +226,84 @@ export function PrototypeB() {
   );
 }
 
-export function PrototypeC() {
-  const [active, activeSet] = useState('Sources');
+// export function PrototypeC() {
+//   const [active, activeSet] = useState('Sources');
 
-  const onClick = (label) => () =>
-    activeSet((active) => (active === label ? false : label));
+//   const onClick = (label) => () =>
+//     activeSet((active) => (active === label ? false : label));
 
-  return (
-    <>
-      <Header>C: Panel Shuffle</Header>
-      <br />
-      <div
-        style={{
-          display: 'flex',
-          padding: 0,
-          margin: '-1rem',
-          minHeight: 'calc(100vh - 15rem)',
-        }}
-      >
-        <Toolbar_C active={active}>
-          <Toolbar_C.Item
-            label="Sources"
-            onClick={onClick('Sources')}
-            icon={<Camera />}
-            children={panelContent('Sources', 3, activeSet)}
-          />
-          <Toolbar_C.Item
-            label="Videos"
-            onClick={onClick('Videos')}
-            icon={<VideoStack />}
-            children={panelContent('Videos', 2, activeSet)}
-          />
-          <Toolbar_C.Item
-            label="Images"
-            onClick={onClick('Images')}
-            icon={<Image />}
-            children={panelContent('Images', 0, activeSet)}
-          />
-          <Toolbar_C.Break />
-          <Toolbar_C.Item
-            label="Lower-thirds"
-            onClick={onClick('Lower-thirds')}
-            icon={<Masonry />}
-            children={panelContent('Lower-thirds', 0, activeSet)}
-          />
-          <Toolbar_C.Item
-            label="Logos"
-            onClick={onClick('Logos')}
-            icon={<ColorPalette />}
-            children={panelContent('Logos', 0, activeSet)}
-          />
-          <Toolbar_C.Item
-            label="Auto closed captions"
-            onClick={onClick('Auto closed captions')}
-            icon={<Video />}
-            children={panelContent(
-              'Auto closed captions',
-              0,
-              activeSet
-            )}
-          />
-          <Toolbar_C.Break />
-          <Toolbar_C.Item
-            label="Polls"
-            onClick={onClick('Polls')}
-            icon={<BarChartOutlined />}
-            children={panelContent('Polls', 0, activeSet)}
-          />
-          <Toolbar_C.Item
-            label="Q&A"
-            onClick={onClick('Q&A')}
-            icon={<SpeechBubbleSquared />}
-            children={panelContent('Q&A', 0, activeSet)}
-          />
-        </Toolbar_C>
-      </div>
-    </>
-  );
-}
+//   return (
+//     <>
+//       <Header>C: Panel Shuffle</Header>
+//       <br />
+//       <div
+//         style={{
+//           display: 'flex',
+//           padding: 0,
+//           margin: '-1rem',
+//           minHeight: 'calc(100vh - 15rem)',
+//         }}
+//       >
+//         <Toolbar_C active={active}>
+//           <Toolbar_C.Item
+//             label="Sources"
+//             onClick={onClick('Sources')}
+//             icon={<Camera />}
+//             children={panelContent('Sources', 3, activeSet)}
+//           />
+//           <Toolbar_C.Item
+//             label="Videos"
+//             onClick={onClick('Videos')}
+//             icon={<VideoStack />}
+//             children={panelContent('Videos', 2, activeSet)}
+//           />
+//           <Toolbar_C.Item
+//             label="Images"
+//             onClick={onClick('Images')}
+//             icon={<Image />}
+//             children={panelContent('Images', 0, activeSet)}
+//           />
+//           <Toolbar_C.Break />
+//           <Toolbar_C.Item
+//             label="Lower-thirds"
+//             onClick={onClick('Lower-thirds')}
+//             icon={<Masonry />}
+//             children={panelContent('Lower-thirds', 0, activeSet)}
+//           />
+//           <Toolbar_C.Item
+//             label="Logos"
+//             onClick={onClick('Logos')}
+//             icon={<ColorPalette />}
+//             children={panelContent('Logos', 0, activeSet)}
+//           />
+//           <Toolbar_C.Item
+//             label="Auto closed captions"
+//             onClick={onClick('Auto closed captions')}
+//             icon={<Video />}
+//             children={panelContent(
+//               'Auto closed captions',
+//               0,
+//               activeSet
+//             )}
+//           />
+//           <Toolbar_C.Break />
+//           <Toolbar_C.Item
+//             label="Polls"
+//             onClick={onClick('Polls')}
+//             icon={<BarChartOutlined />}
+//             children={panelContent('Polls', 0, activeSet)}
+//           />
+//           <Toolbar_C.Item
+//             label="Q&A"
+//             onClick={onClick('Q&A')}
+//             icon={<SpeechBubbleSquared />}
+//             children={panelContent('Q&A', 0, activeSet)}
+//           />
+//         </Toolbar_C>
+//       </div>
+//     </>
+//   );
+// }
 
 export function PrototypeD() {
   const [active, activeSet] = useState('Sources');
