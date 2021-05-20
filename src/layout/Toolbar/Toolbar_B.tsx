@@ -139,7 +139,8 @@ const Expander = styled(ArrowRight)<any>`
   cursor: pointer;
   width: 2.5rem;
   transition: 120ms ease-in-out;
-  transform: ${(p) => (p.collapsed ? 'rotate(180deg)' : 'rotate(0)')};
+  transform: ${(p) =>
+    p.collapsed ? 'rotate(0deg)' : 'rotate(180deg)'};
   opacity: 1;
   pointer-events: auto;
 `;
