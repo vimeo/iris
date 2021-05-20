@@ -129,7 +129,7 @@ const Expander = styled(ArrowRight)<any>`
   transform: ${(p) =>
     p.collapsed ? 'rotate(0deg)' : 'rotate(180deg)'};
 
-  opacity: 0.334;
+  opacity: 0;
   pointer-events: none;
 
   ${(p) =>
