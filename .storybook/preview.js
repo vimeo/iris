@@ -7,6 +7,8 @@ import { disabled } from './argTypes-disabled';
 
 const categoryOrder = [
   'iris',
+  'process',
+  'tokens',
   'color',
   'components',
   'typography',
@@ -16,7 +18,6 @@ const categoryOrder = [
   'motion',
   'utilties',
   'themes',
-  'process',
   'labs',
 ];
 
