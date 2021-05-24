@@ -2,10 +2,11 @@ import { IrisProps } from '../../../utils';
 
 export type Props = IrisProps<
   {
+    children?: string;
     /**
      * [default = 'default']
      */
-    format?: BadgeFormats;
+    format?: Format;
     href?: string;
     target?: string;
     /**
@@ -15,14 +16,14 @@ export type Props = IrisProps<
     /**
      * [default = 'sm']
      */
-    size?: 'sm' | 'lg';
+    size?: 'sm' | 'lg' | 'xl';
   },
   DOMElement
 >;
 
 export type DOMElement = HTMLSpanElement | HTMLAnchorElement;
 
-export type BadgeFormats =
+type Format =
   | 'alum'
   | 'beta'
   | 'business'
@@ -34,7 +35,9 @@ export type BadgeFormats =
   | 'info'
   | 'live'
   | 'live-archive'
+  | 'mature'
   | 'new'
+  | 'not-yet-rated'
   | 'partner'
   | 'plus'
   | 'producer'

@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
-import { rem, rgba, darken } from 'polished';
+import { darken, rem, rgba } from 'polished';
 
-import { BadgeFormats } from './Badge.types';
+import { Props as BadgeProps } from './Badge.types';
 
+import { core } from '../../../tokens';
 import {
   red,
   white,
@@ -17,30 +18,26 @@ export const Wrapper = styled.div`
 `;
 
 interface Props {
-  format: BadgeFormats;
-  href?: string;
-  size: 'sm' | 'lg';
+  $format: BadgeProps['format'];
+  href?: BadgeProps['href'];
+  size: BadgeProps['size'];
 }
 
 export const Badge = styled.span<Props>`
   display: block;
-  padding: ${rem(3)} ${rem(4)};
-  font-size: ${rem(9)};
-  font-weight: 700;
-  line-height: 1.2;
+  outline: none;
   border-radius: ${rem(2)};
+  letter-spacing: 0.02rem;
+  color: inherit;
   text-shadow: none;
   text-align: center;
-  vertical-align: middle;
-  white-space: nowrap;
-  letter-spacing: 0.02rem;
   text-transform: uppercase;
-  outline: none;
   text-decoration: none;
-  color: inherit;
+  white-space: nowrap;
+  transition: 90ms ease-in-out;
 
-  ${badgeSizeCSS};
-  ${badgeColorsCSS};
+  ${format};
+  ${size};
 
   &::-moz-focus-inner {
     padding: 0;
@@ -48,38 +45,36 @@ export const Badge = styled.span<Props>`
   }
 `;
 
-function badgeSizeCSS({ size }) {
-  return (
-    size === 'lg' &&
-    css`
-      padding: ${rem(5)};
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 0.8;
-      cursor: default;
-      vertical-align: middle;
-      text-transform: uppercase;
-    `
-  );
+export function size({ size }) {
+  switch (size) {
+    case 'sm':
+      return css`
+        padding: 0.1875rem 0.25rem;
+        font-size: 0.5625rem;
+        font-weight: 500;
+        line-height: 1.2;
+      `;
+    case 'lg':
+      return css`
+        padding: 0.3125rem;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 0.8;
+      `;
+    case 'xl':
+      return css`
+        border-width: 2px;
+        border-radius: 0.25rem;
+        padding: 0.5rem 0.75rem;
+        font-weight: 600;
+        line-height: 0.8;
+        font-size: 1.125rem;
+      `;
+  }
 }
 
-function basicBadge(color, hover = true) {
-  return css`
-    color: ${color};
-    background-color: ${rgba(color, 0.15)};
-
-    ${hover &&
-    css`
-      &:hover {
-        color: ${darken(0.1, color)};
-        background-color: ${rgba(color, 0.2)};
-      }
-    `};
-  `;
-}
-
-function badgeColorsCSS({ format, href = null }) {
-  switch (format) {
+export function format({ $format, href = null }) {
+  switch ($format) {
     case 'alum':
       return css`
         color: #503873;
@@ -191,11 +186,25 @@ function badgeColorsCSS({ format, href = null }) {
           border-color: ${slate(800)};
         }
       `;
+    case 'mature': {
+      const color = core.color.status.negative;
+      return css`
+        color: ${color};
+        border: 1px solid ${color};
+      `;
+    }
     case 'new':
       return css`
         color: ${red(500)};
         vertical-align: top;
       `;
+    case 'not-yet-rated': {
+      const color = core.color.text(900);
+      return css`
+        color: ${color};
+        border: 1px solid ${color};
+      `;
+    }
     case 'sponsor':
       return basicBadge(green(500));
     case 'partner':
@@ -247,4 +256,19 @@ function badgeColorsCSS({ format, href = null }) {
     default:
       return '';
   }
+}
+
+function basicBadge(color, hover = true) {
+  return css`
+    color: ${color};
+    background-color: ${rgba(color, 0.15)};
+
+    ${hover &&
+    css`
+      &:hover {
+        color: ${darken(0.1, color)};
+        background-color: ${rgba(color, 0.2)};
+      }
+    `};
+  `;
 }
