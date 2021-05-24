@@ -30,6 +30,7 @@
         "@babel/preset-react": "^7.13.13",
         "@babel/preset-typescript": "^7.13.0",
         "@babel/runtime": "^7.13.10",
+        "@chanzuckerberg/axe-storybook-testing": "^3.0.2",
         "@nox/addon-themes": "^1.0.1",
         "@rollup/plugin-babel": "^5.3.0",
         "@rollup/plugin-commonjs": "^18.0.0",
@@ -112,6 +113,7 @@
         "prepublishOnly": "npm run typecheck && npm run lint && npm run build && cp -r ./build/* ./ && npm run clean",
         "start": "npm run typecheck && npm run lint && npm run storybook",
         "storybook": "start-storybook -p 9001",
+        "storybook:axe": "build-storybook && axe-storybook",
         "stylelint": "npx stylelint 'src/**/*.ts'",
         "test-publish": "npm run prepublishOnly && npm run postpublish",
         "typecheck": "npx tsc --noEmit"
@@ -137,7 +139,10 @@
         "singleQuote": true,
         "overrides": [
             {
-                "files": [ "index.ts", "config.ts" ],
+                "files": [
+                    "index.ts",
+                    "config.ts"
+                ],
                 "options": {
                     "printWidth": 200
                 }
