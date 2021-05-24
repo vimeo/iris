@@ -8,6 +8,7 @@ import { useLayoutStyles, withIris } from '../../../utils';
 export const Badge = withIris<DOMElement, Props>(BadgeComponent);
 
 function BadgeComponent({
+  children = null,
   className,
   href,
   forwardRef,
@@ -17,14 +18,16 @@ function BadgeComponent({
   ...props
 }: Props) {
   const [layoutStyles, displayStyles] = useLayoutStyles(style);
+  if (!children) children = format.replaceAll('-', ' ');
 
   return href ? (
     <Wrapper className={className} style={layoutStyles}>
       <Styled
         as="a"
-        format={format}
-        size={size}
+        children={children}
+        $format={format}
         href={href}
+        size={size}
         style={displayStyles}
         {...props}
       />
@@ -32,8 +35,9 @@ function BadgeComponent({
   ) : (
     <Styled
       as="span"
+      children={children}
       className={className}
-      format={format}
+      $format={format}
       ref={forwardRef}
       size={size}
       style={style}
