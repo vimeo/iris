@@ -1,6 +1,5 @@
 import React, {
   useRef,
-  useMemo,
   cloneElement,
   ReactElement,
   useEffect,
@@ -27,7 +26,11 @@ export function usePortal(
   Component: ReactElement,
   portalConfig: PortalConfig
 ): [false | ReactPortal, AnchorProps] {
-  const UID = useMemo(() => generateUID(), []);
+  const UID = useRef<string>();
+  useEffect(() => {
+    UID.current = generateUID();
+    return () => !SSR && removeElementByID(UID.current);
+  }, []);
 
   const screenRef = useRef(null);
   const childRef = useRef(null);
@@ -60,7 +63,6 @@ export function usePortal(
     toggle(e);
   };
 
-  useEffect(() => () => !SSR && removeElementByID(UID), [UID]);
   useOutsideClick([ref, childRef], (event) => {
     if (allowPageInteraction) return;
     if (!controlled && trigger === 'click') close(event);
@@ -68,7 +70,7 @@ export function usePortal(
 
   if (SSR) return [null, null];
 
-  const outlet = createPortalOutlet(UID);
+  const outlet = createPortalOutlet(UID.current);
 
   const clickProps = { onClick: toggleWithChildClick };
   const hoverProps = { onMouseEnter: open, onMouseLeave: close };
@@ -95,6 +97,8 @@ export function usePortal(
     </>,
     outlet
   );
+
+  if (UID.current === undefined) removeElementByID(UID.current);
 
   return [active && Portal, { ref, ...clickable, ...hoverable }];
 }

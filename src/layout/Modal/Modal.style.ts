@@ -20,7 +20,7 @@ const fadeIn = keyframes`
 export const Modal = styled.div<Props>`
   box-shadow: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.2);
   border-radius: 0.25rem;
-  z-index: 2000;
+  z-index: 4000;
   ${modalSize};
   animation: ${fadeIn} 300ms ease-in-out;
 `;

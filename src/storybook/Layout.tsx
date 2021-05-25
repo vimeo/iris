@@ -1,24 +1,37 @@
 import styled, { css } from 'styled-components';
 
+const FullBleed = styled.div`
+  display: flex;
+  position: relative;
+  margin: -1rem;
+  padding: 0;
+  height: 100vh;
+`;
+
+const StoryPadded = styled.div<{ center?: boolean }>`
+  margin: 0 2rem;
+  padding: 0.5rem 0;
+`;
+
+const StoryVertical = styled.div<{
+  center?: boolean;
+  defaultWidth?: boolean;
+}>`
+  ${flexVertical};
+
+  padding: 1rem 0.5rem;
+  padding: ${(p) => (p.center ? '4rem' : '1rem 0.5rem')};
+
+  > * {
+    margin: 0.5rem 1rem;
+    min-width: ${(p) => (p.defaultWidth ? 'unset' : '20rem')};
+  }
+`;
+
 export const Layout = {
-  StoryVertical: styled.div<{
-    center?: boolean;
-    defaultWidth?: boolean;
-  }>`
-    ${flexVertical};
-
-    padding: 1rem 0.5rem;
-    padding: ${(p) => (p.center ? '4rem' : '1rem 0.5rem')};
-
-    > * {
-      margin: 0.5rem 1rem;
-      min-width: ${(p) => (p.defaultWidth ? 'unset' : '20rem')};
-    }
-  `,
-  StoryPadded: styled.div<{ center?: boolean }>`
-    margin: 0 2rem;
-    padding: 0.5rem 0;
-  `,
+  FullBleed,
+  StoryPadded,
+  StoryVertical,
 };
 
 function flexVertical({ center = false }) {
@@ -28,33 +41,3 @@ function flexVertical({ center = false }) {
     align-items: ${center ? 'center' : 'flex-start'};
   `;
 }
-
-// function VerticalStory({ kind = null }) {
-//   return (
-//     kind === 'verticalStory' &&
-//     css`
-//       padding: 0.5rem 0;
-
-//       > * {
-//         display: block;
-//         margin: 0.5rem 1rem;
-//       }
-//     `
-//   );
-// }
-
-// function PortalStory({ kind = null }) {
-//   return (
-//     kind === 'portalStory' &&
-//     css`
-//       padding: 10rem 5rem;
-//       max-width: 66.667%;
-//       margin: 0 auto;
-
-//       > * {
-//         display: block;
-//         margin: 1rem 2rem;
-//       }
-//     `
-//   );
-// }

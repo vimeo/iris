@@ -18,7 +18,7 @@ const fadeIn = ({ attach }) => keyframes`
 export const PanelStyled = styled.div<{ attach: Props['attach'] }>`
   background: ${(p) => p.theme.content.background};
   min-width: 16rem;
-  z-index: 2000;
+  z-index: 3000;
   animation: ${fadeIn} 300ms ease-in-out;
   height: 100vh;
   ${edge};

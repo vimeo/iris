@@ -37,6 +37,12 @@
             "styled-components"
         ]
     },
+    "plugins": [
+        {
+            "name": "typescript-styled-plugin",
+            "validate": false
+        }
+    ],
     "include": [
         "src/**/*",
         "@types/styled-components/cssprop"

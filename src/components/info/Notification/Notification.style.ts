@@ -9,7 +9,7 @@ import { themes } from '../../../themes';
 
 export const Wrapper = styled.div`
   position: fixed;
-  z-index: 9995;
+  z-index: 9000;
   bottom: 0;
   left: 0;
   width: 100%;

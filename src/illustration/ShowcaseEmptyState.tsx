@@ -3,11 +3,11 @@ export const ShowcaseEmptyState = (
   props: SVGProps<SVGSVGElement>
 ) => (
   <svg viewBox="0 0 160 138" {...props}>
-    <g fill="none" fill-rule="evenodd">
+    <g fill="none" fillRule="evenodd">
       <circle
         fill-opacity=".069"
         fill="#00ADEF"
-        fill-rule="nonzero"
+        fillRule="nonzero"
         cx="80"
         cy="69"
         r="69"
