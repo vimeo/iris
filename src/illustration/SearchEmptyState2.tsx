@@ -1,11 +1,11 @@
 import React, { SVGProps } from 'react';
 export const SearchEmptyState2 = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 180 138" {...props}>
-    <g fill="none" fill-rule="evenodd">
+    <g fill="none" fillRule="evenodd">
       <g transform="translate(16)">
         <circle
           fill="#EDF9FE"
-          fill-rule="nonzero"
+          fillRule="nonzero"
           cx="69"
           cy="69"
           r="69"
