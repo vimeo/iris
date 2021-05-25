@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { rgba } from 'polished';
 
-import { Toolbar } from '../Toolbar';
+import { Sidebar } from '../Sidebar';
 
 import {
   BarChartOutlined,
@@ -20,8 +20,8 @@ import { Layout } from '../../../storybook';
 import { core, tx } from '../../../tokens';
 
 export default {
-  title: 'layout/Toolbar/examples',
-  component: Toolbar,
+  title: 'layout/Sidebar/examples',
+  component: Sidebar,
 };
 
 export function Live() {
@@ -29,50 +29,50 @@ export function Live() {
 
   return (
     <Layout.FullBleed>
-      <Toolbar state={state}>
-        <Toolbar.Item
+      <Sidebar state={state}>
+        <Sidebar.Item
           label="Sources"
           icon={<Camera />}
           children={panelContent('Sources', 3)}
         />
-        <Toolbar.Item
+        <Sidebar.Item
           label="Videos"
           icon={<VideoStack />}
           children={panelContent('Videos', 2)}
         />
-        <Toolbar.Item
+        <Sidebar.Item
           label="Images"
           icon={<Image />}
           children={panelContent('Images', 0)}
         />
-        <Toolbar.Break />
-        <Toolbar.Item
+        <Sidebar.Break />
+        <Sidebar.Item
           label="Lower-thirds"
           icon={<Masonry />}
           children={panelContent('Lower-thirds', 0)}
         />
-        <Toolbar.Item
+        <Sidebar.Item
           label="Logos"
           icon={<ColorPalette />}
           children={panelContent('Logos', 0)}
         />
-        <Toolbar.Item
+        <Sidebar.Item
           label="Auto closed captions"
           icon={<Video />}
           children={panelContent('Auto closed captions', 0)}
         />
-        <Toolbar.Break />
-        <Toolbar.Item
+        <Sidebar.Break />
+        <Sidebar.Item
           label="Polls"
           icon={<BarChartOutlined />}
           children={panelContent('Polls', 0)}
         />
-        <Toolbar.Item
+        <Sidebar.Item
           label="Q&A"
           icon={<SpeechBubbleSquared />}
           children={panelContent('Q&A', 0)}
         />
-      </Toolbar>
+      </Sidebar>
     </Layout.FullBleed>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ItemPropsIntrinsic } from './Toolbar.types';
+import { ItemPropsIntrinsic } from './Sidebar.types';
 
 import { Button, Tip } from '../../components';
 import { core } from '../../tokens';

@@ -1,8 +1,8 @@
-import { Toolbar } from '../Toolbar';
+import { Sidebar } from '../Sidebar';
 
 export default {
-  title: 'layout/Toolbar/props',
-  component: Toolbar,
+  title: 'layout/Sidebar/props',
+  component: Sidebar,
 };
 
 export { Attach } from './attach';

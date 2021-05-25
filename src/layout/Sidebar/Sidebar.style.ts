@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-import { Props } from './Toolbar.types';
+import { Props } from './Sidebar.types';
 
 import { core } from '../../tokens';
 import { Button } from '../../components';
 
-export const ToolbarStyled = styled.div<{
+export const SidebarStyled = styled.div<{
   attach: Props['attach'];
 }>`
   position: relative;

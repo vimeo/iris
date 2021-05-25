@@ -1,8 +1,8 @@
 import React, { cloneElement } from 'react';
 
-import { Item, Break } from './Toolbar.minors';
-import { ToolbarStyled, PanelStyled, Dismiss } from './Toolbar.style';
-import { Props, Minors } from './Toolbar.types';
+import { Item, Break } from './Sidebar.minors';
+import { SidebarStyled, PanelStyled, Dismiss } from './Sidebar.style';
+import { Props, Minors } from './Sidebar.types';
 
 import { DismissX } from '../../icons';
 import {
@@ -11,14 +11,14 @@ import {
   withIris,
 } from '../../utils';
 
-export const Toolbar = withIris<HTMLDivElement, Props, Minors>(
-  ToolbarComponent
+export const Sidebar = withIris<HTMLDivElement, Props, Minors>(
+  SidebarComponent
 );
 
-Toolbar.Item = Item;
-Toolbar.Break = Break;
+Sidebar.Item = Item;
+Sidebar.Break = Break;
 
-function ToolbarComponent({
+function SidebarComponent({
   children,
   attach = 'left',
   forwardRef,
@@ -31,12 +31,12 @@ function ToolbarComponent({
   const [active, activeSet] = useStateTransmorphic<string>(state);
   const [layoutStyles, displayStyles] = useLayoutStyles(style);
 
-  // Extract the active Toolbar.Item's children.
+  // Extract the active Sidebar.Item's children.
   const panel = children.filter(
     ({ props }) => props.label === active
   )[0]?.props?.children;
 
-  // Pass attach prop to Toolbar.Items and bind their onClick.
+  // Pass attach prop to Sidebar.Items and bind their onClick.
   function toggle(child) {
     return (event) => {
       child.props?.onClick?.(event);
@@ -67,9 +67,9 @@ function ToolbarComponent({
 
   return (
     <div style={{ height: '100%', ...layoutStyles }} ref={forwardRef}>
-      <ToolbarStyled attach={attach} style={displayStyles} {...props}>
+      <SidebarStyled attach={attach} style={displayStyles} {...props}>
         {children}
-      </ToolbarStyled>
+      </SidebarStyled>
       <PanelStyled attach={attach} visible={panel}>
         <Dismiss
           aria-label="Dismiss"
