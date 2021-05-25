@@ -33,8 +33,16 @@ export function Player({ id, ...props }) {
   `;
 
   return (
-    <div {...props} css={CSS}>
-      <iframe src={src} css={iframeCSS} />
+    <div
+      {...props}
+      //@ts-ignore
+      css={CSS}
+    >
+      <iframe
+        src={src}
+        //@ts-ignore
+        css={iframeCSS}
+      />
     </div>
   );
 }
