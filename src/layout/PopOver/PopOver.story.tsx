@@ -15,11 +15,12 @@ export default {
   component: PopOver,
   argTypes: {
     content: { control: { disable: true } },
+    active: { control: { disable: true } },
     attach: { control: { type: 'select', options: ANCHOR_POINTS } },
   },
 };
 
-const Template: Story<Props> = (args) => {
+const Template: Story<Props> = ({ active, ...args }) => {
   return (
     <>
       <PopOver {...args} content={PopList} style={{ zIndex: 5000 }}>
