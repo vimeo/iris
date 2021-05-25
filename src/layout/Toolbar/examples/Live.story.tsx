@@ -16,6 +16,7 @@ import {
 } from '../../../icons';
 import { Header } from '../../../typography';
 import { Button, NewItemCard } from '../../../components';
+import { Layout } from '../../../storybook';
 
 export default {
   title: 'layout/Toolbar/examples',
@@ -65,14 +66,7 @@ export function Live() {
   const state = useState('Sources');
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        padding: 0,
-        margin: '-1rem',
-        height: '100vh',
-      }}
-    >
+    <Layout.FullBleed>
       <Toolbar state={state}>
         <Toolbar.Item
           label="Sources"
@@ -117,6 +111,6 @@ export function Live() {
           children={panelContent('Q&A', 0)}
         />
       </Toolbar>
-    </div>
+    </Layout.FullBleed>
   );
 }

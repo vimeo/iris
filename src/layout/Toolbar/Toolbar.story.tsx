@@ -5,6 +5,7 @@ import { Toolbar, Props } from './Toolbar';
 
 import { Gear } from '../../icons';
 import { Header } from '../../typography';
+import { Layout } from '../../storybook';
 
 export default {
   title: 'layout/Toolbar',
@@ -16,14 +17,7 @@ export default {
 
 const Template: Story<Props> = (args) => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        padding: 0,
-        margin: '-1rem',
-        height: '100vh',
-      }}
-    >
+    <Layout.FullBleed>
       <Toolbar attach="left">
         <Toolbar.Item label="Item 1" icon={<Gear />}>
           <Header size="3" style={{ marginTop: 0 }}>
@@ -59,7 +53,7 @@ const Template: Story<Props> = (args) => {
           </Header>
         </Toolbar.Item>
       </Toolbar>
-    </div>
+    </Layout.FullBleed>
   );
 };
 

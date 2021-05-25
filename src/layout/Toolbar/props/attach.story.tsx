@@ -4,6 +4,7 @@ import { Toolbar } from './../Toolbar';
 
 import { Gear } from '../../../icons';
 import { Header } from '../../../typography';
+import { Layout } from '../../../storybook';
 
 export default {
   title: 'layout/Toolbar/props',
@@ -12,14 +13,7 @@ export default {
 
 export function Attach() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        padding: 0,
-        margin: '-1rem',
-        height: '100vh',
-      }}
-    >
+    <Layout.FullBleed>
       <Toolbar attach="left">
         <Toolbar.Item label="Item 1" icon={<Gear />}>
           <Header size="3" style={{ marginTop: 0 }}>
@@ -94,7 +88,7 @@ export function Attach() {
           </Header>
         </Toolbar.Item>
       </Toolbar>
-    </div>
+    </Layout.FullBleed>
   );
 }
 Attach.storyName = 'attach';
@@ -103,14 +97,7 @@ export function State() {
   const state = useState('Item 2');
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        padding: 0,
-        margin: '-1rem',
-        height: '100vh',
-      }}
-    >
+    <Layout.FullBleed>
       <Toolbar attach="left" state={state}>
         <Toolbar.Item label="Item 1" icon={<Gear />}>
           <Header size="3" style={{ marginTop: 0 }}>
@@ -146,7 +133,7 @@ export function State() {
           </Header>
         </Toolbar.Item>
       </Toolbar>
-    </div>
+    </Layout.FullBleed>
   );
 }
 State.storyName = 'state';
