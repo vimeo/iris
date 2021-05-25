@@ -35,6 +35,7 @@ const layoutProperties = [
   'flexBasis',
   'float',
   'height',
+  'left',
   'margin',
   'marginBottom',
   'marginLeft',
@@ -45,8 +46,10 @@ const layoutProperties = [
   'minHeight',
   'minWidth',
   'position',
+  'right',
   'top',
   'width',
+  //
   'flexGrow',
   'flexShrink',
   'gridArea',

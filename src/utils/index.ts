@@ -12,6 +12,7 @@ export { useLocalTheme } from './hooks/useLocalTheme';
 export { useMeasure } from './hooks/useMeasure';
 export { useOutsideClick } from './hooks/useOutsideClick';
 export { usePortal, validate, ANCHOR_POINTS, Attach, AttachAlias, SimpleAnimation } from './hooks/usePortal';
+export { useStateTransmorphic } from './hooks/useStateTransmorphic';
 
 // events
 export { useClose, onClose } from './events/onClose';
