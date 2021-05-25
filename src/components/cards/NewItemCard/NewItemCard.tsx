@@ -12,7 +12,7 @@ export const NewItemCard = withIris<HTMLDivElement, Props>(
 
 export type Props = IrisProps<
   {
-    children: string;
+    children: string | string[];
     href?: string;
     rel?: string;
     /**
