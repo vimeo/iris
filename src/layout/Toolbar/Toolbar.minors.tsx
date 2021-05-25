@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { rgba } from 'polished';
+
+import { ItemPropsIntrinsic } from './Toolbar.types';
 
 import { Button, Tip } from '../../components';
+import { core } from '../../tokens';
 
 export function Item({
   attach = 'right',
@@ -11,7 +13,7 @@ export function Item({
   label,
   onClick,
   ...props
-}: any) {
+}: ItemPropsIntrinsic) {
   return (
     <Tip attach={attach} content={label}>
       <ItemStyled
@@ -44,9 +46,9 @@ const ItemStyled = styled(Button)`
   }
 `;
 
-export const Break = styled.div<any>`
+export const Break = styled.div`
   width: calc(100% - 0.5rem);
-  border-top: 2px solid ${(p) => rgba(p.theme.content.color, 0.5)};
+  border-top: 2px solid ${core.color.stroke};
   margin: 1rem auto;
   transition: 120ms ease-in-out;
 `;

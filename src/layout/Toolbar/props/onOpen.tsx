@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { Toolbar } from '../Toolbar';
@@ -7,12 +7,14 @@ import { Gear } from '../../../icons';
 import { Header as H } from '../../../typography';
 import { Layout } from '../../../storybook';
 
-export function State() {
-  const state = useState('Item 2');
-
+export function onOpen() {
   return (
     <Layout.FullBleed>
-      <Toolbar attach="left" state={state}>
+      <Toolbar
+        attach="left"
+        onOpen={(item) => console.log('Open ' + item)}
+        onClose={(item) => console.log('Close ' + item)}
+      >
         <Toolbar.Item label="Item 1" icon={<Gear />}>
           <Header size="3">Item 1</Header>
         </Toolbar.Item>
@@ -40,7 +42,7 @@ export function State() {
     </Layout.FullBleed>
   );
 }
-State.storyName = 'state';
+onOpen.storyName = 'onOpen, onClose';
 
 const Header = styled(H)`
   margin-top: 0;

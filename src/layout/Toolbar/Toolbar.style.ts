@@ -1,8 +1,13 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+
+import { Props } from './Toolbar.types';
 
 import { core } from '../../tokens';
+import { Button } from '../../components';
 
-export const ToolbarStyled = styled.div<any>`
+export const ToolbarStyled = styled.div<{
+  attach: Props['attach'];
+}>`
   position: relative;
   z-index: 1500;
   width: 4.5rem;
@@ -15,10 +20,10 @@ export const ToolbarStyled = styled.div<any>`
 
   background: ${core.color.background(800)};
   color: ${core.color.text(300)};
-  ${core.edge(400)};
+  border: 1px solid ${core.color.stroke};
+  ${attach};
   box-shadow: none;
-  border-${(p) => p.attach}: none;
-  
+
   svg {
     padding: 0.25rem;
 
@@ -34,7 +39,10 @@ export const ToolbarStyled = styled.div<any>`
   }
 `;
 
-export const PanelStyled = styled.div<any>`
+export const PanelStyled = styled.div<{
+  attach: Props['attach'];
+  visible: boolean;
+}>`
   position: absolute;
   z-index: 1400;
   height: 100%;
@@ -46,20 +54,23 @@ export const PanelStyled = styled.div<any>`
   transition: transform 180ms ease-in-out;
   background: ${core.color.background(800)};
   color: ${core.color.text(300)};
-  ${core.edge(400)};
-
-  ${attach};
   transform: ${transform};
+  left: ${left};
+  ${core.edge(100)};
+  ${attach};
 `;
 
-function attach({ attach }) {
-  const left = attach === 'left' ? '4.5rem' : '1px';
+function left({ attach }) {
+  return attach === 'left' ? '4.5rem' : '1px';
+}
 
-  return css`
-    left: ${left};
-    border-${attach}: none;
-    border-${attach}: 0;
-  `;
+function attach({ attach }) {
+  const side = attach.charAt(0).toUpperCase() + attach.slice(1);
+  return {
+    borderTop: 'none',
+    borderBottom: 'none',
+    [`border${side}`]: 'none',
+  };
 }
 
 function transform({ attach, visible }) {
@@ -69,3 +80,10 @@ function transform({ attach, visible }) {
   if (attach === 'right')
     return visible ? 'translateX(-18rem)' : 'translateX(0rem)';
 }
+
+export const Dismiss = styled(Button)`
+  position: absolute;
+  top: 0.667rem;
+  right: 0.667rem;
+  z-index: 5000;
+`;

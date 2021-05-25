@@ -6,4 +6,5 @@ export default {
 };
 
 export { Attach } from './attach';
+export { onOpen } from './onOpen';
 export { State } from './state';

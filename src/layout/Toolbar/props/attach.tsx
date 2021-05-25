@@ -1,9 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { Toolbar } from '../Toolbar';
 
 import { Gear } from '../../../icons';
-import { Header } from '../../../typography';
+import { Header as H } from '../../../typography';
 import { Layout } from '../../../storybook';
 
 export function Attach() {
@@ -87,3 +88,7 @@ export function Attach() {
   );
 }
 Attach.storyName = 'attach';
+
+const Header = styled(H)`
+  margin-top: 0;
+`;
