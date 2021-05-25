@@ -13,7 +13,7 @@ export const Screen = styled.div`
   top: 0;
   left: 0;
   background: rgba(50, 50, 50, 0.667);
-  z-index: 999;
+  z-index: 1999;
   transition: 200ms;
   animation: ${fadeIn} 150ms ease-in-out;
 `;

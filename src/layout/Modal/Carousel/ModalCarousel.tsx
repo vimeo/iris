@@ -142,7 +142,7 @@ const Right = styled(Button)`
   width: ${rem(50)};
   height: ${rem(50)};
   position: absolute;
-  z-index: 2001;
+  z-index: 4001;
   top: calc(50% - ${rem(25)});
   right: 0;
   animation: ${fadeIn} 300ms ease-in-out;
@@ -166,7 +166,7 @@ const Left = styled(Right)`
 const ModalStyled = styled.div<{ width: number }>`
   box-shadow: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.2);
   border-radius: 0.25rem;
-  z-index: 2000;
+  z-index: 4000;
   width: ${(p) => rem(p.width)};
   animation: ${fadeIn} 300ms ease-in-out;
   transition: 80ms ease-in-out;

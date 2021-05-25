@@ -53,7 +53,7 @@ export const Cursor = styled.div<any>`
   position: absolute;
   left: -0.625rem;
   top: -0.625rem;
-  z-index: 1000;
+  z-index: 4001;
 `;
 
 export const lightRay = (color, dir, el) => css`

@@ -15,7 +15,7 @@ export const AnchorStyled = styled.div<Props>`
   position: ${(p) => (p.anchorToWindow ? 'fixed' : 'absolute')};
   margin: ${(p) => rem(p.margin)};
   overflow: visible;
-  z-index: 1000;
+  z-index: 5000;
   ${remPos};
 `;
 

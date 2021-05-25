@@ -93,7 +93,7 @@ function caret({ theme, attach }) {
     &:after,
     &:before {
       content: '';
-      z-index: 2000;
+      z-index: 5000;
       position: absolute;
       transform: translate3d(0, 0, 0);
       ${edge_1}: calc(50% - 0.75rem);
