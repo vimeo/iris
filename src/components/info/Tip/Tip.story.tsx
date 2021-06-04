@@ -20,7 +20,7 @@ export default {
 const Template: Story<Props> = (args) => {
   return (
     <Layout.StoryVertical center>
-      <Tip content="I am Tip" {...args}>
+      <Tip {...args} content="I am Tip">
         <Button>Tip</Button>
       </Tip>
     </Layout.StoryVertical>

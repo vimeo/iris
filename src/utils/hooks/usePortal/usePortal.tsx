@@ -2,7 +2,6 @@ import React, {
   useRef,
   cloneElement,
   ReactElement,
-  useEffect,
   ReactPortal,
 } from 'react';
 import { createPortal } from 'react-dom';
@@ -15,23 +14,12 @@ import { Anchor } from './Anchor';
 
 import { useOutsideClick } from '../useOutsideClick';
 
-import {
-  SSR,
-  createPortalOutlet,
-  removeElementByID,
-} from '../../DOM';
-import { generateUID } from '../../general';
+import { SSR, createPortalOutlet } from '../../DOM';
 
 export function usePortal(
   Component: ReactElement,
   portalConfig: PortalConfig
 ): [false | ReactPortal, AnchorProps] {
-  const UID = useRef<string>();
-  useEffect(() => {
-    UID.current = generateUID();
-    return () => !SSR && removeElementByID(UID.current);
-  }, []);
-
   const screenRef = useRef(null);
   const childRef = useRef(null);
   const ref = useRef(null);
@@ -70,7 +58,7 @@ export function usePortal(
 
   if (SSR) return [null, null];
 
-  const outlet = createPortalOutlet(UID.current);
+  const outlet = createPortalOutlet('iris-portals');
 
   const clickProps = { onClick: toggleWithChildClick };
   const hoverProps = { onMouseEnter: open, onMouseLeave: close };
@@ -97,8 +85,6 @@ export function usePortal(
     </>,
     outlet
   );
-
-  if (UID.current === undefined) removeElementByID(UID.current);
 
   return [active && Portal, { ref, ...clickable, ...hoverable }];
 }
