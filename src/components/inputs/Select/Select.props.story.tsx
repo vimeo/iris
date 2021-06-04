@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { Select } from './Select';
@@ -9,7 +9,7 @@ import { PaperPlane } from '../../../icons';
 import { blue } from '../../../color';
 
 export default {
-  title: 'Components/Inputs/Select/Props',
+  title: 'Components/Inputs/Select/props',
 };
 
 export function Disabled() {
@@ -24,6 +24,7 @@ export function Disabled() {
     </Layout.StoryVertical>
   );
 }
+Disabled.storyName = 'disabled';
 
 export function Messages() {
   return (
@@ -69,6 +70,7 @@ export function Messages() {
     </Layout.StoryVertical>
   );
 }
+Messages.storyName = 'messages';
 
 export function Status() {
   return (
@@ -96,6 +98,7 @@ export function Status() {
     </Layout.StoryVertical>
   );
 }
+Status.storyName = 'status';
 export function DefaultValue() {
   return (
     <Layout.StoryVertical>
@@ -114,9 +117,32 @@ export function DefaultValue() {
     </Layout.StoryVertical>
   );
 }
-DefaultValue.storyName = 'DefaultValue';
+DefaultValue.storyName = 'defaultValue';
 
-export function Sizes() {
+export function Value() {
+  const [value, valueSet] = useState('1');
+
+  return (
+    <Layout.StoryVertical>
+      <Select
+        label="'value' state is controlled externally"
+        value={value}
+        onChange={(e) => {
+          valueSet(e.target.value);
+          console.log('Selected Option', e.target.value, e);
+        }}
+      >
+        <Select.Option value="1">Value 1</Select.Option>
+        <Select.Option value="2">
+          Value 2 has a long label
+        </Select.Option>
+      </Select>
+    </Layout.StoryVertical>
+  );
+}
+Value.storyName = 'value';
+
+export function Size() {
   return (
     <Layout.StoryVertical>
       {['xs', 'sm', 'md', 'lg', 'xl'].map((size, i) => {
@@ -132,6 +158,7 @@ export function Sizes() {
     </Layout.StoryVertical>
   );
 }
+Size.storyName = 'size';
 
 export function Faux() {
   return (
@@ -158,13 +185,41 @@ export function Faux() {
           <Notice>This is a notice. Contact Us.</Notice>
         </a>
       </Select>
-      <Select disabled label="Disabled" faux>
+    </Layout.StoryVertical>
+  );
+}
+Faux.storyName = 'faux';
+
+export function FauxExternalState() {
+  const [value, valueSet] = useState('1');
+
+  return (
+    <Layout.StoryVertical>
+      <Select
+        label="Faux select"
+        onChange={(e) => {
+          valueSet(e.target.value);
+          console.log('Selected Option', e.target.value, e);
+        }}
+        value={value}
+        faux
+      >
         <Select.Option value="1">Option 1</Select.Option>
         <Select.Option value="2">Option 2</Select.Option>
+        <Select.Option value="3">
+          Option 3 <PaperPlane style={{ margin: '0 0.5rem' }} />
+        </Select.Option>
+        <Select.Option value="4" disabled>
+          Option 4
+        </Select.Option>
+        <Select.Option value="5" href="#" disabled>
+          Option 5 {UpgradeBadge}
+        </Select.Option>
       </Select>
     </Layout.StoryVertical>
   );
 }
+FauxExternalState.storyName = 'faux (external state)';
 
 const UpgradeBadge = (
   <Badge
@@ -199,3 +254,4 @@ export function Pill() {
     </Layout.StoryVertical>
   );
 }
+Pill.storyName = 'pill';

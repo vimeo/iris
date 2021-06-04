@@ -1,7 +1,6 @@
 import React, {
   useRef,
   useLayoutEffect,
-  useEffect,
   useImperativeHandle,
   cloneElement,
   ReactElement,
@@ -37,7 +36,7 @@ export function SelectFaux({
   ...props
 }: Props) {
   const [state, dispatch] = useReducer(reducer, init(defaultValue));
-  const { width, selected, updatedSelected, active } = state;
+  const { width, selected, active } = state;
 
   const [layoutStyles, displayStyles] = useLayoutStyles(style);
   const wrapperRef = useRef(null);
@@ -54,19 +53,15 @@ export function SelectFaux({
     dispatch({ type: 'SET_WIDTH', payload });
   }, [size]);
 
-  useEffect(() => {
-    if (updatedSelected && selectRef?.current) {
-      const event = new Event('change', { bubbles: true });
-      selectRef.current.dispatchEvent(event);
-
-      dispatch({ type: 'SET_UPDATED_SELECTED', payload: false });
-    }
-  }, [selected, updatedSelected]);
-
   function onClick(child) {
     return () => {
+      if (child.props.disabled) return;
+
+      const event = new Event('change', { bubbles: true });
+      selectRef.current.value = child.props.value;
+      selectRef.current.dispatchEvent(event);
+
       dispatch({ type: 'SET_SELECTED', payload: child.props.value });
-      dispatch({ type: 'SET_UPDATED_SELECTED', payload: true });
       dispatch({ type: 'SET_ACTIVE', payload: false });
     };
   }
