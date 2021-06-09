@@ -35,7 +35,10 @@ export function DynamicSize() {
         <TriggerButton>PopOver</TriggerButton>
       </PopOver>
       <Button onClick={() => widthSet((width) => width + 40)}>
-        resize
+        grow
+      </Button>
+      <Button onClick={() => widthSet((width) => width - 40)}>
+        shrink
       </Button>
     </>
   );
