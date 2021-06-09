@@ -3,11 +3,12 @@ import React, {
   RefObject,
   useState,
   ReactElement,
+  useCallback,
 } from 'react';
+import styled, { css } from 'styled-components';
+import { rem } from 'polished';
 
-import { AnchorStyled } from './Anchor.style';
 import { Attach } from './usePortal.types';
-import { throttle } from '../../general/throttle';
 
 interface Props {
   anchor: RefObject<HTMLElement>;
@@ -16,11 +17,14 @@ interface Props {
   childRef: RefObject<HTMLElement>;
   children: ReactElement;
   margin?: number;
+  style?: any;
 }
 
 interface State {
   rect?: ClientRect;
   childRect?: ClientRect;
+  top?: string | number;
+  left?: string | number;
 }
 
 export function Anchor({
@@ -30,28 +34,40 @@ export function Anchor({
   childRef,
   children,
   margin,
+  style,
   ...props
 }: Props) {
   const [state, setState] = useState<State>({});
 
+  const onResize = useCallback(() => {
+    const childElement: HTMLElement = childRef?.current;
+    if (!childElement) return;
+
+    const viewport = anchorToWindow && windowRect();
+    const childRect = calcRect(childRef);
+    const rect = viewport || calcRect(anchor, window);
+
+    const { top, left } = remPos({
+      attach,
+      margin,
+      rect,
+      childRect,
+    });
+
+    setState((state) => ({
+      ...state,
+      top,
+      left,
+      rect,
+      childRect,
+    }));
+  }, [anchor, anchorToWindow, attach, childRef, margin]);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useLayoutEffect(() => onResize(), []);
+
   useLayoutEffect(() => {
     const childElement: HTMLElement = childRef?.current;
-
-    const onResize = throttle(() => {
-      if (!childElement) return;
-
-      const viewport = anchorToWindow && windowRect();
-      const childRect = calcRect(childRef);
-      const rect = viewport || calcRect(anchor, window);
-
-      const changed = compare(state, rect, childRect);
-
-      if (changed) {
-        setState({ rect, childRect });
-      }
-    }, 5);
-
-    onResize();
 
     window.addEventListener('resize', onResize);
     window.addEventListener('scroll', onResize);
@@ -62,7 +78,13 @@ export function Anchor({
       window.removeEventListener('scroll', onResize);
       childElement?.removeEventListener('transitionend', onResize);
     };
-  }, [children, anchor, anchorToWindow, childRef, state]);
+  }, [childRef, onResize]);
+
+  useLayoutEffect(() => {
+    if (!top && !left) onResize();
+  });
+
+  const { top, left } = state;
 
   return (
     <AnchorStyled
@@ -72,17 +94,9 @@ export function Anchor({
       children={children}
       margin={margin}
       rect={state.rect}
+      style={{ ...style, top, left }}
       {...props}
     />
-  );
-}
-
-function compare(state: State, a: ClientRect, b: ClientRect) {
-  return (
-    !state.rect ||
-    sizeChanged(a, state.rect) ||
-    positionChanged(a, state.rect) ||
-    sizeChanged(b, state.childRect)
   );
 }
 
@@ -123,12 +137,55 @@ function windowRect() {
   };
 }
 
-function sizeChanged(a: ClientRect, b: ClientRect) {
-  if (!a || !b) return false;
-  return a.width !== b.width || a.height !== b.height;
+function remPos({ attach: [a, b], margin, rect, childRect }: any) {
+  if (!rect || !childRect) return { top: null, left: null };
+
+  const top =
+    rect.top +
+    rect.height * (a[0] / 100) -
+    (childRect.height + margin * 2) * (b[0] / 100);
+
+  const left =
+    rect.left +
+    rect.width * (a[1] / 100) -
+    (childRect.width + margin * 2) * (b[1] / 100);
+
+  return {
+    top: rem(top <= 0 ? rect.bottom : top),
+    left: rem(left <= 0 ? rect.right : left),
+  };
 }
 
-function positionChanged(a: ClientRect, b: ClientRect) {
-  if (!a || !b) return false;
-  return a.top !== b.top || a.left !== b.left;
+export interface StyledProps {
+  anchorToWindow: boolean;
+  attach: Attach;
+  childRect: ClientRect;
+  margin: number;
+  rect: ClientRect;
 }
+
+const AnchorStyled = styled.div<StyledProps>`
+  position: fixed;
+  margin: ${(p) => rem(p.margin)};
+  overflow: visible;
+  z-index: 5000;
+  max-width: calc(100vw - 1.5rem) !important;
+
+  ${(p) =>
+    !p.anchorToWindow &&
+    css`
+      position: absolute;
+
+      > div {
+        max-width: 100%;
+
+        > div {
+          max-width: 100%;
+
+          > * {
+            max-width: 100%;
+          }
+        }
+      }
+    `}
+`;

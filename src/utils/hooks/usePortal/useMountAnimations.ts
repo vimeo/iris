@@ -32,7 +32,9 @@ export function useMountAnimations(
   useLayoutEffect(() => {
     if (element) {
       const curDuration = parseFloat(
-        getComputedStyles(element, ['animation-duration'])
+        getComputedStyles(element, ['animation-duration'])[
+          'animation-duration'
+        ]
       );
 
       if (curDuration && duration !== curDuration) {
