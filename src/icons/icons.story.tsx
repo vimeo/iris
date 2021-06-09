@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
-import { select } from '@storybook/addon-knobs';
 
 import * as BRAND_ICONS from './brand';
-import * as UI_ICONS from './ui';
-import * as SOCIAL_ICONS from './social';
 import * as PAYMENT_ICONS from './payment';
+import * as MEDIA_ICONS from './media';
+import * as SOCIAL_ICONS from './social';
+import * as UI_ICONS from './ui';
 import * as VIMEO_ICONS from './vimeo';
 
 import { Header } from '../typography';
@@ -22,6 +22,7 @@ const ICONS = {
   ...BRAND_ICONS,
   ...SOCIAL_ICONS,
   ...PAYMENT_ICONS,
+  ...MEDIA_ICONS,
 };
 
 export const All = () => <IconStory icons={ICONS} />;
@@ -30,20 +31,12 @@ export const Social = () => <IconStory icons={SOCIAL_ICONS} />;
 export const Payment = () => <IconStory icons={PAYMENT_ICONS} />;
 export const Brand = () => <IconStory icons={BRAND_ICONS} />;
 export const Vimeo = () => <IconStory icons={VIMEO_ICONS} />;
+export const Media = () => <IconStory icons={MEDIA_ICONS} />;
 
 function IconStory({ icons, preserve = false, ...props }) {
-  const [searchText, setSearchText] = useState('');
+  const [search, searchSet] = useState('');
 
-  const doChange = (event) => {
-    setSearchText(event.target.value);
-  };
-
-  const size = select(
-    'Size',
-    { XS: 0.625, SM: 0.875, MD: 1, LG: 1.125, XL: 2 },
-    2,
-    'iconSizes'
-  );
+  const onChange = (event) => searchSet(event.target.value);
 
   function checkPreserve(icon) {
     if (SOCIAL_ICONS[icon]) return true;
@@ -52,24 +45,39 @@ function IconStory({ icons, preserve = false, ...props }) {
     return preserve;
   }
 
-  const validIcons = Object.keys(icons).filter((icon) =>
-    icon.toLowerCase().includes(searchText.toLowerCase())
-  );
+  const IconNameTags = Object.keys(icons).map((key) => ({
+    name: key,
+    tags: icons[key].tags,
+  }));
+
+  const validIcons = IconNameTags.filter(({ name, tags }) => {
+    const query = search?.toLowerCase();
+    if (!query) return true;
+
+    const matchName = name.toLowerCase().includes(query);
+    const matchTags = tags?.includes(query);
+
+    return matchName || matchTags;
+  });
 
   return (
-    <Story title="Icons" width="100%">
+    <div>
       <Search
         id="search"
-        onChange={doChange}
+        onChange={onChange}
         placeholder="Search for icons"
+        size="lg"
+        style={{ width: '100%' }}
       />
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {validIcons.map((icon, i) => (
+      <div
+        style={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}
+      >
+        {validIcons.map(({ name }, i) => (
           <Card key={i}>
             <Icon
-              size={size}
-              name={icon}
-              preserve={checkPreserve(icon)}
+              size={2}
+              name={name}
+              preserve={checkPreserve(name)}
             />
             <Header
               size="6"
@@ -78,12 +86,12 @@ function IconStory({ icons, preserve = false, ...props }) {
                 display: 'inline-flex',
               }}
             >
-              {icon}
+              {name}
             </Header>
           </Card>
         ))}
       </div>
-    </Story>
+    </div>
   );
 }
 
@@ -102,7 +110,7 @@ const width = (widthMap) =>
   Object.keys(widthMap).map(
     (minWidth) => css`
       @media (min-width: ${minWidth}rem) {
-        width: calc(${widthMap[minWidth]}% - 4rem);
+        width: calc(${widthMap[minWidth]}% - 1rem);
       }
     `
   );

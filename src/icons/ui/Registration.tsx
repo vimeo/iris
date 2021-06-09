@@ -17,7 +17,7 @@ export const Registration = forwardRef(
         width="8"
         height="4.1258"
         stroke="#23313B"
-        stroke-width="2"
+        strokeWidth="2"
         rx="1"
         transform="matrix(-1 0 0 1 15 2.8594)"
       />
