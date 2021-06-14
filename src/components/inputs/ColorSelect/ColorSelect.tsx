@@ -111,8 +111,6 @@ function ColorSelectComponent({
     !dragging && dispatch({ type: 'DRAG_START' });
   const onMouseUp = () => dragging && dispatch({ type: 'DRAG_END' });
 
-  console.log({ open });
-
   return (
     <PopOver
       attach={attach}
