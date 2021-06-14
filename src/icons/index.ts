@@ -154,6 +154,9 @@ export { Video } from './ui/Video';
 export { VideoStack } from './ui/VideoStack';
 export { VideoStackFilled } from './ui/VideoStackFilled';
 
+//
+//
+
 export { Animation } from './brand/Animation';
 export { Art } from './brand/Art';
 export { ArtsAndDesign } from './brand/ArtsAndDesign';
@@ -173,3 +176,28 @@ export { Personal } from './brand/Personal';
 export { Sports } from './brand/Sports';
 export { Talks } from './brand/Talks';
 export { Travel } from './brand/Travel';
+
+//
+//
+
+export { AlignBottom } from './media/AlignBottom';
+export { AlignCenter } from './media/AlignCenter';
+export { AlignLeft } from './media/AlignLeft';
+export { AlignMiddle } from './media/AlignMiddle';
+export { AlignRight } from './media/AlignRight';
+export { AlignTop } from './media/AlignTop';
+export { Circle } from './media/Circle';
+export { DropPin } from './media/DropPin';
+export { Duplicate } from './media/Duplicate';
+export { FastForward } from './media/FastForward';
+export { FormatLandscape } from './media/FormatLandscape';
+export { FormatSquare } from './media/FormatSquare';
+export { Gridlines } from './media/Gridlines';
+export { Layout } from './media/Layout';
+export { Minus } from './media/Minus';
+export { Replace } from './media/Replace';
+export { Rewind } from './media/Rewind';
+export { SceneMedia } from './media/SceneMedia';
+export { Text } from './media/Text';
+export { VolumeOff } from './media/VolumeOff';
+export { VolumeOn } from './media/VolumeOn';
