@@ -42,7 +42,7 @@ export const ButtonStyled = styled.button<any>`
   ${buttonCore};
   ${buttonIcon};
   ${buttonSizes};
-  ${buttonFluid}
+  ${buttonFluid};
   ${buttonPadding};
   ${buttonShape};
   ${buttonElevation};
@@ -52,14 +52,31 @@ export const ButtonStyled = styled.button<any>`
   ${buttonDisabled};
 `;
 
+const sizePads = {
+  xxs: 0.125,
+  xs: 0.25,
+  sm: 0.5,
+  md: 0.75,
+  lg: 1,
+  xl: 1.25,
+  xxl: 1.5,
+};
+
 function buttonIcon({ size, iconOnly, iconPosition }) {
+  const pad = sizePads[size];
+
+  const iconMargin = {
+    left: `auto ${(pad + 0.75) / 2}rem auto 0`,
+    right: `auto 0 auto ${(pad + 0.75) / 2}rem`,
+    featured: `auto 0.75rem`,
+  };
+
   return iconOnly
     ? css`
         svg {
-          width: ${sizePads[size] / 1.25 + 0.75}rem;
-          height: ${sizePads[size] / 1.25 + 0.75}rem;
+          width: ${pad / 1.25 + 0.75}rem;
+          height: ${pad / 1.25 + 0.75}rem;
           display: inline-flex;
-          /* padding: 5px; */
 
           > * {
             fill: currentColor;
@@ -70,15 +87,14 @@ function buttonIcon({ size, iconOnly, iconPosition }) {
         position: relative;
 
         svg {
-          width: ${sizePads[size] / 1.25 + 0.75}rem;
-          min-width: ${sizePads[size] / 1.25 + 0.75}rem;
+          width: ${pad / 1.25 + 0.75}rem;
+          min-width: ${pad / 1.25 + 0.75}rem;
           height: 100%;
           min-height: 100%;
           display: inline-flex;
           margin: ${iconMargin[iconPosition]};
           position: ${iconPosition === 'action' && 'absolute'};
           right: ${iconPosition === 'action' && '0.5rem'};
-          /* border: 2px solid red; */
 
           > * {
             fill: currentColor;
@@ -86,12 +102,6 @@ function buttonIcon({ size, iconOnly, iconPosition }) {
         }
       `;
 }
-
-const iconMargin = {
-  left: 'auto 0.625rem auto 0',
-  right: 'auto 0 auto 0.625rem',
-  featured: 'auto 0.75rem',
-};
 
 function buttonLoading({ $loading }) {
   return (
@@ -198,10 +208,14 @@ function deriveButtonColor(customColor, format, theme) {
       color = customColor;
       hoverColor = tint(0.15, color);
       activeColor = shade(0.15, color);
-    } else {
-      if (customColor.color) color = customColor.color;
-      if (customColor.hover) hoverColor = customColor.hover;
-      if (customColor.active) activeColor = customColor.active;
+    } else if (customColor.color) {
+      color = customColor.color;
+      hoverColor = customColor.hover
+        ? customColor.hover
+        : tint(0.15, color);
+      activeColor = customColor.active
+        ? customColor.active
+        : shade(0.15, color);
     }
   } else {
     color = theme.formats[format];
@@ -231,6 +245,10 @@ function buttonVariants({
 
   const borderWidth = '1px';
   const borderColor = color;
+
+  const contrastText = a11yColor(color);
+  const contrastTextHover = a11yColor(hoverColor);
+  const contrastTextActive = a11yColor(activeColor);
 
   switch (variant) {
     case 'outline':
@@ -266,8 +284,12 @@ function buttonVariants({
         color: ${color};
 
         &:hover {
-          color: ${a11yColor(color)};
+          color: ${contrastTextHover};
           background: ${color};
+        }
+
+        &:active {
+          color: ${contrastTextActive};
         }
       `;
     case 'hyperminimal':
@@ -316,16 +338,18 @@ function buttonVariants({
       return css`
         border: ${borderWidth} solid ${borderColor};
         background: ${color};
-        color: ${a11yColor(color)};
+        color: ${contrastText};
 
         &:active {
           background: ${activeColor};
           transform: scale(0.98);
+          color: ${contrastTextActive};
         }
 
         &:hover:not(:active) {
           background: ${hoverColor};
           border: ${borderWidth} solid ${hoverColor};
+          color: ${contrastTextHover};
           /* if: grow */
           /* transform: scale(1.01); */
           /* box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1),
@@ -363,16 +387,6 @@ const fluidWidth = ({ min = 0, max }: MediaQuerySize) => css`
 
 const fluidity = (fluid: true | MediaQuerySize) =>
   fluid === true ? fluidWidth({}) : fluidWidth(fluid);
-
-const sizePads = {
-  xxs: 0.125,
-  xs: 0.25,
-  sm: 0.5,
-  md: 0.75,
-  lg: 1,
-  xl: 1.25,
-  xxl: 1.5,
-};
 
 function buttonFluid({ fluid }) {
   return fluid && fluidity(fluid);

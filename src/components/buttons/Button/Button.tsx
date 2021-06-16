@@ -78,7 +78,9 @@ function ButtonComponent({
       {...props}
       // {...irisError}
     >
-      {iconFeatured && <FeaturedIcon>{icon}</FeaturedIcon>}
+      {iconFeatured && (
+        <FeaturedIcon size={size}>{icon}</FeaturedIcon>
+      )}
       {iconLeft}
       {children && (
         <ButtonChildren size={size}>{children}</ButtonChildren>
