@@ -25,6 +25,13 @@ export type Props = IrisProps<
      * Use `pill` prop instead.
      */
     circular?: boolean;
+    /**
+     * Provide a color string or object of color strings for custom coloring.
+     *
+     */
+    color?:
+      | string
+      | { color: string; hover?: string; active?: string };
     element?: ButtonElements;
     floating?: boolean;
     /**

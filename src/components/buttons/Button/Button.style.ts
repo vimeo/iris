@@ -18,6 +18,10 @@ const buttonCore = css`
   white-space: nowrap;
   cursor: pointer;
   font-family: inherit;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
 
   > span {
     overflow: hidden;
@@ -26,7 +30,13 @@ const buttonCore = css`
   }
 `;
 
-export const ButtonChildren = styled.span``;
+export const ButtonChildren = styled.span<any>`
+  ${(p) =>
+    (p.size === 'xxl' || p.size === 'xl') &&
+    css`
+      transform: translateY(-1px);
+    `}
+`;
 
 export const ButtonStyled = styled.button<any>`
   ${buttonCore};
@@ -46,9 +56,10 @@ function buttonIcon({ size, iconOnly, iconPosition }) {
   return iconOnly
     ? css`
         svg {
-          width: ${sizePads[size] / 1.5 + 0.75}rem;
-          height: ${sizePads[size] / 1.5 + 0.75}rem;
+          width: ${sizePads[size] / 1.25 + 0.75}rem;
+          height: ${sizePads[size] / 1.25 + 0.75}rem;
           display: inline-flex;
+          /* padding: 5px; */
 
           > * {
             fill: currentColor;
@@ -59,14 +70,15 @@ function buttonIcon({ size, iconOnly, iconPosition }) {
         position: relative;
 
         svg {
-          width: ${sizePads[size] / 1.5 + 1}rem;
-          min-width: ${sizePads[size] / 1.5 + 1}rem;
+          width: ${sizePads[size] / 1.25 + 0.75}rem;
+          min-width: ${sizePads[size] / 1.25 + 0.75}rem;
           height: 100%;
           min-height: 100%;
           display: inline-flex;
           margin: ${iconMargin[iconPosition]};
           position: ${iconPosition === 'action' && 'absolute'};
           right: ${iconPosition === 'action' && '0.5rem'};
+          /* border: 2px solid red; */
 
           > * {
             fill: currentColor;
@@ -76,9 +88,9 @@ function buttonIcon({ size, iconOnly, iconPosition }) {
 }
 
 const iconMargin = {
-  left: 'auto 0.25rem auto 0',
-  right: 'auto 0 auto 0.25rem',
-  featured: 'auto 0.625rem',
+  left: 'auto 0.625rem auto 0',
+  right: 'auto 0 auto 0.625rem',
+  featured: 'auto 0.75rem',
 };
 
 function buttonLoading({ $loading }) {
@@ -104,12 +116,9 @@ function buttonMotion({ theme }) {
 }
 
 function buttonPadding({ icon, iconOnly, iconPosition, size }) {
-  return !iconOnly
-    ? iconButtonPadding(icon, iconPosition, sizePads[size])
-    : {
-        minWidth: `${sizePads[size] + 1.5}rem`,
-        minHeight: `${sizePads[size] + 1.5}rem`,
-      };
+  return (
+    !iconOnly && iconButtonPadding(icon, iconPosition, sizePads[size])
+  );
 }
 
 function iconButtonPadding(icon, iconPosition, pad) {
@@ -118,9 +127,17 @@ function iconButtonPadding(icon, iconPosition, pad) {
 
   switch (icon && iconPosition) {
     case 'left':
-      return { padding: '0 1rem 0 0.5rem', minHeight, minWidth };
+      return {
+        padding: '0 ' + pad + 'rem',
+        minHeight,
+        minWidth,
+      };
     case 'right':
-      return { padding: '0 0.5rem 0 1rem', minHeight, minWidth };
+      return {
+        padding: '0 ' + pad + 'rem',
+        minHeight,
+        minWidth,
+      };
     case 'featured':
       return {
         padding: `0 ${pad}rem 0 ${pad + 2.5}rem`,
@@ -171,18 +188,49 @@ export const borderRadiusSizes = {
   xl: 12,
 };
 
+function deriveButtonColor(customColor, format, theme) {
+  let color: string;
+  let hoverColor: string;
+  let activeColor: string;
+
+  if (customColor) {
+    if (typeof customColor === 'string') {
+      color = customColor;
+      hoverColor = tint(0.15, color);
+      activeColor = shade(0.15, color);
+    } else {
+      if (customColor.color) color = customColor.color;
+      if (customColor.hover) hoverColor = customColor.hover;
+      if (customColor.active) activeColor = customColor.active;
+    }
+  } else {
+    color = theme.formats[format];
+    hoverColor = tint(0.15, color);
+    activeColor = shade(0.15, color);
+  }
+
+  return { color, hoverColor, activeColor };
+}
+
 // const buttonVariants = memoize(buttonVariantsFn);
 // function buttonVariantsFn({ format, variant, theme }) {
-function buttonVariants({ format, variant, theme }) {
-  const color = theme.formats[format];
+function buttonVariants({
+  color: customColor,
+  format,
+  variant,
+  theme,
+}) {
+  const { color, hoverColor, activeColor } = deriveButtonColor(
+    customColor,
+    format,
+    theme
+  );
 
   // const { saturation } = parseToHsl(color);
   // const saturateAmount = saturation > 0.33 ? 0.2 : 0;
 
   const borderWidth = '1px';
   const borderColor = color;
-  const hoverColor = tint(0.15, color);
-  const activeColor = shade(0.15, color);
 
   switch (variant) {
     case 'outline':
@@ -335,40 +383,54 @@ function buttonSizes({ size }) {
     case 'xxl':
       return {
         fontSize: rem(20),
-        lineHeight: 72 / 18,
+        lineHeight: rem(72 - 2),
+        height: rem(72),
+        minWidth: rem(72),
       };
     case 'xl':
       return {
-        fontSize: rem(16),
-        lineHeight: 58 / 16,
+        fontSize: rem(18),
+        lineHeight: rem(56 - 2),
+        height: rem(56),
+        minWidth: rem(56),
       };
     case 'lg':
       return {
         fontSize: rem(16),
-        lineHeight: 46 / 16,
+        lineHeight: rem(48 - 2),
+        height: rem(48),
+        minWidth: rem(48),
       };
 
     case 'md':
       return {
         fontSize: rem(14),
-        lineHeight: 38 / 14,
+        lineHeight: rem(40 - 2),
+        height: rem(40),
+        minWidth: rem(40),
       };
 
     case 'sm':
       return {
         fontSize: rem(14),
-        lineHeight: 30 / 14,
+        lineHeight: rem(32 - 2),
+        height: rem(32),
+        minWidth: rem(32),
       };
 
     case 'xs':
       return {
         fontSize: rem(12),
-        lineHeight: 23 / 12,
+        lineHeight: rem(24 - 2),
+        height: rem(24),
+        minWidth: rem(24),
       };
     case 'xxs':
       return {
         fontSize: rem(10),
-        lineHeight: 20 / 10,
+        lineHeight: rem(20 - 2),
+        height: rem(20),
+        minWidth: rem(20),
       };
   }
 }

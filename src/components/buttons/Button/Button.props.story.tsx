@@ -10,7 +10,12 @@ import {
   iconPositions,
 } from './Button.config';
 
-import { DownloadArrow, Plus, ChevronDown } from '../../../icons';
+import {
+  DownloadArrow,
+  Plus,
+  ChevronDown,
+  UploadCloud,
+} from '../../../icons';
 
 export default {
   title: 'Components/Buttons/Button/Props',
@@ -66,10 +71,18 @@ export function Status() {
 }
 
 export function Size() {
+  const style = { display: 'inline-flex' };
+
   return sizes.map((size, i) => (
-    <Button size={size} key={i}>
-      Button
-    </Button>
+    <div key={i} style={{ display: 'flex' }}>
+      <Button size={size} style={style}>
+        Button
+      </Button>
+      <Button size={size} icon={<UploadCloud />} style={style}>
+        Button
+      </Button>
+      <Button size={size} icon={<UploadCloud />} style={style} />
+    </div>
   ));
 }
 
@@ -84,7 +97,7 @@ IconPill.storyName = 'Icon (Pill)';
 
 export function IconPosition() {
   return iconPositions.map((position, i) => (
-    <Button icon={<ChevronDown />} iconPosition={position} key={i}>
+    <Button icon={<UploadCloud />} iconPosition={position} key={i}>
       iconPosition {position}
     </Button>
   ));
@@ -148,4 +161,8 @@ function LoadingStory() {
 
 export const Overflow = () => {
   return <Button overflow>Button</Button>;
+};
+
+export const CustomColor = () => {
+  return <Button color="#07796ae8">Button</Button>;
 };
