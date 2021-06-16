@@ -27,6 +27,7 @@ export type Props = IrisProps<
     circular?: boolean;
     /**
      * Provide a color string or object of color strings for custom coloring.
+     * Use this only as a last resort! It is not fully supported!
      *
      */
     color?:

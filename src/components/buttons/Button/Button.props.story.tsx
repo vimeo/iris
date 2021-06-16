@@ -10,12 +10,7 @@ import {
   iconPositions,
 } from './Button.config';
 
-import {
-  DownloadArrow,
-  Plus,
-  ChevronDown,
-  UploadCloud,
-} from '../../../icons';
+import { DownloadArrow, Plus, UploadCloud } from '../../../icons';
 
 export default {
   title: 'Components/Buttons/Button/Props',
@@ -164,5 +159,41 @@ export const Overflow = () => {
 };
 
 export const CustomColor = () => {
-  return <Button color="#07796ae8">Button</Button>;
+  return (
+    <div>
+      <Button color="#07796a">Button</Button>
+      <Button variant="minimal" color="#aa91e5">
+        Button
+      </Button>
+      <Button
+        variant="outline"
+        color={{
+          color: '#ffffff',
+          hover: '#e7c03f',
+          active: '#e7c03f',
+        }}
+      >
+        Button
+      </Button>
+      <Button
+        variant="outline"
+        color={{
+          color: '#000000',
+          hover: '#e7c03f',
+          active: '#e7c03f',
+        }}
+      >
+        Button
+      </Button>
+      <Button
+        color={{
+          color: '#ff00d4',
+          hover: '#e72626',
+          active: '#700d2b',
+        }}
+      >
+        Button
+      </Button>
+    </div>
+  );
 };
