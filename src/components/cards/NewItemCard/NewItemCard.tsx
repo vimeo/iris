@@ -1,9 +1,13 @@
 import React, { MouseEventHandler } from 'react';
 
-import { Wrapper, Card, Anchor } from './NewItemCard.style';
+import {
+  Wrapper,
+  Card,
+  Text,
+  CirclePlus,
+  Content,
+} from './NewItemCard.style';
 
-import { CirclePlus } from '../../../icons';
-import { Paragraph } from '../../../typography';
 import { Focus, IrisProps, withIris } from '../../../utils';
 
 export const NewItemCard = withIris<HTMLDivElement, Props>(
@@ -13,12 +17,13 @@ export const NewItemCard = withIris<HTMLDivElement, Props>(
 export type Props = IrisProps<
   {
     children: string | string[];
+    /**
+     * Sets or retrieves a destination URL or an anchor point.
+     */
     href?: string;
     rel?: string;
     /**
-     * Whether to open link in new tab or window
-     *
-     * Ex: target="_blank"
+     * Sets or retrieves the window or frame at which to target content.
      */
     target?: string;
     onClick?: MouseEventHandler<HTMLAnchorElement>;
@@ -35,22 +40,23 @@ function NewItemCardComponent({
   target,
   ...props
 }: Props) {
+  const as = href ? 'a' : 'button';
+
   return (
     <Wrapper ref={forwardRef} {...props}>
-      <Card>
-        <Anchor
-          href={href}
-          onClick={onClick}
-          rel={rel}
-          target={target}
-        >
-          <span>
-            <CirclePlus />
-          </span>
-          <Paragraph size="2">{children}</Paragraph>
-          <Focus parent={Anchor} distance={8} />
-        </Anchor>
+      <Card
+        as={as}
+        href={href}
+        onClick={onClick}
+        rel={rel}
+        target={target}
+      >
+        <Content>
+          <CirclePlus />
+          <Text>{children}</Text>
+        </Content>
       </Card>
+      <Focus parent={Card} distance={8} />
     </Wrapper>
   );
 }

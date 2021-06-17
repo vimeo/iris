@@ -1,13 +1,13 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 
-import { NewItemCard, Props } from './NewItemCard';
+import { NewItemCard as NIC, Props } from './NewItemCard';
 
-import { Grid } from '../../../layout';
+import styled from 'styled-components';
 
 export default {
   title: 'Components/Cards/NewItemCard',
-  component: NewItemCard,
+  component: NIC,
   argTypes: {
     rel: { control: { disable: true } },
     target: { control: { disable: true } },
@@ -16,25 +16,13 @@ export default {
 };
 
 const Template: Story<Props> = (args) => {
-  return (
-    <Grid>
-      <NewItemCard
-        {...args}
-        onClick={() => console.log('add new item')}
-        href="#"
-      >
-        Add New Item
-      </NewItemCard>
-      <NewItemCard
-        {...args}
-        onClick={() => console.log('add new item')}
-        href="#"
-      >
-        Add New Item
-      </NewItemCard>
-    </Grid>
-  );
+  return <NewItemCard {...args}>Add New Item</NewItemCard>;
 };
 
 export const Controls = Template.bind({});
 Controls.storyName = 'NewItemCard';
+
+const NewItemCard = styled(NIC)`
+  width: 26rem;
+  height: 18rem;
+`;
