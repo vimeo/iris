@@ -35,6 +35,7 @@ const deprecatedProps = {
 function ButtonComponent({
   element = 'button',
   children,
+  color,
   fluid,
   format = 'primary',
   forwardRef,
@@ -62,6 +63,7 @@ function ButtonComponent({
   return (
     <ButtonStyled
       as={element}
+      color={color}
       fluid={fluid}
       format={status ? status : format}
       icon={!!icon}
@@ -76,9 +78,13 @@ function ButtonComponent({
       {...props}
       // {...irisError}
     >
-      {iconFeatured && <FeaturedIcon>{icon}</FeaturedIcon>}
+      {iconFeatured && (
+        <FeaturedIcon size={size}>{icon}</FeaturedIcon>
+      )}
       {iconLeft}
-      {children && <ButtonChildren>{children}</ButtonChildren>}
+      {children && (
+        <ButtonChildren size={size}>{children}</ButtonChildren>
+      )}
       {iconRight}
       {iconAction}
 

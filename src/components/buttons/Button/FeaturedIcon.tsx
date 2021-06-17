@@ -1,12 +1,17 @@
 import styled from 'styled-components';
-import { rgba } from 'polished';
+import { rem, rgba } from 'polished';
 
-export const FeaturedIcon = styled.div`
+import { borderRadiusSizes } from './Button.style';
+
+export const FeaturedIcon = styled.div<any>`
   position: absolute;
   top: -1px;
   left: -1px;
   height: calc(100% + 2px);
   background: ${({ theme }) => rgba(theme.content.color, 0.2)};
   border-right: ${({ theme }) => rgba(theme.content.color, 0.5)};
-  border-radius: 0.25rem 0 0 0.25rem;
+  border-radius: ${(p) =>
+    `${rem(borderRadiusSizes[p.size])} 0 0 ${rem(
+      borderRadiusSizes[p.size]
+    )}`};
 `;

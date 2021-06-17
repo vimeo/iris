@@ -18,6 +18,10 @@ const buttonCore = css`
   white-space: nowrap;
   cursor: pointer;
   font-family: inherit;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
 
   > span {
     overflow: hidden;
@@ -26,13 +30,19 @@ const buttonCore = css`
   }
 `;
 
-export const ButtonChildren = styled.span``;
+export const ButtonChildren = styled.span<any>`
+  ${(p) =>
+    (p.size === 'xxl' || p.size === 'xl') &&
+    css`
+      transform: translateY(-1px);
+    `}
+`;
 
 export const ButtonStyled = styled.button<any>`
   ${buttonCore};
   ${buttonIcon};
   ${buttonSizes};
-  ${buttonFluid}
+  ${buttonFluid};
   ${buttonPadding};
   ${buttonShape};
   ${buttonElevation};
@@ -42,12 +52,30 @@ export const ButtonStyled = styled.button<any>`
   ${buttonDisabled};
 `;
 
+const sizePads = {
+  xxs: 0.125,
+  xs: 0.25,
+  sm: 0.5,
+  md: 0.75,
+  lg: 1,
+  xl: 1.25,
+  xxl: 1.5,
+};
+
 function buttonIcon({ size, iconOnly, iconPosition }) {
+  const pad = sizePads[size];
+
+  const iconMargin = {
+    left: `auto ${(pad + 0.75) / 2}rem auto 0`,
+    right: `auto 0 auto ${(pad + 0.75) / 2}rem`,
+    featured: `auto 0.75rem`,
+  };
+
   return iconOnly
     ? css`
         svg {
-          width: ${sizePads[size] / 1.5 + 0.75}rem;
-          height: ${sizePads[size] / 1.5 + 0.75}rem;
+          width: ${pad / 1.25 + 0.75}rem;
+          height: ${pad / 1.25 + 0.75}rem;
           display: inline-flex;
 
           > * {
@@ -59,8 +87,8 @@ function buttonIcon({ size, iconOnly, iconPosition }) {
         position: relative;
 
         svg {
-          width: ${sizePads[size] / 1.5 + 1}rem;
-          min-width: ${sizePads[size] / 1.5 + 1}rem;
+          width: ${pad / 1.25 + 0.75}rem;
+          min-width: ${pad / 1.25 + 0.75}rem;
           height: 100%;
           min-height: 100%;
           display: inline-flex;
@@ -74,12 +102,6 @@ function buttonIcon({ size, iconOnly, iconPosition }) {
         }
       `;
 }
-
-const iconMargin = {
-  left: 'auto 0.25rem auto 0',
-  right: 'auto 0 auto 0.25rem',
-  featured: 'auto 0.625rem',
-};
 
 function buttonLoading({ $loading }) {
   return (
@@ -104,12 +126,9 @@ function buttonMotion({ theme }) {
 }
 
 function buttonPadding({ icon, iconOnly, iconPosition, size }) {
-  return !iconOnly
-    ? iconButtonPadding(icon, iconPosition, sizePads[size])
-    : {
-        minWidth: `${sizePads[size] + 1.5}rem`,
-        minHeight: `${sizePads[size] + 1.5}rem`,
-      };
+  return (
+    !iconOnly && iconButtonPadding(icon, iconPosition, sizePads[size])
+  );
 }
 
 function iconButtonPadding(icon, iconPosition, pad) {
@@ -118,9 +137,17 @@ function iconButtonPadding(icon, iconPosition, pad) {
 
   switch (icon && iconPosition) {
     case 'left':
-      return { padding: '0 1rem 0 0.5rem', minHeight, minWidth };
+      return {
+        padding: '0 ' + pad + 'rem',
+        minHeight,
+        minWidth,
+      };
     case 'right':
-      return { padding: '0 0.5rem 0 1rem', minHeight, minWidth };
+      return {
+        padding: '0 ' + pad + 'rem',
+        minHeight,
+        minWidth,
+      };
     case 'featured':
       return {
         padding: `0 ${pad}rem 0 ${pad + 2.5}rem`,
@@ -171,18 +198,57 @@ export const borderRadiusSizes = {
   xl: 12,
 };
 
+function deriveButtonColor(customColor, format, theme) {
+  let color: string;
+  let hoverColor: string;
+  let activeColor: string;
+
+  if (customColor) {
+    if (typeof customColor === 'string') {
+      color = customColor;
+      hoverColor = tint(0.15, color);
+      activeColor = shade(0.15, color);
+    } else if (customColor.color) {
+      color = customColor.color;
+      hoverColor = customColor.hover
+        ? customColor.hover
+        : tint(0.15, color);
+      activeColor = customColor.active
+        ? customColor.active
+        : shade(0.15, color);
+    }
+  } else {
+    color = theme.formats[format];
+    hoverColor = tint(0.15, color);
+    activeColor = shade(0.15, color);
+  }
+
+  return { color, hoverColor, activeColor };
+}
+
 // const buttonVariants = memoize(buttonVariantsFn);
 // function buttonVariantsFn({ format, variant, theme }) {
-function buttonVariants({ format, variant, theme }) {
-  const color = theme.formats[format];
+function buttonVariants({
+  color: customColor,
+  format,
+  variant,
+  theme,
+}) {
+  const { color, hoverColor, activeColor } = deriveButtonColor(
+    customColor,
+    format,
+    theme
+  );
 
   // const { saturation } = parseToHsl(color);
   // const saturateAmount = saturation > 0.33 ? 0.2 : 0;
 
   const borderWidth = '1px';
   const borderColor = color;
-  const hoverColor = tint(0.15, color);
-  const activeColor = shade(0.15, color);
+
+  const contrastText = a11yColor(color);
+  const contrastTextHover = a11yColor(hoverColor);
+  const contrastTextActive = a11yColor(activeColor);
 
   switch (variant) {
     case 'outline':
@@ -218,8 +284,12 @@ function buttonVariants({ format, variant, theme }) {
         color: ${color};
 
         &:hover {
-          color: ${a11yColor(color)};
+          color: ${contrastTextHover};
           background: ${color};
+        }
+
+        &:active {
+          color: ${contrastTextActive};
         }
       `;
     case 'hyperminimal':
@@ -268,16 +338,18 @@ function buttonVariants({ format, variant, theme }) {
       return css`
         border: ${borderWidth} solid ${borderColor};
         background: ${color};
-        color: ${a11yColor(color)};
+        color: ${contrastText};
 
         &:active {
           background: ${activeColor};
           transform: scale(0.98);
+          color: ${contrastTextActive};
         }
 
         &:hover:not(:active) {
           background: ${hoverColor};
           border: ${borderWidth} solid ${hoverColor};
+          color: ${contrastTextHover};
           /* if: grow */
           /* transform: scale(1.01); */
           /* box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1),
@@ -316,16 +388,6 @@ const fluidWidth = ({ min = 0, max }: MediaQuerySize) => css`
 const fluidity = (fluid: true | MediaQuerySize) =>
   fluid === true ? fluidWidth({}) : fluidWidth(fluid);
 
-const sizePads = {
-  xxs: 0.125,
-  xs: 0.25,
-  sm: 0.5,
-  md: 0.75,
-  lg: 1,
-  xl: 1.25,
-  xxl: 1.5,
-};
-
 function buttonFluid({ fluid }) {
   return fluid && fluidity(fluid);
 }
@@ -335,40 +397,54 @@ function buttonSizes({ size }) {
     case 'xxl':
       return {
         fontSize: rem(20),
-        lineHeight: 72 / 18,
+        lineHeight: rem(72 - 2),
+        height: rem(72),
+        minWidth: rem(72),
       };
     case 'xl':
       return {
-        fontSize: rem(16),
-        lineHeight: 58 / 16,
+        fontSize: rem(18),
+        lineHeight: rem(56 - 2),
+        height: rem(56),
+        minWidth: rem(56),
       };
     case 'lg':
       return {
         fontSize: rem(16),
-        lineHeight: 46 / 16,
+        lineHeight: rem(48 - 2),
+        height: rem(48),
+        minWidth: rem(48),
       };
 
     case 'md':
       return {
         fontSize: rem(14),
-        lineHeight: 38 / 14,
+        lineHeight: rem(40 - 2),
+        height: rem(40),
+        minWidth: rem(40),
       };
 
     case 'sm':
       return {
         fontSize: rem(14),
-        lineHeight: 30 / 14,
+        lineHeight: rem(32 - 2),
+        height: rem(32),
+        minWidth: rem(32),
       };
 
     case 'xs':
       return {
         fontSize: rem(12),
-        lineHeight: 23 / 12,
+        lineHeight: rem(24 - 2),
+        height: rem(24),
+        minWidth: rem(24),
       };
     case 'xxs':
       return {
         fontSize: rem(10),
-        lineHeight: 20 / 10,
+        lineHeight: rem(20 - 2),
+        height: rem(20),
+        minWidth: rem(20),
       };
   }
 }

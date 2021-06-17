@@ -10,7 +10,7 @@ import {
   iconPositions,
 } from './Button.config';
 
-import { DownloadArrow, Plus, ChevronDown } from '../../../icons';
+import { DownloadArrow, Plus, UploadCloud } from '../../../icons';
 
 export default {
   title: 'Components/Buttons/Button/Props',
@@ -66,10 +66,18 @@ export function Status() {
 }
 
 export function Size() {
+  const style = { display: 'inline-flex' };
+
   return sizes.map((size, i) => (
-    <Button size={size} key={i}>
-      Button
-    </Button>
+    <div key={i} style={{ display: 'flex' }}>
+      <Button size={size} style={style}>
+        Button
+      </Button>
+      <Button size={size} icon={<UploadCloud />} style={style}>
+        Button
+      </Button>
+      <Button size={size} icon={<UploadCloud />} style={style} />
+    </div>
   ));
 }
 
@@ -84,7 +92,7 @@ IconPill.storyName = 'Icon (Pill)';
 
 export function IconPosition() {
   return iconPositions.map((position, i) => (
-    <Button icon={<ChevronDown />} iconPosition={position} key={i}>
+    <Button icon={<UploadCloud />} iconPosition={position} key={i}>
       iconPosition {position}
     </Button>
   ));
@@ -148,4 +156,44 @@ function LoadingStory() {
 
 export const Overflow = () => {
   return <Button overflow>Button</Button>;
+};
+
+export const CustomColor = () => {
+  return (
+    <div>
+      <Button color="#07796a">Button</Button>
+      <Button variant="minimal" color="#aa91e5">
+        Button
+      </Button>
+      <Button
+        variant="outline"
+        color={{
+          color: '#ffffff',
+          hover: '#e7c03f',
+          active: '#e7c03f',
+        }}
+      >
+        Button
+      </Button>
+      <Button
+        variant="outline"
+        color={{
+          color: '#000000',
+          hover: '#e7c03f',
+          active: '#e7c03f',
+        }}
+      >
+        Button
+      </Button>
+      <Button
+        color={{
+          color: '#ff00d4',
+          hover: '#e72626',
+          active: '#700d2b',
+        }}
+      >
+        Button
+      </Button>
+    </div>
+  );
 };
