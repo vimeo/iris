@@ -35,7 +35,7 @@ function fillLight(grade: number) {
   return shadow({
     blur: 10 + grade / 500,
     spread: 0.5 + grade / 2000,
-    opacity: 0.01 + grade / 7500,
+    opacity: grade / 100000 + grade / 7500,
   });
 }
 
@@ -44,7 +44,7 @@ function keyLight(grade: number) {
     offsetY: 10,
     blur: 6 + grade / 500,
     spread: -5 + grade / 2000,
-    opacity: 0.05 + grade / 9000,
+    opacity: grade / 20000 + grade / 9000,
   });
 }
 
