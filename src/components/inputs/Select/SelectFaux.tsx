@@ -1,15 +1,19 @@
 import React, {
   useRef,
   useLayoutEffect,
-  useEffect,
   useImperativeHandle,
   cloneElement,
   ReactElement,
   useReducer,
+  useEffect,
 } from 'react';
 
 import { Props } from './Select.types';
-import { ChevronDown, SelectStyled } from './Select.style';
+import {
+  ChevronDown,
+  SelectStyled,
+  Placeholder,
+} from './Select.style';
 import { reducer, init } from './Select.state';
 
 import { Wrapper } from '../Wrapper/Wrapper';
@@ -24,20 +28,22 @@ import { PopOver } from '../../../layout';
 export function SelectFaux({
   children,
   className,
-  id,
-  size = 'md',
+  defaultValue,
+  disabled,
   format = 'basic',
   forwardRef,
-  defaultValue,
-  status,
-  messages,
+  id,
   label,
+  messages,
+  placeholder = 'Please select an option.',
+  size = 'md',
+  status,
   style,
-  disabled,
+  value,
   ...props
 }: Props) {
   const [state, dispatch] = useReducer(reducer, init(defaultValue));
-  const { width, selected, updatedSelected, active } = state;
+  const { width, selected, active } = state;
 
   const [layoutStyles, displayStyles] = useLayoutStyles(style);
   const wrapperRef = useRef(null);
@@ -55,18 +61,24 @@ export function SelectFaux({
   }, [size]);
 
   useEffect(() => {
-    if (updatedSelected && selectRef?.current) {
-      const event = new Event('change', { bubbles: true });
-      selectRef.current.dispatchEvent(event);
-
-      dispatch({ type: 'SET_UPDATED_SELECTED', payload: false });
+    if (value !== selected) {
+      if (value) {
+        dispatch({ type: 'SET_SELECTED', payload: value });
+      } else if (selected) {
+        dispatch({ type: 'SET_SELECTED', payload: selected });
+      }
     }
-  }, [selected, updatedSelected]);
+  }, [value, selected]);
 
   function onClick(child) {
     return () => {
+      if (child.props.disabled) return;
+
+      const event = new Event('change', { bubbles: true });
+      selectRef.current.value = child.props.value;
+      selectRef.current.dispatchEvent(event);
+
       dispatch({ type: 'SET_SELECTED', payload: child.props.value });
-      dispatch({ type: 'SET_UPDATED_SELECTED', payload: true });
       dispatch({ type: 'SET_ACTIVE', payload: false });
     };
   }
@@ -109,22 +121,38 @@ export function SelectFaux({
           style={{ position: 'relative', cursor: 'pointer' }}
           onClick={() => dispatch({ type: 'TOGGLE_ACTIVE' })}
         >
+          {!selected && (
+            <Placeholder
+              inputSize={size}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                height: '100%',
+              }}
+            >
+              {placeholder}
+            </Placeholder>
+          )}
           <SelectStyled
+            aria-label={label}
             format={status || format}
             disabled={disabled}
             inputSize={size}
             readOnly
             ref={selectRef}
-            value={selected.toString()}
+            value={selected?.toString()}
             style={{
               ...displayStyles,
               pointerEvents: 'none',
+              opacity: selected ? 1 : 0,
             }}
             {...props}
           >
             {selected}
             {options}
           </SelectStyled>
+
           <ChevronDown size={size} />
         </div>
       </PopOver>

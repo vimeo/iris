@@ -1,7 +1,6 @@
 export interface State {
   width: number;
-  selected: number;
-  updatedSelected: boolean;
+  selected: number | string;
   active: boolean;
 }
 
@@ -13,7 +12,6 @@ type Action = {
 export const init = (defaultValue) => ({
   width: 0,
   selected: defaultValue || 0,
-  updatedSelected: false,
   active: false,
 });
 
@@ -31,11 +29,6 @@ export function reducer(
       return {
         ...state,
         selected: payload,
-      };
-    case 'SET_UPDATED_SELECTED':
-      return {
-        ...state,
-        updatedSelected: payload,
       };
     case 'SET_ACTIVE': {
       return {
