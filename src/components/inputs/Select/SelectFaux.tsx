@@ -62,7 +62,7 @@ export function SelectFaux({
 
   useEffect(() => {
     if (value !== selected) {
-      if (value) {
+      if (typeof value !== 'undefined') {
         dispatch({ type: 'SET_SELECTED', payload: value });
       } else if (selected) {
         dispatch({ type: 'SET_SELECTED', payload: selected });
