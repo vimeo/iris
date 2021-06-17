@@ -1,6 +1,6 @@
 export interface State {
   width: number;
-  selected: number;
+  selected: number | string;
   active: boolean;
 }
 

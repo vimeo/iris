@@ -7,6 +7,7 @@ import { Layout } from '../../../storybook';
 import { Badge } from '../../chips/Badge/Badge.style';
 import { PaperPlane } from '../../../icons';
 import { blue } from '../../../color';
+import { Button } from '../../buttons/Button/Button';
 
 export default {
   title: 'Components/Inputs/Select/props',
@@ -145,7 +146,7 @@ Value.storyName = 'value';
 export function Size() {
   return (
     <Layout.StoryVertical>
-      {['xs', 'sm', 'md', 'lg', 'xl'].map((size, i) => {
+      {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size, i) => {
         return (
           <Select key={i} label={`${size} Select`} size={size}>
             <Select.Option value="1">Value 1</Select.Option>
@@ -191,16 +192,19 @@ export function Faux() {
 Faux.storyName = 'faux';
 
 export function FauxExternalState() {
-  const [value, valueSet] = useState('1');
+  const [value, valueSet] = useState(null);
+
+  function onChange(event) {
+    valueSet(event.target.value);
+    console.log('Selected Option', event.target.value, event);
+  }
 
   return (
     <Layout.StoryVertical>
       <Select
         label="Faux select"
-        onChange={(e) => {
-          valueSet(e.target.value);
-          console.log('Selected Option', e.target.value, e);
-        }}
+        onChange={onChange}
+        placeholder="Please select an option."
         value={value}
         faux
       >
@@ -216,6 +220,8 @@ export function FauxExternalState() {
           Option 5 {UpgradeBadge}
         </Select.Option>
       </Select>
+      <Button onClick={() => valueSet(null)}>Reset</Button>
+      <Button onClick={() => valueSet('1')}>Select Option 1</Button>
     </Layout.StoryVertical>
   );
 }
@@ -223,6 +229,7 @@ FauxExternalState.storyName = 'faux (external state)';
 
 const UpgradeBadge = (
   <Badge
+    // @ts-ignore
     format="upgrade"
     size="sm"
     style={{ display: 'inline-block', margin: '0 0.5rem' }}

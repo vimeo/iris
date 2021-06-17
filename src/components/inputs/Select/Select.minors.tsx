@@ -32,17 +32,17 @@ function OptionNative({
 const isString = (c) => typeof c === 'string';
 const notString = (c) => typeof c !== 'string';
 
+const styleDisabled = {
+  pointerEvents: 'none',
+  opacity: 0.4,
+} as const;
+
 function OptionFaux({
   children = null,
   disabled = null,
   href = null,
   ...props
 }) {
-  const styleDisabled = {
-    pointerEvents: 'none',
-    opacity: 0.4,
-  } as const;
-
   if (href) {
     const childString = children.filter(isString);
     const childNodes = children.filter(notString);

@@ -12,6 +12,26 @@ export const SelectStyled = styled.select<any>`
   ${inputShape};
   padding-right: 2rem;
   cursor: pointer;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  transition: all 120ms ease-in-out, opacity 0ms;
+`;
+
+export const Placeholder = styled.div<any>`
+  appearance: none;
+  ${inputColors};
+  ${inputShape};
+  padding-right: 2rem;
+  cursor: pointer;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  background: transparent;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 export const ChevronDown = styled(CD)<{ size: Sizes }>`
