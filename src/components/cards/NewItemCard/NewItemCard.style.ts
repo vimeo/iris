@@ -1,36 +1,32 @@
-import styled, { css } from 'styled-components';
-import { rem, rgba, tint } from 'polished';
+import { AnchorHTMLAttributes } from 'react';
+import styled from 'styled-components';
+import { rem } from 'polished';
 
-import { IrisTheme } from '../../../themes';
-import { setTrans } from '../../../motion';
+import { tokens } from './NewItemCard.tokens';
 
-interface Props {
-  theme: IrisTheme;
-}
-
-const transition = setTrans({ transitionDuration: '150ms' });
+import { core } from '../../../tokens';
+import { Text as T } from '../../../typography';
+import { CirclePlus as CP } from '../../../icons';
+import { white } from '../../../color';
 
 export const Wrapper = styled.div`
   cursor: pointer;
   position: relative;
   min-height: 12rem;
   border-radius: ${rem(4)};
-  ${transition('box-shadow', 'background-color', 'border')};
-  ${themeStyles}
+  ${core.edge(0)};
+  transition: 150ms ease-in-out;
 
   svg {
     height: ${rem(30)};
-    ${transition('transform')};
-
-    path {
-      ${transition('fill')};
-    }
+    background: ${tokens.icon};
+    transition: 180ms ease-in-out;
   }
 
   p {
     margin-top: ${rem(12)};
     margin-bottom: 0;
-    ${transition('color')};
+    transition: 150ms ease-in-out;
   }
 
   &:hover,
@@ -38,61 +34,38 @@ export const Wrapper = styled.div`
   &:focus-within,
   &:active {
     outline: none;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 10px -8px,
-      rgba(0, 0, 0, 0.3) 0px 0px 4px -1px;
+    ${core.edge(200)};
+    transform: scale(1.0075);
 
     svg {
-      transform: scale(1.1);
+      transform: scale(1.025);
+      background: ${tokens.iconHover};
     }
-  }
-
-  &:hover:not(:active) {
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 10px -8px,
-      rgba(0, 0, 0, 0.3) 0px 0px 4px -1px;
   }
 `;
 
-function themeStyles({
-  theme: { name, content, formats, item },
-}: Props) {
-  const borderStyle = name === 'dark' ? 'solid' : 'dashed';
-  const borderOpacity = name === 'dark' ? 0.5 : 0;
-  const borderColor =
-    name === 'dark' ? formats.primary : content.color;
+export const CirclePlus = styled(CP)`
+  margin-bottom: 0.5rem;
+  border-radius: 50%;
 
-  return css`
-    background-color: ${item.bg};
-    border: 1px dashed ${rgba(content.color, 0.2)};
+  path:first-child {
+    fill: none;
+  }
 
-    svg {
-      path {
-        fill: ${rgba(formats.soft, 0.6)};
-      }
-    }
+  path:last-child {
+    fill: ${white};
+  }
+`;
 
-    p {
-      color: ${rgba(formats.soft, 0.6)};
-    }
+export const Text = styled(T)`
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  color: ${core.color.text(0)};
+`;
 
-    &:hover,
-    &:focus,
-    &:focus-within,
-    &:active {
-      background-color: ${tint(0.05, item.bg)};
-      border: 1px ${borderStyle} ${rgba(borderColor, borderOpacity)};
-
-      path {
-        fill: ${rgba(formats.primary, 0.75)};
-      }
-
-      p {
-        color: ${rgba(formats.primary, 0.75)};
-      }
-    }
-  `;
-}
-
-export const Card = styled.div`
+export const Card = styled.div<AnchorHTMLAttributes<any>>`
+  cursor: pointer;
   position: absolute;
   top: 0;
   left: 0;
@@ -100,17 +73,35 @@ export const Card = styled.div`
   height: 100%;
   text-align: center;
   box-shadow: none;
-`;
-
-export const Anchor = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
   text-decoration: none;
+  z-index: 2;
+  background-color: ${tokens.background};
+  transition: 150ms ease-in-out;
+
+  &:hover,
+  &:focus,
+  &:focus-within,
+  &:active {
+    background-color: ${tokens.backgroundHover};
+  }
 
   &:focus {
     outline: none;
   }
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 `;
