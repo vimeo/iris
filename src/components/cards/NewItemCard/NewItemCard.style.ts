@@ -77,7 +77,6 @@ export const Card = styled.div<AnchorHTMLAttributes<any>>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
   text-decoration: none;
   z-index: 2;
   background-color: ${tokens.background};
