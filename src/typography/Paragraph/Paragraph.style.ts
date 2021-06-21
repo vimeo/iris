@@ -4,6 +4,7 @@ import { Props } from './Paragraph.types';
 
 import { Text } from '../Text/Text';
 import { IrisTheme } from '../../themes';
+import { scale } from '../scale';
 
 interface StyleProps {
   format: Props['format'] | Props['status'];
@@ -11,37 +12,27 @@ interface StyleProps {
   theme: IrisTheme;
 }
 
-function sizeStyles({ size }) {
-  return css`
-    font-size: ${fontSize[size]};
-    line-height: ${lineHeight[size]};
-    margin-bottom: ${marginBottom[size]};
-  `;
-}
-
 export const Paragraph = styled(Text)<StyleProps>`
   font-weight: 400;
   letter-spacing: 0.01rem;
-  ${sizeStyles};
+  ${sizes};
 `;
 
-const fontSize = {
-  4: '0.625rem',
-  3: '0.75rem',
-  2: '0.875rem',
-  1: '1.0rem',
-};
+function sizes({ size }) {
+  const sizeInt = parseInt(size);
+  const grade = 400 - 50 * sizeInt;
 
-const lineHeight = {
-  4: '0.75rem',
-  3: '1rem',
-  2: '1.25rem',
-  1: '1.25rem',
-};
+  const fontSize =
+    Math.round((Math.max(10, scale(grade)) / 16) * 1000) / 1000;
 
-const marginBottom = {
-  4: '0.75rem',
-  3: '1rem',
-  2: '1.25rem',
-  1: '1.5rem',
-};
+  const lineHeight =
+    Math.round((1.225 + sizeInt * 0.075) * 100) / 100;
+  const marginBottom = Math.round((1.5 - sizeInt * 0.25) * 100) / 100;
+
+  return css`
+    font-size: ${fontSize}rem;
+    font-weight: 400;
+    line-height: ${lineHeight};
+    margin-bottom: ${marginBottom}rem;
+  `;
+}

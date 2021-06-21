@@ -11,7 +11,7 @@ export default {
 
 export function Size() {
   return (
-    <Layout.StoryVertical>
+    <div>
       <Header size="plusUltra">Header Plus Ultra</Header>
       <Header size="1">Header 1</Header>
       <Header size="2">Header 2</Header>
@@ -20,7 +20,7 @@ export function Size() {
       <Header size="5">Header 5</Header>
       <Header size="6">Header 6</Header>
       <Header size="7">Header 7</Header>
-    </Layout.StoryVertical>
+    </div>
   );
 }
 
