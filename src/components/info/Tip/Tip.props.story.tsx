@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import { Tip } from './Tip';
 
@@ -6,8 +6,51 @@ import { Button } from '../../../components';
 import { Header, Paragraph } from '../../../typography';
 import { Layout } from '../../../storybook';
 import { ANCHOR_POINTS } from '../../../utils';
+import { Pop, PopOver } from '../../../layout';
+import { Eye, EyeOff, Gear } from '../../../icons';
 
-export default { title: 'Components/Info/Tip/Props', component: Tip };
+export default { title: 'Components/Info/Tip/props', component: Tip };
+
+export function Active() {
+  const [active, activeSet] = useState(false);
+
+  return (
+    <Layout.StoryVertical center>
+      <div>
+        <Tip content="I am Tip" attach="top">
+          <span style={{ display: 'inline-block' }}>
+            <PopOver content={PopList} active={active}>
+              <Button
+                onClick={() => activeSet((active) => !active)}
+                icon={active ? <EyeOff /> : <Eye />}
+              />
+            </PopOver>
+          </span>
+        </Tip>
+      </div>
+    </Layout.StoryVertical>
+  );
+}
+Active.storyName = 'active';
+
+const PopList = (
+  <>
+    <Pop.List>
+      <Pop.Header>Header</Pop.Header>
+      <Pop.Item href="#">Item 1</Pop.Item>
+      <Pop.Item href="#" selected>
+        Item 2 (Selected)
+      </Pop.Item>
+    </Pop.List>
+    <Pop.Divider />
+    <Pop.List>
+      <Pop.Item href="#">
+        <Gear />
+        Item 3
+      </Pop.Item>
+    </Pop.List>
+  </>
+);
 
 export function Attach() {
   return (
@@ -23,19 +66,7 @@ export function Attach() {
     </Layout.StoryVertical>
   );
 }
-
-export function Wrap() {
-  return (
-    <Layout.StoryVertical center>
-      <Tip
-        content="Tips with long strings passed to the `content` prop will automatically wrap."
-        attach="top"
-      >
-        <Button>Tip top</Button>
-      </Tip>
-    </Layout.StoryVertical>
-  );
-}
+Attach.storyName = 'attach';
 
 export function Variant() {
   const text =
@@ -75,6 +106,7 @@ export function Variant() {
     </Layout.StoryVertical>
   );
 }
+Variant.storyName = 'variant';
 
 export function Pill() {
   return (
@@ -90,3 +122,4 @@ export function Pill() {
     </Layout.StoryVertical>
   );
 }
+Pill.storyName = 'pill';

@@ -7,7 +7,7 @@ import { Header } from '../../../typography';
 import { Layout } from '../../../storybook';
 
 export default {
-  title: 'Components/Info/Tip/Examples',
+  title: 'Components/Info/Tip/examples',
   component: Tip,
 };
 
@@ -15,7 +15,7 @@ export function Fancy() {
   preload('http://placekitten.com/320/120');
 
   const content = (
-    <div style={{ width: '20rem', height: '14rem' }}>
+    <div style={{ width: '20rem' }}>
       <img
         alt=""
         src="http://placekitten.com/320/160"
@@ -45,3 +45,17 @@ function preload(src) {
   const image = new Image();
   image.src = src;
 }
+
+export function TextWrapping() {
+  return (
+    <Layout.StoryVertical center>
+      <Tip
+        content="Tips with long strings passed to the `content` prop will automatically wrap."
+        attach="top"
+      >
+        <Button>Tip top</Button>
+      </Tip>
+    </Layout.StoryVertical>
+  );
+}
+TextWrapping.storyName = 'text wrapping';
