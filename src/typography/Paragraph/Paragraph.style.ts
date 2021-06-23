@@ -4,11 +4,10 @@ import { Props } from './Paragraph.types';
 
 import { Text } from '../Text/Text';
 import { IrisTheme } from '../../themes';
-import { scale } from '../scale';
 
 interface StyleProps {
   format: Props['format'] | Props['status'];
-  size: Props['size'];
+  size: number;
   theme: IrisTheme;
 }
 
@@ -19,20 +18,22 @@ export const Paragraph = styled(Text)<StyleProps>`
 `;
 
 function sizes({ size }) {
-  const sizeInt = parseInt(size);
-  const grade = 400 - 50 * sizeInt;
+  const sizeInt = 4 - size / 100;
 
-  const fontSize =
-    Math.round((Math.max(10, scale(grade)) / 16) * 1000) / 1000;
-
-  const lineHeight =
-    Math.round((1.225 + sizeInt * 0.075) * 100) / 100;
-  const marginBottom = Math.round((1.5 - sizeInt * 0.25) * 100) / 100;
+  const lineHeight = calcLineHeight(sizeInt);
+  const marginBottom = calcMarginBottom(sizeInt);
 
   return css`
-    font-size: ${fontSize}rem;
     font-weight: 400;
     line-height: ${lineHeight};
     margin-bottom: ${marginBottom}rem;
   `;
+}
+
+function calcLineHeight(size) {
+  return Math.round((1.225 + size * 0.075) * 100) / 100;
+}
+
+function calcMarginBottom(size) {
+  return Math.round((1.5 - size * 0.25) * 100) / 100;
 }
