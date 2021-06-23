@@ -5,7 +5,7 @@ import { Paragraph } from './Paragraph';
 import { Layout } from '../../storybook';
 
 export default {
-  title: 'typography/Paragraph/Props',
+  title: 'typography/Paragraph/props',
   component: Paragraph,
 };
 
@@ -52,6 +52,7 @@ export function Size() {
     </Layout.StoryVertical>
   );
 }
+Size.storyname = 'size';
 
 export function Format() {
   return (
@@ -86,6 +87,7 @@ export function Format() {
     </Layout.StoryVertical>
   );
 }
+Format.storyname = 'format';
 
 export function Status() {
   return (
@@ -120,3 +122,4 @@ export function Status() {
     </Layout.StoryVertical>
   );
 }
+Status.storyname = 'status';

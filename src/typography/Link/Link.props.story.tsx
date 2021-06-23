@@ -4,7 +4,7 @@ import { Link } from './Link';
 
 import { Layout } from '../../storybook';
 
-export default { title: 'typography/Link/Props', component: Link };
+export default { title: 'typography/Link/props', component: Link };
 
 export function Format() {
   return (
@@ -17,6 +17,7 @@ export function Format() {
     </Layout.StoryVertical>
   );
 }
+Format.storyName = 'format';
 
 export function Variant() {
   return (
@@ -26,37 +27,4 @@ export function Variant() {
     </Layout.StoryVertical>
   );
 }
-
-export function Custom() {
-  return (
-    <Layout.StoryVertical defaultWidth>
-      <Link
-        css={`
-          font-weight: 800;
-        `}
-      >
-        Click me!
-      </Link>
-      <Link
-        css={`
-          font-weight: 300;
-          color: inherit;
-        `}
-      >
-        Click me!
-      </Link>
-      <Link
-        variant="minimal"
-        css={`
-          font-weight: 600;
-          color: inherit;
-          text-transform: uppercase;
-          font-size: 0.75rem;
-          letter-spacing: 0.02rem;
-        `}
-      >
-        Click me!
-      </Link>
-    </Layout.StoryVertical>
-  );
-}
+Variant.storyName = 'variant';

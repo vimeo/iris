@@ -14,11 +14,3 @@ export function Common() {
   );
 }
 Common.storyName = 'BigStat';
-
-export function ContentEditable() {
-  return (
-    <Layout.StoryVertical>
-      <BigStat contentEditable>12.2k</BigStat>
-    </Layout.StoryVertical>
-  );
-}

@@ -5,7 +5,7 @@ import { Header } from './Header';
 import { Layout } from '../../storybook';
 
 export default {
-  title: 'typography/Headers/Props',
+  title: 'typography/Headers/props',
   component: Header,
 };
 
@@ -23,6 +23,7 @@ export function Size() {
     </div>
   );
 }
+Size.storyName = 'size';
 
 export function Variant() {
   return (
@@ -51,6 +52,7 @@ export function Variant() {
     </Layout.StoryVertical>
   );
 }
+Variant.storyName = 'variant';
 
 export function Editable() {
   return (

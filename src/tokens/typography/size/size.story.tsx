@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { rem } from 'polished';
 
 import { Text } from '../../../typography';
 
@@ -11,12 +12,13 @@ export function Tokens() {
     <Canvas>
       {[...new Array(11)].map((_, key) => {
         const grade = 1000 - key * 100;
-        const size = core.typography.size(grade);
+        const unitPx = core.typography.size(grade) as number;
+        const unitRem = rem(unitPx);
 
         return (
           <Row key={key}>
             <Text style={style(grade)}>
-              typography-size-{grade} ({size}px)
+              typography-size-{grade} • {unitPx}px • {unitRem}
             </Text>
           </Row>
         );
