@@ -4,7 +4,8 @@ import { rgba, rem } from 'polished';
 
 import { base } from '../../../motion/transitions';
 import { IrisTheme } from '../../../themes';
-import { baseTextStyle } from '../../../typography';
+import { Text } from '../../../typography';
+import { core } from '../../../tokens';
 
 interface Props {
   format?: 'primary' | 'positive' | 'negative';
@@ -20,7 +21,7 @@ export const NoticeStyled = styled.div<Props>`
   margin-bottom: ${rem(16)};
   border-radius: ${(p) => (p.pill ? '2rem' : rem(3))};
   transition: all ${base};
-  color: ${(p) => p.theme.formats[p.format]};
+  color: ${core.color.text(0)};
 
   ${padding};
   ${themeStyles};
@@ -31,14 +32,11 @@ export const NoticeStyled = styled.div<Props>`
   }
 `;
 
-// TODO:
-// 1. Use typography tokens for line-height and letter-spacing.
-// 2. Review letter-spacing tokens with Design.
-export const NoticeChildren = styled.div`
-  ${baseTextStyle};
+export const NoticeChildren = styled(Text)`
   line-height: 1.25rem;
   letter-spacing: 0.01rem;
-  color: ${({ theme }) => theme.content.color};
+  color: ${core.color.text(0)};
+  color: white;
 `;
 
 function padding({ icon = null, pill = null }) {
