@@ -1,76 +1,58 @@
 import styled, { css } from 'styled-components';
-import { rem } from 'polished';
 
 import { Props } from './Header.types';
 import { antialias } from '../typography';
 import { Text } from '../Text/Text';
-import { scale } from '../scale';
 
-export const Header = styled(Text)<Props>`
-  ${variantStyles};
+type PropsStyled = Omit<Props, 'size'> & { size: number };
+
+export const Header = styled(Text)<PropsStyled>`
+  display: block;
+  color: ${(p) => p.theme.formats[p.format]};
+  font-weight: ${(p) => (p.variant === 'thin' ? 400 : 700)};
+  ${sizes};
   ${antialias};
 `;
 
-function variantStyles({
-  variant = 'normal',
-  size = '1',
-  theme,
-  format,
-}: Props) {
-  const color = theme.formats[format];
-  const sizeVariant = size === 'plusUltra' ? size : variant;
-
-  switch (sizeVariant) {
-    case 'thin':
-      return css`
-        display: block;
-        color: ${color};
-        ${sizes};
-        font-weight: 400;
-        letter-spacing: 0.03125rem;
-      `;
-    case 'plusUltra':
-      return css`
-        display: block;
-        color: ${color};
-        font-size: calc(2.25rem + 3.5vw);
-        line-height: calc(2.0625rem + 3.5125vw);
-        letter-spacing: calc(-0.125rem - 0.0025vw);
-        font-weight: 800;
-        max-width: calc(96vw - 2rem);
-        margin-bottom: calc(1.5rem + 0.875vw);
-      `;
-    default:
-      return css`
-        display: block;
-        color: ${color};
-        ${sizes};
-      `;
-  }
-}
+export const PlusUltra = styled(Text)<Props>`
+  display: block;
+  color: ${(p) => p.theme.formats[p.format]};
+  font-size: calc(2.25rem + 3.5vw);
+  line-height: calc(2.0625rem + 3.5125vw);
+  letter-spacing: calc(-0.125rem - 0.0025vw);
+  font-weight: 800;
+  max-width: calc(96vw - 2rem);
+  margin-bottom: calc(1.5rem + 0.875vw);
+`;
 
 function sizes({ size }) {
-  const sizeInt = parseInt(size);
+  const sizeInt = 8 - size / 100;
 
-  const grade = 800 - 100 * sizeInt;
-  const fontSize = rem(scale(grade));
-
-  const lineHeight =
-    Math.round((((sizeInt - 1) / 2.5) * 0.1 + 1.06) * 100) / 100;
-  const letterSpacing = Math.min(
-    Math.round((-1.2 - (sizeInt - 1) * -0.2) * 100) / 100,
-    0
-  );
-  const marginBottom = Math.max(
-    0.5,
-    Math.round((1.45 - (sizeInt - 1) / 5) * 100) / 100
-  );
+  const lineHeight = calcLineHeight(sizeInt);
+  const letterSpacing = calcLetterSpacing(sizeInt);
+  const marginBottom = calcMarginBottom(sizeInt);
 
   return css`
-    font-size: ${fontSize};
-    font-weight: 700;
     line-height: ${lineHeight};
     letter-spacing: ${letterSpacing}px;
     margin-bottom: ${marginBottom}rem;
   `;
+}
+
+function calcLineHeight(size) {
+  return Math.round((((size - 1) / 2.5) * 0.1 + 1.06) * 100) / 100;
+}
+
+function calcLetterSpacing(size) {
+  return Math.min(
+    Math.round((-1.2 - (size - 1) * -0.2) * 100) / 100,
+    0
+  );
+}
+
+function calcMarginBottom(size) {
+  return Math.max(
+    0.5,
+    Math.round((1.45 - (size - 1) / 5) * 100) / 100
+  );
 }

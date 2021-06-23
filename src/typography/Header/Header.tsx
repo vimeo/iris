@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Props } from './Header.types';
-import { Header as Styled } from './Header.style';
+import { Header as Styled, PlusUltra } from './Header.style';
 
 import { withIris } from '../../utils';
 
@@ -18,16 +18,32 @@ function HeaderComponent({
   variant = 'normal',
   ...props
 }: Props) {
-  return (
-    <Styled
-      element={element || elements(size)}
-      format={format}
-      ref={forwardRef}
-      size={size}
-      variant={variant}
-      {...props}
-    />
-  );
+  const sizeInt = parseInt(size);
+  const grade = 800 - 100 * sizeInt;
+
+  const elementDefault = elements(size);
+
+  if (size === 'plusUltra') {
+    return (
+      <PlusUltra
+        element="h1"
+        format={format}
+        ref={forwardRef}
+        {...props}
+      />
+    );
+  } else {
+    return (
+      <Styled
+        element={element || elementDefault}
+        format={format}
+        ref={forwardRef}
+        size={grade}
+        variant={variant}
+        {...props}
+      />
+    );
+  }
 }
 
 function elements(size) {
