@@ -19,7 +19,7 @@ export interface Mode {
   [key: string]: unknown;
 }
 
-export type TokenValue = string | FlattenSimpleInterpolation;
+export type TokenValue = string | number | FlattenSimpleInterpolation;
 
 export type TokenProxy = (
   grade: number
