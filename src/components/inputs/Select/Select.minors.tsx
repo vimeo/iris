@@ -32,17 +32,19 @@ function OptionNative({
 const isString = (c) => typeof c === 'string';
 const notString = (c) => typeof c !== 'string';
 
-const styleDisabled = {
-  pointerEvents: 'none',
-  opacity: 0.4,
-} as const;
-
 function OptionFaux({
   children = null,
   disabled = null,
   href = null,
   ...props
 }) {
+  const styleDisabled = disabled
+    ? ({
+        pointerEvents: 'none',
+        opacity: 0.4,
+      } as const)
+    : {};
+
   if (href) {
     const childString = children.filter(isString);
     const childNodes = children.filter(notString);
@@ -50,7 +52,7 @@ function OptionFaux({
     return (
       <a href={href}>
         <Pop.Item {...props}>
-          <span style={disabled && styleDisabled}>{childString}</span>
+          <span style={styleDisabled}>{childString}</span>
           <span style={{ pointerEvents: 'none' }}>{childNodes}</span>
         </Pop.Item>
       </a>
@@ -58,7 +60,7 @@ function OptionFaux({
   }
 
   return (
-    <Pop.Item {...props} style={disabled && styleDisabled}>
+    <Pop.Item {...props} style={styleDisabled}>
       {children}
     </Pop.Item>
   );
