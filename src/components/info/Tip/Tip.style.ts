@@ -26,7 +26,7 @@ interface Props {
 }
 
 export const Tip = styled.div<Props>`
-  max-width: ${maxWidth}rem;
+  max-width: ${maxWidth}rem !important;
   animation: ${fadeIn} 120ms ease-in-out;
   will-change: transform;
 
@@ -66,7 +66,7 @@ function variants({ theme, $wrap, variant = 'simple' }) {
       `;
     case 'speech-bubble':
       return css`
-        max-width: ${maxWidth * 1.25}rem;
+        max-width: ${maxWidth * 1.25}rem !important;
         padding: 1.5rem;
         background: ${theme.content.background};
         box-shadow: rgba(0, 0, 0, 0.1) 0 0 0.5rem -0.25rem,
