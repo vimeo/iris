@@ -21,8 +21,6 @@ export function colorSpaces(payload) {
   const HSV = roundValues(HSLtoHSV(payload));
   const HEX = SixDigitHEX(hsl(payload).toUpperCase());
   const RGB = RGBObject(payload);
-  // const HSL = payload.hue ? payload : parseToHsl(payload);
-  // console.log({ HSL });
 
   return { HSV, HEX, RGB, HSL: payload };
 }

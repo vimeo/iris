@@ -9,6 +9,7 @@ import {
   yellow,
   green,
   blue,
+  purple,
   slate,
   grayscale,
   white,
@@ -34,6 +35,9 @@ export function All() {
 
       <Header size="3">Blue</Header>
       <ColorPalette color={blue} />
+
+      <Header size="3">Purple</Header>
+      <ColorPalette color={purple} />
 
       <Header size="3">Slate</Header>
       <ColorPalette color={slate} />
@@ -120,196 +124,62 @@ function ColorStory(colorName, colorFn) {
   );
 }
 
-const LEGACY_COLORS = {
-  VimeoBlue: '#00adef',
-  VimeoBlueDarkened: '#0088cc',
-  VimeoBlueLightened: '#36C5FC',
-  DarkerBlue: '#093AC9',
-  Foam: '#e5f7fd',
-  Pistachio: '#4EC437',
-  PistachioDarkened: '#398F29',
-  PistachioLightened: '#7ED46C',
-  RumSwizzle: '#f2f9e5',
-  SunsetOrange: '#ff4d4d',
-  SunsetOrangeDarkened: '#d93636',
-  PalePink: '#ffeded',
-  AstroGranite: '#1a2e3b',
-  RegentGray: '#8498A4',
-  SoutherlySky: '#b3bfc8',
-  Porcelain: '#e3e8e9',
-  Plaster: '#eef1f2',
-  Paste: '#f6f7f8',
-  White: '#fff',
-  WarningYellow: '#ffb21e',
-  DarkDark: '#2E2E2E',
-  Black: '#000',
-  RavenImperial: '#1f1f1f',
-  ObsidianSlate: '#2e2e2e',
-  SovereignShadow: '#404040',
-  AshenWinter: '#4b4b4b',
-  IronHeart: '#666',
-};
-
-const REDS = ['PalePink', 'SunsetOrange', 'SunsetOrangeDarkened'];
-const YELLOWS = ['WarningYellow'];
-const BLUES = [
-  'Foam',
-  'VimeoBlueLightened',
-  'VimeoBlue',
-  'VimeoBlueDarkened',
-];
-const GREENS = [
-  'RumSwizzle',
-  'PistachioLightened',
-  'Pistachio',
-  'PistachioDarkened',
-];
-const SLATES = [
-  'Paste',
-  'Porcelain',
-  'SoutherlySky',
-  'RegentGray',
-  'AstroGranite',
-];
-const GRAYSCALE = [
-  'Plaster',
-  'IronHeart',
-  'AshenWinter',
-  'SovereignShadow',
-  'ObsidianSlate',
-  'RavenImperial',
-];
-
-function ColorCompare({
-  prior,
-  current,
-  title,
-  weights = [50, 500, 600],
-}) {
-  return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}>
-      <Header>{title}</Header>
-      <div style={{ display: 'flex', width: '100%' }}>
-        {prior.map((colorName, i) => (
-          <ColorBlock
-            colorName={colorName}
-            colorHex={LEGACY_COLORS[colorName]}
-            width="calc(10rem + 3vw)"
-            height="calc(10rem + 3vw)"
-            key={i}
-          />
-        ))}
-      </div>
-      <div style={{ display: 'flex', width: '100%' }}>
-        {weights.map((weight, i) => (
-          <ColorBlock
-            colorName={weight}
-            colorHex={current(weight)}
-            width="calc(10rem + 3vw)"
-            height="calc(10rem + 3vw)"
-            key={i}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-export function Index() {
-  return (
-    <Story title="Compare legacy colors" width="100%" flex>
-      <ColorCompare prior={REDS} current={red} title="red" />
-      <ColorCompare
-        prior={YELLOWS}
-        current={yellow}
-        weights={[500]}
-        title="yellow"
-      />
-      <ColorCompare
-        prior={GREENS}
-        current={green}
-        weights={[50, 400, 500, 600]}
-        title="green"
-      />
-      <ColorCompare
-        prior={BLUES}
-        current={blue}
-        weights={[50, 400, 500, 600]}
-        title="blue"
-      />
-      <ColorCompare
-        prior={SLATES}
-        current={slate}
-        weights={[50, 100, 200, 500, 800]}
-        title="slate"
-      />
-      <ColorCompare
-        prior={GRAYSCALE}
-        current={grayscale}
-        weights={[50, 500, 650, 700, 800, 850]}
-        title="grayscale"
-      />
-    </Story>
-  );
-}
-
-const ColorPalette: SFC<any> = ({
+function ColorPalette({
   color,
   baseHue = 0,
   baseSaturate = 0.1,
   ...props
-}) => (
-  <div
-    style={{
-      width: '100%',
-      padding: '1rem 1rem 0 1rem',
-    }}
-  >
-    {[8, 6, 5, 4, 2, 0.5].map((num, i) => {
-      return (
-        <ColorSwatch
-          color={color(num * 100)}
-          title={num * 100}
-          key={i}
-        />
-      );
-    })}
-    {/* <ColorSwatch color="transparent" title="" />
-    {titles.map((title, i) => {
-      return (
-        <ColorSwatch color={color[title]} title={title} key={i} />
-      );
-    })} */}
-  </div>
-);
+}) {
+  return (
+    <div
+      style={{
+        width: '100%',
+        padding: '1rem 0 0 0',
+      }}
+    >
+      {[9, 8, 7, 6, 5, 4, 3, 2, 1, 0.5].map((num, i) => {
+        return (
+          <ColorSwatch
+            color={color(num * 100)}
+            title={num * 100}
+            key={i}
+          />
+        );
+      })}
+    </div>
+  );
+}
 
-const titles = [
-  'pressed',
-  'selected',
-  'base',
-  'focus',
-  'hover',
-  'disabled',
-];
+// const titles = [
+//   'pressed',
+//   'selected',
+//   'base',
+//   'focus',
+//   'hover',
+//   'disabled',
+// ];
 
-const ColorSwatch = ({ color, title = color, ...props }: any) => (
-  <div
-    style={{
-      display: 'inline-block',
-      overflow: 'hidden',
-    }}
-    {...props}
-  >
-    <ColorSwatchStyled color={color} />
-    <Header size="5">{title}</Header>
-  </div>
-);
+const ColorSwatch = ({ color, title = color, ...props }: any) => {
+  console.log({ color }, { title });
+  return (
+    <div
+      style={{
+        display: 'inline-block',
+        overflow: 'hidden',
+      }}
+      {...props}
+    >
+      <ColorSwatchStyled color={color} />
+      <Header size="5">{title}</Header>
+    </div>
+  );
+};
 
 const ColorSwatchStyled = styled.div`
-  width: calc(3rem + 1.5vw);
-  height: calc(3rem + 1.5vw);
+  width: calc(3.5rem + 1.5vw);
+  height: calc(3.5rem + 1.5vw);
   background: ${({ color }) => color};
-  margin-right: 0.25rem;
+  margin-right: 0.125rem;
 `;
 
 const ColorBlock: SFC<any> = ({
@@ -369,7 +239,6 @@ const ColorBlockStyled = styled.div<any>`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* font-smoothing: antialiased; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
