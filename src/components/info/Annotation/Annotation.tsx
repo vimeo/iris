@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import { Annotation as Styled } from './Annotation.style';
 
@@ -20,7 +20,7 @@ export type Props = IrisProps<
      *
      * This portal tooltip will appear to the top of the anchor.
      */
-    content?: string;
+    content?: ReactNode;
     /**
      * Position where tooltip appears.
      *
