@@ -52,7 +52,7 @@ export function Size() {
     </Layout.StoryVertical>
   );
 }
-Size.storyname = 'size';
+Size.storyName = 'size';
 
 export function Format() {
   return (
@@ -87,7 +87,7 @@ export function Format() {
     </Layout.StoryVertical>
   );
 }
-Format.storyname = 'format';
+Format.storyName = 'format';
 
 export function Status() {
   return (
@@ -122,4 +122,4 @@ export function Status() {
     </Layout.StoryVertical>
   );
 }
-Status.storyname = 'status';
+Status.storyName = 'status';

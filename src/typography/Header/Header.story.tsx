@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 import { Header } from './Header';
 import { Props } from './Header.types';
 
-export default { title: 'typography/Headers', component: Header };
+export default { title: 'typography/Header', component: Header };
 
 const Template: Story<Props> = (args) => {
   return <Header {...args}>Header</Header>;

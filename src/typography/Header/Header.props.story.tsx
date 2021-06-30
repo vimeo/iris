@@ -1,11 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { Header } from './Header';
 
 import { Layout } from '../../storybook';
 
 export default {
-  title: 'typography/Headers/props',
+  title: 'typography/Header/props',
   component: Header,
 };
 
@@ -57,39 +58,53 @@ Variant.storyName = 'variant';
 export function Editable() {
   return (
     <Layout.StoryVertical>
-      <Header
-        size="plusUltra"
-        placeholder="Edit me!"
-        contentEditable
-        onFocus={(e) => console.log(e)}
-      >
-        Editable Header plusUltra
-      </Header>
-      <Header
-        size="1"
-        placeholder="Edit me!"
-        contentEditable
-        onFocus={(e) => console.log(e)}
-      >
-        Editable Header 1
-      </Header>
-      <Header
-        size="3"
-        placeholder="Edit me!"
-        contentEditable
-        onFocus={(e) => console.log(e)}
-      >
-        Editable Header 3
-      </Header>
-      <Header
-        size="6"
-        placeholder="Edit me!"
-        contentEditable
-        onFocus={(e) => console.log(e)}
-      >
-        Editable Header 6
-      </Header>
+      <Row>
+        <Header
+          size="plusUltra"
+          placeholder="Edit me!"
+          contentEditable
+          onFocus={(e) => console.log(e)}
+        >
+          Editable Header plusUltra
+        </Header>
+      </Row>
+      <Row>
+        <Header
+          size="1"
+          placeholder="Edit me!"
+          contentEditable
+          onFocus={(e) => console.log(e)}
+        >
+          Editable Header 1
+        </Header>
+      </Row>
+      <Row>
+        <Header
+          size="3"
+          placeholder="Edit me!"
+          contentEditable
+          onFocus={(e) => console.log(e)}
+        >
+          Editable Header 3
+        </Header>
+      </Row>
+      <Row>
+        <Header
+          size="6"
+          placeholder="Edit me!"
+          contentEditable
+          onFocus={(e) => console.log(e)}
+        >
+          Editable Header 6
+        </Header>
+      </Row>
     </Layout.StoryVertical>
   );
 }
 Editable.storyName = 'contentEditable';
+
+const Row = styled.div`
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+`;
