@@ -6,8 +6,6 @@ import { Button } from '../../../components';
 import { Header, Paragraph } from '../../../typography';
 import { Layout } from '../../../storybook';
 import { ANCHOR_POINTS } from '../../../utils';
-import { Pop, PopOver } from '../../../layout';
-import { Eye, EyeOff, Gear } from '../../../icons';
 
 export default { title: 'Components/Info/Tip/props', component: Tip };
 
@@ -16,41 +14,20 @@ export function Active() {
 
   return (
     <Layout.StoryVertical center>
-      <div>
-        <Tip content="I am Tip" attach="top">
-          <span style={{ display: 'inline-block' }}>
-            <PopOver content={PopList} active={active}>
-              <Button
-                onClick={() => activeSet((active) => !active)}
-                icon={active ? <EyeOff /> : <Eye />}
-              />
-            </PopOver>
-          </span>
+      <div style={{ textAlign: 'center' }}>
+        <Tip content="I am Tip" attach="top" active={active}>
+          <Button
+            onClick={() => activeSet((active) => !active)}
+            fluid
+          >
+            Toggle Tip
+          </Button>
         </Tip>
       </div>
     </Layout.StoryVertical>
   );
 }
 Active.storyName = 'active';
-
-const PopList = (
-  <>
-    <Pop.List>
-      <Pop.Header>Header</Pop.Header>
-      <Pop.Item href="#">Item 1</Pop.Item>
-      <Pop.Item href="#" selected>
-        Item 2 (Selected)
-      </Pop.Item>
-    </Pop.List>
-    <Pop.Divider />
-    <Pop.List>
-      <Pop.Item href="#">
-        <Gear />
-        Item 3
-      </Pop.Item>
-    </Pop.List>
-  </>
-);
 
 export function Attach() {
   return (
@@ -67,6 +44,24 @@ export function Attach() {
   );
 }
 Attach.storyName = 'attach';
+
+export function Trigger() {
+  return (
+    <Layout.StoryVertical center>
+      <div>
+        <Tip content="I am Tip" attach="top" trigger="hover">
+          <Button fluid style={{ marginBottom: '2rem' }}>
+            Hover Tip
+          </Button>
+        </Tip>
+        <Tip content="I am Tip" attach="top" trigger="click">
+          <Button fluid>Click Tip</Button>
+        </Tip>
+      </div>
+    </Layout.StoryVertical>
+  );
+}
+Trigger.storyName = 'trigger';
 
 export function Variant() {
   const text =
