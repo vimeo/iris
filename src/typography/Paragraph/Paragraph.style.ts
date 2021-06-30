@@ -7,41 +7,33 @@ import { IrisTheme } from '../../themes';
 
 interface StyleProps {
   format: Props['format'] | Props['status'];
-  size: Props['size'];
+  size: number;
   theme: IrisTheme;
-}
-
-function sizeStyles({ size }) {
-  return css`
-    font-size: ${fontSize[size]};
-    line-height: ${lineHeight[size]};
-    margin-bottom: ${marginBottom[size]};
-  `;
 }
 
 export const Paragraph = styled(Text)<StyleProps>`
   font-weight: 400;
   letter-spacing: 0.01rem;
-  ${sizeStyles};
+  ${sizes};
 `;
 
-const fontSize = {
-  4: '0.625rem',
-  3: '0.75rem',
-  2: '0.875rem',
-  1: '1.0rem',
-};
+function sizes({ size }) {
+  const sizeInt = 4 - size / 100;
 
-const lineHeight = {
-  4: '0.75rem',
-  3: '1rem',
-  2: '1.25rem',
-  1: '1.25rem',
-};
+  const lineHeight = calcLineHeight(sizeInt);
+  const marginBottom = calcMarginBottom(sizeInt);
 
-const marginBottom = {
-  4: '0.75rem',
-  3: '1rem',
-  2: '1.25rem',
-  1: '1.5rem',
-};
+  return css`
+    font-weight: 400;
+    line-height: ${lineHeight};
+    margin-bottom: ${marginBottom}rem;
+  `;
+}
+
+function calcLineHeight(size) {
+  return Math.round((1.225 + size * 0.075) * 100) / 100;
+}
+
+function calcMarginBottom(size) {
+  return Math.round((1.5 - size * 0.25) * 100) / 100;
+}

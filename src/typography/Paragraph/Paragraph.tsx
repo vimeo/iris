@@ -17,12 +17,15 @@ function ParagraphComponent({
   format = 'basic',
   ...props
 }: Props) {
+  const sizeInt = typeof size === 'number' ? size : parseInt(size);
+  const grade = 400 - 100 * sizeInt;
+
   return (
     <Styled
       element={element}
       format={format}
       ref={forwardRef}
-      size={size}
+      size={grade}
       {...props}
     />
   );

@@ -1,9 +1,10 @@
 import React, { ReactNode, forwardRef, Ref } from 'react';
 import styled, { css } from 'styled-components';
 
-import { Header, Paragraph } from '../../../typography';
+import { Text, Paragraph } from '../../../typography';
 import { IrisInputProps, IrisProps } from '../../../utils';
 import { Statuses } from '../../../themes';
+import { core } from '../../../tokens';
 
 interface Props {
   floating?: boolean;
@@ -57,7 +58,7 @@ export const Wrapper = forwardRef(function (
         <Label
           floating={floating}
           active={active}
-          size="6"
+          size={200}
           htmlFor={id}
           disabled={disabled}
         >
@@ -78,13 +79,15 @@ export const Wrapper = forwardRef(function (
   );
 });
 
-const Label = styled(Header).attrs({ element: 'label' })<{
+const Label = styled(Text).attrs({ element: 'label' })<{
   active?: boolean;
   floating?: boolean;
   htmlFor?: string;
 }>`
   transition: 120ms ease-in-out;
   cursor: ${(p) => (p.disabled ? 'not-allowed' : 'pointer')};
+  color: ${core.color.text(600)};
+  font-weight: 400;
 
   ${(p) =>
     p.floating &&
@@ -95,7 +98,7 @@ const Label = styled(Header).attrs({ element: 'label' })<{
       position: absolute;
       z-index: 1;
       top: 1rem;
-      left: 0.5rem;
+      left: 0.75rem;
     `};
 
   ${(p) =>
@@ -104,7 +107,7 @@ const Label = styled(Header).attrs({ element: 'label' })<{
     css`
       position: absolute;
       z-index: 1;
-      top: 0.125rem;
+      top: 0.25rem;
       left: 0.5rem;
     `};
 `;

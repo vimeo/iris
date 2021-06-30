@@ -9,6 +9,9 @@ export default {
   component: Paragraph,
   argTypes: {
     contentEditable: { control: { disable: true } },
+    size: {
+      control: { type: 'radio', options: [1, 2, 3, 4] },
+    },
   },
 };
 
@@ -20,4 +23,7 @@ const Template: Story<Props> = (args) => {
   );
 };
 export const Controls = Template.bind({});
+Controls.args = {
+  size: 1,
+};
 Controls.storyName = 'Paragraph';

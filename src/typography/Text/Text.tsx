@@ -15,11 +15,12 @@ function TextComponent({
   contentEditable,
   element = 'span',
   format = 'soft',
+  size = 300,
   ...props
 }: Props) {
   return contentEditable ? (
-    <EditableText format={format} {...props} />
+    <EditableText format={format} size={size} {...props} />
   ) : (
-    <Styled as={element} format={format} {...props} />
+    <Styled as={element} format={format} size={size} {...props} />
   );
 }

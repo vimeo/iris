@@ -1,17 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { Header } from './Header';
 
 import { Layout } from '../../storybook';
 
 export default {
-  title: 'typography/Headers/Props',
+  title: 'typography/Header/props',
   component: Header,
 };
 
 export function Size() {
   return (
-    <Layout.StoryVertical>
+    <div>
       <Header size="plusUltra">Header Plus Ultra</Header>
       <Header size="1">Header 1</Header>
       <Header size="2">Header 2</Header>
@@ -20,9 +21,10 @@ export function Size() {
       <Header size="5">Header 5</Header>
       <Header size="6">Header 6</Header>
       <Header size="7">Header 7</Header>
-    </Layout.StoryVertical>
+    </div>
   );
 }
+Size.storyName = 'size';
 
 export function Variant() {
   return (
@@ -51,43 +53,58 @@ export function Variant() {
     </Layout.StoryVertical>
   );
 }
+Variant.storyName = 'variant';
 
 export function Editable() {
   return (
     <Layout.StoryVertical>
-      <Header
-        size="plusUltra"
-        placeholder="Edit me!"
-        contentEditable
-        onFocus={(e) => console.log(e)}
-      >
-        Editable Header plusUltra
-      </Header>
-      <Header
-        size="1"
-        placeholder="Edit me!"
-        contentEditable
-        onFocus={(e) => console.log(e)}
-      >
-        Editable Header 1
-      </Header>
-      <Header
-        size="3"
-        placeholder="Edit me!"
-        contentEditable
-        onFocus={(e) => console.log(e)}
-      >
-        Editable Header 3
-      </Header>
-      <Header
-        size="6"
-        placeholder="Edit me!"
-        contentEditable
-        onFocus={(e) => console.log(e)}
-      >
-        Editable Header 6
-      </Header>
+      <Row>
+        <Header
+          size="plusUltra"
+          placeholder="Edit me!"
+          contentEditable
+          onFocus={(e) => console.log(e)}
+        >
+          Editable Header plusUltra
+        </Header>
+      </Row>
+      <Row>
+        <Header
+          size="1"
+          placeholder="Edit me!"
+          contentEditable
+          onFocus={(e) => console.log(e)}
+        >
+          Editable Header 1
+        </Header>
+      </Row>
+      <Row>
+        <Header
+          size="3"
+          placeholder="Edit me!"
+          contentEditable
+          onFocus={(e) => console.log(e)}
+        >
+          Editable Header 3
+        </Header>
+      </Row>
+      <Row>
+        <Header
+          size="6"
+          placeholder="Edit me!"
+          contentEditable
+          onFocus={(e) => console.log(e)}
+        >
+          Editable Header 6
+        </Header>
+      </Row>
     </Layout.StoryVertical>
   );
 }
 Editable.storyName = 'contentEditable';
+
+const Row = styled.div`
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+`;

@@ -1,24 +1,25 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { rem } from 'polished';
 
 import { HTMLTextElement } from './Text.types';
 
 import { antialias } from '../typography';
 import { Statuses, Formats } from '../../themes';
-
-export const baseTextStyle = css`
-  font: 400 0.875rem / 1.375rem ${fontFamily};
-  letter-spacing: 0.0125rem;
-  color: ${color};
-  ${antialias};
-`;
+import { core } from '../../tokens';
 
 export const Text = styled.span<{
   format?: Formats;
   status?: Statuses;
   element?: HTMLTextElement;
+  size?: number;
 }>`
   display: inline;
-  ${baseTextStyle};
+  font-size: ${(p) => rem(core.typography.size(p.size) as number)};
+  letter-spacing: 0.0125rem;
+  line-height: 1.25;
+  border: 0;
+  color: ${color};
+  ${antialias};
 `;
 
 export const Input = styled.input`
@@ -31,7 +32,11 @@ export const Input = styled.input`
   margin: 0;
   outline: 0;
   border: 0;
-  ${baseTextStyle};
+  letter-spacing: 0.0125rem;
+  line-height: 1.25;
+  font-size: ${(p) => rem(core.typography.size(p.size) as number)};
+  color: ${color};
+  ${antialias};
 `;
 
 export function fontFamily({ theme }) {

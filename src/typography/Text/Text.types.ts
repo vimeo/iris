@@ -16,6 +16,7 @@ export interface CommonProps {
   format?: Formats;
   placeholder?: string;
   status?: Statuses;
+  size?: number;
 }
 
 export type InputProps = IrisInputProps<CommonProps, IrisTextElement>;
