@@ -101,6 +101,10 @@ export const GlobalStyles = createGlobalStyle<{ theme: IrisTheme }>`
     padding: 0;
   }
 
+  input {
+    font-family: ${vimeoFont};
+  }
+
   button {
     background: transparent;
     border-color: transparent;

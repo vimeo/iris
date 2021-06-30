@@ -17,6 +17,8 @@ export const Text = styled.span<{
   font-size: ${(p) => rem(core.typography.size(p.size) as number)};
   letter-spacing: 0.0125rem;
   line-height: 1.25;
+  border: 0;
+  color: ${color};
   ${antialias};
 `;
 
@@ -31,6 +33,7 @@ export const Input = styled.input`
   outline: 0;
   border: 0;
   letter-spacing: 0.0125rem;
+  line-height: 1.25;
   font-size: ${(p) => rem(core.typography.size(p.size) as number)};
   color: ${color};
   ${antialias};

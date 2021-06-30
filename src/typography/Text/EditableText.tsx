@@ -3,18 +3,20 @@ import React, { useRef, useEffect, useReducer } from 'react';
 import { InputProps, Props } from './Text.types';
 import { Text as Styled, Input } from './Text.style';
 
-import { geometry, Focus } from '../../utils';
+import { geometry, Focus, useLayoutStyles } from '../../utils';
 
 export function EditableText({
   children,
   className,
+  element = 'span',
+  format = 'soft',
   onBlur,
   onChange,
   onFocus,
   onKeyUp,
   placeholder,
-  element = 'span',
-  format = 'soft',
+  size,
+  style,
   ...props
 }: InputProps) {
   const [state, dispatch] = useReducer(reducer, {
@@ -27,6 +29,8 @@ export function EditableText({
 
   const textRef = useRef(null);
   const inputRef = useRef(null);
+
+  const [layoutStyles, displayStyles] = useLayoutStyles(style);
 
   useEffect(() => {
     const { width: payload } = geometry(textRef.current);
@@ -56,7 +60,14 @@ export function EditableText({
   }
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div
+      style={{
+        position: 'relative',
+        display: 'inline-block',
+        ...layoutStyles,
+      }}
+      className={className}
+    >
       <Styled
         as={element}
         children={text.length > 0 ? text : placeholder}
@@ -64,20 +75,32 @@ export function EditableText({
         format={format}
         onClick={doFocus}
         ref={textRef}
+        size={size}
         {...(props as Props)}
-        style={{ opacity: focus ? 0 : 1 }}
+        style={{
+          ...displayStyles,
+          opacity: focus ? 0 : 1,
+          margin: 0,
+        }}
       />
-      <br />
       <Input
         className={className}
         defaultValue={text}
+        format={format}
         onBlur={doBlur}
         onChange={doChange}
         onFocus={doFocus}
         onKeyUp={doKeyUp}
         ref={inputRef}
+        size={size}
         type="text"
-        style={{ width, opacity: focus ? 1 : 0 }}
+        {...(props as Props)}
+        style={{
+          ...displayStyles,
+          width,
+          opacity: focus ? 1 : 0,
+          margin: 0,
+        }}
       />
       <Focus parent={Input} />
     </div>
