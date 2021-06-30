@@ -48,11 +48,7 @@ export function ColorStory(colorName, colorFn) {
   );
 }
 
-export function ColorPalette({
-  color,
-  baseHue = 0,
-  baseSaturate = 0.1,
-}) {
+export function ColorPalette({ color }) {
   return (
     <div
       style={{
