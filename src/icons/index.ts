@@ -125,7 +125,6 @@ export { Pencil } from './ui/Pencil';
 export { Person } from './ui/Person';
 export { PersonFilled } from './ui/PersonFilled';
 export { Pin } from './ui/Pin';
-export { PinAlt } from './ui/PinAlt';
 export { Play } from './ui/Play';
 export { PlayFilled } from './ui/PlayFilled';
 export { Plus } from './ui/Plus';

@@ -81,7 +81,6 @@ export { Pencil } from './Pencil';
 export { Person } from './Person';
 export { PersonFilled } from './PersonFilled';
 export { Pin } from './Pin';
-export { PinAlt } from './PinAlt';
 export { Play } from './Play';
 export { PlayFilled } from './PlayFilled';
 export { Plus } from './Plus';
