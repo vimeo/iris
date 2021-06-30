@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import { Tip } from './Tip';
 
@@ -7,7 +7,27 @@ import { Header, Paragraph } from '../../../typography';
 import { Layout } from '../../../storybook';
 import { ANCHOR_POINTS } from '../../../utils';
 
-export default { title: 'Components/Info/Tip/Props', component: Tip };
+export default { title: 'Components/Info/Tip/props', component: Tip };
+
+export function Active() {
+  const [active, activeSet] = useState(false);
+
+  return (
+    <Layout.StoryVertical center>
+      <div style={{ textAlign: 'center' }}>
+        <Tip content="I am Tip" attach="top" active={active}>
+          <Button
+            onClick={() => activeSet((active) => !active)}
+            fluid
+          >
+            Toggle Tip
+          </Button>
+        </Tip>
+      </div>
+    </Layout.StoryVertical>
+  );
+}
+Active.storyName = 'active';
 
 export function Attach() {
   return (
@@ -23,19 +43,25 @@ export function Attach() {
     </Layout.StoryVertical>
   );
 }
+Attach.storyName = 'attach';
 
-export function Wrap() {
+export function Trigger() {
   return (
     <Layout.StoryVertical center>
-      <Tip
-        content="Tips with long strings passed to the `content` prop will automatically wrap."
-        attach="top"
-      >
-        <Button>Tip top</Button>
-      </Tip>
+      <div>
+        <Tip content="I am Tip" attach="top" trigger="hover">
+          <Button fluid style={{ marginBottom: '2rem' }}>
+            Hover Tip
+          </Button>
+        </Tip>
+        <Tip content="I am Tip" attach="top" trigger="click">
+          <Button fluid>Click Tip</Button>
+        </Tip>
+      </div>
     </Layout.StoryVertical>
   );
 }
+Trigger.storyName = 'trigger';
 
 export function Variant() {
   const text =
@@ -75,6 +101,7 @@ export function Variant() {
     </Layout.StoryVertical>
   );
 }
+Variant.storyName = 'variant';
 
 export function Pill() {
   return (
@@ -90,3 +117,4 @@ export function Pill() {
     </Layout.StoryVertical>
   );
 }
+Pill.storyName = 'pill';

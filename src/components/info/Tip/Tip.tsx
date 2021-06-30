@@ -24,6 +24,7 @@ const error =
   'usePortal components require children to accept refs! Please pass correct children to <Tip />!';
 
 function TipComponent({
+  active,
   attach = 'top',
   content,
   children,
@@ -44,7 +45,7 @@ function TipComponent({
       {...props}
       children={tipContent}
     />,
-    { attach, animation, margin, trigger }
+    { attach, animation, forceActive: active, margin, trigger }
   );
 
   const validity = validate(children as any);

@@ -4,6 +4,11 @@ import { IrisProps, Attach, AttachAlias } from '../../../utils';
 
 export type Props = IrisProps<{
   /**
+   * The tip's open/close state can be controlled with this prop.
+   * If not defined, it will use the internal state.
+   */
+  active?: boolean;
+  /**
    * Position where tooltip appears.
    * Can be a string or a set of coordinates, such as [[0,0], [100,100]].
    *
