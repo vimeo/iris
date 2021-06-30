@@ -13,7 +13,7 @@ import {
 import { DownloadArrow, Plus, UploadCloud } from '../../../icons';
 
 export default {
-  title: 'Components/Buttons/Button/Props',
+  title: 'Components/Buttons/Button/props',
 };
 
 const Button = styled(B)`
@@ -21,17 +21,15 @@ const Button = styled(B)`
   margin: 0 1rem 1rem 0;
 `;
 
-export function Common() {
-  return <Button>Button</Button>;
-}
-
 export function Disabled() {
   return <Button disabled>Button</Button>;
 }
+Disabled.storyName = 'disabled';
 
 export function Pill() {
   return <Button pill>Button</Button>;
 }
+Pill.storyName = 'pill';
 
 export function Element() {
   return (
@@ -46,24 +44,28 @@ export function Element() {
     </Button>
   );
 }
+Element.storyName = 'element';
 
 export function Format() {
   return formats.map((format, i) => (
     <Button key={i} format={format} children={format} />
   ));
 }
+Format.storyName = 'format';
 
 export function Variant() {
   return variants.map((variant, i) => (
     <Button key={i} variant={variant} children={variant} />
   ));
 }
+Variant.storyName = 'variant';
 
 export function Status() {
   return statuses.map((status, i) => (
     <Button key={i} status={status} children={status} />
   ));
 }
+Status.storyName = 'status';
 
 export function Size() {
   const style = { display: 'inline-flex' };
@@ -80,15 +82,17 @@ export function Size() {
     </div>
   ));
 }
+Size.storyName = 'size';
 
 export function Icon() {
   return <Button icon={<DownloadArrow />} />;
 }
+Icon.storyName = 'icon';
 
 export function IconPill() {
   return <Button icon={<Plus />} pill />;
 }
-IconPill.storyName = 'Icon (Pill)';
+IconPill.storyName = 'icon, pill';
 
 export function IconPosition() {
   return iconPositions.map((position, i) => (
@@ -97,14 +101,17 @@ export function IconPosition() {
     </Button>
   ));
 }
+IconPosition.storyName = 'iconPosition';
 
 export function Floating() {
   return <Button floating>Floating Button</Button>;
 }
+Floating.storyName = 'floating';
 
 export function Fluid() {
   return <Button fluid>Fluid Button</Button>;
 }
+Fluid.storyName = 'fluid';
 
 export function FluidVaried() {
   return (
@@ -140,7 +147,7 @@ export function FluidVaried() {
     </>
   );
 }
-FluidVaried.storyName = 'Fluid (Queried)';
+FluidVaried.storyName = 'fluid (queried)';
 
 export const Loading = () => <LoadingStory />;
 function LoadingStory() {
@@ -153,10 +160,12 @@ function LoadingStory() {
     </Button>
   );
 }
+Loading.storyName = 'loading';
 
 export const Overflow = () => {
   return <Button overflow>Button</Button>;
 };
+Overflow.storyName = 'overflow';
 
 export const CustomColor = () => {
   return (
@@ -197,3 +206,4 @@ export const CustomColor = () => {
     </div>
   );
 };
+CustomColor.storyName = 'color';
