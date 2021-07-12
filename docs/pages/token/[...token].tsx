@@ -67,3 +67,21 @@ function findTokenData(tokenName) {
       return false;
   }
 }
+
+// const tokens = [
+//   [
+//     ['core', 'color', 'blue'],
+//     ['core', 'color', 'blue', '500'],
+//   ],
+// ];
+
+// export async function getStaticPaths() {
+//   const paths = tokens.map((token) => ({
+//     params: { token },
+//   }));
+
+//   return { paths, fallback: false };
+// }
+
+// export async function getStaticProps({ params }) {
+// }
