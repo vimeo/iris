@@ -6,11 +6,11 @@ import { blue } from '@vimeo/iris/color';
 
 import { Page } from '../../src/pages/Page';
 
-export default function Token() {
+export default function Token({ themeSet, ...props }) {
   const router = useRouter();
   const { token } = router.query;
 
-  const tokenName = token?.join('-') || null;
+  const tokenName = (token as string[])?.join('-') || null;
 
   const tokenData = useToken(tokenName);
   console.log(tokenData);
@@ -24,7 +24,7 @@ export default function Token() {
   }
 
   return (
-    <Page>
+    <Page themeSet={themeSet}>
       <div
         css={`
           padding: 2rem;

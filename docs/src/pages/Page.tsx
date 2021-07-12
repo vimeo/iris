@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { Button } from '@vimeo/iris/components';
 import { LightDark, Search } from '@vimeo/iris/icons';
 import { themes } from '@vimeo/iris/themes';
@@ -19,11 +21,17 @@ export function Page({ themeSet, children, ...props }) {
             margin: 0;
           `}
         >
-          <a href="/">vimeo.design</a>
+          <Link href="/">
+            <a>vimeo.design</a>
+          </Link>
         </h1>
         <span>Principles</span>
-        <a href="/tokens">Tokens</a>
-        <a href="/components">Components</a>
+        <Link href="/tokens">
+          <a>Tokens</a>
+        </Link>
+        <Link href="/components">
+          <a>Components</a>
+        </Link>
         <span>Patterns</span>
         <span>Content</span>
         <span>Resources</span>
