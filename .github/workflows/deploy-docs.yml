@@ -16,7 +16,7 @@ jobs:
           node-version: 12
 
       - run: cd docs; yarn --frozen-lockfile
-      - run: yarn export
+      - run: cd docs; yarn export
 
       - name: Deploy Docs
         uses: peaceiris/actions-gh-pages@v3
