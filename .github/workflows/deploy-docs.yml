@@ -1,0 +1,27 @@
+name: Deploy Docs
+
+on:
+  push:
+    branches-ignore:
+      - 'docs'
+
+jobs:
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+
+      - run: cd docs; yarn --frozen-lockfile
+      - run: yarn export
+
+      - name: Deploy Docs
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: docs
+          publish_dir: ./docs/out
+          destination_dir: ./beta
