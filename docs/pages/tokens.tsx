@@ -34,7 +34,7 @@ export default function Tokens({ themeSet, ...props }) {
           gap: 2rem;
           grid-template-columns: 1fr 1fr 1fr 1fr;
           grid-template-rows: auto;
-          max-width: 70rem;
+          max-width: var(--layout-site-width);
           margin: 1rem auto;
         `}
       >

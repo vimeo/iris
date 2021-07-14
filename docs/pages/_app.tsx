@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import { themes } from '@vimeo/iris/themes';
-import { GlobalStyles } from '@vimeo/iris/utils';
+import { GlobalStyles as GlobalStylesIris } from '@vimeo/iris/utils';
 
 /* eslint-disable import/no-default-export */
 export default function App({ Component, pageProps }) {
@@ -11,9 +11,22 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <GlobalStyles />
+        {GlobalStylesAll}
         <Component themeSet={themeSet} {...pageProps} />
       </ThemeProvider>
     </>
   );
 }
+
+const GlobalStylesApp = createGlobalStyle`
+  :root {
+    --layout-site-width: 60rem;
+  }
+  `;
+
+const GlobalStylesAll = (
+  <>
+    <GlobalStylesIris />
+    <GlobalStylesApp />
+  </>
+);

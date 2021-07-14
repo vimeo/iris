@@ -1,6 +1,8 @@
-import { Header } from '@vimeo/iris/typography';
+import { Header, Paragraph } from '@vimeo/iris/typography';
+import { Button, Tag } from '@vimeo/iris/components';
 
 import { Page } from '../../src/pages/Page';
+import { data } from '../../src/data';
 
 import { components } from '../components';
 
@@ -20,15 +22,105 @@ export default function Component({ component, themeSet, ...props }) {
   //   );
   // }
 
+  const sections = data[componentName]?.sections;
+
   return (
     <Page themeSet={themeSet}>
       <div
         css={`
-          padding: 2rem;
+          padding: 0.5rem 0rem;
+          max-width: var(--layout-site-width);
+          margin: 2rem auto;
         `}
       >
-        <Header>{componentName}</Header>
-        {/* <Button>Button</Button> */}
+        <header
+          css={`
+            margin: 2rem auto 5rem;
+          `}
+        >
+          <Header
+            css={`
+              text-transform: capitalize;
+            `}
+          >
+            {componentName}
+          </Header>
+          <Paragraph size="1">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Eos assumenda consequuntur odio labore magni dicta at,
+            unde ex doloremque et! Lorem ipsum dolor sit amet
+            consectetur adipisicing.
+          </Paragraph>
+          <div
+            css={`
+              display: flex;
+              gap: 2rem;
+              align-items: center;
+              padding: 2rem 0;
+            `}
+          >
+            <Tag>Production</Tag>
+            <span>
+              Updated{' '}
+              {new Date()
+                .toDateString()
+                .split(' ')
+                .slice(1)
+                .join(' ')}
+            </span>
+          </div>
+        </header>
+        {sections &&
+          sections.map((section) => (
+            <div
+              css={`
+                display: block;
+                + div {
+                  margin: 7rem 0;
+                }
+              `}
+            >
+              <h1>{section.title}</h1>
+              {section.items.map((item) => (
+                <div
+                  css={`
+                    display: flex;
+                    gap: 1rem;
+
+                    border-bottom: 1px solid rgba(150, 150, 150, 0.5);
+                  `}
+                >
+                  <div
+                    css={`
+                      padding: 3rem 2rem;
+                      margin: 0 1rem 0 0;
+                      min-width: 12rem;
+                    `}
+                  >
+                    <Button {...item.demoProps} />
+                  </div>
+                  <div
+                    css={`
+                      padding: 2rem 0;
+                      margin: 0 1rem 0 0;
+                    `}
+                  >
+                    <Header size="2" variant="thin">
+                      {item.value}
+                    </Header>
+                    <Paragraph
+                      size="1"
+                      css={`
+                        line-height: 1.5;
+                      `}
+                    >
+                      {item.description}
+                    </Paragraph>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
       </div>
     </Page>
   );

@@ -26,7 +26,7 @@ export function Home({ themeSet, ...props }) {
         <section
           css={`
             margin: 0 auto;
-            width: 60rem;
+            width: var(--layout-site-width);
             position: relative;
             z-index: 100;
           `}
@@ -60,7 +60,7 @@ export function Home({ themeSet, ...props }) {
               gap: 2rem;
               grid-template-columns: 1fr 1fr;
               grid-template-rows: auto;
-              max-width: 70rem;
+              max-width: var(--layout-site-width);
               margin: 1rem auto;
             `}
           >
@@ -105,7 +105,7 @@ export function Home({ themeSet, ...props }) {
               gap: 2rem;
               grid-template-columns: 1fr 1fr 1fr;
               grid-template-rows: auto;
-              max-width: 70rem;
+              max-width: var(--layout-site-width);
               margin: 1rem auto;
             `}
           >
@@ -152,7 +152,7 @@ function Section({ children, ...props }) {
     <section
       {...props}
       css={`
-        max-width: 60rem;
+        max-width: var(--layout-site-width);
         margin: 4rem auto;
       `}
     >
@@ -168,7 +168,7 @@ function Row(props) {
       css={`
         display: flex;
         gap: 2rem;
-        max-width: 70rem;
+        max-width: var(--layout-site-width);
         margin: 2rem auto;
       `}
     />

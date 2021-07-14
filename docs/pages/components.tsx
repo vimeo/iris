@@ -17,7 +17,7 @@ export default function Components({
       >
         <div
           css={`
-            max-width: 70rem;
+            max-width: var(--layout-site-width);
             margin: 2rem auto 5rem;
           `}
         >
@@ -36,7 +36,7 @@ export default function Components({
             gap: 2rem;
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: auto;
-            max-width: 70rem;
+            max-width: var(--layout-site-width);
             margin: 1rem auto;
           `}
         >
