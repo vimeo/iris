@@ -1,15 +1,12 @@
 import styled from 'styled-components';
 import { rgba } from 'polished';
+import { black } from '@vimeo/iris/color';
 
 export const Nav = styled.nav`
-  padding: 1rem;
+  padding: 1rem 3rem;
   display: flex;
-
-  h1 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    padding: 0 2rem 0 0;
-  }
+  background: ${rgba(black, 0.1)};
+  width: 100%;
 
   > a,
   > span {

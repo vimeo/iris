@@ -4,6 +4,7 @@ import { Header, Paragraph } from '@vimeo/iris/typography';
 
 import { Hero } from './index.style';
 import { Page } from './Page';
+import { core } from '@vimeo/iris/tokens';
 
 export function Home({ themeSet, ...props }) {
   return (
@@ -51,40 +52,152 @@ export function Home({ themeSet, ...props }) {
           padding: 1rem;
         `}
       >
-        <section
-          css={`
-            margin: 0 auto;
-            max-width: 60rem;
-          `}
-        >
+        <Section>
           <Header>Principles</Header>
-        </section>
-        <section
-          css={`
-            margin: 0 auto;
-            max-width: 60rem;
-          `}
-        >
+          <div
+            css={`
+              display: grid;
+              gap: 2rem;
+              grid-template-columns: 1fr 1fr;
+              grid-template-rows: auto;
+              max-width: 70rem;
+              margin: 1rem auto;
+            `}
+          >
+            <Block />
+            <Block />
+            <Block />
+            <Block />
+          </div>
+        </Section>
+        <Section>
           <Header>Design System</Header>
-        </section>
-        <section
+          <Row>
+            <BlockSpace>
+              <Header size="3">Tokens</Header>
+            </BlockSpace>
+            <Block />
+            <Block />
+            <Block />
+          </Row>
+          <Row>
+            <BlockSpace>
+              <Header size="3">Components</Header>
+            </BlockSpace>
+            <Block />
+            <Block />
+            <Block />
+          </Row>
+          <Row>
+            <BlockSpace>
+              <Header size="3">Patterns</Header>
+            </BlockSpace>
+            <Block />
+            <Block />
+            <Block />
+          </Row>
+        </Section>
+        <Section>
+          <Header>Brand Tools</Header>
+          <div
+            css={`
+              display: grid;
+              gap: 2rem;
+              grid-template-columns: 1fr 1fr 1fr;
+              grid-template-rows: auto;
+              max-width: 70rem;
+              margin: 1rem auto;
+            `}
+          >
+            <Block />
+            <Block />
+            <Block />
+            <Block />
+            <Block />
+            <Block />
+          </div>
+        </Section>
+        <div
           css={`
-            margin: 0 auto;
-            max-width: 60rem;
+            width: 100%;
+            padding: 5rem 1rem;
+            background: ${core.color.background(0)};
           `}
         >
-          <Header>What's New</Header>
-          <Header>Blog</Header>
-        </section>
-        <section
-          css={`
-            margin: 0 auto;
-            max-width: 60rem;
-          `}
-        >
+          <Section>
+            <Row>
+              <Block>
+                <Header>What's New</Header>
+              </Block>
+              <Block>
+                <Header>Blog</Header>
+              </Block>
+            </Row>
+          </Section>
+        </div>
+        <Section>
           <Header>Resources</Header>
-        </section>
+          <Row>
+            <Block />
+            <Block />
+          </Row>
+        </Section>
       </main>
     </Page>
+  );
+}
+
+function Section({ children, ...props }) {
+  return (
+    <section
+      {...props}
+      css={`
+        max-width: 60rem;
+        margin: 4rem auto;
+      `}
+    >
+      {children}
+    </section>
+  );
+}
+
+function Row(props) {
+  return (
+    <div
+      {...props}
+      css={`
+        display: flex;
+        gap: 2rem;
+        max-width: 70rem;
+        margin: 2rem auto;
+      `}
+    />
+  );
+}
+
+function BlockSpace(props) {
+  return (
+    <div
+      {...props}
+      css={`
+        width: 100%;
+        min-height: 12rem;
+      `}
+    />
+  );
+}
+
+function Block(props) {
+  return (
+    <div
+      {...props}
+      css={`
+        padding: 1rem;
+        border-radius: 0.375rem;
+        background: ${core.color.background(200)};
+        width: 100%;
+        min-height: 12rem;
+      `}
+    />
   );
 }

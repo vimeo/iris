@@ -17,9 +17,17 @@ export default function Token({ themeSet, ...props }) {
 
   if (!tokenData) {
     return (
-      <>
-        <Header>Token not found!</Header>
-      </>
+      <Page themeSet={themeSet}>
+        <div
+          css={`
+            padding: 2rem;
+          `}
+        >
+          <Header>{tokenName}</Header>
+
+          <Header>Token data not found!</Header>
+        </div>
+      </Page>
     );
   }
 

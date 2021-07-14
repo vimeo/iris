@@ -1,29 +1,24 @@
-import { useRouter } from 'next/router';
-import { parseToRgb, parseToHsl } from 'polished';
-
-import { Button } from '@vimeo/iris/components';
 import { Header } from '@vimeo/iris/typography';
-import { blue } from '@vimeo/iris/color';
 
-import { Card } from '../../src/components/Card';
 import { Page } from '../../src/pages/Page';
 
-export default function Component({ themeSet, ...props }) {
-  const router = useRouter();
-  const { component } = router.query;
+import { components } from '../components';
+
+export default function Component({ component, themeSet, ...props }) {
+  // const router = useRouter();
+  // const { component } = router.query;
 
   const componentName = component || null;
 
   const componentData = useComponent(componentName);
-  console.log(componentData);
 
-  if (!componentData) {
-    return (
-      <>
-        <Header>component not found!</Header>
-      </>
-    );
-  }
+  // if (!componentData) {
+  //   return (
+  //     <>
+  //       <Header>component not found!</Header>
+  //     </>
+  //   );
+  // }
 
   return (
     <Page themeSet={themeSet}>
@@ -33,7 +28,7 @@ export default function Component({ themeSet, ...props }) {
         `}
       >
         <Header>{componentName}</Header>
-        <Button>Button</Button>
+        {/* <Button>Button</Button> */}
       </div>
     </Page>
   );
@@ -52,4 +47,25 @@ function findComponentData(componentName) {
     default:
       return false;
   }
+}
+
+export async function getStaticProps(context) {
+  const { params } = context;
+  const component = params.component;
+
+  return {
+    props: {
+      component,
+    },
+  };
+}
+export async function getStaticPaths() {
+  const paths = components.map((component) => ({
+    params: { component: component.toLowerCase() },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
 }
