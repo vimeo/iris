@@ -42,16 +42,15 @@ export function Page({ themeSet, children, ...props }) {
           </Link>
         </h1>
         <span>Principles</span>
-        {/* <Link href="/tokens">
-          <a>Tokens</a>
-        </Link> */}
         <span>Tokens</span>
         <Link href="/components">
           <a>Components</a>
         </Link>
         <span>Patterns</span>
         <span>Content</span>
-        <span>Resources</span>
+        <Link href="/resources/logo">
+          <a>Resources</a>
+        </Link>
         <Search
           css={`
             width: 2rem;

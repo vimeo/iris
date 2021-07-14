@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 
 import { Header, Paragraph } from '@vimeo/iris/typography';
 
@@ -52,7 +53,7 @@ export function Home({ themeSet, ...props }) {
           padding: 1rem;
         `}
       >
-        <Section>
+        {/* <Section>
           <Header>Principles</Header>
           <div
             css={`
@@ -69,7 +70,7 @@ export function Home({ themeSet, ...props }) {
             <Block />
             <Block />
           </div>
-        </Section>
+        </Section> */}
         <Section>
           <Header>Design System</Header>
           <Row>
@@ -84,9 +85,29 @@ export function Home({ themeSet, ...props }) {
             <BlockSpace>
               <Header size="3">Components</Header>
             </BlockSpace>
-            <Block />
-            <Block />
-            <Block />
+            <Block
+              css={`
+                cursor: pointer;
+              `}
+            >
+              <Link href="/component/avatar">
+                <a>
+                  <Header size="2">Avatar</Header>
+                </a>
+              </Link>
+            </Block>
+            <Block
+              css={`
+                cursor: pointer;
+              `}
+            >
+              <Link href="/component/button">
+                <a>
+                  <Header size="2">Button</Header>
+                </a>
+              </Link>
+            </Block>
+            <Block>view more</Block>
           </Row>
           <Row>
             <BlockSpace>
@@ -97,7 +118,7 @@ export function Home({ themeSet, ...props }) {
             <Block />
           </Row>
         </Section>
-        <Section>
+        {/* <Section>
           <Header>Brand Tools</Header>
           <div
             css={`
@@ -134,11 +155,21 @@ export function Home({ themeSet, ...props }) {
               </Block>
             </Row>
           </Section>
-        </div>
+        </div> */}
         <Section>
           <Header>Resources</Header>
           <Row>
-            <Block />
+            <Link href="/resources/logo">
+              <Block
+                css={`
+                  cursor: pointer;
+                `}
+              >
+                <a>
+                  <Header size="2">Logo</Header>
+                </a>
+              </Block>
+            </Link>
             <Block />
           </Row>
         </Section>
