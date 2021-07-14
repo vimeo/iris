@@ -86,6 +86,8 @@ export function Anchor({
 
   const { top, left } = state;
 
+  const zIndex = useChildZIndex(children);
+
   return (
     <AnchorStyled
       anchorToWindow={anchorToWindow}
@@ -94,10 +96,21 @@ export function Anchor({
       children={children}
       margin={margin}
       rect={state.rect}
-      style={{ ...style, top, left }}
+      style={{ ...style, top, left, zIndex }}
       {...props}
     />
   );
+}
+
+function useChildZIndex(children) {
+  if (children.ref.current) {
+    const style = getComputedStyle(children.ref.current);
+    const zIndex = parseInt(style.zIndex);
+
+    if (zIndex > 0) return zIndex;
+  }
+
+  return 5000;
 }
 
 function calcRect(
@@ -168,7 +181,6 @@ const AnchorStyled = styled.div<StyledProps>`
   position: fixed;
   margin: ${(p) => rem(p.margin)};
   overflow: visible;
-  z-index: 5000;
   max-width: calc(100vw - 1.5rem) !important;
 
   ${(p) =>
