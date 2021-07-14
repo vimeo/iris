@@ -45,18 +45,21 @@ export function Item({
 
   const simpleKids =
     typeof children === 'object' && !children.props
-      ? children.filter((child) => typeof child === 'string')
+      ? children.flat().filter((child) => typeof child === 'string')
       : children;
 
-  const complexKids =
+  let complexKids =
     typeof children === 'object' &&
     !children.props &&
-    children.filter((child) => typeof child !== 'string');
+    children.flat().filter((child) => typeof child !== 'string');
+
+  if (complexKids.length === 0) complexKids = false;
 
   const link = simpleKids && href;
+  const $height = open && complexKids.length;
 
   return (
-    <Wrapper active={active} $height={open && complexKids.length}>
+    <Wrapper active={active} $height={$height}>
       <ItemStyled
         onClick={doToggle}
         as={link ? 'a' : 'button'}
@@ -81,7 +84,9 @@ export function Item({
           <Focus parent={Toggle} />
         </Toggle>
       )}
-      {open && complexKids && <SubMenu>{complexKids}</SubMenu>}
+      {open && complexKids && (
+        <SubMenu total={complexKids.length}>{complexKids}</SubMenu>
+      )}
     </Wrapper>
   );
 }
