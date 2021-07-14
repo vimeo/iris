@@ -5,21 +5,21 @@ import { Header } from '../typography';
 
 import { ColorPalette, ColorStory } from './storyComponents';
 
-import { purple } from './colors';
+import { amethyst } from './colors';
 
 export default { title: 'Color/accent' };
 
 export function All() {
   return (
     <Story title="Colors" width="100%" flex>
-      <Header size="3">purple</Header>
-      <ColorPalette color={purple} />
+      <Header size="3">amethyst</Header>
+      <ColorPalette color={amethyst} />
     </Story>
   );
 }
 All.storyName = 'all';
 
-export function Purple() {
-  return ColorStory('purple', purple);
+export function Amethyst() {
+  return ColorStory('amethyst', amethyst);
 }
-Purple.storyName = 'purple';
+Amethyst.storyName = 'amethyst';

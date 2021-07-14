@@ -5,7 +5,14 @@ import { Dropzone } from './Dropzone';
 import { DropChangeEvent } from './Dropzone.types';
 
 import { Header } from '../../../typography';
-import { red, green, blue, slate, yellow } from '../../../color';
+import {
+  red,
+  green,
+  blue,
+  slate,
+  yellow,
+  amethyst,
+} from '../../../color';
 import { useLocalTheme } from '../../../utils';
 import { IrisTheme } from '../../../themes';
 
@@ -60,8 +67,10 @@ export function Formats() {
 
 export const Custom = () => <CustomStory />;
 function CustomStory() {
-  // change primary from blue to purple.
-  const theme = useLocalTheme({ formats: { primary: '#c934eb' } });
+  // change primary from blue to amethyst.
+  const theme = useLocalTheme({
+    formats: { primary: amethyst(500) },
+  });
 
   return (
     <>

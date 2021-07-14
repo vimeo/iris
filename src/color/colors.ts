@@ -9,7 +9,7 @@ export enum Colors {
   Blue = '#00adef',
   Green = '#4EC437',
   Yellow = '#ffb21e',
-  Purple = '#8697FB',
+  Amethyst = '#8697FB',
   Slate = '#657987',
   Grayscale = '#666666',
   black = '#000000',
@@ -91,7 +91,7 @@ const BlueCache = {
 export const blue: Color = (grade) =>
   BlueCache[grade] || irisColor(Colors.Blue, grade);
 
-const PurpleCache = {
+const AmethystCache = {
   '50': '#f5f1ff',
   '100': '#ebe5ff',
   '200': '#d3ccff',
@@ -104,8 +104,8 @@ const PurpleCache = {
   '900': '#190f3d',
 };
 
-export const purple: Color = (grade) =>
-  PurpleCache[grade] || irisColor(Colors.Purple, grade);
+export const amethyst: Color = (grade) =>
+  AmethystCache[grade] || irisColor(Colors.Amethyst, grade);
 
 const SlateCache = {
   '50': '#eef1f4',
@@ -207,7 +207,7 @@ export function baseHue(color, grade = 0) {
       return -2;
     case slate(500):
       return 1;
-    case purple(500):
+    case amethyst(500):
       return grade * 6;
     default:
       return 0;
@@ -223,7 +223,7 @@ export function baseSaturate(color, grade = 0) {
       return 0.05;
     case green(500):
       return 0;
-    case purple(500):
+    case amethyst(500):
       return grade / 20;
     default:
       return 0.1;
