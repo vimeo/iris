@@ -1,10 +1,12 @@
 import { Header, Paragraph } from '@vimeo/iris/typography';
-import { Button, Tag } from '@vimeo/iris/components';
+import * as COMPONENTS from '@vimeo/iris/components';
 
 import { Page } from '../../src/pages/Page';
 import { data } from '../../src/data';
 
 import { components } from '../components';
+
+const { Tag } = COMPONENTS;
 
 export default function Component({ component, themeSet, ...props }) {
   // const router = useRouter();
@@ -12,7 +14,8 @@ export default function Component({ component, themeSet, ...props }) {
 
   const componentName = component || null;
 
-  const componentData = useComponent(componentName);
+  // const componentData = useComponent(componentName);
+  const componentData = data[componentName];
 
   // if (!componentData) {
   //   return (
@@ -22,7 +25,7 @@ export default function Component({ component, themeSet, ...props }) {
   //   );
   // }
 
-  const sections = data[componentName]?.sections;
+  const sections = componentData?.sections;
 
   return (
     <Page themeSet={themeSet}>
@@ -71,56 +74,65 @@ export default function Component({ component, themeSet, ...props }) {
           </div>
         </header>
         {sections &&
-          sections.map((section) => (
-            <div
-              css={`
-                display: block;
-                + div {
-                  margin: 7rem 0;
-                }
-              `}
-            >
-              <h1>{section.title}</h1>
-              {section.items.map((item) => (
-                <div
-                  css={`
-                    display: flex;
-                    gap: 1rem;
+          sections.map((section) => {
+            const { name } = componentData;
 
-                    border-bottom: 1px solid rgba(150, 150, 150, 0.5);
-                  `}
-                >
-                  <div
-                    css={`
-                      padding: 3rem 2rem;
-                      margin: 0 1rem 0 0;
-                      min-width: 12rem;
-                    `}
-                  >
-                    <Button {...item.demoProps} />
-                  </div>
-                  <div
-                    css={`
-                      padding: 2rem 0;
-                      margin: 0 1rem 0 0;
-                    `}
-                  >
-                    <Header size="2" variant="thin">
-                      {item.value}
-                    </Header>
-                    <Paragraph
-                      size="1"
+            return (
+              <div
+                css={`
+                  display: block;
+                  + div {
+                    margin: 7rem 0;
+                  }
+                `}
+              >
+                <h1>{section.title}</h1>
+                {section.items.map((item) => {
+                  const Component = COMPONENTS[name];
+
+                  return (
+                    <div
                       css={`
-                        line-height: 1.5;
+                        display: flex;
+                        gap: 1rem;
+
+                        border-bottom: 1px solid
+                          rgba(150, 150, 150, 0.5);
                       `}
                     >
-                      {item.description}
-                    </Paragraph>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ))}
+                      <div
+                        css={`
+                          padding: 3rem 2rem;
+                          margin: 0 1rem 0 0;
+                          min-width: 12rem;
+                        `}
+                      >
+                        <Component {...item.demoProps} />
+                      </div>
+                      <div
+                        css={`
+                          padding: 2rem 0;
+                          margin: 0 1rem 0 0;
+                        `}
+                      >
+                        <Header size="2" variant="thin">
+                          {item.value}
+                        </Header>
+                        <Paragraph
+                          size="1"
+                          css={`
+                            line-height: 1.5;
+                          `}
+                        >
+                          {item.description}
+                        </Paragraph>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })}
       </div>
     </Page>
   );

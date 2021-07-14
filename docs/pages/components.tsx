@@ -41,7 +41,11 @@ export default function Components({
           `}
         >
           {components.map((component) => (
-            <CardAlt name={component} path="/component" />
+            <CardAlt
+              name={component}
+              path="/component"
+              disabled={!!disabled.includes(component)}
+            />
           ))}
         </div>
       </main>
@@ -52,6 +56,20 @@ export default function Components({
 export const components = [
   'Avatar',
   'Button',
+  'Badge',
+  'Card',
+  'Checkbox',
+  'Input',
+  'Modal',
+  'Notice',
+  'Radio',
+  'Sidebar',
+  'Tag',
+  'Tip',
+  'Toggle',
+] as const;
+
+export const disabled = [
   'Badge',
   'Card',
   'Checkbox',

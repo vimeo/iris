@@ -1,6 +1,6 @@
 import { core } from '@vimeo/iris/tokens';
 
-export function Card({ children, ...props }) {
+export function Card({ children, disabled, ...props }) {
   return (
     <div
       css={`
@@ -14,6 +14,8 @@ export function Card({ children, ...props }) {
         justify-content: center;
         position: relative;
         ${core.edge(400)};
+
+        ${disabled && `opacity: 0.5`}
       `}
       {...props}
     >

@@ -11,9 +11,7 @@ export default function Token({ themeSet, ...props }) {
   const { token } = router.query;
 
   const tokenName = (token as string[])?.join('-') || null;
-
   const tokenData = useToken(tokenName);
-  console.log(tokenData);
 
   if (!tokenData) {
     return (

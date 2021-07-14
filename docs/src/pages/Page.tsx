@@ -42,9 +42,10 @@ export function Page({ themeSet, children, ...props }) {
           </Link>
         </h1>
         <span>Principles</span>
-        <Link href="/tokens">
+        {/* <Link href="/tokens">
           <a>Tokens</a>
-        </Link>
+        </Link> */}
+        <span>Tokens</span>
         <Link href="/components">
           <a>Components</a>
         </Link>
