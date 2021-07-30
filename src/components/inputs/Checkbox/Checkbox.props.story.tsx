@@ -15,10 +15,18 @@ export function Disabled() {
   return (
     <Layout.StoryVertical>
       <Checkbox
-        label="Disabled Checkbox"
+        label="Disabled unchecked Checkbox"
         name="demoCheckboxDisabled"
         id="CheckboxDisabled"
         value="disabled"
+        disabled
+      />
+      <Checkbox
+        label="Disabled checked Checkbox"
+        name="demoCheckboxDisabled"
+        id="CheckboxDisabled"
+        value="disabled"
+        checked
         disabled
       />
     </Layout.StoryVertical>
