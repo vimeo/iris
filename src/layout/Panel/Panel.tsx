@@ -1,7 +1,12 @@
-import React, { cloneElement, useRef, useLayoutEffect } from 'react';
+import React, {
+  cloneElement,
+  useRef,
+  useLayoutEffect,
+  useEffect,
+} from 'react';
 
 import { Props } from './Panel.types';
-import { PanelStyled } from './Panel.style';
+import { DragEdge, DragHighlight, PanelStyled } from './Panel.style';
 
 import {
   withIris,
@@ -19,11 +24,16 @@ function PanelComponent({
   children = null,
   content,
   forwardRef,
+  maxWidth = 600,
+  minWidth = 256,
   onClose,
   onOpen,
+  onResize,
+  resizable = false,
   screen = true,
   ...props
 }: Props) {
+  const dragEdgeRef = useRef<HTMLSpanElement>(null);
   const focusRef = useRef(null);
   const attachTo = attacher(attach);
 
@@ -52,9 +62,16 @@ function PanelComponent({
       {...props}
       ref={forwardRef}
       attach={attach}
+      minWidth={minWidth}
+      maxWidth={maxWidth}
       {...irisError}
     >
       {content}
+      {resizable && (
+        <DragEdge ref={dragEdgeRef}>
+          <DragHighlight />
+        </DragEdge>
+      )}
     </PanelStyled>
   );
 
@@ -84,6 +101,50 @@ function PanelComponent({
     return () =>
       document.removeEventListener('focusin', focuser, true);
   });
+
+  useEffect(() => {
+    const dragEdge = dragEdgeRef.current;
+
+    if (!dragEdge || !resizable) return;
+
+    const handleMouseDown = () => {
+      document.addEventListener('mouseup', handleMouseUp, true);
+      document.addEventListener('mousemove', handleMouseMove, true);
+    };
+
+    const handleMouseUp = () => {
+      document.removeEventListener('mouseup', handleMouseUp, true);
+      document.removeEventListener(
+        'mousemove',
+        handleMouseMove,
+        true
+      );
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      // TODO - account for different values of 'attach'!
+      e.preventDefault();
+      const newWidth = e.clientX - document.body.offsetLeft;
+      if (newWidth > minWidth && newWidth < maxWidth) {
+        onResize && onResize(newWidth);
+      }
+    };
+
+    dragEdge.addEventListener('mousedown', handleMouseDown);
+
+    return () => {
+      dragEdge.removeEventListener('mousedown', handleMouseDown);
+    };
+  }, [
+    // TODO - Should not be passing ref here?
+    // If we don't dragging stops working after we collapse the nav once
+    // Probably because we stop rendering the drag edge if collapsed and when we re-open it's lost the reference?
+    dragEdgeRef.current,
+    maxWidth,
+    minWidth,
+    onResize,
+    resizable,
+  ]);
 
   return (
     <>

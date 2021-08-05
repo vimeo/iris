@@ -1,9 +1,10 @@
 import styled, { keyframes } from 'styled-components';
-import { rgba } from 'polished';
+import { rem, rgba } from 'polished';
 
 import { Props } from './Panel.types';
 
-import { white } from '../../color';
+import { blue, white } from '../../color';
+import { core } from '../../tokens';
 
 const fadeIn = ({ attach }) => keyframes`
   0% {
@@ -15,9 +16,14 @@ const fadeIn = ({ attach }) => keyframes`
   }
 `;
 
-export const PanelStyled = styled.div<{ attach: Props['attach'] }>`
+export const PanelStyled = styled.div<{
+  attach: Props['attach'];
+  minWidth?: number;
+  maxWidth?: number;
+}>`
   background: ${(p) => p.theme.content.background};
-  min-width: 16rem;
+  min-width: ${(p) => (p.minWidth ? rem(p.minWidth) : '16rem')};
+  max-width: ${(p) => (p.maxWidth ? rem(p.maxWidth) : 'initial')};
   z-index: 3000;
   animation: ${fadeIn} 300ms ease-in-out;
   height: 100vh;
@@ -38,3 +44,36 @@ function side(attach) {
   if (attach === 'left') return 'right';
   if (attach === 'right') return 'left';
 }
+
+const DRAG_AREA_WIDTH = 20;
+
+// TODO - Account for different values of 'attach'!
+// TODO - Do we want this to be centered? Maybe it will expand farther out on the page side?
+export const DragEdge = styled.span`
+  display: flex;
+  justify-content: center;
+  top: 0;
+  width: ${rem(DRAG_AREA_WIDTH)};
+  height: 100%;
+  position: absolute;
+  right: ${rem(-DRAG_AREA_WIDTH / 2)};
+  cursor: col-resize;
+
+  &:hover,
+  &:active {
+    span {
+      background-color: ${blue(500)};
+      ${core.edge(500)};
+    }
+  }
+`;
+
+export const DragHighlight = styled.span`
+  height: 100%;
+  width: ${rem(2)};
+  background-color: transparent;
+  border-color: transparent;
+  transition-property: background-color, box-shadow, border-color;
+  transition-duration: 200ms;
+  transition-delay: 150ms;
+`;

@@ -18,8 +18,21 @@ export type Props = IrisProps<{
    */
   content?: ReactNode;
   children?: ReactElement;
+  /** Max width the sidenav can be expanded to */
+  maxWidth?: number;
+  /** Min width the sidenav can be reduced to */
+  minWidth?: number;
   onClose?: MouseEventHandler;
   onOpen?: MouseEventHandler;
+  /**
+   * Function that gets called when the size of the panel changes
+   */
+  onResize?: (size: number) => void;
+  /**
+   * Whether or not the panel can be dragged to resize it.
+   * [default = false]
+   */
+  resizable?: boolean;
   /**
    * Display a transparent screen over content when Panel is opened.
    *
