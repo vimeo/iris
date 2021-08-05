@@ -40,7 +40,8 @@ function sizes({ size }) {
 }
 
 function calcLineHeight(size) {
-  return Math.round((((size - 1) / 2.5) * 0.1 + 1.06) * 100) / 100;
+  const lineHeight = Math.round((size / 50 + 1.14) * 100) / 100;
+  return lineHeight;
 }
 
 function calcLetterSpacing(size) {
