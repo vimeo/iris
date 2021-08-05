@@ -54,17 +54,20 @@ export function ColorPalette({ color }) {
       style={{
         width: '100%',
         padding: '1rem 0 0 0',
+        marginBottom: '1rem',
       }}
     >
-      {[0.5, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((num, i) => {
-        return (
-          <ColorSwatch
-            color={color(num * 100)}
-            title={num * 100}
-            key={i}
-          />
-        );
-      })}
+      {[0.5, 1, 2, 3, 3.5, 4, 5, 6, 7, 8, 8.5, 9, 9.5].map(
+        (num, i) => {
+          return (
+            <ColorSwatch
+              color={color(num * 100)}
+              title={num * 100}
+              key={i}
+            />
+          );
+        }
+      )}
     </div>
   );
 }
@@ -91,8 +94,9 @@ export function ColorSwatch({ color, title = color, ...props }) {
 }
 
 const ColorSwatchStyled = styled.div`
-  width: calc(3.5rem + 1.5vw);
-  height: calc(3.5rem + 1.5vw);
+  width: calc(3rem + 1.25vw);
+  height: calc(3rem + 1.25vw);
   background: ${({ color }) => color};
   margin-right: 0.125rem;
+  border-radius: 0.25rem;
 `;
