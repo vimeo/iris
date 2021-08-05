@@ -18,6 +18,7 @@ import {
 
 export const Panel = withIris<HTMLDivElement, Props>(PanelComponent);
 
+// TODO - Pass in width as a prop so we can decide if it's controlled or uncontrolled?
 function PanelComponent({
   active,
   attach = 'right',
@@ -68,7 +69,7 @@ function PanelComponent({
     >
       {content}
       {resizable && (
-        <DragEdge ref={dragEdgeRef}>
+        <DragEdge attach={attach} ref={dragEdgeRef}>
           <DragHighlight />
         </DragEdge>
       )}
@@ -124,7 +125,10 @@ function PanelComponent({
     const handleMouseMove = (e: MouseEvent) => {
       // TODO - account for different values of 'attach'!
       e.preventDefault();
-      const newWidth = e.clientX - document.body.offsetLeft;
+      const newWidth =
+        attach === 'left'
+          ? e.clientX - document.body.offsetLeft
+          : document.body.offsetWidth - e.clientX;
       if (newWidth > minWidth && newWidth < maxWidth) {
         onResize && onResize(newWidth);
       }
@@ -136,6 +140,7 @@ function PanelComponent({
       dragEdge.removeEventListener('mousedown', handleMouseDown);
     };
   }, [
+    attach,
     // TODO - Should not be passing ref here?
     // If we don't dragging stops working after we collapse the nav once
     // Probably because we stop rendering the drag edge if collapsed and when we re-open it's lost the reference?

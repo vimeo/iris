@@ -47,16 +47,14 @@ function side(attach) {
 
 const DRAG_AREA_WIDTH = 20;
 
-// TODO - Account for different values of 'attach'!
-// TODO - Do we want this to be centered? Maybe it will expand farther out on the page side?
-export const DragEdge = styled.span`
+export const DragEdge = styled.span<{ attach: Props['attach'] }>`
   display: flex;
   justify-content: center;
   top: 0;
   width: ${rem(DRAG_AREA_WIDTH)};
   height: 100%;
   position: absolute;
-  right: ${rem(-DRAG_AREA_WIDTH / 2)};
+  ${(p) => `${side(p.attach)}: ${rem(-DRAG_AREA_WIDTH / 2)}`};
   cursor: col-resize;
 
   &:hover,
