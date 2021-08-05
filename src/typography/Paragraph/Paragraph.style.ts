@@ -31,7 +31,8 @@ function sizes({ size }) {
 }
 
 function calcLineHeight(size) {
-  return Math.round((1.225 + size * 0.075) * 100) / 100;
+  const lineHeight = Math.round((size / 25 + 1.46) * 100) / 100;
+  return lineHeight;
 }
 
 function calcMarginBottom(size) {
