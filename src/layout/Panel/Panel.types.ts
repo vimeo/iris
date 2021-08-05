@@ -18,14 +18,20 @@ export type Props = IrisProps<{
    */
   content?: ReactNode;
   children?: ReactElement;
-  /** Max width the sidenav can be expanded to */
+  /**
+   * Max width the sidenav can be expanded to.
+   * [default = 600]
+   */
   maxWidth?: number;
-  /** Min width the sidenav can be reduced to */
+  /**
+   * Min width the sidenav can be reduced to.
+   * [default = 256]
+   */
   minWidth?: number;
   onClose?: MouseEventHandler;
   onOpen?: MouseEventHandler;
   /**
-   * Function that gets called when the size of the panel changes
+   * Function that gets called when the size of the panel changes.
    */
   onResize?: (size: number) => void;
   /**

@@ -123,7 +123,7 @@ function PanelComponent({
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      // TODO - account for different values of 'attach'!
+      // TODO - Issue w/ resizing when attach is 'right'
       e.preventDefault();
       const newWidth =
         attach === 'left'
