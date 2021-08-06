@@ -1,9 +1,4 @@
-import React, {
-  cloneElement,
-  useRef,
-  useLayoutEffect,
-  useEffect,
-} from 'react';
+import React, { cloneElement, useRef, useLayoutEffect } from 'react';
 
 import { Props } from './Panel.types';
 import { DragEdge, DragHighlight, PanelStyled } from './Panel.style';
@@ -58,6 +53,28 @@ function PanelComponent({
     exit: { transform: `translateX(${closed}%)` },
   };
 
+  const handleMouseDown = () => {
+    document.addEventListener('mouseup', handleMouseUp, true);
+    document.addEventListener('mousemove', handleMouseMove, true);
+  };
+
+  const handleMouseUp = () => {
+    document.removeEventListener('mouseup', handleMouseUp, true);
+    document.removeEventListener('mousemove', handleMouseMove, true);
+  };
+
+  const handleMouseMove = (e: MouseEvent) => {
+    // TODO - Issue w/ resizing when attach is 'right'
+    e.preventDefault();
+    const newWidth =
+      attach === 'left'
+        ? e.clientX - document.body.offsetLeft
+        : document.body.offsetWidth - e.clientX;
+    if (newWidth > minWidth && newWidth < maxWidth) {
+      onResize && onResize(newWidth);
+    }
+  };
+
   const PortalContent = (
     <PanelStyled
       {...props}
@@ -69,7 +86,12 @@ function PanelComponent({
     >
       {content}
       {resizable && (
-        <DragEdge attach={attach} ref={dragEdgeRef}>
+        <DragEdge
+          attach={attach}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          ref={dragEdgeRef}
+        >
           <DragHighlight />
         </DragEdge>
       )}
@@ -102,54 +124,6 @@ function PanelComponent({
     return () =>
       document.removeEventListener('focusin', focuser, true);
   });
-
-  useEffect(() => {
-    const dragEdge = dragEdgeRef.current;
-
-    if (!dragEdge || !resizable) return;
-
-    const handleMouseDown = () => {
-      document.addEventListener('mouseup', handleMouseUp, true);
-      document.addEventListener('mousemove', handleMouseMove, true);
-    };
-
-    const handleMouseUp = () => {
-      document.removeEventListener('mouseup', handleMouseUp, true);
-      document.removeEventListener(
-        'mousemove',
-        handleMouseMove,
-        true
-      );
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      // TODO - Issue w/ resizing when attach is 'right'
-      e.preventDefault();
-      const newWidth =
-        attach === 'left'
-          ? e.clientX - document.body.offsetLeft
-          : document.body.offsetWidth - e.clientX;
-      if (newWidth > minWidth && newWidth < maxWidth) {
-        onResize && onResize(newWidth);
-      }
-    };
-
-    dragEdge.addEventListener('mousedown', handleMouseDown);
-
-    return () => {
-      dragEdge.removeEventListener('mousedown', handleMouseDown);
-    };
-  }, [
-    attach,
-    // TODO - Should not be passing ref here?
-    // If we don't dragging stops working after we collapse the nav once
-    // Probably because we stop rendering the drag edge if collapsed and when we re-open it's lost the reference?
-    dragEdgeRef.current,
-    maxWidth,
-    minWidth,
-    onResize,
-    resizable,
-  ]);
 
   return (
     <>
