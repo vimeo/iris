@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { grayscale } from '../../color';
 import { Button, Tip } from '../../components';
@@ -14,6 +14,16 @@ export default {
     layout: 'fullscreen',
   },
 };
+
+const fadeIn = () => keyframes`
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+`;
 
 /**
  * The PageWrapper will contain the sidebar & the main page content.
@@ -85,10 +95,15 @@ const PageWrapper = styled.div`
   width: 100vw;
 `;
 
+const COLLAPSE_ANIMATION_DURATION = 300;
+
 const MainContentContainer = styled.div<{ isDragging?: boolean }>`
   display: flex;
   height: 100%;
-  transition: ${(p) => (p.isDragging ? 'initial' : 'margin 200ms')};
+  transition: ${(p) =>
+    p.isDragging
+      ? 'initial'
+      : `margin ${COLLAPSE_ANIMATION_DURATION}ms`};
   position: relative;
 `;
 
@@ -160,6 +175,7 @@ const Sidenav = styled(Panel)`
       opacity: 1;
     }
   }
+  animation: ${fadeIn} ${COLLAPSE_ANIMATION_DURATION}ms;
 `;
 
 const ContentContainer = styled.div`
