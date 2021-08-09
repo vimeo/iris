@@ -22,6 +22,8 @@ function PanelComponent({
   forwardRef,
   maxWidth = 600,
   minWidth = 256,
+  onDragBegin,
+  onDragEnd,
   onClose,
   onOpen,
   onResize,
@@ -54,11 +56,13 @@ function PanelComponent({
   };
 
   const handleMouseDown = () => {
+    onDragBegin && onDragBegin();
     document.addEventListener('mouseup', handleMouseUp, true);
     document.addEventListener('mousemove', handleMouseMove, true);
   };
 
   const handleMouseUp = () => {
+    onDragEnd && onDragEnd();
     document.removeEventListener('mouseup', handleMouseUp, true);
     document.removeEventListener('mousemove', handleMouseMove, true);
   };

@@ -28,6 +28,14 @@ export type Props = IrisProps<{
    * [default = 256]
    */
   minWidth?: number;
+  /**
+   * Function called when user beings dragging.
+   */
+  onDragBegin?: () => void;
+  /**
+   * Function called when user finishes dragging.
+   */
+  onDragEnd?: () => void;
   onClose?: MouseEventHandler;
   onOpen?: MouseEventHandler;
   /**

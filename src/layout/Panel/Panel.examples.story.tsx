@@ -22,6 +22,7 @@ export default {
  * To update the width we will pass a callback to the panel component which will be called on resize with the new width value.
  */
 export const SideNav = () => {
+  const [isDragging, setIsDragging] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(true);
   const [navWidth, setNavWidth] = useState(250);
 
@@ -52,6 +53,10 @@ export const SideNav = () => {
         onResize={(width) => {
           setNavWidth(width);
         }}
+        onDragBegin={() => {
+          setIsDragging(true);
+        }}
+        onDragEnd={() => setIsDragging(false)}
         resizable={true}
         screen={false}
         style={{ width: navWidth }}
@@ -61,6 +66,7 @@ export const SideNav = () => {
       </Sidenav>
       {/* Everything in this container will be moved when sidenav resizes */}
       <MainContentContainer
+        isDragging={isDragging}
         style={{ marginLeft: isNavOpen ? navWidth : 0 }}
       >
         {/* Pass sidenav state & setter to header so we can control it from there */}
@@ -79,10 +85,10 @@ const PageWrapper = styled.div`
   width: 100vw;
 `;
 
-const MainContentContainer = styled.div`
+const MainContentContainer = styled.div<{ isDragging?: boolean }>`
   display: flex;
   height: 100%;
-  transition: margin 200ms;
+  transition: ${(p) => (p.isDragging ? 'initial' : 'margin 200ms')};
   position: relative;
 `;
 
