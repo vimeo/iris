@@ -1,8 +1,4 @@
-import React, {
-  MouseEventHandler,
-  ReactElement,
-  ReactNode,
-} from 'react';
+import { MouseEventHandler, ReactElement, ReactNode } from 'react';
 
 import { IrisProps } from '../../utils';
 
