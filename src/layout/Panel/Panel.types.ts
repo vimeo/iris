@@ -1,4 +1,8 @@
-import { MouseEventHandler, ReactElement, ReactNode } from 'react';
+import React, {
+  MouseEventHandler,
+  ReactElement,
+  ReactNode,
+} from 'react';
 
 import { IrisProps } from '../../utils';
 
@@ -31,11 +35,11 @@ export type Props = IrisProps<{
   /**
    * Function called when user beings dragging.
    */
-  onDragBegin?: () => void;
+  onDragStart?: MouseEventHandler;
   /**
    * Function called when user finishes dragging.
    */
-  onDragEnd?: () => void;
+  onDragEnd?: MouseEventHandler;
   onClose?: MouseEventHandler;
   onOpen?: MouseEventHandler;
   /**

@@ -9,6 +9,7 @@ import {
   Attach,
   SimpleAnimation,
   useIrisError,
+  throttle,
 } from '../../utils';
 
 export const Panel = withIris<HTMLDivElement, Props>(PanelComponent);
@@ -22,7 +23,7 @@ function PanelComponent({
   forwardRef,
   maxWidth = 600,
   minWidth = 256,
-  onDragBegin,
+  onDragStart,
   onDragEnd,
   onClose,
   onOpen,
@@ -55,21 +56,8 @@ function PanelComponent({
     exit: { transform: `translateX(${closed}%)` },
   };
 
-  const handleMouseDown = () => {
-    onDragBegin && onDragBegin();
-    document.addEventListener('mouseup', handleMouseUp, true);
-    document.addEventListener('mousemove', handleMouseMove, true);
-  };
-
-  const handleMouseUp = () => {
-    onDragEnd && onDragEnd();
-    document.removeEventListener('mouseup', handleMouseUp, true);
-    document.removeEventListener('mousemove', handleMouseMove, true);
-  };
-
-  const handleMouseMove = (e: MouseEvent) => {
+  const handleMouseMove = throttle((e) => {
     // TODO - Issue w/ resizing when attach is 'right'
-    e.preventDefault();
     const newWidth =
       attach === 'left'
         ? e.clientX - document.body.offsetLeft
@@ -77,6 +65,19 @@ function PanelComponent({
     if (newWidth > minWidth && newWidth < maxWidth) {
       onResize && onResize(newWidth);
     }
+  }, 10);
+
+  const handleMouseDown = (e) => {
+    e.preventDefault();
+    onDragStart?.(e);
+    document.addEventListener('mouseup', handleMouseUp, true);
+    document.addEventListener('mousemove', handleMouseMove, true);
+  };
+
+  const handleMouseUp = (e) => {
+    onDragEnd?.(e);
+    document.removeEventListener('mouseup', handleMouseUp, true);
+    document.removeEventListener('mousemove', handleMouseMove, true);
   };
 
   const PortalContent = (
@@ -93,7 +94,6 @@ function PanelComponent({
         <DragEdge
           attach={attach}
           onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
           ref={dragEdgeRef}
         >
           <DragHighlight />

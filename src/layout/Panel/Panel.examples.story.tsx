@@ -15,7 +15,7 @@ export default {
   },
 };
 
-const fadeIn = () => keyframes`
+const fadeIn = keyframes`
   0% {
     transform: translateX(-100%);
   }
@@ -32,8 +32,8 @@ const fadeIn = () => keyframes`
  * To update the width we will pass a callback to the panel component which will be called on resize with the new width value.
  */
 export const SideNav = () => {
-  const [isDragging, setIsDragging] = useState(false);
-  const [isNavOpen, setIsNavOpen] = useState(true);
+  const [dragging, setDragging] = useState(false);
+  const [navOpen, setNavOpen] = useState(true);
   const [navWidth, setNavWidth] = useState(250);
 
   const sidenavContent = (
@@ -44,7 +44,7 @@ export const SideNav = () => {
       <Tip attach="right" content={'Collapse'}>
         <CollapseButton
           icon={<ChevronLeft />}
-          onClick={() => setIsNavOpen(false)}
+          onClick={() => setNavOpen(false)}
           pill
           size="sm"
           format="alternative"
@@ -56,33 +56,28 @@ export const SideNav = () => {
   return (
     <PageWrapper>
       <Sidenav
-        active={isNavOpen}
+        active={navOpen}
         attach="left"
         content={sidenavContent}
         minWidth={200}
         onResize={(width) => {
           setNavWidth(width);
         }}
-        onDragBegin={() => {
-          setIsDragging(true);
-        }}
-        onDragEnd={() => setIsDragging(false)}
+        onDragStart={() => setDragging(true)}
+        onDragEnd={() => setDragging(false)}
         resizable={true}
         screen={false}
         style={{ width: navWidth }}
-      >
-        {/* TODO - Panel needs a child - is it ok to use a fragment? */}
-        <></>
-      </Sidenav>
+      />
       {/* Everything in this container will be moved when sidenav resizes */}
       <MainContentContainer
-        isDragging={isDragging}
-        style={{ marginLeft: isNavOpen ? navWidth : 0 }}
+        dragging={dragging}
+        style={{ marginLeft: navOpen ? navWidth : 0 }}
       >
         {/* Pass sidenav state & setter to header so we can control it from there */}
         <MockHeader
-          isSidenavOpen={isNavOpen}
-          openSidenav={() => setIsNavOpen(true)}
+          isSidenavOpen={navOpen}
+          openSidenav={() => setNavOpen(true)}
         />
         <MockPage />
       </MainContentContainer>
@@ -97,31 +92,30 @@ const PageWrapper = styled.div`
 
 const COLLAPSE_ANIMATION_DURATION = 300;
 
-const MainContentContainer = styled.div<{ isDragging?: boolean }>`
+const MainContentContainer = styled.div<{ dragging?: boolean }>`
   display: flex;
   height: 100%;
   transition: ${(p) =>
-    p.isDragging
+    p.dragging
       ? 'initial'
       : `margin ${COLLAPSE_ANIMATION_DURATION}ms`};
   position: relative;
 `;
 
-const MockPage = () => {
+function MockPage() {
   return (
     <MockPageContainer>
       <MockHero />
     </MockPageContainer>
   );
-};
+}
 
-const MockHeader = ({
-  isSidenavOpen,
-  openSidenav,
-}: {
+type MockHeaderProps = {
   isSidenavOpen: boolean;
   openSidenav: () => void;
-}) => {
+};
+
+function MockHeader({ isSidenavOpen, openSidenav }: MockHeaderProps) {
   return (
     <MockHeaderContainer>
       <MockHeaderSection>
@@ -152,7 +146,7 @@ const MockHeader = ({
       </MockHeaderSection>
     </MockHeaderContainer>
   );
-};
+}
 
 const CollapseButton = styled(Button)`
   transition: opacity 200ms 150ms;
