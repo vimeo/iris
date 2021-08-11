@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { ThemeContext } from 'styled-components';
 
-const version = '0.107.0';
+const version = '0.107.1';
 
 type IrisMeta =
   | true
@@ -19,14 +19,12 @@ type IrisMeta =
       dev: unknown;
     };
 
-export type IrisComponent<
-  DOMElement,
-  Props
-> = ForwardRefExoticComponent<
-  PropsWithoutRef<Props> & RefAttributes<DOMElement>
-> & {
-  $$iris: IrisMeta;
-};
+export type IrisComponent<DOMElement, Props> =
+  ForwardRefExoticComponent<
+    PropsWithoutRef<Props> & RefAttributes<DOMElement>
+  > & {
+    $$iris: IrisMeta;
+  };
 
 export function withIris<
   DOMElement,
@@ -91,7 +89,7 @@ export function withIris<
       }),
     };
 
-    return (RefComponentWithIris as unknown) as IrisComponent<
+    return RefComponentWithIris as unknown as IrisComponent<
       DOMElement,
       Props
     > &
