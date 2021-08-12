@@ -16,14 +16,9 @@ const fadeIn = ({ attach }) => keyframes`
   }
 `;
 
-export const PanelStyled = styled.div<{
-  attach: Props['attach'];
-  maxWidth?: number;
-  minWidth?: number;
-}>`
+export const PanelStyled = styled.div<{ attach: Props['attach'] }>`
   background: ${(p) => p.theme.content.background};
-  min-width: ${(p) => (p.minWidth ? rem(p.minWidth) : '16rem')};
-  max-width: ${(p) => (p.maxWidth ? rem(p.maxWidth) : 'initial')};
+  min-width: 16rem;
   z-index: 3000;
   animation: ${fadeIn} 300ms ease-in-out;
   height: 100vh;

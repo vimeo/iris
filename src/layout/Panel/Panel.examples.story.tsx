@@ -25,6 +25,10 @@ const fadeIn = keyframes`
   }
 `;
 
+const INITIAL_NAV_WIDTH = 250;
+const MAX_DRAG_WIDTH = 600;
+const MIN_DRAG_WIDTH = 200;
+
 /**
  * The PageWrapper will contain the sidebar & the main page content.
  * At this level we will manage the state of whether or not the sidebav is open, as well as its width.
@@ -34,7 +38,7 @@ const fadeIn = keyframes`
 export const SideNav = () => {
   const [dragging, setDragging] = useState(false);
   const [navOpen, setNavOpen] = useState(true);
-  const [navWidth, setNavWidth] = useState(250);
+  const [navWidth, setNavWidth] = useState(INITIAL_NAV_WIDTH);
 
   const sidenavContent = (
     <ContentContainer>
@@ -50,6 +54,11 @@ export const SideNav = () => {
           format="alternative"
         />
       </Tip>
+      <InfoContainer>
+        <p>Panel Width: {navWidth}</p>
+        <p>Max Drag Width: {MAX_DRAG_WIDTH}</p>
+        <p>Min Drag Width: {MIN_DRAG_WIDTH}</p>
+      </InfoContainer>
     </ContentContainer>
   );
 
@@ -59,15 +68,13 @@ export const SideNav = () => {
         active={navOpen}
         attach="left"
         content={sidenavContent}
-        minWidth={200}
-        onResize={(width) => {
-          setNavWidth(width);
-        }}
+        maxDragWidth={MAX_DRAG_WIDTH}
+        minDragWidth={MIN_DRAG_WIDTH}
+        onResize={(width) => setNavWidth(width)}
         onDragStart={() => setDragging(true)}
         onDragEnd={() => setDragging(false)}
         resizable={true}
         screen={false}
-        style={{ width: navWidth }}
       />
       {/* Everything in this container will be moved when sidenav resizes */}
       <MainContentContainer
@@ -170,6 +177,8 @@ const Sidenav = styled(Panel)`
     }
   }
   animation: ${fadeIn} ${COLLAPSE_ANIMATION_DURATION}ms;
+  width: ${INITIAL_NAV_WIDTH}px;
+  min-width: ${MIN_DRAG_WIDTH}px;
 `;
 
 const ContentContainer = styled.div`
@@ -209,4 +218,12 @@ const MockHeaderSection = styled.div`
 
 const ChevronLeft = styled(ChevronRight)`
   transform: rotate(180deg);
+`;
+
+const InfoContainer = styled.div`
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
 `;

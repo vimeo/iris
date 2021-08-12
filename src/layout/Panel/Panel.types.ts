@@ -19,15 +19,15 @@ export type Props = IrisProps<{
   content?: ReactNode;
   children?: ReactElement;
   /**
-   * Max width the sidenav can be expanded to.
+   * Max width the sidenav can be dragged to.
    * [default = 600]
    */
-  maxWidth?: number;
+  maxDragWidth?: number;
   /**
-   * Min width the sidenav can be reduced to.
+   * Min width the sidenav can be dragged to.
    * [default = 256]
    */
-  minWidth?: number;
+  minDragWidth?: number;
   /**
    * Function called when user beings dragging.
    */

@@ -1,4 +1,9 @@
-import React, { cloneElement, useRef, useLayoutEffect } from 'react';
+import React, {
+  cloneElement,
+  useRef,
+  useLayoutEffect,
+  useState,
+} from 'react';
 
 import { Props } from './Panel.types';
 import { DragEdge, DragHighlight, PanelStyled } from './Panel.style';
@@ -14,15 +19,14 @@ import {
 
 export const Panel = withIris<HTMLDivElement, Props>(PanelComponent);
 
-// TODO - Pass in width as a prop so we can decide if it's controlled or uncontrolled?
 function PanelComponent({
   active,
   attach = 'right',
   children = null,
   content,
   forwardRef,
-  maxWidth = 600,
-  minWidth = 256,
+  maxDragWidth = 600,
+  minDragWidth = 256,
   onDragStart,
   onDragEnd,
   onClose,
@@ -30,10 +34,12 @@ function PanelComponent({
   onResize,
   resizable = false,
   screen = true,
+  style,
   ...props
 }: Props) {
   const dragEdgeRef = useRef<HTMLSpanElement>(null);
   const focusRef = useRef(null);
+  const [width, setWidth] = useState(null);
   const attachTo = attacher(attach);
 
   const controlled = active === true || active === false;
@@ -58,13 +64,20 @@ function PanelComponent({
 
   const handleMouseMove = throttle((e) => {
     // TODO - Issue w/ resizing when attach is 'right'
-    const newWidth =
+    const dragWidth =
       attach === 'left'
         ? e.clientX - document.body.offsetLeft
         : document.body.offsetWidth - e.clientX;
-    if (newWidth > minWidth && newWidth < maxWidth) {
-      onResize && onResize(newWidth);
-    }
+
+    const width =
+      dragWidth < minDragWidth
+        ? minDragWidth
+        : dragWidth > maxDragWidth
+        ? maxDragWidth
+        : dragWidth;
+
+    setWidth(width);
+    onResize?.(width);
   }, 10);
 
   const handleMouseDown = (e) => {
@@ -85,8 +98,10 @@ function PanelComponent({
       {...props}
       ref={forwardRef}
       attach={attach}
-      minWidth={minWidth}
-      maxWidth={maxWidth}
+      style={{
+        ...style,
+        ...(width && { width }),
+      }}
       {...irisError}
     >
       {content}
