@@ -9,7 +9,7 @@ import { adjustHue, setSaturation } from 'polished';
 import { FeatureTourPanelContent } from './FeatureTourPanelContent';
 import { Dot } from './Dot';
 
-import { PopOver } from '../../layout';
+import { PopOver } from '../../components';
 import { blue } from '../../color';
 import { withIris, IrisProps, useClose } from '../../utils';
 

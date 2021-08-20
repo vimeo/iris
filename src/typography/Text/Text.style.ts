@@ -3,7 +3,7 @@ import { rem } from 'polished';
 
 import { HTMLTextElement } from './Text.types';
 
-import { antialias } from '../typography';
+import { antialiasDark } from '../antialias';
 import { Statuses, Formats } from '../../themes';
 import { core } from '../../tokens';
 
@@ -19,7 +19,7 @@ export const Text = styled.span<{
   line-height: 1.25;
   border: 0;
   color: ${color};
-  ${antialias};
+  ${antialiasDark};
 `;
 
 export const Input = styled.input`
@@ -36,7 +36,7 @@ export const Input = styled.input`
   line-height: 1.25;
   font-size: ${(p) => rem(core.typography.size(p.size) as number)};
   color: ${color};
-  ${antialias};
+  ${antialiasDark};
 `;
 
 export function fontFamily({ theme }) {

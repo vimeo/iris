@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import { Props } from './Header.types';
-import { antialias } from '../typography';
+import { antialiasDark } from '../antialias';
 import { Text } from '../Text/Text';
 
 type PropsStyled = Omit<Props, 'size'> & { size: number };
@@ -11,7 +11,7 @@ export const Header = styled(Text)<PropsStyled>`
   color: ${(p) => p.theme.formats[p.format]};
   font-weight: ${(p) => (p.variant === 'thin' ? 400 : 700)};
   ${sizes};
-  ${antialias};
+  ${antialiasDark};
 `;
 
 export const PlusUltra = styled(Text)<Props>`
