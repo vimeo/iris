@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Story } from '@storybook/react';
 
 import { Panel } from './Panel';
@@ -17,10 +17,15 @@ export default {
 };
 
 const Template: Story<Props> = (args) => {
+  const [active, activeSet] = useState(true);
+
+  const toggle = () => activeSet((active) => !active);
+
   return (
-    <Panel content={PanelContent} {...args}>
-      <Button>Open Panel</Button>
-    </Panel>
+    <>
+      <Button onClick={toggle}>Open Panel</Button>
+      <Panel {...args} active={active} content={PanelContent} />
+    </>
   );
 };
 

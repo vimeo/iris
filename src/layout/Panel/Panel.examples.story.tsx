@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 import { grayscale } from '../../color';
 import { Button, Tip } from '../../components';
@@ -15,20 +15,6 @@ export default {
   },
 };
 
-const fadeIn = keyframes`
-  0% {
-    transform: translateX(-100%);
-  }
-
-  100% {
-    transform: translateX(0) rotate(0deg);
-  }
-`;
-
-const INITIAL_NAV_WIDTH = 250;
-const MAX_DRAG_WIDTH = 600;
-const MIN_DRAG_WIDTH = 200;
-
 /**
  * The PageWrapper will contain the sidebar & the main page content.
  * At this level we will manage the state of whether or not the sidebav is open, as well as its width.
@@ -38,7 +24,7 @@ const MIN_DRAG_WIDTH = 200;
 export const SideNav = () => {
   const [dragging, setDragging] = useState(false);
   const [navOpen, setNavOpen] = useState(true);
-  const [navWidth, setNavWidth] = useState(INITIAL_NAV_WIDTH);
+  const [navWidth, setNavWidth] = useState(null);
 
   const sidenavContent = (
     <ContentContainer>
@@ -56,8 +42,6 @@ export const SideNav = () => {
       </Tip>
       <InfoContainer>
         <p>Panel Width: {navWidth}</p>
-        <p>Max Drag Width: {MAX_DRAG_WIDTH}</p>
-        <p>Min Drag Width: {MIN_DRAG_WIDTH}</p>
       </InfoContainer>
     </ContentContainer>
   );
@@ -68,9 +52,7 @@ export const SideNav = () => {
         active={navOpen}
         attach="left"
         content={sidenavContent}
-        maxDragWidth={MAX_DRAG_WIDTH}
-        minDragWidth={MIN_DRAG_WIDTH}
-        onResize={(width) => setNavWidth(width)}
+        onResize={(event, { width }) => setNavWidth(width)}
         onDragStart={() => setDragging(true)}
         onDragEnd={() => setDragging(false)}
         resizable={true}
@@ -176,9 +158,8 @@ const Sidenav = styled(Panel)`
       opacity: 1;
     }
   }
-  animation: ${fadeIn} ${COLLAPSE_ANIMATION_DURATION}ms;
-  width: ${INITIAL_NAV_WIDTH}px;
-  min-width: ${MIN_DRAG_WIDTH}px;
+  width: 250px;
+  min-width: 200px;
 `;
 
 const ContentContainer = styled.div`

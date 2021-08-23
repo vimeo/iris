@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Panel } from './Panel';
 
@@ -9,38 +9,40 @@ export default {
   title: 'layout/Panel/props',
 };
 
-export function attach() {
+export function Attach() {
+  const [active, setActive] = useState({ right: false, left: false });
+
+  function toggle(side) {
+    return () =>
+      setActive((active) => {
+        const toggled = !active[side];
+
+        if (toggled) console.log('open');
+        if (!toggled) console.log('close');
+
+        return { ...active, [side]: !active[side] };
+      });
+  }
+
   return (
     <Layout.StoryVertical>
-      <Panel
-        content={PanelContent}
-        onOpen={() => console.log('open')}
-        onClose={() => console.log('close')}
-      >
-        <Button>Open Right Panel</Button>
-      </Panel>
+      <Button onClick={toggle('right')}>Open Right Panel</Button>
+      <Button onClick={toggle('left')}>Open Left Panel</Button>
+      <Panel active={active.right} content={PanelContent} />
       <Panel
         attach="left"
+        active={active.left}
         content={PanelContent}
-        onOpen={() => console.log('open')}
-        onClose={() => console.log('close')}
-      >
-        <Button>Open Left Panel</Button>
-      </Panel>
+      />
     </Layout.StoryVertical>
   );
 }
-attach.storyName = 'attach';
+Attach.storyName = 'attach';
 
 export function active() {
   return (
     <Layout.StoryVertical>
-      <Panel
-        active
-        content={PanelContent}
-        onOpen={() => console.log('open')}
-        onClose={() => console.log('close')}
-      />
+      <Panel active content={PanelContent} />
     </Layout.StoryVertical>
   );
 }

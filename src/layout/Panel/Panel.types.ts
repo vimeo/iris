@@ -36,12 +36,10 @@ export type Props = IrisProps<{
    * Function called when user finishes dragging.
    */
   onDragEnd?: MouseEventHandler;
-  onClose?: MouseEventHandler;
-  onOpen?: MouseEventHandler;
   /**
    * Function that gets called when the size of the panel changes.
    */
-  onResize?: (size: number) => void;
+  onResize?: (event: MouseEvent, { width }: Resize) => void;
   /**
    * Whether or not the panel can be dragged to resize it.
    * [default = false]
@@ -54,3 +52,5 @@ export type Props = IrisProps<{
    */
   screen?: boolean;
 }>;
+
+type Resize = { width: number };
