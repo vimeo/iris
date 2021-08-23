@@ -4,16 +4,16 @@ import { Story } from '@storybook/react';
 import { DateRange } from './DateRange';
 import { Props } from './DateRange.types';
 
-import { ChevronDown } from '../../../../icons';
-import { PopOver } from '../../../../layout';
-import { Layout } from '../../../../storybook';
-import { Button } from '../../../buttons/Button/Button';
-import { useOutsideClick } from '../../../../utils';
+import { PopOver } from '../PopOver/PopOver';
+import { Button } from '../Button/Button';
+import { ChevronDown } from '../../icons';
+import { Layout } from '../../storybook';
+import { useOutsideClick } from '../../utils';
 
 const presets = ['today', 10, -100, 100, 'custom'];
 
 export default {
-  title: 'Components/Inputs/Dates/DateRange',
+  title: 'components/DateRange',
   component: DateRange,
   argTypes: {
     label: { table: { disable: true } }, // not relevant
@@ -23,7 +23,15 @@ export default {
     src: { table: { disable: true } }, // not relevant
     attach: { table: { disable: true } }, // deprecated
     presets: {
-      control: { type: 'select', options: [presets, undefined] },
+      control: {
+        type: 'select',
+        labels: {
+          presets: 'presets example',
+          null: 'no presets',
+        },
+      },
+      options: ['presets', 'null'],
+      mapping: { presets, null: null },
     },
     onPresetClick: { control: { disable: true } },
     minDate: { control: { type: 'date' } },

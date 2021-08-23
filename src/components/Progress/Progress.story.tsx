@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 
 import { Progress, Props } from './Progress';
 
-export default { title: 'motion/Progress', component: Progress };
+export default { title: 'components/Progress', component: Progress };
 
 const style = `
   margin: 1rem 1rem;

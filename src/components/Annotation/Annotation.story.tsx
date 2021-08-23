@@ -3,11 +3,11 @@ import { Story } from '@storybook/react';
 
 import { Annotation, Props } from './Annotation';
 
-import { Layout } from '../../../storybook';
-import { Header } from '../../../typography';
+import { Layout } from '../../storybook';
+import { Header } from '../../typography';
 
 export default {
-  title: 'Components/Info/Annotation',
+  title: 'components/Annotation',
   component: Annotation,
   argTypes: {
     content: { control: { disable: true } },

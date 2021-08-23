@@ -3,11 +3,11 @@ import { rgba } from 'polished';
 
 import { Calendar } from './Calendar';
 
-import { Header } from '../../../../typography';
-import { Layout } from '../../../../storybook';
+import { Header } from '../../typography';
+import { Layout } from '../../storybook';
 
 export default {
-  title: 'Components/Inputs/Dates/Calendar',
+  title: 'components/Calendar',
 };
 
 export function CalendarStory() {

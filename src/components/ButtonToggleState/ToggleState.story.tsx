@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { ButtonToggleState as B } from '../ToggleState/ToggleState';
+import { ButtonToggleState as B } from './ToggleState';
 
-import { Header } from '../../../typography';
+import { Header } from '../../typography';
 import { Plus, Checkmark, DismissX } from '../../icons';
 
 const ButtonToggleState = styled(B)`
@@ -11,7 +11,7 @@ const ButtonToggleState = styled(B)`
 `;
 
 export default {
-  title: 'Components/Buttons/ToggleState',
+  title: 'components/ToggleState',
   component: B,
 };
 

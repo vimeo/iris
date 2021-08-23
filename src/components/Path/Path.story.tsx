@@ -5,7 +5,7 @@ import { Path as P } from './Path';
 
 import { Globe } from '../../icons';
 
-export default { title: 'Components/info/Path', component: P };
+export default { title: 'components/Path', component: P };
 
 const Path = styled(P)`
   margin: 0 0.5rem;

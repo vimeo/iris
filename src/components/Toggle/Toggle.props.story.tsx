@@ -3,19 +3,19 @@ import { useState } from '@storybook/addons';
 
 import { Toggle } from './Toggle';
 
-import { Button } from '../../buttons/Button/Button';
-import { Header } from '../../../typography';
-import { Layout } from '../../../storybook';
+import { Button } from '../Button/Button';
+import { Header } from '../../typography';
+import { Layout } from '../../storybook';
 import { Eye, EyeOff } from '../../icons';
 
 export default {
-  title: 'Components/Inputs/Toggle/Props',
+  title: 'components/Toggle/props',
 };
 
 export function Size() {
   return (
     <Layout.StoryVertical>
-      {['sm', 'md', 'lg', 'xl'].map((size, i) => (
+      {(['sm', 'md', 'lg', 'xl'] as const).map((size, i) => (
         <Toggle
           key={i}
           size={size}

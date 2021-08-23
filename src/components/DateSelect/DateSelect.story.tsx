@@ -3,11 +3,11 @@ import { Story } from '@storybook/react';
 
 import { DateSelect, Props } from './DateSelect';
 
-import { Input } from '../../Input/Input';
-import { Layout } from '../../../../storybook';
+import { Input } from '../Input/Input';
+import { Layout } from '../../storybook';
 
 export default {
-  title: 'Components/Inputs/Dates/DateSelect',
+  title: 'components/DateSelect',
   component: DateSelect,
   argTypes: {
     label: { table: { disable: true } }, // not relevant

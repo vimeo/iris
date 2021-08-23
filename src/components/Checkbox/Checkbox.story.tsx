@@ -3,10 +3,10 @@ import { Story } from '@storybook/react';
 
 import { Checkbox, Props } from './Checkbox';
 
-import { Layout } from '../../../storybook';
+import { Layout } from '../../storybook';
 
 export default {
-  title: 'Components/Inputs/Checkbox',
+  title: 'components/Checkbox',
   component: Checkbox,
   argTypes: {
     messages: { table: { disable: true } }, // not relevant

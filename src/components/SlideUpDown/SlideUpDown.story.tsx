@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Story } from '@storybook/react';
 
 import { SlideUpDown } from './SlideUpDown';
@@ -8,7 +8,7 @@ import { Paragraph } from '../../typography';
 import { Notice } from '../../components';
 
 export default {
-  title: 'motion/SlideUpDown',
+  title: 'components/SlideUpDown',
   component: SlideUpDown,
 };
 

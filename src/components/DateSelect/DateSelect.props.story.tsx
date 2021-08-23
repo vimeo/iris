@@ -2,13 +2,13 @@ import React, { useState, useRef } from 'react';
 
 import { DateSelect } from './DateSelect';
 
-import { Input } from '../../inputs/Input/Input';
-import { Button } from '../../../buttons/Button/Button';
-import { Layout } from '../../../storybook';
+import { Input } from '../Input/Input';
+import { Button } from '../Button/Button';
+import { Layout } from '../../storybook';
 import { useOutsideClick } from '../../utils';
 
 export default {
-  title: 'Components/Inputs/Dates/DateSelect/Props',
+  title: 'components/DateSelect/props',
 };
 
 export const InitialMonth = () => <InitialMonthStory />;

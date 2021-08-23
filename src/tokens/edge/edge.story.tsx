@@ -6,7 +6,7 @@ import { Text } from '../../typography';
 import { core } from '../core';
 import { Card, Canvas } from '../storybook';
 
-export default { title: 'Tokens/edge' };
+export default { title: 'tokens/edge' };
 
 export function Tokens() {
   const Cards = Array.from({ length: 11 }).map((_, key) => {
@@ -29,7 +29,7 @@ export function Tokens() {
 
 Tokens.storyName = 'edge';
 
-function styles({ theme, grade }) {
+function styles({ grade }) {
   return css`
     ${core.edge(grade)};
   `;

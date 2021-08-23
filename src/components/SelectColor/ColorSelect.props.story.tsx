@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { readableColor } from 'polished';
 
 import { ColorSelect } from './ColorSelect';
 
-import { Button } from '../../buttons/Button/Button';
+import { Button } from '../Button/Button';
 
-import { Layout } from '../../../storybook';
+import { Layout } from '../../storybook';
 
 export default {
-  title: 'Components/Inputs/ColorSelect/props',
+  title: 'components/ColorSelect/props',
 };
 
 export function Children() {

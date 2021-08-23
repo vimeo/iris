@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 import { Notice } from './Notice';
 
-import { Link } from '../../../typography';
+import { Link } from '../../typography';
 import { green } from '../../color';
 
 export default {
-  title: 'Components/Info/Notice/examples',
+  title: 'components/Notice/examples',
 };
 
 export function Children() {

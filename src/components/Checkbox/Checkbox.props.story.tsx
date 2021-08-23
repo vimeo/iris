@@ -3,12 +3,12 @@ import { useState } from '@storybook/addons';
 
 import { Checkbox } from './Checkbox';
 
-import { Button } from '../../buttons/Button/Button';
-import { Layout } from '../../../storybook';
-import { Header } from '../../../typography';
+import { Button } from '../Button/Button';
+import { Layout } from '../../storybook';
+import { Header } from '../../typography';
 
 export default {
-  title: 'Components/Inputs/Checkbox/Props',
+  title: 'components/Checkbox/props',
 };
 
 export function Disabled() {

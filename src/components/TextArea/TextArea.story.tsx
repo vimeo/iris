@@ -4,10 +4,10 @@ import { Story } from '@storybook/react';
 import { TextArea as TA } from './TextArea';
 import { Props } from './TextArea.types';
 
-import { Layout } from '../../../storybook';
+import { Layout } from '../../storybook';
 import { withCharacterCount } from '../withCharacterCount/withCharacterCount';
 export default {
-  title: 'Components/Inputs/TextArea',
+  title: 'components/TextArea',
   component: TA,
   argTypes: {
     status: { table: { disable: true } },

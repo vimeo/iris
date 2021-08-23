@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { Dropzone } from './Dropzone';
 import { DropChangeEvent } from './Dropzone.types';
 
-import { Header } from '../../../typography';
+import { Header } from '../../typography';
 import {
   red,
   green,
@@ -17,7 +17,7 @@ import { useLocalTheme } from '../../utils';
 import { IrisTheme } from '../../themes';
 
 export default {
-  title: 'Components/Inputs/Dropzone/Props',
+  title: 'components/Dropzone/props',
   component: Dropzone,
   argTypes: {
     label: { table: { disable: true } },

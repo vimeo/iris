@@ -3,10 +3,10 @@ import { Story } from '@storybook/react';
 
 import { CopyField, Props } from './CopyField';
 
-import { Layout } from '../../../storybook';
+import { Layout } from '../../storybook';
 
 export default {
-  title: 'Components/Inputs/CopyField',
+  title: 'components/CopyField',
   component: CopyField,
   argTypes: {
     src: { table: { disable: true } }, // not relevant

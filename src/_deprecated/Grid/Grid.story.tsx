@@ -8,28 +8,28 @@ import { Props } from './Grid.types';
 
 import { Header } from '../../typography';
 
-export default {
-  title: 'layout/Grid',
-  component: Grid,
-  parameters: { a11y: { disabled: true } },
-  argTypes: {
-    children: { control: { disable: true } },
-    columns: {
-      control: {
-        type: 'number',
-        min: 1,
-        max: 12,
-      },
-    },
-    columnsMinWidth: {
-      name: 'columns (minWidth)',
-      control: {
-        type: 'select',
-        options: [150, 250, 500, undefined],
-      },
-    },
-  },
-};
+// export default {
+//   title: 'components/Grid',
+//   component: Grid,
+//   parameters: { a11y: { disabled: true } },
+//   argTypes: {
+//     children: { control: { disable: true } },
+//     columns: {
+//       control: {
+//         type: 'number',
+//         min: 1,
+//         max: 12,
+//       },
+//     },
+//     columnsMinWidth: {
+//       name: 'columns (minWidth)',
+//       control: {
+//         type: 'select',
+//         options: [150, 250, 500, undefined],
+//       },
+//     },
+//   },
+// };
 
 const Template: Story<Props & { columnsMinWidth: number }> = (
   args

@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 import { Avatar } from './Avatar';
 import { Props, sizes } from './Avatar.types';
 
-export default { title: 'Components/Chips/Avatar' };
+export default { title: 'components/Avatar' };
 
 const Template: Story<Props> = (args) => {
   return (

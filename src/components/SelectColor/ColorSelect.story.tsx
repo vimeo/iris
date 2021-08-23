@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { readableColor } from 'polished';
 import { Story } from '@storybook/react';
 
 import { ColorSelect } from './ColorSelect';
 import { Props } from './ColorSelect.types';
 
-import { Layout } from '../../../storybook';
+import { Layout } from '../../storybook';
 import { ANCHOR_POINTS } from '../../utils';
 
 export default {
-  title: 'Components/Inputs/ColorSelect',
+  title: 'components/ColorSelect',
   component: ColorSelect,
   argTypes: {
     status: { table: { disable: true } }, // not relevant

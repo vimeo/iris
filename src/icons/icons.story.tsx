@@ -11,7 +11,6 @@ import * as VIMEO_ICONS from './vimeo';
 
 import { Header } from '../typography';
 import { Input } from '../components';
-import { Story } from '../storybook';
 import { black, white } from '../color';
 
 export default { title: 'icons/Icons' };
@@ -33,7 +32,7 @@ export const Brand = () => <IconStory icons={BRAND_ICONS} />;
 export const Vimeo = () => <IconStory icons={VIMEO_ICONS} />;
 export const Media = () => <IconStory icons={MEDIA_ICONS} />;
 
-function IconStory({ icons, preserve = false, ...props }) {
+function IconStory({ icons, preserve = false }) {
   const [search, searchSet] = useState('');
 
   const onChange = (event) => searchSet(event.target.value);

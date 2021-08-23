@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { withCharacterCount } from './withCharacterCount';
 import { TextArea } from '../TextArea/TextArea';
 
-import { Story } from '../../../storybook';
-import { Input } from '../../index';
+import { Story } from '../../storybook';
+import { Input } from '../Input/Input';
 
 export default { title: 'Utilties/Character Count' };
 

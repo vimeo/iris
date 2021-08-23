@@ -4,12 +4,13 @@ import { rem } from 'polished';
 
 import { ModalCarousel } from './ModalCarousel';
 
-import { Grid } from '../../Grid/Grid';
-import { Button } from '../../../components';
-import { Paragraph, Header, Text } from '../../../typography';
-import { slate, blue } from '../../../color';
-import { DismissX, Play } from '../../../icons';
-import { vimeos, useFakeQuery } from '../../../storybook';
+import { Button } from '../../components';
+import { Paragraph, Header, Text } from '../../typography';
+import { slate, blue } from '../../color';
+import { DismissX, Play } from '../../icons';
+import { vimeos, useFakeQuery } from '../../storybook';
+
+const Grid = styled.div<any>``;
 
 export function CreatePage() {
   const [active, setActive] = useState(false);

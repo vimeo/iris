@@ -7,7 +7,7 @@ import { DropChangeEvent, Props } from './Dropzone.types';
 import { Header } from '../../typography';
 
 export default {
-  title: 'Components/Inputs/Dropzone',
+  title: 'components/Dropzone',
   component: Dropzone,
   argTypes: {
     label: { table: { disable: true } },

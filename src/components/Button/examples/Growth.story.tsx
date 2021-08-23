@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Button as B } from '../Button';
-import { Pencil, Camera, Gear, UploadCloud } from '../../../../icons';
-import { red } from '../../../../color';
+import { Pencil, Camera, Gear, UploadCloud } from '../../../icons';
+import { red } from '../../../color';
 
 export default {
-  title: 'components/buttons/Button/examples',
+  title: 'components/Button/examples',
   component: B,
 };
 

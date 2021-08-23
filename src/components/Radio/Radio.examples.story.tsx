@@ -1,14 +1,14 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { rgba } from 'polished';
 import { useState } from '@storybook/addons';
 
 import { Radio as R } from './Radio';
 import { RadioSet } from './RadioSet';
 import { Eye, EyeOff } from '../../icons';
-import { Button } from '../../buttons/Button/Button';
-import { rgba } from 'polished';
+import { Button } from '../Button/Button';
 
-export default { title: 'Components/inputs/Radio/Examples' };
+export default { title: 'components/Radio/examples' };
 
 const Radio = styled(R)`
   margin: 1rem;
@@ -74,19 +74,17 @@ function Custom({ checked = null, ...props }) {
   );
 }
 
-const customCSS =
-  (n) =>
-  ({ theme }) =>
-    css`
-      border: 3px solid ${rgba(theme.formats.soft, n)};
+const customCSS = (n) => ({ theme }) =>
+  css`
+    border: 3px solid ${rgba(theme.formats.soft, n)};
 
-      svg * {
-        fill: ${rgba(theme.formats.soft, n)};
-        transition: 120ms ease-in-out;
-      }
-    `;
+    svg * {
+      fill: ${rgba(theme.formats.soft, n)};
+      transition: 120ms ease-in-out;
+    }
+  `;
 
-const CustomStyled = styled.div`
+const CustomStyled = styled.div<any>`
   width: 3rem;
   height: 3rem;
   padding: 0.25rem;

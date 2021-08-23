@@ -8,7 +8,7 @@ import { ANCHOR_POINTS } from '../../utils';
 import { Gear, DismissX } from '../../icons';
 import { blue } from '../../color';
 
-export default { title: 'layout/PopOver/Props' };
+export default { title: 'components/PopOver/props' };
 
 export function Attach() {
   return ANCHOR_POINTS.map((attach, i) => (

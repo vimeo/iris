@@ -2,12 +2,12 @@ import React, { Fragment } from 'react';
 
 import { Annotation } from './Annotation';
 
-import { Layout } from '../../../storybook';
-import { Header } from '../../../typography';
+import { Layout } from '../../storybook';
+import { Header } from '../../typography';
 import { ANCHOR_POINTS } from '../../utils';
 
 export default {
-  title: 'Components/Info/Annotation/Props',
+  title: 'components/Annotation/props',
   component: Annotation,
 };
 

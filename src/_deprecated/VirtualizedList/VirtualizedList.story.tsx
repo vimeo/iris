@@ -5,10 +5,10 @@ import { number } from '@storybook/addon-knobs';
 import { Story } from '../../storybook';
 import { VirtualizedList } from './VirtualizedList';
 
-export default {
-  title: 'Labs/Virtualized List',
-  component: VirtualizedList,
-};
+// export default {
+//   title: 'Labs/Virtualized List',
+//   component: VirtualizedList,
+// };
 
 export function Common() {
   const total = number('List length', 100, options);

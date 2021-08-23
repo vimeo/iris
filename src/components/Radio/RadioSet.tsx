@@ -16,7 +16,7 @@ export const RadioSet = withIris<HTMLDivElement, Props>(
 export interface Props {
   children: MarkInputElement[];
   defaultValue?: string | string[] | number | boolean;
-  onChange?: ChangeEventHandler;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
 function RadioSetComponent({
@@ -28,10 +28,9 @@ function RadioSetComponent({
   ...props
 }: IrisInputProps<Props>) {
   const UID = useMemo(() => generateUID(), []);
-  const UIDs = useMemo(
-    () => children.map(() => generateUID()),
-    [children]
-  );
+  const UIDs = useMemo(() => children.map(() => generateUID()), [
+    children,
+  ]);
 
   const initialCheckedIndex = children.findIndex(
     (child) => child.props.checked

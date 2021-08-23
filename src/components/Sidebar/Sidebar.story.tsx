@@ -10,7 +10,7 @@ import { Header as H } from '../../typography';
 import { Layout } from '../../storybook';
 
 export default {
-  title: 'layout/Sidebar',
+  title: 'components/Sidebar',
   component: Sidebar,
   argTypes: {
     state: { control: { disable: true } },

@@ -10,7 +10,7 @@ import { AutoplayList } from './AutoplayList';
 
 import { Header } from '../../typography';
 
-export default { title: 'Labs/Pronouns' };
+export default { title: 'labs/Pronouns' };
 
 const componentName = 'Comment';
 

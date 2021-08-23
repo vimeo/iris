@@ -2,12 +2,12 @@ import React, { Fragment, useState } from 'react';
 
 import { Tip } from './Tip';
 
-import { Button } from '../../../components';
-import { Header, Paragraph } from '../../../typography';
-import { Layout } from '../../../storybook';
+import { Button } from '../../components';
+import { Header, Paragraph } from '../../typography';
+import { Layout } from '../../storybook';
 import { ANCHOR_POINTS } from '../../utils';
 
-export default { title: 'Components/Info/Tip/props', component: Tip };
+export default { title: 'components/Tip/props', component: Tip };
 
 export function Active() {
   const [active, activeSet] = useState(false);

@@ -6,7 +6,7 @@ import { NewItemCard as NIC, Props } from './NewItemCard';
 import styled from 'styled-components';
 
 export default {
-  title: 'Components/Cards/NewItemCard',
+  title: 'components/NewItemCard',
   component: NIC,
   argTypes: {
     rel: { control: { disable: true } },

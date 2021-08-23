@@ -3,7 +3,7 @@ import React from 'react';
 import { Search } from './Search';
 
 export default {
-  title: 'Components/inputs/Search/Props',
+  title: 'components/Search/props',
 };
 
 export function Size() {
@@ -57,6 +57,6 @@ export function Variant() {
   ));
 }
 
-const sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
-const formats = ['primary', 'alternative'];
-const variants = ['minimal', 'basic'];
+const sizes = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
+const formats = ['primary', 'alternative'] as const;
+const variants = ['minimal', 'basic'] as const;

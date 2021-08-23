@@ -3,14 +3,14 @@ import styled from 'styled-components';
 
 import { Select } from './Select';
 
-import { Layout } from '../../../storybook';
-import { Badge } from '../../chips/Badge/Badge.style';
+import { Badge } from '../Badge/Badge.style';
+import { Button } from '../Button/Button';
+import { Layout } from '../../storybook';
 import { PaperPlane } from '../../icons';
 import { blue } from '../../color';
-import { Button } from '../../buttons/Button/Button';
 
 export default {
-  title: 'Components/Inputs/Select/props',
+  title: 'components/Select/props',
 };
 
 export function Disabled() {

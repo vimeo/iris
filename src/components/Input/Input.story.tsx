@@ -4,10 +4,10 @@ import { Story } from '@storybook/react';
 import { Input } from './Input';
 import { Props } from './Input.types';
 
-import { Layout } from '../../../storybook';
+import { Layout } from '../../storybook';
 
 export default {
-  title: 'Components/Inputs/Input',
+  title: 'components/Input',
   component: Input,
   argTypes: {
     messages: { control: { disable: true } },

@@ -7,7 +7,7 @@ import { Props } from './Button.types';
 import { DownloadArrow } from '../../icons';
 
 export default {
-  title: 'Components/Buttons/Button',
+  title: 'components/Button',
   component: B,
   argTypes: {
     circular: { table: { disable: true } },

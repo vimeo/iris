@@ -3,12 +3,11 @@ import styled from 'styled-components';
 
 import { Dropzone } from '../Dropzone';
 
-import { Header } from '../../../../typography';
-import { UploadCloud, ChevronDownDouble } from '../../../../icons';
-import { Button } from '../../../../components';
-import { PopOver, Pop } from '../../../../layout';
+import { Header } from '../../../typography';
+import { UploadCloud, ChevronDownDouble } from '../../../icons';
+import { Button, PopOver, Pop } from '../../../components';
 
-export default { title: 'Components/Inputs/Dropzone/Examples' };
+export default { title: 'components/Dropzone/examples' };
 
 export function Upload() {
   const ref = useRef(null);

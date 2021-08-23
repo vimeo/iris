@@ -20,10 +20,13 @@ import {
   Toggle as T,
 } from '../../components';
 import { Header as H, Paragraph as P } from '../../typography';
-import { LoaderCircular as LC } from '../../motion';
+import { LoaderCircular as LC } from '../../components';
 import { Gear } from '../../icons';
 
-export default { title: 'Labs/Themekit' };
+export default {
+  title: 'labs/Themekit',
+  parameters: { options: { showPanel: false } },
+};
 
 export function Common() {
   return <ThemeKit />;

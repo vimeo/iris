@@ -7,7 +7,7 @@ import { Layout } from '../../storybook';
 import { Eye } from '../../icons';
 
 export default {
-  title: 'Components/Inputs/Toggle',
+  title: 'components/Toggle',
   component: Toggle,
   argTypes: {
     status: { table: { disable: true } },

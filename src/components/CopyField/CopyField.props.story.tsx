@@ -2,11 +2,11 @@ import React from 'react';
 
 import { CopyField } from './CopyField';
 
-import { Layout } from '../../../storybook';
+import { Layout } from '../../storybook';
 import { Heart } from '../../icons';
 
 export default {
-  title: 'Components/Inputs/CopyField/Props',
+  title: 'components/CopyField/props',
 };
 
 export function Format() {
@@ -29,7 +29,7 @@ export function Format() {
 export function Size() {
   return (
     <Layout.StoryVertical>
-      {['xs', 'sm', 'md', 'lg', 'xl'].map((size, i) => (
+      {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size, i) => (
         <CopyField
           key={i}
           size={size}

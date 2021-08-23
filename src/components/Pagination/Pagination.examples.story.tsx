@@ -9,7 +9,7 @@ import { Button } from '..';
 import { Header } from '../../typography';
 import { Player, vimeos, useFakeQuery } from '../../storybook';
 
-export default { title: 'layout/Pagination/Examples' };
+export default { title: 'components/Pagination/examples' };
 
 const total = 96;
 const pageSize = 12;

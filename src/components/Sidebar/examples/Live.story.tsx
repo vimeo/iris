@@ -13,14 +13,14 @@ import {
   Image,
   Masonry as IconMasonry,
   ColorPalette,
-} from '../../icons';
+} from '../../../icons';
 import { Header as H } from '../../../typography';
 import { Button, NewItemCard } from '../../../components';
 import { Layout } from '../../../storybook';
 import { core, tx } from '../../../tokens';
 
 export default {
-  title: 'layout/Sidebar/examples',
+  title: 'components/Sidebar/examples',
   component: Sidebar,
 };
 

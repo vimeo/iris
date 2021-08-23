@@ -16,7 +16,7 @@ import {
   Gear,
 } from '../../icons';
 
-export default { title: 'layout/Menu/Examples', component: Menu };
+export default { title: 'components/Menu/examples', component: Menu };
 
 export function Simple() {
   return (

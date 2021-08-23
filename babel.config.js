@@ -3,6 +3,10 @@ module.exports = {
     [
       '@babel/preset-env',
       {
+        useBuiltIns: 'usage',
+        corejs: 3,
+        loose: true,
+        shippedProposals: true,
         targets: {
           browsers: [
             '>5%',
@@ -12,8 +16,6 @@ module.exports = {
             'last 2 Safari versions',
           ],
         },
-
-        loose: true,
       },
     ],
     [
@@ -25,8 +27,9 @@ module.exports = {
     ['@babel/preset-typescript'],
   ],
   plugins: [
-    'babel-plugin-styled-components',
-    '@babel/plugin-transform-runtime',
     '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-proposal-private-methods',
+    '@babel/plugin-transform-runtime',
+    'babel-plugin-styled-components',
   ],
 };

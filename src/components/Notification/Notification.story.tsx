@@ -3,10 +3,10 @@ import { Story } from '@storybook/react';
 
 import { Notification, Props } from './Notification';
 
-import { Button } from '../../index';
+import { Button } from '../Button/Button';
 
 export default {
-  title: 'Components/Info/Notification',
+  title: 'components/Notification',
   component: Notification,
   argTypes: {
     content: { control: { disable: true } },

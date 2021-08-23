@@ -5,10 +5,10 @@ import { rem } from 'polished';
 import { Dock as D } from './Dock';
 import { Header } from '../../typography';
 
-export default {
-  title: 'layout/Dock/Props',
-  component: D,
-};
+// export default {
+//   title: 'components/Dock/props',
+//   component: D,
+// };
 
 export function Attach() {
   return (

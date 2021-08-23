@@ -3,12 +3,12 @@ import styled from 'styled-components';
 
 import { TextArea as TA } from './TextArea';
 
-import { Button } from '../../buttons/Button/Button';
-import { Layout } from '../../../storybook';
+import { Button } from '../Button/Button';
+import { Layout } from '../../storybook';
 import { withCharacterCount } from '../withCharacterCount/withCharacterCount';
 
 export default {
-  title: 'Components/Inputs/TextArea/Props',
+  title: 'components/TextArea/props',
 };
 
 const TextArea = styled(TA)`

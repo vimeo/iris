@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 import { Input } from './Input';
 
-import { Layout } from '../../../storybook';
+import { Layout } from '../../storybook';
 
 export default {
-  title: 'Components/Inputs/Input/Examples',
+  title: 'components/Input/examples',
 };
 
 export function Underline() {

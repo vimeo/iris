@@ -3,16 +3,17 @@ import styled from 'styled-components';
 import { Story } from '@storybook/react';
 
 import { Card as C, Props } from './Card';
-import { Grid } from '../../../layout';
-import { Header } from '../../../typography';
+import { Header } from '../../typography';
 
 export default {
-  title: 'Components/Cards',
+  title: 'components/Card',
   component: C,
   argTypes: {
     noHoverState: { table: { disable: true } },
   },
 };
+
+const Grid = styled.div<any>``;
 
 const Template: Story<Props> = (args) => {
   return (

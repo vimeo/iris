@@ -6,7 +6,7 @@ import { Button } from '../../components';
 import { Layout } from '../../storybook';
 
 export default {
-  title: 'layout/Panel/props',
+  title: 'components/Panel/props',
 };
 
 export function attach() {

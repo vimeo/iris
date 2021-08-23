@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { rgba, rem } from 'polished';
 
 import { ModalCarousel } from './ModalCarousel';
-import { Modal } from '../Modal';
 
-import { Avatar } from '../../../components';
-import { Paragraph, Header } from '../../../typography';
-import { Grid } from '../..';
+import { Avatar, Modal } from '../../components';
+import { Paragraph, Header } from '../../typography';
+
+const Grid = styled.div<any>``;
 
 export function ForHirePage() {
   const [active, setActive] = useState(false);

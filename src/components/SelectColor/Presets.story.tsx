@@ -4,10 +4,10 @@ import { Story } from '@storybook/react';
 import { ColorSelect } from './ColorSelect';
 import { Props } from './Presets';
 
-import { Layout } from '../../../storybook';
+import { Layout } from '../../storybook';
 
 export default {
-  title: 'Components/Inputs/ColorSelect/minors',
+  title: 'components/ColorSelect/minors',
   component: ColorSelect.Presets,
   argTypes: {
     attach: { table: { disable: true } }, // not relevant

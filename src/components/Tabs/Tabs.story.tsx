@@ -6,7 +6,7 @@ import { Props } from './Tabs.types';
 
 import { Header, Paragraph } from '../../typography';
 
-export default { title: 'layout/Tabs', component: Tabs };
+export default { title: 'components/Tabs', component: Tabs };
 
 const Template: Story<Props> = (args) => {
   return (

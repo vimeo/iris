@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Path as P } from './Path';
 
 export default {
-  title: 'Components/Info/Path/Examples',
+  title: 'components/Path/examples',
   component: P,
 };
 

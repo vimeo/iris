@@ -30,7 +30,10 @@
             "react-dom",
             "react",
             "styled-components"
-        ]
+        ],
+        "paths": {
+            "@emotion/core": ["./emotion-core-stub.ts"]
+        }
     },
     "plugins": [
         {

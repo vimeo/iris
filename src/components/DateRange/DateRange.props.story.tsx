@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import { DateRange } from './DateRange';
 import { PresetValue } from './DateRange.types';
 
-import { ChevronDown } from '../../../../icons';
-import { PopOver } from '../../../../layout';
-import { Layout } from '../../../../storybook';
-import { Button } from '../../../buttons/Button/Button';
+import { PopOver } from '../PopOver/PopOver';
+import { Button } from '../Button/Button';
+import { Layout } from '../../storybook';
+import { ChevronDown } from '../../icons';
 
 export default {
-  title: 'Components/Inputs/Dates/DateRange/Props',
+  title: 'components/DateRange/props',
 };
 
 export function Presets() {

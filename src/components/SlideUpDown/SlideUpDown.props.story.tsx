@@ -7,7 +7,7 @@ import { Button, Notice } from '../../components';
 import { Layout } from '../../storybook';
 
 export default {
-  title: 'motion/SlideUpDown/Props',
+  title: 'components/SlideUpDown/props',
   component: SlideUpDown,
 };
 

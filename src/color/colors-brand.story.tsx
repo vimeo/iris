@@ -17,7 +17,7 @@ import {
 } from './colors';
 import styled from 'styled-components';
 
-export default { title: 'Color/accent' };
+export default { title: 'color/accent' };
 
 export function All() {
   return (

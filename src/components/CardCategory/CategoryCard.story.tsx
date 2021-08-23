@@ -4,11 +4,10 @@ import { Story } from '@storybook/react';
 
 import { CategoryCard as CC, Props } from './CategoryCard';
 
-import { Grid } from '../../../layout';
 import { Gear, Camera, Heart } from '../../icons';
 
 export default {
-  title: 'Components/Cards/CategoryCard',
+  title: 'components/CategoryCard',
   component: CC,
   argTypes: {
     icon: { control: { disable: true } },
@@ -16,6 +15,8 @@ export default {
     href: { table: { disable: true } },
   },
 };
+
+const Grid = styled.div<any>``;
 
 const Template: Story<Props> = (args) => {
   return (

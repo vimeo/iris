@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { ModalCarousel } from './ModalCarousel';
-import { Modal } from '../Modal';
 
-import { Button } from '../../../components';
-import { Layout } from '../../../storybook';
-import { Paragraph } from '../../../typography';
+import { Button, Modal } from '../../components';
+import { Layout } from '../../storybook';
+import { Paragraph } from '../../typography';
 
-export default { title: 'layout/ModalCarousel' };
+// export default { title: 'components/ModalCarousel' };
 
 export function Carousel() {
   const [active, setActive] = useState(true);

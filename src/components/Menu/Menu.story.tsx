@@ -5,7 +5,7 @@ import { Menu, Props } from './Menu';
 
 import { Folder, Grid } from '../../icons';
 
-export default { title: 'layout/Menu', component: Menu };
+export default { title: 'components/Menu', component: Menu };
 
 const Template: Story<Props> = (args) => {
   return (

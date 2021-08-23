@@ -5,7 +5,7 @@ import { Badge } from './Badge';
 import { Layout } from '../../storybook';
 
 export default {
-  title: 'Components/Chips/Badge/props',
+  title: 'components/Badge/props',
   component: Badge,
   argTypes: {
     label: { table: { disable: true } },

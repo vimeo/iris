@@ -4,9 +4,9 @@ import { Story } from '@storybook/react';
 import { Select } from './Select';
 import { Props } from './Select.types';
 
-import { Layout } from '../../../storybook';
+import { Layout } from '../../storybook';
 export default {
-  title: 'Components/Inputs/Select',
+  title: 'components/Select',
   component: Select,
   argTypes: {
     src: { table: { disable: true } }, // not relevant

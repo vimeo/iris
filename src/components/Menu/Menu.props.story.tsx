@@ -5,7 +5,7 @@ import { Menu } from './Menu';
 import { Layout } from '../../storybook';
 import { Folder, Home, Grid, Gear } from '../../icons';
 
-export default { title: 'layout/Menu/Props', component: Menu };
+export default { title: 'components/Menu/props', component: Menu };
 
 export function Format() {
   return (

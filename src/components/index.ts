@@ -44,3 +44,4 @@ export { Tip } from './Tip/Tip';
 export { Toggle } from './Toggle/Toggle';
 export { TourPoint } from './TourPoint/TourPoint';
 export { withCharacterCount } from './withCharacterCount/withCharacterCount';
+export { LoaderCircular } from './LoaderCircular/LoaderCircular';

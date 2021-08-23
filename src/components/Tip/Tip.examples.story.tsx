@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 
 import { Tip } from './Tip';
 
-import { Button } from '../../../components';
-import { Header } from '../../../typography';
-import { Layout } from '../../../storybook';
+import { Button, Pop, PopOver } from '../../components';
+import { Header } from '../../typography';
+import { Layout } from '../../storybook';
 import { Eye, EyeOff, Gear } from '../../icons';
-import { Pop, PopOver } from '../../../layout';
 
 export default {
-  title: 'Components/Info/Tip/examples',
+  title: 'components/Tip/examples',
   component: Tip,
 };
 

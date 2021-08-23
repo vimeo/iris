@@ -7,27 +7,27 @@ import { Dock as D, Props } from './Dock';
 import { Gear } from '../../icons';
 import { Header } from '../../typography';
 
-export default {
-  title: 'layout/Dock',
-  component: D,
-  argTypes: {
-    attach: {
-      control: {
-        type: 'select',
-        options: [
-          'top',
-          'topRight',
-          'right',
-          'bottomRight',
-          'bottom',
-          'bottomLeft',
-          'left',
-          'topLeft',
-        ],
-      },
-    },
-  },
-};
+// export default {
+//   title: 'components/Dock',
+//   component: D,
+//   argTypes: {
+//     attach: {
+//       control: {
+//         type: 'select',
+//         options: [
+//           'top',
+//           'topRight',
+//           'right',
+//           'bottomRight',
+//           'bottom',
+//           'bottomLeft',
+//           'left',
+//           'topLeft',
+//         ],
+//       },
+//     },
+//   },
+// };
 
 const Template: Story<Props> = (args) => {
   return (

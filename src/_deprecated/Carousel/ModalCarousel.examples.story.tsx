@@ -1,4 +1,4 @@
-export default { title: 'layout/ModalCarousel/Examples' };
+// export default { title: 'components/ModalCarousel/examples' };
 
-export { CreatePage } from './Create.examples.story';
-export { ForHirePage } from './ForHire.examples.story';
+// export { CreatePage } from './Create.examples.story';
+// export { ForHirePage } from './ForHire.examples.story';

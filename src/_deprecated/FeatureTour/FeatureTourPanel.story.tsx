@@ -1,4 +1,5 @@
 import React from 'react';
+import { CSSProperties } from 'styled-components';
 import { color } from '@storybook/addon-knobs';
 
 import { FeatureTourPanel } from './FeatureTourPanel';
@@ -6,14 +7,13 @@ import { FeatureTourPanel } from './FeatureTourPanel';
 import { Button } from '../../components';
 import { Link, Header, Paragraph } from '../../typography';
 import { red, yellow, green } from '../../color';
-import { CSSProperties } from 'styled-components';
 
 /**
  * This component will be deprecated so not adding controls
  * Prop documentation will still be generated.
  */
 // export default {
-//   title: 'Components/Info/FeatureTourPanel',
+//   title: 'components/FeatureTourPanel',
 //   component: FeatureTourPanel,
 // };
 
@@ -400,8 +400,9 @@ export function Fancy() {
   );
 }
 
-const dotStyles = (pos) => ({
-  position: 'absolute',
-  top: `${pos}rem`,
-  left: `${pos}rem`,
-});
+const dotStyles = (pos) =>
+  ({
+    position: 'absolute',
+    top: `${pos}rem`,
+    left: `${pos}rem`,
+  } as const);
