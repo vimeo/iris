@@ -73,8 +73,9 @@ function SimpleItem({
   const onClick = (e: MouseEvent) => action.onClick?.(e);
 
   return (
-    <Wrapper active={active}>
+    <Wrapper>
       <ItemStyled
+        active={active}
         as={href ? 'a' : 'button'}
         href={href}
         hasAction={Boolean(action)}
@@ -112,7 +113,7 @@ function ComplexItem({
   const onClickAction = (e: MouseEvent) => action.onClick?.(e);
 
   return (
-    <Wrapper active={active} $height={open && children.length}>
+    <Wrapper $height={open && children.length}>
       {toggle && (
         // TODO - Do we need to translate? How to do translations in Iris? Something to be passed in? Appropriate label?
         <Toggle
@@ -129,6 +130,7 @@ function ComplexItem({
       )}
 
       <ItemStyled
+        active={active}
         indentation={paddingIncrement}
         hasAction={Boolean(action)}
         {...props}

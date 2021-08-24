@@ -81,8 +81,9 @@ const fade = keyframes`
 `;
 
 export const ItemStyled = styled.button<{
-  indentation: number;
+  active?: boolean;
   hasAction: boolean;
+  indentation: number;
 }>`
   padding: 0.5rem;
   padding-right: ${(p) => (p.hasAction ? '1.5rem' : '0.5rem')};
@@ -93,7 +94,12 @@ export const ItemStyled = styled.button<{
   line-height: 1.5rem;
   font-size: 0.875rem;
   width: 100%;
-  background: transparent;
+  background: ${({ active, theme }) =>
+    active
+      ? theme.name === 'dark'
+        ? grayscale(700)
+        : slate(100)
+      : 'transparent'};
   color: ${({ theme }) => theme.content.color};
   border: 0;
   cursor: pointer;
@@ -156,7 +162,6 @@ export const SubMenu = styled.div`
 `;
 
 export const Wrapper = styled.div<{
-  active?: boolean;
   $height?: number;
 }>`
   border-radius: 0.2rem;

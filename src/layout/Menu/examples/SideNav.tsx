@@ -31,7 +31,7 @@ export function SideNav() {
       format="basic"
     >
       <MenuContainer>
-        <Menu.Item toggle icon={<Home />}>
+        <Menu.Item active={true} toggle icon={<Home />}>
           {'Home'}
           <Menu.Item toggle>
             {'Product'}
