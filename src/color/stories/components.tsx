@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { readableColor, rgba } from 'polished';
 
-import { Story } from '../storybook';
-import { Header } from '../typography';
+import { Story } from '../../storybook';
+import { Header } from '../../typography';
 
 export function ColorStory(colorName, colorFn) {
   const [grade, gradeSet] = useState(500);
@@ -72,16 +72,7 @@ export function ColorPalette({ color }) {
   );
 }
 
-// const titles = [
-//   'pressed',
-//   'selected',
-//   'base',
-//   'focus',
-//   'hover',
-//   'disabled',
-// ];
-
-export function ColorSwatch({ color, title = color, ...props }) {
+function ColorSwatch({ color, title = color, ...props }) {
   return (
     <div
       style={{ display: 'inline-block', overflow: 'hidden' }}

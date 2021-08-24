@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Story } from '../storybook';
-import { Header as H } from '../typography';
+import { Story } from '../../storybook';
+import { Header as H } from '../../typography';
 
-import { ColorPalette, ColorStory } from './storyComponents';
+import { ColorPalette, ColorStory } from './components';
 
 import {
   fuschia,
@@ -14,7 +14,7 @@ import {
   lapis,
   amethyst,
   taupe,
-} from './colors';
+} from '../colors';
 import styled from 'styled-components';
 
 export default { title: 'color/accent' };

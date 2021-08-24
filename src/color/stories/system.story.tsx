@@ -1,11 +1,18 @@
 import React from 'react';
 
-import { Story } from '../storybook';
-import { Header } from '../typography';
+import { Story } from '../../storybook';
+import { Header } from '../../typography';
 
-import { ColorPalette, ColorStory } from './storyComponents';
+import { ColorPalette, ColorStory } from './components';
 
-import { red, yellow, green, blue, slate, grayscale } from './colors';
+import {
+  red,
+  yellow,
+  green,
+  blue,
+  slate,
+  grayscale,
+} from '../colors';
 
 export default { title: 'color/system' };
 

@@ -16,8 +16,8 @@ export { lapis } from './colors';
 export { amethyst } from './colors';
 export { taupe } from './colors';
 
-export { colorSpaces } from './colorUtils';
-export { HSLtoHSV } from './colorUtils';
-export { HSVtoHSL } from './colorUtils';
-export { round } from './colorUtils';
-export { roundValues } from './colorUtils';
+export { colorSpaces } from './util';
+export { HSLtoHSV } from './util';
+export { HSVtoHSL } from './util';
+export { round } from './util';
+export { roundValues } from './util';
