@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { lighten, rgba } from 'polished';
+import { rem, rgba } from 'polished';
 
 import { grayscale, slate } from '../../color';
 
@@ -24,21 +24,34 @@ export const Action = styled.button`
   }
 `;
 
-export const Toggle = styled.div<{ open?: boolean }>`
-  width: 1.5rem;
-  height: 1.5rem;
+export const Toggle = styled.button<{
+  open?: boolean;
+  indentation: number;
+}>`
+  width: 1.25rem;
+  height: 1.25rem;
   position: absolute;
-  top: 0.5rem;
-  left: -0.5rem;
-  transition: 120ms ease-in-out;
-
-  transform: ${(p) => (p.open ? 'rotate(0deg)' : 'rotate(-90deg)')};
+  top: 0.625rem;
+  left: ${({ indentation }) => rem(indentation)};
 
   &:focus {
     outline: none;
   }
 
+  &:hover {
+    background: ${({ theme }) =>
+      theme.name === 'dark' ? grayscale(600) : slate(200)};
+  }
+
+  border: 0px;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  z-index: 1;
+
   > svg {
+    transition: 120ms ease-in-out;
+    transform: ${(p) => (p.open ? 'rotate(0deg)' : 'rotate(-90deg)')};
+
     * {
       fill: ${({ theme }) => theme.content.color};
     }
@@ -67,63 +80,27 @@ const fade = keyframes`
   }
 `;
 
-export const Wrapper = styled.div<{
-  active?: boolean;
-  $height?: number;
+export const ItemStyled = styled.button<{
+  indentation: number;
+  hasAction: boolean;
 }>`
-  border-radius: 0.2rem;
-  position: relative;
-  transition: 80ms ease-in-out;
-
-  /*
-  background: ${({ active, theme }) =>
-    active &&
-    (theme.name === 'dark'
-      ? rgba(theme.content.color, 0.095)
-      : rgba(theme.content.color, 0.065))};
-
-  &:hover {
-    background: ${({ theme }) => rgba(theme.content.color, 0.025)};
-  }
-  */
-
-  ${(p) =>
-    p.$height &&
-    css`
-      transition: 230ms ease-in-out;
-      height: ${(p.$height + 1) * 2.5 + 0.75}rem;
-    `}
-
-  > svg {
-    width: 1.125rem;
-    height: 1.125rem;
-    margin: 0 0.5rem 0 0;
-    display: inline-block;
-
-    * {
-      fill: ${({ theme }) => rgba(theme.content.color, 0.667)};
-    }
-  }
-`;
-
-export const ItemStyled = styled.button<any>`
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem;
+  padding-right: ${(p) => (p.hasAction ? '1.5rem' : '0.5rem')};
+  padding-left: ${({ indentation }) => rem(28 + indentation)};
   display: flex;
-  flex-wrap: wrap;
   position: relative;
   align-items: center;
   line-height: 1.5rem;
-  border-radius: 0.2rem;
   font-size: 0.875rem;
   width: 100%;
   background: transparent;
   color: ${({ theme }) => theme.content.color};
   border: 0;
   cursor: pointer;
-  background: ${({ theme }) => lighten(0.96, theme.content.color)};
 
   &:hover {
-    background: ${({ theme }) => lighten(0.92, theme.content.color)};
+    background: ${({ theme }) =>
+      theme.name === 'dark' ? grayscale(700) : slate(100)};
   }
 
   &:focus {
@@ -133,10 +110,12 @@ export const ItemStyled = styled.button<any>`
   > svg {
     width: 1.125rem;
     height: 1.125rem;
-    margin-right: 1rem;
+    min-width: 1.125rem;
+    min-height: 1.125rem;
+    margin-right: 0.5rem;
 
     * {
-      fill: ${({ theme }) => rgba(theme.content.color, 0.667)};
+      fill: ${({ theme }) => theme.content.color};
     }
   }
 `;
@@ -170,9 +149,46 @@ const animation = css`
 
 export const SubMenu = styled.div`
   width: 100%;
-  padding-left: 0.5rem;
 
   > div {
     ${animation};
   }
+`;
+
+export const Wrapper = styled.div<{
+  active?: boolean;
+  $height?: number;
+}>`
+  border-radius: 0.2rem;
+  position: relative;
+  transition: 80ms ease-in-out;
+
+  & ${Toggle}:hover + ${ItemStyled} {
+    background: ${({ theme }) =>
+      theme.name === 'dark' ? grayscale(700) : slate(100)};
+  }
+
+  ${(p) =>
+    p.$height &&
+    css`
+      transition: 230ms ease-in-out;
+      height: ${(p.$height + 1) * 2.5 + 0.75}rem;
+    `}
+
+  > svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    margin: 0 0.5rem 0 0;
+    display: inline-block;
+
+    * {
+      fill: ${({ theme }) => rgba(theme.content.color, 0.667)};
+    }
+  }
+`;
+
+export const TextContainer = styled.span`
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;

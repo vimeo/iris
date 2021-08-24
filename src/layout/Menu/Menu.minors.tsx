@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from 'react';
+import React, { useState, MouseEvent, cloneElement } from 'react';
 
 import {
   Header,
@@ -7,6 +7,7 @@ import {
   Action,
   Wrapper,
   SubMenu,
+  TextContainer,
 } from './Menu.style';
 
 import { MinorComponent, Focus } from '../../utils';
@@ -26,7 +27,17 @@ export function Section({ children, title = null, ...props }) {
   );
 }
 
-export function Item({ children, ...props }) {
+type ItemProps = {
+  action;
+  active;
+  children;
+  href;
+  icon;
+  paddingIncrement;
+  toggle;
+};
+
+export function Item({ children, ...props }: ItemProps) {
   const simple =
     typeof children === 'object' && !children.props
       ? children.flat().filter((child) => typeof child === 'string')
@@ -37,9 +48,7 @@ export function Item({ children, ...props }) {
     !children.props &&
     children.flat().filter((child) => typeof child !== 'string');
 
-  if (complexKids.length === 0) complexKids = false;
-
-  if (complex) {
+  if (complex || props.toggle) {
     const children = { simple, complex };
     return <ComplexItem {...props}>{children}</ComplexItem>;
   }
@@ -50,21 +59,28 @@ export function Item({ children, ...props }) {
   }
 }
 
+const PADDING_INCREMENT = 8;
+
 function SimpleItem({
+  action,
   active,
   children,
   href,
   icon,
-  action,
+  paddingIncrement = PADDING_INCREMENT,
   ...props
 }) {
-  const onClick = (e: MouseEvent) => {
-    action.onClick && action.onClick(e);
-  };
+  const onClick = (e: MouseEvent) => action.onClick?.(e);
 
   return (
     <Wrapper active={active}>
-      <ItemStyled as={href ? 'a' : 'button'} href={href} {...props}>
+      <ItemStyled
+        as={href ? 'a' : 'button'}
+        href={href}
+        hasAction={Boolean(action)}
+        indentation={paddingIncrement}
+        {...props}
+      >
         {action && (
           <Action onClick={onClick}>
             {action.icon}
@@ -73,7 +89,7 @@ function SimpleItem({
         )}
 
         {icon && icon}
-        {children}
+        <TextContainer>{children}</TextContainer>
         <Focus parent={ItemStyled} />
       </ItemStyled>
     </Wrapper>
@@ -81,42 +97,65 @@ function SimpleItem({
 }
 
 function ComplexItem({
+  action,
   active,
   children,
+  href,
   icon,
   toggle = false,
+  paddingIncrement = PADDING_INCREMENT,
   ...props
 }) {
   const [open, setOpen] = useState(!toggle);
 
-  const onClick = () => toggle && setOpen((open) => !open);
+  const onClickToggle = () => toggle && setOpen((open) => !open);
+  const onClickAction = (e: MouseEvent) => action.onClick?.(e);
 
   return (
     <Wrapper active={active} $height={open && children.length}>
-      <ItemStyled
-        onClick={onClick}
-        {...props}
-        style={{
-          marginLeft: '-0.5rem',
-          width: 'calc(100% + 0.5rem)',
-          paddingLeft: '1.75rem',
-        }}
-      >
-        {icon && icon}
-        {children.simple}
-        <Focus
-          parent={ItemStyled}
-          // style={{ left: '-0.75rem', width: 'calc(100% + 1rem)' }}
-        />
-      </ItemStyled>
-
       {toggle && (
-        <Toggle open={open}>
+        // TODO - Do we need to translate? How to do translations in Iris? Something to be passed in? Appropriate label?
+        <Toggle
+          aria-label="toggle sub-menu"
+          as={href ? 'a' : 'button'}
+          href={href}
+          onClick={onClickToggle}
+          open={open}
+          indentation={paddingIncrement}
+        >
+          <Focus parent={Toggle} />
           <ChevronDown />
         </Toggle>
       )}
 
-      {open && <SubMenu>{children.complex}</SubMenu>}
+      <ItemStyled
+        indentation={paddingIncrement}
+        hasAction={Boolean(action)}
+        {...props}
+      >
+        {icon && icon}
+        <TextContainer>{children.simple}</TextContainer>
+        {action && (
+          <Action onClick={onClickAction}>
+            {action.icon}
+            <Focus parent={Action} />
+          </Action>
+        )}
+        <Focus parent={ItemStyled} />
+      </ItemStyled>
+
+      {open && (
+        <SubMenu total={children.complex.length}>
+          {Array.isArray(children.complex)
+            ? children.complex.map((child) => {
+                return cloneElement(child, {
+                  paddingIncrement:
+                    paddingIncrement + PADDING_INCREMENT,
+                });
+              })
+            : children.complex}
+        </SubMenu>
+      )}
     </Wrapper>
   );
 }
