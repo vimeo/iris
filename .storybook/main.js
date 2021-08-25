@@ -8,7 +8,7 @@ module.exports = {
   },
   features: {
     postcss: false,
-    previewCsfV3: true,
+    previewCsfV3: false,
     buildStoriesJson: true,
   },
   reactOptions: {
@@ -17,30 +17,21 @@ module.exports = {
   },
   stories: ['../src/**/*.story.tsx'],
   addons: [
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        actions: true,
-        backgrounds: false,
-        controls: true,
-        docs: false,
-        toolbars: true,
-        viewport: true,
-      },
-    },
+    '@storybook/addon-essentials',
     '@storybook/addon-links',
     '@storybook/addon-a11y',
     '@storybook/addon-storysource',
     './addons/themes/register',
   ],
   webpackFinal: (config) => {
-    config.module.rules.push({
-      test: /\.(stories|story)\.tsx?$/,
-      loader: require.resolve('@storybook/source-loader'),
-      exclude: [/node_modules/],
-      enforce: 'pre',
-    });
-
+    config.module.rules.push(storySource);
     return config;
   },
+};
+
+const storySource = {
+  test: /\.(stories|story)\.[tj]sx?$/,
+  loader: require.resolve('@storybook/source-loader'),
+  exclude: [/node_modules/],
+  enforce: 'pre',
 };

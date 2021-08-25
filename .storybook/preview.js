@@ -1,9 +1,9 @@
 import { themes } from './themes';
 import { ThemedStory, addThemes } from './addons/themes/code';
-// import { disabled } from './argTypes-disabled';
 
 import { GlobalStyles } from '../src/utils';
 import { storySort } from './storySort';
+import { argTypes } from './argTypes';
 
 addThemes(themes);
 
@@ -27,4 +27,5 @@ export const parameters = {
   docs: {
     page: null,
   },
+  argTypes,
 };

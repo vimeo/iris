@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { text } from '@storybook/addon-knobs';
 
 import { SocialButton as SB } from './SocialButton';
 
@@ -18,13 +17,13 @@ export function Social() {
   return (
     <>
       <SocialButton brand="apple" fluid>
-        {text('Apple text', 'Sign in with Apple')}
+        Sign in with Apple
       </SocialButton>
       <SocialButton brand="facebook" fluid>
-        {text('Facebook text', 'Join with Facebook')}
+        Join with Facebook
       </SocialButton>
       <SocialButton brand="google" fluid>
-        {text('Google text', 'Join with Google')}
+        Join with Google
       </SocialButton>
     </>
   );
