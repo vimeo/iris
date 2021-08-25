@@ -1,33 +1,23 @@
-import styled, { keyframes } from 'styled-components';
-import { rem, rgba } from 'polished';
-
-import { Props } from './Panel.types';
+import styled, { css } from 'styled-components';
+import { rgba } from 'polished';
 
 import { blue, white } from '../../color';
-import { core } from '../../tokens';
 
-const fadeIn = ({ attach }) => keyframes`
-  0% {
-    transform: translateX(${attach === 'right' ? '100%' : '-100%'});
-  }
-
-  100% {
-    transform: translateX(0) rotate(0deg);
-  }
-`;
-
-export const PanelStyled = styled.div<{ attach: Props['attach'] }>`
-  background: ${(p) => p.theme.content.background};
-  min-width: 16rem;
+export const PanelStyled = styled.div<any>`
+  position: absolute;
   z-index: 3000;
-  animation: ${fadeIn} 300ms ease-in-out;
+  top: 0;
   height: 100vh;
+  min-width: 16rem;
+  background: ${(p) => p.theme.content.background};
   ${edge};
-`;
 
-// This is temporary until we have a universal solution for
-// theme values that do not correspond to the same CSS
-// property in different themes.
+  will-change: width, transform;
+
+  width: var(--width);
+  transform: var(--transform);
+  transition: var(--transition);
+`;
 
 function edge({ theme, attach }) {
   return theme.name === 'dark'
@@ -40,33 +30,32 @@ function side(attach) {
   if (attach === 'right') return 'left';
 }
 
-const DRAG_AREA_WIDTH = 20;
-
-export const DragEdge = styled.span<{ attach: Props['attach'] }>`
-  display: flex;
-  justify-content: center;
-  top: 0;
-  width: ${rem(DRAG_AREA_WIDTH)};
-  height: 100%;
-  position: absolute;
-  ${(p) => `${side(p.attach)}: ${rem(-DRAG_AREA_WIDTH / 2)}`};
-  cursor: col-resize;
-
-  &:hover,
-  &:active {
-    span {
-      background-color: ${blue(500)};
-      ${core.edge(500)};
-    }
-  }
+const dragging = css`
+  background: ${rgba(blue(500), 0.75)};
+  transition: background 180ms ease-in-out 180ms;
 `;
 
-export const DragHighlight = styled.span`
+export const DragEdge = styled.div<any>`
+  top: 0;
+  width: 2rem;
   height: 100%;
-  width: ${rem(2)};
-  background-color: transparent;
-  border-color: transparent;
-  transition-property: background-color, box-shadow, border-color;
-  transition-duration: 200ms;
-  transition-delay: 150ms;
+  position: absolute;
+  cursor: col-resize;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 0.2rem;
+    background: ${rgba(blue(500), 0)};
+    transition: background 180ms ease-in-out 0ms;
+
+    ${(p) => p.dragging && dragging};
+  }
+
+  &:hover::before {
+    ${dragging}
+  }
 `;

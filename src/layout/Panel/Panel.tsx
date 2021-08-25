@@ -1,168 +1,138 @@
-import React, {
-  cloneElement,
-  useRef,
-  useLayoutEffect,
-  useState,
-} from 'react';
+import React, { useState, MouseEvent } from 'react';
+import { createPortal } from 'react-dom';
 
 import { Props } from './Panel.types';
-import { DragEdge, DragHighlight, PanelStyled } from './Panel.style';
+import { DragEdge, PanelStyled } from './Panel.style';
 
 import {
+  clamp,
   withIris,
-  usePortal,
-  Attach,
-  SimpleAnimation,
-  useIrisError,
   throttle,
+  useForwardRef,
+  useIsomorphicEffect,
+  useStyleVars,
+  usePortal,
 } from '../../utils';
 
 export const Panel = withIris<HTMLDivElement, Props>(PanelComponent);
 
+const initialState = { min: 0, max: 600 };
+
 function PanelComponent({
   active,
   attach = 'right',
-  children = null,
+  className,
   content,
   forwardRef,
-  maxDragWidth = 600,
-  minDragWidth = 256,
   onDragStart,
   onDragEnd,
-  onClose,
-  onOpen,
   onResize,
   resizable = false,
   screen = true,
   style,
   ...props
 }: Props) {
-  const dragEdgeRef = useRef<HTMLSpanElement>(null);
-  const focusRef = useRef(null);
-  const [width, setWidth] = useState(null);
-  const attachTo = attacher(attach);
+  const outlet = usePortal();
+  const ref = useForwardRef(forwardRef);
 
-  const controlled = active === true || active === false;
-  const valid = controlled || (!controlled && children);
+  const [width, widthSet] = useState(160);
+  const [dragging, draggingSet] = useState(false);
+  const [dragConstraint, dragConstraintSet] = useState(initialState);
 
-  // TODO: convert to accept function to encapsulate additonal
-  // logic related to error state in dev ENV.
-  const { irisError } = useIrisError(
-    props,
-    'Panel',
-    'Uncontrolled `Panel` components require `children`!',
-    valid
+  useIsomorphicEffect(() => {
+    if (!resizable) return;
+
+    const { minWidth, maxWidth } = getComputedStyle(ref.current);
+
+    const min = parseFloat(minWidth) || dragConstraint.min;
+    const max = parseFloat(maxWidth) || dragConstraint.max;
+
+    dragConstraintSet({ min, max });
+  }, [style, className]);
+
+  const onMouseMove =
+    resizable &&
+    throttle((event: MouseEvent) => {
+      if (dragging) {
+        event.preventDefault();
+        const { clientX } = event;
+        const { offsetWidth, offsetLeft } = document.body;
+
+        let width;
+        if (attach === 'right') width = offsetWidth - clientX;
+        if (attach === 'left') width = clientX - offsetLeft;
+        width = clamp(width, dragConstraint);
+
+        widthSet(width);
+
+        const eventIris = { ...dragConstraint, current: width };
+        onResize?.(event, eventIris);
+      }
+    }, 16);
+
+  function onMouseDown(event: MouseEvent) {
+    if (!resizable) return;
+
+    event.preventDefault();
+
+    draggingSet(true);
+    onDragStart?.(event);
+  }
+
+  function onMouseUp(event: MouseEvent) {
+    if (!resizable) return;
+
+    draggingSet(false);
+    onDragEnd?.(event);
+  }
+
+  useIsomorphicEffect(() => {
+    if (!resizable) return;
+
+    document.addEventListener('mouseup', onMouseUp as any, true);
+    document.addEventListener('mousemove', onMouseMove, true);
+
+    return () => {
+      document.removeEventListener('mouseup', onMouseUp as any, true);
+      document.removeEventListener('mousemove', onMouseMove, true);
+    };
+  }, [dragging]);
+
+  const handle = resizable && active && (
+    <DragEdge
+      dragging={dragging}
+      onMouseDown={onMouseDown}
+      style={{ [attach]: 'calc(100% - 1rem)' }}
+    />
   );
 
-  if (process.env.NODE_ENV === 'development' && !valid) active = true;
+  const visible = 'translateX(0)';
+  const shift = attach === 'left' ? -1 : 1;
+  const hidden = `translateX(${shift * 100}%)`;
+  const transform = active ? visible : hidden;
 
-  const closed = attach === 'right' ? 100 : -100;
-  const animation: SimpleAnimation = {
-    enter: { transform: 'translateX(0)' },
-    exit: { transform: `translateX(${closed}%)` },
-  };
+  const duration = Math.round(width / 6 + 90);
+  const transition = dragging
+    ? 'none'
+    : `transform ${duration}ms ease-in-out`;
 
-  const handleMouseMove = throttle((e) => {
-    // TODO - Issue w/ resizing when attach is 'right'
-    const dragWidth =
-      attach === 'left'
-        ? e.clientX - document.body.offsetLeft
-        : document.body.offsetWidth - e.clientX;
-
-    const width =
-      dragWidth < minDragWidth
-        ? minDragWidth
-        : dragWidth > maxDragWidth
-        ? maxDragWidth
-        : dragWidth;
-
-    setWidth(width);
-    onResize?.(width);
-  }, 10);
-
-  const handleMouseDown = (e) => {
-    e.preventDefault();
-    onDragStart?.(e);
-    document.addEventListener('mouseup', handleMouseUp, true);
-    document.addEventListener('mousemove', handleMouseMove, true);
-  };
-
-  const handleMouseUp = (e) => {
-    onDragEnd?.(e);
-    document.removeEventListener('mouseup', handleMouseUp, true);
-    document.removeEventListener('mousemove', handleMouseMove, true);
-  };
-
-  const PortalContent = (
-    <PanelStyled
-      {...props}
-      ref={forwardRef}
-      attach={attach}
-      style={{
-        ...style,
-        ...(width && { width }),
-      }}
-      {...irisError}
-    >
-      {content}
-      {resizable && (
-        <DragEdge
-          attach={attach}
-          onMouseDown={handleMouseDown}
-          ref={dragEdgeRef}
-        >
-          <DragHighlight />
-        </DragEdge>
-      )}
-    </PanelStyled>
-  );
-
-  const PortalConfig = {
-    attach: attachTo,
-    animation,
-    screen,
-    margin: 0,
-    anchorToWindow: true,
-    onOpen,
-    onClose,
-    forceActive: active,
-  };
-
-  const [Panel, anchor] = usePortal(PortalContent, PortalConfig);
-
-  useLayoutEffect(() => {
-    focusRef.current && focusRef.current.focus();
-
-    const focuser = (event) =>
-      focusRef.current &&
-      focusRef.current.parentNode &&
-      !focusRef.current.parentNode.contains(event.relatedTarget) &&
-      focusRef.current.focus();
-
-    document.addEventListener('focusin', focuser);
-    return () =>
-      document.removeEventListener('focusin', focuser, true);
+  const styleVars = useStyleVars({
+    transform,
+    transition,
+    width,
   });
 
-  return (
-    <>
-      {Panel}
-      {children && cloneElement(children, anchor)}
-    </>
+  return createPortal(
+    <PanelStyled
+      attach={attach}
+      className={className}
+      ref={ref}
+      style={{ [attach]: 0, ...style, ...styleVars }}
+      {...props}
+    >
+      {content}
+      {handle}
+    </PanelStyled>,
+    outlet
   );
-}
-
-function attacher(attach): Attach {
-  switch (attach) {
-    case 'right':
-      return [
-        [0, 100],
-        [100, 100],
-      ];
-    case 'left':
-      return [
-        [100, 0],
-        [100, 100],
-      ];
-  }
 }

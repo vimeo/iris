@@ -1,4 +1,9 @@
-import { MouseEventHandler, ReactElement, ReactNode } from 'react';
+import {
+  MouseEventHandler,
+  ReactElement,
+  ReactNode,
+  MouseEvent,
+} from 'react';
 
 import { IrisProps } from '../../utils';
 
@@ -36,12 +41,10 @@ export type Props = IrisProps<{
    * Function called when user finishes dragging.
    */
   onDragEnd?: MouseEventHandler;
-  onClose?: MouseEventHandler;
-  onOpen?: MouseEventHandler;
   /**
    * Function that gets called when the size of the panel changes.
    */
-  onResize?: (size: number) => void;
+  onResize?: (event: MouseEvent, resize: Resize) => void;
   /**
    * Whether or not the panel can be dragged to resize it.
    * [default = false]
@@ -54,3 +57,5 @@ export type Props = IrisProps<{
    */
   screen?: boolean;
 }>;
+
+type Resize = { min: number; max: number; current: number };

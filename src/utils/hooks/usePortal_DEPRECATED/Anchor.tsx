@@ -8,7 +8,7 @@ import React, {
 import styled, { css } from 'styled-components';
 import { rem } from 'polished';
 
-import { Attach } from './usePortal.types';
+import { Attach } from './usePortal_DEPRECATED.types';
 
 interface Props {
   anchor: RefObject<HTMLElement>;
