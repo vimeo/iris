@@ -9,27 +9,19 @@ import { Button } from '../../components';
 export default {
   title: 'layout/Panel',
   component: Panel,
-  argTypes: {
-    content: { control: { disable: true } },
-    onClose: { control: { disable: true } },
-    onOpen: { control: { disable: true } },
-  },
 };
 
-const Template: Story<Props> = (args) => {
+const Template: Story<Props> = ({ content = <div />, ...args }) => {
   const [active, activeSet] = useState(true);
-
   const toggle = () => activeSet((active) => !active);
 
   return (
     <>
       <Button onClick={toggle}>Open Panel</Button>
-      <Panel {...args} active={active} content={PanelContent} />
+      <Panel {...args} active={active} content={content} />
     </>
   );
 };
 
 export const Controls = Template.bind({});
 Controls.storyName = 'Panel';
-
-const PanelContent = <div />;

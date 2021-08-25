@@ -6,7 +6,7 @@ import { Tip as Styled } from './Tip.style';
 
 import {
   withIris,
-  usePortal,
+  usePortal_DEPRECATED,
   validate,
   useIrisError,
   SimpleAnimation,
@@ -36,7 +36,7 @@ function TipComponent({
   const margin = variant === 'speech-bubble' ? 18 : 8;
   const [wrap, tipContent] = contentStyle(content);
 
-  const [TipElement, anchor] = usePortal(
+  const [TipElement, anchor] = usePortal_DEPRECATED(
     <Styled
       attach={attach}
       ref={forwardRef}

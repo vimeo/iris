@@ -1,18 +1,22 @@
 export { centered, hidden, Focus, GlobalStyles } from './css';
 export { generateUID } from './general/generateUID';
 export { throttle } from './general/throttle';
+export { clamp } from './general/clamp';
 
 // hooks
 export { useDeprecate } from './hooks/useDeprecate';
 export { useFlip } from './hooks/useFlip';
 export { useForwardRef } from './hooks/useForwardRef';
 export { useIrisError } from './hooks/useIrisError';
+export { useIsomorphicEffect } from './hooks/useIsomorphicEffect';
 export { useLayoutStyles } from './hooks/useLayoutStyles';
 export { useLocalTheme } from './hooks/useLocalTheme';
 export { useMeasure } from './hooks/useMeasure';
 export { useOutsideClick } from './hooks/useOutsideClick';
-export { usePortal, validate, ANCHOR_POINTS, Attach, AttachAlias, SimpleAnimation } from './hooks/usePortal';
+export { usePortal } from './hooks/usePortal';
+export { usePortal_DEPRECATED, validate, ANCHOR_POINTS, Attach, AttachAlias, SimpleAnimation } from './hooks/usePortal_DEPRECATED';
 export { useStateTransmorphic } from './hooks/useStateTransmorphic';
+export { useStyleVars } from './hooks/useStyleVars';
 
 // events
 export { useClose, onClose } from './events/onClose';

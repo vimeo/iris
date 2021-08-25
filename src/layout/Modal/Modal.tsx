@@ -14,7 +14,7 @@ import {
 import {
   withIris,
   Attach,
-  usePortal,
+  usePortal_DEPRECATED,
   SimpleAnimation,
 } from '../../utils';
 import { DismissX } from '../../icons';
@@ -65,7 +65,7 @@ function ModalComponent({
   const allowPageInteraction = feature && !screen;
   const anchorToWindow = true;
 
-  const [Modal, anchor] = usePortal(
+  const [Modal, anchor] = usePortal_DEPRECATED(
     <ModalStyled ref={forwardRef} {...props}>
       <>
         {feature && (

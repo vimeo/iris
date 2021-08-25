@@ -1,25 +1,26 @@
-import React, {
-  useLayoutEffect,
-  useEffect,
-  useState,
-  MouseEvent,
-  useRef,
-  useImperativeHandle,
-} from 'react';
+import React, { useState, MouseEvent } from 'react';
+import { createPortal } from 'react-dom';
 
 import { Props } from './Panel.types';
 import { DragEdge, PanelStyled } from './Panel.style';
 
-import { withIris, throttle, getComputedStyles } from '../../utils';
-import { createPortal } from 'react-dom';
-import { clamp } from '../../tokens/util';
+import {
+  clamp,
+  withIris,
+  throttle,
+  useForwardRef,
+  useIsomorphicEffect,
+  useStyleVars,
+  usePortal,
+} from '../../utils';
 
 export const Panel = withIris<HTMLDivElement, Props>(PanelComponent);
+
+const initialState = { min: 0, max: 600 };
 
 function PanelComponent({
   active,
   attach = 'right',
-  children = null,
   className,
   content,
   forwardRef,
@@ -31,59 +32,63 @@ function PanelComponent({
   style,
   ...props
 }: Props) {
-  const [width, widthSet] = useState(0);
-  const [dragging, draggingSet] = useState(false);
-
   const outlet = usePortal();
+  const ref = useForwardRef(forwardRef);
 
-  const ref = useRef(null);
-  useImperativeHandle(forwardRef as any, () => ref.current);
-
-  const [dragConstraint, dragConstraintSet] = useState({
-    min: 0,
-    max: 600,
-  });
+  const [width, widthSet] = useState(160);
+  const [dragging, draggingSet] = useState(false);
+  const [dragConstraint, dragConstraintSet] = useState(initialState);
 
   useIsomorphicEffect(() => {
-    const styles = getComputedStyles(ref.current, [
-      'min-width',
-      'max-width',
-    ]);
+    if (!resizable) return;
 
-    const { min, max } = dragConstraint;
-    const minNew = parseFloat(styles['min-width']) || min;
-    const maxNew = parseFloat(styles['max-width']) || max;
+    const { minWidth, maxWidth } = getComputedStyle(ref.current);
 
-    dragConstraintSet({ min: minNew, max: maxNew });
+    const min = parseFloat(minWidth) || dragConstraint.min;
+    const max = parseFloat(maxWidth) || dragConstraint.max;
+
+    dragConstraintSet({ min, max });
   }, [style, className]);
 
-  const onMouseMove = throttle((event) => {
-    if (dragging) {
-      const { clientX } = event;
-      const { offsetWidth, offsetLeft } = document.body;
+  const onMouseMove =
+    resizable &&
+    throttle((event: MouseEvent) => {
+      if (dragging) {
+        event.preventDefault();
+        const { clientX } = event;
+        const { offsetWidth, offsetLeft } = document.body;
 
-      let width;
-      if (attach === 'right') width = offsetWidth - clientX;
-      if (attach === 'left') width = clientX - offsetLeft;
+        let width;
+        if (attach === 'right') width = offsetWidth - clientX;
+        if (attach === 'left') width = clientX - offsetLeft;
+        width = clamp(width, dragConstraint);
 
-      width = clamp(width, dragConstraint);
+        widthSet(width);
 
-      widthSet(width);
-      onResize?.(event, { width });
-    }
-  }, 16);
+        const eventIris = { ...dragConstraint, current: width };
+        onResize?.(event, eventIris);
+      }
+    }, 16);
 
   function onMouseDown(event: MouseEvent) {
+    if (!resizable) return;
+
+    event.preventDefault();
+
     draggingSet(true);
     onDragStart?.(event);
   }
 
   function onMouseUp(event: MouseEvent) {
+    if (!resizable) return;
+
     draggingSet(false);
     onDragEnd?.(event);
   }
 
   useIsomorphicEffect(() => {
+    if (!resizable) return;
+
     document.addEventListener('mouseup', onMouseUp as any, true);
     document.addEventListener('mousemove', onMouseMove, true);
 
@@ -93,27 +98,7 @@ function PanelComponent({
     };
   }, [dragging]);
 
-  if (!outlet) return null;
-
-  const visible = 'translateX(0)';
-  const hidden =
-    attach === 'left' ? 'translateX(-100%)' : 'translateX(100%)';
-  const transform = active ? visible : hidden;
-
-  const duration = Math.round(width / 6 + 90);
-  const transition = dragging
-    ? 'none'
-    : `transform ${duration}ms ease-in-out`;
-
-  style = {
-    ...style,
-    [attach]: 0,
-    transform,
-    width,
-    transition,
-  };
-
-  const handle = active && (
+  const handle = resizable && active && (
     <DragEdge
       dragging={dragging}
       onMouseDown={onMouseDown}
@@ -121,39 +106,33 @@ function PanelComponent({
     />
   );
 
-  const Panel = createPortal(
+  const visible = 'translateX(0)';
+  const shift = attach === 'left' ? -1 : 1;
+  const hidden = `translateX(${shift * 100}%)`;
+  const transform = active ? visible : hidden;
+
+  const duration = Math.round(width / 6 + 90);
+  const transition = dragging
+    ? 'none'
+    : `transform ${duration}ms ease-in-out`;
+
+  const styleVars = useStyleVars({
+    transform,
+    transition,
+    width,
+  });
+
+  return createPortal(
     <PanelStyled
-      {...props}
       attach={attach}
       className={className}
       ref={ref}
-      style={style}
+      style={{ [attach]: 0, ...style, ...styleVars }}
+      {...props}
     >
       {content}
       {handle}
     </PanelStyled>,
     outlet
   );
-
-  return (
-    <>
-      {Panel}
-      {children}
-    </>
-  );
-}
-
-const useIsomorphicEffect =
-  typeof window === 'undefined' ? useEffect : useLayoutEffect;
-
-function usePortal() {
-  let outlet = document.getElementById('iris-portals');
-
-  if (!outlet) {
-    outlet = document.createElement('div');
-    outlet.id = 'iris-portals';
-    document.body.appendChild(outlet);
-  }
-
-  return outlet;
 }

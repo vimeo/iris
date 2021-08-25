@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect, useMemo, useRef } from 'react';
 
-import { PortalConfig } from './usePortal.types';
+import { PortalConfig } from './usePortal_DEPRECATED.types';
 
 import { onEvent } from '../../events';
 import { getComputedStyles, animate } from '../../DOM';

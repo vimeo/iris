@@ -39,13 +39,27 @@ export function Attach() {
 }
 Attach.storyName = 'attach';
 
-export function active() {
+export function Active() {
   return (
     <Layout.StoryVertical>
       <Panel active content={PanelContent} />
     </Layout.StoryVertical>
   );
 }
-active.storyName = 'active';
+Active.storyName = 'active';
 
 const PanelContent = <div />;
+
+export function Resizable() {
+  const [active, activeSet] = useState(true);
+  const toggle = () => activeSet((active) => !active);
+  const content = <div />;
+
+  return (
+    <Layout.StoryVertical>
+      <Button onClick={toggle}>Toggle Panel</Button>
+      <Panel active={active} content={content} resizable />
+    </Layout.StoryVertical>
+  );
+}
+Resizable.storyName = 'resizable';

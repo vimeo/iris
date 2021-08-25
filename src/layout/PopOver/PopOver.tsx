@@ -5,7 +5,11 @@ import { PopOverStyled } from './PopOver.style';
 import { ErrorBoundary } from './PopOver.error';
 import { Minors } from './PopOver.minors';
 
-import { withIris, usePortal, SimpleAnimation } from '../../utils';
+import {
+  withIris,
+  usePortal_DEPRECATED,
+  SimpleAnimation,
+} from '../../utils';
 
 export const PopOver = withIris<HTMLDivElement, Props, Minors>(
   PopOverComponent
@@ -32,7 +36,7 @@ function PopOverComponent({
   onOpen,
   ...props
 }: Props) {
-  const [PopOver, anchor] = usePortal(
+  const [PopOver, anchor] = usePortal_DEPRECATED(
     <PopOverStyled ref={forwardRef} {...props}>
       <div>{content}</div>
     </PopOverStyled>,

@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import styled from 'styled-components';
 
-import { grayscale } from '../../color';
 import { Button, Tip } from '../../components';
 import { ChevronRight, HamburgerMenu, Search } from '../../icons';
 import { VimeoLogo } from '../../illustration';
+import { core } from '../../tokens';
 import { Panel } from './Panel';
 
 export default {
-  title: 'layout/Panel/Examples',
+  title: 'layout/Panel/examples',
   component: Panel,
   parameters: {
     layout: 'fullscreen',
@@ -22,9 +22,9 @@ export default {
  * To update the width we will pass a callback to the panel component which will be called on resize with the new width value.
  */
 export const SideNav = () => {
-  const [dragging, setDragging] = useState(false);
-  const [navOpen, setNavOpen] = useState(true);
-  const [navWidth, setNavWidth] = useState(null);
+  const [active, activeSet] = useState(true);
+  const [dragging, draggingSet] = useState(false);
+  const [widthPanel, widthPanelSet] = useState(0);
 
   const sidenavContent = (
     <ContentContainer>
@@ -33,40 +33,49 @@ export const SideNav = () => {
       </Button>
       <Tip attach="right" content={'Collapse'}>
         <CollapseButton
-          icon={<ChevronLeft />}
-          onClick={() => setNavOpen(false)}
-          pill
-          size="sm"
           format="alternative"
+          icon={<ChevronLeft />}
+          onClick={() => activeSet(false)}
+          size="sm"
+          pill
         />
       </Tip>
       <InfoContainer>
-        <p>Panel Width: {navWidth}</p>
+        <p>Panel Width: {widthPanel}</p>
       </InfoContainer>
     </ContentContainer>
   );
 
+  const offset = active ? widthPanel : 0;
+  const width = `calc(100vw - ${offset}px)`;
+
+  const transition = dragging ? 'none' : 'width 120ms ease-in-out';
+
   return (
     <PageWrapper>
       <Sidenav
-        active={navOpen}
+        active={active}
         attach="left"
         content={sidenavContent}
-        onResize={(event, { width }) => setNavWidth(width)}
-        onDragStart={() => setDragging(true)}
-        onDragEnd={() => setDragging(false)}
-        resizable={true}
+        onDragEnd={() => draggingSet(false)}
+        onDragStart={() => draggingSet(true)}
+        onResize={(event, { current }) => widthPanelSet(current)}
         screen={false}
+        resizable
       />
       {/* Everything in this container will be moved when sidenav resizes */}
-      <MainContentContainer
-        dragging={dragging}
-        style={{ marginLeft: navOpen ? navWidth : 0 }}
-      >
+      <MainContentContainer style={{ width, transition }}>
         {/* Pass sidenav state & setter to header so we can control it from there */}
         <MockHeader
-          isSidenavOpen={navOpen}
-          openSidenav={() => setNavOpen(true)}
+          active={active}
+          menuButton={
+            <Button
+              icon={<HamburgerMenu />}
+              variant="hyperminimal"
+              format="alternative"
+              onClick={() => activeSet(true)}
+            />
+          }
         />
         <MockPage />
       </MainContentContainer>
@@ -79,16 +88,12 @@ const PageWrapper = styled.div`
   width: 100vw;
 `;
 
-const COLLAPSE_ANIMATION_DURATION = 300;
-
-const MainContentContainer = styled.div<{ dragging?: boolean }>`
+const MainContentContainer = styled.div`
   display: flex;
   height: 100%;
-  transition: ${(p) =>
-    p.dragging
-      ? 'initial'
-      : `margin ${COLLAPSE_ANIMATION_DURATION}ms`};
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
 `;
 
 function MockPage() {
@@ -100,31 +105,15 @@ function MockPage() {
 }
 
 type MockHeaderProps = {
-  isSidenavOpen: boolean;
-  openSidenav: () => void;
+  active: boolean;
+  menuButton: ReactElement;
 };
 
-function MockHeader({ isSidenavOpen, openSidenav }: MockHeaderProps) {
+function MockHeader({ active, menuButton }: MockHeaderProps) {
   return (
     <MockHeaderContainer>
-      <MockHeaderSection>
-        {!isSidenavOpen && (
-          <Button
-            icon={<HamburgerMenu />}
-            variant="hyperminimal"
-            format="alternative"
-            onClick={openSidenav}
-          />
-        )}
-      </MockHeaderSection>
-      <VimeoLogo
-        style={{
-          position: 'absolute',
-          width: '100px',
-          left: 'calc(50% - 50px)',
-          top: '10px',
-        }}
-      />
+      <MockHeaderSection>{!active && menuButton}</MockHeaderSection>
+      <Logo />
       <MockHeaderSection>
         <Button
           icon={<Search />}
@@ -136,6 +125,17 @@ function MockHeader({ isSidenavOpen, openSidenav }: MockHeaderProps) {
     </MockHeaderContainer>
   );
 }
+
+const Logo = styled(VimeoLogo)`
+  position: absolute;
+  width: 100px;
+  left: calc(50% - 50px);
+  top: 10px;
+
+  > * {
+    fill: ${core.color.text(300)};
+  }
+`;
 
 const CollapseButton = styled(Button)`
   transition: opacity 200ms 150ms;
@@ -152,14 +152,14 @@ const CollapseButton = styled(Button)`
 `;
 
 const Sidenav = styled(Panel)`
+  min-width: 200px;
+
   &:hover,
   &:active {
     ${CollapseButton} {
       opacity: 1;
     }
   }
-  width: 250px;
-  min-width: 200px;
 `;
 
 const ContentContainer = styled.div`
@@ -177,7 +177,7 @@ const MockPageContainer = styled.div`
 const MockHero = styled.div`
   height: 300px;
   width: 100%;
-  background: ${grayscale(50)};
+  background: ${core.color.background(200)};
 `;
 
 const MockHeaderContainer = styled.div`
@@ -192,6 +192,7 @@ const MockHeaderContainer = styled.div`
 const MockHeaderSection = styled.div`
   display: flex;
   margin-top: 5px;
+
   > * {
     margin-right: 10px;
   }

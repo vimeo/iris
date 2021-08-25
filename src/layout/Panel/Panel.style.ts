@@ -4,15 +4,19 @@ import { rgba } from 'polished';
 import { blue, white } from '../../color';
 
 export const PanelStyled = styled.div<any>`
-  background: ${(p) => p.theme.content.background};
-  min-width: 16rem;
-  z-index: 3000;
-  height: 100vh;
-  width: 16rem;
   position: absolute;
+  z-index: 3000;
   top: 0;
-  transition: width 120ms ease-in-out;
-  ${edge}
+  height: 100vh;
+  min-width: 16rem;
+  background: ${(p) => p.theme.content.background};
+  ${edge};
+
+  will-change: width, transform;
+
+  width: var(--width);
+  transform: var(--transform);
+  transition: var(--transition);
 `;
 
 function edge({ theme, attach }) {
@@ -27,9 +31,8 @@ function side(attach) {
 }
 
 const dragging = css`
-  height: 100%;
   background: ${rgba(blue(500), 0.75)};
-  transition: background 120ms ease-in-out, height 180ms ease-in;
+  transition: background 180ms ease-in-out 180ms;
 `;
 
 export const DragEdge = styled.div<any>`
@@ -42,13 +45,12 @@ export const DragEdge = styled.div<any>`
   &::before {
     content: '';
     position: absolute;
+    top: 0;
     left: 50%;
-    height: 0%;
-    top: 50%;
+    height: 100%;
     width: 0.2rem;
     background: ${rgba(blue(500), 0)};
-    transition: background 180ms ease-in-out, height 180ms ease-in;
-    transform: translateY(-50%);
+    transition: background 180ms ease-in-out 0ms;
 
     ${(p) => p.dragging && dragging};
   }
