@@ -89,10 +89,15 @@ function PanelComponent({
   useIsomorphicEffect(() => {
     if (!resizable) return;
 
+    const htmlStyle = document.documentElement.style;
+    if (dragging) htmlStyle.cursor = 'col-resize';
+
     document.addEventListener('mouseup', onMouseUp as any, true);
     document.addEventListener('mousemove', onMouseMove, true);
 
     return () => {
+      htmlStyle.removeProperty('cursor');
+
       document.removeEventListener('mouseup', onMouseUp as any, true);
       document.removeEventListener('mousemove', onMouseMove, true);
     };
