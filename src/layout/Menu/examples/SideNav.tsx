@@ -4,12 +4,14 @@ import styled, { css } from 'styled-components';
 import { Button } from '../../../components/';
 import { Menu } from '../Menu';
 import { Panel } from '../../Panel/Panel';
-import { Home, Lock } from '../../../icons';
+import { Home, Lock, Person } from '../../../icons';
 import { core } from '../../../tokens/';
+import { grayscale, white } from '../../../color';
 
 const StyledPanel = styled(Panel)`
   ${core.edge(0)};
-  background-color: ${core.color.background(800)};
+  background-color: ${({ theme }) =>
+    theme.name === 'dark' ? grayscale(850) : white};
 `;
 
 const dividerCSS = css`
@@ -163,9 +165,7 @@ export function SideNav() {
       </TopAnchored>
       <FoldersContainer>{folders}</FoldersContainer>
       <BottomAnchored>
-        <Button fluid format="secondary">
-          {'Manage Team'}
-        </Button>
+        <Menu.Item icon={<Person />}>{'Manage Team'}</Menu.Item>
       </BottomAnchored>
     </ContentContainer>
   );
@@ -181,7 +181,7 @@ export function SideNav() {
 }
 
 const MenuContainer = styled.div`
-  padding: 16px 0;
+  padding: 1rem 0;
   position: relative;
   &:not(:only-child):after {
     content: '';
@@ -195,7 +195,7 @@ const MenuContainer = styled.div`
 
 const TopAnchored = styled.div`
   flex-shrink: 0;
-  padding: 0 16px 16px 16px;
+  padding: 0 1rem 1rem 1rem;
   position: relative;
   &:after {
     ${dividerCSS};
@@ -206,7 +206,7 @@ const TopAnchored = styled.div`
 const BottomAnchored = styled.div`
   position: relative;
   flex-shrink: 0;
-  padding: 16px 16px 0 16px;
+  padding-top: 1rem;
   &:before {
     ${dividerCSS};
     top: 0;
@@ -217,7 +217,7 @@ const BottomAnchored = styled.div`
 const ContentContainer = styled.div`
   height: 100%;
   width: 100%;
-  padding: 24px 0px;
+  padding: 1.5rem 0;
   display: flex;
   flex-direction: column;
 `;
