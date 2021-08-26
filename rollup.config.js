@@ -5,6 +5,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import multiInput from 'rollup-plugin-multi-input';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
+import visualizer from 'rollup-plugin-visualizer';
 
 import pkg from './package.json';
 
@@ -23,6 +24,11 @@ export default (args) => {
     output: {
       dir: './build',
       format: 'es',
+      globals: {
+        react: 'React',
+        'react-dom': 'ReactDOM',
+        'styled-components': 'styled',
+      },
     },
     external: [...dependencies, ...peerDependencies, babelRuntime],
     plugins: [
@@ -36,6 +42,7 @@ export default (args) => {
       }),
       !debug && terser(),
       multiInput(),
+      visualizer({ open: true, gzipSize: true }),
     ].filter((p) => p),
   };
 };
