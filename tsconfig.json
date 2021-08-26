@@ -10,6 +10,7 @@
         "experimentalDecorators": true,
         "jsx": "react",
         "esModuleInterop": true,
+        "isolatedModules": true,
         "lib": [
             "es2015",
             "es2016",
@@ -28,8 +29,7 @@
         "noUnusedParameters": true,
         "strict": false,
         "suppressImplicitAnyIndexErrors": true,
-        "target": "es5",
-        "importHelpers": true,
+        "target": "ES2015",
         "types": [
             "node",
             "react-dom",
