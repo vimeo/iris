@@ -22,12 +22,12 @@ export default (args) => {
     ],
     output: {
       dir: './build',
-      format: 'cjs',
+      format: 'es',
     },
     external: [...dependencies, ...peerDependencies, babelRuntime],
     plugins: [
       resolve(),
-      commonjs(),
+      // commonjs(),
       typescript(),
       babel({
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
