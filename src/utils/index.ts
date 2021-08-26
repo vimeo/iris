@@ -15,19 +15,24 @@ export { useLocalTheme } from './hooks/useLocalTheme';
 export { useMeasure } from './hooks/useMeasure';
 export { useOutsideClick } from './hooks/useOutsideClick';
 export { usePortal } from './hooks/usePortal';
-export { usePortal_DEPRECATED, validate, ANCHOR_POINTS, Attach, AttachAlias, SimpleAnimation } from './hooks/usePortal_DEPRECATED';
+export { usePortal_DEPRECATED, validate, ANCHOR_POINTS } from './hooks/usePortal_DEPRECATED';
 export { useStateTransmorphic } from './hooks/useStateTransmorphic';
 export { useStyleVars } from './hooks/useStyleVars';
 
+export type { Attach, AttachAlias, SimpleAnimation } from './hooks/usePortal_DEPRECATED';
+
 // events
-export { useClose, onClose } from './events/onClose';
+export { useClose } from './events/onClose';
 export { arrowRight, arrowLeft, enter, esc, spacebar, tab } from './events/KeyCodes';
 export { stopPrevent } from './events/stopPrevent';
 
+export type { onClose } from './events/onClose';
+
 // HOCs
 export { withIris } from './HOCs/withIris';
-export { IrisProps, IrisInputProps, Messages, MinorComponent } from './HOCs/IrisProps';
-export { CSSProps, ExtractProps, Override, IrisElement } from './HOCs/types';
+
+export type { IrisProps, IrisInputProps, Messages, MinorComponent } from './HOCs/IrisProps';
+export type { CSSProps, ExtractProps, Override, IrisElement } from './HOCs/types';
 
 // DOM
 export { createPortalOutlet } from './DOM/createPortalOutlet';
