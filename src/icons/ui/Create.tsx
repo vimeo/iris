@@ -1,15 +1,14 @@
-import React, { SVGProps } from 'react';
+import React, { forwardRef, Ref, SVGAttributes } from 'react';
 
-const ClockIcon = (props: SVGProps<SVGSVGElement>) => {
-    return (
+export const Create = forwardRef(
+    (props: SVGAttributes<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
         <svg
             width="24"
             height="24"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            {...props}
-        >
+            ref={ref} {...props}        >
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -20,16 +19,14 @@ const ClockIcon = (props: SVGProps<SVGSVGElement>) => {
                 fillRule="evenodd"
                 clipRule="evenodd"
                 d="M15 2C16.1046 2 17 2.89543 17 4V7H15V4H4V15H7V17H4C2.89543 17 2 16.1046 2 15V4C2 2.89543 2.89543 2 4 2H15Z"
-                fill="#23313B"
             />
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"
                 d="M8 7.61328C8 7.06097 8.39229 6.84209 8.87081 7.12127L12.1285 9.02185C12.6094 9.30243 12.607 9.76362 12.1399 10.0419L8.85941 11.9965C8.38477 12.2793 8 12.0654 8 11.5085L8 7.61328Z"
-                fill="#23313B"
             />
         </svg>
+     )
     );
-};
 
-export default ClockIcon;
+
