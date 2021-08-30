@@ -104,6 +104,7 @@ export { StarFilled } from './StarFilled';
 export { Stats } from './Stats';
 export { Tag } from './Tag';
 export { TagFilled } from './TagFilled';
+export { Team } from './Team';
 export { Television } from './Television';
 export { Trash } from './Trash';
 export { UploadCloud } from './UploadCloud';

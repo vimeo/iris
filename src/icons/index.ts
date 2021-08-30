@@ -153,6 +153,7 @@ export { StarFilled } from './ui/StarFilled';
 export { Stats } from './ui/Stats';
 export { Tag } from './ui/Tag';
 export { TagFilled } from './ui/TagFilled';
+export { Team } from './ui/Team';
 export { Television } from './ui/Television';
 export { Trash } from './ui/Trash';
 export { UploadCloud } from './ui/UploadCloud';
