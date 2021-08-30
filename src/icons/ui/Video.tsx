@@ -2,14 +2,12 @@ import React, { forwardRef, Ref, SVGAttributes } from 'react';
 
 export const Video = forwardRef(
   (props: SVGAttributes<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
-    <svg viewBox="0 0 20 20" ref={ref} {...props}>
-      <g fill="#3A5161" fillRule="evenodd">
-        <path
-          d="M1.25 4.006v11.988c0 .42.333.756.74.756h16.02c.402 0 .74-.34.74-.756V4.006a.748.748 0 0 0-.74-.756H1.99c-.402 0-.74.34-.74.756zm-1.25 0C0 2.898.898 2 1.99 2h16.02C19.108 2 20 2.897 20 4.006v11.988A2.003 2.003 0 0 1 18.01 18H1.99A1.998 1.998 0 0 1 0 15.994V4.006z"
-          fillRule="nonzero"
-        />
-        <path d="M7 6.895v6.21a.5.5 0 0 0 .762.426l5.046-3.105a.5.5 0 0 0 0-.852L7.762 6.47A.5.5 0 0 0 7 6.895z" />
-      </g>
+    <svg viewBox="0 0 24 24" ref={ref} {...props}>
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M3 3H21V21H3V3ZM0 3C0 1.34315 1.34315 0 3 0H21C22.6569 0 24 1.34315 24 3V21C24 22.6569 22.6569 24 21 24H3C1.34315 24 0 22.6569 0 21V3ZM10.0453 7.28889C9.37706 6.89724 8.53647 7.38119 8.53963 8.15571L8.5712 15.8812C8.57436 16.6544 9.41633 17.1316 10.0814 16.7372L16.6167 12.8606C17.2718 12.472 17.2693 11.5229 16.6122 11.1378L10.0453 7.28889Z"
+      />
     </svg>
   )
 );
