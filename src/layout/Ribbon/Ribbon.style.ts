@@ -37,11 +37,16 @@ function background({ variant = 'rainbow' }) {
   }
 }
 
-function gradient(colorsArray, direction = 'to right') {
+function gradient(colorsArray: string[], direction = 'to right') {
   return ({ animate = true }) => {
-    const colors = animate
-      ? [...colorsArray, colorsArray[0]].join(', ')
-      : colorsArray.join(', ');
+    let colors: string;
+
+    if (animate) {
+      const [first, ...rest] = colorsArray;
+      colors = [first, ...rest, first].join(',');
+    } else {
+      colors = colorsArray.join(',');
+    }
 
     return css`
       background-image: linear-gradient(${direction}, ${colors});
