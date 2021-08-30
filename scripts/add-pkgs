@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+let fs = require('fs');
+let util = require('util');
+let path = require('path');
+
+const BASE_DIR = path.join(__dirname, '..');
+
+let readdir = util.promisify(fs.readdir);
+let writeFile = util.promisify(fs.writeFile);
+let stat = util.promisify(fs.stat);
+
+const PKG_CONTENTS = `{
+  "main": "./index.cjs",
+  "module": "./index.mjs",
+  "sideEffects": false
+}`;
+
+async function run() {
+  let dirs = await readdir(path.join(BASE_DIR, 'build'));
+  let roots = dirs.map((root) => path.join(BASE_DIR, 'build', root));
+
+  for await (let root of roots) {
+    let info = await stat(root);
+
+    if (!info.isDirectory()) {
+      continue;
+    }
+
+    try {
+      await writeFile(
+        path.join(root, 'package.json'),
+        Buffer.from(PKG_CONTENTS)
+      );
+    } catch (err) {
+      console.error(err);
+      process.exit(1);
+    }
+  }
+}
+
+run();
