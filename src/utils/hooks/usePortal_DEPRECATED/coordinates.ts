@@ -1,4 +1,4 @@
-import { Attach } from './usePortal.types';
+import { Attach } from './usePortal_DEPRECATED.types';
 
 export function coordinates(attach, anchorToWindow): Attach {
   if (typeof attach === 'string' && !anchorToWindow) {

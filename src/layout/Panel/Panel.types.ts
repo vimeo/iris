@@ -1,4 +1,9 @@
-import { MouseEventHandler, ReactElement, ReactNode } from 'react';
+import {
+  MouseEventHandler,
+  ReactElement,
+  ReactNode,
+  MouseEvent,
+} from 'react';
 
 import { IrisProps } from '../../utils';
 
@@ -18,8 +23,33 @@ export type Props = IrisProps<{
    */
   content?: ReactNode;
   children?: ReactElement;
-  onClose?: MouseEventHandler;
-  onOpen?: MouseEventHandler;
+  /**
+   * Max width the sidenav can be dragged to.
+   * [default = 600]
+   */
+  maxDragWidth?: number;
+  /**
+   * Min width the sidenav can be dragged to.
+   * [default = 256]
+   */
+  minDragWidth?: number;
+  /**
+   * Function called when user beings dragging.
+   */
+  onDragStart?: MouseEventHandler;
+  /**
+   * Function called when user finishes dragging.
+   */
+  onDragEnd?: MouseEventHandler;
+  /**
+   * Function that gets called when the size of the panel changes.
+   */
+  onResize?: (event: MouseEvent, resize: Resize) => void;
+  /**
+   * Whether or not the panel can be dragged to resize it.
+   * [default = false]
+   */
+  resizable?: boolean;
   /**
    * Display a transparent screen over content when Panel is opened.
    *
@@ -27,3 +57,5 @@ export type Props = IrisProps<{
    */
   screen?: boolean;
 }>;
+
+type Resize = { min: number; max: number; current: number };

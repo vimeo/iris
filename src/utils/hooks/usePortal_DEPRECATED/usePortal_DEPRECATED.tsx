@@ -6,8 +6,11 @@ import React, {
 } from 'react';
 import { createPortal } from 'react-dom';
 
-import { Screen } from './usePortal.style';
-import { PortalConfig, AnchorProps } from './usePortal.types';
+import { Screen } from './usePortal_DEPRECATED.style';
+import {
+  PortalConfig,
+  AnchorProps,
+} from './usePortal_DEPRECATED.types';
 import { useMountAnimations } from './useMountAnimations';
 import { coordinates } from './coordinates';
 import { Anchor } from './Anchor';
@@ -16,7 +19,7 @@ import { useOutsideClick } from '../useOutsideClick';
 
 import { SSR, createPortalOutlet } from '../../DOM';
 
-export function usePortal(
+export function usePortal_DEPRECATED(
   Component: ReactElement,
   portalConfig: PortalConfig
 ): [false | ReactPortal, AnchorProps] {

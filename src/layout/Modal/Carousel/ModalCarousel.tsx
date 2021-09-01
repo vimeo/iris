@@ -9,7 +9,7 @@ import { Button } from '../../../components';
 import {
   withIris,
   Attach,
-  usePortal,
+  usePortal_DEPRECATED,
   SimpleAnimation,
 } from '../../../utils';
 import { ChevronRight } from '../../../icons';
@@ -75,7 +75,7 @@ function ModalCarouselComponent({
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [onPrev, onNext, activeModal]);
 
-  const [Modal, anchor] = usePortal(
+  const [Modal, anchor] = usePortal_DEPRECATED(
     <Wrapper width={width}>
       <Left
         icon={<ChevronLeft />}

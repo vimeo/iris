@@ -6,7 +6,7 @@ import {
   withIris,
   Attach,
   AttachAlias,
-  usePortal,
+  usePortal_DEPRECATED,
 } from '../../utils';
 
 export const Dock = withIris<HTMLDivElement, Props>(DockComponent);
@@ -24,7 +24,7 @@ function DockComponent({
   forwardRef,
   ...props
 }: Props) {
-  const [Dock, anchor] = usePortal(
+  const [Dock, anchor] = usePortal_DEPRECATED(
     <DockStyled ref={forwardRef} {...props}>
       {children}
     </DockStyled>,
