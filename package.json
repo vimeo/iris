@@ -57,7 +57,7 @@
         "babel-loader": "^8.2.2",
         "babel-plugin-polished": "^1.1.0",
         "babel-plugin-require-context-hook": "^1.0.0",
-        "babel-plugin-styled-components": "^1.12.0",
+        "babel-plugin-styled-components": "^1.13.2",
         "circular-dependency-plugin": "^5.2.2",
         "core-js": "^3.10.1",
         "eslint": "^7.24.0",
