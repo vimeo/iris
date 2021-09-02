@@ -24,7 +24,7 @@
         "noUnusedParameters": true,
         "strict": false,
         "suppressImplicitAnyIndexErrors": true,
-        "target": "es5",
+        "target": "esnext",
         "types": [
             "node",
             "react-dom",

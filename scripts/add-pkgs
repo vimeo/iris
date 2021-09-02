@@ -13,10 +13,6 @@ let stat = util.promisify(fs.stat);
 const PKG_CONTENTS = `{
   "main": "./index.cjs",
   "module": "./index.mjs",
-  "browser": {
-    "./index.cjs": "./index.browser.js",
-    "./index.mjs": "./index.browser.mjs"
-  },
   "sideEffects": false
 }`;
 
