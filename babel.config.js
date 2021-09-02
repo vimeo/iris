@@ -1,11 +1,5 @@
-const { BABEL_ENV, NODE_ENV } = process.env;
-const modules =
-  BABEL_ENV === 'cjs' || NODE_ENV === 'test' ? 'commonjs' : false;
-
 module.exports = {
   presets: [
-    ['@babel/preset-react'],
-    ['@babel/preset-typescript'],
     [
       '@babel/preset-env',
       {
@@ -18,13 +12,18 @@ module.exports = {
           ],
         },
         loose: true,
-        modules,
       },
     ],
+    [
+      '@babel/preset-react',
+      {
+        runtime: 'automatic',
+      },
+    ],
+    ['@babel/preset-typescript'],
   ],
   plugins: [
     '@babel/plugin-transform-runtime',
     '@babel/plugin-proposal-class-properties',
-    modules === 'commonjs' && 'add-module-exports',
   ].filter(Boolean),
 };
