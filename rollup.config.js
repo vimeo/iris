@@ -1,6 +1,3 @@
-import fs from 'fs';
-import path from 'path';
-
 import multi from 'rollup-plugin-multi-input';
 import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
@@ -9,17 +6,11 @@ import commonjs from '@rollup/plugin-commonjs';
 
 import pkg from './package.json';
 
-let dirs = fs
-  .readdirSync(path.join(__dirname, 'src'))
-  .filter(
-    (dir) =>
-      fs.statSync(path.join(__dirname, 'src', dir)).isDirectory() &&
-      !dir.startsWith('_')
-  );
-
 export default (args) => {
-  const debug = args['config-debug'];
   process.env.NODE_ENV = 'production';
+
+  const debug = args['config-debug'];
+
   /** @type {import('rollup').RollupOptions} */
   let config = {
     input:
