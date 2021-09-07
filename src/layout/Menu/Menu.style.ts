@@ -103,6 +103,7 @@ export const ItemStyled = styled.button<{
   color: ${({ theme }) => theme.content.color};
   border: 0;
   cursor: pointer;
+  transition: background 120ms ease-in-out;
 
   &:hover {
     background: ${({ theme }) =>
