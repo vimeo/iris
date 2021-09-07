@@ -34,122 +34,117 @@ export function SideNav() {
     >
       <MenuContainer>
         <Menu.Item active={true} toggle icon={<Home />}>
-          {'Home'}
+          Home
           <Menu.Item toggle>
-            {'Product'}
+            Product
             <Menu.Item active={true} toggle>
-              {'Panels'}
+              Panels
               <Menu.Item toggle>
-                {'November 2020'}
+                November 2020
                 <Menu.Item toggle>
-                  {'rough cuts'}
-                  <Menu.Item toggle>{'clips'}</Menu.Item>
+                  Folder with a long name
+                  <Menu.Item toggle>
+                    Another folder with a long name
+                  </Menu.Item>
                 </Menu.Item>
               </Menu.Item>
               <Menu.Item toggle>
-                {'October 2020'}
-                <Menu.Item toggle>{'rough cuts'}</Menu.Item>
+                October 2020
+                <Menu.Item toggle>rough cuts</Menu.Item>
               </Menu.Item>
             </Menu.Item>
           </Menu.Item>
           <Menu.Item toggle>
-            {'Engineering'}
+            Engineering
             <Menu.Item toggle>
-              {'Panels'}
+              Panels
               <Menu.Item toggle>
-                {'November 2020'}
+                November 2020
                 <Menu.Item toggle>
-                  {'rough cuts'}
-                  <Menu.Item toggle>{'clips'}</Menu.Item>
+                  rough cuts
+                  <Menu.Item toggle>clips</Menu.Item>
                 </Menu.Item>
               </Menu.Item>
               <Menu.Item toggle>
-                {'October 2020'}
-                <Menu.Item toggle>{'rough cuts'}</Menu.Item>
+                October 2020
+                <Menu.Item toggle>rough cuts</Menu.Item>
               </Menu.Item>
             </Menu.Item>
           </Menu.Item>
           <Menu.Item toggle>
-            {'Marketing'}
+            Marketing
             <Menu.Item toggle>
-              {'Panels'}
+              Panels
               <Menu.Item toggle>
-                {'November 2020'}
+                November 2020
                 <Menu.Item toggle>
-                  {'rough cuts'}
-                  <Menu.Item toggle>{'clips'}</Menu.Item>
+                  rough cuts
+                  <Menu.Item toggle>clips</Menu.Item>
                 </Menu.Item>
               </Menu.Item>
               <Menu.Item toggle>
-                {'October 2020'}
-                <Menu.Item toggle>{'rough cuts'}</Menu.Item>
+                October 2020
+                <Menu.Item toggle>rough cuts</Menu.Item>
               </Menu.Item>
             </Menu.Item>
           </Menu.Item>
-
           <Menu.Item toggle>
-            {'Sales'}
+            Sales
             <Menu.Item toggle>
-              {'Panels'}
+              Panels
               <Menu.Item toggle>
-                {'November 2020'}
+                November 2020
                 <Menu.Item toggle>
-                  {'rough cuts'}
-                  <Menu.Item toggle>{'clips'}</Menu.Item>
+                  rough cuts
+                  <Menu.Item toggle>clips</Menu.Item>
                 </Menu.Item>
               </Menu.Item>
               <Menu.Item toggle>
-                {'October 2020'}
-                <Menu.Item toggle>{'rough cuts'}</Menu.Item>
+                October 2020
+                <Menu.Item toggle>rough cuts</Menu.Item>
               </Menu.Item>
             </Menu.Item>
           </Menu.Item>
-
           <Menu.Item toggle>
-            {'IT'}
+            IT
             <Menu.Item toggle>
-              {'Panels'}
+              Panels
               <Menu.Item toggle>
-                {'November 2020'}
+                November 2020
                 <Menu.Item toggle>
-                  {'rough cuts'}
-                  <Menu.Item toggle>{'clips'}</Menu.Item>
+                  rough cuts
+                  <Menu.Item toggle>clips</Menu.Item>
                 </Menu.Item>
               </Menu.Item>
               <Menu.Item toggle>
-                {'October 2020'}
-                <Menu.Item toggle>{'rough cuts'}</Menu.Item>
+                October 2020
+                <Menu.Item toggle>rough cuts</Menu.Item>
               </Menu.Item>
             </Menu.Item>
           </Menu.Item>
-
-          <Menu.Item>{'Onboarding'}</Menu.Item>
-
-          <Menu.Item toggle>{'Leagal'}</Menu.Item>
-
-          <Menu.Item>{'All Hands'}</Menu.Item>
-
-          <Menu.Item toggle>{'Archived'}</Menu.Item>
+          <Menu.Item>Onboarding</Menu.Item>
+          <Menu.Item toggle>Leagal</Menu.Item>
+          <Menu.Item>All Hands</Menu.Item>
+          <Menu.Item toggle>Archived</Menu.Item>
         </Menu.Item>
       </MenuContainer>
 
       <MenuContainer>
         <Menu.Item toggle icon={<Lock />}>
-          {'Private to me'}
-          <Menu.Item>{'WIP'}</Menu.Item>
-          <Menu.Item>{'Recordings'}</Menu.Item>
+          Private to me
+          <Menu.Item>WIP</Menu.Item>
+          <Menu.Item>Recordings</Menu.Item>
           <Menu.Item toggle>
-            {'Drafts'}
-            <Menu.Item>{'Subfolder'}</Menu.Item>
-          </Menu.Item>
-
-          <Menu.Item toggle>
-            {'Meetings'}
-            <Menu.Item>{'Subfolder'}</Menu.Item>
+            Drafts
+            <Menu.Item>Subfolder</Menu.Item>
           </Menu.Item>
           <Menu.Item toggle>
-            {'Machinations'}
-            <Menu.Item>{'Subfolder'}</Menu.Item>
+            Meetings
+            <Menu.Item>Subfolder</Menu.Item>
+          </Menu.Item>
+          <Menu.Item toggle>
+            Machinations
+            <Menu.Item>Subfolder</Menu.Item>
           </Menu.Item>
         </Menu.Item>
       </MenuContainer>
@@ -160,12 +155,12 @@ export function SideNav() {
     <ContentContainer>
       <TopAnchored>
         <Button fluid format="secondary">
-          {'Manage Videos'}
+          Manage Videos
         </Button>
       </TopAnchored>
       <FoldersContainer>{folders}</FoldersContainer>
       <BottomAnchored>
-        <Menu.Item icon={<Person />}>{'Manage Team'}</Menu.Item>
+        <Menu.Item icon={<Person />}>Manage Team</Menu.Item>
       </BottomAnchored>
     </ContentContainer>
   );
@@ -176,6 +171,7 @@ export function SideNav() {
       attach="left"
       screen={false}
       content={content}
+      resizable={true}
     />
   );
 }
