@@ -119,10 +119,7 @@ function ComplexItem({
   const onClickAction = (e: MouseEvent) => action.onClick?.(e);
 
   return (
-    <Wrapper
-      $height={open && children.length}
-      animationDelay={animationDelay}
-    >
+    <Wrapper animationDelay={animationDelay}>
       {toggle && (
         // TODO - Do we need to translate? How to do translations in Iris? Something to be passed in? Appropriate label?
         <Toggle
