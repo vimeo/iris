@@ -92,6 +92,7 @@ export { Registration } from './Registration';
 export { Remove } from './Remove';
 export { Replay } from './Replay';
 export { ReviewCheck } from './ReviewCheck';
+export { Scissors } from './Scissors';
 export { Search } from './Search';
 export { Share } from './Share';
 export { Showcase } from './Showcase';
