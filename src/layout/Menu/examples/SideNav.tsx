@@ -37,7 +37,7 @@ export function SideNav() {
           Home
           <Menu.Item toggle>
             Product
-            <Menu.Item active={true} toggle>
+            <Menu.Item toggle>
               Panels
               <Menu.Item toggle>
                 November 2020
