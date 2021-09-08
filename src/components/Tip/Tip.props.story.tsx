@@ -102,19 +102,3 @@ export function Variant() {
   );
 }
 Variant.storyName = 'variant';
-
-export function Pill() {
-  return (
-    <Layout.StoryVertical center>
-      {ANCHOR_POINTS.map((attach, i) => (
-        <Fragment key={i}>
-          <Tip content="I am Tip" attach={attach} pill>
-            <Button>Tip {attach}</Button>
-          </Tip>
-          <br />
-        </Fragment>
-      ))}
-    </Layout.StoryVertical>
-  );
-}
-Pill.storyName = 'pill';

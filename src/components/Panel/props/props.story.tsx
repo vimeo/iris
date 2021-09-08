@@ -1,7 +1,7 @@
 import { Panel } from '../Panel';
 
 export default {
-  title: 'layout/Panel/props',
+  title: 'components/Panel/props',
   component: Panel,
 };
 

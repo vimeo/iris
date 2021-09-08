@@ -7,7 +7,7 @@ import { TextArea } from '../TextArea/TextArea';
 import { Story } from '../../storybook';
 import { Input } from '../Input/Input';
 
-export default { title: 'Utilties/Character Count' };
+export default { title: 'utilties/withCharacterCount' };
 
 export function Common() {
   return (

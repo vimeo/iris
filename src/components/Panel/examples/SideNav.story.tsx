@@ -9,7 +9,7 @@ import { VimeoLogo } from '../../../illustration';
 import { core } from '../../../tokens';
 
 export default {
-  title: 'layout/Panel/examples',
+  title: 'components/Panel/examples',
   component: Panel,
   parameters: {
     layout: 'fullscreen',
