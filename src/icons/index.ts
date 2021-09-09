@@ -141,6 +141,7 @@ export { Registration } from './ui/Registration';
 export { Remove } from './ui/Remove';
 export { Replay } from './ui/Replay';
 export { ReviewCheck } from './ui/ReviewCheck';
+export { Scissors } from './ui/Scissors';
 export { Search } from './ui/Search';
 export { Share } from './ui/Share';
 export { Showcase } from './ui/Showcase';
