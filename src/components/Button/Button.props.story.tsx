@@ -39,8 +39,7 @@ export function Element() {
       href="#"
       css={`
         width: 12rem;
-      `}
-    >
+      `}>
       Button as link
     </Button>
   );
@@ -210,8 +209,7 @@ export const CustomColor = () => {
           color: '#ffffff',
           hover: '#e7c03f',
           active: '#e7c03f',
-        }}
-      >
+        }}>
         Button
       </Button>
       <Button
@@ -220,8 +218,7 @@ export const CustomColor = () => {
           color: '#000000',
           hover: '#e7c03f',
           active: '#e7c03f',
-        }}
-      >
+        }}>
         Button
       </Button>
       <Button
@@ -229,8 +226,7 @@ export const CustomColor = () => {
           color: '#ff00d4',
           hover: '#e72626',
           active: '#700d2b',
-        }}
-      >
+        }}>
         Button
       </Button>
     </div>

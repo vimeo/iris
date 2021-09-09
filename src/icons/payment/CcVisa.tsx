@@ -10,8 +10,7 @@ export const CcVisa = forwardRef(
       xmlSpace="preserve"
       enableBackground="new 0 0 20 20"
       ref={ref}
-      {...props}
-    >
+      {...props}>
       <style>
         {
           '.cc-visa_svg__st2{fill:#fff}.cc-visa_svg__st6{fill:#013487}'
@@ -29,8 +28,7 @@ export const CcVisa = forwardRef(
           x={0}
           y={3}
           width={20}
-          height={2}
-        >
+          height={2}>
           <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
         </filter>
       </defs>
@@ -40,8 +38,7 @@ export const CcVisa = forwardRef(
         y={3}
         width={20}
         height={2}
-        id="cc-visa_svg__mask-2_1_"
-      >
+        id="cc-visa_svg__mask-2_1_">
         <g filter="url(#cc-visa_svg__Adobe_OpacityMaskFilter)">
           <path
             id="cc-visa_svg__path-1_2_"
@@ -63,8 +60,7 @@ export const CcVisa = forwardRef(
           x={0}
           y={15}
           width={20}
-          height={2}
-        >
+          height={2}>
           <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
         </filter>
       </defs>
@@ -74,8 +70,7 @@ export const CcVisa = forwardRef(
         y={15}
         width={20}
         height={2}
-        id="cc-visa_svg__mask-2_3_"
-      >
+        id="cc-visa_svg__mask-2_3_">
         <g filter="url(#cc-visa_svg__Adobe_OpacityMaskFilter_1_)">
           <path
             id="cc-visa_svg__path-1_4_"

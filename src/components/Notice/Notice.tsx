@@ -61,8 +61,7 @@ function NoticeComponent({
       icon={icon}
       pill={pill}
       ref={forwardRef}
-      {...props}
-    >
+      {...props}>
       {icon && (
         <Icon header={header} format={format} pill={pill}>
           {icon}

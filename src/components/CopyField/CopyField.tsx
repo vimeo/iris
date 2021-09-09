@@ -84,8 +84,7 @@ function CopyFieldComponent({
           label={label}
           size={size}
           height={height}
-          onClick={doCopy}
-        >
+          onClick={doCopy}>
           {children}
         </InnerButtonStyled>
       </Input>

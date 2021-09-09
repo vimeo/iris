@@ -57,8 +57,7 @@ export function Formats() {
         drag
         format={format}
         key={format}
-        style={style}
-      >
+        style={style}>
         <Header size="3">Drag files here</Header>
       </Dropzone>
     </div>
@@ -78,8 +77,7 @@ function CustomStory() {
       <Dropzone
         onChange={onChange}
         theme={theme}
-        style={{ maxWidth: '40rem', marginBottom: '1rem' }}
-      >
+        style={{ maxWidth: '40rem', marginBottom: '1rem' }}>
         {(active) => (
           <CustomContent active={active}>
             <Header size="3">Drag files here</Header>
@@ -93,8 +91,7 @@ function CustomStory() {
         drag
         onChange={onChange}
         theme={theme}
-        style={{ maxWidth: '40rem' }}
-      >
+        style={{ maxWidth: '40rem' }}>
         {(active) => (
           <CustomContent active={active}>
             <Header size="3">Drag files here</Header>

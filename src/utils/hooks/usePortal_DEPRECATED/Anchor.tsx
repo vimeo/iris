@@ -21,8 +21,8 @@ interface Props {
 }
 
 interface State {
-  rect?: ClientRect;
-  childRect?: ClientRect;
+  rect?: Partial<DOMRect>;
+  childRect?: Partial<DOMRect>;
   top?: string | number;
   left?: string | number;
 }
@@ -116,7 +116,7 @@ function useChildZIndex(children) {
 function calcRect(
   ref: RefObject<HTMLElement>,
   { scrollX = 0, scrollY = 0 } = {}
-): ClientRect {
+): Partial<DOMRect> {
   if (ref && ref.current) {
     const { offsetHeight, offsetWidth } = ref.current;
     const { x, y } = ref.current.getBoundingClientRect();
@@ -172,9 +172,9 @@ function remPos({ attach: [a, b], margin, rect, childRect }: any) {
 export interface StyledProps {
   anchorToWindow: boolean;
   attach: Attach;
-  childRect: ClientRect;
+  childRect: Partial<DOMRect>;
   margin: number;
-  rect: ClientRect;
+  rect: Partial<DOMRect>;
 }
 
 const AnchorStyled = styled.div<StyledProps>`

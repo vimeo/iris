@@ -29,8 +29,7 @@ export function Size() {
         display: 'flex',
         flexDirection: 'column',
         maxWidth: '20rem',
-      }}
-    >
+      }}>
       {SIZES.map((size) => (
         <Avatar
           alt={`${size} Avatar Example`}

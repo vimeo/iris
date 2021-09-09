@@ -94,13 +94,11 @@ function DateRangeButton({ ...props }) {
           maxWidth: 'calc(12rem + 40rem)',
         }
       }
-      content={<DateRange {...props} onChange={onChange} />}
-    >
+      content={<DateRange {...props} onChange={onChange} />}>
       <Button
         icon={<ChevronDown />}
         iconPosition="right"
-        onClick={() => setActive(!active)}
-      >
+        onClick={() => setActive(!active)}>
         {buttonText}
       </Button>
     </PopOver>

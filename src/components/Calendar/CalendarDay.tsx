@@ -57,16 +57,14 @@ function Day({
     <CalendarGridItem
       className={className}
       onClick={handleClick}
-      onMouseEnter={handleMouseEnter}
-    >
+      onMouseEnter={handleMouseEnter}>
       {!inactive && (
         <CalendarDayLabel
           isControl={isControl}
           isPast={pastMinDate || pastMaxDate}
           isTrack={isTrack}
           isStart={isStart && hasEnd}
-          isEnd={isEnd}
-        >
+          isEnd={isEnd}>
           {children}
         </CalendarDayLabel>
       )}

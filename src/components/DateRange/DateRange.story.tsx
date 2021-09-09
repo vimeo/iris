@@ -104,14 +104,12 @@ function DateRangeButton({ ...args }) {
           width: 'calc(12rem + 40rem)', // 12rem is size of Preset Menu
           maxWidth: 'calc(12rem + 40rem)',
         }
-      }
-    >
+      }>
       <Button
         icon={<ChevronDown />}
         iconPosition="right"
         onClick={() => setActive(!active)}
-        ref={childrenRef}
-      >
+        ref={childrenRef}>
         {buttonText}
       </Button>
     </PopOver>

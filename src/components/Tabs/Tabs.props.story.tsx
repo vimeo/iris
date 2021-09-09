@@ -14,33 +14,26 @@ const Tabs = styled(T)`
 `;
 
 export function Format() {
-  return ([
-    'basic',
-    'soft',
-    'alternative',
-    'secondary',
-    'primary',
-  ] as const).map((format) => (
+  return (
+    ['basic', 'soft', 'alternative', 'secondary', 'primary'] as const
+  ).map((format) => (
     <Tabs format={format}>
       <Tabs.Panel
         label="Tab 0"
-        onActivate={() => console.log('Clicked Tab 0')}
-      >
+        onActivate={() => console.log('Clicked Tab 0')}>
         <Paragraph size="2">Lorem kittsum dolor sit ameow.</Paragraph>
         <img src="http://placekitten.com/1000/400" width="100%" />
       </Tabs.Panel>
       <Tabs.Panel
         label="Tab 1"
         active
-        onActivate={() => console.log('Clicked Tab 1')}
-      >
+        onActivate={() => console.log('Clicked Tab 1')}>
         <Paragraph size="2">Lorem kittsum dolor sit ameow.</Paragraph>
         <img src="http://placekitten.com/1000/500" width="100%" />
       </Tabs.Panel>
       <Tabs.Panel
         label="Tab 2"
-        onActivate={() => console.log('Clicked Tab 2')}
-      >
+        onActivate={() => console.log('Clicked Tab 2')}>
         <Paragraph size="2">Lorem kittsum dolor sit ameow.</Paragraph>
         <img src="http://placekitten.com/1000/450" width="100%" />
       </Tabs.Panel>
@@ -54,23 +47,20 @@ export function Variant() {
     <Tabs variant="inlay">
       <Tabs.Panel
         label="Tab 0"
-        onActivate={() => console.log('Clicked Tab 0')}
-      >
+        onActivate={() => console.log('Clicked Tab 0')}>
         <Paragraph size="2">Lorem kittsum dolor sit ameow.</Paragraph>
         <img src="http://placekitten.com/1000/400" width="100%" />
       </Tabs.Panel>
       <Tabs.Panel
         label="Tab 1"
         active
-        onActivate={() => console.log('Clicked Tab 1')}
-      >
+        onActivate={() => console.log('Clicked Tab 1')}>
         <Paragraph size="2">Lorem kittsum dolor sit ameow.</Paragraph>
         <img src="http://placekitten.com/1000/500" width="100%" />
       </Tabs.Panel>
       <Tabs.Panel
         label="Tab 2"
-        onActivate={() => console.log('Clicked Tab 2')}
-      >
+        onActivate={() => console.log('Clicked Tab 2')}>
         <Paragraph size="2">Lorem kittsum dolor sit ameow.</Paragraph>
         <img src="http://placekitten.com/1000/450" width="100%" />
       </Tabs.Panel>
@@ -84,23 +74,20 @@ export function Pill() {
     <Tabs pill variant="inlay">
       <Tabs.Panel
         label="Tab 0"
-        onActivate={() => console.log('Clicked Tab 0')}
-      >
+        onActivate={() => console.log('Clicked Tab 0')}>
         <Paragraph size="2">Lorem kittsum dolor sit ameow.</Paragraph>
         <img src="http://placekitten.com/1000/400" width="100%" />
       </Tabs.Panel>
       <Tabs.Panel
         label="Tab 1"
         active
-        onActivate={() => console.log('Clicked Tab 1')}
-      >
+        onActivate={() => console.log('Clicked Tab 1')}>
         <Paragraph size="2">Lorem kittsum dolor sit ameow.</Paragraph>
         <img src="http://placekitten.com/1000/500" width="100%" />
       </Tabs.Panel>
       <Tabs.Panel
         label="Tab 2"
-        onActivate={() => console.log('Clicked Tab 2')}
-      >
+        onActivate={() => console.log('Clicked Tab 2')}>
         <Paragraph size="2">Lorem kittsum dolor sit ameow.</Paragraph>
         <img src="http://placekitten.com/1000/450" width="100%" />
       </Tabs.Panel>

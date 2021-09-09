@@ -51,8 +51,7 @@ function NewItemCardComponent({
         href={href}
         onClick={onClick}
         rel={rel}
-        target={target}
-      >
+        target={target}>
         <Content>
           <CirclePlus />
           <Text>{children}</Text>

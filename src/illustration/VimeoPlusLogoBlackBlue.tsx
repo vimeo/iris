@@ -17,8 +17,7 @@ export const VimeoPlusLogoBlackBlue = (
       fontFamily="HelveticaNeue-Light, Helvetica Neue"
       style={{
         isolation: 'isolate',
-      }}
-    >
+      }}>
       {'PLUS'}
     </text>
   </svg>

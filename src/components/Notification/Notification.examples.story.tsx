@@ -25,8 +25,7 @@ export function FancyContent() {
             I am a very fancy tip!
           </Header>
         </>
-      }
-    >
+      }>
       <Button>Show Notification</Button>
     </Notification>
   );

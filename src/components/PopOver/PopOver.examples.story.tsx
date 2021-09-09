@@ -30,8 +30,7 @@ export function DynamicSize() {
           zIndex: 5000,
           transition: '80ms ease-in-out',
           width,
-        }}
-      >
+        }}>
         <TriggerButton>PopOver</TriggerButton>
       </PopOver>
       <Button onClick={() => widthSet((width) => width + 40)}>
@@ -50,8 +49,7 @@ export function Scrollable() {
       <PopOver
         content={PopScrollable}
         attach="bottom"
-        style={{ width: '25rem' }}
-      >
+        style={{ width: '25rem' }}>
         <TriggerButton>PopOver bottom</TriggerButton>
       </PopOver>
     </>
@@ -67,8 +65,7 @@ export function Fixed() {
         <PopOver
           content={PopScrollable}
           attach="top"
-          style={{ width: '25rem' }}
-        >
+          style={{ width: '25rem' }}>
           <TriggerButton>PopOver bottom</TriggerButton>
         </PopOver>
       </Dock>
@@ -86,15 +83,13 @@ export function PopOverInsideLink() {
         key="1"
         onClick={(event) => {
           event.stopPropagation();
-        }}
-      >
+        }}>
         <Paragraph size="1">This whole card is a link</Paragraph>
         <PopOver content={PopList} style={{ zIndex: 5000 }}>
           <B
             onClick={(event) => {
               event.preventDefault();
-            }}
-          >
+            }}>
             PopOver
           </B>
         </PopOver>
@@ -104,20 +99,17 @@ export function PopOverInsideLink() {
         key="2"
         onClick={(event) => {
           event.stopPropagation();
-        }}
-      >
+        }}>
         <Paragraph size="1">This whole card is a link</Paragraph>
         <PopOver
           active={active}
           content={PopList}
-          style={{ zIndex: 5000 }}
-        >
+          style={{ zIndex: 5000 }}>
           <B
             onClick={(event) => {
               event.preventDefault();
               setActive(!active);
-            }}
-          >
+            }}>
             Controlled PopOver
           </B>
         </PopOver>
@@ -186,8 +178,7 @@ const PopScrollable = (
         padding: '1rem',
         maxHeight: '15rem',
         overflow: 'auto',
-      }}
-    >
+      }}>
       <Paragraph size="2">
         `Twas brillig, and the slithy toves Did gyre and gimble in the
         wabe: All mimsy were the borogoves, And the mome raths

@@ -16,8 +16,7 @@ export function Attach() {
       <PopOver
         content={PopList}
         attach={attach}
-        style={{ zIndex: 5000 }}
-      >
+        style={{ zIndex: 5000 }}>
         <TriggerButton>PopOver {attach}</TriggerButton>
       </PopOver>
       <br />
@@ -49,15 +48,13 @@ export function Active() {
             <p
               css={`
                 padding: 4rem 1rem;
-              `}
-            >
+              `}>
               Hi! I'm a PopOver! Click the X to close me.
             </p>
           </div>
         }
         attach="bottom"
-        active={active}
-      >
+        active={active}>
         <Dot />
       </PopOver>
     </>

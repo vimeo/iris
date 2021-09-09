@@ -21,8 +21,7 @@ function InitialMonthStory() {
       <DateSelect
         active
         onSelect={(date) => dateSet(date)}
-        initialMonth={initialMonth}
-      >
+        initialMonth={initialMonth}>
         <Input value={date.toLocaleDateString()} readOnly />
       </DateSelect>
     </Layout.StoryVertical>
@@ -45,8 +44,7 @@ function MinMaxDateStory() {
         onSelect={(date) => dateSet(date)}
         min={minDate}
         max={maxDate}
-        value={date}
-      >
+        value={date}>
         <Input value={date.toLocaleDateString()} readOnly />
       </DateSelect>
     </Layout.StoryVertical>
@@ -68,8 +66,7 @@ export function Active() {
         ref={ref}
         onSelect={() => {
           setActive(false);
-        }}
-      >
+        }}>
         <Button onClick={() => setActive(!active)}>
           Open DateSelect
         </Button>
@@ -89,8 +86,7 @@ export function Value() {
         value={date}
         onSelect={(date) => {
           dateSet(date);
-        }}
-      >
+        }}>
         <Input value={date.toLocaleDateString()} readOnly />
       </DateSelect>
     </Layout.StoryVertical>
@@ -109,8 +105,7 @@ export function DefaultValue() {
         value={date}
         onSelect={(date) => {
           dateSet(date);
-        }}
-      >
+        }}>
         <Input
           value={
             date ? date.toLocaleDateString() : 'No date selected'

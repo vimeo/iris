@@ -78,8 +78,7 @@ function DateSelectComponent({
             maxDate={max}
           />
         </Wrapper>
-      }
-    >
+      }>
       {children}
     </PopOver>
   );

@@ -49,8 +49,7 @@ export function ColorInputs({
           variant="outline"
           status={error ? 'negative' : null}
           style={{ opacity: '0.667', marginRight: '1rem' }}
-          pill
-        >
+          pill>
           {colorSpace}
         </Button>
         {editing ? (

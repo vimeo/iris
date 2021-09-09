@@ -26,8 +26,7 @@ export function Upload() {
           e.target.files || e.dataTransfer.files,
           e
         );
-      }}
-    >
+      }}>
       <Container>
         <UploadCloud style={{ width: '5rem' }} />
         <Header>Drag and drop to upload</Header>
@@ -35,8 +34,7 @@ export function Upload() {
           pill
           fluid
           size="xl"
-          onClick={() => ref.current.click()}
-        >
+          onClick={() => ref.current.click()}>
           Or choose a file
         </Button>
       </Container>
@@ -48,16 +46,14 @@ export function Upload() {
             <Pop.Item>Dropbox</Pop.Item>
             <Pop.Item>FTP</Pop.Item>
           </Pop.List>
-        }
-      >
+        }>
         <ActionButton
           size="sm"
           format="basic"
           variant="hyperminimal"
           onClick={(event) => event.stopPropagation()}
           iconPosition="action"
-          icon={<ChevronDownDouble />}
-        >
+          icon={<ChevronDownDouble />}>
           More ways to upload
         </ActionButton>
       </PopOver>

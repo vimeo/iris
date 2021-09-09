@@ -28,16 +28,14 @@ function FileUploadComponent({
       onClick={onClick}
       ref={forwardRef}
       style={{ display: 'inline-flex' }}
-      {...props}
-    >
+      {...props}>
       <Hidden
         ref={ref}
         type="file"
         accept={accept}
         disabled={disabled}
         onChange={onChange}
-        multiple={multiple}
-      ></Hidden>
+        multiple={multiple}></Hidden>
       {children}
     </div>
   );

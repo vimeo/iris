@@ -75,8 +75,7 @@ export function Fancy() {
         content={content}
         attach="bottom"
         trigger="click"
-        style={{ maxWidth: '22rem' }}
-      >
+        style={{ maxWidth: '22rem' }}>
         <Button>Tip bottom (click)</Button>
       </Tip>
     </Layout.StoryVertical>
@@ -93,8 +92,7 @@ export function TextWrapping() {
     <Layout.StoryVertical center>
       <Tip
         content="Tips with long strings passed to the `content` prop will automatically wrap."
-        attach="top"
-      >
+        attach="top">
         <Button>Tip top</Button>
       </Tip>
     </Layout.StoryVertical>

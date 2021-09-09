@@ -4,8 +4,7 @@ export const apple = {
   dark: {
     name: 'apple',
     system: 'human interface guidelines',
-    url:
-      'https://developer.apple.com/design/human-interface-guidelines/',
+    url: 'https://developer.apple.com/design/human-interface-guidelines/',
     typography: {
       // fontFamily: `"SF Pro Text","SF Pro Icons","Helvetica Neue",Helvetica,Arial,sans-serif`,
       fontFamily: ` -apple-system, system-ui, BlinkMacSystemFont`,
@@ -28,8 +27,7 @@ export const apple = {
   light: {
     name: 'apple',
     system: 'human interface guidelines',
-    url:
-      'https://developer.apple.com/design/human-interface-guidelines/',
+    url: 'https://developer.apple.com/design/human-interface-guidelines/',
     typography: {
       // fontFamily: `"SF Pro Text","SF Pro Icons","Helvetica Neue",Helvetica,Arial,sans-serif`,
       fontFamily: ` -apple-system, system-ui, BlinkMacSystemFont`,

@@ -6,8 +6,7 @@ export const AlbumsAddFeature = (props: SVGProps<SVGSVGElement>) => (
     y={0}
     viewBox="0 0 154 133"
     xmlSpace="preserve"
-    {...props}
-  >
+    {...props}>
     <style>
       {
         '.albums-add-feature_svg__st0{fill:#010101}.albums-add-feature_svg__st5{fill:#fff}'

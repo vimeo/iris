@@ -12,8 +12,7 @@ export function Size() {
       css={`
         padding: 1rem;
         max-width: 40rem;
-      `}
-    >
+      `}>
       <Search
         label={'search size ' + size}
         placeholder="Search our videos"
@@ -29,8 +28,7 @@ export function Format() {
       css={`
         padding: 1rem;
         max-width: 40rem;
-      `}
-    >
+      `}>
       <Search
         label={'search format ' + format}
         placeholder="Search our videos"
@@ -46,8 +44,7 @@ export function Variant() {
       css={`
         padding: 1rem;
         max-width: 40rem;
-      `}
-    >
+      `}>
       <Search
         label={'search variant ' + variant}
         placeholder="Search our videos"

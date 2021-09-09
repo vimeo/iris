@@ -235,8 +235,7 @@ export const Calendar = ({
                 draftRange={[selectionStart, selectionEnd]}
                 date={day}
                 onClick={() => handleClick(day)}
-                onMouseEnter={() => handleMouseOver(day)}
-              >
+                onMouseEnter={() => handleMouseOver(day)}>
                 {String(day.getDate()).padStart(2, '0')}
               </CalendarDay>
             );
@@ -251,8 +250,7 @@ export const Calendar = ({
               }
               isCurrentDate={isCurrentDate(day)}
               inCurrentMonth={inCurrentMonth(day)}
-              disabled={pastMinDate || pastMaxDate}
-            >
+              disabled={pastMinDate || pastMaxDate}>
               {String(day.getDate()).padStart(2, '0')}
             </Day>
           );

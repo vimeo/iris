@@ -64,8 +64,7 @@ export function Item({
         onClick={doToggle}
         as={link ? 'a' : 'button'}
         href={href}
-        {...props}
-      >
+        {...props}>
         {action && (
           <Action onClick={doAction}>
             {action.icon}

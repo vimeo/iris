@@ -28,9 +28,10 @@ function RadioSetComponent({
   ...props
 }: IrisInputProps<Props>) {
   const UID = useMemo(() => generateUID(), []);
-  const UIDs = useMemo(() => children.map(() => generateUID()), [
-    children,
-  ]);
+  const UIDs = useMemo(
+    () => children.map(() => generateUID()),
+    [children]
+  );
 
   const initialCheckedIndex = children.findIndex(
     (child) => child.props.checked

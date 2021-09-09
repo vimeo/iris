@@ -125,8 +125,7 @@ function ThemeBlock({ block }) {
             width: '33%',
             alignItems: 'center',
             paddingLeft: padding,
-          }}
-        >
+          }}>
           <ColorBlock color={value} />
           <Text
             // @ts-ignore
@@ -138,8 +137,7 @@ function ThemeBlock({ block }) {
               margin: '0 0.5rem',
               borderRadius: '0.5rem',
               border: `2px solid ${rgba(theme.content.color, 0.25)}`,
-            }}
-          >
+            }}>
             {value}
           </Text>
           <Text>{key}</Text>
@@ -172,8 +170,7 @@ function ContentBlock({
         alignItems: 'center',
         textAlign: 'center',
         justifyContent: 'center',
-      }}
-    >
+      }}>
       <div
         style={{
           ...style,
@@ -183,8 +180,7 @@ function ContentBlock({
           width: '2rem',
           height: '2rem',
           margin: '0 auto',
-        }}
-      >
+        }}>
         {text && (
           <Header size="3" style={{ color, display: 'inline-flex' }}>
             Aa

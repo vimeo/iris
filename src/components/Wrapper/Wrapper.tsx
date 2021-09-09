@@ -51,8 +51,7 @@ export const Wrapper = forwardRef(function (
       style={{
         ...style,
         position: 'relative',
-      }}
-    >
+      }}>
       {preMessage}
       {label && (
         <Label
@@ -60,8 +59,7 @@ export const Wrapper = forwardRef(function (
           active={active}
           size={200}
           htmlFor={id}
-          disabled={disabled}
-        >
+          disabled={disabled}>
           {label}
         </Label>
       )}
@@ -141,8 +139,7 @@ const MessageArea = forwardRef(function (
       style={{
         display: 'inline-flex',
         marginBottom: position === 'sublabel' && '0.5rem',
-      }}
-    >
+      }}>
       {post && <Message ref={ref} {...props} />}
       {help && <Message ref={ref} {...props} />}
       {error && <Message ref={ref} {...props} />}
@@ -158,8 +155,7 @@ function Message({ children, status, ...props }: any) {
       element="span"
       role={status === 'negative' ? 'alert' : 'note'}
       status={status}
-      style={{ overflow: 'hidden' }}
-    >
+      style={{ overflow: 'hidden' }}>
       {children}
     </Paragraph>
   );

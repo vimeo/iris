@@ -26,6 +26,7 @@
         "@babel/core": "^7.15.5",
         "@babel/plugin-proposal-class-properties": "^7.14.5",
         "@babel/plugin-proposal-private-methods": "^7.14.5",
+        "@babel/plugin-proposal-private-property-in-object": "^7.15.4",
         "@babel/plugin-transform-runtime": "^7.15.0",
         "@babel/preset-env": "^7.15.4",
         "@babel/preset-react": "^7.14.5",
@@ -48,8 +49,8 @@
         "@storybook/manager-webpack5": "6.4.0-alpha.34",
         "@storybook/react": "6.4.0-alpha.34",
         "@storybook/theming": "6.4.0-alpha.34",
-        "@types/react": "*",
         "@types/react-dom": "^17.0.9",
+        "@types/react": "*",
         "@types/styled-components": "^5.1.14",
         "@types/webpack": "^5.28.0",
         "@typescript-eslint/eslint-plugin": "^4.31.0",
@@ -59,20 +60,20 @@
         "babel-plugin-require-context-hook": "^1.0.0",
         "babel-plugin-styled-components": "^1.13.2",
         "circular-dependency-plugin": "^5.2.2",
-        "core-js": "^3.17.2",
-        "eslint": "^7.32.0",
+        "core-js": "^3.17.3",
         "eslint-config-prettier": "^8.3.0",
         "eslint-config-react": "^1.1.7",
         "eslint-plugin-immutable": "^1.0.0",
         "eslint-plugin-import": "^2.24.2",
         "eslint-plugin-jsx-a11y": "^6.4.1",
         "eslint-plugin-prettier": "^4.0.0",
-        "eslint-plugin-react": "^7.25.1",
         "eslint-plugin-react-hooks": "^4.2.0",
+        "eslint-plugin-react": "^7.25.1",
+        "eslint": "^7.32.0",
         "framer-motion": "^4.1.17",
         "polished": "^4.1.3",
         "pre-commit": "^1.2.2",
-        "prettier": "^2.3.2",
+        "prettier": "^2.4.0",
         "react-dom": "*",
         "react-is": "^17.0.2",
         "react": "*",
@@ -86,8 +87,8 @@
         "stylelint-processor-styled-components": "^1.10.0",
         "stylelint": "^13.13.1",
         "tslib": "^2.3.1",
-        "typescript": "4.4.2",
         "typescript-plugin-styled-components": "^2.0.0",
+        "typescript": "4.4.2",
         "webpack": "^5.52.0"
     },
     "peerDependencies": {
@@ -140,11 +141,13 @@
         "parser": "typescript",
         "printWidth": 70,
         "singleQuote": true,
+        "bracketSameLine": true,
         "overrides": [
             {
                 "files": [
                     "index.ts",
-                    "config.ts"
+                    "config.ts",
+                    "*config.js"
                 ],
                 "options": {
                     "printWidth": 200

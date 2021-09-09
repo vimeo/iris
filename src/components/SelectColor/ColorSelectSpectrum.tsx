@@ -70,8 +70,7 @@ export function ColorSelectSpectrum({
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
       onMouseLeave={onMouseLeave}
-      {...props}
-    >
+      {...props}>
       <HueSpectrum
         hue={hue}
         onMouseMove={onMouseMove}
@@ -83,8 +82,7 @@ export function ColorSelectSpectrum({
             saturation: 1,
             lightness: 0.5,
           }),
-        }}
-      >
+        }}>
         <Cursor style={cursorPosition(coords)} />
       </HueSpectrum>
     </SpectrumWrapper>

@@ -60,8 +60,7 @@ function CategoryCardComponent({
             <Paragraph
               size="1"
               theme={themes.dark}
-              style={{ margin: 0, textShadow: '0 0 5px 1px red' }}
-            >
+              style={{ margin: 0, textShadow: '0 0 5px 1px red' }}>
               {children}
             </Paragraph>
           </CardContent>

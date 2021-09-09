@@ -54,8 +54,7 @@ function TabsComponent({
     <li
       key={i}
       onClick={() => activeTabSet(i)}
-      style={{ flex: '1 0 0' }}
-    >
+      style={{ flex: '1 0 0' }}>
       <NavItem
         onKeyUp={onKeyUp}
         format={format}

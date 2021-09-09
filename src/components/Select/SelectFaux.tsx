@@ -109,18 +109,15 @@ export function SelectFaux({
       ref={wrapperRef}
       messages={messages}
       status={status}
-      style={{ ...layoutStyles }}
-    >
+      style={{ ...layoutStyles }}>
       <PopOver
         attach="bottom"
         style={{ width, maxWidth: '100%' }}
         content={<div ref={popOverRef}>{content}</div>}
-        active={disabled ? false : active}
-      >
+        active={disabled ? false : active}>
         <div
           style={{ position: 'relative', cursor: 'pointer' }}
-          onClick={() => dispatch({ type: 'TOGGLE_ACTIVE' })}
-        >
+          onClick={() => dispatch({ type: 'TOGGLE_ACTIVE' })}>
           {!selected && (
             <Placeholder
               inputSize={size}
@@ -129,8 +126,7 @@ export function SelectFaux({
                 top: 0,
                 left: 0,
                 height: '100%',
-              }}
-            >
+              }}>
               {placeholder}
             </Placeholder>
           )}
@@ -147,8 +143,7 @@ export function SelectFaux({
               pointerEvents: 'none',
               opacity: selected ? 1 : 0,
             }}
-            {...props}
-          >
+            {...props}>
             {selected}
             {options}
           </SelectStyled>

@@ -12,8 +12,7 @@ export function Format() {
     <Layout.StoryVertical>
       <Menu
         format="basic"
-        style={{ marginBottom: '1rem', padding: '1rem' }}
-      >
+        style={{ marginBottom: '1rem', padding: '1rem' }}>
         <Menu.Section title="Section 1">
           <Menu.Item active icon={<Home />}>
             Item 1 S1

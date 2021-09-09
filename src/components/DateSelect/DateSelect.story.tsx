@@ -29,8 +29,7 @@ const Template: Story<Props> = (args) => {
       <DateSelect
         {...args}
         initialMonth={new Date(args.initialMonth)}
-        onSelect={(date) => dateSet(date)}
-      >
+        onSelect={(date) => dateSet(date)}>
         <Input value={date.toLocaleDateString()} readOnly />
       </DateSelect>
     </Layout.StoryVertical>

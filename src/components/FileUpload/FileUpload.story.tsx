@@ -23,24 +23,21 @@ export function Common() {
       <FileUpload
         onChange={(e) =>
           console.log('Uploaded file', e.target.files, e)
-        }
-      >
+        }>
         <Button icon={<UploadCloud />}>Upload any file</Button>
       </FileUpload>
       <FileUpload
         accept=".jpg"
         onChange={(e) =>
           console.log('Uploaded JPG', e.target.files, e)
-        }
-      >
+        }>
         <Button icon={<UploadCloud />}>Upload JPG only</Button>
       </FileUpload>
       <FileUpload
         multiple
         onChange={(e) =>
           console.log('Uploaded file(s)', e.target.files, e)
-        }
-      >
+        }>
         <Button icon={<UploadCloud />}>Upload multiple files</Button>
       </FileUpload>
     </Layout.StoryVertical>

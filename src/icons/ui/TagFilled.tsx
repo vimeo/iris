@@ -10,8 +10,7 @@ export const TagFilled = forwardRef(
           y={1}
           width={17.97}
           height={17.97}
-          maskUnits="userSpaceOnUse"
-        >
+          maskUnits="userSpaceOnUse">
           <path fill="#fff" d="M1 1h17.97v17.97H1V1z" />
         </mask>
       </defs>

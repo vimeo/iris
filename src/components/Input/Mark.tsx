@@ -47,8 +47,7 @@ export function Mark({
       onKeyUp={a11yKey}
       status={status}
       style={style}
-      theme={theme}
-    >
+      theme={theme}>
       <div style={{ position: 'relative' }}>
         <HiddenMark
           autoComplete={autoComplete}
@@ -110,8 +109,7 @@ function DefaultMark({
         mirror={mirror}
         size={size}
         theme={theme}
-        type={type}
-      >
+        type={type}>
         {label}
       </Label>
       <Faux
@@ -120,8 +118,7 @@ function DefaultMark({
         mirror={mirror}
         size={size}
         theme={theme}
-        type={type}
-      >
+        type={type}>
         <Focus
           parent={HiddenMark}
           radius={radii[type]}
@@ -139,8 +136,7 @@ function CustomMark({ children, htmlFor, checked, disabled }) {
     children && (
       <label
         htmlFor={htmlFor}
-        style={!disabled && { cursor: 'pointer' }}
-      >
+        style={!disabled && { cursor: 'pointer' }}>
         {cloneElement(children, { disabled, checked })}
       </label>
     )

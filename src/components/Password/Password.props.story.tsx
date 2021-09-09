@@ -12,8 +12,7 @@ export function Label() {
       css={`
         padding: 2rem;
         max-width: 30rem;
-      `}
-    >
+      `}>
       <Password label="Input (Password)" />
     </div>
   );
@@ -25,8 +24,7 @@ export function Floating() {
       css={`
         padding: 2rem;
         max-width: 30rem;
-      `}
-    >
+      `}>
       <Password label="Input (Password)" floating />
     </div>
   );

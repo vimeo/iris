@@ -66,8 +66,7 @@ export function EditableText({
         display: 'inline-block',
         ...layoutStyles,
       }}
-      className={className}
-    >
+      className={className}>
       <Styled
         as={element}
         children={text.length > 0 ? text : placeholder}

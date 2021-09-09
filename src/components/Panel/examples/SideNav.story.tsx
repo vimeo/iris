@@ -58,7 +58,7 @@ export const SideNav = () => {
         content={content}
         onDragEnd={() => draggingSet(false)}
         onDragStart={() => draggingSet(true)}
-        onResize={(event, { current }) => widthPanelSet(current)}
+        onResize={(_, { current }) => widthPanelSet(current)}
         screen={false}
         resizable
       />

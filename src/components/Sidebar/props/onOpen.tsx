@@ -13,8 +13,7 @@ export function onOpen() {
       <Sidebar
         attach="left"
         onOpen={(item) => console.log('Open ' + item)}
-        onClose={(item) => console.log('Close ' + item)}
-      >
+        onClose={(item) => console.log('Close ' + item)}>
         <Sidebar.Item label="Item 1" icon={<Gear />}>
           <Header size="3">Item 1</Header>
         </Sidebar.Item>

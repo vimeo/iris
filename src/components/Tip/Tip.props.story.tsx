@@ -18,8 +18,7 @@ export function Active() {
         <Tip content="I am Tip" attach="top" active={active}>
           <Button
             onClick={() => activeSet((active) => !active)}
-            fluid
-          >
+            fluid>
             Toggle Tip
           </Button>
         </Tip>
@@ -73,8 +72,7 @@ export function Variant() {
         attach="top"
         variant="simple"
         trigger="click"
-        content={text}
-      >
+        content={text}>
         <Button style={{ marginTop: '10rem' }}>Simple Top</Button>
       </Tip>
       {(['top', 'right', 'bottom', 'left'] as const).map((attach) => (
@@ -91,8 +89,7 @@ export function Variant() {
                 {text}
               </Paragraph>
             </>
-          }
-        >
+          }>
           <Button style={{ marginTop: '5rem' }}>
             Speech Bubble {attach}
           </Button>

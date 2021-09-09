@@ -23,8 +23,7 @@ export function ColorStory(colorName, colorFn) {
           padding: '1rem',
           margin: '1rem 0',
           width: '100%',
-        }}
-      >
+        }}>
         <h1 style={{ color: fontColor }}>{color.grade}</h1>
         <h1 style={{ color: fontColor }}>{color.hex}</h1>
         <h1 style={{ color: fontColor }}>{color.rgb}</h1>
@@ -55,8 +54,7 @@ export function ColorPalette({ color }) {
         width: '100%',
         padding: '1rem 0 0 0',
         marginBottom: '1rem',
-      }}
-    >
+      }}>
       {[0.5, 1, 2, 3, 3.5, 4, 5, 6, 7, 8, 8.5, 9, 9.5].map(
         (num, i) => {
           return (
@@ -76,8 +74,7 @@ function ColorSwatch({ color, title = color, ...props }) {
   return (
     <div
       style={{ display: 'inline-block', overflow: 'hidden' }}
-      {...props}
-    >
+      {...props}>
       <ColorSwatchStyled color={color} />
       <Header size="5">{title}</Header>
     </div>

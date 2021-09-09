@@ -66,8 +66,7 @@ function PasswordComponent({
       ref={ref}
       size={size}
       type={type}
-      {...props}
-    >
+      {...props}>
       <InnerButton
         floating={floating}
         format={format}
@@ -75,8 +74,7 @@ function PasswordComponent({
         label={label}
         onClick={toggle}
         size={size}
-        variant={variant}
-      >
+        variant={variant}>
         {type === 'password' && <Eye />}
         {type === 'text' && <EyeOff />}
       </InnerButton>

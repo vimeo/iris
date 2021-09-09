@@ -52,8 +52,7 @@ const ActionButton = ({
       onClick={(event) => {
         close && close(event);
         onClick && onClick(event);
-      }}
-    >
+      }}>
       {children}
     </ActionButtonStyled>
   );

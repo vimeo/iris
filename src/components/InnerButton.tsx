@@ -57,14 +57,12 @@ export const InnerButton = forwardRef(function (
       style={style}
       height={height}
       label={label}
-      floating={floating}
-    >
+      floating={floating}>
       {tooltipText ? (
         <Tip
           content={tooltipText}
           attach={tooltipPosition}
-          {...tooltipProps}
-        >
+          {...tooltipProps}>
           {button}
         </Tip>
       ) : (

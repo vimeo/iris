@@ -44,8 +44,7 @@ function GenericGridStory() {
         <Next
           format="secondary"
           disabled={page === Math.ceil(total / pageSize)}
-          onClick={() => goto(page + 1)}
-        >
+          onClick={() => goto(page + 1)}>
           Next
         </Next>
         <Pagination

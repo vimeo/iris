@@ -46,13 +46,11 @@ function CounterIconComponent({
         onClick={!href && onClick}
         content={title}
         trigger={trigger}
-        attach="top"
-      >
+        attach="top">
         <Content
           as={href ? 'a' : 'span'}
           onClick={href && onClick}
-          {...props}
-        >
+          {...props}>
           <Icon>{icon}</Icon>
           <Paragraph size="1" element="span">
             {children}

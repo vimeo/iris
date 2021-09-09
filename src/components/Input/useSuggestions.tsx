@@ -43,8 +43,7 @@ export function useSuggestions({ autosuggest, inputRef, doBlur }) {
   const suggestions = autosuggest?.map((suggestion) => (
     <Suggestion
       onKeyDown={onKeyDown(suggestion)}
-      onClick={onClick(suggestion)}
-    >
+      onClick={onClick(suggestion)}>
       {suggestion}
     </Suggestion>
   ));

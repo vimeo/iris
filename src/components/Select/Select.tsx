@@ -48,8 +48,7 @@ function SelectNative({
       label={label}
       messages={messages}
       status={status}
-      style={{ ...layoutStyles }}
-    >
+      style={{ ...layoutStyles }}>
       <div style={{ position: 'relative' }}>
         <SelectStyled
           defaultValue={defaultValue}
@@ -59,8 +58,7 @@ function SelectNative({
           pill={pill}
           ref={forwardRef}
           style={{ ...displayStyles }}
-          {...props}
-        >
+          {...props}>
           {children}
         </SelectStyled>
         <Focus parent={SelectStyled} radius={pill ? 50 : 6} />

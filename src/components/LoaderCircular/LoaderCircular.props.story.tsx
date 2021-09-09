@@ -32,8 +32,7 @@ export function Format() {
     <Layout.StoryVertical
       css={`
         color: ${red(500)};
-      `}
-    >
+      `}>
       <LoaderCircular format="primary" />
       <LoaderCircular format="basic" />
       <LoaderCircular format="adaptive" />

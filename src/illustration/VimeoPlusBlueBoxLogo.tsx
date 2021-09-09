@@ -9,8 +9,7 @@ export const VimeoPlusBlueBoxLogo = (
         y1="18.066%"
         x2="40.352%"
         y2="128.32%"
-        id="vimeo-plus-blue-box-logo_svg__a"
-      >
+        id="vimeo-plus-blue-box-logo_svg__a">
         <stop stopColor="#00ADEF" offset="0%" />
         <stop stopColor="#006CEF" offset="100%" />
       </linearGradient>
@@ -34,8 +33,7 @@ export const VimeoPlusBlueBoxLogo = (
         fontSize={22}
         fontWeight={300}
         letterSpacing={0.4}
-        fill="#FFF"
-      >
+        fill="#FFF">
         <tspan x={20.098} y={49}>
           {'PLU'}
         </tspan>

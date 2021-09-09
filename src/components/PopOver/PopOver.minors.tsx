@@ -18,8 +18,7 @@ export const Pop: Minors = {
     <Header
       size="6"
       style={{ padding: '0.5rem 1.5rem', margin: 0 }}
-      {...props}
-    >
+      {...props}>
       {children}
     </Header>
   ),

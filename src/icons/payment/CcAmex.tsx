@@ -10,8 +10,7 @@ export const CcAmex = forwardRef(
           y={3}
           width={20}
           height={14}
-          maskUnits="userSpaceOnUse"
-        >
+          maskUnits="userSpaceOnUse">
           <path
             d="M1.5 3h17A1.5 1.5 0 0 1 20 4.5v11a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 0 15.5v-11A1.5 1.5 0 0 1 1.5 3z"
             fill="#fff"

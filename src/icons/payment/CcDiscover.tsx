@@ -10,8 +10,7 @@ export const CcDiscover = forwardRef(
           y={8}
           width={16.81}
           height={2.93}
-          maskUnits="userSpaceOnUse"
-        >
+          maskUnits="userSpaceOnUse">
           <path fill="#fff" d="M2 10.93h16.81V8H2v2.93z" />
         </mask>
       </defs>

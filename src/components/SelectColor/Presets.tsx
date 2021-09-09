@@ -41,8 +41,7 @@ export function Presets({ palette, label, onColorClick }: Props) {
             event.stopPropagation();
             onColorClick(color);
           }}
-          onKeyUp={onKeyUp}
-        >
+          onKeyUp={onKeyUp}>
           <Focus parent={Swab} radius={12} />
         </Swab>
       ))}

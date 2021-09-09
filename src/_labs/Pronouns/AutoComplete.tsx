@@ -77,8 +77,7 @@ const UserComplete = ({
             onClick={(e) => {
               setValue(selectPronoun(value, person.pronounKey));
               setPronounFound(false);
-            }}
-          >
+            }}>
             <Avatar
               alt="name"
               src={`https://i.vimeocdn.com/portrait/${person.id}_75x75`}

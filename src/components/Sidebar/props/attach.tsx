@@ -48,8 +48,7 @@ export function Attach() {
 
       <Sidebar
         attach="right"
-        style={{ position: 'absolute', top: 0, right: 0 }}
-      >
+        style={{ position: 'absolute', top: 0, right: 0 }}>
         <Sidebar.Item label="Item 1" icon={<Gear />}>
           <Header size="3" style={{ marginTop: 0 }}>
             Item 1

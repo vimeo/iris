@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from '@storybook/addons';
+import React, { useState } from 'react';
 
 import { Checkbox } from './Checkbox';
 

@@ -12,19 +12,10 @@ export default {
 export function attach() {
   return (
     <Layout.StoryVertical>
-      <Panel
-        content={PanelContent}
-        onOpen={() => console.log('open')}
-        onClose={() => console.log('close')}
-      >
+      <Panel content={PanelContent}>
         <Button>Open Right Panel</Button>
       </Panel>
-      <Panel
-        attach="left"
-        content={PanelContent}
-        onOpen={() => console.log('open')}
-        onClose={() => console.log('close')}
-      >
+      <Panel attach="left" content={PanelContent}>
         <Button>Open Left Panel</Button>
       </Panel>
     </Layout.StoryVertical>
@@ -35,12 +26,7 @@ attach.storyName = 'attach';
 export function active() {
   return (
     <Layout.StoryVertical>
-      <Panel
-        active
-        content={PanelContent}
-        onOpen={() => console.log('open')}
-        onClose={() => console.log('close')}
-      />
+      <Panel active content={PanelContent} />
     </Layout.StoryVertical>
   );
 }

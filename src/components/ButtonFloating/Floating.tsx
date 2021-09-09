@@ -22,8 +22,7 @@ function FloatingButtonComponent({
       icon={<ArrowRight />}
       iconPosition="right"
       ref={forwardRef}
-      {...props}
-    >
+      {...props}>
       {children}
     </Styled>
   );

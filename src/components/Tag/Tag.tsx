@@ -35,8 +35,7 @@ function TagComponent({
       size={size}
       src={src}
       theme={theme}
-      {...props}
-    >
+      {...props}>
       {src && <Image size={size} src={src} alt="User avatar image" />}
       {children}
     </Styled>

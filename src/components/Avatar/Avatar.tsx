@@ -24,8 +24,7 @@ function AvatarComponent({
       target={target}
       className={className}
       ref={forwardRef as Ref<HTMLAnchorElement>}
-      style={layoutStyles}
-    >
+      style={layoutStyles}>
       <Styled size={size} style={displayStyles} {...props} />
     </Anchor>
   ) : (

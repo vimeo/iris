@@ -69,8 +69,7 @@ function IconStory({ icons, preserve = false }) {
         style={{ width: '100%' }}
       />
       <div
-        style={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}
-      >
+        style={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}>
         {validIcons.map(({ name }, i) => (
           <Card key={i}>
             <Icon
@@ -83,8 +82,7 @@ function IconStory({ icons, preserve = false }) {
               style={{
                 margin: '1rem',
                 display: 'inline-flex',
-              }}
-            >
+              }}>
               {name}
             </Header>
           </Card>

@@ -49,8 +49,7 @@ export function ColorSelectInput({
         onChange={({ target: { value } }) => {
           onChange && onChange(value);
           dispatch({ type: 'SET_HEX', payload: value });
-        }}
-      >
+        }}>
         <Dot style={{ background: HEX }} />
         {reset.label && HEX !== reset.color.toLowerCase() && (
           <InnerButton
@@ -59,8 +58,7 @@ export function ColorSelectInput({
             size={size}
             onClick={resetValues}
             tooltipText="reset"
-            height={height}
-          >
+            height={height}>
             <History style={{ opacity: 0.5 }} />
           </InnerButton>
         )}

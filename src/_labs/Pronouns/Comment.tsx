@@ -46,8 +46,7 @@ export const Comment: SFC<Props> = ({
               variation === 'F' ||
               variation === 'G') &&
             '5.5rem',
-        }}
-      >
+        }}>
         <Avatar
           alt="name"
           src={`https://i.vimeocdn.com/portrait/${id}_75x75`}

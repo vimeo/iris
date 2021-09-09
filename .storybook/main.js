@@ -18,7 +18,6 @@ module.exports = {
   stories: ['../src/**/*.story.tsx'],
   addons: [
     '@storybook/addon-essentials',
-    '@storybook/addon-links',
     '@storybook/addon-a11y',
     '@storybook/addon-storysource',
     './addons/themes/register',

@@ -47,8 +47,7 @@ function VariantStory({ format, pill = null }) {
         icon={false}
         header="lorem ipsum header"
         onClose={() => console.log('Notice Closed.')}
-        pill={pill}
-      >
+        pill={pill}>
         Lorem ipsum dolor sit amet.
       </Notice>
 

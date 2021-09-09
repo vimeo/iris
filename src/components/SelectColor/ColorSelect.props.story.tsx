@@ -20,8 +20,7 @@ export function Children() {
             `onChange: %c ${HEX}`,
             `background: ${HEX}; color: ${readableColor(HEX)}`
           )
-        }
-      >
+        }>
         <Button>Hi!</Button>
       </ColorSelect>
     </Layout.StoryVertical>
@@ -33,8 +32,7 @@ export function Attach() {
   return (
     <Layout.StoryVertical
       center
-      style={{ minHeight: '75vh', justifyContent: 'center' }}
-    >
+      style={{ minHeight: '75vh', justifyContent: 'center' }}>
       <ColorSelect
         width={320}
         height={200}

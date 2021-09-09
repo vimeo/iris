@@ -50,8 +50,7 @@ function WithInputContentStory() {
           </ModalStyled>
         }
         onOpen={() => console.log('open')}
-        onClose={() => console.log('close')}
-      >
+        onClose={() => console.log('close')}>
         <Button>Open Modal</Button>
       </Modal>
       <Input
@@ -86,8 +85,7 @@ function ControlledWithDynamicContentStory() {
       <Button
         status="positive"
         onClick={() => toggledSet((s) => !s)}
-        fluid
-      >
+        fluid>
         Toggle Content
       </Button>
       <Modal.Footer>
@@ -111,8 +109,7 @@ function ControlledWithDynamicContentStory() {
       <Button
         status="positive"
         onClick={() => toggledSet((s) => !s)}
-        fluid
-      >
+        fluid>
         Toggle Content
       </Button>
       <Modal.Footer>
@@ -130,8 +127,7 @@ function ControlledWithDynamicContentStory() {
         active={show}
         content={toggled ? contentB : contentA}
         onOpen={() => console.log('open')}
-        onClose={() => setShow(false)}
-      >
+        onClose={() => setShow(false)}>
         <Button onClick={() => setShow(true)}>Open Modal</Button>
       </Modal>
       <Input
@@ -203,8 +199,7 @@ function CustomStory() {
               <Button
                 format="secondary"
                 style={{ marginRight: '0.5rem' }}
-                onClick={() => activeSet(false)}
-              >
+                onClick={() => activeSet(false)}>
                 Cancel
               </Button>
               <Button onClick={() => activeSet(false)}>Send</Button>

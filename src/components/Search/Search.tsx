@@ -54,8 +54,7 @@ function SearchComponent({
         variant={variant}
         label={label}
         size={size}
-        height={height}
-      >
+        height={height}>
         {children}
       </InnerButton>
     </Input>

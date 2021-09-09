@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
-import { useState } from '@storybook/addons';
 
 import { Radio as R } from './Radio';
 import { RadioSet } from './RadioSet';
@@ -24,8 +23,7 @@ export function Controlled() {
       </Button>
       <RadioSet
         defaultValue={checked}
-        onChange={(e) => setChecked(e.currentTarget.value)}
-      >
+        onChange={(e) => setChecked(e.currentTarget.value)}>
         <Radio value="1" label="Radio 1" />
         <Radio value="2" label="Radio 2" />
       </RadioSet>
@@ -74,15 +72,17 @@ function Custom({ checked = null, ...props }) {
   );
 }
 
-const customCSS = (n) => ({ theme }) =>
-  css`
-    border: 3px solid ${rgba(theme.formats.soft, n)};
+const customCSS =
+  (n) =>
+  ({ theme }) =>
+    css`
+      border: 3px solid ${rgba(theme.formats.soft, n)};
 
-    svg * {
-      fill: ${rgba(theme.formats.soft, n)};
-      transition: 120ms ease-in-out;
-    }
-  `;
+      svg * {
+        fill: ${rgba(theme.formats.soft, n)};
+        transition: 120ms ease-in-out;
+      }
+    `;
 
 const CustomStyled = styled.div<any>`
   width: 3rem;

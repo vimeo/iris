@@ -53,8 +53,7 @@ function ProgressComponent({
     <Background
       ref={ref}
       style={{ ...style, background: bgGradient }}
-      {...props}
-    >
+      {...props}>
       <Boundary style={{ width: value + '%' }}>
         <Ribbon
           animate={animate}

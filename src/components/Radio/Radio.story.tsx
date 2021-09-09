@@ -32,8 +32,7 @@ export function RadioSetStory() {
   return (
     <RadioSet
       defaultValue="2"
-      onChange={(e) => console.log(e.currentTarget)}
-    >
+      onChange={(e) => console.log(e.currentTarget)}>
       <Radio value="1" label="Value 1" />
       <Radio value="2" label="Value 2" />
       <Radio value="3" label="Value 3" />

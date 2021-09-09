@@ -41,8 +41,7 @@ function DropzoneComponent({
       onDragLeave={onDragLeave}
       onDragOver={onDragOver}
       onDrop={onDrop}
-      {...props}
-    >
+      {...props}>
       <input
         accept={accept}
         disabled={disabled}

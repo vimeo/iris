@@ -24,22 +24,19 @@ const Template: Story<Props> = (args) => {
       <CategoryCard
         {...args}
         icon={<Gear />}
-        src="https://i.vimeocdn.com/custom_asset/26.jpg"
-      >
+        src="https://i.vimeocdn.com/custom_asset/26.jpg">
         Sports
       </CategoryCard>
       <CategoryCard
         {...args}
         icon={<Camera />}
-        src="https://i.vimeocdn.com/custom_asset/13.jpg"
-      >
+        src="https://i.vimeocdn.com/custom_asset/13.jpg">
         Animation
       </CategoryCard>
       <CategoryCard
         {...args}
         icon={<Heart />}
-        src="https://i.vimeocdn.com/custom_asset/28.jpg"
-      >
+        src="https://i.vimeocdn.com/custom_asset/28.jpg">
         Travel
       </CategoryCard>
     </Grid>

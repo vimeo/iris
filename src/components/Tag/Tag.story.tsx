@@ -50,8 +50,7 @@ export function Src() {
   return (
     <Tag
       size="lg"
-      src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
-    >
+      src="https://i.vimeocdn.com/video/562859486_270x270.jpg">
       Comedy
     </Tag>
   );
@@ -61,8 +60,7 @@ export function onClose() {
   return (
     <Tag
       size="lg"
-      onClose={{ reject: () => alert('deleted this tag') }}
-    >
+      onClose={{ reject: () => alert('deleted this tag') }}>
       Comedy
     </Tag>
   );

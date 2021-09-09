@@ -257,8 +257,7 @@ function DateRangeComponent({
       {presets ? (
         <Menu
           format="basic"
-          style={{ borderRight: `1px solid ${slate(100)}` }}
-        >
+          style={{ borderRight: `1px solid ${slate(100)}` }}>
           <Menu.Section title="Presets">
             {presets.map((preset) => {
               const label = getPresetLabel(preset);
@@ -272,8 +271,7 @@ function DateRangeComponent({
                       onPresetClick(preset);
                     }
                   }}
-                  style={{ textTransform: 'capitalize' }}
-                >
+                  style={{ textTransform: 'capitalize' }}>
                   {label}
                 </Menu.Item>
               );
@@ -283,8 +281,7 @@ function DateRangeComponent({
       ) : null}
       <CalendarsContainer
         // hidden={!open}
-        className={className}
-      >
+        className={className}>
         <CalendarHeader>
           <DateField>
             <Input
@@ -350,8 +347,7 @@ function DateRangeComponent({
             size="sm"
             format="primary"
             variant="minimal"
-            onClick={() => void dispatch({ type: 'CLEAR' })}
-          >
+            onClick={() => void dispatch({ type: 'CLEAR' })}>
             Clear
           </ClearButton>
           <ApplyButton
@@ -363,8 +359,7 @@ function DateRangeComponent({
             }
             size="sm"
             format="secondary"
-            onClick={() => void dispatch({ type: 'SAVE' })}
-          >
+            onClick={() => void dispatch({ type: 'SAVE' })}>
             Apply
           </ApplyButton>
         </CalendarsFooter>

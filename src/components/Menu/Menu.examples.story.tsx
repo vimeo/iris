@@ -62,8 +62,7 @@ export function Complex() {
               onClick: (e) => console.log(e),
             }}
             icon={<Folder />}
-            toggle
-          >
+            toggle>
             Item 1 S2
             <Menu.Item>Item 1 S2 SubItem 1</Menu.Item>
             <Menu.Item>Item 1 S2 SubItem 2</Menu.Item>
@@ -80,8 +79,7 @@ export function Complex() {
                 </Tip>
               ),
               onClick: (e) => console.log(e),
-            }}
-          >
+            }}>
             Item 1 NoS
           </Menu.Item>
           <Menu.Item label={<Home />}>Item 2 NoS</Menu.Item>
@@ -99,8 +97,7 @@ export function Complex() {
                   </PopOver>
                 ),
                 onClick: (e) => console.log(e.target),
-              }}
-            >
+              }}>
               Item 2 S3
             </Menu.Item>
           </Menu.Section>

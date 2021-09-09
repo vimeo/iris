@@ -59,8 +59,7 @@ function ThemeKit(props) {
               onClick={doClick(name)}
               active={
                 name === theme[subTheme]?.name || name === theme.name
-              }
-            >
+              }>
               {name}
             </BrandButton>
           ))}
@@ -227,8 +226,7 @@ const PopList = () => (
       maxWidth: '12rem',
       border: '1px solid rgba(100,100,100,0.2)',
       borderRadius: '4px',
-    }}
-  >
+    }}>
     <Pop.List>
       <Pop.Header>Header</Pop.Header>
       <Pop.Item href="#">Item 1</Pop.Item>
@@ -247,8 +245,7 @@ const PopList = () => (
         <Badge
           size="sm"
           format="upgrade"
-          style={{ display: 'inline-block', margin: '0 0.5rem' }}
-        >
+          style={{ display: 'inline-block', margin: '0 0.5rem' }}>
           Upgrade
         </Badge>
       </Pop.Item>

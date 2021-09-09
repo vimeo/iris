@@ -23,8 +23,7 @@ function LinkComponent({
       href={href}
       variant={variant}
       format={format}
-      {...props}
-    >
+      {...props}>
       {children}
     </Styled>
   );

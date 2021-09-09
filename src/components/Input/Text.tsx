@@ -117,8 +117,7 @@ export function Text({
         <div ref={suggestionsRef}>
           {suggestions?.[0] && suggestions}
         </div>
-      }
-    >
+      }>
       {inputComponent}
     </PopOver>
   );
@@ -134,8 +133,7 @@ export function Text({
       theme={theme}
       style={layoutStyles}
       id={id}
-      disabled={disabled}
-    >
+      disabled={disabled}>
       {suggestions?.has
         ? inputComponentWithAutoSuggest
         : inputComponent}

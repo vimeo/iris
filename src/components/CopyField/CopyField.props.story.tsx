@@ -80,20 +80,17 @@ export function Children() {
     <Layout.StoryVertical>
       <CopyField
         value="http://www.vimeo.com"
-        messages={{ success: 'Copied!' }}
-      >
+        messages={{ success: 'Copied!' }}>
         Copy me!
       </CopyField>
       <CopyField
         value="http://www.vimeo.com"
-        messages={{ success: 'Copied!' }}
-      >
+        messages={{ success: 'Copied!' }}>
         <Heart />
       </CopyField>
       <CopyField
         value="http://www.vimeo.com"
-        messages={{ success: 'Copied!' }}
-      >
+        messages={{ success: 'Copied!' }}>
         <Heart />
         &nbsp; Copy
       </CopyField>

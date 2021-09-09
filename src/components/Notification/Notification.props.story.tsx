@@ -30,8 +30,9 @@ export function Action() {
         onClick: () =>
           alert('I am a demo action for the Notification'),
       }}
-      onComplete={() => console.log('Notification onComplete called')}
-    >
+      onComplete={() =>
+        console.log('Notification onComplete called')
+      }>
       <Button>Show Notification</Button>
     </Notification>
   );

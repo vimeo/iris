@@ -12,16 +12,14 @@ export function Custom() {
       <Link
         css={`
           font-weight: 800;
-        `}
-      >
+        `}>
         Click me!
       </Link>
       <Link
         css={`
           font-weight: 300;
           color: inherit;
-        `}
-      >
+        `}>
         Click me!
       </Link>
       <Link
@@ -32,8 +30,7 @@ export function Custom() {
           text-transform: uppercase;
           font-size: 0.75rem;
           letter-spacing: 0.02rem;
-        `}
-      >
+        `}>
         Click me!
       </Link>
     </Layout.StoryVertical>

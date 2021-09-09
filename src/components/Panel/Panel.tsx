@@ -131,8 +131,7 @@ function PanelComponent({
       className={className}
       ref={ref}
       style={{ [attach]: 0, ...style, ...styleVars }}
-      {...props}
-    >
+      {...props}>
       {content}
       {handle}
     </PanelStyled>

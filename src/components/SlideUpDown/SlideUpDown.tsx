@@ -34,8 +34,7 @@ function SlideUpDownComponent({
         transition: 'all 200ms ease-in-out',
         maxHeight: showing ? maxHeight : 0,
       }}
-      {...props}
-    >
+      {...props}>
       {children}
     </div>
   );

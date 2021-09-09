@@ -25,8 +25,7 @@ export function Link({ children, href, ...props }) {
         href={href}
         variant="minimal"
         format="primary"
-        {...props}
-      >
+        {...props}>
         {children}
       </StyledLink>
       <Arrow />

@@ -143,8 +143,7 @@ function ColorSelectComponent({
             {...state}
           />
         </Wrapper>
-      }
-    >
+      }>
       {children ? (
         <div onClick={toggle} ref={childrenRef}>
           {children}

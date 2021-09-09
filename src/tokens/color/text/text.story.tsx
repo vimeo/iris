@@ -19,8 +19,7 @@ export function Tokens() {
             key={key}
             grade={grade}
             styles={styles}
-            style={{ marginBottom: '3rem' }}
-          >
+            style={{ marginBottom: '3rem' }}>
             <Text>color-text-{grade}</Text>
             <Example grade={grade}>color-text-{grade}</Example>
           </Card>

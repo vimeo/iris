@@ -32,8 +32,7 @@ export function Messages() {
     <Layout.StoryVertical>
       <Select
         label="Select with pre message"
-        messages={{ pre: 'This is a pre message' }}
-      >
+        messages={{ pre: 'This is a pre message' }}>
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
           Value 2 has a long label
@@ -41,8 +40,7 @@ export function Messages() {
       </Select>
       <Select
         label="Select with post message"
-        messages={{ post: 'post message' }}
-      >
+        messages={{ post: 'post message' }}>
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
           Value 2 has a long label
@@ -51,8 +49,7 @@ export function Messages() {
       <Select
         label="Select with help message"
         status="positive"
-        messages={{ help: 'Success!' }}
-      >
+        messages={{ help: 'Success!' }}>
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
           Value 2 has a long label
@@ -61,8 +58,7 @@ export function Messages() {
       <Select
         label="Select with error message"
         status="negative"
-        messages={{ error: 'Error!' }}
-      >
+        messages={{ error: 'Error!' }}>
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
           Value 2 has a long label
@@ -79,8 +75,7 @@ export function Status() {
       <Select
         label="I feel validated!"
         status="positive"
-        messages={{ help: 'Great!' }}
-      >
+        messages={{ help: 'Great!' }}>
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
           Value 2 has a long label
@@ -89,8 +84,7 @@ export function Status() {
       <Select
         label="Something bad happened!"
         status="negative"
-        messages={{ error: 'Oops, that needs to be fixed.' }}
-      >
+        messages={{ error: 'Oops, that needs to be fixed.' }}>
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
           Value 2 has a long label
@@ -108,8 +102,7 @@ export function DefaultValue() {
         defaultValue="2"
         onChange={(e) =>
           console.log('Selected Option', e.target.value, e)
-        }
-      >
+        }>
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
           Value 2 has a long label
@@ -131,8 +124,7 @@ export function Value() {
         onChange={(e) => {
           valueSet(e.target.value);
           console.log('Selected Option', e.target.value, e);
-        }}
-      >
+        }}>
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
           Value 2 has a long label
@@ -169,8 +161,7 @@ export function Faux() {
         onChange={(e) => {
           console.log('Selected Option', e.target.value, e);
         }}
-        faux
-      >
+        faux>
         <Select.Option value="1">Option 1</Select.Option>
         <Select.Option value="2">Option 2</Select.Option>
         <Select.Option value="3">
@@ -206,8 +197,7 @@ export function FauxExternalState() {
         onChange={onChange}
         placeholder="Please select an option."
         value={value}
-        faux
-      >
+        faux>
         <Select.Option value="1">Option 1</Select.Option>
         <Select.Option value="2">Option 2</Select.Option>
         <Select.Option value="3">
@@ -232,8 +222,7 @@ const UpgradeBadge = (
     // @ts-ignore
     format="upgrade"
     size="sm"
-    style={{ display: 'inline-block', margin: '0 0.5rem' }}
-  >
+    style={{ display: 'inline-block', margin: '0 0.5rem' }}>
     Upgrade
   </Badge>
 );

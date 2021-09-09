@@ -11,8 +11,7 @@ export const VimeoProBlueBoxLogo = (
         x2={-178.61}
         y2={135.59}
         gradientTransform="matrix(96 0 0 -64 17195 8760)"
-        gradientUnits="userSpaceOnUse"
-      >
+        gradientUnits="userSpaceOnUse">
         <stop offset={0} stopColor="#00adef" />
         <stop offset={1} stopColor="#006cef" />
       </linearGradient>

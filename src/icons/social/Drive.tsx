@@ -10,8 +10,7 @@ export const Drive = forwardRef(
           cy={100.59}
           r={1.98}
           gradientTransform="matrix(6.03 0 0 -6.03 1124.65 619.63)"
-          gradientUnits="userSpaceOnUse"
-        >
+          gradientUnits="userSpaceOnUse">
           <stop offset={0} stopColor="#4387fd" />
           <stop offset={0.65} stopColor="#3078f0" />
           <stop offset={0.91} stopColor="#2b72ea" />
@@ -23,8 +22,7 @@ export const Drive = forwardRef(
           cy={106.77}
           r={1.06}
           gradientTransform="matrix(11.29 0 0 -11.29 2267.18 1219.22)"
-          gradientUnits="userSpaceOnUse"
-        >
+          gradientUnits="userSpaceOnUse">
           <stop offset={0} stopColor="#ffd24d" />
           <stop offset={1} stopColor="#f6c338" />
         </radialGradient>

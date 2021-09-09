@@ -113,8 +113,7 @@ function NotficationComponent({
             onMouseEnter={pause}
             onMouseLeave={resume}
             ref={forwardRef}
-            {...props}
-          >
+            {...props}>
             <Content>
               {icon}
               {content}
