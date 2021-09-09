@@ -68,8 +68,7 @@ const Header = styled(H).attrs({
   size: '2',
   // Temporary hack for accessibility. I don't want to
   // change the types to explicitly permit button Headers.
-  // @ts-ignore
-  element: 'button',
+  element: 'button' as unknown as 'span',
 })`
   position: relative;
   padding: 0.5rem 2rem;

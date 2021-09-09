@@ -12,6 +12,7 @@ export const Dropzone = withIris<HTMLInputElement, Props>(
 
 function DropzoneComponent({
   accept,
+  active,
   children,
   defaultValue,
   disabled,
@@ -36,7 +37,7 @@ function DropzoneComponent({
 
   return (
     <DropzoneContainer
-      drag={drag}
+      drag={active || drag}
       format={format}
       onDragLeave={onDragLeave}
       onDragOver={onDragOver}
@@ -52,10 +53,7 @@ function DropzoneComponent({
         style={{ display: 'none' }}
       />
       {typeof children === 'function'
-        ? children(
-            // @ts-ignore :: props.drag enabled presentational display in Storybook
-            props.drag || drag
-          )
+        ? children(active || drag)
         : children}
     </DropzoneContainer>
   );

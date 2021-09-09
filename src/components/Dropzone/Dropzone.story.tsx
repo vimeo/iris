@@ -32,7 +32,9 @@ const Template: Story<Props> = (args) => {
       style={{ maxWidth: '40rem' }}
       onChange={onChange}
       {...args}>
-      <Header size="3">Drag files here</Header>
+      <Header size="3" style={{ margin: 0 }}>
+        Drag files here
+      </Header>
     </Dropzone>
   );
 };

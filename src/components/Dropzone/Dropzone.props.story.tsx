@@ -49,16 +49,15 @@ export function Formats() {
     <div key={format} style={{ marginBottom: '4rem' }}>
       <Header size="5">{format}</Header>
       <Dropzone format={format} style={style}>
-        <Header size="3">Drag files here</Header>
+        <Header size="3" style={{ margin: 0 }}>
+          Drag files here
+        </Header>
       </Dropzone>
       <Header size="5">{format} active</Header>
-      <Dropzone
-        // @ts-ignore :: force active state for demonstration purposes only
-        drag
-        format={format}
-        key={format}
-        style={style}>
-        <Header size="3">Drag files here</Header>
+      <Dropzone active format={format} key={format} style={style}>
+        <Header size="3" style={{ margin: 0 }}>
+          Drag files here
+        </Header>
       </Dropzone>
     </div>
   ));
@@ -80,21 +79,24 @@ function CustomStory() {
         style={{ maxWidth: '40rem', marginBottom: '1rem' }}>
         {(active) => (
           <CustomContent active={active}>
-            <Header size="3">Drag files here</Header>
+            <Header size="3" style={{ margin: 0 }}>
+              Drag files here
+            </Header>
           </CustomContent>
         )}
       </Dropzone>
 
       <Header size="5">custom active</Header>
       <Dropzone
-        // @ts-ignore :: force active state for demonstration purposes only
-        drag
+        active
         onChange={onChange}
         theme={theme}
         style={{ maxWidth: '40rem' }}>
         {(active) => (
           <CustomContent active={active}>
-            <Header size="3">Drag files here</Header>
+            <Header size="3" style={{ margin: 0 }}>
+              Drag files here
+            </Header>
           </CustomContent>
         )}
       </Dropzone>

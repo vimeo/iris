@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import { PanelProps } from './Tabs.types';
@@ -8,12 +8,20 @@ import { IrisProps } from '../../utils';
 export function Panel({
   children,
   active,
-  onActivate,
+  onActivate, // deprecated!
   onOpen,
   ...props
 }: IrisProps<PanelProps>) {
   if (onActivate) onOpen = onActivate;
-  useEffect(() => onOpen?.(), []);
+
+  const opened = useRef(false);
+
+  useEffect(() => {
+    if (!opened.current) {
+      opened.current = true;
+      onOpen?.();
+    }
+  }, [onOpen]);
 
   return <PanelStyled {...props}>{children}</PanelStyled>;
 }
