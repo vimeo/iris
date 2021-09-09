@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { rgba, rem, tint, shade, em } from 'polished';
 
+import { borderRadiusSizes } from './Button.config';
 import { FeaturedIcon } from './FeaturedIcon';
 
 import { a11yColor } from '../../themes';
@@ -190,14 +191,6 @@ function buttonShape({ size, pill, circular }) {
 
   return { borderRadius };
 }
-
-export const borderRadiusSizes = {
-  xs: 4,
-  sm: 6,
-  md: 8,
-  lg: 10,
-  xl: 12,
-};
 
 function deriveButtonColor(customColor, format, theme) {
   let color: string;

@@ -6,6 +6,10 @@ import commonjs from '@rollup/plugin-commonjs';
 
 import pkg from './package.json';
 
+const dependencies = Object.keys(pkg.dependencies || {});
+const peerDependencies = Object.keys(pkg.peerDependencies || {});
+const babelRuntime = (id) => id.includes('@babel/runtime');
+
 export default (args) => {
   process.env.NODE_ENV = 'production';
 
@@ -13,8 +17,7 @@ export default (args) => {
 
   /** @type {import('rollup').RollupOptions} */
   let config = {
-    input:
-      './src/!(_|storybook)*/**/!(*.story.tsx|*.test.ts|*.types.ts)',
+    input: './src/!(_|storybook)*/**/!(*.story.tsx|*.test.ts|*.types.ts)',
     output: [
       {
         dir: 'build',
@@ -27,14 +30,8 @@ export default (args) => {
         entryFileNames: '[name].cjs',
       },
     ],
-    external: Object.keys(pkg.peerDependencies),
-    plugins: [
-      commonjs(),
-      resolve(),
-      typescript(),
-      babel({ exclude: '**/node_modules', babelHelpers: 'runtime' }),
-      multi(),
-    ],
+    external: [...dependencies, ...peerDependencies, babelRuntime, 'styled-components/cssprop'],
+    plugins: [commonjs(), resolve(), typescript(), babel({ exclude: '**/node_modules', babelHelpers: 'runtime' }), multi()],
   };
 
   return config;

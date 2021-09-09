@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { rem, rgba } from 'polished';
 
-import { borderRadiusSizes } from './Button.style';
+import { borderRadiusSizes } from './Button.config';
 
 export const FeaturedIcon = styled.div<any>`
   position: absolute;

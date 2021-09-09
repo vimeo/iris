@@ -1,10 +1,7 @@
 import React from 'react';
 
-import {
-  ButtonStyled,
-  ButtonChildren,
-  borderRadiusSizes,
-} from './Button.style';
+import { ButtonStyled, ButtonChildren } from './Button.style';
+import { borderRadiusSizes } from './Button.config';
 import { Props, DOMElement } from './Button.types';
 import { FeaturedIcon } from './FeaturedIcon';
 
