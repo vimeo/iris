@@ -1,5 +1,4 @@
-import React, { useState, MouseEvent } from 'react';
-import { createPortal } from 'react-dom';
+import React, { useState, MouseEvent, ReactPortal } from 'react';
 
 import { Props } from './Panel.types';
 import { DragEdge, PanelStyled } from './Panel.style';
@@ -32,7 +31,6 @@ function PanelComponent({
   style,
   ...props
 }: Props) {
-  const outlet = usePortal();
   const ref = useForwardRef(forwardRef);
 
   const [width, widthSet] = useState(160);
@@ -127,7 +125,7 @@ function PanelComponent({
     width,
   });
 
-  return createPortal(
+  const childrenPortal = usePortal(
     <PanelStyled
       attach={attach}
       className={className}
@@ -137,7 +135,8 @@ function PanelComponent({
     >
       {content}
       {handle}
-    </PanelStyled>,
-    outlet
+    </PanelStyled>
   );
+
+  return childrenPortal as ReactPortal;
 }
