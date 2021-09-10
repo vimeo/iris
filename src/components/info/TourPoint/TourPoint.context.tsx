@@ -2,13 +2,20 @@ import React, { createContext, ReactNode, useState } from 'react';
 
 import { generateUID } from '../../../utils';
 
-export const TourContext = createContext<any>({});
+export const TourContext = createContext<Value>({});
 
+interface Value {
+  active?: number;
+  activeSet?: (setter: any) => void;
+  id?: string;
+  steps?: number;
+  automated?: boolean;
+}
 interface Props {
   children: ReactNode;
-  id?: string;
-  steps: number;
-  automated?: boolean;
+  id?: Value['id'];
+  steps: Value['steps'];
+  automated?: Value['automated'];
 }
 
 export function Tour({

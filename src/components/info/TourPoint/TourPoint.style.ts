@@ -1,7 +1,6 @@
 import { shade } from 'polished';
 import styled from 'styled-components';
 
-import { slate } from '../../../color';
 import { core } from '../../../tokens';
 import { Text } from '../../../typography';
 
@@ -14,7 +13,7 @@ export const Footer = styled.div`
 `;
 
 export const Steps = styled(Text)`
-  color: ${slate(500)};
+  color: ${core.color.text(600)};
   margin-right: auto;
   font-size: 0.75rem;
   letter-spacing: -0.05px;

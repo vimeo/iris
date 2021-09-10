@@ -21,6 +21,9 @@ import { usePortal, capitalize } from '../../../utils';
 
 TourPoint.Motion = Motion;
 
+const lessThan = (a: number, b: number) => a < b && a;
+const greaterThan = (a: number, b: number) => a > b || a;
+
 export function TourPoint({
   active = true,
   alt = null,
@@ -50,6 +53,7 @@ export function TourPoint({
 
   const Image = src && <img src={src} alt={alt} />;
   const Title = title && <Header size="3">{title}</Header>;
+
   const Content = slotProgressive(content, <Paragraph size="1" />);
 
   function stepFn(direction, increment = 0, compare = null) {
@@ -62,9 +66,6 @@ export function TourPoint({
       }
     };
   }
-
-  const lessThan = (a, b) => a < b && a;
-  const greaterThan = (a, b) => a > b || a;
 
   const stepBack = stepFn('back', -1, lessThan);
   const stepNext = stepFn('next', 1, greaterThan);

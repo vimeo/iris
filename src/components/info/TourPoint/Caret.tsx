@@ -53,6 +53,10 @@ function attachPosition({
   return styleSide;
 }
 
+// TODO:
+// Either calculate gradients based on size of TourPoint or
+// place an equivalent conic-gradient very-off-center that
+// correctly overlaps with the gradient on the TourPoint.
 function gradient(attach, theme) {
   let colors = [];
 

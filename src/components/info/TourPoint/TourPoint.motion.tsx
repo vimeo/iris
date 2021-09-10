@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 
 import { generateUID } from '../../../utils';
 
+type Axis = 'X' | 'Y';
+type Invert = -1 | 1;
+
 export function Motion({
   attach,
   children,
@@ -16,13 +19,13 @@ export function Motion({
   const [side, _] = attach.split('-');
 
   const type = 'spring';
-  const bounce = duration * 0.5;
+  const bounce = (0.667 + (1 - 0.667 / duration)) / 2;
 
-  const durOpacity = duration * 1.5;
-  const durOpacityExit = duration * 0.75;
+  const durOpacity = 0.5 + duration * 1.33;
+  const durOpacityExit = 0.1 + duration * 0.67;
   const durTransformExit = duration * 0.9;
 
-  function makeExits(axis, invert) {
+  function makeExits(axis: Axis, invert: Invert) {
     const a = invert * 2;
     const translate = (amount) => `translate${axis}(${amount}%)`;
 
