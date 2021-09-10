@@ -14,6 +14,12 @@ function makePortal(id: string) {
 
   // create new Portal element with specified id
   const portal = createElement('div', { id });
+  portal.style.top = '0';
+  portal.style.left = '0';
+  portal.style.position = 'absolute';
+  // portal.style.width = '100%';
+  // portal.style.height = '100%';
+
   document.body.appendChild(portal);
   return portal;
 }

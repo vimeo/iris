@@ -67,6 +67,7 @@
         "eslint-plugin-prettier": "^3.4.0",
         "eslint-plugin-react": "^7.23.2",
         "eslint-plugin-react-hooks": "^4.2.0",
+        "framer-motion": "^4.1.17",
         "polished": "^3.4.1",
         "pre-commit": "^1.2.2",
         "prettier": "^2.2.1",
@@ -137,7 +138,10 @@
         "singleQuote": true,
         "overrides": [
             {
-                "files": [ "index.ts", "config.ts" ],
+                "files": [
+                    "index.ts",
+                    "config.ts"
+                ],
                 "options": {
                     "printWidth": 200
                 }

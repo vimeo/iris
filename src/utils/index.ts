@@ -2,6 +2,7 @@ export { centered, hidden, Focus, GlobalStyles } from './css';
 export { generateUID } from './general/generateUID';
 export { throttle } from './general/throttle';
 export { clamp } from './general/clamp';
+export { capitalize } from './general/capitalize';
 
 // hooks
 export { useDeprecate } from './hooks/useDeprecate';

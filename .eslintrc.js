@@ -28,6 +28,12 @@ module.exports = {
         'import/no-default-export': 0,
       },
     },
+    {
+      files: ['**/pages/**'],
+      rules: {
+        'import/no-default-export': 0,
+      },
+    },
   ],
   rules: {
     'arrow-parens': 0,

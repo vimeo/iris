@@ -1,4 +1,6 @@
-export function usePortal() {
+import { createPortal } from 'react-dom';
+
+export function usePortal(children = null) {
   let outlet = document.getElementById('iris-portals');
 
   if (!outlet) {
@@ -7,5 +9,11 @@ export function usePortal() {
     document.body.appendChild(outlet);
   }
 
-  return outlet;
+  if (children) {
+    const portal = createPortal(children, outlet);
+
+    return portal;
+  } else {
+    return outlet;
+  }
 }
