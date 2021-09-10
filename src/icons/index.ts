@@ -156,7 +156,6 @@ export { Tag } from './ui/Tag';
 export { TagFilled } from './ui/TagFilled';
 export { Team } from './ui/Team';
 export { Television } from './ui/Television';
-export { Theme } from './ui/Theme';
 export { Trash } from './ui/Trash';
 export { UploadCloud } from './ui/UploadCloud';
 export { UploadCloudFilled } from './ui/UploadCloudFilled';

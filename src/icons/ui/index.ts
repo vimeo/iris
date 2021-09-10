@@ -108,7 +108,6 @@ export { Tag } from './Tag';
 export { TagFilled } from './TagFilled';
 export { Team } from './Team';
 export { Television } from './Television';
-export { Theme } from './Theme';
 export { Trash } from './Trash';
 export { UploadCloud } from './UploadCloud';
 export { UploadCloudFilled } from './UploadCloudFilled';
