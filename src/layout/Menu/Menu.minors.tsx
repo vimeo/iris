@@ -121,7 +121,6 @@ function ComplexItem({
   return (
     <Wrapper animationDelay={animationDelay}>
       {toggle && (
-        // TODO - Do we need to translate? How to do translations in Iris? Something to be passed in? Appropriate label?
         <Toggle
           aria-label="toggle sub-menu"
           as={href ? 'a' : 'button'}
