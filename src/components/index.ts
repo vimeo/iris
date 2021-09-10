@@ -31,6 +31,8 @@ export { Tag } from './chips/Tag/Tag';
 export { TextArea } from './inputs/TextArea/TextArea';
 export { Tip } from './info/Tip/Tip';
 export { Toggle } from './inputs/Toggle/Toggle';
+export { Tour } from './info/TourPoint/TourPoint.context';
+export { TourPoint } from './info/TourPoint/TourPoint';
 export { withCharacterCount } from './inputs/withCharacterCount/withCharacterCount';
 
 // DEPRECATED
