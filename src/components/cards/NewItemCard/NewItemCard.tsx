@@ -26,7 +26,7 @@ export type Props = IrisProps<
      * Sets or retrieves the window or frame at which to target content.
      */
     target?: string;
-    onClick?: MouseEventHandler<HTMLAnchorElement>;
+    onClick?: MouseEventHandler<HTMLAnchorElement | HTMLDivElement>;
   },
   HTMLDivElement
 >;
