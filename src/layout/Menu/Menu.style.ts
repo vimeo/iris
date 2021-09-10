@@ -163,8 +163,12 @@ export const Wrapper = styled.div<{
     background: ${itemHoverColor};
   }
 
-  animation: ${fade} 140ms ease-in-out both;
-  animation-delay: ${({ animationDelay }) => `${animationDelay}ms`};
+  ${({ animationDelay }) =>
+    animationDelay &&
+    css`
+      animation: ${fade} 140ms ease-in-out both;
+      animation-delay: ${animationDelay}ms;
+    `}
 
   > svg {
     width: 1.125rem;

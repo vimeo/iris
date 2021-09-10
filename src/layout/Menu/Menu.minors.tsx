@@ -33,7 +33,7 @@ type ItemProps = {
     onClick: React.MouseEventHandler;
   };
   active?: boolean;
-  animationDelay: number;
+  animationDelay?: number;
   children: any;
   href?: string;
   icon: React.ReactNode;
@@ -68,7 +68,7 @@ const PADDING_INCREMENT = 8;
 function SimpleItem({
   action,
   active,
-  animationDelay = 0,
+  animationDelay,
   children,
   href,
   icon,

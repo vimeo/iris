@@ -220,5 +220,5 @@ const ContentContainer = styled.div`
 
 const FoldersContainer = styled.div`
   flex-grow: 1;
-  overflow-x: scroll;
+  overflow-y: scroll;
 `;
