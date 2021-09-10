@@ -1,22 +1,21 @@
 import React from 'react';
 import { color } from '@storybook/addon-knobs';
-import { PositionProperty } from 'csstype';
 
 import { FeatureTourPanel } from './FeatureTourPanel';
 
-import { Button } from '../../index';
-import { Link } from '../../../typography';
-import { Header, Paragraph } from '../../../typography';
-import { red, yellow, green } from '../../../color';
+import { Button } from '../../components';
+import { Link, Header, Paragraph } from '../../typography';
+import { red, yellow, green } from '../../color';
+import { CSSProperties } from 'styled-components';
 
 /**
  * This component will be deprecated so not adding controls
  * Prop documentation will still be generated.
  */
-export default {
-  title: 'Components/Info/FeatureTourPanel',
-  component: FeatureTourPanel,
-};
+// export default {
+//   title: 'Components/Info/FeatureTourPanel',
+//   component: FeatureTourPanel,
+// };
 
 const buttonProps = {
   format: 'basic',
@@ -217,14 +216,14 @@ export function Colors() {
         dismissButtonA11yLabel="Close"
         dotZIndex={100}
         contextualInfo="Step 3 of 3"
-        style={dotStyles(8)}
+        style={dotStyles(8) as CSSProperties}
         color={color('(3) color', yellow(500), 'tour-colors')}
       >
         This is the body text. Vimeo was born in{' '}
         <Link
           href="https://en.wikipedia.org/wiki/2004"
           target="_blank"
-          format="primaryDark"
+          // format="primaryDark"
         >
           2004
         </Link>
@@ -402,7 +401,7 @@ export function Fancy() {
 }
 
 const dotStyles = (pos) => ({
-  position: 'absolute' as PositionProperty,
+  position: 'absolute',
   top: `${pos}rem`,
   left: `${pos}rem`,
 });

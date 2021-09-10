@@ -1,8 +1,9 @@
 import React, { forwardRef, Ref } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import { rem, rgba, setLightness, saturate } from 'polished';
-import { white, blue } from '../../../color';
-import { IrisProps } from '../../../utils';
+
+import { white, blue } from '../../color';
+import { IrisProps } from '../../utils';
 
 interface Props {
   beaconA11yText: string;

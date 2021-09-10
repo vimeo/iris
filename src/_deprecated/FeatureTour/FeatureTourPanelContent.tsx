@@ -7,12 +7,12 @@ import {
   setSaturation,
 } from 'polished';
 
-import { Button } from '../../buttons/Button/Button';
-import { Header, Paragraph } from '../../../typography';
-import { DismissX } from '../../../icons';
-import { themes } from '../../../themes';
-import { blue } from '../../../color';
-import { onClose, useClose } from '../../../utils';
+import { Button } from '../../components/buttons/Button/Button';
+import { Header, Paragraph } from '../../typography';
+import { DismissX } from '../../icons';
+import { themes } from '../../themes';
+import { blue } from '../../color';
+import { onClose, useClose } from '../../utils';
 
 const BLUE = adjustHue(30, setSaturation(0.9, blue(600)));
 

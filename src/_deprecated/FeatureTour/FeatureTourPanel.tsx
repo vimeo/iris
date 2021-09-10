@@ -9,9 +9,9 @@ import { adjustHue, setSaturation } from 'polished';
 import { FeatureTourPanelContent } from './FeatureTourPanelContent';
 import { Dot } from './Dot';
 
-import { PopOver } from '../../../layout';
-import { blue } from '../../../color';
-import { withIris, IrisProps, useClose } from '../../../utils';
+import { PopOver } from '../../layout';
+import { blue } from '../../color';
+import { withIris, IrisProps, useClose } from '../../utils';
 
 const BLUE = adjustHue(30, setSaturation(0.9, blue(600)));
 
