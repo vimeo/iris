@@ -2,6 +2,7 @@ import styled, { css, keyframes } from 'styled-components';
 import { rem, rgba } from 'polished';
 
 import { grayscale, slate } from '../../color';
+import { core } from '../../tokens/core';
 
 export const Action = styled.button`
   position: absolute;
@@ -59,7 +60,7 @@ export const Toggle = styled.button<{
 
 export const Header = styled.div`
   display: block;
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 1.25rem 0.5rem 2rem;
   text-transform: uppercase;
   margin: 0.2rem 0 0;
   color: ${(p) => rgba(p.theme.content.color, 0.5)};
@@ -128,12 +129,10 @@ export const MenuStyled = styled.div<{
   width: 20rem;
   border-radius: 0.25rem;
   color: ${({ theme }) => theme.content.color};
-  background: ${({ theme, format }) =>
+  background: ${({ format }) =>
     format === 'secondary'
-      ? theme.name === 'dark'
-        ? grayscale(970)
-        : slate(30)
-      : 'none'};
+      ? core.color.background(200)
+      : core.color.background(600)};
 `;
 
 const animation = css`
