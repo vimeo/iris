@@ -92,7 +92,7 @@ export function InsidePopOverDelay() {
             </div>
           }
         >
-          <Button>Open PopOver {active.toString()}</Button>
+          <Button>Open PopOver</Button>
         </PopOver>
       </Tour>
     </div>
