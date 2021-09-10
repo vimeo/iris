@@ -37,7 +37,7 @@ type ItemProps = {
   children: any;
   href?: string;
   icon: React.ReactNode;
-  paddingIncrement: number;
+  indentation: number;
   toggle?: boolean;
 };
 
@@ -72,7 +72,7 @@ function SimpleItem({
   children,
   href,
   icon,
-  paddingIncrement = PADDING_INCREMENT,
+  indentation = 36,
   ...props
 }: ItemProps) {
   const onClick = (e: MouseEvent) => action.onClick?.(e);
@@ -84,7 +84,7 @@ function SimpleItem({
         as={href ? 'a' : 'button'}
         href={href}
         hasAction={Boolean(action)}
-        indentation={paddingIncrement}
+        indentation={indentation}
         {...props}
       >
         {action && (
@@ -110,7 +110,7 @@ function ComplexItem({
   href,
   icon,
   toggle = false,
-  paddingIncrement = PADDING_INCREMENT,
+  indentation = 36,
   ...props
 }: ItemProps) {
   const [open, setOpen] = useState(!toggle);
@@ -128,7 +128,7 @@ function ComplexItem({
           href={href}
           onClick={onClickToggle}
           open={open}
-          indentation={paddingIncrement}
+          indentation={indentation}
         >
           <Focus parent={Toggle} />
           <ChevronDown />
@@ -137,7 +137,7 @@ function ComplexItem({
 
       <ItemStyled
         active={active}
-        indentation={paddingIncrement}
+        indentation={indentation}
         hasAction={Boolean(action)}
         {...props}
       >
@@ -157,8 +157,7 @@ function ComplexItem({
           {Array.isArray(children.complex)
             ? children.complex.map((child, idx) => {
                 return cloneElement(child, {
-                  paddingIncrement:
-                    paddingIncrement + PADDING_INCREMENT,
+                  indentation: indentation + PADDING_INCREMENT,
                   animationDelay:
                     idx * 20 + 120 / children.complex.length,
                 });

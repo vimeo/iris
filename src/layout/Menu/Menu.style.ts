@@ -33,7 +33,7 @@ export const Toggle = styled.button<{
   height: 1.25rem;
   position: absolute;
   top: 0.625rem;
-  left: ${({ indentation }) => rem(indentation)};
+  left: ${({ indentation }) => rem(indentation - 28)};
 
   &:focus {
     outline: none;
@@ -87,7 +87,7 @@ export const ItemStyled = styled.button<{
 }>`
   padding: 0.5rem;
   padding-right: ${(p) => (p.hasAction ? '1.5rem' : '0.5rem')};
-  padding-left: ${({ indentation }) => rem(28 + indentation)};
+  padding-left: ${({ indentation }) => rem(indentation)};
   display: flex;
   position: relative;
   align-items: center;

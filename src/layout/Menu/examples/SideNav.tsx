@@ -6,12 +6,11 @@ import { Menu } from '../Menu';
 import { Panel } from '../../Panel/Panel';
 import { Home, Lock, Person } from '../../../icons';
 import { core } from '../../../tokens/';
-import { grayscale, white } from '../../../color';
 
 const StyledPanel = styled(Panel)`
-  ${core.edge(0)};
-  background-color: ${({ theme }) =>
-    theme.name === 'dark' ? grayscale(850) : white};
+  border-right: 1px solid ${core.color.stroke};
+  box-shadow: none;
+  background-color: ${core.color.background(600)};
 `;
 
 const dividerCSS = css`
