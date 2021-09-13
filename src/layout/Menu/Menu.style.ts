@@ -26,8 +26,9 @@ export const Action = styled.button`
 `;
 
 export const Toggle = styled.button<{
-  open?: boolean;
+  href?: string;
   indentation: number;
+  open?: boolean;
 }>`
   width: 1.25rem;
   height: 1.25rem;
@@ -83,6 +84,7 @@ const fade = keyframes`
 export const ItemStyled = styled.button<{
   active?: boolean;
   hasAction: boolean;
+  href?: string;
   indentation: number;
 }>`
   padding: 0.5rem;
