@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Menu } from './Menu';
 
-import { Header } from '../../typography';
 import { Tip } from '../../components';
 import { PopOver } from '../PopOver/PopOver';
 import { Pop } from '../PopOver/PopOver.minors';
@@ -24,10 +23,10 @@ export function Simple() {
       <Menu style={{ padding: '1rem' }}>
         <Menu.Section title="Section 1">
           <Menu.Item active icon={<Home />}>
-            <Header size="4">Can be any element</Header>
+            Item 1 S1
           </Menu.Item>
           <Menu.Item href="#" icon={<Gear />}>
-            With href
+            Item 2 S1 (with href)
           </Menu.Item>
         </Menu.Section>
 
