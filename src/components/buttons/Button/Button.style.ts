@@ -50,6 +50,7 @@ export const ButtonStyled = styled.button<any>`
   ${buttonLoading};
   ${buttonVariants};
   ${buttonDisabled};
+  ${buttonTextShift};
 `;
 
 const sizePads = {
@@ -121,7 +122,7 @@ function buttonMotion({ theme }) {
   return {
     transition: theme.a11y.motion
       ? 'none'
-      : 'all 170ms ease-in-out, font-size 50ms ease-in-out, width 0ms linear',
+      : 'all 170ms ease-in-out, font-size 50ms ease-in-out, width 0ms linear, padding 130ms ease-in-out',
   };
 }
 
@@ -231,8 +232,8 @@ function deriveButtonColor(customColor, format, theme) {
 function buttonVariants({
   color: customColor,
   format,
-  variant,
   theme,
+  variant,
 }) {
   const { color, hoverColor, activeColor } = deriveButtonColor(
     customColor,
@@ -463,3 +464,19 @@ const disabledCSS = css`
   pointer-events: none;
   user-select: none;
 `;
+
+function buttonTextShift({ variant, textShift, iconPosition }) {
+  if (!variant.includes('minimal')) return;
+
+  const side = iconPosition === 'right' ? 'left' : 'right';
+  const paddingSide = 'padding-' + side;
+
+  return (
+    textShift &&
+    css`
+      &:not(:hover):not(:focus):not(:focus-within) {
+        ${paddingSide}: 0;
+      }
+    `
+  );
+}

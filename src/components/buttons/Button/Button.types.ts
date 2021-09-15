@@ -73,6 +73,13 @@ export type Props = IrisProps<
     size?: typeof sizes[number];
     status?: Statuses;
     target?: Targets;
+    /**
+     * When enabled, if the button is a minimal variant, the padding
+     * opposite the side of `iconPosition` will be 0 until the
+     * button is hovered or focused.
+     *
+     */
+    textShift?: boolean;
     theme?: any;
     /**
      * [default = 'solid']

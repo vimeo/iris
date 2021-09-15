@@ -10,7 +10,13 @@ import {
   iconPositions,
 } from './Button.config';
 
-import { DownloadArrow, Plus, UploadCloud } from '../../../icons';
+import {
+  ArrowLeft,
+  ArrowRight,
+  DownloadArrow,
+  Plus,
+  UploadCloud,
+} from '../../../icons';
 
 export default {
   title: 'Components/Buttons/Button/props',
@@ -166,6 +172,35 @@ export const Overflow = () => {
   return <Button overflow>Button</Button>;
 };
 Overflow.storyName = 'overflow';
+
+export function TextShift() {
+  return (
+    <div
+      style={{
+        margin: '1rem auto',
+        width: '15rem',
+      }}
+    >
+      <Button
+        icon={<ArrowRight />}
+        iconPosition="right"
+        textShift
+        variant="minimalTransparent"
+      >
+        textShift Button
+      </Button>
+      <Button
+        icon={<ArrowLeft />}
+        textShift
+        variant="minimalTransparent"
+        style={{ marginLeft: 'auto' }}
+      >
+        textShift Button
+      </Button>
+    </div>
+  );
+}
+TextShift.storyName = 'textShift';
 
 export const CustomColor = () => {
   return (
