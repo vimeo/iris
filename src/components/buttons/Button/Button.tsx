@@ -45,6 +45,7 @@ function ButtonComponent({
   pill = false,
   size = 'md',
   status,
+  textShift = false,
   theme,
   variant = 'solid',
   ...props
@@ -76,6 +77,7 @@ function ButtonComponent({
       pill={pill}
       ref={forwardRef}
       size={size}
+      textShift={textShift}
       theme={theme}
       variant={variant}
       {...props}
