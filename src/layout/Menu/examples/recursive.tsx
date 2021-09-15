@@ -11,22 +11,22 @@ export function recursive() {
         <Menu.Section title="Section 1">
           <Menu.Item icon={<Home />}>Home</Menu.Item>
           <Menu.Item toggle icon={<VideoStack />}>
-            {'Videos'}
+            Videos
             <Menu.Item toggle icon={<Folder />}>
-              {'Panels'}
+              Panels
               <Menu.Item toggle icon={<Folder />}>
-                {'November 2020'}
+                November 2020
                 <Menu.Item toggle icon={<Folder />}>
-                  {'rough cuts'}
+                  rough cuts
                   <Menu.Item toggle icon={<Folder />}>
-                    {'clips'}
+                    clips
                   </Menu.Item>
                 </Menu.Item>
               </Menu.Item>
               <Menu.Item toggle icon={<Folder />}>
-                {'October 2020'}
+                October 2020
                 <Menu.Item toggle icon={<Folder />}>
-                  {'rough cuts'}
+                  rough cuts
                 </Menu.Item>
               </Menu.Item>
             </Menu.Item>

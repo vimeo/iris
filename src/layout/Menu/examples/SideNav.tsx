@@ -31,7 +31,7 @@ export function SideNav() {
       }}
       format="basic"
     >
-      <MenuContainer>
+      <Menu.Section>
         <Menu.Item active={true} toggle icon={<Home />}>
           Home
           <Menu.Item toggle>
@@ -126,9 +126,8 @@ export function SideNav() {
           <Menu.Item>All Hands</Menu.Item>
           <Menu.Item toggle>Archived</Menu.Item>
         </Menu.Item>
-      </MenuContainer>
-
-      <MenuContainer>
+      </Menu.Section>
+      <Menu.Section>
         <Menu.Item toggle icon={<Lock />}>
           Private to me
           <Menu.Item>WIP</Menu.Item>
@@ -146,7 +145,7 @@ export function SideNav() {
             <Menu.Item>Subfolder</Menu.Item>
           </Menu.Item>
         </Menu.Item>
-      </MenuContainer>
+      </Menu.Section>
     </Menu>
   );
 
@@ -175,18 +174,18 @@ export function SideNav() {
   );
 }
 
-const MenuContainer = styled.div`
-  padding: 1rem 0;
-  position: relative;
-  &:not(:only-child):after {
-    content: '';
-    height: 1px;
-    width: 100%;
-    position: absolute;
-    bottom: 0px;
-    background-color: ${core.color.stroke};
-  }
-`;
+// const MenuContainer = styled.div`
+//   padding: 1rem 0;
+//   position: relative;
+//   &:not(:only-child):after {
+//     content: '';
+//     height: 1px;
+//     width: 100%;
+//     position: absolute;
+//     bottom: 0px;
+//     background-color: ${core.color.stroke};
+//   }
+// `;
 
 const TopAnchored = styled.div`
   flex-shrink: 0;

@@ -15,6 +15,7 @@ import {
   ItemStyled,
   Action,
   Wrapper,
+  WrapperSection,
   // SubMenu as SubMenuStyled,
   TextContainer,
 } from './Menu.style';
@@ -27,12 +28,29 @@ export interface Minors {
   Item: MinorComponent<any>;
 }
 
-export function Section({ children, title = null, ...props }) {
+export function Section({
+  indentation = [0, 0],
+  children,
+  title = null,
+  style,
+  ...props
+}) {
+  const paddingLeft = indentation[1];
+  const marginLeft = indentation[1] * -1;
+  const width = `calc(100% + ${indentation[1] * 2}px)`;
+
+  const childrenCloned = Array.isArray(children)
+    ? children.map((child) => cloneElement(child, { indentation }))
+    : cloneElement(children, { indentation });
+
   return (
-    <div {...props}>
-      {title && <Header>{title}</Header>}
-      {children}
-    </div>
+    <WrapperSection
+      {...props}
+      style={{ paddingLeft, marginLeft, width, ...style }}
+    >
+      {title && <Header style={{ paddingLeft }}>{title}</Header>}
+      {childrenCloned}
+    </WrapperSection>
   );
 }
 interface ItemProps {
@@ -45,12 +63,16 @@ interface ItemProps {
   children: any;
   href?: string;
   icon: ReactNode;
-  indentation: number;
+  indentation: [number, number];
   style?: CSSProperties;
   toggle?: boolean;
 }
 
-export function Item({ children, ...props }: ItemProps) {
+export function Item({
+  children,
+  indentation = [0, 0],
+  ...props
+}: ItemProps) {
   const simple =
     typeof children === 'object' && !children.props
       ? children.flat().filter((child) => typeof child === 'string')
@@ -63,16 +85,22 @@ export function Item({ children, ...props }: ItemProps) {
 
   if (complex || props.toggle) {
     const children = { simple, complex };
-    return <ComplexItem {...props}>{children}</ComplexItem>;
+    return (
+      <ComplexItem indentation={indentation} {...props}>
+        {children}
+      </ComplexItem>
+    );
   }
 
   if (simple) {
     const children = simple;
-    return <SimpleItem {...props}>{children}</SimpleItem>;
+    return (
+      <SimpleItem indentation={indentation} {...props}>
+        {children}
+      </SimpleItem>
+    );
   }
 }
-
-const PADDING_INCREMENT = 8;
 
 function SimpleItem({
   action,
@@ -81,11 +109,13 @@ function SimpleItem({
   children,
   href,
   icon,
-  indentation = 36,
+  indentation = [0, 0],
   style,
   ...props
 }: ItemProps) {
   const onClick = (e: MouseEvent) => action.onClick?.(e);
+
+  const paddingLeft = indentation[1];
 
   return (
     <Wrapper style={{ animationDelay, ...style }}>
@@ -93,8 +123,8 @@ function SimpleItem({
         active={active}
         as={href ? 'a' : 'button'}
         href={href}
-        hasAction={Boolean(action)}
-        indentation={indentation}
+        action={!!action}
+        style={{ paddingLeft, ...style }}
         {...props}
       >
         {action && (
@@ -115,15 +145,16 @@ function SimpleItem({
 function ComplexItem({
   action,
   active,
-  animationDelay = '0ms',
+  animationDelay = null,
   children,
   href,
   icon,
   toggle = false,
-  indentation = 36,
+  indentation = [0, 0],
   style,
   ...props
 }: ItemProps) {
+  console.log('b', { indentation });
   const [open, setOpen] = useState(!toggle);
 
   const onClickToggle = () => toggle && setOpen((open) => !open);
@@ -131,11 +162,16 @@ function ComplexItem({
 
   const onClick = useDoubleClick(() => setOpen((open) => !open));
 
+  // const PADDING_INCREMENT = 8;
+  //(indentation - 20) / 2;
+
+  const paddingLeft = indentation[1];
+
   return (
     <Wrapper style={{ animationDelay, ...style }}>
       <Toggle
         href={href}
-        indentation={indentation}
+        indentation={indentation[1]}
         onClick={onClickToggle}
         open={open}
         toggle={toggle}
@@ -143,13 +179,15 @@ function ComplexItem({
 
       <ItemStyled
         active={active}
-        indentation={indentation}
-        hasAction={!!action}
+        action={!!action}
         onClick={onClick}
+        style={{ paddingLeft, ...style }}
         {...props}
       >
         {icon && icon}
-        <TextContainer>{children.simple}</TextContainer>
+        <TextContainer>
+          {indentation} {children.simple}
+        </TextContainer>
         {action && (
           <Action onClick={onClickAction}>
             {action.icon}
@@ -161,7 +199,10 @@ function ComplexItem({
 
       <SubMenu
         children={children}
-        indentation={indentation + PADDING_INCREMENT}
+        indentation={[
+          indentation[0],
+          indentation[0] + indentation[1],
+        ]}
         open={open}
       />
     </Wrapper>
@@ -171,14 +212,16 @@ function ComplexItem({
 function Toggle({ toggle, href, indentation, onClick, open }) {
   if (!toggle) return null;
 
+  const left = indentation - 26;
+
   return (
     <ToggleStyled
       aria-label="toggle sub-menu"
       as={href ? 'a' : 'button'}
       href={href}
-      indentation={indentation}
       onClick={onClick}
       open={open}
+      style={{ left }}
     >
       <Focus parent={Toggle} />
       <ChevronDown />
@@ -191,9 +234,14 @@ function SubMenu({ open, children, indentation }) {
 
   const { complex } = children;
 
+  console.log({ children });
+
   const childNested = (child, i) => {
     const animationDelay = i * 20 + 120 / complex.length + 'ms';
-    return cloneElement(child, { indentation, animationDelay });
+    return cloneElement(child, {
+      indentation: indentation,
+      animationDelay,
+    });
   };
 
   if (Array.isArray(complex)) {

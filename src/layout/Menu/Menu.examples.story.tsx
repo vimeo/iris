@@ -42,7 +42,7 @@ export function Simple() {
 export function Complex() {
   return (
     <Layout.StoryVertical>
-      <Menu style={{ padding: '1rem' }}>
+      <Menu style={{ padding: '1rem 1rem' }}>
         <Menu.Section title="Section 1">
           <Menu.Item toggle>
             Item 1 S1

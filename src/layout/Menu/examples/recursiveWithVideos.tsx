@@ -13,36 +13,36 @@ import {
 export function recursiveWithVideos() {
   return (
     <Layout.StoryVertical>
-      <Menu style={{ padding: '1rem' }}>
+      <Menu style={{ padding: '2rem' }}>
         <Menu.Section title="Section 1">
           <Menu.Item icon={<Home />}>Home</Menu.Item>
           <Menu.Item toggle icon={<VideoStack />}>
-            {'Videos'}
+            Videos
             <Menu.Item icon={<Play />}>Video 1</Menu.Item>
             <Menu.Item icon={<Play />}>Video 2</Menu.Item>
             <Menu.Item toggle icon={<Folder />}>
-              {'Panels'}
+              Panels
               <Menu.Item icon={<Play />}>Video 1</Menu.Item>
               <Menu.Item toggle icon={<Folder />}>
-                {'November 2020'}
+                November 2020
                 <Menu.Item icon={<Play />}>Video 1</Menu.Item>
                 <Menu.Item toggle icon={<Folder />}>
-                  {'rough cuts'}
+                  rough cuts
                   <Menu.Item icon={<Play />}>Video 1</Menu.Item>
                   <Menu.Item icon={<Play />}>Video 2</Menu.Item>
                   <Menu.Item icon={<Play />}>Video 3</Menu.Item>
                   <Menu.Item toggle icon={<Folder />}>
-                    {'clips'}
+                    clips
                     <Menu.Item icon={<Play />}>Clip 1</Menu.Item>
                   </Menu.Item>
                 </Menu.Item>
               </Menu.Item>
               <Menu.Item toggle icon={<Folder />}>
-                {'October 2020'}
+                October 2020
                 <Menu.Item icon={<Play />}>Video 1</Menu.Item>
                 <Menu.Item icon={<Play />}>Video 2</Menu.Item>
                 <Menu.Item toggle icon={<Folder />}>
-                  {'rough cuts'}
+                  rough cuts
                   <Menu.Item icon={<Play />}>Video 1</Menu.Item>
                 </Menu.Item>
               </Menu.Item>

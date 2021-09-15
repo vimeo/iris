@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { rem, rgba } from 'polished';
+import { rgba } from 'polished';
 
 import { grayscale, slate } from '../../color';
 import { core } from '../../tokens/core';
@@ -27,14 +27,12 @@ export const Action = styled.button`
 
 export const Toggle = styled.button<{
   href?: string;
-  indentation: number;
   open?: boolean;
 }>`
   width: 1.25rem;
   height: 1.25rem;
   position: absolute;
   top: 0.625rem;
-  left: ${({ indentation }) => rem(indentation - 28)};
 
   &:focus {
     outline: none;
@@ -83,13 +81,11 @@ const fade = keyframes`
 
 export const ItemStyled = styled.button<{
   active?: boolean;
-  hasAction: boolean;
+  action: boolean;
   href?: string;
-  indentation: number;
 }>`
   padding: 0.5rem;
-  padding-right: ${(p) => (p.hasAction ? '1.5rem' : '0.5rem')};
-  padding-left: ${({ indentation }) => rem(indentation)};
+  padding-right: ${(p) => (p.action ? '1.5rem' : '0.5rem')};
   display: flex;
   position: relative;
   align-items: center;
@@ -130,6 +126,7 @@ export const MenuStyled = styled.div<{
   display: block;
   width: 20rem;
   border-radius: 0.25rem;
+  padding: 1rem;
   color: ${({ theme }) => theme.content.color};
   background: ${({ format }) =>
     format === 'secondary'
@@ -177,6 +174,12 @@ export const Wrapper = styled.div`
     * {
       fill: ${({ theme }) => rgba(theme.content.color, 0.667)};
     }
+  }
+`;
+
+export const WrapperSection = styled.div`
+  > ${Wrapper} {
+    width: 100%;
   }
 `;
 
