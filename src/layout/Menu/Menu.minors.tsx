@@ -4,6 +4,9 @@ import React, {
   cloneElement,
   useRef,
   useCallback,
+  ReactNode,
+  MouseEventHandler,
+  CSSProperties,
 } from 'react';
 
 import {
@@ -32,20 +35,20 @@ export function Section({ children, title = null, ...props }) {
     </div>
   );
 }
-
-type ItemProps = {
+interface ItemProps {
   action?: {
-    icon: React.ReactNode;
-    onClick: React.MouseEventHandler;
+    icon: ReactNode;
+    onClick: MouseEventHandler;
   };
   active?: boolean;
-  animationDelay?: number;
+  animationDelay?: string;
   children: any;
   href?: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
   indentation: number;
+  style?: CSSProperties;
   toggle?: boolean;
-};
+}
 
 export function Item({ children, ...props }: ItemProps) {
   const simple =
@@ -79,12 +82,13 @@ function SimpleItem({
   href,
   icon,
   indentation = 36,
+  style,
   ...props
 }: ItemProps) {
   const onClick = (e: MouseEvent) => action.onClick?.(e);
 
   return (
-    <Wrapper animationDelay={animationDelay}>
+    <Wrapper style={{ animationDelay, ...style }}>
       <ItemStyled
         active={active}
         as={href ? 'a' : 'button'}
@@ -111,12 +115,13 @@ function SimpleItem({
 function ComplexItem({
   action,
   active,
-  animationDelay = 0,
+  animationDelay = '0ms',
   children,
   href,
   icon,
   toggle = false,
   indentation = 36,
+  style,
   ...props
 }: ItemProps) {
   const [open, setOpen] = useState(!toggle);
@@ -127,7 +132,7 @@ function ComplexItem({
   const onClick = useDoubleClick(() => setOpen((open) => !open));
 
   return (
-    <Wrapper animationDelay={animationDelay}>
+    <Wrapper style={{ animationDelay, ...style }}>
       <Toggle
         href={href}
         indentation={indentation}
@@ -187,7 +192,7 @@ function SubMenu({ open, children, indentation }) {
   const { complex } = children;
 
   const childNested = (child, i) => {
-    const animationDelay = i * 20 + 120 / complex.length;
+    const animationDelay = i * 20 + 120 / complex.length + 'ms';
     return cloneElement(child, { indentation, animationDelay });
   };
 
