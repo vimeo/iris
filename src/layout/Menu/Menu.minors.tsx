@@ -1,12 +1,18 @@
-import React, { useState, MouseEvent, cloneElement } from 'react';
+import React, {
+  useState,
+  MouseEvent,
+  cloneElement,
+  useRef,
+  useCallback,
+} from 'react';
 
 import {
   Header,
-  Toggle,
+  Toggle as ToggleStyled,
   ItemStyled,
   Action,
   Wrapper,
-  SubMenu,
+  // SubMenu as SubMenuStyled,
   TextContainer,
 } from './Menu.style';
 
@@ -118,26 +124,23 @@ function ComplexItem({
   const onClickToggle = () => toggle && setOpen((open) => !open);
   const onClickAction = (e: MouseEvent) => action.onClick?.(e);
 
+  const onClick = useDoubleClick(() => setOpen((open) => !open));
+
   return (
     <Wrapper animationDelay={animationDelay}>
-      {toggle && (
-        <Toggle
-          aria-label="toggle sub-menu"
-          as={href ? 'a' : 'button'}
-          href={href}
-          onClick={onClickToggle}
-          open={open}
-          indentation={indentation}
-        >
-          <Focus parent={Toggle} />
-          <ChevronDown />
-        </Toggle>
-      )}
+      <Toggle
+        href={href}
+        indentation={indentation}
+        onClick={onClickToggle}
+        open={open}
+        toggle={toggle}
+      />
 
       <ItemStyled
         active={active}
         indentation={indentation}
-        hasAction={Boolean(action)}
+        hasAction={!!action}
+        onClick={onClick}
         {...props}
       >
         {icon && icon}
@@ -151,19 +154,77 @@ function ComplexItem({
         <Focus parent={ItemStyled} />
       </ItemStyled>
 
-      {open && (
-        <SubMenu total={children.complex.length}>
-          {Array.isArray(children.complex)
-            ? children.complex.map((child, idx) => {
-                return cloneElement(child, {
-                  indentation: indentation + PADDING_INCREMENT,
-                  animationDelay:
-                    idx * 20 + 120 / children.complex.length,
-                });
-              })
-            : children.complex}
-        </SubMenu>
-      )}
+      <SubMenu
+        children={children}
+        indentation={indentation + PADDING_INCREMENT}
+        open={open}
+      />
     </Wrapper>
   );
 }
+
+function Toggle({ toggle, href, indentation, onClick, open }) {
+  if (!toggle) return null;
+
+  return (
+    <ToggleStyled
+      aria-label="toggle sub-menu"
+      as={href ? 'a' : 'button'}
+      href={href}
+      indentation={indentation}
+      onClick={onClick}
+      open={open}
+    >
+      <Focus parent={Toggle} />
+      <ChevronDown />
+    </ToggleStyled>
+  );
+}
+
+function SubMenu({ open, children, indentation }) {
+  if (!open) return null;
+
+  const { complex } = children;
+
+  const childNested = (child, i) => {
+    const animationDelay = i * 20 + 120 / complex.length;
+    return cloneElement(child, { indentation, animationDelay });
+  };
+
+  if (Array.isArray(complex)) {
+    return complex.map(childNested);
+  } else {
+    return complex;
+  }
+}
+
+const useDoubleClick = (
+  onClickDouble,
+  onClick = null,
+  duration = 150
+) => {
+  const timeout = useRef();
+
+  const cleartimeout = () => {
+    if (timeout) {
+      clearTimeout(timeout.current);
+      timeout.current = undefined;
+    }
+  };
+
+  return useCallback(
+    (event) => {
+      const clickSingle = onClick && event.detail === 1;
+      const clickDouble = event.detail % 2 === 0;
+
+      cleartimeout();
+
+      if (clickSingle) {
+        timeout.current = setTimeout(() => onClick(event), duration);
+      }
+
+      if (clickDouble) onClickDouble(event);
+    },
+    [onClick, onClickDouble]
+  );
+};
