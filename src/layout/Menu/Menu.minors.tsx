@@ -204,11 +204,11 @@ function SubMenu({ open, children, indentation }) {
 }
 
 const useDoubleClick = (
-  onClickDouble,
-  onClick = null,
+  onClickDouble: MouseEventHandler,
+  onClick: MouseEventHandler = null,
   duration = 150
 ) => {
-  const timeout = useRef();
+  const timeout = useRef<ReturnType<typeof setTimeout>>();
 
   const cleartimeout = () => {
     if (timeout) {
@@ -230,6 +230,6 @@ const useDoubleClick = (
 
       if (clickDouble) onClickDouble(event);
     },
-    [onClick, onClickDouble]
+    [duration, onClick, onClickDouble]
   );
 };
