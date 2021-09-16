@@ -36,3 +36,5 @@
 ```
 
 ## [Iris](https://github.com/vimeo/iris/) is the design system that powers Vimeo's web apps.
+
+Iris provides several reusable components, which are used throughout Vimeo's CMS. You can view the available components in [Storybook](https://vimeo.github.io/iris/sb/main).
