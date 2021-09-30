@@ -7,15 +7,16 @@ import { Statuses } from '../../../themes';
 import { core } from '../../../tokens';
 
 interface Props {
+  defaultValue?: string | string[] | number | boolean;
+  disabled?: boolean;
   floating?: boolean;
   floatLabel?: boolean;
   icon?: ReactNode;
   id?: string;
-  disabled?: boolean;
   label?: ReactNode;
+  size?: string;
   status?: Statuses;
   value?: string;
-  defaultValue?: string | string[] | number | boolean;
 }
 
 export const Wrapper = forwardRef(function (
@@ -31,6 +32,7 @@ export const Wrapper = forwardRef(function (
     messages = {},
     status,
     style,
+    size,
     theme,
     value,
     ...props
@@ -58,7 +60,7 @@ export const Wrapper = forwardRef(function (
         <Label
           floating={floating}
           active={active}
-          size={200}
+          sizeInput={size}
           htmlFor={id}
           disabled={disabled}
         >
@@ -79,13 +81,54 @@ export const Wrapper = forwardRef(function (
   );
 });
 
-const Label = styled(Text).attrs({ element: 'label' })<{
+// NOTE!
+// 09/2021
+// ——————————
+// The following was quickly eye-balled to add floating support
+// to inputs of all sizes. This is not ideal and should be replaced
+// by values derived from higher-order input size tokens.
+
+const sizes = {
+  xxs: 0.5,
+  xs: 0.75,
+  sm: 0.75,
+  md: 1,
+  lg: 1.5,
+  xl: 1.75,
+  xxl: 2,
+};
+
+const tops = {
+  xxs: 0.25,
+  xs: 0.55,
+  sm: 0.95,
+  md: 0.95,
+  lg: 1.1,
+  xl: 1.55,
+  xxl: 2,
+};
+
+const lefts = {
+  xxs: 0.25,
+  xs: 0.35,
+  sm: 0.5,
+  md: 0.6,
+  lg: 0.7,
+  xl: 0.9,
+  xxl: 1.1,
+};
+
+interface PropsLabel {
   active?: boolean;
   floating?: boolean;
   htmlFor?: string;
-}>`
+  sizeInput?: string;
+}
+
+const Label = styled(Text).attrs({ element: 'label' })<PropsLabel>`
   transition: 120ms ease-in-out;
   cursor: ${(p) => (p.disabled ? 'not-allowed' : 'pointer')};
+  font-size: ${(p) => 0.315 + sizes[p.sizeInput] / 1.8}rem;
   color: ${core.color.text(600)};
   font-weight: 400;
 
@@ -94,10 +137,10 @@ const Label = styled(Text).attrs({ element: 'label' })<{
     !p.active &&
     css`
       pointer-events: none;
-      font-size: 1rem;
       position: absolute;
       z-index: 1;
-      top: 1rem;
+      font-size: ${sizes[p.sizeInput]}rem;
+      top: ${tops[p.sizeInput]}rem;
       left: 0.75rem;
     `};
 
@@ -107,12 +150,13 @@ const Label = styled(Text).attrs({ element: 'label' })<{
     css`
       position: absolute;
       z-index: 1;
-      top: 0.25rem;
-      left: 0.5rem;
+      font-size: ${0.315 + sizes[p.sizeInput] / 1.8}rem;
+      top: ${0.25 + tops[p.sizeInput] / 4}rem;
+      left: ${lefts[p.sizeInput]}rem;
     `};
 `;
 
-interface MessageAreaProps {
+interface PropsMessagesArea {
   error?: ReactNode;
   post?: ReactNode;
   help?: ReactNode;
@@ -128,7 +172,7 @@ const MessageArea = forwardRef(function (
     post,
     theme,
     ...props
-  }: IrisProps<MessageAreaProps>,
+  }: IrisProps<PropsMessagesArea>,
   ref: Ref<HTMLParagraphElement>
 ) {
   if (post) props.children = post;

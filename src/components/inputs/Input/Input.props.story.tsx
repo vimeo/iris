@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { Input } from './Input';
 
@@ -6,7 +7,7 @@ import { Layout } from '../../../storybook';
 import { withCharacterCount } from '../withCharacterCount/withCharacterCount';
 
 export default {
-  title: 'Components/Inputs/Input/Props',
+  title: 'components/Inputs/Input/props',
 };
 
 export function Status() {
@@ -37,6 +38,7 @@ export function Status() {
     </Layout.StoryVertical>
   );
 }
+Status.storyName = 'status';
 
 export function Disabled() {
   return (
@@ -45,6 +47,7 @@ export function Disabled() {
     </Layout.StoryVertical>
   );
 }
+Disabled.storyName = 'disabled';
 
 export function Messages() {
   return (
@@ -70,6 +73,7 @@ export function Messages() {
     </Layout.StoryVertical>
   );
 }
+Messages.storyName = 'messages';
 
 export function Pill() {
   return (
@@ -90,6 +94,7 @@ export function Pill() {
     </Layout.StoryVertical>
   );
 }
+Pill.storyName = 'pill';
 
 export function Variant() {
   return (
@@ -103,6 +108,7 @@ export function Variant() {
     </Layout.StoryVertical>
   );
 }
+Variant.storyName = 'variant';
 
 export function CharacterCount() {
   return (
@@ -129,23 +135,55 @@ CharacterCount.storyName = 'withCharacterCount';
 export function Floating() {
   return (
     <Layout.StoryVertical>
-      <Input label="Input (Text)" floating />
-      <Input label="Input (Text) disabled" floating disabled />
+      <Input label="Floating Input Label" floating />
       <Input
-        label="Input (Text)"
+        label="Floating Input Label (disabled)"
+        floating
+        disabled
+      />
+      <Input
+        label="Floating Input Label"
         messages={{ post: 'post message' }}
         floating
       />
       <Input
         floating
-        label="Input (Text)"
+        label="Floating Input Label"
         status="negative"
         messages={{ error: 'error message' }}
       />
-      <Input label="Input (Text)" floating pill />
+      <br />
+      <br />
+      <Input label="Floating Input Label" size="sm" floating />
+      <Input label="Floating Input Label" size="md" floating />
+      <Input label="Floating Input Label" size="lg" floating />
+      <Input label="Floating Input Label" size="xl" floating />
     </Layout.StoryVertical>
   );
 }
+Floating.storyName = 'floating';
+
+const SizeStoryWrapper = styled.div`
+  margin: 1rem auto 1rem 1rem;
+  max-width: 30rem;
+
+  > div {
+    margin-bottom: 1rem;
+  }
+`;
+
+export function Size() {
+  return (
+    <SizeStoryWrapper>
+      <Input label="Input (Text)" size="xs" />
+      <Input label="Input (Text)" size="sm" />
+      <Input label="Input (Text)" size="md" />
+      <Input label="Input (Text)" size="lg" />
+      <Input label="Input (Text)" size="xl" />
+    </SizeStoryWrapper>
+  );
+}
+Size.storyName = 'size';
 
 const InputWCC = withCharacterCount(Input);
 
@@ -172,3 +210,4 @@ export function Autosuggest() {
     </Layout.StoryVertical>
   );
 }
+Autosuggest.storyName = 'autosuggest';

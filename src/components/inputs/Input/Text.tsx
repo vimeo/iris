@@ -134,15 +134,16 @@ export function Text({
   return (
     <Wrapper
       className={className}
+      disabled={disabled}
       floating={floating}
       floatLabel={floatLabel}
+      id={id}
       label={label}
       messages={messages}
+      size={size}
       status={status}
-      theme={theme}
       style={layoutStyles}
-      id={id}
-      disabled={disabled}
+      theme={theme}
     >
       {suggestions?.has
         ? inputComponentWithAutoSuggest
