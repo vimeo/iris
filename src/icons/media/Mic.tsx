@@ -1,6 +1,8 @@
 import React, { forwardRef, Ref, SVGAttributes } from 'react';
 
-export const Mic = forwardRef(
+import { IrisIcon } from '../icons.types';
+
+export const Mic: IrisIcon = forwardRef(
   (props: SVGAttributes<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
     <svg viewBox="0 0 20 20" ref={ref} {...props}>
       <path
@@ -10,3 +12,14 @@ export const Mic = forwardRef(
     </svg>
   )
 );
+
+Mic.tags = [
+  'control',
+  'editor',
+  'media',
+  'mute',
+  'on',
+  'player',
+  'sound',
+  'volume',
+];

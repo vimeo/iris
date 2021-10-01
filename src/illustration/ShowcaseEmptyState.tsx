@@ -19,7 +19,7 @@ export const ShowcaseEmptyState = (
       <path
         d="M142.554 54.992c0-3.598-2.93-6.533-6.522-6.533 3.592 0 6.522-2.935 6.522-6.534 0 3.599 2.93 6.534 6.52 6.534-3.59 0-6.52 2.935-6.52 6.533z"
         stroke="#1A2E3B"
-        stroke-width="1.296"
+        strokeWidth="1.296"
       />
       <path
         fill="#1A2E3B"
@@ -40,7 +40,7 @@ export const ShowcaseEmptyState = (
       <path
         d="M24.011 66.672c0-3.597-2.93-6.532-6.521-6.532 3.592 0 6.521-2.935 6.521-6.534 0 3.599 2.93 6.534 6.521 6.534-3.591 0-6.521 2.935-6.521 6.532z"
         stroke="#1A2E3B"
-        stroke-width="1.296"
+        strokeWidth="1.296"
       />
       <path
         fill="#E8EAEB"
@@ -49,7 +49,7 @@ export const ShowcaseEmptyState = (
       <g>
         <path
           stroke="#1A2E3B"
-          stroke-width="2.592"
+          strokeWidth="2.592"
           fill="#EEF1F2"
           d="M38.198 102.351h83.563V46.543H38.198z"
         />
@@ -57,7 +57,7 @@ export const ShowcaseEmptyState = (
         <path
           d="M113.34 91.32H60.222"
           stroke="#1A2E3B"
-          stroke-width="2.592"
+          strokeWidth="2.592"
         />
         <path fill="#1A2E3B" d="M55.04 90.344l-8.42-4.865v9.734z" />
       </g>
