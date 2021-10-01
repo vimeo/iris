@@ -90,6 +90,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: IrisTheme }>`
     padding: 0;
     margin: 0;
     min-height: 100%;
+    overflow-x: hidden;
   }
 
   *, *:before, *:after {
