@@ -128,7 +128,7 @@ const LoaderStyled = styled.svg<any>`
   circle {
     fill: none;
     stroke: ${(p) => (p.success ? green(500) : blue(500))};
-    stroke-width: ${(p) => rem(p.size * 0.1666)};
+    strokewidth: ${(p) => rem(p.size * 0.1666)};
     stroke-linecap: round;
     transition: opacity 230ms ease-in-out;
   }

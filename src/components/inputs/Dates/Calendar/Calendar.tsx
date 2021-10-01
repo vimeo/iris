@@ -336,7 +336,7 @@ const NextMonth = styled(ChevronRight)<{
       inactive
         ? rgba(theme.content.color, 0.2)
         : rgba(theme.content.color, 0.75)};
-    stroke-width: 1px;
+    strokewidth: 1px;
   }
 `;
 
