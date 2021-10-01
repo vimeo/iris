@@ -1,7 +1,11 @@
 import React, { useMemo } from 'react';
-import { motion } from 'framer-motion';
+import { createDomMotionComponent } from 'framer-motion';
 
 import { generateUID } from '../../../utils';
+
+const motion = {
+  div: createDomMotionComponent('div'),
+};
 
 type Axis = 'X' | 'Y';
 type Invert = -1 | 1;
