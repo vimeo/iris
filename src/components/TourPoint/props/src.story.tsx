@@ -4,8 +4,8 @@ import { TourPoint } from '../TourPoint';
 import { Tour } from '../TourPoint.context';
 import { Card } from '../TourPoint.story';
 
-import { Input } from '../../../../components';
-import { StoryControlBar } from '../../../../storybook';
+import { Input } from '../../../components';
+import { StoryControlBar } from '../../../storybook';
 
 export function Src() {
   const [src, srcSet] = useState('http://placekitten.com/320/213');
@@ -26,8 +26,7 @@ export function Src() {
           alignItems: 'center',
           gap: '2rem',
           height: '500px',
-        }}
-      >
+        }}>
         <Tour steps={1}>
           <TourPoint
             active
@@ -35,8 +34,7 @@ export function Src() {
             src={src}
             step={1}
             title="A Fresh New Look"
-            content="All the leaves are brown and the sky is grey, I've been for a walk on a winters day."
-          >
+            content="All the leaves are brown and the sky is grey, I've been for a walk on a winters day.">
             <Card>1</Card>
           </TourPoint>
         </Tour>

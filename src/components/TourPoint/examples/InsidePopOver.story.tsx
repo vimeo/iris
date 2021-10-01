@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-import { Button } from '../../../buttons/Button/Button';
+import { Button } from '../../Button/Button';
 import { TourPoint } from '../TourPoint';
 import { Tour } from '../TourPoint.context';
 
-import { PopOver } from '../../../../layout';
-import { Paragraph } from '../../../../typography';
+import { PopOver } from '../../../components';
+import { Paragraph } from '../../../typography';
 
 export function InsidePopOver() {
   const [active, activeSet] = useState(false);
@@ -18,8 +18,7 @@ export function InsidePopOver() {
         alignItems: 'center',
         gap: '2rem',
         height: '500px',
-      }}
-    >
+      }}>
       <Tour steps={1}>
         <PopOver
           attach="right"
@@ -32,8 +31,7 @@ export function InsidePopOver() {
                 src="http://placekitten.com/320/213"
                 step={1}
                 title="A Fresh New Look"
-                content="All the leaves are brown and the sky is grey, I've been for a walk on a winters day."
-              >
+                content="All the leaves are brown and the sky is grey, I've been for a walk on a winters day.">
                 <div>
                   <Paragraph size="1">
                     Lorem ipsum dolor sit amet consectetur adipisicing
@@ -42,8 +40,7 @@ export function InsidePopOver() {
                 </div>
               </TourPoint>
             </div>
-          }
-        >
+          }>
           <Button onClick={() => activeSet((s) => !s)}>
             Open PopOver
           </Button>
@@ -65,8 +62,7 @@ export function InsidePopOverDelay() {
         alignItems: 'center',
         gap: '2rem',
         height: '500px',
-      }}
-    >
+      }}>
       <Tour steps={1}>
         <PopOver
           attach="right"
@@ -80,8 +76,7 @@ export function InsidePopOverDelay() {
                 src="http://placekitten.com/320/213"
                 step={1}
                 title="A Fresh New Look"
-                content="All the leaves are brown and the sky is grey, I've been for a walk on a winters day."
-              >
+                content="All the leaves are brown and the sky is grey, I've been for a walk on a winters day.">
                 <div>
                   <Paragraph size="1">
                     Lorem ipsum dolor sit amet consectetur adipisicing
@@ -90,8 +85,7 @@ export function InsidePopOverDelay() {
                 </div>
               </TourPoint>
             </div>
-          }
-        >
+          }>
           <Button>Open PopOver</Button>
         </PopOver>
       </Tour>

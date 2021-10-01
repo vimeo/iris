@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 
 import { TourPoint } from './TourPoint';
 
-import { Header } from '../../../typography';
+import { Header } from '../../typography';
 
 export default {
   title: 'Components/Info/TourPoint',
@@ -30,8 +30,7 @@ const Template: Story<Props> = (args) => {
         alignItems: 'center',
         gap: '2rem',
         height: '500px',
-      }}
-    >
+      }}>
       <TourPoint
         active={true}
         attach="left"
@@ -39,8 +38,7 @@ const Template: Story<Props> = (args) => {
         src="http://placekitten.com/320/213"
         step={1}
         title="A Fresh New Look"
-        content="All the leaves are brown and the sky is grey, I've been for a walk on a winters day."
-      >
+        content="All the leaves are brown and the sky is grey, I've been for a walk on a winters day.">
         <Card>1</Card>
       </TourPoint>
     </div>
@@ -62,8 +60,7 @@ export const Card: any = forwardRef(({ children }, ref: any) => {
         padding: '1rem',
         borderRadius: '0.25rem',
         margin: '4rem auto',
-      }}
-    >
+      }}>
       <Header size="3">{children}</Header>
     </div>
   );

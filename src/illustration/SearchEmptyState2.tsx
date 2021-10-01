@@ -13,8 +13,7 @@ export const SearchEmptyState2 = (props: SVGProps<SVGSVGElement>) => (
         <g
           transform="translate(43 43)"
           stroke="#1A2E3B"
-          strokeWidth="4"
-        >
+          strokeWidth="4">
           <circle fill="#EEF1F2" cx="21.176" cy="21.418" r="21.062" />
           <path d="M36.182 36.182l15.3 15.3" />
         </g>

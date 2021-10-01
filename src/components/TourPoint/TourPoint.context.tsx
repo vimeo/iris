@@ -1,6 +1,6 @@
 import React, { createContext, ReactNode, useState } from 'react';
 
-import { generateUID } from '../../../utils';
+import { generateUID } from '../../utils';
 
 export const TourContext = createContext<Value>({});
 

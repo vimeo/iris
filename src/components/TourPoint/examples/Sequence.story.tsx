@@ -4,8 +4,8 @@ import { TourPoint } from '../TourPoint';
 import { Tour, TourContext } from '../TourPoint.context';
 import { Card } from '../TourPoint.story';
 
-import { Button } from '../../../../components';
-import { StoryControlBar } from '../../../../storybook';
+import { Button } from '../../../components';
+import { StoryControlBar } from '../../../storybook';
 
 export function Sequence() {
   function Children() {
@@ -25,8 +25,7 @@ export function Sequence() {
           content={content}
           title="A Fresh New Look"
           src="http://placekitten.com/320/213"
-          step={1}
-        >
+          step={1}>
           <Card>1</Card>
         </TourPoint>
         <TourPoint
@@ -35,8 +34,7 @@ export function Sequence() {
           content={content}
           title="A Fresh New Look"
           src="http://placekitten.com/320/213"
-          step={2}
-        >
+          step={2}>
           <Card>2</Card>
         </TourPoint>
         <TourPoint
@@ -45,8 +43,7 @@ export function Sequence() {
           content={content}
           title="A Fresh New Look"
           src="http://placekitten.com/320/213"
-          step={3}
-        >
+          step={3}>
           <Card>3</Card>
         </TourPoint>
       </>

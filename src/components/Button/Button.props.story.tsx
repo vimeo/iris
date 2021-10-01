@@ -173,22 +173,19 @@ export function TextShift() {
       style={{
         margin: '1rem auto',
         width: '15rem',
-      }}
-    >
+      }}>
       <Button
         icon={<ArrowRight />}
         iconPosition="right"
         textShift
-        variant="minimalTransparent"
-      >
+        variant="minimalTransparent">
         textShift Button
       </Button>
       <Button
         icon={<ArrowLeft />}
         textShift
         variant="minimalTransparent"
-        style={{ marginLeft: 'auto' }}
-      >
+        style={{ marginLeft: 'auto' }}>
         textShift Button
       </Button>
     </div>

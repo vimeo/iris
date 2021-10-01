@@ -4,9 +4,9 @@ import { TourPoint } from '../TourPoint';
 import { Tour, TourContext } from '../TourPoint.context';
 import { Card } from '../TourPoint.story';
 
-import { Button } from '../../../../components';
-import { Gear } from '../../../../icons';
-import { StoryControlBar } from '../../../../storybook';
+import { Button } from '../../../components';
+import { Gear } from '../../../icons';
+import { StoryControlBar } from '../../../storybook';
 
 export function Dismission() {
   function Children() {
@@ -23,8 +23,7 @@ export function Dismission() {
         onClick={() => {
           activeSet((active) => active + 1);
           console.log('You clicked a custom dismission <Button />!');
-        }}
-      >
+        }}>
         Custom
       </Button>
     );
@@ -40,8 +39,7 @@ export function Dismission() {
           dismission="End"
           content={content}
           title="A Fresh New Look"
-          step={1}
-        >
+          step={1}>
           <Card>1</Card>
         </TourPoint>
         <TourPoint
@@ -50,8 +48,7 @@ export function Dismission() {
           dismission={dismissionCustom}
           content={content}
           title="A Fresh New Look"
-          step={2}
-        >
+          step={2}>
           <Card>2</Card>
         </TourPoint>
         <TourPoint
@@ -59,8 +56,7 @@ export function Dismission() {
           active={active === 3}
           content={content}
           title="A Fresh New Look"
-          step={3}
-        >
+          step={3}>
           <Card>3</Card>
         </TourPoint>
       </>

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { createDomMotionComponent } from 'framer-motion';
 
-import { generateUID } from '../../../utils';
+import { generateUID } from '../../utils';
 
 const motion = {
   div: createDomMotionComponent('div'),
@@ -70,8 +70,7 @@ export function Motion({
       initial="initial"
       animate="animate"
       exit="exit"
-      style={{ transformOrigin: 'center' }}
-    >
+      style={{ transformOrigin: 'center' }}>
       {children}
     </motion.div>
   );
