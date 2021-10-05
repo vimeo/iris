@@ -1,7 +1,5 @@
 module.exports = {
   presets: [
-    ['@babel/preset-react'],
-    ['@babel/preset-typescript'],
     [
       '@babel/preset-env',
       {
@@ -14,10 +12,17 @@ module.exports = {
             'last 2 Safari versions',
           ],
         },
-        useBuiltIns: 'usage',
-        corejs: 3,
+
+        loose: true,
       },
     ],
+    [
+      '@babel/preset-react',
+      {
+        runtime: 'automatic',
+      },
+    ],
+    ['@babel/preset-typescript'],
   ],
   plugins: [
     'babel-plugin-styled-components',
