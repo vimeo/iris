@@ -153,5 +153,6 @@
         "JavaScript",
         "React",
         "styled-components"
-    ]
+    ],
+    "dependencies": {}
 }
