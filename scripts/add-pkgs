@@ -11,8 +11,8 @@ let writeFile = util.promisify(fs.writeFile);
 let stat = util.promisify(fs.stat);
 
 const PKG_CONTENTS = `{
-  "main": "./index.cjs",
-  "module": "./index.mjs",
+  "main": "./index.js",
+  "module": "./index.esm.js",
   "sideEffects": false
 }`;
 

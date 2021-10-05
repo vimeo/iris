@@ -19,12 +19,12 @@ export default (args) => {
       {
         dir: 'build',
         format: 'esm',
-        entryFileNames: '[name].mjs',
+        entryFileNames: '[name].esm.js',
       },
       {
         dir: 'build',
         format: 'commonjs',
-        entryFileNames: '[name].cjs',
+        entryFileNames: '[name].js',
       },
     ],
     external: Object.keys(pkg.peerDependencies),
