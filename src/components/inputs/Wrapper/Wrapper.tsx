@@ -126,10 +126,12 @@ interface PropsLabel {
 }
 
 const Label = styled(Text).attrs({ element: 'label' })<PropsLabel>`
+  display: inline-block;
   transition: 120ms ease-in-out;
   cursor: ${(p) => (p.disabled ? 'not-allowed' : 'pointer')};
   font-size: ${(p) => 0.315 + sizes[p.sizeInput] / 1.8}rem;
   color: ${core.color.text(600)};
+  margin-bottom: 0.2rem;
   font-weight: 400;
 
   ${(p) =>
