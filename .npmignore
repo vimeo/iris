@@ -14,7 +14,6 @@ yarn-error.log
 
 .babelrc
 .eslintrc.js
-.eslintrc.cjs
 .github
 .gitignore
 .prettierrc
@@ -25,10 +24,8 @@ yarn-error.log
 *.story.tsx
 *.x-story.tsx
 babel.config.js
-babel.config.cjs
 Jenkinsfile
 rollup.config.js
-rollup.config.cjs
 tsconfig.json
 yarn.lock
 
