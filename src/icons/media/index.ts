@@ -15,6 +15,7 @@ export { FastForward } from './FastForward';
 export { FastForwardFilled } from './FastForwardFilled';
 export { FormatLandscape } from './FormatLandscape';
 export { FormatSquare } from './FormatSquare';
+export { Gif } from './Gif';
 export { Gridlines } from './Gridlines';
 export { Interactive } from './Interactive';
 export { Layout } from './Layout';
