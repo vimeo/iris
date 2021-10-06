@@ -5,8 +5,6 @@ export const Gif = forwardRef(
     <svg viewBox="0 0 24 24" ref={ref} {...props}>
       <g>
         <path
-          fill="#1A2E3B"
-          stroke="#1A2E3B"
           strokeWidth={0.4}
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -16,14 +14,12 @@ export const Gif = forwardRef(
      S5,7.5,6.2,7.5c1.1,0,2,0.3,2.6,0.8s1,1.3,1.1,2.1H8.3z"
         />
         <path
-          fill="#1A2E3B"
           strokeWidth={0.4}
           strokeLinecap="round"
           strokeLinejoin="round"
           d="M13.8,16.3H12V7.7h1.8V16.3z"
         />
         <path
-          fill="#1A2E3B"
           strokeWidth={0.4}
           strokeLinecap="round"
           strokeLinejoin="round"
