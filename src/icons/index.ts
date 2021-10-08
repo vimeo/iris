@@ -211,6 +211,7 @@ export { FastForward } from './media/FastForward';
 export { FastForwardFilled } from './media/FastForwardFilled';
 export { FormatLandscape } from './media/FormatLandscape';
 export { FormatSquare } from './media/FormatSquare';
+export { Gif } from './media/Gif';
 export { Gridlines } from './media/Gridlines';
 export { Interactive } from './media/Interactive';
 export { Layout } from './media/Layout';
