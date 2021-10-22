@@ -110,7 +110,7 @@
         "lint": "eslint 'src/**/*.{ts,tsx}' && npm run prettier && npm run stylelint",
         "postpublish": "git clean -fd",
         "prettier": "npx prettier --check 'src/**/*{.ts,tsx}'",
-        "prepublishOnly": "npm run typecheck && npm run lint && npm run build && cp -r ./build/* ./ && npm run clean",
+        "prepublishOnly": "npm run typecheck && npm run lint && npm run build && ./scripts/add-pkgs &&  cp -r ./build/* ./ && npm run clean",
         "start": "npm run typecheck && npm run lint && npm run storybook",
         "storybook": "start-storybook -p 9001",
         "stylelint": "npx stylelint 'src/**/*.ts'",
