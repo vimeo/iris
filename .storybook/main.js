@@ -10,6 +10,7 @@ module.exports = {
     postcss: false,
     previewCsfV3: false,
     buildStoriesJson: true,
+    storyStoreV7: false,
   },
   reactOptions: {
     fastRefresh: true,
