@@ -35,22 +35,24 @@ export const parameters = {
         categoryOrder.findIndex((h) => h === header);
 
       const defaultSort = (a, b) =>
-        a.id.localeCompare(b.id, undefined, { numeric: true });
+        a[1].id.localeCompare(b[1].id, undefined, { numeric: true });
 
       const stripCategory = (story) =>
-        story.title.substr(0, story.title.indexOf('/')).toLowerCase();
+        story[1].kind
+          .substr(0, story[1].kind.indexOf('/'))
+          .toLowerCase();
 
       const a = stripCategory(cur);
       const b = stripCategory(next);
 
       if (a !== b) return getOrder(a) - getOrder(b);
 
-      // order stories /props, then /examples, then remaining
-      if (cur?.id.includes('index')) return 1;
-      if (next?.id.includes('index')) return -1;
+      // order stories Props, then Examples, then Index
+      if (cur[1]?.id.includes('index')) return 1;
+      if (next[1]?.id.includes('index')) return -1;
 
-      if (cur?.id.includes('examples')) return 1;
-      if (next?.id.includes('examples')) return -1;
+      if (cur[1]?.id.includes('examples')) return 1;
+      if (next[1]?.id.includes('examples')) return -1;
 
       return defaultSort(cur, next);
     },
