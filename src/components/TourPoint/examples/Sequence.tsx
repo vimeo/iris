@@ -4,30 +4,15 @@ import { TourPoint } from '../TourPoint';
 import { Tour, TourContext } from '../TourPoint.context';
 import { Card } from '../TourPoint.story';
 
-import { Button } from '../../../components';
-import { Gear } from '../../../icons';
+import { Button } from '../..';
 import { StoryControlBar } from '../../../storybook';
 
-export function Confirmation() {
+export function Sequence() {
   function Children() {
     const { active, activeSet } = useContext(TourContext);
 
     const content =
       "All the leaves are brown and the sky is grey, I've been for a walk on a winters day.";
-
-    const confirmationCustom = (
-      <Button
-        size="sm"
-        icon={<Gear />}
-        onClick={() => {
-          activeSet((active) => active + 1);
-          console.log(
-            'You clicked a custom confirmation <Button />!'
-          );
-        }}>
-        Custom
-      </Button>
-    );
 
     return (
       <>
@@ -37,19 +22,21 @@ export function Confirmation() {
         <TourPoint
           attach="left-top"
           active={active === 1}
-          confirmation="Next"
           content={content}
           title="A Fresh New Look"
-          step={1}>
+          src="http://placekitten.com/320/213"
+          step={1}
+        >
           <Card>1</Card>
         </TourPoint>
         <TourPoint
           attach="left-top"
           active={active === 2}
-          confirmation={confirmationCustom}
           content={content}
           title="A Fresh New Look"
-          step={2}>
+          src="http://placekitten.com/320/213"
+          step={2}
+        >
           <Card>2</Card>
         </TourPoint>
         <TourPoint
@@ -57,7 +44,9 @@ export function Confirmation() {
           active={active === 3}
           content={content}
           title="A Fresh New Look"
-          step={3}>
+          src="http://placekitten.com/320/213"
+          step={3}
+        >
           <Card>3</Card>
         </TourPoint>
       </>
@@ -70,4 +59,4 @@ export function Confirmation() {
     </Tour>
   );
 }
-Confirmation.storyName = 'confirmation';
+Sequence.storyName = 'sequence';

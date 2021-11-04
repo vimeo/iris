@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Panel } from '../Panel';
 
-import { Button } from '../../../components';
+import { Button } from '../..';
 import { Layout } from '../../../storybook';
 
 export function Attach() {

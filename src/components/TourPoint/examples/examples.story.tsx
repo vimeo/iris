@@ -5,11 +5,8 @@ export default {
   component: TourPoint,
 };
 
-export { ChildrenResize } from './ChildrenResize.story';
+export { ChildrenResize } from './ChildrenResize';
 
-export {
-  InsidePopOver,
-  InsidePopOverDelay,
-} from './InsidePopOver.story';
+export { InsidePopOver, InsidePopOverDelay } from './InsidePopOver';
 
-export { Sequence } from './Sequence.story';
+export { Sequence } from './Sequence';

@@ -4,26 +4,28 @@ import { TourPoint } from '../TourPoint';
 import { Tour, TourContext } from '../TourPoint.context';
 import { Card } from '../TourPoint.story';
 
-import { Button } from '../../../components';
+import { Button } from '../..';
 import { Gear } from '../../../icons';
 import { StoryControlBar } from '../../../storybook';
 
-export function Dismission() {
+export function Confirmation() {
   function Children() {
     const { active, activeSet } = useContext(TourContext);
 
     const content =
       "All the leaves are brown and the sky is grey, I've been for a walk on a winters day.";
 
-    const dismissionCustom = (
+    const confirmationCustom = (
       <Button
         size="sm"
         icon={<Gear />}
-        variant="outline"
         onClick={() => {
           activeSet((active) => active + 1);
-          console.log('You clicked a custom dismission <Button />!');
-        }}>
+          console.log(
+            'You clicked a custom confirmation <Button />!'
+          );
+        }}
+      >
         Custom
       </Button>
     );
@@ -36,19 +38,21 @@ export function Dismission() {
         <TourPoint
           attach="left-top"
           active={active === 1}
-          dismission="End"
+          confirmation="Next"
           content={content}
           title="A Fresh New Look"
-          step={1}>
+          step={1}
+        >
           <Card>1</Card>
         </TourPoint>
         <TourPoint
           attach="left-top"
           active={active === 2}
-          dismission={dismissionCustom}
+          confirmation={confirmationCustom}
           content={content}
           title="A Fresh New Look"
-          step={2}>
+          step={2}
+        >
           <Card>2</Card>
         </TourPoint>
         <TourPoint
@@ -56,7 +60,8 @@ export function Dismission() {
           active={active === 3}
           content={content}
           title="A Fresh New Look"
-          step={3}>
+          step={3}
+        >
           <Card>3</Card>
         </TourPoint>
       </>
@@ -69,4 +74,4 @@ export function Dismission() {
     </Tour>
   );
 }
-Dismission.storyName = 'dismission';
+Confirmation.storyName = 'confirmation';

@@ -4,7 +4,7 @@ import { TourPoint } from '../TourPoint';
 import { Tour, TourContext } from '../TourPoint.context';
 import { Card } from '../TourPoint.story';
 
-import { Button } from '../../../components';
+import { Button } from '../..';
 import { StoryControlBar } from '../../../storybook';
 
 export function Attach() {
@@ -23,7 +23,8 @@ export function Attach() {
           style={{
             padding: '3rem',
             alignItems: 'flex-start',
-          }}>
+          }}
+        >
           {attachs.map((attach, i) => (
             <TourPoint
               active={active === i + 1}
@@ -32,7 +33,8 @@ export function Attach() {
               key={i}
               src="http://placekitten.com/320/213"
               step={i + 1}
-              title="A Fresh New Look">
+              title="A Fresh New Look"
+            >
               <Card>{attach}</Card>
             </TourPoint>
           ))}

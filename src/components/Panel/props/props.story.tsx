@@ -5,6 +5,6 @@ export default {
   component: Panel,
 };
 
-export { Active } from './active.story';
-export { Attach } from './attach.story';
-export { Resizable } from './resizable.story';
+export { Active } from './active';
+export { Attach } from './attach';
+export { Resizable } from './resizable';

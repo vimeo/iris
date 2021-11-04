@@ -1,9 +1,4 @@
-import React, {
-  cloneElement,
-  forwardRef,
-  useContext,
-  useState,
-} from 'react';
+import React, { forwardRef, useContext, useState } from 'react';
 
 import { TourPoint } from '../TourPoint';
 import { Tour, TourContext } from '../TourPoint.context';
@@ -54,14 +49,16 @@ export function ChildrenResize() {
           style={{
             padding: '3rem',
             alignItems: 'flex-start',
-          }}>
+          }}
+        >
           <TourPoint
             active={active === 1}
             attach="left-top"
             content={content}
             src="http://placekitten.com/320/213"
             step={1}
-            title="A Fresh New Look">
+            title="A Fresh New Look"
+          >
             <Card>left-top</Card>
           </TourPoint>
           <TourPoint
@@ -70,7 +67,8 @@ export function ChildrenResize() {
             content={content}
             src="http://placekitten.com/320/213"
             step={2}
-            title="A Fresh New Look">
+            title="A Fresh New Look"
+          >
             <Card>right</Card>
           </TourPoint>
         </div>
@@ -97,7 +95,8 @@ const Card: any = forwardRef(({ children }, ref: any) => {
         padding: '1rem',
         borderRadius: '0.25rem',
         margin: '4rem auto',
-      }}>
+      }}
+    >
       <Header size="3">{children}</Header>
     </div>
   );
