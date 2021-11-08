@@ -93,11 +93,12 @@ function NotficationComponent({
     return () => clearInterval(timer);
   }, [active, time, finish]);
 
-  const icon = status === 'negative' && typeof content === 'string' && (
-    <span>
-      <Icon />
-    </span>
-  );
+  const icon = status === 'negative' &&
+    typeof content === 'string' && (
+      <span>
+        <Icon />
+      </span>
+    );
 
   return (
     <>

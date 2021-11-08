@@ -46,17 +46,17 @@ export function ColorSelectSpectrum({
     dispatch({ type: 'SET_HSL', payload });
   }
 
-  const doMouseActive = (dragging: boolean) => ({
-    nativeEvent: { offsetX, offsetY },
-  }) => {
-    const payload = clamp([offsetX, offsetY]);
+  const doMouseActive =
+    (dragging: boolean) =>
+    ({ nativeEvent: { offsetX, offsetY } }) => {
+      const payload = clamp([offsetX, offsetY]);
 
-    if (dragging) dispatch({ type: 'DRAG_START' });
-    else dispatch({ type: 'DRAG_END' });
-    dispatch({ type: 'SET_COORDS', payload });
+      if (dragging) dispatch({ type: 'DRAG_START' });
+      else dispatch({ type: 'DRAG_END' });
+      dispatch({ type: 'SET_COORDS', payload });
 
-    setHSLfromCoords({ offsetX, offsetY }, hue);
-  };
+      setHSLfromCoords({ offsetX, offsetY }, hue);
+    };
 
   const onMouseDown = doMouseActive(true);
   const onMouseUp = doMouseActive(false);

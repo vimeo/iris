@@ -13,7 +13,6 @@ export function Player({ id, ...props }) {
     background: black;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
     transition: 120ms ease-in-out;
-
     &:hover {
       box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.4);
       transform: scale(1.015);
@@ -33,16 +32,8 @@ export function Player({ id, ...props }) {
   `;
 
   return (
-    <div
-      {...props}
-      //@ts-ignore
-      css={CSS}
-    >
-      <iframe
-        src={src}
-        //@ts-ignore
-        css={iframeCSS}
-      />
+    <div {...props} css={CSS}>
+      <iframe src={src} css={iframeCSS} />
     </div>
   );
 }

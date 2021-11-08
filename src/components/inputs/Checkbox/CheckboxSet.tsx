@@ -22,9 +22,10 @@ function CheckboxSetComponent({
   ...props
 }: Props) {
   const UID = useMemo(() => generateUID(), []);
-  const UIDs = useMemo(() => children.map(() => generateUID()), [
-    children,
-  ]);
+  const UIDs = useMemo(
+    () => children.map(() => generateUID()),
+    [children]
+  );
 
   const all = (boolean) =>
     coupled

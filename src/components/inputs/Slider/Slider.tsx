@@ -26,7 +26,7 @@ interface State {
 export function Slider({
   disabled,
   editableLabel,
-  formatter = (value) => (value as unknown) as string,
+  formatter = (value) => value as unknown as string,
   initialValues = [0, 100],
   max = 100,
   min = 0,

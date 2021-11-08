@@ -4,7 +4,7 @@ import { rem, rgba } from 'polished';
 
 import { DropChangeEvent, Props } from './Dropzone.types';
 
-import { stopPrevent, useForwardRef, withIris } from '../../../utils';
+import { stopPrevent, useForwardRef, withIris } from '../../utils';
 
 export const Dropzone = withIris<HTMLInputElement, Props>(
   DropzoneComponent
@@ -12,6 +12,7 @@ export const Dropzone = withIris<HTMLInputElement, Props>(
 
 function DropzoneComponent({
   accept,
+  active,
   children,
   defaultValue,
   disabled,
@@ -36,7 +37,7 @@ function DropzoneComponent({
 
   return (
     <DropzoneContainer
-      drag={drag}
+      drag={active || drag}
       format={format}
       onDragLeave={onDragLeave}
       onDragOver={onDragOver}
@@ -53,10 +54,7 @@ function DropzoneComponent({
         style={{ display: 'none' }}
       />
       {typeof children === 'function'
-        ? children(
-            // @ts-ignore :: props.drag enabled presentational display in Storybook
-            props.drag || drag
-          )
+        ? children(active || drag)
         : children}
     </DropzoneContainer>
   );
@@ -76,7 +74,6 @@ const DropzoneContainer = styled.div<{
   border: ${rem(3)} solid ${(p) => p.theme.item.bg2};
   will-change: transform;
   transition: background 100ms ease-in-out;
-
   ${formats};
 `;
 

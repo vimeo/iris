@@ -47,10 +47,8 @@ function NoticeComponent({
   pill,
   ...props
 }: Props) {
-  const {
-    reject: onCloseReject,
-    complete: onCloseComplete,
-  } = useClose(onClose);
+  const { reject: onCloseReject, complete: onCloseComplete } =
+    useClose(onClose);
 
   const doClick = (event) => {
     event.preventDefault();

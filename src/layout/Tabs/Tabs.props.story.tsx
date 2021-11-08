@@ -14,13 +14,9 @@ const Tabs = styled(T)`
 `;
 
 export function Format() {
-  return ([
-    'basic',
-    'soft',
-    'alternative',
-    'secondary',
-    'primary',
-  ] as const).map((format) => (
+  return (
+    ['basic', 'soft', 'alternative', 'secondary', 'primary'] as const
+  ).map((format) => (
     <Tabs format={format}>
       <Tabs.Panel
         label="Tab 0"

@@ -24,11 +24,10 @@ export type IrisProps<
   DOMElement = HTMLDivElement
 > = Override<DefaultIrisProps<DOMElement>, Props & ForbidAsProp>;
 
-type DefaultIrisProps<
-  DOMElement = HTMLDivElement
-> = IrisElementProps<DOMElement> &
-  IrisEventProps<DOMElement> &
-  IrisA11yProps;
+type DefaultIrisProps<DOMElement = HTMLDivElement> =
+  IrisElementProps<DOMElement> &
+    IrisEventProps<DOMElement> &
+    IrisA11yProps;
 
 type IrisElementProps<DOMElement = HTMLDivElement> = {
   alt?: string;
