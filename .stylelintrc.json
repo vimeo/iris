@@ -24,7 +24,6 @@
           "/-styled-mixin/"
         ]
       }
-    ],
-    "custom-property-no-missing-var-function": false
+    ]
   }
 }
