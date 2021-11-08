@@ -7,7 +7,7 @@ import { Header } from '../../../typography';
 import { ANCHOR_POINTS } from '../../../utils';
 
 export default {
-  title: 'Components/Info/Annotation/Props',
+  title: 'components/Annotation/props',
   component: Annotation,
 };
 

@@ -9,7 +9,7 @@ import { Layout } from '../../../../storybook';
 import { Button } from '../../../buttons/Button/Button';
 
 export default {
-  title: 'Components/Inputs/Dates/DateRange/Props',
+  title: 'components/Dates/DateRange/props',
 };
 
 export function Presets() {

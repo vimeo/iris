@@ -6,7 +6,7 @@ import { Props } from './Select.types';
 
 import { Layout } from '../../../storybook';
 export default {
-  title: 'Components/Inputs/Select',
+  title: 'components/Select',
   component: Select,
   argTypes: {
     src: { table: { disable: true } }, // not relevant

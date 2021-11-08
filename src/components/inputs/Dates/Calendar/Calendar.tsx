@@ -167,9 +167,10 @@ export const Calendar = ({
     1
   );
 
-  useLayoutEffect(() => setWidth(geometry(ref.current).width), [
-    setWidth,
-  ]);
+  useLayoutEffect(
+    () => setWidth(geometry(ref.current).width),
+    [setWidth]
+  );
 
   return (
     <Wrapper {...props} onMouseOut={handleMouseOut}>

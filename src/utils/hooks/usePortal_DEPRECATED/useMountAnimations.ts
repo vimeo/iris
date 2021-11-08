@@ -44,13 +44,14 @@ export function useMountAnimations(
   }, [duration, element]);
 
   const animateExit = useMemo(
-    () => (ref, { enter, exit }) => {
-      animate(
-        ref,
-        transition(enter, duration),
-        transition(exit, duration)
-      );
-    },
+    () =>
+      (ref, { enter, exit }) => {
+        animate(
+          ref,
+          transition(enter, duration),
+          transition(exit, duration)
+        );
+      },
     [duration]
   );
 

@@ -1,4 +1,4 @@
-export const disabled = {
+export const argTypes = {
   'aria-activedescendant': {
     table: {
       disable: true,

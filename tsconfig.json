@@ -52,6 +52,7 @@
         "build-styleguide",
         "build",
         "node_modules",
+        "node_modules/framer-motion",
         "src/**/*.types.ts",
         "src/**/*.story.tsx",
         "src/**/*.x-story.tsx",

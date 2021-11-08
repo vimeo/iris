@@ -7,7 +7,7 @@ import { Props } from './Tag.types';
 import { Layout } from '../../../storybook';
 
 export default {
-  title: 'Components/Chips/Tag',
+  title: 'components/Tag',
   component: Tag,
   argTypes: {
     icon: { table: { disable: true } },

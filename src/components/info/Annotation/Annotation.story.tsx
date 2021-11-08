@@ -7,7 +7,7 @@ import { Layout } from '../../../storybook';
 import { Header } from '../../../typography';
 
 export default {
-  title: 'Components/Info/Annotation',
+  title: 'components/Annotation',
   component: Annotation,
   argTypes: {
     content: { control: { disable: true } },

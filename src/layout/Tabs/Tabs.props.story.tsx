@@ -5,7 +5,7 @@ import { Tabs as T } from './Tabs';
 
 import { Header, Paragraph } from '../../typography';
 
-export default { title: 'layout/Tabs/props', component: T };
+export default { title: 'components/Tabs/props', component: T };
 
 const Tabs = styled(T)`
   max-width: 40rem;
@@ -14,13 +14,9 @@ const Tabs = styled(T)`
 `;
 
 export function Format() {
-  return ([
-    'basic',
-    'soft',
-    'alternative',
-    'secondary',
-    'primary',
-  ] as const).map((format) => (
+  return (
+    ['basic', 'soft', 'alternative', 'secondary', 'primary'] as const
+  ).map((format) => (
     <Tabs format={format}>
       <Tabs.Panel
         label="Tab 0"

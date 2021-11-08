@@ -20,7 +20,7 @@ import { Layout } from '../../../storybook';
 import { core, tx } from '../../../tokens';
 
 export default {
-  title: 'layout/Sidebar/examples',
+  title: 'components/Sidebar/examples',
   component: Sidebar,
 };
 

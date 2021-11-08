@@ -180,12 +180,13 @@ const Summary = ({
     </>
   );
 
-  const preferredText = hasAtLeast(1, pronouns) && preferredPronoun && (
-    <>
-      {' '}
-      but I prefer <em>{preferredPronoun}</em>.
-    </>
-  );
+  const preferredText = hasAtLeast(1, pronouns) &&
+    preferredPronoun && (
+      <>
+        {' '}
+        but I prefer <em>{preferredPronoun}</em>.
+      </>
+    );
 
   const emailText = email.length > 3 && email.includes('@') && (
     <>

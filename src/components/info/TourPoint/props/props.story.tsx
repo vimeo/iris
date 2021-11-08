@@ -1,7 +1,7 @@
 import { TourPoint } from '../TourPoint';
 
 export default {
-  title: 'components/info/TourPoint/props',
+  title: 'components/TourPoint/props',
   component: TourPoint,
 };
 

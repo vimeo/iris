@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 import { Password, Props } from './Password';
 
 export default {
-  title: 'Components/inputs/Password',
+  title: 'components/Password',
   component: Password,
   argTypes: {
     src: { table: { disable: true } },

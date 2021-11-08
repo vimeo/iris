@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 import { Ribbon } from './Ribbon';
 import { Props } from './Ribbon.types';
 
-export default { title: 'layout/Ribbon', component: Ribbon };
+export default { title: 'components/Ribbon', component: Ribbon };
 
 const Template: Story<Props> = (args) => {
   return <Ribbon {...args} style={{ width: '50%' }} />;

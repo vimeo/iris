@@ -1,5 +1,5 @@
 import React from 'react';
-import { color } from '@storybook/addon-knobs';
+// import { color } from '@storybook/addon-knobs';
 
 import { FeatureTourPanel } from './FeatureTourPanel';
 
@@ -13,7 +13,7 @@ import { CSSProperties } from 'styled-components';
  * Prop documentation will still be generated.
  */
 // export default {
-//   title: 'Components/Info/FeatureTourPanel',
+//   title: 'components/FeatureTourPanel',
 //   component: FeatureTourPanel,
 // };
 
@@ -171,7 +171,8 @@ export function Colors() {
         dotZIndex={100}
         contextualInfo="Step 1 of 3"
         style={dotStyles(0)}
-        color={color('(1) color', green(100), 'tour-colors')}
+        //color={color('(1) color', green(100), 'tour-colors')}
+        color={green(100)}
         onClose={() => console.log('close')}
         onOpen={() => console.log('open')}
       >
@@ -195,7 +196,8 @@ export function Colors() {
         dotZIndex={100}
         contextualInfo="Step 2 of 3"
         style={dotStyles(4)}
-        color={color('(2) color', green(50), 'tour-colors')}
+        //color={color('(2) color', green(50), 'tour-colors')}
+        color={green(50)}
       >
         This is the body text. Vimeo was born in{' '}
         <Link
@@ -217,7 +219,8 @@ export function Colors() {
         dotZIndex={100}
         contextualInfo="Step 3 of 3"
         style={dotStyles(8) as CSSProperties}
-        color={color('(3) color', yellow(500), 'tour-colors')}
+        //color={color('(3) color', yellow(500), 'tour-colors')}
+        color={yellow(500)}
       >
         This is the body text. Vimeo was born in{' '}
         <Link
@@ -252,7 +255,8 @@ export function Fancy() {
         dismissButtonA11yLabel="Close"
         dotZIndex={100}
         shouldRefocusTriggerOnClose={false}
-        color={color('(1) color', green(100), 'tour-colors')}
+        //color={color('(1) color', green(100), 'tour-colors')}
+        color={green(100)}
         size="xl"
         beaconDelayIndex={1}
       >
@@ -282,7 +286,8 @@ export function Fancy() {
         dismissButtonA11yLabel="Close"
         dotZIndex={100}
         shouldRefocusTriggerOnClose={false}
-        color={color('(2) color', red(50), 'tour-colors')}
+        //color={color('(2) color', red(50), 'tour-colors')}
+        color={red(50)}
         size="xl"
         beaconDelayIndex={2}
       >
@@ -312,7 +317,8 @@ export function Fancy() {
         dismissButtonA11yLabel="Close"
         dotZIndex={100}
         shouldRefocusTriggerOnClose={false}
-        color={color('(3) color', '#53D4B0', 'tour-colors')}
+        //color={color('(3) color', '#53D4B0', 'tour-colors')}
+        color="#53D4B0"
         size="xl"
         beaconDelayIndex={3}
       >
@@ -342,7 +348,8 @@ export function Fancy() {
         dismissButtonA11yLabel="Close"
         dotZIndex={100}
         shouldRefocusTriggerOnClose={false}
-        color={color('(4) color', green(50), 'tour-colors')}
+        //color={color('(4) color', green(50), 'tour-colors')}
+        color={green(50)}
         size="xl"
         beaconDelayIndex={4}
       >
@@ -372,7 +379,8 @@ export function Fancy() {
         dismissButtonA11yLabel="Close"
         dotZIndex={100}
         shouldRefocusTriggerOnClose={false}
-        color={color('(5) color', yellow(500), 'tour-colors')}
+        //color={color('(5) color', yellow(500), 'tour-colors')}
+        color={yellow(500)}
         size="xl"
         beaconDelayIndex={5}
       >

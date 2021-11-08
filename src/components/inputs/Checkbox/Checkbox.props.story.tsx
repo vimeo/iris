@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from '@storybook/addons';
+import React, { useState } from 'react';
 
 import { Checkbox } from './Checkbox';
 
@@ -8,7 +7,7 @@ import { Layout } from '../../../storybook';
 import { Header } from '../../../typography';
 
 export default {
-  title: 'Components/Inputs/Checkbox/Props',
+  title: 'components/Checkbox/props',
 };
 
 export function Disabled() {

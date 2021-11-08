@@ -1,5 +1,5 @@
 import React from 'react';
-import { select } from '@storybook/addon-knobs';
+// import { select } from '@storybook/addon-knobs';
 import { Story } from '../../storybook';
 
 import { Comment } from './Comment';
@@ -10,7 +10,7 @@ import { AutoplayList } from './AutoplayList';
 
 import { Header } from '../../typography';
 
-export default { title: 'Labs/Pronouns' };
+export default { title: 'labs/Pronouns' };
 
 const componentName = 'Comment';
 
@@ -35,7 +35,8 @@ export function Comments() {
           pronouns={comment.pronouns}
           href={comment.href}
           badge={comment.badge}
-          variation={select('variation', commentVariations, 'A')}
+          variation="A"
+          // variation={select('variation', commentVariations, 'A')}
         >
           {comment.children}
         </Comment>
@@ -72,7 +73,8 @@ export function AutoComplete() {
             pronouns={comment.pronouns}
             href={comment.href}
             badge={comment.badge}
-            variation={select('variation', commentVariations, 'A')}
+            variation="A"
+            // variation={select('variation', commentVariations, 'A')}
           >
             {comment.children}
           </Comment>
@@ -92,7 +94,8 @@ export function VideoList() {
     <Story title="Video List">
       <AutoplayList
         videos={staffPicks}
-        variation={select('variation', autoplayVariations, 'A')}
+        variation="A"
+        // variation={select('variation', autoplayVariations, 'A')}
       />
     </Story>
   );

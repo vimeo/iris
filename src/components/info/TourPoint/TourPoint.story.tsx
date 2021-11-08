@@ -7,7 +7,7 @@ import { TourPoint } from './TourPoint';
 import { Header } from '../../../typography';
 
 export default {
-  title: 'Components/Info/TourPoint',
+  title: 'components/TourPoint',
   component: TourPoint,
   argTypes: {
     icon: { control: { disable: true } },

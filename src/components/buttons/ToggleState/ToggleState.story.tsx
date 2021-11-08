@@ -11,7 +11,7 @@ const ButtonToggleState = styled(B)`
 `;
 
 export default {
-  title: 'Components/Buttons/ToggleState',
+  title: 'components/ButtonToggleState',
   component: B,
 };
 

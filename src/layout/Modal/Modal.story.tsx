@@ -9,7 +9,7 @@ import { Button } from '../../components';
 import { Paragraph } from '../../typography';
 
 export default {
-  title: 'layout/Modal',
+  title: 'components/Modal',
   component: Modal,
   argTypes: {
     content: { control: { disable: true } },

@@ -7,7 +7,7 @@ import { Layout } from '../../../storybook';
 import { Header } from '../../../typography';
 
 export default {
-  title: 'Components/Inputs/CheckboxSet/Props',
+  title: 'components/CheckboxSet/props',
 };
 
 export function Coupled() {

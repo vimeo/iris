@@ -3,7 +3,7 @@ import React from 'react';
 import { Password } from './Password';
 
 export default {
-  title: 'Components/Inputs/Password/Props',
+  title: 'components/Password/props',
 };
 
 export function Label() {

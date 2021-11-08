@@ -7,7 +7,7 @@ import { Props } from './Badge.types';
 import { Layout } from '../../../storybook';
 
 export default {
-  title: 'Components/Chips/Badge',
+  title: 'components/Badge',
   component: Badge,
   argTypes: {
     label: { table: { disable: true } },

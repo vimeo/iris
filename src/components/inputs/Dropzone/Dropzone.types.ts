@@ -6,6 +6,7 @@ export type DropChangeEvent = ChangeEvent<HTMLInputElement> & {
 };
 
 export type Props = IrisInputProps<{
+  active?: boolean;
   /**
    * Dropzone `children` can be a `ReactNode` or a function that
    * accepts boolean `active` and returns a `ReactNode`.

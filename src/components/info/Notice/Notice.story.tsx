@@ -5,7 +5,7 @@ import { Notice, Props } from './Notice';
 import { Story } from '@storybook/react';
 
 export default {
-  title: 'Components/Info/Notice',
+  title: 'components/Notice',
   component: Notice,
   argTypes: {
     icon: { control: { disable: true } },

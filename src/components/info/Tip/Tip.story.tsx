@@ -9,7 +9,7 @@ import { Layout } from '../../../storybook';
 import { ANCHOR_POINTS } from '../../../utils';
 
 export default {
-  title: 'Components/Info/Tip',
+  title: 'components/Tip',
   component: Tip,
   argTypes: {
     content: { control: { disable: true } },

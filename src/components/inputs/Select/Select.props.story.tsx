@@ -10,7 +10,7 @@ import { blue } from '../../../color';
 import { Button } from '../../buttons/Button/Button';
 
 export default {
-  title: 'Components/Inputs/Select/props',
+  title: 'components/Select/props',
 };
 
 export function Disabled() {

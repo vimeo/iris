@@ -47,9 +47,7 @@ function HeaderComponent({
 }
 
 function elements(size) {
-  return (size < 7
-    ? 'h' + size
-    : size === 'plusUltra'
-    ? 'h1'
-    : 'span') as Props['element'];
+  return (
+    size < 7 ? 'h' + size : size === 'plusUltra' ? 'h1' : 'span'
+  ) as Props['element'];
 }

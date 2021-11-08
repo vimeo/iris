@@ -9,7 +9,7 @@ import { Eye, EyeOff, Gear } from '../../../icons';
 import { Pop, PopOver } from '../../../layout';
 
 export default {
-  title: 'Components/Info/Tip/examples',
+  title: 'components/Tip/examples',
   component: Tip,
 };
 

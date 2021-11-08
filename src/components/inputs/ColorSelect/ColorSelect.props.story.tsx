@@ -8,7 +8,7 @@ import { Button } from '../../buttons/Button/Button';
 import { Layout } from '../../../storybook';
 
 export default {
-  title: 'Components/Inputs/ColorSelect/props',
+  title: 'components/ColorSelect/props',
 };
 
 export function Children() {

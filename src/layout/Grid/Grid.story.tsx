@@ -9,7 +9,7 @@ import { Props } from './Grid.types';
 import { Header } from '../../typography';
 
 export default {
-  title: 'layout/Grid',
+  title: 'components/Grid',
   component: Grid,
   parameters: { a11y: { disabled: true } },
   argTypes: {

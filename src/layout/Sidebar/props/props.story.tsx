@@ -1,7 +1,7 @@
 import { Sidebar } from '../Sidebar';
 
 export default {
-  title: 'layout/Sidebar/props',
+  title: 'components/Sidebar/props',
   component: Sidebar,
 };
 

@@ -5,7 +5,7 @@ import { Notice } from './Notice';
 import { Gear } from '../../../icons';
 
 export default {
-  title: 'Components/Info/Notice/Props',
+  title: 'components/Notice/props',
 };
 
 export function Primary() {

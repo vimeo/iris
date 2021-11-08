@@ -6,7 +6,7 @@ import { Notification, Props } from './Notification';
 import { Button } from '../../index';
 
 export default {
-  title: 'Components/Info/Notification',
+  title: 'components/Notification',
   component: Notification,
   argTypes: {
     content: { control: { disable: true } },

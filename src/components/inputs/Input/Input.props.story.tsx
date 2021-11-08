@@ -7,7 +7,7 @@ import { Layout } from '../../../storybook';
 import { withCharacterCount } from '../withCharacterCount/withCharacterCount';
 
 export default {
-  title: 'components/Inputs/Input/props',
+  title: 'components/Input/props',
 };
 
 export function Status() {

@@ -9,7 +9,7 @@ import { DismissX } from '../../icons';
 import { Layout } from '../../storybook';
 import { Paragraph, Header } from '../../typography';
 
-export default { title: 'layout/Modal/Examples' };
+export default { title: 'components/Modal/examples' };
 
 export function ExternalState() {
   return (

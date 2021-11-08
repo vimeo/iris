@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 import { Search, Props } from './Search';
 
 export default {
-  title: 'Components/Inputs/Search',
+  title: 'components/Search',
   component: Search,
   argTypes: {
     src: { table: { disable: true } },

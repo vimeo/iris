@@ -69,8 +69,7 @@ const Header = styled(H).attrs({
   size: '2',
   // Temporary hack for accessibility. I don't want to
   // change the types to explicitly permit button Headers.
-  // @ts-ignore
-  element: 'button',
+  element: 'button' as unknown as 'span',
 })`
   position: relative;
   padding: 0.5rem 2rem;
@@ -78,24 +77,19 @@ const Header = styled(H).attrs({
   text-align: left;
   margin: 0;
   cursor: pointer;
-
   font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
-
   &:first-child {
     padding: 0.75rem 2rem 0.5rem;
   }
-
   &:last-child {
     padding: 0.5rem 2rem 0.75rem;
   }
-
   &:focus {
     outline: none;
   }
-
   &:hover {
     background: ${rgba(blue(500), 0.15)};
   }

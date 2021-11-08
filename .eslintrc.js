@@ -20,6 +20,7 @@ module.exports = {
       files: ['*.story.tsx'],
       rules: {
         'import/no-default-export': 0,
+        '@typescript-eslint/ban-ts-comment': 0,
       },
     },
     {

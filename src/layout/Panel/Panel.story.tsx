@@ -7,7 +7,7 @@ import { Props } from './Panel.types';
 import { Button } from '../../components';
 
 export default {
-  title: 'layout/Panel',
+  title: 'components/Panel',
   component: Panel,
 };
 

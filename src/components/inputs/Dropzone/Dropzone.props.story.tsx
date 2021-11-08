@@ -17,7 +17,7 @@ import { useLocalTheme } from '../../../utils';
 import { IrisTheme } from '../../../themes';
 
 export default {
-  title: 'Components/Inputs/Dropzone/Props',
+  title: 'components/Dropzone/props',
   component: Dropzone,
   argTypes: {
     label: { table: { disable: true } },

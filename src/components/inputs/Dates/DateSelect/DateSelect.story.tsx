@@ -7,7 +7,7 @@ import { Input } from '../../Input/Input';
 import { Layout } from '../../../../storybook';
 
 export default {
-  title: 'Components/Inputs/Dates/DateSelect',
+  title: 'components/Dates/DateSelect',
   component: DateSelect,
   argTypes: {
     label: { table: { disable: true } }, // not relevant

@@ -8,7 +8,7 @@ import { Layout } from '../../../../storybook';
 import { useOutsideClick } from '../../../../utils';
 
 export default {
-  title: 'Components/Inputs/Dates/DateSelect/Props',
+  title: 'components/Dates/DateSelect/props',
 };
 
 export const InitialMonth = () => <InitialMonthStory />;

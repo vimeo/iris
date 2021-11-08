@@ -7,7 +7,7 @@ import { Button } from '../../components';
 import { Layout } from '../../storybook';
 import { Paragraph } from '../../typography';
 
-export default { title: 'layout/Modal/props' };
+export default { title: 'components/Modal/props' };
 
 export function Feature() {
   return (
