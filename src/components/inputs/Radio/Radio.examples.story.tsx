@@ -4,8 +4,8 @@ import { rgba } from 'polished';
 
 import { Radio as R } from './Radio';
 import { RadioSet } from './RadioSet';
-import { Eye, EyeOff } from '../../icons';
-import { Button } from '../Button/Button';
+import { Eye, EyeOff } from '../../../icons';
+import { Button } from '../../buttons/Button/Button';
 
 export default { title: 'components/Radio/examples' };
 

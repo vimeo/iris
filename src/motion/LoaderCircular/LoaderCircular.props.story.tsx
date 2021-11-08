@@ -6,7 +6,10 @@ import { LoaderCircular as LC } from './LoaderCircular';
 import { Layout } from '../../storybook';
 import { red } from '../../color';
 
-export default { title: 'motion/Loaders/Props', component: LC };
+export default {
+  title: 'components/LoaderCircular/props',
+  component: LC,
+};
 
 const LoaderCircular = styled(LC)`
   margin: 1rem;

@@ -5,7 +5,7 @@ import { Story } from '@storybook/react';
 import { LoaderCircular as LC } from './LoaderCircular';
 import { Props } from './LoaderCircular.types';
 
-export default { title: 'motion/Loaders', component: LC };
+export default { title: 'components/LoaderCircular', component: LC };
 
 const LoaderCircular = styled(LC)`
   margin: 1rem;

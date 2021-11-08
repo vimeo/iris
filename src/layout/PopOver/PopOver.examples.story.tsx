@@ -5,14 +5,13 @@ import { rgba } from 'polished';
 import { PopOver } from './PopOver';
 import { Pop } from './PopOver.minors';
 
-import { Dock } from '../Dock/Dock';
 import { Button as B, Badge, Input } from '../../components';
 import { Gear } from '../../icons';
 import { Paragraph } from '../../typography';
 import { blue } from '../../color';
 
 export default {
-  title: 'layout/PopOver/Examples',
+  title: 'components/PopOver/examples',
 };
 
 export function DynamicSize() {
@@ -55,22 +54,6 @@ export function Scrollable() {
         <TriggerButton>PopOver bottom</TriggerButton>
       </PopOver>
     </>
-  );
-}
-
-export function Fixed() {
-  return (
-    <div style={{ height: '150vh' }}>
-      <Dock attach="bottom" style={{ height: '7rem' }}>
-        <PopOver
-          content={PopScrollable}
-          attach="top"
-          style={{ width: '25rem' }}
-        >
-          <TriggerButton>PopOver bottom</TriggerButton>
-        </PopOver>
-      </Dock>
-    </div>
   );
 }
 

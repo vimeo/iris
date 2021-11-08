@@ -3,7 +3,7 @@ import React from 'react';
 import { Search } from './Search';
 
 export default {
-  title: 'Components/inputs/Search/Props',
+  title: 'components/Search/props',
 };
 
 export function Size() {

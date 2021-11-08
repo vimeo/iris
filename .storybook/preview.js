@@ -17,44 +17,28 @@ export const decorators = [
 
 export const parameters = {
   options: {
-    storySort: (cur, next) => {
-      const categoryOrder = [
+    storySort: {
+      method: '',
+      order: [
+        'Iris',
         'iris',
+        'Tokens',
         'tokens',
+        'Color',
         'color',
+        'Components',
         'components',
+        'Typography',
         'typography',
+        'Icons',
         'icons',
+        'Illustration',
         'illustration',
         '*',
-        'utilties',
+        'Labs',
         'labs',
-      ];
-
-      const getOrder = (header) =>
-        categoryOrder.findIndex((h) => h === header);
-
-      const defaultSort = (a, b) =>
-        a[1].id.localeCompare(b[1].id, undefined, { numeric: true });
-
-      const stripCategory = (story) =>
-        story[1].kind
-          .substr(0, story[1].kind.indexOf('/'))
-          .toLowerCase();
-
-      const a = stripCategory(cur);
-      const b = stripCategory(next);
-
-      if (a !== b) return getOrder(a) - getOrder(b);
-
-      // order stories Props, then Examples, then Index
-      if (cur[1]?.id.includes('index')) return 1;
-      if (next[1]?.id.includes('index')) return -1;
-
-      if (cur[1]?.id.includes('examples')) return 1;
-      if (next[1]?.id.includes('examples')) return -1;
-
-      return defaultSort(cur, next);
+      ],
+      locales: '',
     },
   },
   controls: {

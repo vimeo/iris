@@ -7,7 +7,7 @@ import { Grid } from '../../../layout';
 import { Header } from '../../../typography';
 
 export default {
-  title: 'Components/Cards',
+  title: 'components/Card',
   component: C,
   argTypes: {
     noHoverState: { table: { disable: true } },

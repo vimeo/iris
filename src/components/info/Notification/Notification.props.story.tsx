@@ -5,7 +5,7 @@ import { Notification } from './Notification';
 import { Button } from '../../index';
 
 export default {
-  title: 'Components/Info/Notification/Props',
+  title: 'components/Notification/props',
   component: Notification,
   argTypes: {
     onComplete: { action: 'Notification onComplete called' },

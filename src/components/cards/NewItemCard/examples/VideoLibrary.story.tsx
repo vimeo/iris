@@ -8,7 +8,7 @@ import { Layout } from '../../../../storybook';
 import { Header } from '../../../../typography';
 
 export default {
-  title: 'components/cards/NewItemCard/examples',
+  title: 'components/NewItemCard/examples',
   component: NewItemCard,
 };
 

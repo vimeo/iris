@@ -8,7 +8,7 @@ import { Header } from '../../typography';
 import { Layout } from '../../storybook';
 
 export default {
-  title: 'layout/Grid/Props',
+  title: 'components/Grid/props',
   parameters: { a11y: { disabled: true } },
 };
 

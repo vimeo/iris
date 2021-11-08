@@ -7,7 +7,7 @@ import { Header } from '../../../../typography';
 import { Layout } from '../../../../storybook';
 
 export default {
-  title: 'Components/Inputs/Dates/Calendar',
+  title: 'components/Dates/Calendar',
 };
 
 export function CalendarStory() {

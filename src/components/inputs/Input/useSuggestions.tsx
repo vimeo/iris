@@ -3,9 +3,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { rgba } from 'polished';
 
-import { Header as H } from '../../typography';
-import { blue } from '../../color';
-import { Focus } from '../../utils';
+import { Header as H } from '../../../typography';
+import { blue } from '../../../color';
+import { Focus } from '../../../utils';
 
 export function useSuggestions({ autosuggest, inputRef, doBlur }) {
   if (typeof autosuggest === 'undefined') return;

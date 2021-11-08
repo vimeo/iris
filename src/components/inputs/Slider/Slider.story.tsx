@@ -7,7 +7,7 @@ import { Props } from './Slider.types';
 import { Layout } from '../../../storybook';
 
 export default {
-  title: 'Components/Inputs/Slider',
+  title: 'components/Slider',
   component: Slider,
 };
 

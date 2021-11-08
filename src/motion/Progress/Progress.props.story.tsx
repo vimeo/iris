@@ -9,7 +9,7 @@ import { css } from 'styled-components';
 import { Progress } from './Progress';
 
 export default {
-  title: 'motion/Progress/Props',
+  title: 'components/Progress/props',
   component: Progress,
 };
 

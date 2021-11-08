@@ -3,7 +3,10 @@ import { css } from 'styled-components';
 
 import { Ribbon } from './Ribbon';
 
-export default { title: 'layout/Ribbon/Props', component: Ribbon };
+export default {
+  title: 'components/Ribbon/props',
+  component: Ribbon,
+};
 
 const style = css`
   margin: 1rem 1rem;

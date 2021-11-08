@@ -8,7 +8,7 @@ import { Header } from '../../../typography';
 import { Layout } from '../../../storybook';
 
 export default {
-  title: 'Components/Inputs/CheckboxSet',
+  title: 'components/CheckboxSet',
   component: CheckboxSet,
   argTypes: {
     status: { table: { disable: true } }, // not relevant

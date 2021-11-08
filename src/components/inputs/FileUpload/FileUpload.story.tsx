@@ -7,7 +7,7 @@ import { Layout } from '../../../storybook';
 import { UploadCloud } from '../../../icons';
 
 export default {
-  title: 'Components/Inputs/FileUpload',
+  title: 'components/FileUpload',
   component: FileUpload,
   argTypes: {
     label: { table: { disable: true } },

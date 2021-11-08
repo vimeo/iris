@@ -4,7 +4,7 @@ import { rem, rgba } from 'polished';
 
 import { DropChangeEvent, Props } from './Dropzone.types';
 
-import { stopPrevent, useForwardRef, withIris } from '../../utils';
+import { stopPrevent, useForwardRef, withIris } from '../../../utils';
 
 export const Dropzone = withIris<HTMLInputElement, Props>(
   DropzoneComponent

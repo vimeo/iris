@@ -8,7 +8,7 @@ import { Grid } from '../../../layout';
 import { Gear, Camera, Heart } from '../../../icons';
 
 export default {
-  title: 'Components/Cards/CategoryCard',
+  title: 'components/CategoryCard',
   component: CC,
   argTypes: {
     icon: { control: { disable: true } },

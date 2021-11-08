@@ -7,7 +7,7 @@ import { Layout } from '../../../storybook';
 import { Header } from '../../../typography';
 
 export default {
-  title: 'Components/Inputs/Checkbox/Props',
+  title: 'components/Checkbox/props',
 };
 
 export function Disabled() {

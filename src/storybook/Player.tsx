@@ -32,7 +32,12 @@ export function Player({ id, ...props }) {
   `;
 
   return (
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     <div {...props} css={CSS}>
+      {/* 
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore */}
       <iframe src={src} css={iframeCSS} />
     </div>
   );

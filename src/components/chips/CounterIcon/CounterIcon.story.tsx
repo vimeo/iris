@@ -6,7 +6,7 @@ import { Layout } from '../../../storybook';
 import { Play, Collections } from '../../../icons';
 
 export default {
-  title: 'Components/Chips/CounterIcon',
+  title: 'components/CounterIcon',
   component: CounterIcon,
 };
 

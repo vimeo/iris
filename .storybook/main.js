@@ -9,14 +9,14 @@ module.exports = {
   features: {
     postcss: false,
     previewCsfV3: false,
-    buildStoriesJson: true,
+    buildStoriesJson: false,
     storyStoreV7: false,
   },
   reactOptions: {
     fastRefresh: true,
     strictMode: true,
   },
-  stories: ['../src/**/*.story.tsx'],
+  stories: ['../src/**/*.story.tsx', '../src/**/*.story.mdx'],
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',

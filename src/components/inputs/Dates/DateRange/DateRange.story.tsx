@@ -13,7 +13,7 @@ import { useOutsideClick } from '../../../../utils';
 const presets = ['today', 10, -100, 100, 'custom'];
 
 export default {
-  title: 'Components/Inputs/Dates/DateRange',
+  title: 'components/Dates/DateRange',
   component: DateRange,
   argTypes: {
     label: { table: { disable: true } }, // not relevant

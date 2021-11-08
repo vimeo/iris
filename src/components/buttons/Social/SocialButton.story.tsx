@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { SocialButton as SB } from './SocialButton';
 
 export default {
-  title: 'Components/Buttons/SocialButton',
+  title: 'components/SocialButton',
   component: SB,
 };
 

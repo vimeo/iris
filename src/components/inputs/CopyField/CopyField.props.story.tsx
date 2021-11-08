@@ -6,7 +6,7 @@ import { Layout } from '../../../storybook';
 import { Heart } from '../../../icons';
 
 export default {
-  title: 'Components/Inputs/CopyField/Props',
+  title: 'components/CopyField/props',
 };
 
 export function Format() {

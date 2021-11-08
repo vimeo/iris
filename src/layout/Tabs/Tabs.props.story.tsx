@@ -5,7 +5,7 @@ import { Tabs as T } from './Tabs';
 
 import { Header, Paragraph } from '../../typography';
 
-export default { title: 'layout/Tabs/props', component: T };
+export default { title: 'components/Tabs/props', component: T };
 
 const Tabs = styled(T)`
   max-width: 40rem;

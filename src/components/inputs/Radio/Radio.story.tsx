@@ -6,7 +6,7 @@ import { Radio as R, Props } from './Radio';
 import { RadioSet } from './RadioSet';
 
 export default {
-  title: 'Components/Inputs/Radio',
+  title: 'components/Radio',
   component: R,
   argTypes: {
     status: { table: { disable: true } },

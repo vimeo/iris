@@ -6,7 +6,7 @@ import { Props } from './Pagination.types';
 import { useFakeQuery } from '../../storybook';
 
 export default {
-  title: 'layout/Pagination/Props',
+  title: 'components/Pagination/props',
   component: Pagination,
 };
 

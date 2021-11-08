@@ -13,7 +13,7 @@ import { CSSProperties } from 'styled-components';
  * Prop documentation will still be generated.
  */
 // export default {
-//   title: 'Components/Info/FeatureTourPanel',
+//   title: 'components/FeatureTourPanel',
 //   component: FeatureTourPanel,
 // };
 

@@ -11,7 +11,7 @@ import { ANCHOR_POINTS } from '../../utils';
 import { Gear } from '../../icons';
 
 export default {
-  title: 'layout/PopOver',
+  title: 'components/PopOver',
   component: PopOver,
   argTypes: {
     content: { control: { disable: true } },

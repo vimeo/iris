@@ -9,7 +9,7 @@ import { Layout } from '../../../storybook';
 import { ANCHOR_POINTS } from '../../../utils';
 
 export default {
-  title: 'Components/Inputs/ColorSelect',
+  title: 'components/ColorSelect',
   component: ColorSelect,
   argTypes: {
     status: { table: { disable: true } }, // not relevant

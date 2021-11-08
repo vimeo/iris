@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 import { Toggle } from './Toggle';
 
-import { Button } from '../Button/Button';
-import { Header } from '../../typography';
-import { Layout } from '../../storybook';
-import { Eye, EyeOff } from '../../icons';
+import { Button } from '../../buttons/Button/Button';
+import { Header } from '../../../typography';
+import { Layout } from '../../../storybook';
+import { Eye, EyeOff } from '../../../icons';
 
 export default {
   title: 'components/Toggle/props',

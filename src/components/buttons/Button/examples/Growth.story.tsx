@@ -6,7 +6,7 @@ import { Pencil, Camera, Gear, UploadCloud } from '../../../../icons';
 import { red } from '../../../../color';
 
 export default {
-  title: 'components/buttons/Button/examples',
+  title: 'components/Button/examples',
   component: B,
 };
 

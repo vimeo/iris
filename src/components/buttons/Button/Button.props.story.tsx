@@ -19,7 +19,7 @@ import {
 } from '../../../icons';
 
 export default {
-  title: 'Components/Buttons/Button/props',
+  title: 'components/Button/props',
 };
 
 const Button = styled(B)`

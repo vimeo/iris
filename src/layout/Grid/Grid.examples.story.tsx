@@ -7,12 +7,9 @@ import { Grid } from './Grid';
 import { Header } from '../../typography';
 import { Layout } from '../../storybook';
 export default {
-  title: 'layout/Grid/Examples',
+  title: 'components/Grid/examples',
   parameters: { a11y: { disabled: true } },
 };
-
-export { Showcase } from '../examples/Showcase.story';
-export { VideoList } from '../examples/VideoList.story';
 
 export function GridGap() {
   return (

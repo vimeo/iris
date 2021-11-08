@@ -6,7 +6,7 @@ import { Button } from '../../index';
 import { Header } from '../../../typography';
 
 export default {
-  title: 'Components/Info/Notification/Examples',
+  title: 'components/Notification/examples',
   component: Notification,
 };
 
