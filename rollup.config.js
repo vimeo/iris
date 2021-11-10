@@ -14,7 +14,7 @@ export default (args) => {
   /** @type {import('rollup').RollupOptions} */
   let config = {
     input:
-      './src/!(_|storybook)*/**/!(*.story.tsx|*.test.ts|*.types.ts)',
+      './src/!(_docs|_labs|_process|storybook)*/**/!(*.story.tsx|*.test.ts|*.types.ts)',
     output: [
       {
         dir: 'build',

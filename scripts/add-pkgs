@@ -22,7 +22,9 @@ const PKG_CONTENTS = `{
 
 async function run() {
   let dirs = await readdir(path.join(BASE_DIR, 'build'));
-  let roots = dirs.map((root) => path.join(BASE_DIR, 'build', root));
+  let roots = dirs
+    .filter((root) => !root.startsWith('_'))
+    .map((root) => path.join(BASE_DIR, 'build', root));
 
   for await (let root of roots) {
     let info = await stat(root);
