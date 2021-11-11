@@ -20,6 +20,7 @@ Sidebar.Break = Break;
 
 function SidebarComponent({
   children,
+  dismiss = true,
   attach = 'left',
   forwardRef,
   onOpen,
@@ -75,13 +76,16 @@ function SidebarComponent({
         {children}
       </SidebarStyled>
       <PanelStyled attach={attach} visible={panel}>
-        <Dismiss
-          aria-label="Dismiss"
-          format="basic"
-          icon={<DismissX />}
-          onClick={close}
-          variant="minimalTransparent"
-        />
+        {dismiss && (
+          <Dismiss
+            aria-label="Dismiss"
+            format="basic"
+            icon={<DismissX />}
+            onClick={close}
+            variant="minimalTransparent"
+          />
+        )}
+        {typeof dismiss === 'function' && dismiss(close)}
         {panel}
       </PanelStyled>
     </div>

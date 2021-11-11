@@ -14,6 +14,7 @@ export type Props = IrisProps<{
    */
   attach?: 'left' | 'right';
   children: ReactElement[];
+  dismiss?: boolean | ((close: VoidFunction) => ReactElement);
   onOpen?: (active: string) => void;
   onClose?: (active: string) => void;
   state?: [string, Dispatch<SetStateAction<string>>];
