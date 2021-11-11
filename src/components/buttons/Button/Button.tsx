@@ -11,7 +11,7 @@ import { FeaturedIcon } from './FeaturedIcon';
 // Iris submodule organization needs to be reconsidered.
 // This creates a circular dependency.
 // import { LoaderCircular } from '../../../motion';
-import { LoaderCircular } from '../../../motion/LoaderCircular/LoaderCircular';
+import { LoaderCircular } from '../../LoaderCircular/LoaderCircular';
 
 import {
   withIris,

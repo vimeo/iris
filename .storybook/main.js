@@ -21,7 +21,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     '@storybook/addon-storysource',
-    './addons/themes/register',
+    '@nox/addon-themes/dist/register',
   ],
   webpackFinal: (config) => {
     config.module.rules.push(storySource);

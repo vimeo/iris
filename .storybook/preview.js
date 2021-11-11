@@ -1,5 +1,8 @@
 import { themes } from './themes';
-import { ThemedStory, addThemes } from './addons/themes/code';
+import {
+  ThemedStory,
+  addThemes,
+} from '@nox/addon-themes/dist/utilities';
 
 import { GlobalStyles } from '../src/utils';
 import { argTypes } from './argTypes';
@@ -18,7 +21,7 @@ export const decorators = [
 export const parameters = {
   options: {
     storySort: {
-      method: '',
+      method: 'alphabetical',
       order: [
         'Iris',
         'iris',

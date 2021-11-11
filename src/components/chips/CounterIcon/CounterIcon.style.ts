@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { rem, rgba } from 'polished';
 
 import { antialias } from '../../../typography';
-import { base } from '../../../motion/transitions';
 
 const size = 18;
 
@@ -35,7 +34,7 @@ export const Content = styled.span`
   border: 0;
   border-radius: ${rem(3)};
   background: transparent;
-  transition: all ${base};
+  transition: 100ms ease-in-out;
   text-align: center;
   vertical-align: middle;
   appearance: none;

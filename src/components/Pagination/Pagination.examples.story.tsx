@@ -4,7 +4,7 @@ import { rgba } from 'polished';
 
 import { Pagination } from './Pagination';
 
-import { Grid } from '../Grid/Grid';
+import { Grid } from '../../_deprecated/Grid/Grid';
 import { Button } from '../../components';
 import { Header } from '../../typography';
 import { Player, vimeos, useFakeQuery } from '../../storybook';

@@ -14,6 +14,7 @@ export { DateSelect } from './inputs/Dates/DateSelect/DateSelect';
 export { FileUpload } from './inputs/FileUpload/FileUpload';
 export { FloatingButton } from './buttons/Floating/Floating';
 export { Input } from './inputs/Input/Input';
+export { LoaderCircular } from './LoaderCircular/LoaderCircular';
 export { Menu } from './Menu/Menu';
 export { Modal } from './Modal/Modal';
 export { NewItemCard } from './cards/NewItemCard/NewItemCard';
@@ -25,6 +26,7 @@ export { Password } from './inputs/Password/Password';
 export { Path } from './info/Path/Path';
 export { Pop } from './PopOver/PopOver.minors';
 export { PopOver } from './PopOver/PopOver';
+export { Progress } from './Progress/Progress';
 export { Radio } from './inputs/Radio/Radio';
 export { RadioSet } from './inputs/Radio/RadioSet';
 export { Ribbon } from './Ribbon/Ribbon';
@@ -44,3 +46,4 @@ export { withCharacterCount } from './inputs/withCharacterCount/withCharacterCou
 
 // DEPRECATED
 export { FeatureTourPanel } from '../_deprecated/FeatureTour/FeatureTourPanel';
+export { SlideUpDown } from '../_deprecated/SlideUpDown/SlideUpDown';

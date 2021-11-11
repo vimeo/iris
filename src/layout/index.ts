@@ -1,3 +1,6 @@
+// Importing from @vimeo/iris/layout has been deprecated.
+// These exports will be removed in a future release.
+
 export { Menu } from '../components/Menu/Menu';
 export { Modal } from '../components/Modal/Modal';
 export { Pagination } from '../components/Pagination/Pagination';
