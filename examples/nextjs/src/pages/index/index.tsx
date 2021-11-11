@@ -14,7 +14,7 @@ import {
   Main,
 } from './index.style';
 
-import { LogoZeit } from '../icons/';
+import { LogoZeit } from '../../icons';
 
 export function Home({ themeSet, ...props }) {
   function toggleTheme() {
