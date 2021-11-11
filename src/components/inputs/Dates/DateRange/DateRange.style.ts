@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { rem, transparentize, padding, margin } from 'polished';
 
-import { Menu as M } from '../../../../layout/Menu/Menu';
+import { Menu as M } from '../../../Menu/Menu';
 import { Button } from '../../../buttons/Button/Button';
 import { black, blue } from '../../../../color';
 

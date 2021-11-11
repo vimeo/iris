@@ -1,10 +1,12 @@
-export { Grid } from './Grid/Grid';
-export { Menu } from './Menu/Menu';
-export { Modal } from './Modal/Modal';
-export { Pagination } from './Pagination/Pagination';
-export { Panel } from './Panel/Panel';
-export { Pop } from './PopOver/PopOver.minors';
-export { PopOver } from './PopOver/PopOver';
-export { Ribbon } from './Ribbon/Ribbon';
-export { Sidebar } from './Sidebar/Sidebar';
-export { Tabs } from './Tabs/Tabs';
+export { Menu } from '../components/Menu/Menu';
+export { Modal } from '../components/Modal/Modal';
+export { Pagination } from '../components/Pagination/Pagination';
+export { Panel } from '../components/Panel/Panel';
+export { Pop } from '../components/PopOver/PopOver.minors';
+export { PopOver } from '../components/PopOver/PopOver';
+export { Ribbon } from '../components/Ribbon/Ribbon';
+export { Sidebar } from '../components/Sidebar/Sidebar';
+export { Tabs } from '../components/Tabs/Tabs';
+
+// DEPRECATED
+export { Grid } from '../_deprecated/Grid/Grid';

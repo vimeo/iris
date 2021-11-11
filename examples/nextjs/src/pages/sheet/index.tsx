@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styled from 'styled-components';
 
 import {
   Avatar,
@@ -17,7 +18,6 @@ import {
 import { Header, Paragraph } from '@vimeo/iris/typography';
 import { Gear } from '@vimeo/iris/icons';
 import { Modal, Tabs } from '@vimeo/iris/layout';
-import styled from 'styled-components';
 import { useIsomorphicEffect } from '@vimeo/iris/utils';
 
 export function Sheet({ themeSet, ...props }) {
