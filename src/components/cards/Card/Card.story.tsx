@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Story } from '@storybook/react';
 
 import { Card as C, Props } from './Card';
-import { Grid } from '../../../layout';
 import { Header } from '../../../typography';
 
 export default {
@@ -38,4 +37,10 @@ const Card = styled(C)`
   align-items: center;
   justify-content: center;
   min-height: 20vw;
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid: repeat(6, 1fr);
+  gap: 1rem;
 `;

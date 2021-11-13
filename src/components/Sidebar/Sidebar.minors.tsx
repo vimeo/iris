@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 import { ItemPropsIntrinsic } from './Sidebar.types';
 
-import { Button, Tip } from '../../components';
+import { Button } from '../buttons/Button/Button';
+import { Tip } from '../info/Tip/Tip';
 import { core } from '../../tokens';
 
 export function Item({

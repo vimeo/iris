@@ -1,11 +1,8 @@
 import React from 'react';
 
-import {
-  ButtonStyled,
-  ButtonChildren,
-  borderRadiusSizes,
-} from './Button.style';
+import { ButtonStyled, ButtonChildren } from './Button.style';
 import { Props, DOMElement } from './Button.types';
+import { borderRadii } from './Button.config';
 import { FeaturedIcon } from './FeaturedIcon';
 
 // Iris submodule organization needs to be reconsidered.
@@ -59,7 +56,7 @@ function ButtonComponent({
   const iconFeatured = iconPosition === 'featured' && icon;
   const iconAction = iconPosition === 'action' && icon;
 
-  const radius = pill ? 50 : borderRadiusSizes[size] + 2;
+  const radius = pill ? 50 : borderRadii[size] + 2;
 
   let formatInstrinsic: Props['format'] | Props['status'] = format;
   if (status && status !== 'neutral') formatInstrinsic = status;

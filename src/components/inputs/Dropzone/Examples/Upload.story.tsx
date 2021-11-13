@@ -6,7 +6,8 @@ import { Dropzone } from '../Dropzone';
 import { Header } from '../../../../typography';
 import { UploadCloud, ChevronDownDouble } from '../../../../icons';
 import { Button } from '../../../../components';
-import { PopOver, Pop } from '../../../../layout';
+import { PopOver } from '../../../PopOver/PopOver';
+import { Pop } from '../../../PopOver/PopOver.minors';
 
 export default { title: 'components/Dropzone/examples' };
 

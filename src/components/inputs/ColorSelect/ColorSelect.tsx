@@ -11,7 +11,7 @@ import { ColorSelectInput } from './ColorSelectInput';
 import { ColorSelectSpectrum } from './ColorSelectSpectrum';
 import { Presets, Props as PresetsProps } from './Presets';
 
-import { PopOver } from '../../../layout';
+import { PopOver } from '../../PopOver/PopOver';
 import {
   withIris,
   MinorComponent,

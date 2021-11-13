@@ -23,7 +23,7 @@ import {
   useLayoutStyles,
   useOutsideClick,
 } from '../../../utils';
-import { PopOver } from '../../../layout';
+import { PopOver } from '../../PopOver/PopOver';
 
 export function SelectFaux({
   children,

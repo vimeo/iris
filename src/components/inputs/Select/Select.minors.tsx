@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Pop } from '../../../layout';
+import { Pop } from '../../PopOver/PopOver.minors';
 
 import { IrisProps } from '../../../utils';
 
