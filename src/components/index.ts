@@ -14,19 +14,28 @@ export { DateSelect } from './inputs/Dates/DateSelect/DateSelect';
 export { FileUpload } from './inputs/FileUpload/FileUpload';
 export { FloatingButton } from './buttons/Floating/Floating';
 export { Input } from './inputs/Input/Input';
-export { Modal } from '../layout';
+export { LoaderCircular } from './LoaderCircular/LoaderCircular';
+export { Menu } from './Menu/Menu';
+export { Modal } from './Modal/Modal';
 export { NewItemCard } from './cards/NewItemCard/NewItemCard';
 export { Notice } from './info/Notice/Notice';
 export { Notification } from './info/Notification/Notification';
+export { Pagination } from './Pagination/Pagination';
+export { Panel } from './Panel/Panel';
 export { Password } from './inputs/Password/Password';
 export { Path } from './info/Path/Path';
-export { Pop, PopOver } from '../layout';
+export { Pop } from './PopOver/PopOver.minors';
+export { PopOver } from './PopOver/PopOver';
+export { Progress } from './Progress/Progress';
 export { Radio } from './inputs/Radio/Radio';
 export { RadioSet } from './inputs/Radio/RadioSet';
+export { Ribbon } from './Ribbon/Ribbon';
 export { Search } from './inputs/Search/Search';
 export { Select } from './inputs/Select/Select';
+export { Sidebar } from './Sidebar/Sidebar';
 export { Slider } from './inputs/Slider/Slider';
 export { SocialButton } from './buttons/Social/SocialButton';
+export { Tabs } from './Tabs/Tabs';
 export { Tag } from './chips/Tag/Tag';
 export { TextArea } from './inputs/TextArea/TextArea';
 export { Tip } from './info/Tip/Tip';
@@ -37,3 +46,4 @@ export { withCharacterCount } from './inputs/withCharacterCount/withCharacterCou
 
 // DEPRECATED
 export { FeatureTourPanel } from '../_deprecated/FeatureTour/FeatureTourPanel';
+export { SlideUpDown } from '../_deprecated/SlideUpDown/SlideUpDown';

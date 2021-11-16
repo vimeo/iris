@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { rem, rgba } from 'polished';
 
-import { borderRadiusSizes } from './Button.style';
+import { borderRadii } from './Button.config';
 
 export const FeaturedIcon = styled.div<any>`
   position: absolute;
@@ -11,7 +11,5 @@ export const FeaturedIcon = styled.div<any>`
   background: ${({ theme }) => rgba(theme.content.color, 0.2)};
   border-right: ${({ theme }) => rgba(theme.content.color, 0.5)};
   border-radius: ${(p) =>
-    `${rem(borderRadiusSizes[p.size])} 0 0 ${rem(
-      borderRadiusSizes[p.size]
-    )}`};
+    `${rem(borderRadii[p.size])} 0 0 ${rem(borderRadii[p.size])}`};
 `;

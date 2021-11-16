@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 
-import { Ribbon } from '../../layout';
+import { Ribbon } from '../Ribbon/Ribbon';
 import { IrisProps, withIris, geometry } from '../../utils';
 import { Sizes } from '../../themes';
 

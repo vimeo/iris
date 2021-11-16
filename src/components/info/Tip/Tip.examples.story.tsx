@@ -6,7 +6,8 @@ import { Button } from '../../../components';
 import { Header } from '../../../typography';
 import { Layout } from '../../../storybook';
 import { Eye, EyeOff, Gear } from '../../../icons';
-import { Pop, PopOver } from '../../../layout';
+import { PopOver } from '../../PopOver/PopOver';
+import { Pop } from '../../PopOver/PopOver.minors';
 
 export default {
   title: 'components/Tip/examples',

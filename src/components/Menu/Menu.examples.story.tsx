@@ -3,7 +3,7 @@ import React from 'react';
 import { Menu } from './Menu';
 
 import { Header } from '../../typography';
-import { Tip } from '../../components';
+import { Tip } from '..';
 import { PopOver } from '../PopOver/PopOver';
 import { Pop } from '../PopOver/PopOver.minors';
 import { Layout } from '../../storybook';

@@ -22,3 +22,11 @@ export const iconPositions = [
   'featured',
   'action',
 ] as const;
+
+export const borderRadii = {
+  xs: 4,
+  sm: 6,
+  md: 8,
+  lg: 10,
+  xl: 12,
+} as const;

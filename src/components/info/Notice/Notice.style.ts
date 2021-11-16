@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { rgba, rem } from 'polished';
 
-import { base } from '../../../motion/transitions';
 import { IrisTheme } from '../../../themes';
 import { Text } from '../../../typography';
 import { core } from '../../../tokens';
@@ -20,7 +19,7 @@ export const NoticeStyled = styled.div<Props>`
   width: 100%;
   margin-bottom: ${rem(16)};
   border-radius: ${(p) => (p.pill ? '2rem' : rem(3))};
-  transition: all ${base};
+  transition: 100ms ease-in-out;
   color: ${core.color.text(0)};
 
   ${padding};

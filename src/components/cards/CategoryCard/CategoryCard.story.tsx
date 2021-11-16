@@ -4,7 +4,6 @@ import { Story } from '@storybook/react';
 
 import { CategoryCard as CC, Props } from './CategoryCard';
 
-import { Grid } from '../../../layout';
 import { Gear, Camera, Heart } from '../../../icons';
 
 export default {
@@ -19,7 +18,7 @@ export default {
 
 const Template: Story<Props> = (args) => {
   return (
-    <Grid columns={6}>
+    <Grid>
       <CategoryCard
         {...args}
         icon={<Gear />}
@@ -50,4 +49,10 @@ Controls.storyName = 'CategoryCard';
 
 const CategoryCard = styled(CC)`
   aspect-ratio: 1 / 1;
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid: repeat(6, 1fr);
+  gap: 1rem;
 `;

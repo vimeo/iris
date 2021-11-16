@@ -12,7 +12,7 @@ import { Motion } from './TourPoint.motion';
 import { Caret } from './Caret';
 
 import { Header, Paragraph } from '../../../typography';
-import { Button } from '../../../components';
+import { Button } from '../../buttons/Button/Button';
 import {
   Anchor,
   useAnchor,

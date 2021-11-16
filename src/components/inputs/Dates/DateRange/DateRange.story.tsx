@@ -5,7 +5,7 @@ import { DateRange } from './DateRange';
 import { Props } from './DateRange.types';
 
 import { ChevronDown } from '../../../../icons';
-import { PopOver } from '../../../../layout';
+import { PopOver } from '../../../PopOver/PopOver';
 import { Layout } from '../../../../storybook';
 import { Button } from '../../../buttons/Button/Button';
 import { useOutsideClick } from '../../../../utils';

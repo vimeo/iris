@@ -4,7 +4,7 @@ import { Button } from '../../../buttons/Button/Button';
 import { TourPoint } from '../TourPoint';
 import { Tour } from '../TourPoint.context';
 
-import { PopOver } from '../../../../layout';
+import { PopOver } from '../../../PopOver/PopOver';
 import { Paragraph } from '../../../../typography';
 
 export function InsidePopOver() {

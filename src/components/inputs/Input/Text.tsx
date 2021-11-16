@@ -11,10 +11,7 @@ import { useSuggestions } from './useSuggestions';
 
 import { Wrapper } from '../Wrapper/Wrapper';
 
-// Iris submodule organization needs to be reconsidered.
-// This creates a circular dependency.
-// import { PopOver } from '../../../layout';
-import { PopOver } from '../../../layout/PopOver/PopOver';
+import { PopOver } from '../../PopOver/PopOver';
 import {
   Focus,
   useLayoutStyles,
