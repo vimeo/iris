@@ -1,12 +1,9 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
-import { shade } from 'polished';
-
-import { CaretStyled } from './TourPoint.style';
+import React from 'react';
+import styled from 'styled-components';
+import { core } from '../../../tokens';
 
 export function Caret({ attach = 'left' }) {
-  const { name } = useContext(ThemeContext);
-  const style = attachPosition({ attach, theme: name });
+  const style = attachPosition({ attach });
 
   return <CaretStyled style={style} />;
 }
@@ -15,11 +12,20 @@ function caret(side, sideA, sideB, borderSize) {
   return side === sideA || side === sideB ? borderSize : 0;
 }
 
+export const CaretStyled = styled.div`
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  transform: rotate(-45deg);
+  background: ${core.color.background(600)};
+  border: 0.25rem solid transparent;
+  background-clip: padding-box;
+`;
+
 function attachPosition({
   attach = 'left',
   distance = 1,
   size = 0.5,
-  theme = 'light',
 }) {
   const borderSize = '0.25rem';
   const [side, placement] = attach.split('-');
@@ -39,54 +45,76 @@ function attachPosition({
     borderLeftWidth: caret(side, 'left', 'bottom', borderSize),
   };
 
-  const borderImage = gradient(attach, theme);
   const borderRadius = '0.125rem';
 
   const styleSide = {
     [side]: '-0.68rem',
     [shiftProp]: shiftVal,
     borderRadius,
-    borderImage,
     ...border,
   };
 
   return styleSide;
 }
 
-// TODO:
-// Either calculate gradients based on size of TourPoint or
-// place an equivalent conic-gradient very-off-center that
-// correctly overlaps with the gradient on the TourPoint.
-function gradient(attach, theme) {
-  let colors = [];
+export function buildClipPaths(attach) {
+  const [side, placement] = attach.split('-');
+  const axis = side === 'left' || side === 'right' ? 'X' : 'Y';
 
-  if (attach === 'right')
-    colors = ['rgb(142, 79, 146)', 'rgb(119, 75, 161)'];
-  if (attach === 'right-top')
-    colors = ['rgb(237, 110, 82)', 'rgb(237, 103, 83)'];
-  if (attach === 'right-bottom')
-    colors = ['rgb(103, 148, 223)', 'rgb(104, 158, 228)'];
-  if (attach === 'left')
-    colors = ['rgb(177, 197, 80)', 'rgb(160, 196, 69)'];
-  if (attach === 'left-top')
-    colors = ['rgb(246, 198, 111)', 'rgb(246, 199, 115)'];
-  if (attach === 'left-bottom')
-    colors = ['rgb(90, 156, 148)', 'rgb(83, 151, 159)'];
-  if (attach === 'top')
-    colors = ['rgb(244, 183, 73)', 'rgb(244, 176, 71)'];
-  if (attach === 'top-left')
-    colors = ['rgb(246, 195, 104)', 'rgb(245, 193, 99)'];
-  if (attach === 'top-right')
-    colors = ['rgb(240, 131, 79)', 'rgb(238, 123, 80)'];
-  if (attach === 'bottom')
-    colors = ['rgb(80, 159, 221)', 'rgb(86, 167, 227)'];
-  if (attach === 'bottom-left')
-    colors = ['rgb(72, 143, 177)', 'rgb(64, 138, 190)'];
-  if (attach === 'bottom-right')
-    colors = ['rgb(106, 186, 246)', 'rgb(105, 175, 239)'];
+  const TL = side === 'left' || side === 'top';
 
-  if (theme === 'dark')
-    colors = colors.map((color) => shade(0.125, color));
+  const sign = TL ? 1 : -1;
+  const operator = TL ? '+' : '-';
+  const end = TL ? '0%' : '100%';
 
-  return `linear-gradient(${colors}) 1`;
+  const distance = 0.67 * sign * -1 + 'rem';
+  const inset = `calc(${end} ${operator} 1rem)`;
+  const translate = `translate${axis}(${distance})`;
+
+  const [A, B, Tip] = buildVertices(placement, side, inset);
+  const clipPath = `polygon(${A}, ${Tip}, ${B})`;
+
+  return {
+    '--caret-translate': translate,
+    '--caret-clip-path': clipPath,
+  };
+}
+
+function buildVertices(placement, side, inset) {
+  const TL = placement === 'left' || placement === 'top';
+  const end = TL ? '0%' : '100%';
+  const sign = TL ? 1 : -1;
+
+  const points = buildPoints(placement, sign, end);
+
+  return points.map((point, i) => {
+    const tip = i === 2;
+    const outset = inset.replace('1rem', '0rem');
+
+    return tip
+      ? buildVertex(side, outset, point)
+      : buildVertex(side, inset, point);
+  });
+}
+
+function buildVertex(side, X, Y) {
+  return side === 'left' || side === 'right'
+    ? `${X} ${Y}`
+    : `${Y} ${X}`;
+}
+
+function buildPoints(placement, sign, end) {
+  if (!placement) {
+    return [
+      'calc(50% + 1rem)',
+      'calc(50% - 1rem)',
+      'calc(50% + 0rem)',
+    ];
+  } else {
+    return [
+      `calc(${end} + ${sign * 1.25}rem)`,
+      `calc(${end} + ${sign * 3.25}rem)`,
+      `calc(${end} + ${sign * 2.25}rem)`,
+    ];
+  }
 }

@@ -1,5 +1,5 @@
 import { shade } from 'polished';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { core } from '../../../tokens';
 import { Text } from '../../../typography';
@@ -35,27 +35,39 @@ const rainbow = {
   dark: rainbowColors.map((color) => shade(0.125, color)).join(', '),
 };
 
+const rainbowBackground = css`
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  margin: -0.25rem;
+  border-radius: 0.5rem;
+  background: conic-gradient(${(p) => rainbow[p.theme.name]});
+`;
+
 export const TourPointStyled = styled.div`
   position: relative;
   padding: 1rem;
   background: ${core.color.background(600)};
   color: ${core.color.text(0)};
   width: 320px;
-  border-radius: 0.5rem;
+  border-radius: 0.6rem;
   background-clip: padding-box;
   border: 0.25rem solid transparent;
+  box-shadow: 0 0 0.75rem -0.25rem rgba(0, 0, 0, 0.1),
+    0 1rem 1rem -1rem rgba(0, 0, 0, 0.25);
 
   &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    margin: -0.25rem;
-    border-radius: 0.5rem;
-    background: conic-gradient(${(p) => rainbow[p.theme.name]});
+    ${rainbowBackground}
+  }
+
+  &::after {
+    ${rainbowBackground}
+    clip-path: var(--caret-clip-path);
+    transform: var(--caret-translate);
   }
 
   > img {
@@ -64,13 +76,4 @@ export const TourPointStyled = styled.div`
     margin-bottom: 1rem;
     background-color: black;
   }
-`;
-
-export const CaretStyled = styled.div`
-  position: absolute;
-  width: 1rem;
-  height: 1rem;
-  transform: rotate(-45deg);
-  background: ${core.color.background(600)};
-  border: 0.25rem solid ${core.color.text(0)};
 `;

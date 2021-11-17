@@ -9,7 +9,7 @@ import type { Props } from './TourPoint.types';
 import { Footer, Steps, TourPointStyled } from './TourPoint.style';
 import { TourContext } from './TourPoint.context';
 import { Motion } from './TourPoint.motion';
-import { Caret } from './Caret';
+import { Caret, buildClipPaths } from './Caret';
 
 import { Header, Paragraph } from '../../../typography';
 import { Button } from '../../buttons/Button/Button';
@@ -81,6 +81,8 @@ export function TourPoint({
     <Button variant="minimalTransparent" onClick={dismiss} />
   );
 
+  const clipPath = buildClipPaths(attach);
+
   const side = attach.split('-')[0] || attach;
   const marginSide = 'margin' + capitalize(side);
   const margin = '1rem';
@@ -91,7 +93,11 @@ export function TourPoint({
     <Anchor zIndex={zIndex} {...propsAnchor}>
       <Motion attach={attach}>
         <TourPointStyled
-          style={{ ...style, [marginSide]: margin }}
+          style={{
+            ...style,
+            ...clipPath,
+            [marginSide]: margin,
+          }}
           ref={refAnchor}
           {...props}
         >
