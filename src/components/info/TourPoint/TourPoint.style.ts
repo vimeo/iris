@@ -54,9 +54,11 @@ export const TourPointStyled = styled.div`
   background: ${core.color.background(600)};
   color: ${core.color.text(0)};
   width: 320px;
-  border-radius: 0.667rem;
+  border-radius: 0.6rem;
   background-clip: padding-box;
   border: 0.25rem solid transparent;
+  box-shadow: 0 0 0.75rem -0.25rem rgba(0, 0, 0, 0.1),
+    0 1rem 1rem -1rem rgba(0, 0, 0, 0.25);
 
   &::before {
     ${rainbowBackground}
