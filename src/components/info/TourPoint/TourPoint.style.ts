@@ -41,7 +41,7 @@ export const TourPointStyled = styled.div`
   background: ${core.color.background(600)};
   color: ${core.color.text(0)};
   width: 320px;
-  border-radius: 0.5rem;
+  border-radius: 0.667rem;
   background-clip: padding-box;
   border: 0.25rem solid transparent;
 
@@ -58,19 +58,25 @@ export const TourPointStyled = styled.div`
     background: conic-gradient(${(p) => rainbow[p.theme.name]});
   }
 
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    margin: -0.25rem;
+    border-radius: 0.5rem;
+    background: conic-gradient(${(p) => rainbow[p.theme.name]});
+    clip-path: var(--caret-clip-path);
+    transform: var(--caret-translate);
+  }
+
   > img {
     width: 100%;
     border-radius: 0.1875rem;
     margin-bottom: 1rem;
     background-color: black;
   }
-`;
-
-export const CaretStyled = styled.div`
-  position: absolute;
-  width: 1rem;
-  height: 1rem;
-  transform: rotate(-45deg);
-  background: ${core.color.background(600)};
-  border: 0.25rem solid ${core.color.text(0)};
 `;
