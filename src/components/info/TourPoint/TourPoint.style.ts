@@ -1,5 +1,5 @@
 import { shade } from 'polished';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { core } from '../../../tokens';
 import { Text } from '../../../typography';
@@ -35,6 +35,19 @@ const rainbow = {
   dark: rainbowColors.map((color) => shade(0.125, color)).join(', '),
 };
 
+const rainbowBackground = css`
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  margin: -0.25rem;
+  border-radius: 0.5rem;
+  background: conic-gradient(${(p) => rainbow[p.theme.name]});
+`;
+
 export const TourPointStyled = styled.div`
   position: relative;
   padding: 1rem;
@@ -46,29 +59,11 @@ export const TourPointStyled = styled.div`
   border: 0.25rem solid transparent;
 
   &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    margin: -0.25rem;
-    border-radius: 0.5rem;
-    background: conic-gradient(${(p) => rainbow[p.theme.name]});
+    ${rainbowBackground}
   }
 
   &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    margin: -0.25rem;
-    border-radius: 0.5rem;
-    background: conic-gradient(${(p) => rainbow[p.theme.name]});
+    ${rainbowBackground}
     clip-path: var(--caret-clip-path);
     transform: var(--caret-translate);
   }
