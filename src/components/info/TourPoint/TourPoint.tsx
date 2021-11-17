@@ -9,7 +9,7 @@ import type { Props } from './TourPoint.types';
 import { Footer, Steps, TourPointStyled } from './TourPoint.style';
 import { TourContext } from './TourPoint.context';
 import { Motion } from './TourPoint.motion';
-import { Caret } from './Caret';
+import { Caret, buildClipPaths } from './Caret';
 
 import { Header, Paragraph } from '../../../typography';
 import { Button } from '../../buttons/Button/Button';
@@ -81,14 +81,13 @@ export function TourPoint({
     <Button variant="minimalTransparent" onClick={dismiss} />
   );
 
+  const clipPath = buildClipPaths(attach);
+
   const side = attach.split('-')[0] || attach;
   const marginSide = 'margin' + capitalize(side);
   const margin = '1rem';
 
   const zIndex = style?.zIndex || 6000;
-
-  const clipPath = makeClipPaths(attach);
-  console.log({ clipPath });
 
   const childrenPortal = usePortal(
     <Anchor zIndex={zIndex} {...propsAnchor}>
@@ -136,65 +135,4 @@ function slotProgressive(children, Wrapper) {
       : children;
 
   return ProgressiveElement;
-}
-function makeClipPaths(attach) {
-  const [side, placement] = attach.split('-');
-  const axis = side === 'left' || side === 'right' ? 'X' : 'Y';
-
-  const TL = side === 'left' || side === 'top';
-
-  const sign = TL ? 1 : -1;
-  const operator = TL ? '+' : '-';
-  const end = TL ? '0%' : '100%';
-
-  const distance = 0.67 * sign * -1 + 'rem';
-  const inset = `calc(${end} ${operator} 1rem)`;
-  const translate = `translate${axis}(${distance})`;
-
-  const [A, B, Tip] = makeVertices(placement, side, inset);
-  const clipPath = `polygon(${A}, ${Tip}, ${B})`;
-
-  return {
-    '--caret-translate': translate,
-    '--caret-clip-path': clipPath,
-  };
-}
-
-function makeVertices(placement, side, inset) {
-  const TL = placement === 'left' || placement === 'top';
-  const end = TL ? '0%' : '100%';
-  const sign = TL ? 1 : -1;
-
-  const points = makePoints(placement, sign, end);
-
-  return points.map((point, i) => {
-    const tip = i === 2;
-    const outset = inset.replace('1rem', '0rem');
-
-    return tip
-      ? makeVertex(side, outset, point)
-      : makeVertex(side, inset, point);
-  });
-}
-
-function makeVertex(side, X, Y) {
-  return side === 'left' || side === 'right'
-    ? `${X} ${Y}`
-    : `${Y} ${X}`;
-}
-
-function makePoints(placement, sign, end) {
-  if (!placement) {
-    return [
-      'calc(50% + 1rem)',
-      'calc(50% - 1rem)',
-      'calc(50% + 0rem)',
-    ];
-  } else {
-    return [
-      `calc(${end} + ${sign * 1.25}rem)`,
-      `calc(${end} + ${sign * 3.25}rem)`,
-      `calc(${end} + ${sign * 2.25}rem)`,
-    ];
-  }
 }

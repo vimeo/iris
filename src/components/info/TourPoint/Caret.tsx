@@ -56,3 +56,65 @@ function attachPosition({
 
   return styleSide;
 }
+
+export function buildClipPaths(attach) {
+  const [side, placement] = attach.split('-');
+  const axis = side === 'left' || side === 'right' ? 'X' : 'Y';
+
+  const TL = side === 'left' || side === 'top';
+
+  const sign = TL ? 1 : -1;
+  const operator = TL ? '+' : '-';
+  const end = TL ? '0%' : '100%';
+
+  const distance = 0.67 * sign * -1 + 'rem';
+  const inset = `calc(${end} ${operator} 1rem)`;
+  const translate = `translate${axis}(${distance})`;
+
+  const [A, B, Tip] = buildVertices(placement, side, inset);
+  const clipPath = `polygon(${A}, ${Tip}, ${B})`;
+
+  return {
+    '--caret-translate': translate,
+    '--caret-clip-path': clipPath,
+  };
+}
+
+function buildVertices(placement, side, inset) {
+  const TL = placement === 'left' || placement === 'top';
+  const end = TL ? '0%' : '100%';
+  const sign = TL ? 1 : -1;
+
+  const points = buildPoints(placement, sign, end);
+
+  return points.map((point, i) => {
+    const tip = i === 2;
+    const outset = inset.replace('1rem', '0rem');
+
+    return tip
+      ? buildVertex(side, outset, point)
+      : buildVertex(side, inset, point);
+  });
+}
+
+function buildVertex(side, X, Y) {
+  return side === 'left' || side === 'right'
+    ? `${X} ${Y}`
+    : `${Y} ${X}`;
+}
+
+function buildPoints(placement, sign, end) {
+  if (!placement) {
+    return [
+      'calc(50% + 1rem)',
+      'calc(50% - 1rem)',
+      'calc(50% + 0rem)',
+    ];
+  } else {
+    return [
+      `calc(${end} + ${sign * 1.25}rem)`,
+      `calc(${end} + ${sign * 3.25}rem)`,
+      `calc(${end} + ${sign * 2.25}rem)`,
+    ];
+  }
+}
