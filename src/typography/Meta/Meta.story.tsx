@@ -2,9 +2,7 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 import { Meta } from './Meta';
-// import { Props } from './Meta.types';
-
-type Props = any;
+import { Props } from './Meta.types';
 
 export default {
   title: 'typography/Meta',

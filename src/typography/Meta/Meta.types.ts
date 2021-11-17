@@ -5,7 +5,7 @@ export type Props = IrisProps<
   {
     contentEditable?: never;
     /**
-     * [default = 'p']
+     * [default = 'span']
      */
     element?: 'p' | 'span' | 'label';
     /**

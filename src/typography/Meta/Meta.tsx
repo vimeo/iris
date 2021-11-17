@@ -1,11 +1,9 @@
 import React from 'react';
 
-// import { Props } from './Meta.types';
+import { Props } from './Meta.types';
 import { Meta as Styled } from './Meta.style';
 
 import { withIris } from '../../utils';
-
-type Props = any;
 
 export const Meta = withIris<
   HTMLParagraphElement | HTMLSpanElement | HTMLLabelElement,
