@@ -109,11 +109,6 @@ export function IconPosition() {
 }
 IconPosition.storyName = 'iconPosition';
 
-export function Floating() {
-  return <Button floating>Floating Button</Button>;
-}
-Floating.storyName = 'floating';
-
 export function Fluid() {
   return <Button fluid>Fluid Button</Button>;
 }
