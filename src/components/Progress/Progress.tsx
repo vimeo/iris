@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { Ribbon } from '../Ribbon/Ribbon';
 import { IrisProps, withIris, geometry } from '../../utils';
-import { Sizes } from '../../themes';
 
 export const Progress = withIris<HTMLDivElement, Props>(
   ProgressComponent
@@ -27,7 +26,7 @@ export type Props = IrisProps<{
   /**
    * [default = 'md']
    */
-  size?: Sizes;
+  size?: 'xs' | 'sm' | 'md';
 }>;
 
 function ProgressComponent({
@@ -50,16 +49,13 @@ function ProgressComponent({
   };
 
   return (
-    <Background
-      ref={ref}
-      style={{ ...style, background: bgGradient }}
-      {...props}
-    >
+    <Background ref={ref} style={{ ...style }} {...props}>
       <Boundary style={{ width: value + '%' }}>
         <Ribbon
           animate={animate}
           ref={forwardRef}
           role="progressbar"
+          size={size}
           style={{ width, background }}
           variant={variant}
           {...ARIAprops}
@@ -69,7 +65,10 @@ function ProgressComponent({
   );
 }
 
-const bgGradient = 'linear-gradient(to right, #908994, #adb4be)';
+const bgGradient = ({ theme }) =>
+  theme.name === 'dark'
+    ? 'linear-gradient(to right, #322f33, #45484c)'
+    : 'linear-gradient(to right, #908994, #adb4be)';
 
 const Background = styled.div`
   position: relative;
