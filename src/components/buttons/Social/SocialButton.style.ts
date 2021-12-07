@@ -28,7 +28,7 @@ export const brandThemes = {
   google: {
     ...themes.light,
     name: 'Google',
-    icon: (GoogleGColor as any).render(),
+    icon: (GoogleGColor as any).render({}),
     formats: {
       ...themes.light.formats,
       primary: '#4285f4',
@@ -38,7 +38,7 @@ export const brandThemes = {
   facebook: {
     ...themes.light,
     name: 'Facebook',
-    icon: (Facebook as any).render(),
+    icon: (Facebook as any).render({}),
     formats: {
       ...themes.light.formats,
       primary: '#4267b2',
@@ -58,7 +58,7 @@ export const brandThemes = {
     light: {
       ...themes.dark,
       name: 'Apple',
-      icon: (Apple as any).render(),
+      icon: (Apple as any).render({}),
       formats: {
         ...themes.dark.formats,
         primary: '#000',
@@ -68,7 +68,7 @@ export const brandThemes = {
     dark: {
       ...themes.light,
       name: 'Apple',
-      icon: (Apple as any).render(),
+      icon: (Apple as any).render({}),
       formats: {
         ...themes.dark.formats,
         primary: '#FFF',
