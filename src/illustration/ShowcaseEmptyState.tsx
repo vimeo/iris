@@ -5,7 +5,7 @@ export const ShowcaseEmptyState = (
   <svg viewBox="0 0 160 138" {...props}>
     <g fill="none" fillRule="evenodd">
       <circle
-        fill-opacity=".069"
+        fillOpacity=".069"
         fill="#00ADEF"
         fillRule="nonzero"
         cx="80"
