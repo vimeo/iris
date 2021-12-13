@@ -18,6 +18,28 @@ const style = css`
   width: 50%;
 `;
 
+export function Size() {
+  return (
+    <>
+      <Progress
+        animate={false}
+        css={style}
+        size="xs"
+        value={50}
+        variant="primary"
+      />
+      <Progress
+        animate={false}
+        css={style}
+        size="md"
+        value={50}
+        variant="primary"
+      />
+    </>
+  );
+}
+Size.storyName = 'size';
+
 export function Variant() {
   const [progress] = useSimulateProgress();
 
@@ -29,6 +51,7 @@ export function Variant() {
     </>
   );
 }
+Variant.storyName = 'variant';
 
 export function Custom() {
   const [progress] = useSimulateProgress();
@@ -38,6 +61,7 @@ export function Custom() {
     <Progress css={style} value={progress} style={{ background }} />
   );
 }
+Custom.storyname = 'custom';
 
 function useSimulateProgress(): [
   number,
