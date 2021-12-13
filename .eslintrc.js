@@ -1,5 +1,8 @@
 module.exports = {
-  extends: ['plugin:@typescript-eslint/recommended'],
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+  ],
   parser: '@typescript-eslint/parser',
   plugins: [
     'react-hooks',
@@ -7,6 +10,7 @@ module.exports = {
     'import',
     '@typescript-eslint',
     'prettier',
+    'react',
   ],
   settings: {
     'import/resolver': {
@@ -14,6 +18,9 @@ module.exports = {
         paths: ['src'],
       },
     },
+    'react': {
+      'version': 'detect',
+    }
   },
   overrides: [
     {
@@ -94,9 +101,14 @@ module.exports = {
     //
     // react rules
     //
-    // 'react/destructuring-assignment': 1,
-    'react/jsx-filename-extension': 0,
-    'react/prop-types': 0,
+    'react/destructuring-assignment': "warn",
+    'react/display-name': 'warn',
+    'react/jsx-filename-extension': ['error', {"extensions": [".tsx"]}],
+    'react/jsx-key': 'warn',
+    'react/jsx-no-comment-textnodes': 'warn',
+    'react/no-children-prop': 'warn',
+    'react/no-unescaped-entities': 'warn',
+    'react/prop-types': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
   },
