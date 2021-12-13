@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Select } from './Select';
 
 import { Layout } from '../../../storybook';
-import { Badge } from '../../chips/Badge/Badge.style';
+import { Badge } from '../../Badge/Badge';
 import { PaperPlane } from '../../../icons';
 import { blue } from '../../../color';
 import { Button } from '../../buttons/Button/Button';
