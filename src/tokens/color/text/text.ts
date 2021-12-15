@@ -21,7 +21,6 @@ function dark(grade: number): TokenValue {
 }
 
 function light(grade: number): TokenValue {
-  console.log(round(grade / -1.667 + 900, 0));
   return slate(clamp(round(grade / -1.667 + 900, 0)));
 }
 
