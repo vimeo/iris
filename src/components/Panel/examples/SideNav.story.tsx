@@ -142,7 +142,7 @@ const SideNavStyled = styled(Panel)`
 const Hero = styled.div`
   height: 300px;
   padding: 0.75rem;
-  background: ${core.color.background(200)};
+  background: ${core.color.surface(200)};
   width: 100%;
   display: flex;
   justify-content: space-between;

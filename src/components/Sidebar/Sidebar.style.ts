@@ -18,7 +18,7 @@ export const SidebarStyled = styled.div<{
   display: flex;
   flex-direction: column;
 
-  background: ${core.color.background(800)};
+  background: ${core.color.surface(800)};
   color: ${core.color.text(300)};
   border: 1px solid ${core.color.stroke};
   ${attach};
@@ -52,7 +52,7 @@ export const PanelStyled = styled.div<{
   padding: 1rem;
 
   transition: transform 180ms ease-in-out;
-  background: ${core.color.background(800)};
+  background: ${core.color.surface(800)};
   color: ${core.color.text(300)};
   transform: ${transform};
   left: ${left};
