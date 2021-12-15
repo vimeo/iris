@@ -17,7 +17,7 @@ export const CaretStyled = styled.div`
   width: 1rem;
   height: 1rem;
   transform: rotate(-45deg);
-  background: ${core.color.background(600)};
+  background: ${core.color.surface(600)};
   border: 0.25rem solid transparent;
   background-clip: padding-box;
 `;

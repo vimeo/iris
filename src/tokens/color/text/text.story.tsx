@@ -10,23 +10,47 @@ import { tx } from '../../util';
 
 export function Tokens() {
   return (
-    <Canvas>
-      {[...new Array(11)].map((_, key) => {
-        const grade = key * 100;
+    <>
+      <Canvas>
+        <Card grade={0} styles={styles}>
+          <span>
+            <Text>color-text-primary</Text>
+            <br />
+            <Text>color-text-0</Text>
+          </span>
+          <Example grade={0}>color-text-primary</Example>
+        </Card>
+        <Card grade={600} styles={styles}>
+          <span>
+            <Text>color-text-secondary</Text>
+            <br />
+            <Text>color-text-600</Text>
+          </span>
+          <Example grade={600}>color-text-secondary</Example>
+        </Card>
+      </Canvas>
 
-        return (
-          <Card
-            key={key}
-            grade={grade}
-            styles={styles}
-            style={{ marginBottom: '3rem' }}
-          >
-            <Text>color-text-{grade}</Text>
-            <Example grade={grade}>color-text-{grade}</Example>
-          </Card>
-        );
-      })}
-    </Canvas>
+      <br />
+      <hr />
+
+      <Canvas>
+        {[...new Array(11)].map((_, key) => {
+          const grade = key * 100;
+
+          return (
+            <Card
+              key={key}
+              grade={grade}
+              styles={styles}
+              style={{ marginBottom: '3rem' }}
+            >
+              <Text>color-text-{grade}</Text>
+              <Example grade={grade}>color-text-{grade}</Example>
+            </Card>
+          );
+        })}
+      </Canvas>
+    </>
   );
 }
 
@@ -41,6 +65,10 @@ function styles({ theme, grade }) {
 
     > span:first-of-type {
       color: ${color};
+
+      > span {
+        color: ${color};
+      }
     }
   `;
 }

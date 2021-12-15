@@ -21,7 +21,7 @@ export function StoryControlBar({ children }) {
 const StoryControlBarStyled = styled.div`
   padding: 0.75rem;
   border-radius: 0.75rem;
-  border: 2px solid ${core.color.background(200)};
+  border: 2px solid ${core.color.surface(200)};
   display: flex;
   gap: 0.75rem;
 `;
