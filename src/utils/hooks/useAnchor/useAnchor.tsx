@@ -1,5 +1,6 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { throttle } from '../..';
 
 const useIsomorphicLayoutEffect =
   typeof window === 'undefined' || typeof document === 'undefined'
@@ -38,10 +39,21 @@ export function useAnchor(
 
   useIsomorphicLayoutEffect(() => {
     if (ref.current) {
-      const rectRef: DOMRect = ref.current.getBoundingClientRect();
-      const { width, height, top, left } = rectRef;
+      const updateRect = () => {
+        const rectRef: DOMRect = ref.current.getBoundingClientRect();
+        const { width, height, top, left } = rectRef;
 
-      if (rect.top !== top) rectSet({ width, height, top, left });
+        if (rect.top !== top) rectSet({ width, height, top, left });
+      };
+
+      window.addEventListener(
+        'resize',
+        throttle(() => {
+          updateRect();
+        }, 10)
+      );
+
+      updateRect();
     }
   }, [ref, rect]);
 
