@@ -1,6 +1,12 @@
 import { grayscale, slate } from '../../../color';
 
-import { Token, readToken, TokenValue, clamp } from '../../util';
+import {
+  Token,
+  readToken,
+  TokenValue,
+  clamp,
+  round,
+} from '../../util';
 
 export const text = (grade: number) => readToken(token, grade);
 
@@ -15,5 +21,9 @@ function dark(grade: number): TokenValue {
 }
 
 function light(grade: number): TokenValue {
-  return slate(clamp(grade / -2 + 800));
+  console.log(round(grade / -1.667 + 900, 0));
+  return slate(clamp(round(grade / -1.667 + 900, 0)));
 }
+
+text.primary = text(0);
+text.secondary = text(600);

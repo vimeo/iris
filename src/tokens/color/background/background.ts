@@ -1,4 +1,4 @@
-import { grayscale, slate, white } from '../../../color';
+import { grayscale, slate } from '../../../color';
 
 import { Token, readToken, TokenValue, clamp } from '../../util';
 
@@ -11,9 +11,12 @@ const token: Token = {
 };
 
 function dark(grade: number): TokenValue {
-  return grayscale(clamp(-1 * (grade / 5 - 1000)));
+  return grayscale(clamp(900 + grade / 10));
 }
 
 function light(grade: number): TokenValue {
-  return grade >= 300 ? white : slate(clamp(-1 * (grade / 2 - 150)));
+  return slate(clamp((grade + 200) / 4 - 175));
 }
+
+background.primary = background(500);
+background.secondary = background(1000);

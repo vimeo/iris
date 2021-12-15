@@ -12,18 +12,25 @@ export function Tokens() {
   return (
     <>
       <Canvas>
-        <Card grade={500} styles={styles}>
+        <Card grade={400} styles={styles}>
           <span>
-            <Text>color-background-primary</Text>
+            <Text>color-surface-primary</Text>
             <br />
-            <Text>color-background-500</Text>
+            <Text>color-surface-400</Text>
           </span>
         </Card>
-        <Card grade={1000} styles={styles}>
+        <Card grade={600} styles={styles}>
           <span>
-            <Text>color-background-secondary</Text>
+            <Text>color-surface-secondary</Text>
             <br />
-            <Text>color-background-1000</Text>
+            <Text>color-surface-600</Text>
+          </span>
+        </Card>
+        <Card grade={800} styles={styles}>
+          <span>
+            <Text>color-surface-secondary</Text>
+            <br />
+            <Text>color-surface-800</Text>
           </span>
         </Card>
       </Canvas>
@@ -36,7 +43,7 @@ export function Tokens() {
 
           return (
             <Card key={key} grade={grade} styles={styles}>
-              <Text>color-background-{grade}</Text>
+              <Text>color-surface-{grade}</Text>
             </Card>
           );
         })}
@@ -45,14 +52,14 @@ export function Tokens() {
   );
 }
 
-Tokens.storyName = 'background';
+Tokens.storyName = 'surface';
 
 function styles({ theme, grade }) {
-  const background = tx(theme, core.color.background(grade));
-  const color = readableColor(background);
+  const surface = tx(theme, core.color.surface(grade));
+  const color = readableColor(surface);
 
   return css`
-    background: ${background};
+    background: ${surface};
 
     > span {
       color: ${color};
