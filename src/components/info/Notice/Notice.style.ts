@@ -5,11 +5,13 @@ import { rgba, rem } from 'polished';
 import { IrisTheme } from '../../../themes';
 import { Text } from '../../../typography';
 import { core } from '../../../tokens';
+import { onClose } from '../../../utils';
 
 interface Props {
   format?: 'primary' | 'positive' | 'negative';
   header?: string;
   icon?: ReactNode;
+  onClose?: onClose;
   pill?: boolean;
   theme: IrisTheme;
 }
@@ -38,15 +40,16 @@ export const NoticeChildren = styled(Text)`
   color: white;
 `;
 
-function padding({ icon = null, pill = null }) {
+function padding({ icon = null, onClose = null, pill = null }) {
   const pillPad = pill ? 1.5 : 1;
   const iconPad = icon ? 2 : 0;
+  const dismissPad = onClose ? 2.25 : 0;
 
   return {
     paddingTop: '0.75rem',
-    paddingRight: 3 + pillPad + 'rem',
+    paddingRight: pillPad + dismissPad + 'rem',
     paddingBottom: '0.75rem',
-    paddingLeft: 0 + pillPad + iconPad + 'rem',
+    paddingLeft: pillPad + iconPad + 'rem',
   };
 }
 
