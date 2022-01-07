@@ -46,14 +46,17 @@ export function useAnchor(
         if (rect.top !== top) rectSet({ width, height, top, left });
       };
 
-      window.addEventListener(
-        'resize',
-        throttle(() => {
-          updateRect();
-        }, 10)
-      );
+      const resizeEventListener = throttle(() => {
+        updateRect();
+      }, 10);
+
+      window.addEventListener('resize', resizeEventListener);
 
       updateRect();
+
+      return () => {
+        window.removeEventListener('resize', resizeEventListener);
+      };
     }
   }, [ref, rect]);
 
