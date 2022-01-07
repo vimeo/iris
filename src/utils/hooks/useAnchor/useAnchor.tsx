@@ -43,10 +43,13 @@ export function useAnchor(
         const rectRef: DOMRect = ref.current.getBoundingClientRect();
         const { width, height, top, left } = rectRef;
 
-        if (rect.top !== top) rectSet({ width, height, top, left });
+        if (rect.top !== top || rect.left !== left) {
+          rectSet({ width, height, top, left });
+        }
       };
 
       const resizeEventListener = throttle(() => {
+        console.log('Update');
         updateRect();
       }, 10);
 
