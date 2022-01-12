@@ -105,6 +105,7 @@
         "build": "npm run clean; npx rollup --c rollup.config.js",
         "build-debug": "npx rollup -c rollup.config.js --config-debug",
         "checkup": "npx npm-check-updates",
+        "chromatic": "npx chromatic --project-token=$(process.env.CHROMATIC_PROJECT_TOKEN)",
         "clean": "rm -rf build",
         "dev": "npm run storybook",
         "lint-pretty": "eslint 'src/**/*.{ts,tsx}' -f codeFrame && npm run prettier && npm run stylelint",
@@ -160,5 +161,7 @@
         "React",
         "styled-components"
     ],
-    "dependencies": {}
+    "dependencies": {
+        "chromatic": "^6.3.4"
+    }
 }
