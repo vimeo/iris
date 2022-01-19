@@ -11,7 +11,7 @@ const token: Token = {
 };
 
 function dark(grade: number): TokenValue {
-  return grayscale(clamp(-1 * (grade / 5 - 1000)));
+  return grayscale(clamp(-1 * (grade / 4.5 - 1000)));
 }
 
 function light(grade: number): TokenValue {

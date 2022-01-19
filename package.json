@@ -102,9 +102,10 @@
         "react": "*"
     },
     "scripts": {
-        "build-styleguide": "build-storybook -c .storybook -o build-styleguide",
-        "build": "npm run clean; npx rollup --c rollup.config.js",
+        "build": "npm run clean; npx rollup --c rollup.config.js; npm run build-tokens",
         "build-debug": "npx rollup -c rollup.config.js --config-debug",
+        "build-styleguide": "build-storybook -c .storybook -o build-styleguide",
+        "build-tokens": "./scripts/output-token-json; ./scripts/output-token-css",
         "checkup": "npx npm-check-updates",
         "clean": "rm -rf build",
         "dev": "npm run storybook",

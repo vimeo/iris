@@ -24,7 +24,7 @@ async function run() {
 
   try {
     await fileWrite(
-      path.join(root, '/src/tokens/tokens-test.json'),
+      path.join(root, 'tokens.json'),
       JSON.stringify(tokens, null, 2)
     );
   } catch (err) {

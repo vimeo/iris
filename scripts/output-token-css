@@ -31,11 +31,11 @@ run();
 
 async function tokensRead() {
   try {
-    const file = path.join(root, '/src/tokens/tokens-test.json');
+    const file = path.join(root, 'tokens.json');
     const data = await fileRead(file, 'utf8');
     const json = JSON.parse(data);
 
-    return json;
+    return json.iris;
   } catch (err) {
     console.error(err);
     process.exit(1);
