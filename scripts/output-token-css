@@ -1,0 +1,80 @@
+#!/usr/bin/env node
+
+let fs = require('fs');
+let util = require('util');
+let path = require('path');
+
+const fileWrite = util.promisify(fs.writeFile);
+const fileRead = util.promisify(fs.readFile);
+
+const root = path.join(__dirname, '..');
+
+async function run() {
+  const themes = await tokensProcess();
+
+  const output = Object.keys(themes)
+    .map((theme) => {
+      const tokens = tokensWrite(themes[theme]);
+      return `html[data-theme='${theme}'] {${tokens}}`;
+    })
+    .join('\n\n');
+
+  try {
+    await fileWrite(path.join(root, 'iris.css'), Buffer.from(output));
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+}
+
+run();
+
+async function tokensRead() {
+  try {
+    const file = path.join(root, '/src/tokens/tokens-test.json');
+    const data = await fileRead(file, 'utf8');
+    const json = JSON.parse(data);
+
+    return json;
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+}
+
+async function tokensProcess() {
+  try {
+    const tokens = await tokensRead();
+    const themes = {};
+
+    const tokenKeys = Object.keys(tokens);
+
+    tokenKeys.map((tokenKey) => {
+      const [name, theme] = tokenKey.split(`--`);
+      const { value, type } = tokens[tokenKey];
+
+      const token = { name, value, type };
+
+      if (!themes[theme]) themes[theme] = [];
+
+      themes[theme].push(token);
+    });
+
+    return themes;
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+}
+
+function tokensWrite(tokens) {
+  return (
+    '\n' +
+    tokens
+      .map(
+        ({ type, name, value }) => `  --${type}-${name}: ${value};`
+      )
+      .join('\n') +
+    '\n'
+  );
+}

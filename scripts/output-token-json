@@ -1,0 +1,69 @@
+#!/usr/bin/env node
+
+let fs = require('fs');
+let util = require('util');
+let path = require('path');
+
+const root = path.join(__dirname, '..');
+
+let { core } = require(root + '/build/tokens/');
+
+const fileWrite = util.promisify(fs.writeFile);
+
+const themes = ['light', 'dark'];
+
+async function run() {
+  const tokenSets = Object.entries(core.color);
+
+  const tokensArray = themes
+    .flatMap((theme) => tokenSets.map(tokenSetProcess(theme)))
+    .filter((token) => !!token);
+
+  const tokens = Object.assign({}, ...tokensArray);
+
+  try {
+    await fileWrite(
+      path.join(root, '/src/tokens/tokens-test.json'),
+      JSON.stringify(tokens, null, 2)
+    );
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+}
+
+const tokenValid = (alias) =>
+  alias === 'primary' ||
+  alias === 'secondary' ||
+  alias === 'tertiary';
+
+function tokenAdd(alias, value, theme) {
+  return {
+    value: value[alias](theme),
+    type: 'color',
+  };
+}
+
+function tokenSetProcess(theme) {
+  return ([key, value]) => {
+    if (value?.primary) {
+      function tokenExtract(alias) {
+        if (tokenValid(alias)) {
+          const token = tokenAdd(alias, value, theme);
+          const tokenKey = `${key}-${alias}--${theme}`;
+
+          return { [tokenKey]: token };
+        }
+      }
+
+      const tokenSet = Object.keys(value);
+      const tokenSetArray = tokenSet.map(tokenExtract);
+
+      const tokens = Object.assign({}, ...tokenSetArray);
+
+      return tokens;
+    }
+  };
+}
+
+run();

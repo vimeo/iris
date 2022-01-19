@@ -335,10 +335,10 @@
     "@types/react" "*"
     csstype "^3.0.2"
 
-"@vimeo/iris@^0.114.0":
-  version "0.114.0"
-  resolved "https://registry.yarnpkg.com/@vimeo/iris/-/iris-0.114.0.tgz#816252b86057f8e1fb7bfab8bb689772ea4735d5"
-  integrity sha512-9g8ccWzHhF9vhaee6C/uW9uHxiKgUNe2mhVA+ff321UMW8EcuxF5d/zL/c6jKevn/1SNtUgoBlqsHVYjpb/siw==
+"@vimeo/iris@^0.116.0":
+  version "0.116.0"
+  resolved "https://registry.yarnpkg.com/@vimeo/iris/-/iris-0.116.0.tgz#df9672239c8138032c530841d70cbe5cf76835ad"
+  integrity sha512-8Aifd1uafclAmF5Z4NGuKWoRjdUuYNUSbjrTXbHF6weilQ4gOaC2ye7IAMF8g9kqQDqtCWWXo6DGvLrvOPn2dw==
 
 acorn@8.5.0:
   version "8.5.0"
