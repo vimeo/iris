@@ -42,7 +42,7 @@ function tokenValue(alias, set, theme) {
   const hex = set[alias]({ theme });
 
   const { red, blue, green } = parseToRgb(hex);
-  const value = `rgb(${red},${blue},${green})`;
+  const value = `rgb(${red},${green},${blue})`;
   const type = 'color';
 
   return { value, type };

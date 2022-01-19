@@ -5,7 +5,7 @@
       "type": "color"
     },
     "background-secondary--light": {
-      "value": "rgb(213,228,221)",
+      "value": "rgb(213,221,228)",
       "type": "color"
     },
     "surface-primary--light": {
@@ -21,11 +21,11 @@
       "type": "color"
     },
     "text-primary--light": {
-      "value": "rgb(17,29,25)",
+      "value": "rgb(17,25,29)",
       "type": "color"
     },
     "text-secondary--light": {
-      "value": "rgb(86,130,111)",
+      "value": "rgb(86,111,130)",
       "type": "color"
     },
     "background-primary--dark": {
