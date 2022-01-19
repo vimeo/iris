@@ -3,6 +3,7 @@
 let fs = require('fs');
 let util = require('util');
 let path = require('path');
+const { rgb, parseToRgb } = require('polished');
 
 const root = path.join(__dirname, '..');
 
@@ -19,7 +20,7 @@ async function run() {
     .flatMap((theme) => tokenSets.map(tokenSetProcess(theme)))
     .filter((token) => !!token);
 
-  const tokens = Object.assign({}, ...tokensArray);
+  const tokens = { iris: Object.assign({}, ...tokensArray) };
 
   try {
     await fileWrite(
@@ -37,31 +38,40 @@ const tokenValid = (alias) =>
   alias === 'secondary' ||
   alias === 'tertiary';
 
-function tokenAdd(alias, value, theme) {
-  return {
-    value: value[alias](theme),
-    type: 'color',
-  };
+function tokenValue(alias, set, theme) {
+  const hex = set[alias](theme);
+
+  const { red, blue, green } = parseToRgb(hex);
+  const value = `rgb(${red},${blue},${green})`;
+  const type = 'color';
+
+  return { value, type };
 }
 
 function tokenSetProcess(theme) {
-  return ([key, value]) => {
-    if (value?.primary) {
-      function tokenExtract(alias) {
-        if (tokenValid(alias)) {
-          const token = tokenAdd(alias, value, theme);
-          const tokenKey = `${key}-${alias}--${theme}`;
+  return ([key, set]) => {
+    if (
+      set?.name === 'surface' ||
+      set?.name === 'background' ||
+      set?.name === 'text'
+    ) {
+      if (set?.primary) {
+        function tokenExtract(alias) {
+          if (tokenValid(alias)) {
+            const value = tokenValue(alias, set, theme);
+            const tokenKey = `${key}-${alias}--${theme}`;
 
-          return { [tokenKey]: token };
+            return { [tokenKey]: value };
+          }
         }
+
+        const tokenSet = Object.keys(set);
+        const tokenSetArray = tokenSet.map(tokenExtract);
+
+        const tokens = Object.assign({}, ...tokenSetArray);
+
+        return tokens;
       }
-
-      const tokenSet = Object.keys(value);
-      const tokenSetArray = tokenSet.map(tokenExtract);
-
-      const tokens = Object.assign({}, ...tokenSetArray);
-
-      return tokens;
     }
   };
 }
