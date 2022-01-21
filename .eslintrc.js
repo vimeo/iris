@@ -18,9 +18,9 @@ module.exports = {
         paths: ['src'],
       },
     },
-    'react': {
-      'version': 'detect',
-    }
+    react: {
+      version: 'detect',
+    },
   },
   overrides: [
     {
@@ -101,14 +101,17 @@ module.exports = {
     //
     // react rules
     //
-    'react/destructuring-assignment': "warn",
-    'react/display-name': 'warn',
-    'react/jsx-filename-extension': ['error', {"extensions": [".tsx"]}],
+    'react/destructuring-assignment': 'warn',
+    'react/jsx-filename-extension': [
+      'error',
+      { extensions: ['.tsx'] },
+    ],
     'react/jsx-key': 'warn',
     'react/jsx-no-comment-textnodes': 'warn',
     'react/no-children-prop': 'warn',
     'react/no-unescaped-entities': 'warn',
     'react/prop-types': 'off',
+    'react/display-name': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
   },
