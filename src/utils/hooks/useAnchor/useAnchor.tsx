@@ -49,7 +49,6 @@ export function useAnchor(
       };
 
       const resizeEventListener = throttle(() => {
-        console.log('Update');
         updateRect();
       }, 10);
 
