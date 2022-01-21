@@ -20,4 +20,4 @@ function light(grade: number): TokenValue {
 
 surface.primary = surface(400);
 surface.secondary = surface(600);
-surface.secondary = surface(800);
+surface.tertiary = surface(800);

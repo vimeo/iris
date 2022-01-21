@@ -16,13 +16,41 @@ import {
   TourPoint,
 } from '@vimeo/iris/components';
 import { Header, Paragraph } from '@vimeo/iris/typography';
-import { Gear } from '@vimeo/iris/icons';
+import { Gear, LightDark } from '@vimeo/iris/icons';
 import { Modal, Tabs } from '@vimeo/iris/layout';
 import { useIsomorphicEffect } from '@vimeo/iris/utils';
+import { core } from '@vimeo/iris/tokens';
+import { themes } from '@vimeo/iris/themes';
 
-export function Sheet({ themeSet, ...props }) {
+export function Sheet({ themeToggle, ...props }) {
   return (
     <SheetGrid>
+      <div
+        css={`
+          width: 100%;
+          display: flex;
+          gap: 2rem;
+          flex-wrap: wrap;
+          margin: 0 0 2rem 0;
+          padding: 0 0 2rem 0;
+          border-bottom: 1px solid ${core.color.stroke};
+        `}
+      >
+        <TokenColor token={core.color.surface.primary} />
+        <TokenColor token={core.color.surface.secondary} />
+        <TokenColor token={core.color.surface.tertiary} />
+        <TokenColor token={core.color.background.primary} />
+        <TokenColor token={core.color.background.secondary} />
+        <TokenColor token={core.color.text.primary} />
+        <TokenColor token={core.color.text.secondary} />
+        <TokenColor token={core.color.stroke} />
+        <TokenColor token={core.color.format.primary} />
+        <TokenColor token={core.color.format.secondary} />
+        <TokenColor token={core.color.format.tertiary} />
+        <TokenColor token={core.color.status.positive} />
+        <TokenColor token={core.color.status.negative} />
+        <TokenColor token={core.color.status.caution} />
+      </div>
       <Button>Button</Button>
       <NewItemCard style={{ width: '15rem' }}>
         NewItemCard
@@ -70,6 +98,16 @@ export function Sheet({ themeSet, ...props }) {
       <Checkbox />
       <Toggle />
       <Radio />
+      <Button
+        icon={<LightDark />}
+        onClick={themeToggle}
+        size="xl"
+        css={`
+          position: fixed;
+          bottom: 3rem;
+          right: 3rem;
+        `}
+      />
     </SheetGrid>
   );
 }
@@ -88,3 +126,11 @@ function NoSSR({ children, fallback = null }) {
 
   return <>{mountedState ? children : fallback}</>;
 }
+
+const TokenColor = styled.div<{ token: any }>`
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 1px solid ${core.color.stroke};
+  background-color: ${(p) => p.token};
+`;

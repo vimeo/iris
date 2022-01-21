@@ -16,13 +16,7 @@ import {
 
 import { LogoZeit } from '../../icons';
 
-export function Home({ themeSet, ...props }) {
-  function toggleTheme() {
-    themeSet((theme) =>
-      theme.name === 'dark' ? themes.light : themes.dark
-    );
-  }
-
+export function Home({ themeToggle, ...props }) {
   return (
     <Container>
       <Head>
@@ -92,7 +86,7 @@ export function Home({ themeSet, ...props }) {
         </span>
         <Button
           icon={<LightDark />}
-          onClick={toggleTheme}
+          onClick={themeToggle}
           size="xl"
           style={{ margin: '2.5rem', marginLeft: 'auto' }}
         />
