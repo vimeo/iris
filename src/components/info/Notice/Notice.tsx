@@ -64,6 +64,7 @@ function NoticeComponent({
     <NoticeStyled
       format={format}
       icon={icon}
+      onClose={onClose}
       pill={pill}
       ref={forwardRef}
       {...props}
