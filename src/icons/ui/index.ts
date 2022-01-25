@@ -104,6 +104,7 @@ export { Share } from './Share';
 export { Showcase } from './Showcase';
 export { Slides } from './Slides';
 export { SmilingFace } from './SmilingFace';
+export { Sparkle } from './Sparkle';
 export { SpeechBubbleRounded } from './SpeechBubbleRounded';
 export { SpeechBubbleSquared } from './SpeechBubbleSquared';
 export { Split } from './Split';
