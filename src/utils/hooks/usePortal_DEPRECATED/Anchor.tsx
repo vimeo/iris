@@ -103,7 +103,7 @@ export function Anchor({
 }
 
 function useChildZIndex(children) {
-  if (children.ref.current) {
+  if (children?.ref?.current) {
     const style = getComputedStyle(children.ref.current);
     const zIndex = parseInt(style.zIndex);
 

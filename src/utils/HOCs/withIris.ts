@@ -66,9 +66,8 @@ export function withIris<
     const component = name?.replace('Component', '');
     const dev = { path, debug };
 
-    const RefComponentWithIris = {
-      $$iris: { version, component, dev },
-      ...forwardRef<DOMElement, Props>((props: any, ref) => {
+    const RefComponentWithIris = forwardRef<DOMElement, Props>(
+      (props: any, ref) => {
         useEffect(() => {
           if (debug || (props && props.debug)) {
             if (ref) console.log({ Component, ref });
@@ -86,8 +85,10 @@ export function withIris<
           forwardRef: ref,
           ...props,
         });
-      }),
-    };
+      }
+    );
+
+    RefComponentWithIris['$$iris'] = { version, component, dev };
 
     return RefComponentWithIris as unknown as IrisComponent<
       DOMElement,
@@ -111,7 +112,7 @@ const soPretty = `
   padding: 0.25rem 1.25rem 0.3rem 0.5rem;
   color: white;
   text-shadow:
-  -1px -1px 0 rgba(0,0,0,0.334),  
+  -1px -1px 0 rgba(0,0,0,0.334),
   1px -1px 0 rgba(0,0,0,0.334),
   -1px 2px 5px rgba(0,0,0,0.334),
   1px 2px 5px rgba(0,0,0,0.334);
