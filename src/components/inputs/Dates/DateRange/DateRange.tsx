@@ -260,12 +260,13 @@ function DateRangeComponent({
           style={{ borderRight: `1px solid ${slate(100)}` }}
         >
           <Menu.Section title="Presets">
-            {presets.map((preset) => {
+            {presets.map((preset, key) => {
               const label = getPresetLabel(preset);
 
               return (
                 <Menu.Item
                   active={presetOption === preset}
+                  key={key}
                   onClick={() => {
                     handleSelectPreset(preset);
                     if (Boolean(onPresetClick)) {

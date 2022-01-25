@@ -22,13 +22,15 @@ export default {
 };
 
 const Template: Story<Props> = (args) => {
-  const [date, dateSet] = useState(args.initialMonth);
+  const { initialMonth } = args;
+
+  const [date, dateSet] = useState(initialMonth);
 
   return (
     <Layout.StoryVertical>
       <DateSelect
         {...args}
-        initialMonth={new Date(args.initialMonth)}
+        initialMonth={new Date(initialMonth)}
         onSelect={(date) => dateSet(date)}
       >
         <Input value={date.toLocaleDateString()} readOnly />

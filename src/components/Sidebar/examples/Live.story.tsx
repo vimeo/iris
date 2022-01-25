@@ -107,8 +107,8 @@ const Header = styled(H)`
 const panelContent = (header: string, num) => (
   <Wrapper>
     <Header size="3">{header}</Header>
-    {[...new Array(num)].map(() => (
-      <VideoCard />
+    {[...new Array(num)].map((_, key) => (
+      <VideoCard key={key} />
     ))}
     <NewItemCard style={{ minHeight: '7.5rem', margin: '1rem 0' }}>
       Add {header}

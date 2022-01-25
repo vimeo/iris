@@ -39,7 +39,7 @@ function PaginationComponent({
   const style = { width: active.toString().length * 8 + 25 };
 
   const doChange = (paging) => (event) =>
-    onChange({ paging, ...event });
+    onChange?.({ paging, ...event });
   const next = doChange({ type: 'next' });
   const prev = doChange({ type: 'prev' });
 

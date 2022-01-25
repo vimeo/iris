@@ -32,12 +32,14 @@ export default {
 };
 
 const Template: Story<Props> = (args) => {
+  const { minDate, maxDate } = args;
+
   return (
     <Layout.StoryVertical center>
       <DateRangeButton
         {...args}
-        minDate={new Date(args.minDate)}
-        maxDate={new Date(args.maxDate)}
+        minDate={new Date(minDate)}
+        maxDate={new Date(maxDate)}
       />
     </Layout.StoryVertical>
   );

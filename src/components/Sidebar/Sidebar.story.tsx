@@ -21,15 +21,15 @@ const Header = styled(H)`
   margin-top: 0;
 `;
 
-const Template: Story<Props> = (args) => {
+const Template: Story<Props> = ({ attach = 'left', ...args }) => {
   const style =
-    args.attach === 'right'
+    attach === 'right'
       ? ({ position: 'absolute', top: 0, right: 0 } as const)
       : null;
 
   return (
     <Layout.FullBleed>
-      <Sidebar attach="left" {...args} style={style}>
+      <Sidebar attach={attach} {...args} style={style}>
         <Sidebar.Item label="Item 1" icon={<Gear />}>
           <Header size="3">Item 1</Header>
         </Sidebar.Item>

@@ -31,9 +31,10 @@ export function Size() {
         maxWidth: '20rem',
       }}
     >
-      {SIZES.map((size) => (
+      {SIZES.map((size, key) => (
         <Avatar
           alt={`${size} Avatar Example`}
+          key={key}
           src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
           srcSet="https://i.vimeocdn.com/video/562859486_540x540.jpg 2x"
           size={size}
