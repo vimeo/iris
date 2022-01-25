@@ -7,8 +7,9 @@ export default {
 };
 
 export function Size() {
-  return sizes.map((size) => (
+  return sizes.map((size, key) => (
     <div
+      key={key}
       css={`
         padding: 1rem;
         max-width: 40rem;
@@ -24,8 +25,9 @@ export function Size() {
 }
 
 export function Format() {
-  return formats.map((format) => (
+  return formats.map((format, key) => (
     <div
+      key={key}
       css={`
         padding: 1rem;
         max-width: 40rem;
@@ -41,8 +43,9 @@ export function Format() {
 }
 
 export function Variant() {
-  return variants.map((variant) => (
+  return variants.map((variant, key) => (
     <div
+      key={key}
       css={`
         padding: 1rem;
         max-width: 40rem;

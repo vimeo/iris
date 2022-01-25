@@ -77,27 +77,30 @@ export function Variant() {
       >
         <Button style={{ marginTop: '10rem' }}>Simple Top</Button>
       </Tip>
-      {(['top', 'right', 'bottom', 'left'] as const).map((attach) => (
-        <Tip
-          attach={attach}
-          variant="speech-bubble"
-          trigger="click"
-          content={
-            <>
-              <Header size="6">
-                Where can you embed your videos?
-              </Header>
-              <Paragraph size="2" style={{ margin: 0 }}>
-                {text}
-              </Paragraph>
-            </>
-          }
-        >
-          <Button style={{ marginTop: '5rem' }}>
-            Speech Bubble {attach}
-          </Button>
-        </Tip>
-      ))}
+      {(['top', 'right', 'bottom', 'left'] as const).map(
+        (attach, key) => (
+          <Tip
+            key={key}
+            attach={attach}
+            variant="speech-bubble"
+            trigger="click"
+            content={
+              <>
+                <Header size="6">
+                  Where can you embed your videos?
+                </Header>
+                <Paragraph size="2" style={{ margin: 0 }}>
+                  {text}
+                </Paragraph>
+              </>
+            }
+          >
+            <Button style={{ marginTop: '5rem' }}>
+              Speech Bubble {attach}
+            </Button>
+          </Tip>
+        )
+      )}
     </Layout.StoryVertical>
   );
 }

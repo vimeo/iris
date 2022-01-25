@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Tabs as T } from './Tabs';
 
-import { Header, Paragraph } from '../../typography';
+import { Paragraph } from '../../typography';
 
 export default { title: 'components/Tabs/props', component: T };
 
@@ -16,8 +16,8 @@ const Tabs = styled(T)`
 export function Format() {
   return (
     ['basic', 'soft', 'alternative', 'secondary', 'primary'] as const
-  ).map((format) => (
-    <Tabs format={format}>
+  ).map((format, key) => (
+    <Tabs format={format} key={key}>
       <Tabs.Panel
         label="Tab 0"
         onActivate={() => console.log('Clicked Tab 0')}

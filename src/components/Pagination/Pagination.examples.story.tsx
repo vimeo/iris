@@ -68,8 +68,8 @@ function PaginationStory() {
   return (
     <>
       <Grid columns={3}>
-        {items.map((id) => (
-          <Player id={id} />
+        {items.map((id, key) => (
+          <Player key={key} id={id} />
         ))}
       </Grid>
       <Pagination

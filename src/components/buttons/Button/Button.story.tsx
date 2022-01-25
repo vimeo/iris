@@ -28,14 +28,14 @@ const ButtonStyled = styled(B)`
   max-width: 10rem;
 `;
 
-const Template: Story<Props> = (args) => {
+const Template: Story<Props> = ({ children, ...args }) => {
   return (
     <>
       <ButtonStyled {...args} size="md">
-        {args.children}
+        {children}
       </ButtonStyled>
       <ButtonStyled icon={<DownloadArrow />} {...args}>
-        {args.children}
+        {children}
       </ButtonStyled>
     </>
   );
