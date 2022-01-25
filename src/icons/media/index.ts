@@ -19,6 +19,7 @@ export { Gif } from './Gif';
 export { Gridlines } from './Gridlines';
 export { Interactive } from './Interactive';
 export { Layout } from './Layout';
+export { LiveElement } from './LiveElement';
 export { LowerThird } from './LowerThird';
 export { Mic } from './Mic';
 export { MicOff } from './MicOff';
