@@ -247,7 +247,7 @@ export type IrisInputProps<
       | 'url'
       | 'username';
     autoFocus?: boolean;
-    capture?: boolean | string; // https://www.w3.org/TR/html-media-capture/#the-capture-attribute
+    capture?: boolean | 'user' | 'environment'; // https://www.w3.org/TR/html-media-capture/#the-capture-attribute
     checked?: boolean;
     crossOrigin?: string;
     defaultChecked?: boolean;
