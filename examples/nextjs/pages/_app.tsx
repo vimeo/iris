@@ -1,22 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { themes } from '@vimeo/iris/themes';
-import { GlobalStyles } from '@vimeo/iris/utils';
-import { core } from '@vimeo/iris/tokens';
+import { GlobalStyles, useStyleVars } from '@vimeo/iris/utils';
+
+import '../../../iris.css';
 
 /* eslint-disable import/no-default-export */
 export default function App({ Component, pageProps }) {
   const [theme, themeSet] = useState(themes.dark);
   const { pathname } = useRouter();
 
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme.name);
+  }, []);
+
   function themeToggle() {
-    themeSet((theme) =>
-      theme.name === 'dark' ? themes.light : themes.dark
-    );
+    themeSet((theme) => {
+      const nextTheme = theme.name === 'dark' ? 'light' : 'dark';
+
+      document.documentElement.setAttribute('data-theme', nextTheme);
+
+      return themes[nextTheme];
+    });
   }
 
   return (
@@ -25,16 +34,37 @@ export default function App({ Component, pageProps }) {
         <GlobalStyles />
         <Nav>
           {pages.map(({ href, name }) => (
-            <Link href={href}>
-              <NavItem active={pathname === href} key={href}>
-                {name}
-              </NavItem>
-            </Link>
+            <NavItem
+              href={href}
+              key={href}
+              name={name}
+              pathname={pathname}
+            />
           ))}
         </Nav>
         <Component themeToggle={themeToggle} {...pageProps} />
       </ThemeProvider>
     </>
+  );
+}
+
+function NavItem({ href, name, pathname }) {
+  const active = pathname === href;
+
+  const color = active
+    ? 'var(--color-format-primary)'
+    : 'var(--color-text-primary)';
+
+  const styleVars = useStyleVars({
+    color,
+  });
+
+  return (
+    <Link href={href} key={href}>
+      <NavItemStyled active={active} style={styleVars}>
+        {name}
+      </NavItemStyled>
+    </Link>
   );
 }
 
@@ -48,15 +78,12 @@ const Nav = styled.div`
   display: flex;
 `;
 
-const NavItem = styled.a<{ active?: boolean }>`
+const NavItemStyled = styled.a<{ active?: boolean }>`
   display: block;
   padding: 1rem;
   font-weight: 700;
   font-size: 1.5rem;
-  border-bottom: 0.2rem solid
-    ${(p) =>
-      p.active ? core.color.format.primary : core.color.text.primary};
-  color: ${(p) =>
-    p.active ? core.color.format.primary : core.color.text.primary};
+  border-bottom: 0.2rem solid var(--color);
+  color: var(--color);
   cursor: pointer;
 `;

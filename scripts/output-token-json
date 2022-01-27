@@ -3,7 +3,7 @@
 let fs = require('fs');
 let util = require('util');
 let path = require('path');
-const { rgb, parseToRgb } = require('polished');
+const { parseToHsl } = require('polished');
 
 const root = path.join(__dirname, '..');
 
@@ -33,16 +33,15 @@ async function run() {
   }
 }
 
-const tokenValid = (alias) =>
-  alias === 'primary' ||
-  alias === 'secondary' ||
-  alias === 'tertiary';
+function tokenValue(token, theme) {
+  const hex = token({ theme });
 
-function tokenValue(alias, set, theme) {
-  const hex = set[alias]({ theme });
+  const { hue, saturation, lightness } = parseToHsl(hex);
+  const h = Math.round(hue * 10) / 10;
+  const s = Math.round(saturation * 1000) / 10;
+  const l = Math.round(lightness * 1000) / 10;
 
-  const { red, blue, green } = parseToRgb(hex);
-  const value = `rgb(${red},${green},${blue})`;
+  const value = `hsl(${h}, ${s}%, ${l}%)`;
   const type = 'color';
 
   return { value, type };
@@ -50,29 +49,39 @@ function tokenValue(alias, set, theme) {
 
 function tokenSetProcess(theme) {
   return ([key, set]) => {
-    if (
-      set?.name === 'surface' ||
-      set?.name === 'background' ||
-      set?.name === 'text'
-    ) {
-      if (set?.primary) {
-        function tokenExtract(alias) {
-          if (tokenValid(alias)) {
-            const value = tokenValue(alias, set, theme);
-            const tokenKey = `${key}-${alias}--${theme}`;
+    function tokenExtract(alias) {
+      const value = tokenValue(set[alias], theme);
+      const tokenKey = `${key}-${alias}--${theme}`;
 
-            return { [tokenKey]: value };
-          }
-        }
+      return { [tokenKey]: value };
+    }
 
-        const tokenSet = Object.keys(set);
-        const tokenSetArray = tokenSet.map(tokenExtract);
+    const tokenSet = Object.keys(set);
+    const tokenSetArray = tokenSet.map(tokenExtract);
 
-        const tokens = Object.assign({}, ...tokenSetArray);
+    if (typeof set === 'function') {
+      if (typeof set(500) === 'function') {
+        // If the set is a TokenBand, iterate 0 - 1000.
 
-        return tokens;
+        [...new Array(11)].map((_, i) => {
+          const grade = i * 100;
+          const value = tokenValue(set(grade), theme);
+          const tokenKey = `${key}-${grade}--${theme}`;
+
+          tokenSetArray.push({ [tokenKey]: value });
+        });
+      } else {
+        // If the set is a static token return the value.
+
+        const value = tokenValue(set, theme);
+        const tokenKey = `${key}--${theme}`;
+        tokenSetArray.push({ [tokenKey]: value });
       }
     }
+
+    const tokens = Object.assign({}, ...tokenSetArray);
+
+    return tokens;
   };
 }
 
