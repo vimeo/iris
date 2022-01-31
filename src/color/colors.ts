@@ -6,8 +6,10 @@ export interface Color {
 
 export enum Colors {
   Red = '#ff4d4d',
+  Red2 = '#E22B12',
   Blue = '#00adef',
   Green = '#4EC437',
+  Green2 = '#2CB563',
   Yellow = '#ffb21e',
   Slate = '#657987',
   Grayscale = '#666666',
@@ -45,6 +47,26 @@ const RedCache = {
 
 export const red: Color = (grade) =>
   RedCache[grade] || irisColor(Colors.Red, grade);
+
+const RedCache2 = {
+  // '50': '#ffeded',
+  // '100': '#ffdbdb',
+  // '200': '#ffb7b7',
+  // '300': '#ff9494',
+  // '350': '#ff8282',
+  // '400': '#ff7070',
+  '500': '#E22B12',
+  //   '525': '#fc3f3f',
+  //   '600': '#db2e2e',
+  //   '700': '#a72020',
+  //   '800': '#711313',
+  //   '850': '#540f0f',
+  //   '900': '#380909',
+  //   '950': '#1c0404',
+};
+
+export const red2: Color = (grade) =>
+  RedCache2[grade] || irisColor(Colors.Red2, grade);
 
 const YellowCache = {
   '50': '#fff7e8',
@@ -85,6 +107,26 @@ const GreenCache = {
 
 export const green: Color = (grade) =>
   GreenCache[grade] || irisColor(Colors.Green, grade);
+
+const GreenCache2 = {
+  // '50': '#eefaea',
+  // '100': '#dbf4d6',
+  // '200': '#b9e9ad',
+  // '300': '#96dd85',
+  // '350': '#85d672',
+  // '400': '#74d05e',
+  '500': '#2CB563',
+  // '525': '#4fbb33',
+  // '600': '#419e2a',
+  // '700': '#2f781e',
+  // '800': '#1f5113',
+  // '850': '#173d0d',
+  // '900': '#0f2908',
+  // '950': '#071404',
+};
+
+export const green2: Color = (grade) =>
+  GreenCache2[grade] || irisColor(Colors.Green2, grade);
 
 const BlueCache = {
   '50': '#e5f5fd',
