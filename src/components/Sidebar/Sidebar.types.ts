@@ -24,6 +24,7 @@ export interface ItemPropsExtrinsic {
   icon?: ReactElement;
   label: string;
   onClick?: MouseEventHandler;
+  tourPoint?: any;
 }
 
 export type ItemExtrinsic = (
@@ -33,6 +34,7 @@ export type ItemExtrinsic = (
 export type ItemPropsIntrinsic = ItemPropsExtrinsic & {
   attach: Props['attach'];
   onClick: MouseEventHandler;
+  tourPoint?: any;
 };
 
 export interface Minors {

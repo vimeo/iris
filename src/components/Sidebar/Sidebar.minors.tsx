@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
 import styled from 'styled-components';
 
 import { ItemPropsIntrinsic } from './Sidebar.types';
@@ -9,23 +9,34 @@ import { core } from '../../tokens';
 
 export function Item({
   attach = 'right',
-  children = null,
+  children: childrenNull = null,
   icon,
   label,
   onClick,
+  tourPoint,
   ...props
 }: ItemPropsIntrinsic) {
+  const childrenItem = (
+    <ItemStyled
+      aria-label={label}
+      format="basic"
+      icon={icon}
+      onClick={onClick}
+      size="md"
+      variant="minimalTransparent"
+      {...props}
+    />
+  );
+
+  const children = tourPoint ? (
+    <div>{cloneElement(tourPoint, {}, childrenItem)}</div>
+  ) : (
+    childrenItem
+  );
+
   return (
     <Tip attach={attach} content={label}>
-      <ItemStyled
-        aria-label={label}
-        format="basic"
-        icon={icon}
-        onClick={onClick}
-        size="md"
-        variant="minimalTransparent"
-        {...props}
-      />
+      {children}
     </Tip>
   );
 }
@@ -35,6 +46,7 @@ const ItemStyled = styled(Button)`
   text-align: left;
   padding: 0.25rem 0.25rem 0.25rem 0.75rem;
   justify-content: start;
+  width: 100%;
 
   > svg {
     padding: 0 !important;

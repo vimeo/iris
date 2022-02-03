@@ -15,7 +15,7 @@ import {
   ColorPalette,
 } from '../../../icons';
 import { Header as H } from '../../../typography';
-import { Button, NewItemCard } from '../../../components';
+import { Button, NewItemCard, TourPoint } from '../../../components';
 import { Layout } from '../../../storybook';
 import { core, tx } from '../../../tokens';
 
@@ -71,6 +71,51 @@ export function Live() {
           label="Q&A"
           icon={<SpeechBubbleSquared />}
           children={panelContent('Q&A', 0)}
+        />
+      </Sidebar>
+    </Layout.FullBleed>
+  );
+}
+
+export function withTourPoint() {
+  const state = useState('Sources');
+  const [active, activeSet] = useState(true);
+
+  return (
+    <Layout.FullBleed>
+      <Button onClick={() => activeSet((active) => !active)}>
+        Toggle TourPoint
+      </Button>
+      <Sidebar
+        state={state}
+        attach="right"
+        style={{ position: 'absolute', top: 0, right: 0 }}
+      >
+        <Sidebar.Item
+          label="Sources"
+          icon={<Camera />}
+          children={panelContent('Sources', 3)}
+        />
+        <Sidebar.Item
+          label="Videos"
+          icon={<VideoStack />}
+          tourPoint={
+            <TourPoint
+              active={active}
+              attach="right-top"
+              src="http://placekitten.com/320/213"
+              step={1}
+              title="A Fresh New Look"
+              content="All the leaves are brown and the sky is grey, I've been for a walk on a winters day."
+            />
+          }
+          children={panelContent('Videos', 2)}
+        />
+
+        <Sidebar.Item
+          label="Images"
+          icon={<Image />}
+          children={panelContent('Images', 0)}
         />
       </Sidebar>
     </Layout.FullBleed>
