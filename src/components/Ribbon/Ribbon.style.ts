@@ -20,13 +20,15 @@ function background({ variant = 'rainbow' }) {
       return gradient(['#7b4397', '#dc2430']);
     case 'rainbow':
       return gradient([
-        '#45c3ff',
-        '#0088cc',
-        '#7fc400',
-        '#ffc86c',
-        '#ffb21e',
-        '#ff4d4d',
-        '#6447b6',
+        '#73d2f6',
+        '#10b5fc',
+        '#8bcf0d',
+        '#ffc34e',
+        '#fb8920',
+        '#fb8920',
+        '#fa4343',
+        '#9F3D5C',
+        '#503873',
       ]);
     case 'primary': {
       return gradient([blue(300), saturate(1, blue(650))]);

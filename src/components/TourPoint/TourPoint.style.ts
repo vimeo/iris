@@ -18,7 +18,7 @@ export const Steps = styled(Text)`
   letter-spacing: -0.05px;
 `;
 
-const rainbowBackground = css`
+const backgroundRainbow = css`
   content: '';
   position: absolute;
   top: 0;
@@ -44,11 +44,11 @@ export const TourPointStyled = styled.div`
     0 1rem 1rem -1rem rgba(0, 0, 0, 0.25);
 
   &::before {
-    ${rainbowBackground}
+    ${backgroundRainbow}
   }
 
   &::after {
-    ${rainbowBackground}
+    ${backgroundRainbow}
     clip-path: var(--caret-clip-path);
     transform: var(--caret-translate);
   }

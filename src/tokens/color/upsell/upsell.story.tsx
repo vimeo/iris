@@ -22,14 +22,9 @@ export function Tokens() {
         const tokenCSSa11y = 'var(--' + token + '-a11y' + ')';
 
         return (
-          <>
-            <Card styles={styles} style={{ '--bg': tokenCSS }}>
-              <Text>{token}</Text>
-            </Card>
-            <Card styles={styles} style={{ '--bg': tokenCSSa11y }}>
-              <Text>{token}-a11y</Text>
-            </Card>
-          </>
+          <Card styles={styles} style={{ '--bg': tokenCSS }}>
+            <Text>{token}</Text>
+          </Card>
         );
       })}
     </Canvas>
@@ -39,11 +34,11 @@ export function Tokens() {
 Tokens.storyName = 'upsell';
 
 function styles({ theme, token }) {
-  // const background = tx(theme, core.color.stroke);
-  // const color = readableColor(background);
+  const background = tx(theme, core.color.upsell);
+  const color = 'white'; //readableColor(background);
 
   return css`
-    --direction: to right;
+    /* --direction: to right;
     --color-upsell-stops-sm: #00be4c, #00b285, #0095d5;
     --color-upsell-stops-sm-a11y: #00a441, #009c75, #006895;
     --color-upsell-stops-lg: rgb(0, 182, 85), rgb(0, 178, 133),
@@ -70,6 +65,12 @@ function styles({ theme, token }) {
 
     > span {
       color: white;
+    } */
+
+    background: ${background};
+
+    > span {
+      color: ${color};
     }
   `;
 }
