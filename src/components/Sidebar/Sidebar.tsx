@@ -41,6 +41,10 @@ function SidebarComponent({
     return (event) => {
       child.props?.onClick?.(event);
 
+      if (active === child.props.label) {
+        close();
+      }
+
       if (active !== child.props.label) {
         if (active) onClose?.(active);
         onOpen?.(child.props.label);
