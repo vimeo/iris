@@ -2,6 +2,7 @@ export { AlbumsAddFeature } from './AlbumsAddFeature';
 export { AlbumsEmptystate } from './AlbumsEmptystate';
 export { AlbumsPlaybackEmptystateDark } from './AlbumsPlaybackEmptystateDark';
 export { AlbumsPlaybackEmptystateLight } from './AlbumsPlaybackEmptystateLight';
+export { Quota } from './Quota';
 export { SearchEmptystate } from './SearchEmptystate';
 export { SearchEmptyState2 } from './SearchEmptyState2';
 export { ShowcaseEmptyState } from './ShowcaseEmptyState';
