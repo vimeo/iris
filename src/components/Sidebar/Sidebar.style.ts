@@ -58,6 +58,7 @@ export const PanelStyled = styled.div<{
   left: ${left};
   ${core.edge(100)};
   ${attach};
+  overflow-y: scroll;
 `;
 
 function left({ attach }) {
