@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { grayscale, parseToHsl, parseToRgb } from 'polished';
 
 import { Input } from '../Input/Input';
-import { Button } from '../../buttons/Button/Button';
+import { Button } from '../..//Button/Button';
 
 import { roundValues } from '../../../color';
 

@@ -3,7 +3,7 @@ import { rem } from 'polished';
 
 import { Props } from './Modal.types';
 
-import { Button } from '../../components/buttons/Button/Button';
+import { Button } from '../../components//Button/Button';
 
 const fadeIn = keyframes`
   0% {

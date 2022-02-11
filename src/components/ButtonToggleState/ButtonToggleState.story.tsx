@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { ButtonToggleState as B } from '../ToggleState/ToggleState';
+import { ButtonToggleState as B } from '../ButtonToggleState/ButtonToggleState';
 
-import { Header } from '../../../typography';
-import { Plus, Checkmark, DismissX } from '../../../icons';
+import { Header } from '../../typography';
+import { Plus, Checkmark, DismissX } from '../../icons';
 
 const ButtonToggleState = styled(B)`
   margin: 0 1rem 1rem 0;
@@ -15,7 +15,7 @@ export default {
   component: B,
 };
 
-export const ToggleState = () => <CommonStory />;
+export const ButtonToggleStateStory = () => <CommonStory />;
 function CommonStory() {
   const [following, setFollowing] = useState(false);
   const toggleFollowing = () =>
@@ -35,6 +35,7 @@ function CommonStory() {
     />
   );
 }
+ButtonToggleStateStory.storyName = 'ButtonToggleStateStory';
 
 export const AllStates = () => <AllStatesStory />;
 function AllStatesStory() {

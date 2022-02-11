@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { IrisProps } from '../../../utils';
+import { IrisProps } from '../../utils';
 
 type Fluid = true | { min?: number; max?: number };
 

@@ -8,7 +8,7 @@ import { FeaturedIcon } from './FeaturedIcon';
 // Iris submodule organization needs to be reconsidered.
 // This creates a circular dependency.
 // import { LoaderCircular } from '../../../motion';
-import { LoaderCircular } from '../../LoaderCircular/LoaderCircular';
+import { LoaderCircular } from '../LoaderCircular/LoaderCircular';
 
 import {
   withIris,
@@ -16,12 +16,12 @@ import {
   centered,
   Focus,
   useDeprecate,
-} from '../../../utils';
+} from '../../utils';
 
 export const Button = withIris<DOMElement, Props>(
   ButtonComponent,
   true,
-  'components/buttons/Button/Button'
+  'components//Button/Button'
 );
 
 const deprecatedProps = {

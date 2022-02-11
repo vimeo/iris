@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Button } from '../../../buttons/Button/Button';
+import { Button } from '../../..//Button/Button';
 import { TourPoint } from '../TourPoint';
 import { Tour } from '../TourPoint.context';
 

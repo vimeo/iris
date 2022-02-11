@@ -1,12 +1,12 @@
 import React, { CSSProperties, useReducer, useEffect } from 'react';
 
-import { Props } from './ToggleState.types';
-import { reducer, initialState } from './ToggleState.state';
+import { Props } from './ButtonToggleState.types';
+import { reducer, initialState } from './ButtonToggleState.state';
 
-import { Button } from '../../buttons/Button/Button';
+import { Button } from '..//Button/Button';
 
-import { withIris } from '../../../utils';
-import { grayscale } from '../../../color';
+import { withIris } from '../../utils';
+import { grayscale } from '../../color';
 
 export const ButtonToggleState = withIris<HTMLButtonElement, Props>(
   ButtonToggleStateComponent

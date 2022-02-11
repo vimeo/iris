@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react';
 import { DateSelect } from './DateSelect';
 
 import { Input } from '../../Input/Input';
-import { Button } from '../../../buttons/Button/Button';
+import { Button } from '../../..//Button/Button';
 import { Layout } from '../../../../storybook';
 import { useOutsideClick } from '../../../../utils';
 

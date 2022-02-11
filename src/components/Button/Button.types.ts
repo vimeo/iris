@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import { IrisProps } from '../../../utils';
-import { Statuses } from '../../../themes';
+import { IrisProps } from '../../utils';
+import { Statuses } from '../../themes';
 import {
   formats,
   variants,

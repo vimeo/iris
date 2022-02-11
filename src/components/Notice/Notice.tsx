@@ -15,7 +15,7 @@ import {
 } from '../../icons';
 import { Header, Paragraph } from '../../typography';
 import { IrisProps, onClose, useClose, withIris } from '../../utils';
-import { Button } from '../buttons/Button/Button';
+import { Button } from '..//Button/Button';
 
 export const Notice = withIris<HTMLDivElement, Props>(
   NoticeComponent

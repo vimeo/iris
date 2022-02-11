@@ -5,13 +5,13 @@ import React, {
   useImperativeHandle,
 } from 'react';
 
-import { Icon, brandThemes } from './SocialButton.style';
-import { Button } from '../Button/Button';
+import { Icon, brandThemes } from './ButtonSocial.style';
+import { Button } from '..//Button/Button';
 
-import { IrisProps, withIris, geometry } from '../../../utils';
+import { IrisProps, withIris, geometry } from '../../utils';
 
-export const SocialButton = withIris<HTMLButtonElement, Props>(
-  SocialButtonComponent
+export const ButtonSocial = withIris<HTMLButtonElement, Props>(
+  ButtonSocialComponent
 );
 
 type Fluid = true | { min?: number; max?: number };
@@ -32,7 +32,7 @@ type Props = IrisProps<
   HTMLButtonElement
 >;
 
-function SocialButtonComponent({
+function ButtonSocialComponent({
   brand,
   children,
   forwardRef,

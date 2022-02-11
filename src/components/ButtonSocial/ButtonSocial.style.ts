@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import { Apple, GoogleGColor, Facebook } from '../../../icons';
-import { themes } from '../../../themes';
+import { Apple, GoogleGColor, Facebook } from '../../icons';
+import { themes } from '../../themes';
 
 export const Icon = styled.div<{ size: number; brand: string }>`
   position: absolute;

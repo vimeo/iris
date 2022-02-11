@@ -4,8 +4,8 @@ import { rgba, rem, tint, shade, em } from 'polished';
 import { borderRadii } from './Button.config';
 import { FeaturedIcon } from './FeaturedIcon';
 
-import { a11yColor } from '../../../themes';
-import { white, black } from '../../../color';
+import { a11yColor } from '../../themes';
+import { white, black } from '../../color';
 
 const buttonCore = css`
   position: relative;

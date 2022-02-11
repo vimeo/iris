@@ -8,7 +8,7 @@ import { rgba } from 'polished';
 
 import { Header as H2 } from '../../typography';
 import { IrisProps, MinorComponent } from '../../utils';
-import { Button } from '../../components/buttons/Button/Button';
+import { Button } from '../../components//Button/Button';
 
 export interface Minors {
   Header: MinorComponent;

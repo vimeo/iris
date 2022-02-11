@@ -1,8 +1,13 @@
 export { Annotation } from './Annotation/Annotation';
 export { Avatar } from './Avatar/Avatar';
 export { Badge } from './Badge/Badge';
-export { Button } from './buttons/Button/Button';
-export { ButtonToggleState } from './buttons/ToggleState/ToggleState';
+export { Button } from './/Button/Button';
+
+// "SocialButton" is deprecated in favor a new naming convention.
+export { ButtonSocial } from './ButtonSocial/ButtonSocial';
+export { ButtonSocial as SocialButton } from './ButtonSocial/ButtonSocial';
+
+export { ButtonToggleState } from './ButtonToggleState/ButtonToggleState';
 export { Card } from './Card/Card';
 
 // "CategoryCard" is deprecated in favor a new naming convention.
@@ -40,7 +45,6 @@ export { Search } from './inputs/Search/Search';
 export { Select } from './inputs/Select/Select';
 export { Sidebar } from './Sidebar/Sidebar';
 export { Slider } from './inputs/Slider/Slider';
-export { SocialButton } from './buttons/Social/SocialButton';
 export { Tabs } from './Tabs/Tabs';
 export { Tag } from './Tag/Tag';
 export { TextArea } from './inputs/TextArea/TextArea';

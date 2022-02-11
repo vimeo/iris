@@ -7,7 +7,7 @@ import { Props } from './DateRange.types';
 import { ChevronDown } from '../../../../icons';
 import { PopOver } from '../../../PopOver/PopOver';
 import { Layout } from '../../../../storybook';
-import { Button } from '../../../buttons/Button/Button';
+import { Button } from '../../..//Button/Button';
 import { useOutsideClick } from '../../../../utils';
 
 const presets = ['today', 10, -100, 100, 'custom'];
