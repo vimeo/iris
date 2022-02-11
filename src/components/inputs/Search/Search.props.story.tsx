@@ -60,6 +60,6 @@ export function Variant() {
   ));
 }
 
-const sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
-const formats = ['primary', 'alternative'];
-const variants = ['minimal', 'basic'];
+const sizes = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
+const formats = ['primary', 'alternative'] as const;
+const variants = ['minimal', 'basic'] as const;

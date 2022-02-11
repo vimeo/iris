@@ -7,7 +7,7 @@ import { Layout } from '../../../storybook';
 import { Badge } from '../../Badge/Badge';
 import { PaperPlane } from '../../../icons';
 import { blue } from '../../../color';
-import { Button } from '../../buttons/Button/Button';
+import { Button } from '../../Button/Button';
 
 export default {
   title: 'components/Select/props',

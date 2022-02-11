@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Toggle } from './Toggle';
 
-import { Button } from '../../buttons/Button/Button';
+import { Button } from '../../Button/Button';
 import { Header } from '../../../typography';
 import { Layout } from '../../../storybook';
 import { Eye, EyeOff } from '../../../icons';

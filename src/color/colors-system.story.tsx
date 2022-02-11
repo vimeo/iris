@@ -5,16 +5,7 @@ import { Header } from '../typography';
 
 import { ColorPalette, ColorStory } from './storyComponents';
 
-import {
-  red,
-  yellow,
-  green,
-  blue,
-  slate,
-  grayscale,
-  white,
-  black,
-} from './colors';
+import { red, yellow, green, blue, slate, grayscale } from './colors';
 
 export default { title: 'Color/system' };
 

@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { rgba, rem } from 'polished';
 
-import { Button } from '../../components/buttons/Button/Button';
+import { Button } from '../../components/Button/Button';
 import { black } from '../../color';
 
 const poke = keyframes`

@@ -6,7 +6,7 @@ import { PresetValue } from './DateRange.types';
 import { ChevronDown } from '../../../../icons';
 import { PopOver } from '../../../PopOver/PopOver';
 import { Layout } from '../../../../storybook';
-import { Button } from '../../../buttons/Button/Button';
+import { Button } from '../../../Button/Button';
 
 export default {
   title: 'components/Dates/DateRange/props',

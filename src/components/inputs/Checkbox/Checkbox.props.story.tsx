@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Checkbox } from './Checkbox';
 
-import { Button } from '../../buttons/Button/Button';
+import { Button } from '../../Button/Button';
 import { Layout } from '../../../storybook';
 import { Header } from '../../../typography';
 

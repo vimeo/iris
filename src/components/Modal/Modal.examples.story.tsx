@@ -149,12 +149,12 @@ const ModalStyled = styled.div`
   background: ${({ theme }) => theme.content.background};
 `;
 
-const FeatureModalImg = styled.img`
-  margin: -2rem -2rem 2rem;
-  width: calc(100% + 4rem);
-  min-height: 27.5rem;
-  border-radius: 0.25rem 0.25rem 0 0;
-`;
+// const FeatureModalImg = styled.img`
+//   margin: -2rem -2rem 2rem;
+//   width: calc(100% + 4rem);
+//   min-height: 27.5rem;
+//   border-radius: 0.25rem 0.25rem 0 0;
+// `;
 
 const ModalContent = (
   <ModalStyled>

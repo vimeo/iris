@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 import { readableColor } from 'polished';
 
 import { statuses } from './status';

@@ -11,7 +11,6 @@ import * as VIMEO_ICONS from './vimeo';
 
 import { Header } from '../typography';
 import { Input } from '../components';
-import { Story } from '../storybook';
 import { black, white } from '../color';
 
 export default { title: 'icons/Icons' };

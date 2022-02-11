@@ -3,7 +3,6 @@ import React from 'react';
 import { useMeasure } from './useMeasure';
 
 import { Button } from '../../components';
-import { ButtonStyled } from '../../components/buttons/Button/Button.style';
 import { Header, Text } from '../../typography';
 import styled from 'styled-components';
 

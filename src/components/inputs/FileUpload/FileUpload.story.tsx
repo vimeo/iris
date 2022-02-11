@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FileUpload } from './FileUpload';
 
-import { Button } from '../../buttons/Button/Button';
+import { Button } from '../../Button/Button';
 import { Layout } from '../../../storybook';
 import { UploadCloud } from '../../../icons';
 

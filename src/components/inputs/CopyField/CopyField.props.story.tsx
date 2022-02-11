@@ -29,7 +29,7 @@ export function Format() {
 export function Size() {
   return (
     <Layout.StoryVertical>
-      {['xs', 'sm', 'md', 'lg', 'xl'].map((size, i) => (
+      {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size, i) => (
         <CopyField
           key={i}
           size={size}

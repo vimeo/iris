@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { rem, transparentize, padding, margin } from 'polished';
 
 import { Menu as M } from '../../../Menu/Menu';
-import { Button } from '../../../buttons/Button/Button';
+import { Button } from '../../../Button/Button';
 import { black, blue } from '../../../../color';
 
 export const DateField = styled.div`

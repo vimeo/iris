@@ -7,7 +7,7 @@ import { Props } from './Pagination.types';
 // Iris submodule organization needs to be reconsidered.
 // This creates a circular dependency.
 // import { Button as B, Input as I } from '../../components';
-import { Button as B } from '../../components/buttons/Button/Button';
+import { Button as B } from '../../components/Button/Button';
 import { Input as I } from '../../components/inputs/Input/Input';
 import { ChevronRight } from '../../icons';
 import { withIris } from '../../utils';

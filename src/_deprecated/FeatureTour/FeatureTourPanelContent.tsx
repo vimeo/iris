@@ -7,7 +7,7 @@ import {
   setSaturation,
 } from 'polished';
 
-import { Button } from '../../components/buttons/Button/Button';
+import { Button } from '../../components/Button/Button';
 import { Header, Paragraph } from '../../typography';
 import { DismissX } from '../../icons';
 import { themes } from '../../themes';
