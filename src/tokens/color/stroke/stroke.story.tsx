@@ -2,8 +2,6 @@ import React from 'react';
 import { css } from 'styled-components';
 import { readableColor } from 'polished';
 
-import { stroke } from './stroke';
-
 import { core } from '../../core';
 import { tx } from '../../util';
 import { Card, Canvas } from '../../storybook';

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { Path as P } from './Path';
 
-import { Globe } from '../../../icons';
+import { Globe } from '../../icons';
 
 export default { title: 'components/Path', component: P };
 

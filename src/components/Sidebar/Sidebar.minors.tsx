@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { ItemPropsIntrinsic } from './Sidebar.types';
 
-import { Button } from '..//Button/Button';
+import { Button } from '../Button/Button';
 import { Tip } from '../Tip/Tip';
 import { core } from '../../tokens';
 

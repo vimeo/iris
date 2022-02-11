@@ -1,5 +1,6 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
+
 import { throttle } from '../..';
 
 const useIsomorphicLayoutEffect =

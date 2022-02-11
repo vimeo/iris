@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref as RRef, ReactNode } from 'react';
 import styled from 'styled-components';
 
-import { Button } from '..//Button/Button';
+import { Button } from '../Button/Button';
 import { Tip } from '../Tip/Tip';
 
 import { IrisProps } from '../../utils';

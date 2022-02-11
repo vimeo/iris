@@ -129,6 +129,7 @@ function ThemeBlock({ block }) {
         >
           <ColorBlock color={value} />
           <Text
+            // @ts-ignore
             element="pre"
             style={{
               fontFamily: 'Source Code Pro, monospace',
@@ -210,16 +211,16 @@ function ColorBlock({ color }) {
   );
 }
 
-function ThemeJSON() {
-  const theme = useContext(ThemeContext);
-  const { color } = theme?.content;
+// function ThemeJSON() {
+//   const theme = useContext(ThemeContext);
+//   const { color } = theme?.content;
 
-  return (
-    <pre style={{ color, padding }}>
-      {JSON.stringify(theme, null, 2)}
-    </pre>
-  );
-}
+//   return (
+//     <pre style={{ color, padding }}>
+//       {JSON.stringify(theme, null, 2)}
+//     </pre>
+//   );
+// }
 
 const Text = styled(T)`
   font-weight: 600;

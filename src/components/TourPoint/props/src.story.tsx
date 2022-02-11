@@ -4,8 +4,8 @@ import { TourPoint } from '../TourPoint';
 import { Tour } from '../TourPoint.context';
 import { Card } from '../TourPoint.story';
 
-import { Input } from '../../../../components';
-import { StoryControlBar } from '../../../../storybook';
+import { Input } from '../../../components';
+import { StoryControlBar } from '../../../storybook';
 
 export function Src() {
   const [src, srcSet] = useState('http://placekitten.com/320/213');

@@ -4,8 +4,8 @@ import { TourPoint } from '../TourPoint';
 import { Tour } from '../TourPoint.context';
 import { Card } from '../TourPoint.story';
 
-import { Button } from '../../../../components';
-import { StoryControlBar } from '../../../../storybook';
+import { Button } from '../../../components';
+import { StoryControlBar } from '../../../storybook';
 
 export function Active() {
   const [active, activeSet] = useState(true);

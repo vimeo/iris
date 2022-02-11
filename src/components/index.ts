@@ -1,7 +1,7 @@
 export { Annotation } from './Annotation/Annotation';
 export { Avatar } from './Avatar/Avatar';
 export { Badge } from './Badge/Badge';
-export { Button } from './/Button/Button';
+export { Button } from './Button/Button';
 
 // "SocialButton" is deprecated in favor a new naming convention.
 export { ButtonSocial } from './ButtonSocial/ButtonSocial';

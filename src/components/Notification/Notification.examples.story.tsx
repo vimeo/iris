@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Notification } from './Notification';
 
-import { Button } from '../../index';
-import { Header } from '../../../typography';
+import { Button } from '../index';
+import { Header } from '../../typography';
 
 export default {
   title: 'components/Notification/examples',

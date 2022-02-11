@@ -4,8 +4,8 @@ import { TourPoint } from '../TourPoint';
 import { Tour } from '../TourPoint.context';
 import { Card } from '../TourPoint.story';
 
-import { Input } from '../../../../components';
-import { StoryControlBar } from '../../../../storybook';
+import { Input } from '../../../components';
+import { StoryControlBar } from '../../../storybook';
 
 export function Title() {
   const [title, titleSet] = useState('A Fresh New Look');

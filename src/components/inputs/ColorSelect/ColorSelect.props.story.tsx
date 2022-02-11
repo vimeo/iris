@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { readableColor } from 'polished';
 
 import { ColorSelect } from './ColorSelect';
 
-import { Button } from '../..//Button/Button';
+import { Button } from '../../Button/Button';
 
 import { Layout } from '../../../storybook';
 

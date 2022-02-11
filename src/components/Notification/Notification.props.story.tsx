@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Notification } from './Notification';
 
-import { Button } from '../../index';
+import { Button } from '../index';
 
 export default {
   title: 'components/Notification/props',

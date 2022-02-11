@@ -16,7 +16,7 @@ import {
   DownloadArrow,
   Plus,
   UploadCloud,
-} from '../../../icons';
+} from '../../icons';
 
 export default {
   title: 'components/Button/props',

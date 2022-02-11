@@ -2,10 +2,10 @@ import React, { Fragment, useState } from 'react';
 
 import { Tip } from './Tip';
 
-import { Button } from '../../../components';
-import { Header, Paragraph } from '../../../typography';
-import { Layout } from '../../../storybook';
-import { ANCHOR_POINTS } from '../../../utils';
+import { Button } from '../../components';
+import { Header, Paragraph } from '../../typography';
+import { Layout } from '../../storybook';
+import { ANCHOR_POINTS } from '../../utils';
 
 export default { title: 'components/Tip/props', component: Tip };
 

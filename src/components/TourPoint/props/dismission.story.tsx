@@ -4,9 +4,9 @@ import { TourPoint } from '../TourPoint';
 import { Tour, TourContext } from '../TourPoint.context';
 import { Card } from '../TourPoint.story';
 
-import { Button } from '../../../../components';
-import { Gear } from '../../../../icons';
-import { StoryControlBar } from '../../../../storybook';
+import { Button } from '../../../components';
+import { Gear } from '../../../icons';
+import { StoryControlBar } from '../../../storybook';
 
 export function Dismission() {
   function Children() {

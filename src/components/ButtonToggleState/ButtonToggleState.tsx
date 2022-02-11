@@ -3,7 +3,7 @@ import React, { CSSProperties, useReducer, useEffect } from 'react';
 import { Props } from './ButtonToggleState.types';
 import { reducer, initialState } from './ButtonToggleState.state';
 
-import { Button } from '..//Button/Button';
+import { Button } from '../Button/Button';
 
 import { withIris } from '../../utils';
 import { grayscale } from '../../color';

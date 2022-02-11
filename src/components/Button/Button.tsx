@@ -21,7 +21,7 @@ import {
 export const Button = withIris<DOMElement, Props>(
   ButtonComponent,
   true,
-  'components//Button/Button'
+  'components/Button/Button'
 );
 
 const deprecatedProps = {

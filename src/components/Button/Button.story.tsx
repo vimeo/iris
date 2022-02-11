@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { Button as B } from './Button';
 import { Props } from './Button.types';
-import { DownloadArrow } from '../../../icons';
+import { DownloadArrow } from '../../icons';
 
 export default {
   title: 'components/Button',

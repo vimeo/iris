@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Props } from './Sidebar.types';
 
 import { core } from '../../tokens';
-import { Button } from '..//Button/Button';
+import { Button } from '../Button/Button';
 
 export const SidebarStyled = styled.div<{
   attach: Props['attach'];

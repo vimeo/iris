@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-import { Button } from '../../..//Button/Button';
+import { Button } from '../../Button/Button';
 import { TourPoint } from '../TourPoint';
 import { Tour } from '../TourPoint.context';
 
-import { PopOver } from '../../../PopOver/PopOver';
-import { Paragraph } from '../../../../typography';
+import { PopOver } from '../../PopOver/PopOver';
+import { Paragraph } from '../../../typography';
 
 export function InsidePopOver() {
   const [active, activeSet] = useState(false);

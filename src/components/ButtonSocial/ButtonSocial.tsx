@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 
 import { Icon, brandThemes } from './ButtonSocial.style';
-import { Button } from '..//Button/Button';
+import { Button } from '../Button/Button';
 
 import { IrisProps, withIris, geometry } from '../../utils';
 

@@ -1,17 +1,12 @@
-import React, {
-  cloneElement,
-  forwardRef,
-  useContext,
-  useState,
-} from 'react';
+import React, { forwardRef, useContext, useState } from 'react';
 
 import { TourPoint } from '../TourPoint';
 import { Tour, TourContext } from '../TourPoint.context';
 
-import { Button } from '../../..';
-import { Header, Paragraph } from '../../../../typography';
-import { History, Plus } from '../../../../icons';
-import { StoryControlBar } from '../../../../storybook';
+import { Button } from '../../Button/Button';
+import { Header, Paragraph } from '../../../typography';
+import { History, Plus } from '../../../icons';
+import { StoryControlBar } from '../../../storybook';
 
 export function ChildrenResize() {
   function Children() {

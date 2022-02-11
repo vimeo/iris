@@ -3,7 +3,7 @@ import { rem } from 'polished';
 
 import { Sizes } from './Tag.types';
 
-import { Button } from '..//Button/Button';
+import { Button } from '../Button/Button';
 import { DismissX as DismissIcon } from '../../icons';
 
 const width = (size: Sizes) => widths[size];
