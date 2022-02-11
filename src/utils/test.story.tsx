@@ -1,23 +1,26 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { parseToRgb, rgb } from 'polished';
+import chroma from 'chroma-js';
 
 import { contrast } from './color-contrast';
 
 import { Button, ColorSelect } from '../components';
+import { blue, green, red } from '../color';
 
 export default { title: 'Figma/plugins/contrast' };
 
 export function Contrast() {
   const [colors, colorsSet] = useState({
-    text: '#000',
-    background: '#eee',
+    text: '#FFFFFF',
+    background: blue(500),
   });
 
   const textRGB = parseToRgb(colors.text);
   const backgroundRGB = parseToRgb(colors.background);
 
-  const data = contrast(textRGB, backgroundRGB);
+  const data: any = contrast(textRGB, backgroundRGB);
+  data.a11y = findA11yColors(textRGB, backgroundRGB, data, 8);
 
   const color = rgb(textRGB);
   const background = rgb(backgroundRGB);
@@ -120,9 +123,11 @@ const ValuesStyled = styled.div`
   gap: 1rem;
 `;
 
-function Scores({ data: { WCAG, APCA } }) {
+function Scores({ data: { WCAG, APCA, a11y } }) {
   WCAG = parseFloat(WCAG.split(':')[0]);
   APCA = Math.abs(parseFloat(APCA));
+
+  console.log({ a11y });
 
   return (
     <ScoresStyled>
@@ -132,6 +137,22 @@ function Scores({ data: { WCAG, APCA } }) {
       <Score requirement={APCA >= 60}>APCA 60</Score>
       <Score requirement={APCA >= 75}>APCA 75</Score>
       <Score requirement={APCA >= 90}>APCA 90</Score>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {a11y?.map(({ color, WCAG }) => {
+          const background = `rgb(${color.red},${color.green},${color.blue})`;
+          const style = {
+            background,
+            width: '3rem',
+            height: '3rem',
+            borderRadius: '0.25rem',
+            margin: '0.5rem',
+            display: 'inline-block',
+            padding: '0.25rem',
+            color: '#FFF',
+          };
+          return <div style={style}>{WCAG}</div>;
+        })}
+      </div>
     </ScoresStyled>
   );
 }
@@ -146,9 +167,10 @@ function Score({ requirement, children }) {
         display: 'flex',
         alignItems: 'center',
         gap: '0.5rem',
-        padding: '0.5rem 0',
+        padding: '0.25rem 0',
         height: '3rem',
         transition: '120ms ease-in-out',
+        fontSize: '0.75rem',
       }}
     >
       <span style={{ display: 'block', flexGrow: 1 }}>
@@ -162,13 +184,10 @@ function Score({ requirement, children }) {
 function Suggestions() {
   const style = {
     background: 'rgba(150,150,150,0.67',
-    width: '1.75rem',
-    height: '1.75rem',
+    width: '2rem',
+    height: '2rem',
     borderRadius: '0.25rem',
   };
-
-  let color;
-  const colors = findA11yColors(color);
 
   return (
     <>
@@ -223,10 +242,6 @@ const PreviewForeground = styled.div`
   border-radius: 0.334rem;
 `;
 
-function chroma(a: any) {
-  return a;
-}
-
 const white = { red: 255, green: 255, blue: 255 };
 
 const transformations = [
@@ -243,35 +258,62 @@ const transformations = [
   { l: -1, c: 2, h: -1 },
 ];
 
-function colorShift(color, transformatio, multiplier) {
-  const colorShifted = color;
-  return colorShifted;
+function colorShift(
+  { l: l_a, c: c_a, h: h_a },
+  { l: l_b, c: c_b, h: h_b },
+  multiplier
+) {
+  if (isNaN(h_a)) h_a = 0;
+
+  const { l, c, h } = {
+    l: l_a + l_b * (multiplier + 1),
+    c: c_a + c_b * (multiplier + 1),
+    h: h_a + h_b * (multiplier + 1),
+  };
+
+  const color = chroma({ l, c, h }, 'lch').rgb();
+  return color;
 }
 
-function findA11yColors(color, matchesRequested = 5) {
+function findA11yColors(
+  colorText,
+  colorBackground,
+  { WCAG: delta },
+  matchesRequested = 5
+) {
   const matches = [];
-  let [l, c, h] = chroma(color).lch();
+  delta = 5 - parseFloat(delta.split(':')[0]);
 
+  const { red, green, blue } = colorBackground;
+  let [l, c, h] = chroma({ r: red, g: green, b: blue }).lch();
+
+  let i = 0;
+  let j = 0;
   function transformationContrastCheck(transformation, multiplier) {
-    const color = chroma({ l, c, h });
+    i++;
+    if (matches.length >= matchesRequested) return;
 
-    const colorCandidate = colorShift(
-      color,
+    const [red, green, blue] = colorShift(
+      { l, c, h },
       transformation,
-      multiplier
+      multiplier + delta * 2 * j
     );
 
-    let { APCA, WCAG } = contrast(white, colorCandidate);
+    const colorCandidateRGB = { red, green, blue };
+
+    let { APCA, WCAG } = contrast(colorText, colorCandidateRGB);
+    (APCA as unknown as number) = Math.abs(APCA as unknown as number);
     (WCAG as unknown as number) = parseFloat(WCAG.split(':')[0]);
 
     if (APCA > 75 && (WCAG as unknown as number) > 4.5) {
-      matches.push(colorCandidate);
+      matches.push({ color: colorCandidateRGB, WCAG });
     }
   }
 
   do {
     transformations.map(transformationContrastCheck);
-  } while (matches.length < matchesRequested);
+    j++;
+  } while (i < 5000 && matches.length < matchesRequested);
 
   return matches;
 }
