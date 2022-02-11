@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 
 import { TourPoint } from './TourPoint';
 
-import { Header } from '../../../typography';
+import { Header } from '../../typography';
 
 export default {
   title: 'components/TourPoint',

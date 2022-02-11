@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { slate, blue } from '../../../color';
+import { slate, blue } from '../../color';
 
 export const Annotation = styled.div`
   display: flex;

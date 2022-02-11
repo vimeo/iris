@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import { em } from 'polished';
 
-import { Link as L, Text as T } from '../../../typography';
-import { ChevronRight } from '../../../icons';
+import { Link as L, Text as T } from '../../typography';
+import { ChevronRight } from '../../icons';
 
 export const Wrapper = styled.div`
   display: flex;

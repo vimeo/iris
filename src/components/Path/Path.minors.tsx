@@ -7,7 +7,7 @@ import {
   Arrow,
 } from './Path.style';
 
-import { IrisProps } from '../../../utils';
+import { IrisProps } from '../../utils';
 
 export interface Minors {
   Link: FunctionComponent<IrisProps<LinkProps>>;

@@ -11,13 +11,13 @@ import { TourContext } from './TourPoint.context';
 import { Motion } from './TourPoint.motion';
 import { Caret, buildClipPaths } from './Caret';
 
-import { Header, Paragraph } from '../../../typography';
-import { Button } from '../../buttons/Button/Button';
+import { Header, Paragraph } from '../../typography';
+import { Button } from '../buttons/Button/Button';
 import {
   Anchor,
   useAnchor,
-} from '../../../utils/hooks/useAnchor/useAnchor';
-import { usePortal, capitalize } from '../../../utils';
+} from '../../utils/hooks/useAnchor/useAnchor';
+import { usePortal, capitalize } from '../../utils';
 
 TourPoint.Motion = Motion;
 

@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { InnerButton } from '../InnerButton';
 import { Input } from '../Input/Input';
 
-import { Notification } from '../../info/Notification/Notification';
+import { Notification } from '../../Notification/Notification';
 import { Clipboard } from '../../../icons';
 import { withIris, IrisInputProps, geometry } from '../../../utils';
 

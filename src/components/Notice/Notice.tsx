@@ -12,15 +12,10 @@ import {
   CircleInfo,
   CircleWarning,
   DismissX,
-} from '../../../icons';
-import { Header, Paragraph } from '../../../typography';
-import {
-  IrisProps,
-  onClose,
-  useClose,
-  withIris,
-} from '../../../utils';
-import { Button } from '../../buttons/Button/Button';
+} from '../../icons';
+import { Header, Paragraph } from '../../typography';
+import { IrisProps, onClose, useClose, withIris } from '../../utils';
+import { Button } from '../buttons/Button/Button';
 
 export const Notice = withIris<HTMLDivElement, Props>(
   NoticeComponent

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Notice } from './Notice';
 
-import { Gear } from '../../../icons';
+import { Gear } from '../../icons';
 
 export default {
   title: 'components/Notice/props',

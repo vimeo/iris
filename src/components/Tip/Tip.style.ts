@@ -4,7 +4,7 @@ import { rgba } from 'polished';
 import { maxWidth } from './Tip.settings';
 import { Props as TipProps } from './Tip.types';
 
-import { black, white } from '../../../color';
+import { black, white } from '../../color';
 
 const fadeIn = keyframes`
   0% {

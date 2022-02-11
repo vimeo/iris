@@ -1,6 +1,6 @@
 import { ReactNode, ReactElement } from 'react';
 
-import { IrisProps, Attach, AttachAlias } from '../../../utils';
+import { IrisProps, Attach, AttachAlias } from '../../utils';
 
 export type Props = IrisProps<{
   /**

@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 
 import { Notification, Props } from './Notification';
 
-import { Button } from '../../index';
+import { Button } from '../index';
 
 export default {
   title: 'components/Notification',

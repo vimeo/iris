@@ -10,8 +10,8 @@ import {
   validate,
   useIrisError,
   SimpleAnimation,
-} from '../../../utils';
-import { Paragraph } from '../../../typography';
+} from '../../utils';
+import { Paragraph } from '../../typography';
 
 export const Tip = withIris<HTMLDivElement, Props>(TipComponent);
 

@@ -1,4 +1,4 @@
-export { Annotation } from './info/Annotation/Annotation';
+export { Annotation } from './Annotation/Annotation';
 export { Avatar } from './Avatar/Avatar';
 export { Badge } from './Badge/Badge';
 export { Button } from './buttons/Button/Button';
@@ -24,12 +24,12 @@ export { Input } from './inputs/Input/Input';
 export { LoaderCircular } from './LoaderCircular/LoaderCircular';
 export { Menu } from './Menu/Menu';
 export { Modal } from './Modal/Modal';
-export { Notice } from './info/Notice/Notice';
-export { Notification } from './info/Notification/Notification';
+export { Notice } from './Notice/Notice';
+export { Notification } from './Notification/Notification';
 export { Pagination } from './Pagination/Pagination';
 export { Panel } from './Panel/Panel';
 export { Password } from './inputs/Password/Password';
-export { Path } from './info/Path/Path';
+export { Path } from './Path/Path';
 export { Pop } from './PopOver/PopOver.minors';
 export { PopOver } from './PopOver/PopOver';
 export { Progress } from './Progress/Progress';
@@ -44,10 +44,10 @@ export { SocialButton } from './buttons/Social/SocialButton';
 export { Tabs } from './Tabs/Tabs';
 export { Tag } from './Tag/Tag';
 export { TextArea } from './inputs/TextArea/TextArea';
-export { Tip } from './info/Tip/Tip';
+export { Tip } from './Tip/Tip';
 export { Toggle } from './inputs/Toggle/Toggle';
-export { Tour } from './info/TourPoint/TourPoint.context';
-export { TourPoint } from './info/TourPoint/TourPoint';
+export { Tour } from './TourPoint/TourPoint.context';
+export { TourPoint } from './TourPoint/TourPoint';
 export { withCharacterCount } from './inputs/withCharacterCount/withCharacterCount';
 
 // DEPRECATED

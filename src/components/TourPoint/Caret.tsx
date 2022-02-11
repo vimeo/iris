@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { core } from '../../../tokens';
+import { core } from '../../tokens';
 
 export function Caret({ attach = 'left' }) {
   const style = attachPosition({ attach });

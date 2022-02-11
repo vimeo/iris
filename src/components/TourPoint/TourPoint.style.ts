@@ -1,8 +1,8 @@
 import { shade } from 'polished';
 import styled, { css } from 'styled-components';
 
-import { core } from '../../../tokens';
-import { Text } from '../../../typography';
+import { core } from '../../tokens';
+import { Text } from '../../typography';
 
 export const Footer = styled.div`
   display: flex;

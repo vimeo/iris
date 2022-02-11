@@ -2,10 +2,10 @@ import { MouseEventHandler, ReactNode } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import { rem, rgba } from 'polished';
 
-import { Paragraph } from '../../../typography';
-import { CircleInfo } from '../../../icons';
-import { white } from '../../../color';
-import { themes } from '../../../themes';
+import { Paragraph } from '../../typography';
+import { CircleInfo } from '../../icons';
+import { white } from '../../color';
+import { themes } from '../../themes';
 
 export const Wrapper = styled.div`
   position: fixed;

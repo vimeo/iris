@@ -3,8 +3,8 @@ import React, { ReactElement } from 'react';
 import { Wrapper, MobileArrow } from './Path.style';
 import { Minors, Link, Current } from './Path.minors';
 
-import { IrisProps, withIris } from '../../../utils';
-import { ArrowLeft } from '../../../icons';
+import { IrisProps, withIris } from '../../utils';
+import { ArrowLeft } from '../../icons';
 
 export const Path = withIris<HTMLDivElement, Props, Minors>(
   PathComponent

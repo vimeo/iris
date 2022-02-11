@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { createDomMotionComponent } from 'framer-motion';
 
-import { generateUID } from '../../../utils';
+import { generateUID } from '../../utils';
 
 const motion = {
   div: createDomMotionComponent('div'),

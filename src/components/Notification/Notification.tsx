@@ -15,7 +15,7 @@ import {
 } from './Notification.style';
 import { reducer } from './Notification.state';
 
-import { withIris, IrisProps } from '../../../utils';
+import { withIris, IrisProps } from '../../utils';
 
 export const Notification = withIris<HTMLDivElement, Props>(
   NotficationComponent

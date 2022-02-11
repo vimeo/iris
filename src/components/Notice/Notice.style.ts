@@ -2,10 +2,10 @@ import { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { rgba, rem } from 'polished';
 
-import { IrisTheme } from '../../../themes';
-import { Text } from '../../../typography';
-import { core } from '../../../tokens';
-import { onClose } from '../../../utils';
+import { IrisTheme } from '../../themes';
+import { Text } from '../../typography';
+import { core } from '../../tokens';
+import { onClose } from '../../utils';
 
 interface Props {
   format?: 'primary' | 'positive' | 'negative';

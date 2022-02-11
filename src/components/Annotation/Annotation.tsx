@@ -3,10 +3,10 @@ import React, { ReactNode } from 'react';
 import { Annotation as Styled } from './Annotation.style';
 
 import { Tip } from '../Tip/Tip';
-import { CircleInfo } from '../../../icons';
-import { Button } from '../../buttons/Button/Button';
+import { CircleInfo } from '../../icons';
+import { Button } from '../buttons/Button/Button';
 
-import { withIris, IrisProps, AttachAlias } from '../../../utils';
+import { withIris, IrisProps, AttachAlias } from '../../utils';
 
 export const Annotation = withIris<HTMLDivElement, Props>(
   AnnotationComponent
