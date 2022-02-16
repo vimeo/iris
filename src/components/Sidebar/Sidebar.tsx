@@ -74,8 +74,9 @@ function SidebarComponent({
       <SidebarStyled attach={attach} style={displayStyles} {...props}>
         {children}
       </SidebarStyled>
-      <PanelStyled hidden={!active} attach={attach} visible={panel}>
+      <PanelStyled attach={attach} visible={panel}>
         <Dismiss
+          tabIndex={!active ? -1 : 0}
           aria-label="Dismiss"
           format="basic"
           icon={<DismissX />}
