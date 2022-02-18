@@ -51,7 +51,11 @@ const CardBg = styled.div`
 `;
 
 function Card({ attach, attachRef, ...props }) {
-  const { styleAnchor, styleChild } = useAnchor(attachRef, attach);
+  const { styleAnchor, styleChild } = useAnchor(
+    attachRef,
+    attach,
+    true
+  );
   const outlet = createPortalOutlet('iris-portals');
 
   return createPortal(
