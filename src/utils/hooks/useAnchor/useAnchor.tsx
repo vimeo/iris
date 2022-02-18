@@ -1,4 +1,11 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, {
+  useEffect,
+  useLayoutEffect,
+  useState,
+  useMemo,
+  useRef,
+  MutableRefObject,
+} from 'react';
 import { AnimatePresence } from 'framer-motion';
 
 import { throttle } from '../..';
@@ -34,53 +41,88 @@ export function useAnchor(
   attach,
   active = false
 ) {
-  const [rect, rectSet] = useState<Partial<DOMRect>>(new DOMRect());
+  const rectRef: MutableRefObject<Partial<DOMRect>> = useRef(
+    new DOMRect()
+  );
+
+  const [_, forceUpdate] = useState(null);
 
   const [side, placement] = attach.split('-');
 
-  useIsomorphicLayoutEffect(() => {
-    if (ref.current) {
-      const updateRect = () => {
-        const rectRef: DOMRect = ref.current.getBoundingClientRect();
-        const { width, height, top, left } = rectRef;
+  /**
+   * Memoized resize handler.
+   * Account all throttles in memoized closure to prevent bursts of resize events.
+   *
+   * Compare memoized and observed element rects to check whether anchor position should be recalculated.
+   */
+  const onRectResize = useMemo(
+    () =>
+      throttle(() => {
+        if (ref.current) {
+          const refRect = ref.current.getBoundingClientRect();
+          const memoizedRect = rectRef.current;
+          const { width, height, top, left } = refRect;
 
-        if (rect.top !== top || rect.left !== left) {
-          rectSet({ width, height, top, left });
+          if (
+            memoizedRect.top !== top ||
+            memoizedRect.left !== left
+          ) {
+            rectRef.current = { width, height, top, left };
+            forceUpdate({});
+          }
         }
-      };
+      }, 10),
+    [ref]
+  );
 
-      const resizeEventListener = throttle(() => {
-        updateRect();
-      }, 10);
+  /**
+   * Once anchor is active start updating internals and subscribe to resize listeners.
+   * Do it only once per mount/switch to reduce heavy computations and circular executions.
+   */
+  useIsomorphicLayoutEffect(() => {
+    if (active) {
+      onRectResize();
 
-      window.addEventListener('resize', resizeEventListener);
-
-      updateRect();
-
-      return () => {
-        window.removeEventListener('resize', resizeEventListener);
-      };
+      window.addEventListener('resize', onRectResize);
+      return () => window.removeEventListener('resize', onRectResize);
     }
-  }, [ref, rect]);
+  }, [onRectResize, active]);
 
-  const styleAnchor: any = rect;
+  /**
+   * Memoize child style.
+   * In case of multiple anchors on screen and resizing can reduce amount of operations.
+   */
+  const styleChild = useMemo(() => {
+    const style: any = {};
+    style[side] = 0;
+    style[placement] = 0;
 
-  const translate = 'translate' + axis(side);
-  const amount = 100 * orient(side);
-  styleAnchor.transform = translate + '(' + amount + '%)';
+    if (!placement) {
+      const translate = 'translate' + flip(axis(side));
+      const amount = 50 * orient(side) * -1;
 
-  const styleChild: any = {};
-  styleChild[side] = 0;
-  styleChild[placement] = 0;
+      style[placement] = null;
+      style[intersect(side)] = '50%';
+      style.transform = translate + '(' + amount + '%)';
+    }
 
-  if (!placement) {
-    const translate = 'translate' + flip(axis(side));
-    const amount = 50 * orient(side) * -1;
+    return style;
+  }, [attach]);
 
-    styleChild[placement] = null;
-    styleChild[intersect(side)] = '50%';
-    styleChild.transform = translate + '(' + amount + '%)';
-  }
+  /**
+   * Memoize transform.
+   * In case of multiple anchors on screen and resizing can reduce amount of operations.
+   */
+  const transform = useMemo(() => {
+    const translate = 'translate' + axis(side);
+    const amount = 100 * orient(side);
+
+    return translate + '(' + amount + '%)';
+  }, [attach]);
+
+  const styleAnchor: any = rectRef.current;
+
+  styleAnchor.transform = transform;
 
   return { active, styleAnchor, styleChild };
 }
