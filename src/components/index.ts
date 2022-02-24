@@ -19,6 +19,7 @@ export { CardNewItem } from './CardNewItem/CardNewItem';
 export { CardNewItem as NewItemCard } from './CardNewItem/CardNewItem';
 
 export { Checkbox } from './inputs/Checkbox/Checkbox';
+export { CheckboxSet } from './inputs/Checkbox/CheckboxSet';
 export { ColorSelect } from './inputs/ColorSelect/ColorSelect';
 export { CopyField } from './inputs/CopyField/CopyField';
 export { CounterIcon } from './CounterIcon/CounterIcon';
