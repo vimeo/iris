@@ -32,11 +32,6 @@ export function Disabled() {
 }
 Disabled.storyName = 'disabled';
 
-export function Pill() {
-  return <Button pill>Button</Button>;
-}
-Pill.storyName = 'pill';
-
 export function Element() {
   return (
     <Button
