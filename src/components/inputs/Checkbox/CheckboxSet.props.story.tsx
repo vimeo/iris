@@ -59,27 +59,15 @@ export function Toggled() {
           }}
         />
       </CheckboxSet>
-      <CheckboxSet
-        label="toggled"
-        toggled
-        disabled
-        onChange={() => {
-          console.log('Toggled parent');
-        }}
-      >
-        <Checkbox
-          label="toggled"
-          onChange={() => {
-            console.log('Toggled child');
-          }}
-        />
-        <Checkbox
-          label="toggled"
-          onChange={() => {
-            console.log('Toggled child');
-          }}
-        />
-      </CheckboxSet>
     </Layout.StoryVertical>
+  );
+}
+
+export function Disabled() {
+  return (
+    <CheckboxSet label="disabled" disabled>
+      <Checkbox label="disabled" />
+      <Checkbox label="disabled" />
+    </CheckboxSet>
   );
 }

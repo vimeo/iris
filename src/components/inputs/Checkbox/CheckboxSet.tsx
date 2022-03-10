@@ -3,7 +3,7 @@ import React, { useState, cloneElement, useMemo } from 'react';
 import { Checkbox } from './Checkbox';
 import { validate } from '../Shared';
 
-import { Props } from './Checkbox.types';
+import { Props } from './CheckboxSet.types';
 import { generateUID, withIris } from '../../../utils';
 
 export const CheckboxSet = withIris<HTMLInputElement, Props>(
@@ -19,6 +19,7 @@ function CheckboxSetComponent({
   theme,
   toggled,
   onChange,
+  disabled,
   ...props
 }: Props) {
   const UID = useMemo(() => generateUID(), []);
@@ -55,6 +56,7 @@ function CheckboxSetComponent({
       <Checkbox
         checked={parentChecked}
         indeterminate={someChecked}
+        disabled={disabled}
         onChange={(e) => {
           parentClick();
           onChange && onChange(e);
@@ -71,6 +73,7 @@ function CheckboxSetComponent({
               id: `checkbox-${i}-${UIDs[i]}`,
               name: UID,
               value: UIDs[i],
+              disabled: disabled,
               onChange: (e) => {
                 setChecks(toggle(i));
                 child.props.onChange && child.props.onChange(e);
