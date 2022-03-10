@@ -6,19 +6,19 @@ import { validate } from '../Shared';
 import { Props } from './Checkbox.types';
 import { generateUID, withIris } from '../../../utils';
 
-export const CheckboxSet = withIris<HTMLDivElement, Props>(
+export const CheckboxSet = withIris<HTMLInputElement, Props>(
   CheckboxSetComponent
 );
 
 function CheckboxSetComponent({
   children,
   coupled,
-  disabled,
   forwardRef,
   messages,
   status,
   theme,
   toggled,
+  onChange,
   ...props
 }: Props) {
   const UID = useMemo(() => generateUID(), []);
@@ -34,7 +34,8 @@ function CheckboxSetComponent({
 
   const [checks, setChecks] = useState(all(false));
 
-  if (!validate(children, 'checkbox')) return null;
+  if (!validate(children, 'checkbox'))
+    console.warn('Unable to valid children on CheckboxSet');
 
   const allChecked = checks.every((check) => check);
   const someChecked = !allChecked && checks.some((check) => check);
@@ -54,7 +55,10 @@ function CheckboxSetComponent({
       <Checkbox
         checked={parentChecked}
         indeterminate={someChecked}
-        onChange={parentClick}
+        onChange={(e) => {
+          parentClick();
+          onChange && onChange(e);
+        }}
         readOnly
         {...props}
       />
@@ -67,7 +71,10 @@ function CheckboxSetComponent({
               id: `checkbox-${i}-${UIDs[i]}`,
               name: UID,
               value: UIDs[i],
-              onChange: () => setChecks(toggle(i)),
+              onChange: (e) => {
+                setChecks(toggle(i));
+                child.props.onChange && child.props.onChange(e);
+              },
               readOnly: true,
             })
           )}
