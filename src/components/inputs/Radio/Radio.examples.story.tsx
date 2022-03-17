@@ -53,7 +53,7 @@ export function CustomElement() {
         <Radio checked>
           <Custom />
         </Radio>
-        <Radio>
+        <Radio disabled>
           <Custom />
         </Radio>
         <Radio>
