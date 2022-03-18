@@ -45,6 +45,10 @@ export type Props = IrisInputProps<{
    * @presetValue is the value of preset which is clicked.
    */
   onPresetClick?: (presetValue: PresetValue) => void;
+  /**
+   * Optional value -- add typing as well for all locale options
+   */
+  locale?: string;
 }>;
 
 export type PresetValue =

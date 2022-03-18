@@ -56,9 +56,9 @@ const maxDate = new Date(
 Controls.args = {
   minDate,
   maxDate,
-  startInputLabel: 'Start date',
-  endInputLabel: 'End date',
-  attach: 'bottom',
+  // startInputLabel: 'Start date',
+  // endInputLabel: 'End date',
+  // attach: 'bottom',
 };
 
 function locale(range) {
@@ -91,7 +91,12 @@ function DateRangeButton({ ...args }) {
     <PopOver
       active={active}
       content={
-        <DateRange ref={popOverRef} onChange={onChange} {...args} />
+        <DateRange
+          ref={popOverRef}
+          locale={'fr-FR'}
+          onChange={onChange}
+          {...args}
+        />
       }
       style={
         args.presets && {

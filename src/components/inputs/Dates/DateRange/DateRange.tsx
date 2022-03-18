@@ -27,6 +27,7 @@ import {
   Menu,
 } from './DateRange.style';
 import { PresetValue, Props } from './DateRange.types';
+import { translate } from './translations';
 
 import { slate } from '../../../../color';
 import { withIris } from '../../../../utils';
@@ -36,21 +37,22 @@ export const DateRange = withIris<HTMLInputElement, Props>(
   DateRangeComponent
 );
 
-const dateFormat = getDateFormat();
-
 function DateRangeComponent({
   className,
-  endInputLabel = 'End date',
+  endInputLabel,
   forwardRef,
   maxDate,
   minDate,
   onChange,
   presets,
-  startInputLabel = 'Start date',
+  startInputLabel,
   onPresetClick,
+  locale = 'en',
 }: Props) {
   const [state, dispatch] = useReducer(reducer, initialState, init);
   const [presetOption, setPresetOption] = useState('');
+
+  const dateFormat = getDateFormat(locale);
 
   // When our internal range value changes, if a callback for onChange is passed
   // let's call that callback with our new value.
@@ -87,9 +89,9 @@ function DateRangeComponent({
   const startDateLabel = useMemo(() => {
     if (typeof startLabel === 'string') return startLabel;
 
-    if (hoverStart) return formatDate(hoverStart);
-    if (draftStart) return formatDate(draftStart);
-    if (!open && rangeStart) return formatDate(rangeStart);
+    if (hoverStart) return formatDate(hoverStart, locale);
+    if (draftStart) return formatDate(draftStart, locale);
+    if (!open && rangeStart) return formatDate(rangeStart, locale);
 
     return '';
   }, [open, draftStart, startLabel, hoverStart, rangeStart]);
@@ -98,9 +100,9 @@ function DateRangeComponent({
   const endDateLabel = useMemo(() => {
     if (typeof endLabel === 'string') return endLabel;
 
-    if (hoverEnd) return formatDate(hoverEnd);
-    if (draftEnd) return formatDate(draftEnd);
-    if (!open && rangeEnd) return formatDate(rangeEnd);
+    if (hoverEnd) return formatDate(hoverEnd, locale);
+    if (draftEnd) return formatDate(draftEnd, locale);
+    if (!open && rangeEnd) return formatDate(rangeEnd, locale);
 
     return '';
   }, [open, draftEnd, endLabel, hoverEnd, rangeEnd]);
@@ -259,7 +261,7 @@ function DateRangeComponent({
           format="basic"
           style={{ borderRight: `1px solid ${slate(100)}` }}
         >
-          <Menu.Section title="Presets">
+          <Menu.Section title={translate.Presets[locale]}>
             {presets.map((preset, key) => {
               const label = getPresetLabel(preset);
 
@@ -290,7 +292,7 @@ function DateRangeComponent({
           <DateField>
             <Input
               id="start–date"
-              label={startInputLabel}
+              label={startInputLabel || translate.StartDate[locale]}
               value={startDateLabel}
               onChange={handleStartChange}
               onKeyDown={handleKeyDown}
@@ -303,7 +305,7 @@ function DateRangeComponent({
           <DateField>
             <Input
               id="end-date"
-              label={endInputLabel}
+              label={endInputLabel || translate.EndDate[locale]}
               value={endDateLabel}
               onChange={handleEndChange}
               onKeyDown={handleKeyDown}
@@ -329,6 +331,7 @@ function DateRangeComponent({
             selectionEnd={hoverEnd ? hoverEnd : draftEnd}
             onClick={handleClick}
             onMouseEnter={handleHover}
+            locale={locale}
           />
           <Calendar
             isRange
@@ -343,6 +346,7 @@ function DateRangeComponent({
             selectionEnd={hoverEnd ? hoverEnd : draftEnd}
             onClick={handleClick}
             onMouseEnter={handleHover}
+            locale={locale}
           />
         </CalendarsBody>
         <CalendarsFooter>
@@ -353,7 +357,7 @@ function DateRangeComponent({
             variant="minimal"
             onClick={() => void dispatch({ type: 'CLEAR' })}
           >
-            Clear
+            {translate.Clear[locale]}
           </ClearButton>
           <ApplyButton
             disabled={
@@ -366,7 +370,7 @@ function DateRangeComponent({
             format="secondary"
             onClick={() => void dispatch({ type: 'SAVE' })}
           >
-            Apply
+            {translate.Apply[locale]}
           </ApplyButton>
         </CalendarsFooter>
       </CalendarsContainer>

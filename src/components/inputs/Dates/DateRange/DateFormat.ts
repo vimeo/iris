@@ -1,31 +1,30 @@
-const DATE_FORMAT_OPTIONS = {
+export const DATE_FORMAT_OPTIONS = {
   year: 'numeric',
   month: '2-digit',
   day: '2-digit',
 } as const;
 
-const DEFAULT_LANGUAGE = 'default';
-
-const formatter = (() => {
+const dateFormat = (locale: string) => {
   try {
     return (window as any).Intl
-      ? new Intl.DateTimeFormat(DEFAULT_LANGUAGE, DATE_FORMAT_OPTIONS)
+      ? new Intl.DateTimeFormat(locale, DATE_FORMAT_OPTIONS)
       : null;
   } catch (e) {
     return null;
   }
-})();
+};
 
-export function formatDate(date: Date): string {
+export function formatDate(date: Date, locale = 'en'): string {
+  const formatter = dateFormat(locale);
   const formattedDate = formatter
     ? formatter.format(date)
-    : date.toLocaleDateString();
+    : date.toLocaleDateString(locale);
 
   return formattedDate;
 }
 
-export function getDateFormat() {
-  const sample = formatDate(new Date(1970, 11, 31));
+export function getDateFormat(locale = 'en') {
+  const sample = formatDate(new Date(1970, 11, 31), locale);
 
   let mm = 0;
   let dd = 1;
@@ -50,10 +49,11 @@ export function getDateFormat() {
   return r.join(match ? match[0] : '/');
 }
 
-export function getDateFormatRegex(format: string) {
+export function getDateFormatRegex(format: string, locale = 'en') {
   let f: string;
   // If there is no formatter we can't garuntee a correct regex
   // Allow any input - for ie11
+  const formatter = dateFormat(locale);
   if (formatter) {
     f = format.replace('DD', '\\d{2}');
     f = f.replace('MM', '\\d{2}');

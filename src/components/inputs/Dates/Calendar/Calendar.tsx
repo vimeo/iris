@@ -35,6 +35,7 @@ export interface Props {
   selectionEnd?: Date;
   onClick?: (date: Date) => void;
   onMouseEnter?: (date: Date | null) => void;
+  locale?: string;
 }
 
 export const Calendar = ({
@@ -50,6 +51,7 @@ export const Calendar = ({
   range: [selectionStart, selectionEnd] = [null, null],
   hoverRange: [hoverStart, hoverEnd] = [null, null],
   onMouseEnter,
+  locale,
   initialMonth = new Date(),
   ...props
 }: IrisProps<Props>) => {
@@ -121,6 +123,8 @@ export const Calendar = ({
     };
   }
 
+  const DAY_LABELS = getDayNames(locale);
+
   const inCurrentMonth = (date) =>
     date.getMonth() === actualDate.getMonth();
 
@@ -188,7 +192,7 @@ export const Calendar = ({
         />
 
         <MonthLabel size="4" onClick={resetMonth}>
-          {month(actualDate)}
+          {month(actualDate, locale)}
         </MonthLabel>
         <NextMonth
           onClick={
@@ -262,20 +266,20 @@ export const Calendar = ({
   );
 };
 
-const DAYS_OF_WEEK = {
-  Sunday: 'Su',
-  Monday: 'Mo',
-  Tuesday: 'Tu',
-  Wednesday: 'We',
-  Thursday: 'Th',
-  Friday: 'Fr',
-  Saturday: 'Sa',
-};
+function getDayNames(locale = 'en') {
+  const formatter = new Intl.DateTimeFormat(locale, {
+    weekday: 'short',
+    timeZone: 'UTC',
+  });
+  const days = [1, 2, 3, 4, 5, 6, 7].map((day) => {
+    const dd = day < 10 ? `0${day}` : day;
+    return new Date(`2017-01-${dd}T00:00:00+00:00`);
+  });
+  return days.map((date) => formatter.format(date));
+}
 
-const DAY_LABELS = Object.values(DAYS_OF_WEEK);
-
-function month(month) {
-  return month.toLocaleDateString('en-US', {
+function month(month, locale = 'en') {
+  return month.toLocaleDateString(locale, {
     month: 'long',
     year: 'numeric',
   });
