@@ -94,7 +94,7 @@ function DateRangeComponent({
     if (!open && rangeStart) return formatDate(rangeStart, locale);
 
     return '';
-  }, [open, draftStart, startLabel, hoverStart, rangeStart]);
+  }, [open, draftStart, startLabel, hoverStart, rangeStart, locale]);
 
   // Derive the value for the input that represents our end date.
   const endDateLabel = useMemo(() => {
@@ -105,7 +105,7 @@ function DateRangeComponent({
     if (!open && rangeEnd) return formatDate(rangeEnd, locale);
 
     return '';
-  }, [open, draftEnd, endLabel, hoverEnd, rangeEnd]);
+  }, [open, draftEnd, endLabel, hoverEnd, rangeEnd, locale]);
 
   // Callback for going to the next month in our date range picker.
   function handleGoForward() {
