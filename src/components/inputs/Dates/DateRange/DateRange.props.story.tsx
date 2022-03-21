@@ -52,6 +52,14 @@ export function MaxDate() {
   );
 }
 
+export function Locale() {
+  return (
+    <Layout.StoryVertical center>
+      <DateRangeButton locale={'ko-KR'} />
+    </Layout.StoryVertical>
+  );
+}
+
 const presets = [
   'today',
   'yesterday',

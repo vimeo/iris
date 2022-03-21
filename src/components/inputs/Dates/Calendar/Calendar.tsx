@@ -51,11 +51,14 @@ export const Calendar = ({
   range: [selectionStart, selectionEnd] = [null, null],
   hoverRange: [hoverStart, hoverEnd] = [null, null],
   onMouseEnter,
-  locale,
+  locale = 'en',
   initialMonth = new Date(),
   ...props
 }: IrisProps<Props>) => {
   const date = initialMonth;
+
+  const DAY_LABELS = getDayNames(locale);
+
   const initialViewportDate = new Date(
     date.getFullYear(),
     date.getMonth(),
@@ -122,8 +125,6 @@ export const Calendar = ({
       onClick(date);
     };
   }
-
-  const DAY_LABELS = getDayNames(locale);
 
   const inCurrentMonth = (date) =>
     date.getMonth() === actualDate.getMonth();
@@ -266,7 +267,7 @@ export const Calendar = ({
   );
 };
 
-function getDayNames(locale = 'en') {
+function getDayNames(locale) {
   const formatter = new Intl.DateTimeFormat(locale, {
     weekday: 'short',
     timeZone: 'UTC',
@@ -278,7 +279,7 @@ function getDayNames(locale = 'en') {
   return days.map((date) => formatter.format(date));
 }
 
-function month(month, locale = 'en') {
+function month(month, locale) {
   return month.toLocaleDateString(locale, {
     month: 'long',
     year: 'numeric',

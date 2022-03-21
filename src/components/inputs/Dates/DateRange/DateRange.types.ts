@@ -46,10 +46,20 @@ export type Props = IrisInputProps<{
    */
   onPresetClick?: (presetValue: PresetValue) => void;
   /**
-   * Optional value -- add typing as well for all locale options
+   * Optional value that adds support for localization
+   * [default = 'en']
    */
-  locale?: string;
+  locale?: SupportedLocales;
 }>;
+
+export type SupportedLocales =
+  | 'en'
+  | 'es'
+  | 'de-DE'
+  | 'fr-FR'
+  | 'ja-JP'
+  | 'pt-BR'
+  | 'ko-KR';
 
 export type PresetValue =
   | 'today'

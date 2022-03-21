@@ -1,10 +1,10 @@
-export const DATE_FORMAT_OPTIONS = {
+const DATE_FORMAT_OPTIONS = {
   year: 'numeric',
   month: '2-digit',
   day: '2-digit',
 } as const;
 
-const dateFormat = (locale: string) => {
+const dateFormat = (locale = 'en') => {
   try {
     return (window as any).Intl
       ? new Intl.DateTimeFormat(locale, DATE_FORMAT_OPTIONS)
@@ -14,7 +14,7 @@ const dateFormat = (locale: string) => {
   }
 };
 
-export function formatDate(date: Date, locale = 'en'): string {
+export function formatDate(date: Date, locale: string): string {
   const formatter = dateFormat(locale);
   const formattedDate = formatter
     ? formatter.format(date)
@@ -49,11 +49,11 @@ export function getDateFormat(locale = 'en') {
   return r.join(match ? match[0] : '/');
 }
 
-export function getDateFormatRegex(format: string, locale = 'en') {
+export function getDateFormatRegex(format: string) {
   let f: string;
   // If there is no formatter we can't garuntee a correct regex
   // Allow any input - for ie11
-  const formatter = dateFormat(locale);
+  const formatter = dateFormat();
   if (formatter) {
     f = format.replace('DD', '\\d{2}');
     f = f.replace('MM', '\\d{2}');

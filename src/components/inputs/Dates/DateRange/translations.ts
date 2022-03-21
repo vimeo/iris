@@ -1,4 +1,6 @@
-export const translate = {
+import { SupportedLocales } from './DateRange.types';
+
+export const translate: Translations = {
   Apply: {
     en: 'Apply',
     es: 'Aplicar',
@@ -45,3 +47,9 @@ export const translate = {
     'ko-KR': '사전 설정',
   },
 };
+
+interface Translations {
+  [key: string]: {
+    [locale in SupportedLocales]: string;
+  };
+}
