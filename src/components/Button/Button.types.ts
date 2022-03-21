@@ -82,6 +82,10 @@ export type Props = IrisProps<
     textShift?: boolean;
     theme?: any;
     /**
+     * HTML Button type property
+     */
+    type?: 'button' | 'reset' | 'submit';
+    /**
      * [default = 'solid']
      */
     variant?: typeof variants[number];
