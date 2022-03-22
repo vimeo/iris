@@ -35,8 +35,11 @@ function CheckboxSetComponent({
 
   const [checks, setChecks] = useState(all(false));
 
-  if (!validate(children, 'checkbox'))
-    console.warn('Unable to valid children on CheckboxSet');
+  if (
+    !validate(children, 'checkbox') &&
+    process.env.NODE_ENV === 'development'
+  )
+    console.warn('Unable to validate children on CheckboxSet');
 
   const allChecked = checks.every((check) => check);
   const someChecked = !allChecked && checks.some((check) => check);
