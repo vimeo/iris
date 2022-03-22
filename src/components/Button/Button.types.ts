@@ -13,6 +13,8 @@ export type DOMElement =
   | HTMLAnchorElement
   | HTMLSpanElement;
 
+export type ButtonTypes = 'button' | 'reset' | 'submit';
+
 type ButtonElements = 'button' | 'span' | 'a';
 type Targets = '_blank' | '_self' | '_parent' | '_top';
 type Fluid = true | false | { min?: number; max?: number };
@@ -84,7 +86,7 @@ export type Props = IrisProps<
     /**
      * HTML Button type property
      */
-    type?: 'button' | 'reset' | 'submit';
+    type?: ButtonTypes;
     /**
      * [default = 'solid']
      */
