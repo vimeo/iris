@@ -49,9 +49,12 @@ function ModalComponent({
   forwardRef,
   onClose,
   onOpen,
+  backdrop,
   screen = true,
   ...props
 }: Props) {
+  const { onClick: onBackdropClick, ...backdropProps } =
+    backdrop ?? {};
   const attach: Attach = feature
     ? [
         [97, 97],
@@ -91,6 +94,8 @@ function ModalComponent({
       onClose,
       onOpen,
       screen,
+      ...backdropProps,
+      onBackdropClick,
     }
   );
 

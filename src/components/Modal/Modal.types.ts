@@ -1,4 +1,4 @@
-import { ReactNode, ReactElement } from 'react';
+import { ReactNode, ReactElement, MouseEventHandler } from 'react';
 
 import { IrisProps } from '../../utils';
 
@@ -35,6 +35,14 @@ export type Props = IrisProps<
      * [default = 'md']
      */
     size?: 'sm' | 'md' | 'lg';
+    /**
+     * The 'backdrop' object parameter contains options to configure backdrop styles and events.
+     */
+    backdrop?: {
+      blur?: number;
+      backgroundColor?: string;
+      onClick?: MouseEventHandler;
+    };
   },
   HTMLDivElement
 >;

@@ -34,8 +34,11 @@ export function usePortal_DEPRECATED(
     forceActive,
     margin = 8,
     onClick: onChildClick,
+    onBackdropClick,
     screen = false,
     trigger = 'click',
+    blur,
+    backgroundColor,
   } = portalConfig;
 
   const { open, close, active, animationProps } = useMountAnimations(
@@ -54,6 +57,7 @@ export function usePortal_DEPRECATED(
 
   useOutsideClick([ref, childRef], (event) => {
     if (allowPageInteraction) return;
+    onBackdropClick?.(event);
     if (!controlled && trigger === 'click') close(event);
   });
 
@@ -82,7 +86,14 @@ export function usePortal_DEPRECATED(
         margin={margin}
         children={children}
       />
-      {screen && <Screen ref={screenRef} onClick={toggle} />}
+      {screen && (
+        <Screen
+          ref={screenRef}
+          blur={blur}
+          backgroundColor={backgroundColor}
+          onClick={toggleWithChildClick}
+        />
+      )}
     </>,
     outlet
   );

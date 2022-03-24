@@ -27,10 +27,13 @@ export interface PortalConfig {
   forceActive?: boolean | null | undefined;
   margin?: number;
   onClick?: MouseEventHandler;
+  onBackdropClick?: MouseEventHandler;
   onClose?: MouseEventHandler;
   onOpen?: MouseEventHandler;
   screen?: boolean;
   trigger?: 'click' | 'hover';
+  blur?: number;
+  backgroundColor?: string;
 }
 
 export const ANCHOR_POINTS = [
