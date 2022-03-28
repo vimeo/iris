@@ -30,7 +30,6 @@ export function Mark({
   messages,
   name,
   onChange,
-  onKeyUp,
   status,
   style = nullStyle,
   theme,
@@ -45,10 +44,7 @@ export function Mark({
     <Wrapper
       className={className}
       messages={messages}
-      onKeyUp={(e) => {
-        a11yKey(e);
-        onKeyUp && onKeyUp(e);
-      }}
+      onKeyUp={a11yKey}
       status={status}
       style={style}
       theme={theme}
