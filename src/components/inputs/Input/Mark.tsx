@@ -139,7 +139,7 @@ function CustomMark({ children, htmlFor, checked, disabled }) {
     children && (
       <label
         htmlFor={htmlFor}
-        style={!disabled && { cursor: 'pointer' }}
+        style={{ cursor: disabled ? 'not-allowed' : 'pointer' }}
       >
         {cloneElement(children, { disabled, checked })}
       </label>

@@ -59,6 +59,9 @@ export function CustomElement() {
         <Radio>
           <Custom />
         </Radio>
+        <Radio disabled>
+          <Custom />
+        </Radio>
       </RadioSet>
     </>
   );
@@ -84,7 +87,10 @@ const customCSS =
       }
     `;
 
-const CustomStyled = styled.div<any>`
+const CustomStyled = styled.div<{
+  disabled?: boolean;
+  checked?: boolean;
+}>`
   width: 3rem;
   height: 3rem;
   padding: 0.25rem;
@@ -93,7 +99,11 @@ const CustomStyled = styled.div<any>`
   ${(p) => p.checked && customCSS(1)(p)};
   ${(p) => !p.checked && customCSS(0.5)(p)};
   &:hover {
-    background: ${(p) => rgba(p.theme.formats.soft, 0.1)};
-    ${(p) => !p.checked && customCSS(0.75)(p)};
+    ${(p) =>
+      !p.disabled &&
+      css`
+        background: rgba(p.theme.formats.soft, 0.1);
+      `};
+    ${(p) => !p.checked && !p.disabled && customCSS(0.75)(p)};
   }
 `;
