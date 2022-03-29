@@ -1,3 +1,4 @@
+import { ChangeEventHandler } from 'react';
 import { MarkInputElement } from '../Shared';
 
 import { IrisInputProps } from '../../../utils';
@@ -17,6 +18,10 @@ export type Props = IrisInputProps<
      * [default = false]
      */
     toggled?: boolean;
+    /**
+     * Parent checkbox onChange handler
+     */
+    onChange?: ChangeEventHandler<HTMLInputElement>;
   },
   HTMLDivElement
 >;
