@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 import { hslToColorString } from 'polished';
 
 import { Themed } from './Styles';
+import { useGlobalTheme } from '../../utils/hooks/useGlobalTheme';
 
 export function Flower() {
   return (
@@ -10,40 +11,40 @@ export function Flower() {
       <Pre>
         { /* prettier-ignore */ }
         <Code>
-  {'\n'}                                `..`                                  
-  {'\n'}                            .://--/                                  
-  {'\n'}                          `--::.``.`                                 
-  {'\n'}                         `.-::.``  `             `::..`````          
-  {'\n'}               ..//-`    -/+:-```  :       `-///+o/:-..````..`       
-  {'\n'}``````   `   .-.`::....  :++:-.`.`+.      -//::::--.``  ``...:       
-  {'\n'}`...-----:/+o++os++/://  -++/---:o.     `:+/::///:-.`` ``.-://       
-  {'\n'}.-:::::---.``./++:-...--``+++++s/     `:/::+sso+++/+oyo/://+os       
-  {'\n'}.:////////:``````-//-.`./:+o+//.`.----+/./+o+        `:yhyssss       
-  {'\n'} `/++////+o+-`-/-``./+/:/o--...`./+++::sy+so-           /hhhys       
-  {'\n'}   :+++ossyhdhsoo/..`-+so/.:/+sdhhds.   .--              `/syo       
-  {'\n'}    .+ooossyyyys:``-:-.:ss//oshmdd:                                  
-  {'\n'}      :+ssso+:. -::/::://oyhoymmd.                                 
-  {'\n'}              ``-:-:/o:/+smmmymm.                                  
-  {'\n'}           `..-::-.````-+++ymdmo                                   
-  {'\n'}          ---..        `./o+odm`                                   
-  {'\n'}         //:-.`    ``  ``-+oosd                                    
-  {'\n'}        -so+:.`````.```-::/sysm/    -s                             
-  {'\n'}        .ysso:.`......-:/+osyohm`  :dh                             
-  {'\n'}         -hs/----.---::/+ssyy.hms -shm                               
-  {'\n'}          /:--::--::://+syys. odm-ssym:                              
-  {'\n'}         -::::::::+ooosyyyo`  -hmhsyhm+                              
-  {'\n'}        .::/://::+yhhhhhs-     ymysyddo                d8,           d8,                        
-  {'\n'}         -///////ohho+:`       :mssymdo               `8P           `8P                         
-  {'\n'}         `/++++++s/             ysshmdo                                                         
-  {'\n'}          `/ooooss.             -yyhdd/                88b  88bd88b  88b .d888b,                
-  {'\n'}            :ssssy/             -ydddm.                88P  88P'  `  88P ?8b,                   
-  {'\n'}              .:/+:             -hdddh                d88  d88      d88    `?8b                 
-  {'\n'}                                -hddm+               d88' d88'     d88' `?888P'                 
-  {'\n'}                                -dmmN`                               
-  {'\n'}                                .mNNs                                
-  {'\n'}                                 dNN.                                
-  {'\n'}                                 yNh                                 
-  {'\n'}                                 `.` 
+  {'\n'}                                `..`
+  {'\n'}                            .://--/
+  {'\n'}                          `--::.``.`
+  {'\n'}                         `.-::.``  `             `::..`````
+  {'\n'}               ..//-`    -/+:-```  :       `-///+o/:-..````..`
+  {'\n'}``````   `   .-.`::....  :++:-.`.`+.      -//::::--.``  ``...:
+  {'\n'}`...-----:/+o++os++/://  -++/---:o.     `:+/::///:-.`` ``.-://
+  {'\n'}.-:::::---.``./++:-...--``+++++s/     `:/::+sso+++/+oyo/://+os
+  {'\n'}.:////////:``````-//-.`./:+o+//.`.----+/./+o+        `:yhyssss
+  {'\n'} `/++////+o+-`-/-``./+/:/o--...`./+++::sy+so-           /hhhys
+  {'\n'}   :+++ossyhdhsoo/..`-+so/.:/+sdhhds.   .--              `/syo
+  {'\n'}    .+ooossyyyys:``-:-.:ss//oshmdd:
+  {'\n'}      :+ssso+:. -::/::://oyhoymmd.
+  {'\n'}              ``-:-:/o:/+smmmymm.
+  {'\n'}           `..-::-.````-+++ymdmo
+  {'\n'}          ---..        `./o+odm`
+  {'\n'}         //:-.`    ``  ``-+oosd
+  {'\n'}        -so+:.`````.```-::/sysm/    -s
+  {'\n'}        .ysso:.`......-:/+osyohm`  :dh
+  {'\n'}         -hs/----.---::/+ssyy.hms -shm
+  {'\n'}          /:--::--::://+syys. odm-ssym:
+  {'\n'}         -::::::::+ooosyyyo`  -hmhsyhm+
+  {'\n'}        .::/://::+yhhhhhs-     ymysyddo                d8,           d8,
+  {'\n'}         -///////ohho+:`       :mssymdo               `8P           `8P
+  {'\n'}         `/++++++s/             ysshmdo
+  {'\n'}          `/ooooss.             -yyhdd/                88b  88bd88b  88b .d888b,
+  {'\n'}            :ssssy/             -ydddm.                88P  88P'  `  88P ?8b,
+  {'\n'}              .:/+:             -hdddh                d88  d88      d88    `?8b
+  {'\n'}                                -hddm+               d88' d88'     d88' `?888P'
+  {'\n'}                                -dmmN`
+  {'\n'}                                .mNNs
+  {'\n'}                                 dNN.
+  {'\n'}                                 yNh
+  {'\n'}                                 `.`
         </Code>
       </Pre>
     </Themed>
@@ -62,7 +63,7 @@ const Pre = styled.pre`
 `;
 
 function Code({ children, ...props }) {
-  const theme = useContext(ThemeContext);
+  const theme = useGlobalTheme();
 
   const saturation = 1;
   const lightness = theme.name === 'dark' ? 0.667 : 0.4;

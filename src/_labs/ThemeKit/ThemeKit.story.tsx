@@ -1,9 +1,5 @@
-import React, { useState, useContext } from 'react';
-import styled, {
-  ThemeProvider,
-  css,
-  ThemeContext,
-} from 'styled-components';
+import React, { useState } from 'react';
+import styled, { ThemeProvider, css } from 'styled-components';
 import { rem } from 'polished';
 
 import { Fonts } from './Fonts';
@@ -22,6 +18,7 @@ import {
 import { Header as H, Paragraph as P } from '../../typography';
 import { LoaderCircular as LC } from '../../motion';
 import { Gear } from '../../icons';
+import { useGlobalTheme } from '../../utils/hooks/useGlobalTheme';
 
 export default { title: 'Labs/Themekit' };
 
@@ -35,7 +32,7 @@ const box = {
 };
 
 function ThemeKit(props) {
-  const globalTheme = useContext(ThemeContext);
+  const globalTheme = useGlobalTheme();
   const subTheme = globalTheme.name;
 
   const [theme, setTheme] = useState(themes.vimeo);

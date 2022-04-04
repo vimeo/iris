@@ -3,11 +3,10 @@ import {
   ForwardRefExoticComponent,
   RefAttributes,
   PropsWithoutRef,
-  useContext,
   useEffect,
   FC,
 } from 'react';
-import { ThemeContext } from 'styled-components';
+import { useGlobalTheme } from '../hooks/useGlobalTheme';
 
 const version = '0.118.1';
 
@@ -48,7 +47,7 @@ export function withIris<
   // Universal Iris Hooks
   const ComponentWithIris: FC<any> = ({ theme, ...props }) => {
     // const errors = useIrisError(props);
-    const themeFromContext = useContext(ThemeContext);
+    const themeFromContext = useGlobalTheme();
     theme = theme || themeFromContext;
 
     // props = withAnalytics({ $$iris, props });

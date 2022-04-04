@@ -3,6 +3,7 @@ import styled, { ThemeContext } from 'styled-components';
 
 import { white, grayscale } from '../color';
 import { Header } from '../typography';
+import { useGlobalTheme } from '../utils/hooks/useGlobalTheme';
 
 interface Props {
   props?: string[];
@@ -23,8 +24,7 @@ export function Story({
   flex = false,
   ...props
 }: Props) {
-  const theme = useContext(ThemeContext);
-  if (!theme) console.error('No theme detected!');
+  const theme = useGlobalTheme();
 
   return (
     <Wrapper {...props}>

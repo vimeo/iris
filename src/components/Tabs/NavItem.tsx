@@ -5,6 +5,7 @@ import { rem, rgba } from 'polished';
 import { Button } from '../../components/Button/Button';
 import { themes } from '../../themes';
 import { black } from '../../color';
+import { useGlobalTheme } from '../../utils/hooks/useGlobalTheme';
 
 export function NavItem({
   format,
@@ -36,7 +37,7 @@ export function NavItem({
 }
 
 function InlayButton({ selected, ...props }) {
-  const theme = useContext(ThemeContext);
+  const theme = useGlobalTheme();
 
   return (
     <InlayButtonStyled

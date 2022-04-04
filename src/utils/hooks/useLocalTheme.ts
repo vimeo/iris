@@ -1,8 +1,7 @@
-import { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import { useGlobalTheme } from './useGlobalTheme';
 
 export function useLocalTheme(local) {
-  const global = useContext(ThemeContext);
+  const global = useGlobalTheme();
 
   Object.keys(local).map(
     (a) =>

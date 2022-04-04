@@ -4,6 +4,7 @@ import styled, { ThemeContext } from 'styled-components';
 // import { Avatar } from './Avatar';
 import { Text as T, Header } from '../typography';
 import { readableColor, rgba } from 'polished';
+import { useGlobalTheme } from '../utils/hooks/useGlobalTheme';
 
 // import { Layout } from '../../../storybook';
 
@@ -14,7 +15,7 @@ const padding = '2rem';
 export const Common = () => <HookedStory />;
 
 function HookedStory() {
-  const theme = useContext(ThemeContext);
+  const theme = useGlobalTheme();
 
   return (
     <div>
@@ -109,7 +110,7 @@ function HookedStory() {
 }
 
 function ThemeBlock({ block }) {
-  const theme = useContext(ThemeContext);
+  const theme = useGlobalTheme();
   const section = Object.entries(theme[block]);
 
   return (
