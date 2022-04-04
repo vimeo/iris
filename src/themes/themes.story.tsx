@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 
 // import { Avatar } from './Avatar';
 import { Text as T, Header } from '../typography';

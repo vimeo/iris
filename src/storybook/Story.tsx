@@ -1,5 +1,5 @@
-import React, { ReactNode, useContext } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import React, { ReactNode } from 'react';
+import styled from 'styled-components';
 
 import { white, grayscale } from '../color';
 import { Header } from '../typography';
@@ -24,7 +24,7 @@ export function Story({
   flex = false,
   ...props
 }: Props) {
-  const theme = useGlobalTheme();
+  useGlobalTheme();
 
   return (
     <Wrapper {...props}>
