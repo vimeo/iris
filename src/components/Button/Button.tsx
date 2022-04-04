@@ -44,7 +44,6 @@ function ButtonComponent({
   status,
   textShift = false,
   theme,
-  type = 'button',
   variant = 'solid',
   ...props
 }: Props) {
@@ -77,7 +76,6 @@ function ButtonComponent({
       size={size}
       textShift={textShift}
       theme={theme}
-      type={type}
       variant={variant}
       {...props}
       // {...irisError}
