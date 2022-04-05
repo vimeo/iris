@@ -7,10 +7,8 @@ import { ColorPalette, ColorStory } from './storyComponents';
 
 import {
   red,
-  red2,
   yellow,
   green,
-  green2,
   blue,
   slate,
   grayscale,
@@ -46,12 +44,7 @@ export function All() {
 All.storyName = 'all';
 
 export function Red() {
-  return (
-    <>
-      {ColorStory('red', red)}
-      {ColorStory('red2', red2)}
-    </>
-  );
+  return <>{ColorStory('red', red)}</>;
 }
 Red.storyName = 'red';
 
@@ -61,12 +54,7 @@ export function Yellow() {
 Yellow.storyName = 'yellow';
 
 export function Green() {
-  return (
-    <>
-      {ColorStory('green', green)}
-      {ColorStory('green2', green2)}
-    </>
-  );
+  return <>{ColorStory('green', green)}</>;
 }
 Green.storyName = 'green';
 

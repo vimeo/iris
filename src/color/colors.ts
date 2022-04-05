@@ -5,11 +5,9 @@ export interface Color {
 }
 
 export enum Colors {
-  Red = '#ff4d4d',
-  Red2 = '#E22B12',
+  Red = '#E22B12',
   Blue = '#00adef',
-  Green = '#4EC437',
-  Green2 = '#2CB563',
+  Green = '#28A878',
   Yellow = '#ffb21e',
   Slate = '#657987',
   Grayscale = '#666666',
@@ -29,44 +27,24 @@ export const black = '#000000';
 export const white = '#FFFFFF';
 
 const RedCache = {
-  '50': '#ffeded',
-  '100': '#ffdbdb',
-  '200': '#ffb7b7',
-  '300': '#ff9494',
-  '350': '#ff8282',
-  '400': '#ff7070',
-  '500': '#ff4d4d',
-  '525': '#fc3f3f',
-  '600': '#db2e2e',
-  '700': '#a72020',
-  '800': '#711313',
-  '850': '#540f0f',
-  '900': '#380909',
-  '950': '#1c0404',
+  '50': '#fee7e5',
+  '100': '#fdd1cb',
+  '200': '#faa599',
+  '300': '#f77866',
+  '350': '#f5624e',
+  '400': '#f34c35',
+  '500': '#E22B12',
+  '525': '#e21f05',
+  '600': '#c01902',
+  '700': '#911100',
+  '800': '#610c00',
+  '850': '#480800',
+  '900': '#300600',
+  '950': '#170300',
 };
 
 export const red: Color = (grade) =>
   RedCache[grade] || irisColor(Colors.Red, grade);
-
-const RedCache2 = {
-  // '50': '#ffeded',
-  // '100': '#ffdbdb',
-  // '200': '#ffb7b7',
-  // '300': '#ff9494',
-  // '350': '#ff8282',
-  // '400': '#ff7070',
-  '500': '#E22B12',
-  //   '525': '#fc3f3f',
-  //   '600': '#db2e2e',
-  //   '700': '#a72020',
-  //   '800': '#711313',
-  //   '850': '#540f0f',
-  //   '900': '#380909',
-  //   '950': '#1c0404',
-};
-
-export const red2: Color = (grade) =>
-  RedCache2[grade] || irisColor(Colors.Red2, grade);
 
 const YellowCache = {
   '50': '#fff7e8',
@@ -89,44 +67,24 @@ export const yellow: Color = (grade) =>
   YellowCache[grade] || irisColor(Colors.Yellow, grade);
 
 const GreenCache = {
-  '50': '#eefaea',
-  '100': '#dbf4d6',
-  '200': '#b9e9ad',
-  '300': '#96dd85',
-  '350': '#85d672',
-  '400': '#74d05e',
-  '500': '#4EC437',
-  '525': '#4fbb33',
-  '600': '#419e2a',
-  '700': '#2f781e',
-  '800': '#1f5113',
-  '850': '#173d0d',
-  '900': '#0f2908',
-  '950': '#071404',
+  '50': '#e8f7f1',
+  '100': '#d3eee3',
+  '200': '#a7dec7',
+  '300': '#7cccab',
+  '350': '#66c49d',
+  '400': '#52ba90',
+  '500': '#28A878',
+  '525': '#269f6e',
+  '600': '#1e885c',
+  '700': '#166646',
+  '800': '#0e452f',
+  '850': '#0a3424',
+  '900': '#052316',
+  '950': '#02110b',
 };
 
 export const green: Color = (grade) =>
   GreenCache[grade] || irisColor(Colors.Green, grade);
-
-const GreenCache2 = {
-  // '50': '#eefaea',
-  // '100': '#dbf4d6',
-  // '200': '#b9e9ad',
-  // '300': '#96dd85',
-  // '350': '#85d672',
-  // '400': '#74d05e',
-  '500': '#2CB563',
-  // '525': '#4fbb33',
-  // '600': '#419e2a',
-  // '700': '#2f781e',
-  // '800': '#1f5113',
-  // '850': '#173d0d',
-  // '900': '#0f2908',
-  // '950': '#071404',
-};
-
-export const green2: Color = (grade) =>
-  GreenCache2[grade] || irisColor(Colors.Green2, grade);
 
 const BlueCache = {
   '50': '#e5f5fd',
