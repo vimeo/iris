@@ -44,7 +44,7 @@ function ButtonComponent({
   status,
   textShift = false,
   theme,
-  type = 'button',
+  type,
   variant = 'solid',
   ...props
 }: Props) {
