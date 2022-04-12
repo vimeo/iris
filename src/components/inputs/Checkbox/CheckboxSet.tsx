@@ -20,6 +20,7 @@ function CheckboxSetComponent({
   toggled,
   onChange,
   disabled,
+  defaultChecked,
   ...props
 }: Props) {
   const UID = useMemo(() => generateUID(), []);
@@ -33,7 +34,18 @@ function CheckboxSetComponent({
       ? children.map(() => boolean)
       : [...children.map(() => boolean), boolean];
 
-  const [checks, setChecks] = useState(all(false));
+  const initialState = coupled
+    ? children.map((child) =>
+        typeof defaultChecked === 'undefined'
+          ? !!child.props.defaultChecked
+          : !!defaultChecked
+      )
+    : [
+        ...children.map((child) => !!child.props.defaultChecked),
+        !!defaultChecked,
+      ];
+
+  const [checks, setChecks] = useState(initialState);
 
   if (
     !validate(children, 'checkbox') &&
@@ -77,6 +89,7 @@ function CheckboxSetComponent({
               name: UID,
               value: UIDs[i],
               disabled: disabled,
+              defaultChecked: undefined,
               onChange: (e) => {
                 setChecks(toggle(i));
                 child.props.onChange && child.props.onChange(e);
