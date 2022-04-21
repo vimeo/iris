@@ -6,32 +6,59 @@ let path = require('path');
 
 const BASE_DIR = path.join(__dirname, '..');
 
+/**
+ * Wrap filesystem helpers in promisify so we can parallelize with async/await.
+ */
 let readdir = util.promisify(fs.readdir);
 let writeFile = util.promisify(fs.writeFile);
 let stat = util.promisify(fs.stat);
+let exists = util.promisify(fs.exists);
 
+const ENTRY_COMMONJS = 'index.js';
+const ENTRY_ESM = 'index.esm.js';
+const PREFIX_HIDDEN = '_';
+
+/**
+ * Template for all package.json files.
+ */
 const PKG_CONTENTS = `{
-  "main": "./index.js",
-  "module": "./index.esm.js",
+  "main": "./${ENTRY_COMMONJS}",
+  "module": "./${ENTRY_ESM}",
   "sideEffects": false,
   "export": {
-    "node": "./index.js",
-    "browser": "./index.esm.js"
+    "node": "./${ENTRY_COMMONJS}",
+    "browser": "./${ENTRY_ESM}"
   }
 }`;
 
-async function run() {
-  let dirs = await readdir(path.join(BASE_DIR, 'build'));
+async function generate(base) {
+  // Get all subdirs
+  let dirs = await readdir(base);
+
+  // Remove private folders with hidden prefix
   let roots = dirs
-    .filter((root) => !root.startsWith('_'))
-    .map((root) => path.join(BASE_DIR, 'build', root));
+    .filter((root) => !root.startsWith(PREFIX_HIDDEN))
+    .map((root) => path.join(base, root));
 
   for await (let root of roots) {
     let info = await stat(root);
-
+    // If the cursor isn't a directory, move on. We only care about directories
+    // that need packages.
     if (!info.isDirectory()) {
       continue;
     }
+
+    // Only generate a package if the directory has a CJS and ESM entry.
+    let [hasCjs, hasEsm] = await Promise.all([
+      exists(path.join(root, ENTRY_COMMONJS)),
+      exists(path.join(root, ENTRY_ESM)),
+    ]);
+
+    if (!hasCjs && !hasEsm) {
+      continue;
+    }
+
+    console.log('Generating', root);
 
     try {
       await writeFile(
@@ -42,7 +69,10 @@ async function run() {
       console.error(err);
       process.exit(1);
     }
+
+    // Traverse children;
+    await generate(root);
   }
 }
 
-run();
+generate(path.join(BASE_DIR, 'build'));
