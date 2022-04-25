@@ -29,7 +29,6 @@ export function Text({
   label,
   messages,
   forwardRef,
-  name,
   pill = false,
   size = 'md',
   status,
