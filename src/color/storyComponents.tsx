@@ -49,6 +49,8 @@ export function ColorStory(colorName, colorFn) {
 }
 
 export function ColorPalette({ color }) {
+  outputCache(color);
+
   return (
     <div
       style={{
@@ -70,6 +72,16 @@ export function ColorPalette({ color }) {
       )}
     </div>
   );
+}
+
+function outputCache(color) {
+  const Cache = {};
+  [
+    50, 100, 200, 300, 350, 400, 500, 525, 600, 700, 800, 850, 900,
+    950,
+  ].map((grade) => (Cache[`${grade}`] = color(grade)));
+
+  console.log({ Cache });
 }
 
 // const titles = [
