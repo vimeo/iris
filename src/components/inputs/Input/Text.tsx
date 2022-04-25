@@ -29,7 +29,6 @@ export function Text({
   label,
   messages,
   forwardRef,
-  name,
   pill = false,
   size = 'md',
   status,
@@ -96,7 +95,6 @@ export function Text({
         format={status}
         id={id}
         inputSize={size}
-        name={name}
         onFocus={doFocus}
         onKeyDown={onKeyDown}
         pill={pill}
