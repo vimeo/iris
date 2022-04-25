@@ -18,6 +18,7 @@ function FileUploadComponent({
   disabled,
   accept,
   multiple,
+  name,
   ...props
 }: Props) {
   const ref = useRef(null);
@@ -37,6 +38,7 @@ function FileUploadComponent({
         disabled={disabled}
         onChange={onChange}
         multiple={multiple}
+        name={name}
       ></Hidden>
       {children}
     </div>
