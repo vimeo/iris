@@ -1,10 +1,15 @@
-import React, { useState, cloneElement, useMemo } from 'react';
+import React, {
+  useState,
+  cloneElement,
+  useMemo,
+  useEffect,
+} from 'react';
 
 import { Checkbox } from './Checkbox';
 import { validate } from '../Shared';
 
 import { Props } from './CheckboxSet.types';
-import { generateUID, withIris } from '../../../utils';
+import { generateUID as gUID, withIris } from '../../../utils';
 
 export const CheckboxSet = withIris<HTMLInputElement, Props>(
   CheckboxSetComponent
@@ -13,44 +18,42 @@ export const CheckboxSet = withIris<HTMLInputElement, Props>(
 function CheckboxSetComponent({
   children,
   coupled,
+  defaultChecked,
+  disabled,
   forwardRef,
   messages,
+  onChange,
   status,
   theme,
   toggled,
-  onChange,
-  disabled,
-  defaultChecked,
   ...props
 }: Props) {
-  const UID = useMemo(() => generateUID(), []);
-  const UIDs = useMemo(
-    () => children.map(() => generateUID()),
-    [children]
-  );
+  const UID = useMemo(() => gUID(), []);
+  const UIDs = useMemo(() => children.map(() => gUID()), [children]);
 
   const all = (boolean) =>
     coupled
       ? children.map(() => boolean)
       : [...children.map(() => boolean), boolean];
 
-  const initialState = coupled
-    ? children.map((child) =>
-        typeof defaultChecked === 'undefined'
-          ? !!child.props.defaultChecked
-          : !!defaultChecked
-      )
-    : [
-        ...children.map((child) => !!child.props.defaultChecked),
-        !!defaultChecked,
-      ];
+  const [checks, checksSet] = useState(all(false));
 
-  const [checks, setChecks] = useState(initialState);
+  useEffect(() => {
+    const initialState = coupled
+      ? children.map((child) =>
+          typeof defaultChecked === 'undefined'
+            ? !!child.props.defaultChecked
+            : !!defaultChecked
+        )
+      : [
+          ...children.map((child) => !!child.props.defaultChecked),
+          !!defaultChecked,
+        ];
 
-  if (
-    !validate(children, 'checkbox') &&
-    process.env.NODE_ENV === 'development'
-  )
+    checksSet(initialState);
+  }, []);
+
+  if (!validate(children, 'checkbox') && DEV)
     console.warn('Unable to validate children on CheckboxSet');
 
   const allChecked = checks.every((check) => check);
@@ -61,10 +64,27 @@ function CheckboxSetComponent({
 
   const parentClick = () =>
     parentChecked
-      ? setChecks(all(false))
+      ? checksSet(all(false))
       : coupled
-      ? setChecks(all(true))
-      : setChecks(toggle(children.length));
+      ? checksSet(all(true))
+      : checksSet(toggle(children.length));
+
+  function childClone(child, i) {
+    return cloneElement(child, {
+      checked: checks[i],
+      key: i,
+      id: `checkbox-${i}-${UIDs[i]}`,
+      name: UID,
+      value: UIDs[i],
+      disabled: disabled,
+      defaultChecked: undefined,
+      onChange: (e) => {
+        checksSet(toggle(i));
+        child.props.onChange && child.props.onChange(e);
+      },
+      readOnly: true,
+    });
+  }
 
   return (
     <div ref={forwardRef}>
@@ -72,36 +92,23 @@ function CheckboxSetComponent({
         checked={parentChecked}
         indeterminate={someChecked}
         disabled={disabled}
-        onChange={(e) => {
+        onChange={(event) => {
           parentClick();
-          onChange && onChange(e);
+          onChange?.(event);
         }}
         readOnly
         {...props}
       />
       {(!toggled || parentChecked) && (
         <div style={{ paddingLeft: '1rem' }}>
-          {children.map((child, i) =>
-            cloneElement(child, {
-              checked: checks[i],
-              key: i,
-              id: `checkbox-${i}-${UIDs[i]}`,
-              name: UID,
-              value: UIDs[i],
-              disabled: disabled,
-              defaultChecked: undefined,
-              onChange: (e) => {
-                setChecks(toggle(i));
-                child.props.onChange && child.props.onChange(e);
-              },
-              readOnly: true,
-            })
-          )}
+          {children.map(childClone)}
         </div>
       )}
     </div>
   );
 }
+
+const DEV = process.env.NODE_ENV === 'development';
 
 const toggle = (index) => (checked) =>
   checked.map((val, i) => (index === i ? !val : val));
