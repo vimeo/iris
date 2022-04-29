@@ -92,21 +92,33 @@ export function DefaultChecked() {
       <CheckboxSet label="defaultChecked" toggled defaultChecked>
         <Checkbox label="." />
         <Checkbox label="." />
+        <Checkbox
+          label="defaultChecked disabled"
+          defaultChecked
+          disabled
+        />
       </CheckboxSet>
 
       <CheckboxSet label="defaultChecked" toggled defaultChecked>
         <Checkbox label="defaultChecked" defaultChecked />
         <Checkbox label="." />
+        <Checkbox label="disabled" disabled />
       </CheckboxSet>
 
       <CheckboxSet label="defaultChecked" toggled defaultChecked>
         <Checkbox label="defaultChecked" defaultChecked />
         <Checkbox label="defaultChecked" defaultChecked />
+        <Checkbox label="disabled" disabled />
       </CheckboxSet>
 
       <CheckboxSet label="." toggled>
         <Checkbox label="defaultChecked" defaultChecked />
         <Checkbox label="defaultChecked" defaultChecked />
+        <Checkbox
+          label="defaultChecked disabled"
+          defaultChecked
+          disabled
+        />
       </CheckboxSet>
 
       <br />
@@ -137,21 +149,29 @@ export function DefaultChecked() {
       <CheckboxSet label="defaultChecked" coupled defaultChecked>
         <Checkbox label="." />
         <Checkbox label="." />
+        <Checkbox label="disabled" disabled />
       </CheckboxSet>
 
       <CheckboxSet label="." coupled>
         <Checkbox label="defaultChecked" defaultChecked />
         <Checkbox label="." />
+        <Checkbox label="disabled" disabled />
       </CheckboxSet>
 
       <CheckboxSet label="." coupled>
         <Checkbox label="defaultChecked" defaultChecked />
         <Checkbox label="defaultChecked" defaultChecked />
+        <Checkbox
+          label="defaultChecked disabled"
+          defaultChecked
+          disabled
+        />
       </CheckboxSet>
 
       <CheckboxSet label="." coupled>
         <Checkbox label="." />
         <Checkbox label="." />
+        <Checkbox label="disabled" disabled />
       </CheckboxSet>
     </Layout.StoryVertical>
   );

@@ -31,10 +31,28 @@ function CheckboxSetComponent({
   const UID = useMemo(() => gUID(), []);
   const UIDs = useMemo(() => children.map(() => gUID()), [children]);
 
-  const all = (boolean) =>
-    coupled
-      ? children.map(() => boolean)
-      : [...children.map(() => boolean), boolean];
+  function all(boolean: boolean) {
+    if (coupled) {
+      return children.map((child, i) => {
+        if (!child.props.disabled) {
+          return boolean;
+        } else {
+          return checks?.[i] || child.props.defaultChecked;
+        }
+      });
+    } else {
+      return [
+        ...children.map((child, i) => {
+          if (!child.props.disabled) {
+            return boolean;
+          } else {
+            return checks?.[i] || child.props.defaultChecked;
+          }
+        }),
+        boolean,
+      ];
+    }
+  }
 
   const [checks, checksSet] = useState(all(false));
 
@@ -43,7 +61,7 @@ function CheckboxSetComponent({
       ? children.map((child) =>
           typeof defaultChecked === 'undefined'
             ? !!child.props.defaultChecked
-            : !!defaultChecked
+            : !child?.props?.disabled && !!defaultChecked
         )
       : [
           ...children.map((child) => !!child.props.defaultChecked),
@@ -76,8 +94,8 @@ function CheckboxSetComponent({
       id: `checkbox-${i}-${UIDs[i]}`,
       name: UID,
       value: UIDs[i],
-      disabled: disabled,
-      defaultChecked: undefined,
+      disabled: child?.props?.disabled || disabled,
+      defaultChecked: child?.props?.defaultChecked,
       onChange: (e) => {
         checksSet(toggle(i));
         child.props.onChange && child.props.onChange(e);
