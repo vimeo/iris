@@ -31,6 +31,8 @@ function CheckboxSetComponent({
   const UID = useMemo(() => gUID(), []);
   const UIDs = useMemo(() => children.map(() => gUID()), [children]);
 
+  // Checks for coupled prop and checks for child checkbox disabled state
+  // Returns checked state for children
   function all(boolean: boolean) {
     if (coupled) {
       return children.map((child, i) => {
