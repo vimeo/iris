@@ -30,6 +30,7 @@ export { Rewind } from './Rewind';
 export { RewindFilled } from './RewindFilled';
 export { SceneMedia } from './SceneMedia';
 export { ScreenShare } from './ScreenShare';
+export { Slice } from './Slice';
 export { Text } from './Text';
 export { VolumeOff } from './VolumeOff';
 export { VolumeOffFilled } from './VolumeOffFilled';
