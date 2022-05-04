@@ -24,6 +24,7 @@ export function Coupled() {
     </Layout.StoryVertical>
   );
 }
+Coupled.storyName = 'coupled';
 
 export function Toggled() {
   const checkboxRef = useRef(null);
@@ -62,6 +63,120 @@ export function Toggled() {
     </Layout.StoryVertical>
   );
 }
+Toggled.storyName = 'toggled';
+
+export function DefaultChecked() {
+  return (
+    <Layout.StoryVertical>
+      <Header size="3">Toggled</Header>
+      <Header
+        size="5"
+        style={{
+          paddingLeft: '1.5rem',
+          display: 'block',
+          borderLeft: '2px solid rgba(150,150,150,0.334)',
+        }}
+      >
+        `toggled` variant CheckboxSets will show/hide the children
+        when the parent Checkbox is toggled.
+        <br />
+        <br />
+        The value of the parent does not impact the value of the
+        children.
+        <br />
+        <br />
+        The value of children determines if the parent is `checked` or
+        `indeterminate`.
+      </Header>
+
+      <CheckboxSet label="defaultChecked" toggled defaultChecked>
+        <Checkbox label="." />
+        <Checkbox label="." />
+        <Checkbox
+          label="defaultChecked disabled"
+          defaultChecked
+          disabled
+        />
+      </CheckboxSet>
+
+      <CheckboxSet label="defaultChecked" toggled defaultChecked>
+        <Checkbox label="defaultChecked" defaultChecked />
+        <Checkbox label="." />
+        <Checkbox label="disabled" disabled />
+      </CheckboxSet>
+
+      <CheckboxSet label="defaultChecked" toggled defaultChecked>
+        <Checkbox label="defaultChecked" defaultChecked />
+        <Checkbox label="defaultChecked" defaultChecked />
+        <Checkbox label="disabled" disabled />
+      </CheckboxSet>
+
+      <CheckboxSet label="." toggled>
+        <Checkbox label="defaultChecked" defaultChecked />
+        <Checkbox label="defaultChecked" defaultChecked />
+        <Checkbox
+          label="defaultChecked disabled"
+          defaultChecked
+          disabled
+        />
+      </CheckboxSet>
+
+      <br />
+      <br />
+      <br />
+
+      <Header size="3">Coupled</Header>
+      <Header
+        size="5"
+        style={{
+          paddingLeft: '1.5rem',
+          display: 'block',
+          borderLeft: '2px solid rgba(150,150,150,0.334)',
+        }}
+      >
+        `coupled` variant CheckboxSets will toggle the value of the
+        children when the parent Checkbox is toggled.
+        <br />
+        <br />
+        The value of the parent always impacts the value of the
+        children.
+        <br />
+        <br />
+        The value of children determines if the parent is `unchecked`,
+        `checked`, or `indeterminate`.
+      </Header>
+
+      <CheckboxSet label="defaultChecked" coupled defaultChecked>
+        <Checkbox label="." />
+        <Checkbox label="." />
+        <Checkbox label="disabled" disabled />
+      </CheckboxSet>
+
+      <CheckboxSet label="." coupled>
+        <Checkbox label="defaultChecked" defaultChecked />
+        <Checkbox label="." />
+        <Checkbox label="disabled" disabled />
+      </CheckboxSet>
+
+      <CheckboxSet label="." coupled>
+        <Checkbox label="defaultChecked" defaultChecked />
+        <Checkbox label="defaultChecked" defaultChecked />
+        <Checkbox
+          label="defaultChecked disabled"
+          defaultChecked
+          disabled
+        />
+      </CheckboxSet>
+
+      <CheckboxSet label="." coupled>
+        <Checkbox label="." />
+        <Checkbox label="." />
+        <Checkbox label="disabled" disabled />
+      </CheckboxSet>
+    </Layout.StoryVertical>
+  );
+}
+DefaultChecked.storyName = 'defaultChecked';
 
 export function Disabled() {
   return (
@@ -71,3 +186,4 @@ export function Disabled() {
     </CheckboxSet>
   );
 }
+Disabled.storyName = 'disabled';
