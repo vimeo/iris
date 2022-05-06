@@ -30,6 +30,7 @@ export interface PortalConfig {
   onClose?: MouseEventHandler;
   onOpen?: MouseEventHandler;
   screen?: boolean;
+  screenColor?: string;
   trigger?: 'click' | 'hover';
 }
 

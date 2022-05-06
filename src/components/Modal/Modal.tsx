@@ -50,6 +50,7 @@ function ModalComponent({
   onClose,
   onOpen,
   screen = true,
+  screenColor,
   ...props
 }: Props) {
   const attach: Attach = feature
@@ -91,6 +92,7 @@ function ModalComponent({
       onClose,
       onOpen,
       screen,
+      screenColor,
     }
   );
 

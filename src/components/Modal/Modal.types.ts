@@ -32,6 +32,11 @@ export type Props = IrisProps<
      */
     screen?: boolean;
     /**
+     * Provide a color string for the screen behind the Modal
+     *
+     */
+    screenColor?: string;
+    /**
      * [default = 'md']
      */
     size?: 'sm' | 'md' | 'lg';
