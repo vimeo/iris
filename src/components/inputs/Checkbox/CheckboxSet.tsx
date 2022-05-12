@@ -71,7 +71,7 @@ function CheckboxSetComponent({
         ];
 
     checksSet(initialState);
-  }, []);
+  }, [children, coupled, defaultChecked]);
 
   if (!validate(children, 'checkbox') && DEV)
     console.warn('Unable to validate children on CheckboxSet');
