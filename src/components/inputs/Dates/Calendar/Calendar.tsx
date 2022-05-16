@@ -57,7 +57,7 @@ export const Calendar = ({
 }: IrisProps<Props>) => {
   const date = initialMonth;
 
-  const DAY_LABELS = getDayNames(locale);
+  const DAY_LABELS = useMemo(() => getDayNames(locale), [locale]);
 
   const initialViewportDate = new Date(
     date.getFullYear(),
