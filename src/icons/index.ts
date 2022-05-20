@@ -85,6 +85,7 @@ export { DismissX } from './ui/DismissX';
 export { DotsMenu } from './ui/DotsMenu';
 export { DownloadArrow } from './ui/DownloadArrow';
 export { EditPlayer } from './ui/EditPlayer';
+export { Emoji } from './ui/Emoji';
 export { Enterprise } from './ui/Enterprise';
 export { Envelope } from './ui/Envelope';
 export { Error } from './ui/Error';
