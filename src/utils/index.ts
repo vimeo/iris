@@ -30,5 +30,5 @@ export { withIris } from './HOCs/withIris';
 
 export type { Attach, AttachAlias, SimpleAnimation } from './hooks/usePortal_DEPRECATED';
 export type { onClose } from './events/onClose';
-export type { IrisProps, IrisInputProps, Messages, MinorComponent } from './HOCs/IrisProps';
+export type { IrisProps, IrisInputProps, Messages, MinorComponent, IrisA11yProps } from './HOCs/IrisProps';
 export type { CSSProps, ExtractProps, Override, IrisElement } from './HOCs/types';

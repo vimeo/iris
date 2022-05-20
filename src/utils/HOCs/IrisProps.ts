@@ -56,7 +56,7 @@ type IrisEventProps<DOMElement = HTMLDivElement> = {
   onMouseLeave?: MouseEventHandler<DOMElement>;
 };
 
-type IrisA11yProps = {
+export type IrisA11yProps = {
   'aria-activedescendant'?: string;
   'aria-atomic'?: boolean | 'false' | 'true';
   'aria-autocomplete'?: 'none' | 'inline' | 'list' | 'both';
@@ -78,17 +78,9 @@ type IrisA11yProps = {
   'aria-describedby'?: string;
   'aria-details'?: string;
   'aria-disabled'?: boolean | 'false' | 'true';
-  'aria-dropeffect'?:
-    | 'none'
-    | 'copy'
-    | 'execute'
-    | 'link'
-    | 'move'
-    | 'popup';
   'aria-errormessage'?: string;
   'aria-expanded'?: boolean | 'false' | 'true';
   'aria-flowto'?: string;
-  'aria-grabbed'?: boolean | 'false' | 'true';
   'aria-haspopup'?:
     | boolean
     | 'false'

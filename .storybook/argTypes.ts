@@ -64,11 +64,6 @@ export const argTypes = {
       disable: true,
     },
   },
-  'aria-dropeffect': {
-    table: {
-      disable: true,
-    },
-  },
   'aria-errormessage': {
     table: {
       disable: true,
@@ -80,11 +75,6 @@ export const argTypes = {
     },
   },
   'aria-flowto': {
-    table: {
-      disable: true,
-    },
-  },
-  'aria-grabbed': {
     table: {
       disable: true,
     },
