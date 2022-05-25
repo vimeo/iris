@@ -4,11 +4,13 @@ export function reducer(state, { type, payload = null }) {
       return {
         ...state,
         error: payload,
+        warning: false,
       };
     case 'SET_WARNING':
       return {
         ...state,
         warning: payload,
+        error: false,
       };
     case 'SET_REMAINING_CHARACTERS':
       return {
