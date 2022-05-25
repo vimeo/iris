@@ -52,15 +52,14 @@ export const HiddenMark = styled.input.attrs(({ type }) => ({
   ${fauxToggleChecked};
 `;
 
-function fauxMarkChecked({ theme, disabled }) {
+function fauxMarkChecked({ disabled }) {
   return css`
     &:checked ~ ${Faux} {
-      border: 1px solid
-        ${rgba(theme.content.color, disabled ? 0 : 0.75)};
+      border: 1px solid ${rgba(blue(500), disabled ? 0 : 1)};
 
       &:after {
         opacity: ${disabled ? 0.5 : 1};
-        transform: scale(1);
+        transform: scale(1.02);
       }
     }
   `;
