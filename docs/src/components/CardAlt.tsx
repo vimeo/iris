@@ -24,7 +24,7 @@ export function CardAlt({ name, path, disabled = false }) {
           {effectHover}
           {effectDisabled}
           <div>
-            <Header>{name}</Header>
+            <Header css={` text-align: center; `}>{name}</Header>
           </div>
         </Card>
       </a>
