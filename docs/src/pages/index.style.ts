@@ -1,20 +1,5 @@
 import styled from 'styled-components';
 import { rgba } from 'polished';
-import { black } from '@vimeo/iris/color';
-
-export const Nav = styled.nav`
-  padding: 1rem 3rem;
-  display: flex;
-  background: ${rgba(black, 0.1)};
-  width: 100%;
-
-  > a,
-  > span {
-    font-size: 1rem;
-    line-height: 2rem;
-    padding: 0 1rem;
-  }
-`;
 
 export const Hero = styled.div`
   position: absolute;
