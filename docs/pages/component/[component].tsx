@@ -3,6 +3,7 @@ import * as COMPONENTS from '@vimeo/iris/components';
 
 import { Page } from '../../src/pages/Page';
 import { data } from '../../src/data';
+import { Sidebar } from '../../src/components/Sidebar'
 
 import { components } from '../components';
 
@@ -31,109 +32,118 @@ export default function Component({ component, themeSet, ...props }) {
     <Page themeSet={themeSet}>
       <div
         css={`
-          padding: 0.5rem 0rem;
-          max-width: var(--layout-site-width);
-          margin: 2rem auto;
+          display: flex;
         `}
       >
-        <header
+        <Sidebar header="Components" items={components} active={component} />
+        <div
           css={`
-            margin: 2rem auto 5rem;
+            padding: 0.5rem 0rem;
+            max-width: var(--layout-site-width);
+            margin: 2rem auto;
           `}
         >
-          <Header
+          <header
             css={`
-              text-transform: capitalize;
+              margin: 2rem auto 5rem;
             `}
           >
-            {componentName}
-          </Header>
-          <Paragraph size="1">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Eos assumenda consequuntur odio labore magni dicta at,
-            unde ex doloremque et! Lorem ipsum dolor sit amet
-            consectetur adipisicing.
-          </Paragraph>
-          <div
-            css={`
-              display: flex;
-              gap: 2rem;
-              align-items: center;
-              padding: 2rem 0;
-            `}
-          >
-            <Tag>Production</Tag>
-            <span>
-              Updated{' '}
-              {new Date()
-                .toDateString()
-                .split(' ')
-                .slice(1)
-                .join(' ')}
-            </span>
-          </div>
-        </header>
-        {sections &&
-          sections.map((section) => {
-            const { name } = componentData;
+            <Header
+              css={`
+                text-transform: capitalize;
+              `}
+            >
+              {componentName}
+            </Header>
+            <Paragraph size="1">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Eos assumenda consequuntur odio labore magni dicta at,
+              unde ex doloremque et! Lorem ipsum dolor sit amet
+              consectetur adipisicing.
+            </Paragraph>
+            <div
+              css={`
+                display: flex;
+                gap: 2rem;
+                align-items: center;
+                padding: 2rem 0;
+              `}
+            >
+              <Tag>Production</Tag>
+              <span>
+                Updated{' '}
+                {new Date()
+                  .toDateString()
+                  .split(' ')
+                  .slice(1)
+                  .join(' ')}
+              </span>
+            </div>
+          </header>
+          {sections &&
+            sections.map((section) => {
+              const { name } = componentData;
 
-            return (
-              <div
-                css={`
-                  display: block;
-                  + div {
-                    margin: 7rem 0;
-                  }
-                `}
-              >
-                <h1>{section.title}</h1>
-                {section.items.map((item) => {
-                  const Component = COMPONENTS[name];
+              return (
+                <div
+                  css={`
+                    display: block;
+                    + div {
+                      margin: 7rem 0;
+                    }
+                  `}
+                >
+                  <h1>{section.title}</h1>
+                  {section.items.map((item) => {
+                    const Component = COMPONENTS[name];
 
-                  return (
-                    <div
-                      css={`
-                        display: flex;
-                        gap: 1rem;
-
-                        border-bottom: 1px solid
-                          rgba(150, 150, 150, 0.5);
-                      `}
-                    >
+                    return (
                       <div
                         css={`
-                          padding: 3rem 2rem;
-                          margin: 0 1rem 0 0;
-                          min-width: 12rem;
+                          display: flex;
+                          gap: 1rem;
+
+                          border-bottom: 1px solid
+                            rgba(150, 150, 150, 0.5);
                         `}
                       >
-                        <Component {...item.demoProps} />
-                      </div>
-                      <div
-                        css={`
-                          padding: 2rem 0;
-                          margin: 0 1rem 0 0;
-                        `}
-                      >
-                        <Header size="2" variant="thin">
-                          {item.value}
-                        </Header>
-                        <Paragraph
-                          size="1"
+                        <div
                           css={`
-                            line-height: 1.5;
+                            padding: 3rem 2rem;
+                            margin: 0 1rem 0 0;
+                            min-width: 12rem;
                           `}
                         >
-                          {item.description}
-                        </Paragraph>
+                          <Component {...item.demoProps} />
+                        </div>
+                        <div
+                          css={`
+                            padding: 2rem 0;
+                            margin: 0 1rem 0 0;
+                          `}
+                        >
+                          <Header size="2" variant="thin">
+                            {item.value}
+                          </Header>
+                          <Paragraph
+                            size="1"
+                            css={`
+                              line-height: 1.5;
+                            `}
+                          >
+                            {item.description}
+                          </Paragraph>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
-            );
-          })}
+                    );
+                  })}
+                </div>
+              );
+            })}
+        </div>
       </div>
+      
+      
     </Page>
   );
 }
@@ -165,7 +175,7 @@ export async function getStaticProps(context) {
 }
 export async function getStaticPaths() {
   const paths = components.map((component) => ({
-    params: { component: component.toLowerCase() },
+    params: { component: component.name.toLowerCase() },
   }));
 
   return {

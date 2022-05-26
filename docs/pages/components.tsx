@@ -1,6 +1,7 @@
 import { Header, Paragraph } from '@vimeo/iris/typography';
 
 import { CardAlt } from '../src/components/CardAlt';
+import { Sidebar } from '../src/components/Sidebar'
 import { Page } from '../src/pages/Page';
 
 export default function Components({
@@ -10,15 +11,18 @@ export default function Components({
 }) {
   return (
     <Page themeSet={themeSet}>
-      <main
+      <div
         css={`
-          padding: 2rem 0;
+          display: flex;
         `}
       >
+        <Sidebar header="Components" items={components} active='' />
+
         <div
           css={`
+            margin: var(--space-400) auto;
             max-width: var(--layout-site-width);
-            margin: 2rem auto 5rem;
+            padding: 0 var(--space-300);
           `}
         >
           <Header>Components</Header>
@@ -29,44 +33,82 @@ export default function Components({
             consequatur ipsam accusamus animi sequi, magni inventore
             ratione ipsum!
           </Paragraph>
+          <div
+            css={`
+              display: grid;
+              gap: 2rem;
+              grid-template-columns: 1fr 1fr 1fr;
+              grid-template-rows: auto;
+              max-width: var(--layout-site-width);
+              margin: 1rem auto;
+            `}
+          >
+            {components.map((component) => (
+              <CardAlt
+                name={component.name}
+                path="/component"
+              />
+            ))}
+          </div>
         </div>
-        <div
-          css={`
-            display: grid;
-            gap: 2rem;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: auto;
-            max-width: var(--layout-site-width);
-            margin: 1rem auto;
-          `}
-        >
-          {components.map((component) => (
-            <CardAlt
-              name={component}
-              path="/component"
-              disabled={!!disabled.includes(component)}
-            />
-          ))}
-        </div>
-      </main>
+      </div>
     </Page>
   );
 }
 
 export const components = [
-  'Avatar',
-  'Button',
-  'Badge',
-  'Card',
-  'Checkbox',
-  'Input',
-  'Modal',
-  'Notice',
-  'Radio',
-  'Sidebar',
-  'Tag',
-  'Tip',
-  'Toggle',
+  {
+    name: 'Avatar',
+    path: '/component/avatar'
+  },
+  {
+    name: 'Button',
+    path: '/component/button'
+  },
+  {
+    name: 'Badge',
+    path: '/component/badge'
+  },
+  {
+    name: 'Card',
+    path: '/component/card'
+  },
+  {
+    name: 'Checkbox',
+    path: '/component/checkbox'
+  },
+  {
+    name: 'Input',
+    path: '/component/input'
+  },
+  {
+    name: 'Modal',
+    path: '/component/modal'
+  },
+  {
+    name: 'Notice',
+    path: '/component/notice'
+  },
+  {
+    name: 'Radio',
+    path: '/component/radio'
+  },
+  {
+    name: 'Sidebar',
+    path: '/component/sidebar'
+  },
+  {
+    name: 'Tag',
+    path: '/component/tag'
+  },
+  {
+    name: 'Tip',
+    path: '/component/tip'
+  },
+  {
+    name: 'Toggle',
+    path: '/component/toggle'
+  },
 ] as const;
 
 export const disabled = [

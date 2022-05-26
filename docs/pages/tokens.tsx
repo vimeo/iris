@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { CardAlt } from '../src/components/CardAlt';
+import { Sidebar } from '../src/components/Sidebar'
 import { Page } from '../src/pages/Page';
 
 export default function Tokens({ themeSet, ...props }) {
@@ -28,19 +29,27 @@ export default function Tokens({ themeSet, ...props }) {
           </a>
         </Link>
       </div> */}
+
       <div
         css={`
-          display: grid;
-          gap: 2rem;
-          grid-template-columns: 1fr 1fr 1fr 1fr;
-          grid-template-rows: auto;
-          max-width: var(--layout-site-width);
-          margin: 1rem auto;
+          display: flex;
         `}
       >
-        {categories.map((category) => (
-          <CardAlt name={category} path="/token" />
-        ))}
+        <Sidebar header="Tokens" items={categories} path={"/token"} />
+        <div
+          css={`
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            max-width: var(--layout-site-width);
+            margin: 1rem auto;
+          `}
+        >
+          {categories.map((category) => (
+            <CardAlt name={category} path="/token" />
+          ))}
+        </div>
       </div>
     </Page>
   );
