@@ -1,7 +1,7 @@
 import { core } from '@vimeo/iris/tokens';
 import { Trash } from '@vimeo/iris/icons';
 
-export function GuidanceCard({ children, type, ...props }) {
+export function GuidanceCard({ children, label, type, ...props }) {
   return (
     <div
         css={`
@@ -32,15 +32,15 @@ export function GuidanceCard({ children, type, ...props }) {
             {type === 'negative' ? 
                 (
                     <>
-                        {/* icon should go here */}
-                        <span>Do Not</span>
+                        {/* TODO: icon should go here */}
+                        <span>{label || 'Do Not'}</span>
                     </>
                 ) 
                 : 
                 (
                     <>
-                        {/* icon should go here */}
-                        <span>Do</span>
+                        {/* TODO: icon should go here */}
+                        <span>{label || 'Do'}</span>
                     </>
                 )
             }
