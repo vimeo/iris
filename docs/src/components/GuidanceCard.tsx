@@ -1,5 +1,5 @@
 import { core } from '@vimeo/iris/tokens';
-import { Trash } from '@vimeo/iris/icons';
+import { CircleCheck, CircleCross } from '@vimeo/iris/icons';
 
 export function GuidanceCard({ children, label, type, ...props }) {
   return (
@@ -30,17 +30,17 @@ export function GuidanceCard({ children, label, type, ...props }) {
         >
             {type === 'negative' ? 
                 (
-                    <>
-                        {/* TODO: icon should go here */}
+                    <div css={` display: flex; align-items: center; `}>
+                        <CircleCross css={` width: 24px; fill: #fff; margin-right: var(--space-100); `} />
                         <span>{label || 'Do Not'}</span>
-                    </>
+                    </div>
                 ) 
                 : 
                 (
-                    <>
-                        {/* TODO: icon should go here */}
+                    <div css={` display: flex; align-items: center; `}>
+                        <CircleCheck css={` width: 24px; fill: #fff; margin-right: var(--space-100); `} />
                         <span>{label || 'Do'}</span>
-                    </>
+                    </div>
                 )
             }
         </div>
