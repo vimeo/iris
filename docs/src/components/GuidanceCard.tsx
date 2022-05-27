@@ -25,9 +25,8 @@ export function GuidanceCard({ children, label, type, ...props }) {
                 line-height: 1.5rem;
                 padding: var(--space-150) var(--space-200);
                 width: 100%;
+                ${{ backgroundColor: type === 'negative' ? 'rgb(226, 43, 18)' : `rgb(40, 168, 120)` }}
             `}
-            // Having trouble using our color tokens here!
-            style={{ backgroundColor: type === 'negative' ? 'rgb(226, 43, 18)' : `rgb(40, 168, 120)` }}
         >
             {type === 'negative' ? 
                 (
