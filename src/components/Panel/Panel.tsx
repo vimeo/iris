@@ -114,10 +114,10 @@ function PanelComponent({
   const hidden = `translateX(${shift * 100}%)`;
   const transform = active ? visible : hidden;
 
-  const duration = Math.round(width / 6 + 90);
+  const duration = `${Math.round(width / 6 + 90)}ms`;
   const transition = dragging
     ? 'none'
-    : `transform ${duration}ms ease-in-out`;
+    : `transform ${duration} ease-in-out`;
 
   const styleVars = useStyleVars({
     transform,
@@ -132,6 +132,8 @@ function PanelComponent({
       ref={ref}
       style={{ [attach]: 0, ...style, ...styleVars }}
       {...props}
+      active={active}
+      duration={duration}
     >
       {content}
       {handle}
