@@ -53,7 +53,7 @@ export const FeatureTourPanelContent = ({
     <ThemeProvider theme={themes[theme]}>
       <FeatureTourPanelContentStyled color={color} {...props}>
         <DismissButtonStyled
-          {...dismissButtonProps}
+          {...(dismissButtonProps as object)}
           icon={<DismissX />}
           format="basic"
           variant="hyperminimal"
