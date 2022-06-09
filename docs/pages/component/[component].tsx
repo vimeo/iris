@@ -3,9 +3,11 @@ import * as COMPONENTS from '@vimeo/iris/components';
 
 import { Page } from '../../src/pages/Page';
 import { data } from '../../src/data';
-import { Sidebar } from '../../src/components/Sidebar'
+import { Sidebar } from '../../src/components/Sidebar';
 
 import { components } from '../components';
+import { useLayoutEffect } from 'react';
+import { useState } from 'react';
 
 const { Tag } = COMPONENTS;
 
@@ -29,18 +31,27 @@ export default function Component({ component, themeSet, ...props }) {
   const sections = componentData?.sections;
 
   return (
-    <Page themeSet={themeSet}>
+    <Page
+      themeSet={themeSet}
+      sidebar={
+        <Sidebar
+          header="Components"
+          items={components}
+          active={component}
+        />
+      }
+    >
       <div
         css={`
           display: flex;
         `}
       >
-        <Sidebar header="Components" items={components} active={component} />
         <div
           css={`
             padding: 0.5rem 0rem;
             max-width: var(--layout-site-width);
             margin: 2rem auto;
+            padding-left: 10rem;
           `}
         >
           <header
@@ -56,9 +67,9 @@ export default function Component({ component, themeSet, ...props }) {
               {componentName}
             </Header>
             <Paragraph size="1">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Eos assumenda consequuntur odio labore magni dicta at,
-              unde ex doloremque et! Lorem ipsum dolor sit amet
+              Lorem, ipsum dolor sit amet consectetur adipisicing
+              elit. Eos assumenda consequuntur odio labore magni dicta
+              at, unde ex doloremque et! Lorem ipsum dolor sit amet
               consectetur adipisicing.
             </Paragraph>
             <div
@@ -142,8 +153,6 @@ export default function Component({ component, themeSet, ...props }) {
             })}
         </div>
       </div>
-      
-      
     </Page>
   );
 }

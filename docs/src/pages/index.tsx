@@ -2,10 +2,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 import { Header, Paragraph } from '@vimeo/iris/typography';
+import { core } from '@vimeo/iris/tokens';
 
 import { Hero } from './index.style';
 import { Page } from './Page';
-import { core } from '@vimeo/iris/tokens';
 
 export function Home({ themeSet, ...props }) {
   return (

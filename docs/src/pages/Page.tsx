@@ -1,9 +1,14 @@
 import { themes } from '@vimeo/iris/themes';
 
-import Footer from '../components/Footer'
-import Header from '../components/Header'
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
-export function Page({ themeSet, children, ...props }) {
+export function Page({
+  themeSet,
+  children,
+  sidebar = null,
+  ...props
+}) {
   function toggleTheme() {
     themeSet((theme) =>
       theme.name === 'dark' ? themes.light : themes.dark
@@ -11,7 +16,7 @@ export function Page({ themeSet, children, ...props }) {
   }
 
   return (
-    <div 
+    <div
       css={`
         display: flex;
         flex-direction: column;
@@ -19,11 +24,11 @@ export function Page({ themeSet, children, ...props }) {
     >
       <Header handleToggleTheme={toggleTheme} />
 
+      {sidebar && sidebar}
+
       <main>{children}</main>
 
       <Footer />
     </div>
   );
 }
-
-
