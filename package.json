@@ -93,7 +93,7 @@
         "@babel/runtime": "^7.18.3",
         "polished": "^4.2.2",
         "react": "^16.13.1 || ^17.0.0",
-        "react-dom": "^13.13.1 || ^17.0.0",
+        "react-dom": "^16.13.1 || ^17.0.0",
         "styled-components": "^5.3.5"
     },
     "resolutions": {
