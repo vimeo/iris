@@ -32,6 +32,7 @@ export { SceneMedia } from './SceneMedia';
 export { ScreenShare } from './ScreenShare';
 export { Slice } from './Slice';
 export { Text } from './Text';
+export { Transcript } from './Transcript';
 export { VolumeOff } from './VolumeOff';
 export { VolumeOffFilled } from './VolumeOffFilled';
 export { VolumeOn } from './VolumeOn';
