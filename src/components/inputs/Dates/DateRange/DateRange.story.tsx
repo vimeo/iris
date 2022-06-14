@@ -9,6 +9,7 @@ import { PopOver } from '../../../PopOver/PopOver';
 import { Layout } from '../../../../storybook';
 import { Button } from '../../../Button/Button';
 import { useOutsideClick } from '../../../../utils';
+import { translations } from './translations';
 
 const presets = ['today', 10, -100, 100, 'custom'];
 
@@ -28,6 +29,17 @@ export default {
     onPresetClick: { control: { disable: true } },
     minDate: { control: { type: 'date' } },
     maxDate: { control: { type: 'date' } },
+    translation: {
+      options: {
+        en: translations['en'],
+        es: translations['es'],
+        'de-DE': translations['de-DE'],
+        'fr-FR': translations['fr-FR'],
+        'ja-JP': translations['ja-JP'],
+        'pt-BR': translations['pt-BR'],
+        'ko-KR': translations['ko-KR'],
+      },
+    },
   },
 };
 
