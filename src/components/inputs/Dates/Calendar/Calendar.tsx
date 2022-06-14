@@ -35,7 +35,6 @@ export interface Props {
   selectionEnd?: Date;
   onClick?: (date: Date) => void;
   onMouseEnter?: (date: Date | null) => void;
-  locale?: string;
 }
 
 export const Calendar = ({
@@ -51,13 +50,12 @@ export const Calendar = ({
   range: [selectionStart, selectionEnd] = [null, null],
   hoverRange: [hoverStart, hoverEnd] = [null, null],
   onMouseEnter,
-  locale = 'en',
   initialMonth = new Date(),
   ...props
 }: IrisProps<Props>) => {
   const date = initialMonth;
 
-  const DAY_LABELS = useMemo(() => getDayNames(locale), [locale]);
+  const DAY_LABELS = getDayNames();
 
   const initialViewportDate = new Date(
     date.getFullYear(),
@@ -193,7 +191,7 @@ export const Calendar = ({
         />
 
         <MonthLabel size="4" onClick={resetMonth}>
-          {month(actualDate, locale)}
+          {month(actualDate)}
         </MonthLabel>
         <NextMonth
           onClick={
@@ -267,8 +265,8 @@ export const Calendar = ({
   );
 };
 
-function getDayNames(locale) {
-  const formatter = new Intl.DateTimeFormat(locale, {
+function getDayNames() {
+  const formatter = new Intl.DateTimeFormat('default', {
     weekday: 'short',
     timeZone: 'UTC',
   });
@@ -279,8 +277,8 @@ function getDayNames(locale) {
   return days.map((date) => formatter.format(date));
 }
 
-function month(month, locale) {
-  return month.toLocaleDateString(locale, {
+function month(month) {
+  return month.toLocaleDateString('default', {
     month: 'long',
     year: 'numeric',
   });

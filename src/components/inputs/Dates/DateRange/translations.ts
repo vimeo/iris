@@ -1,55 +1,75 @@
-import { SupportedLocales } from './DateRange.types';
-
-export const translate: Translations = {
-  Apply: {
-    en: 'Apply',
-    es: 'Aplicar',
-    'de-DE': 'Anwenden',
-    'fr-FR': 'Appliquer',
-    'ja-JP': '適用する',
-    'pt-BR': 'Aplicar',
-    'ko-KR': '적용',
-  },
-  Clear: {
-    en: 'Clear',
-    es: 'Borrar',
-    'de-DE': 'Löschen',
-    'fr-FR': 'Effacer',
-    'ja-JP': 'クリア',
-    'pt-BR': 'Limpar',
-    'ko-KR': '비우기',
-  },
-  StartDate: {
-    en: 'Start date',
-    es: 'Fecha de inicio',
-    'de-DE': 'Anfangsdatum',
-    'fr-FR': 'Date de départ',
-    'ja-JP': '開始日',
-    'pt-BR': 'Data de início',
-    'ko-KR': '시작 날짜',
-  },
-  EndDate: {
-    en: 'End date',
-    es: 'Fecha de finalización',
-    'de-DE': 'Enddatum',
-    'fr-FR': 'Date de fin',
-    'ja-JP': '終了日',
-    'pt-BR': 'Data de término:',
-    'ko-KR': '종료 날짜',
-  },
-  Presets: {
-    en: 'PRESETS',
-    es: 'Preajustes',
-    'de-DE': 'Voreinstellungen',
-    'fr-FR': 'Préréglages',
-    'ja-JP': '事前設定',
-    'pt-BR': 'Predefinições',
-    'ko-KR': '사전 설정',
-  },
+export type Translation = {
+  [locale in SupportedLocales]: TranslatedStrings;
 };
 
-interface Translations {
-  [key: string]: {
-    [locale in SupportedLocales]: string;
-  };
-}
+export type TranslatedStrings = {
+  [key in StringsToTranslate]: string;
+};
+
+type StringsToTranslate =
+  | 'apply'
+  | 'clear'
+  | 'startDate'
+  | 'endDate'
+  | 'presets';
+
+type SupportedLocales =
+  | 'en'
+  | 'es'
+  | 'de-DE'
+  | 'fr-FR'
+  | 'ja-JP'
+  | 'pt-BR'
+  | 'ko-KR';
+
+export const translations: Translation = {
+  en: {
+    apply: 'Apply',
+    clear: 'Clear',
+    startDate: 'Start Date',
+    endDate: 'End Date',
+    presets: 'Presets',
+  },
+  es: {
+    apply: 'Aplicar',
+    clear: 'Borrar',
+    startDate: 'Fecha de inicio',
+    endDate: 'Fecha de finalización',
+    presets: 'Preajustes',
+  },
+  'de-DE': {
+    apply: 'Anwenden',
+    clear: 'Löschen',
+    startDate: 'Anfangsdatum',
+    endDate: 'Enddatum',
+    presets: 'Voreinstellungen',
+  },
+  'fr-FR': {
+    apply: 'Appliquer',
+    clear: 'Effacer',
+    startDate: 'Date de départ',
+    endDate: 'Date de fin',
+    presets: 'Préréglage',
+  },
+  'ja-JP': {
+    apply: '適用する',
+    clear: 'クリア',
+    startDate: '開始日',
+    endDate: '終了日',
+    presets: '事前設定',
+  },
+  'pt-BR': {
+    apply: 'Aplicar',
+    clear: 'Limpar',
+    startDate: 'Data de início',
+    endDate: 'Data de término',
+    presets: 'Predefinições',
+  },
+  'ko-KR': {
+    apply: '적용',
+    clear: '비우기',
+    startDate: '시작 날짜',
+    endDate: '종료 날짜',
+    presets: '사전 설정',
+  },
+};

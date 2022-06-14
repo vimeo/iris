@@ -7,6 +7,7 @@ import { ChevronDown } from '../../../../icons';
 import { PopOver } from '../../../PopOver/PopOver';
 import { Layout } from '../../../../storybook';
 import { Button } from '../../../Button/Button';
+import { translations } from './translations';
 
 export default {
   title: 'components/Dates/DateRange/props',
@@ -52,10 +53,10 @@ export function MaxDate() {
   );
 }
 
-export function Locale() {
+export function Translation() {
   return (
     <Layout.StoryVertical center>
-      <DateRangeButton locale={'ko-KR'} />
+      <DateRangeButton translation={translations['ko-KR']} />
     </Layout.StoryVertical>
   );
 }

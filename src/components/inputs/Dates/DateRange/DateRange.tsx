@@ -27,7 +27,7 @@ import {
   Menu,
 } from './DateRange.style';
 import { PresetValue, Props } from './DateRange.types';
-import { translate } from './translations';
+import { translations } from './translations';
 
 import { slate } from '../../../../color';
 import { withIris } from '../../../../utils';
@@ -47,12 +47,12 @@ function DateRangeComponent({
   presets,
   startInputLabel,
   onPresetClick,
-  locale = 'en',
+  translation = translations['es'],
 }: Props) {
   const [state, dispatch] = useReducer(reducer, initialState, init);
   const [presetOption, setPresetOption] = useState('');
 
-  const dateFormat = getDateFormat(locale);
+  const dateFormat = getDateFormat();
 
   // When our internal range value changes, if a callback for onChange is passed
   // let's call that callback with our new value.
@@ -89,23 +89,23 @@ function DateRangeComponent({
   const startDateLabel = useMemo(() => {
     if (typeof startLabel === 'string') return startLabel;
 
-    if (hoverStart) return formatDate(hoverStart, locale);
-    if (draftStart) return formatDate(draftStart, locale);
-    if (!open && rangeStart) return formatDate(rangeStart, locale);
+    if (hoverStart) return formatDate(hoverStart);
+    if (draftStart) return formatDate(draftStart);
+    if (!open && rangeStart) return formatDate(rangeStart);
 
     return '';
-  }, [open, draftStart, startLabel, hoverStart, rangeStart, locale]);
+  }, [open, draftStart, startLabel, hoverStart, rangeStart]);
 
   // Derive the value for the input that represents our end date.
   const endDateLabel = useMemo(() => {
     if (typeof endLabel === 'string') return endLabel;
 
-    if (hoverEnd) return formatDate(hoverEnd, locale);
-    if (draftEnd) return formatDate(draftEnd, locale);
-    if (!open && rangeEnd) return formatDate(rangeEnd, locale);
+    if (hoverEnd) return formatDate(hoverEnd);
+    if (draftEnd) return formatDate(draftEnd);
+    if (!open && rangeEnd) return formatDate(rangeEnd);
 
     return '';
-  }, [open, draftEnd, endLabel, hoverEnd, rangeEnd, locale]);
+  }, [open, draftEnd, endLabel, hoverEnd, rangeEnd]);
 
   // Callback for going to the next month in our date range picker.
   function handleGoForward() {
@@ -261,7 +261,7 @@ function DateRangeComponent({
           format="basic"
           style={{ borderRight: `1px solid ${slate(100)}` }}
         >
-          <Menu.Section title={translate.Presets[locale]}>
+          <Menu.Section title={translation.presets}>
             {presets.map((preset, key) => {
               const label = getPresetLabel(preset);
 
@@ -292,7 +292,7 @@ function DateRangeComponent({
           <DateField>
             <Input
               id="start–date"
-              label={startInputLabel || translate.StartDate[locale]}
+              label={startInputLabel || translation.startDate}
               value={startDateLabel}
               onChange={handleStartChange}
               onKeyDown={handleKeyDown}
@@ -305,7 +305,7 @@ function DateRangeComponent({
           <DateField>
             <Input
               id="end-date"
-              label={endInputLabel || translate.EndDate[locale]}
+              label={endInputLabel || translation.endDate}
               value={endDateLabel}
               onChange={handleEndChange}
               onKeyDown={handleKeyDown}
@@ -331,7 +331,6 @@ function DateRangeComponent({
             selectionEnd={hoverEnd ? hoverEnd : draftEnd}
             onClick={handleClick}
             onMouseEnter={handleHover}
-            locale={locale}
           />
           <Calendar
             isRange
@@ -346,7 +345,6 @@ function DateRangeComponent({
             selectionEnd={hoverEnd ? hoverEnd : draftEnd}
             onClick={handleClick}
             onMouseEnter={handleHover}
-            locale={locale}
           />
         </CalendarsBody>
         <CalendarsFooter>
@@ -357,7 +355,7 @@ function DateRangeComponent({
             variant="minimal"
             onClick={() => void dispatch({ type: 'CLEAR' })}
           >
-            {translate.Clear[locale]}
+            {translation.clear}
           </ClearButton>
           <ApplyButton
             disabled={
@@ -370,7 +368,7 @@ function DateRangeComponent({
             format="secondary"
             onClick={() => void dispatch({ type: 'SAVE' })}
           >
-            {translate.Apply[locale]}
+            {translation.apply}
           </ApplyButton>
         </CalendarsFooter>
       </CalendarsContainer>
