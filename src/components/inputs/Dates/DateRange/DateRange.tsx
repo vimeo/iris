@@ -47,7 +47,7 @@ function DateRangeComponent({
   presets,
   startInputLabel,
   onPresetClick,
-  translation = translations['es'],
+  translation = translations['en'],
 }: Props) {
   const [state, dispatch] = useReducer(reducer, initialState, init);
   const [presetOption, setPresetOption] = useState('');
