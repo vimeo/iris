@@ -2,7 +2,7 @@ import React, { forwardRef, Ref, SVGAttributes } from 'react';
 
 import { IrisIcon } from '../icons.types';
 
-export const RewindFilled: IrisIcon = forwardRef(
+export const FramePreviousFilled: IrisIcon = forwardRef(
   (props: SVGAttributes<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
     <svg viewBox="0 0 24 24" ref={ref} {...props}>
       <path
@@ -14,13 +14,15 @@ export const RewindFilled: IrisIcon = forwardRef(
   )
 );
 
-RewindFilled.tags = [
+FramePreviousFilled.tags = [
   'arrow',
   'control',
   'editor',
+  'frame',
   'media',
   'pause',
   'play',
   'player',
+  'previous',
   'rewind',
 ];
