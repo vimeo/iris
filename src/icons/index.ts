@@ -233,6 +233,7 @@ export { SceneMedia } from './media/SceneMedia';
 export { ScreenShare } from './media/ScreenShare';
 export { Slice } from './media/Slice';
 export { Text } from './media/Text';
+export { Transcript } from './media/Transcript';
 export { VolumeOff } from './media/VolumeOff';
 export { VolumeOffFilled } from './media/VolumeOffFilled';
 export { VolumeOn } from './media/VolumeOn';
