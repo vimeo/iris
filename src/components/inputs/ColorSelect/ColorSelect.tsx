@@ -59,7 +59,10 @@ function ColorSelectComponent({
   const popOverRef = useRef();
 
   useOutsideClick([childrenRef, popOverRef], () => {
-    if (state.open) dispatch({ type: 'CLOSE', payload: true });
+    if (state.open) {
+      onClose?.();
+      dispatch({ type: 'CLOSE', payload: true });
+    }
   });
 
   // deprecation handling
