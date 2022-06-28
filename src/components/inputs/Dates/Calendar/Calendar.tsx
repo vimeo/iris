@@ -18,6 +18,8 @@ import { ChevronRight } from '../../../../icons';
 import { Header } from '../../../../typography';
 import { IrisProps, geometry } from '../../../../utils';
 import { rgba, rem } from 'polished';
+import { translations } from '../DateRange/translations';
+import { TranslatedStrings } from '../DateRange/translationTypes';
 
 export interface Props {
   selected?: Date;
@@ -35,6 +37,7 @@ export interface Props {
   selectionEnd?: Date;
   onClick?: (date: Date) => void;
   onMouseEnter?: (date: Date | null) => void;
+  translation?: TranslatedStrings;
 }
 
 export const Calendar = ({
@@ -50,12 +53,23 @@ export const Calendar = ({
   range: [selectionStart, selectionEnd] = [null, null],
   hoverRange: [hoverStart, hoverEnd] = [null, null],
   onMouseEnter,
+  translation = translations['en'],
   initialMonth = new Date(),
   ...props
 }: IrisProps<Props>) => {
   const date = initialMonth;
 
-  const DAY_LABELS = useMemo(() => getDayNames(), []);
+  const DAY_LABELS = useMemo(
+    () => Object.values(translation.daysAbbreviated),
+    [translation.daysAbbreviated]
+  );
+
+  const month = (currentDate) => {
+    const numericalMonth = currentDate.getMonth();
+    const numericalYear = currentDate.getFullYear();
+    const month = getMonthName(numericalMonth);
+    return `${translation.months[month]} ${numericalYear}`;
+  };
 
   const initialViewportDate = new Date(
     date.getFullYear(),
@@ -265,23 +279,33 @@ export const Calendar = ({
   );
 };
 
-function getDayNames() {
-  const formatter = new Intl.DateTimeFormat('default', {
-    weekday: 'short',
-    timeZone: 'UTC',
-  });
-  const days = [1, 2, 3, 4, 5, 6, 7].map((day) => {
-    const dd = day < 10 ? `0${day}` : day;
-    return new Date(`2017-01-${dd}T00:00:00+00:00`);
-  });
-  return days.map((date) => formatter.format(date));
-}
-
-function month(month) {
-  return month.toLocaleDateString('default', {
-    month: 'long',
-    year: 'numeric',
-  });
+function getMonthName(month: number) {
+  switch (month) {
+    case 0:
+      return 'january';
+    case 1:
+      return 'february';
+    case 2:
+      return 'march';
+    case 3:
+      return 'april';
+    case 4:
+      return 'may';
+    case 5:
+      return 'june';
+    case 6:
+      return 'july';
+    case 7:
+      return 'august';
+    case 8:
+      return 'september';
+    case 9:
+      return 'october';
+    case 10:
+      return 'november';
+    case 11:
+      return 'december';
+  }
 }
 
 function gotoMonth(viewingMonth, i) {

@@ -331,6 +331,7 @@ function DateRangeComponent({
             selectionEnd={hoverEnd ? hoverEnd : draftEnd}
             onClick={handleClick}
             onMouseEnter={handleHover}
+            translation={translation}
           />
           <Calendar
             isRange
@@ -345,6 +346,7 @@ function DateRangeComponent({
             selectionEnd={hoverEnd ? hoverEnd : draftEnd}
             onClick={handleClick}
             onMouseEnter={handleHover}
+            translation={translation}
           />
         </CalendarsBody>
         <CalendarsFooter>

@@ -1,5 +1,5 @@
 import { IrisInputProps } from '../../../../utils';
-import { TranslatedStrings } from './translations';
+import { TranslatedStrings } from './translationTypes';
 
 export type Props = IrisInputProps<{
   /**
@@ -51,7 +51,7 @@ export type Props = IrisInputProps<{
    * Pass in key/value pairs of strings and their translations.
    *
    * For example:
-   * `{ apply: 'Apply', clear: 'Clear', startDate: 'Start Date'...}`
+   * `{ apply: 'Apply', clear: 'Clear', startDate: 'Start Date'... 'months': {...}}`
    *
    * Translated objects already exist for some languages, and can be found
    * and imported from `translations.ts`
