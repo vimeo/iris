@@ -489,7 +489,6 @@ function buttonTextShift({ variant, textShift, iconPosition }) {
 // Temporary until CSSVar design tokens are released and Button
 // style logic is rewritten.
 function buttonUpsell({ format, theme }) {
-  console.log(theme.name);
   if (format !== 'upsell') return;
 
   const color = core.color.upsell.sm;
