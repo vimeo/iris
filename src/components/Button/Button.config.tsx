@@ -4,6 +4,7 @@ export const formats = [
   'alternative',
   'secondary',
   'primary',
+  'upsell',
 ] as const;
 export const statuses = ['positive', 'negative'] as const;
 export const variants = [
