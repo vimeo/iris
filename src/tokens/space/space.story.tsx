@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Story } from '../../storybook';
 import { Header, Text } from '../../typography';
 
 import { core } from '../../tokens';
@@ -10,23 +9,21 @@ import { amethyst } from '../../color';
 export default { title: 'Tokens/space' };
 export function Tokens() {
   return (
-    <Story title="Space" width="100%" flex>
-      <Flex>
-        {[...new Array(24)].map((item, index) => {
-          const token = (index + 1) * 50;
-          const pxValue = token / 12.5;
-          const remValue = pxValue / 16;
-          return (
-            <StoryRow key={index}>
-              <Header size="5">space({token})</Header>
-              <Text size={200}>{remValue}rem</Text>
-              <Text size={200}>{pxValue}px</Text>
-              <ExampleSpaceDiv token={core.space(token)} />
-            </StoryRow>
-          );
-        })}
-      </Flex>
-    </Story>
+    <Flex>
+      {[...new Array(24)].map((item, index) => {
+        const token = (index + 1) * 50;
+        const pxValue = token / 12.5;
+        const remValue = pxValue / 16;
+        return (
+          <StoryRow key={index}>
+            <Header size="5">space({token})</Header>
+            <Text size={200}>{remValue}rem</Text>
+            <Text size={200}>{pxValue}px</Text>
+            <ExampleSpaceDiv token={core.space(token)} />
+          </StoryRow>
+        );
+      })}
+    </Flex>
   );
 }
 
