@@ -37,6 +37,8 @@ export const DateRange = withIris<HTMLInputElement, Props>(
   DateRangeComponent
 );
 
+const dateFormat = getDateFormat();
+
 function DateRangeComponent({
   className,
   endInputLabel,
@@ -51,8 +53,6 @@ function DateRangeComponent({
 }: Props) {
   const [state, dispatch] = useReducer(reducer, initialState, init);
   const [presetOption, setPresetOption] = useState('');
-
-  const dateFormat = getDateFormat();
 
   // When our internal range value changes, if a callback for onChange is passed
   // let's call that callback with our new value.
