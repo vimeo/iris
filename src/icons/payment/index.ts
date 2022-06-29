@@ -7,4 +7,8 @@ export { AppleAppStoreKoKr } from './AppleAppStoreKoKr';
 export { AppleAppStorePtBr } from './AppleAppStorePtBr';
 export { CcAmex } from './CcAmex';
 export { CcDiscover } from './CcDiscover';
+export { CcError } from './CcError';
+export { CcMastercard } from './CcMastercard';
+export { CcOff } from './CcOff';
 export { CcVisa } from './CcVisa';
+export { PayPal } from './PayPal';
