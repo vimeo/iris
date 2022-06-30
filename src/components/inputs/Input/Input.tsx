@@ -20,6 +20,7 @@ function InputComponent({ type = 'text', ...props }: Props) {
     case 'text':
     case 'password':
     case 'email':
+    case 'url':
       return <Text type={type} {...props} />;
     default:
       if (!props.value) props.value = UID;
