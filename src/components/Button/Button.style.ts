@@ -79,6 +79,7 @@ function buttonIcon({ size, iconOnly, iconPosition }) {
           width: ${pad / 1.25 + 0.75}rem;
           height: ${pad / 1.25 + 0.75}rem;
           display: inline-flex;
+          overflow: visible;
 
           > * {
             fill: currentColor;
@@ -97,6 +98,7 @@ function buttonIcon({ size, iconOnly, iconPosition }) {
           margin: ${iconMargin[iconPosition]};
           position: ${iconPosition === 'action' && 'absolute'};
           right: ${iconPosition === 'action' && '0.5rem'};
+          overflow: visible;
 
           > * {
             fill: currentColor;
