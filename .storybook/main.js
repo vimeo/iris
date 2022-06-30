@@ -27,6 +27,7 @@ module.exports = {
     config.module.rules.push(storySource);
     return config;
   },
+  staticDirs: ['./public'],
 };
 
 const storySource = {
