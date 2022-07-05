@@ -1,10 +1,12 @@
-export type Translation = {
-  [locale in SupportedLocales]: TranslatedStrings;
-};
-
-export type TranslatedStrings = {
-  [key in StringsToTranslate]: string | Months | DaysOfWeek;
-};
+export interface TranslatedStrings {
+  apply: string;
+  clear: string;
+  startDate: string;
+  endDate: string;
+  presets: string;
+  months: Months;
+  daysAbbreviated: DaysOfWeek;
+}
 
 type Months = {
   [key in Month]: string;
@@ -36,21 +38,3 @@ type Month =
   | 'october'
   | 'november'
   | 'december';
-
-type StringsToTranslate =
-  | 'apply'
-  | 'clear'
-  | 'startDate'
-  | 'endDate'
-  | 'presets'
-  | 'months'
-  | 'daysAbbreviated';
-
-type SupportedLocales =
-  | 'en'
-  | 'es'
-  | 'de-DE'
-  | 'fr-FR'
-  | 'ja-JP'
-  | 'pt-BR'
-  | 'ko-KR';

@@ -61,6 +61,45 @@ export function Translation() {
   );
 }
 
+export function CustomTranslation() {
+  return (
+    <Layout.StoryVertical center>
+      <DateRangeButton translation={backWardsTranslations} />
+    </Layout.StoryVertical>
+  );
+}
+
+const backWardsTranslations = {
+  apply: 'ylppA',
+  clear: 'raelC',
+  startDate: 'etaD tratS',
+  endDate: 'etaD dnE',
+  presets: 'steserP',
+  months: {
+    january: 'yraunaJ',
+    february: 'yraurbeF',
+    march: 'hcraM',
+    april: 'lirpA',
+    may: 'yaM',
+    june: 'enuJ',
+    july: 'yluJ',
+    august: 'tsuguA',
+    september: 'rebmetpeS',
+    october: 'rebotcO',
+    november: 'rebmevoN',
+    december: 'rebmeceD',
+  },
+  daysAbbreviated: {
+    sunday: 'uS',
+    monday: 'oM',
+    tuesday: 'uT',
+    wednesday: 'eW',
+    thursday: 'hT',
+    friday: 'rF',
+    saturday: 'aS',
+  },
+};
+
 const presets = [
   'today',
   'yesterday',

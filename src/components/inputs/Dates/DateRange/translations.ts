@@ -1,6 +1,4 @@
-import { Translation } from './translationTypes';
-
-export const translations: Translation = {
+export const translations = {
   en: {
     apply: 'Apply',
     clear: 'Clear',
