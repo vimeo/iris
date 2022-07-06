@@ -20,7 +20,9 @@ export function init(state: State) {
   // Get the month starting at Day 1 that includes are current date
   // this will be the date object that represents our viewport.
   const now = new Date();
-  const viewportDate = new Date(now.getFullYear(), now.getMonth(), 1);
+  const viewportDate =
+    state.viewportDate ||
+    new Date(now.getFullYear(), now.getMonth(), 1);
 
   return {
     ...state,
@@ -56,7 +58,6 @@ export function reducer(state: State, action: Action): State {
         // When saving, copy (immutably) the draft back into the selected
         // range, and set the draft range to null values.
         range: [state.draft[0], state.draft[1]],
-        draft: [null, null],
       };
     case 'CLOSE':
       return {

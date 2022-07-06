@@ -59,6 +59,10 @@ export type Props = IrisInputProps<{
    * [default = translations['en']]
    */
   translation?: TranslatedStrings;
+  /**
+   * The value used for the intialState of the range and the draft of the DateRange.
+   */
+  defaultValue?: [Date | null, Date | null];
 }>;
 
 export type PresetValue =

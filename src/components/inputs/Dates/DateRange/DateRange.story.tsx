@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { MutableRefObject, useRef, useState } from 'react';
 import { Story } from '@storybook/react';
 
 import { DateRange } from './DateRange';
@@ -78,21 +78,25 @@ function locale(range) {
 
 function DateRangeButton({ ...args }) {
   const defaultText = 'Select a date range';
-  const [buttonText, setButtonText] = useState(defaultText);
-  const [active, setActive] = useState(true);
+  const [value, setValue] = useState<
+    [Date | null, Date | null] | null
+  >(null);
+  const [active, setActive] = useState(false);
 
   const onChange = (range: [Date, Date]) => {
     const validRange = range[0] && range[1];
 
-    if (validRange) {
-      setButtonText(locale(range));
+    if (validRange && range !== value) {
+      setValue(range);
       setActive(false);
     }
-    if (!validRange) setButtonText(defaultText);
+    if (!validRange) setValue(null);
   };
 
-  const childrenRef = useRef();
-  const popOverRef = useRef();
+  const childrenRef =
+    useRef() as unknown as MutableRefObject<HTMLElement>;
+  const popOverRef =
+    useRef() as unknown as MutableRefObject<HTMLElement>;
   useOutsideClick([childrenRef, popOverRef], () => {
     if (active) setActive(false);
   });
@@ -101,7 +105,18 @@ function DateRangeButton({ ...args }) {
     <PopOver
       active={active}
       content={
-        <DateRange ref={popOverRef} onChange={onChange} {...args} />
+        <DateRange
+          ref={
+            popOverRef as
+              | MutableRefObject<HTMLInputElement>
+              | undefined
+          }
+          onChange={onChange}
+          defaultValue={
+            value as [Date | null, Date | null] | undefined
+          }
+          {...args}
+        />
       }
       style={
         args.presets && {
@@ -116,7 +131,7 @@ function DateRangeButton({ ...args }) {
         onClick={() => setActive(!active)}
         ref={childrenRef}
       >
-        {buttonText}
+        {value ? locale(value) : defaultText}
       </Button>
     </PopOver>
   );
