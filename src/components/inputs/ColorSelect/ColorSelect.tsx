@@ -97,18 +97,16 @@ function ColorSelectComponent({
     dispatch({ type: 'TOGGLE' });
   };
 
-  const setHue = useRef(
-    throttle((e) => {
-      const hue = parseInt(e.target.value, 10) / 100;
-      const newHSL = { ...HSL, hue };
+  const setHue = throttle((e) => {
+    const hue = parseInt(e.target.value, 10) / 100;
+    const newHSL = { ...HSL, hue };
 
-      if (HSL.hue !== newHSL.hue) {
-        const color = hslToColorString(newHSL);
-        onChange && onChange(color);
-        dispatch({ type: 'SET_HSL', payload: newHSL });
-      }
-    }, throttleSpeed / 4)
-  ).current;
+    if (HSL.hue !== newHSL.hue) {
+      const color = hslToColorString(newHSL);
+      onChange && onChange(color);
+      dispatch({ type: 'SET_HSL', payload: newHSL });
+    }
+  }, throttleSpeed / 4);
 
   const onMouseDown = () =>
     !dragging && dispatch({ type: 'DRAG_START' });
