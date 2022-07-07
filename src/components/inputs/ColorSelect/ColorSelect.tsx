@@ -128,7 +128,6 @@ function ColorSelectComponent({
             {...state}
             {...props}
           />
-
           <HueSlider
             dragging={dragging}
             onChange={setHue}

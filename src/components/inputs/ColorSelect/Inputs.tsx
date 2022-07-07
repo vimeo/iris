@@ -54,13 +54,16 @@ export function ColorInputs({
           {colorSpace}
         </Button>
         {editing ? (
-          <InputEdit
-            value={value}
-            dispatch={dispatch}
-            error={error}
-            forwardRef={ref}
-            onChange={onChange}
-          />
+          <>
+            EDITING INPUT
+            <InputEdit
+              value={value}
+              dispatch={dispatch}
+              error={error}
+              forwardRef={ref}
+              onChange={onChange}
+            />
+          </>
         ) : (
           <>
             {colorSpace === 'HEX' && <InputHEX {...propsInput} />}
@@ -138,14 +141,15 @@ function InputEdit({ value, dispatch, error, forwardRef, onChange }) {
 function InputHEX({ colorMeta, onClick }) {
   const { HEX } = colorMeta;
   const props = { onClick, type: 'text' } as const;
-
   return (
-    <ColorInput
-      value={HEX}
-      style={{ display: 'inline-block' }}
-      {...props}
-      readOnly
-    />
+    <>
+      <ColorInput
+        value={HEX}
+        style={{ display: 'inline-block' }}
+        {...props}
+        readOnly
+      />
+    </>
   );
 }
 

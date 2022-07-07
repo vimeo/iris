@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { readableColor } from 'polished';
 import { Story } from '@storybook/react';
 
@@ -7,6 +7,8 @@ import { Props } from './ColorSelect.types';
 
 import { Layout } from '../../../storybook';
 import { ANCHOR_POINTS } from '../../../utils';
+import { Modal } from '../../Modal/Modal';
+import { Button } from '../../Button/Button';
 
 export default {
   title: 'components/ColorSelect',
@@ -54,4 +56,40 @@ Controls.args = {
   reset: { color: '#0FF', label: 'reset' },
   label: 'ColorSelect',
   throttleSpeed: 40,
+};
+
+export const InModal = () => {
+  const [active, setActive] = useState(true);
+  const ModalContent = (
+    <>
+      <ColorSelect
+        onChange={(HEX) =>
+          console.log(
+            `onChange: %c ${HEX}`,
+            `background: ${HEX}; color: ${readableColor(HEX)}`
+          )
+        }
+      />
+      <Modal.Footer>
+        <Modal.SecondaryAction onClick={() => setActive(false)}>
+          Cancel
+        </Modal.SecondaryAction>
+      </Modal.Footer>
+    </>
+  );
+  return (
+    <>
+      <ColorSelect
+        onChange={(HEX) =>
+          console.log(
+            `onChange: %c ${HEX}`,
+            `background: ${HEX}; color: ${readableColor(HEX)}`
+          )
+        }
+      />
+      <Modal content={ModalContent} active={active}>
+        <Button onClick={() => setActive(true)}>Open Modal</Button>
+      </Modal>
+    </>
+  );
 };
