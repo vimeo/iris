@@ -27,6 +27,7 @@ import {
   Menu,
 } from './DateRange.style';
 import { PresetValue, Props } from './DateRange.types';
+import { translations } from './translations';
 
 import { slate } from '../../../../color';
 import { withIris } from '../../../../utils';
@@ -40,14 +41,15 @@ const dateFormat = getDateFormat();
 
 function DateRangeComponent({
   className,
-  endInputLabel = 'End date',
+  endInputLabel,
   forwardRef,
   maxDate,
   minDate,
   onChange,
   presets,
-  startInputLabel = 'Start date',
+  startInputLabel,
   onPresetClick,
+  translation = translations['en'],
 }: Props) {
   const [state, dispatch] = useReducer(reducer, initialState, init);
   const [presetOption, setPresetOption] = useState('');
@@ -259,7 +261,7 @@ function DateRangeComponent({
           format="basic"
           style={{ borderRight: `1px solid ${slate(100)}` }}
         >
-          <Menu.Section title="Presets">
+          <Menu.Section title={translation.presets}>
             {presets.map((preset, key) => {
               const label = getPresetLabel(preset);
 
@@ -290,7 +292,7 @@ function DateRangeComponent({
           <DateField>
             <Input
               id="start–date"
-              label={startInputLabel}
+              label={startInputLabel || translation.startDate}
               value={startDateLabel}
               onChange={handleStartChange}
               onKeyDown={handleKeyDown}
@@ -303,7 +305,7 @@ function DateRangeComponent({
           <DateField>
             <Input
               id="end-date"
-              label={endInputLabel}
+              label={endInputLabel || translation.endDate}
               value={endDateLabel}
               onChange={handleEndChange}
               onKeyDown={handleKeyDown}
@@ -329,6 +331,7 @@ function DateRangeComponent({
             selectionEnd={hoverEnd ? hoverEnd : draftEnd}
             onClick={handleClick}
             onMouseEnter={handleHover}
+            translation={translation}
           />
           <Calendar
             isRange
@@ -343,6 +346,7 @@ function DateRangeComponent({
             selectionEnd={hoverEnd ? hoverEnd : draftEnd}
             onClick={handleClick}
             onMouseEnter={handleHover}
+            translation={translation}
           />
         </CalendarsBody>
         <CalendarsFooter>
@@ -353,7 +357,7 @@ function DateRangeComponent({
             variant="minimal"
             onClick={() => void dispatch({ type: 'CLEAR' })}
           >
-            Clear
+            {translation.clear}
           </ClearButton>
           <ApplyButton
             disabled={
@@ -366,7 +370,7 @@ function DateRangeComponent({
             format="secondary"
             onClick={() => void dispatch({ type: 'SAVE' })}
           >
-            Apply
+            {translation.apply}
           </ApplyButton>
         </CalendarsFooter>
       </CalendarsContainer>

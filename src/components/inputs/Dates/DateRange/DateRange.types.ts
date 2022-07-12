@@ -1,4 +1,5 @@
 import { IrisInputProps } from '../../../../utils';
+import { TranslatedStrings } from './translationTypes';
 
 export type Props = IrisInputProps<{
   /**
@@ -45,6 +46,19 @@ export type Props = IrisInputProps<{
    * @presetValue is the value of preset which is clicked.
    */
   onPresetClick?: (presetValue: PresetValue) => void;
+  /**
+   * Optional value that supports translation of the DateRange component.
+   * Pass in key/value pairs of strings and their translations.
+   *
+   * For example:
+   * `{ apply: 'Apply', clear: 'Clear', startDate: 'Start Date'... 'months': {...}}`
+   *
+   * Translated objects already exist for some languages, and can be found
+   * and imported from `translations.ts`
+   *
+   * [default = translations['en']]
+   */
+  translation?: TranslatedStrings;
 }>;
 
 export type PresetValue =
