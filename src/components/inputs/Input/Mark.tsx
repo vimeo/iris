@@ -30,6 +30,7 @@ export function Mark({
   messages,
   name,
   onChange,
+  required,
   status,
   style = nullStyle,
   theme,
@@ -60,6 +61,7 @@ export function Mark({
           name={name}
           onChange={onChange}
           ref={forwardRef}
+          required={required}
           type={type}
           value={value as string | string[]}
         />
