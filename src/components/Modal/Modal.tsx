@@ -113,12 +113,15 @@ function ModalContent({ children }) {
   // element of the modal. This ensure that so long as
   // the modal is active, elements outside the modal cannot
   // be focused.
+  // We are allowing focus inside open Iris portals in case a portal is triggered from the ModalContent.
   useLayoutEffect(() => {
     const { addEventListener, removeEventListener } = document;
     const firstFocusable = ref.current.querySelectorAll(focusable)[0];
 
     function captureFocus({ target }) {
-      const focusOutOfModal = !ref.current?.contains(target);
+      const focusOutOfModal =
+        !ref.current?.contains(target) &&
+        !document.getElementById('iris-portals')?.contains(target);
       if (focusOutOfModal) firstFocusable?.focus();
     }
 
