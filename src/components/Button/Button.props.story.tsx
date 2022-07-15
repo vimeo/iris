@@ -16,6 +16,10 @@ import {
   DownloadArrow,
   Plus,
   UploadCloud,
+  Clock,
+  Heart,
+  HeartFilled,
+  PaperPlane,
 } from '../../icons';
 
 export default {
@@ -103,6 +107,17 @@ export function IconPosition() {
   ));
 }
 IconPosition.storyName = 'iconPosition';
+
+export const IconSmall = () => {
+  return (
+    <div>
+      {[Clock, Heart, HeartFilled, PaperPlane].map((Icon, idx) => {
+        return <Button key={idx} size="sm" icon={<Icon />} />;
+      })}
+    </div>
+  );
+};
+IconSmall.storyName = 'icon (small)';
 
 export function Fluid() {
   return <Button fluid>Fluid Button</Button>;
