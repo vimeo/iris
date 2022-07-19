@@ -25,6 +25,7 @@ export { CopyField } from './inputs/CopyField/CopyField';
 export { CounterIcon } from './CounterIcon/CounterIcon';
 export { DateRange } from './inputs/Dates/DateRange/DateRange';
 export { DateSelect } from './inputs/Dates/DateSelect/DateSelect';
+export { Dropzone } from './inputs/Dropzone/Dropzone';
 export { FileUpload } from './inputs/FileUpload/FileUpload';
 export { Input } from './inputs/Input/Input';
 export { LoaderCircular } from './LoaderCircular/LoaderCircular';
