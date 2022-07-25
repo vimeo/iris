@@ -1,7 +1,16 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { rgba } from 'polished';
 
 import { blue, white } from '../../color';
+
+const hidden = keyframes`
+  from {
+    visibility: visible;
+  }
+  to {
+    visibility: hidden;
+  }
+`;
 
 export const PanelStyled = styled.div<any>`
   position: absolute;
@@ -12,11 +21,13 @@ export const PanelStyled = styled.div<any>`
   background: ${(p) => p.theme.content.background};
   ${edge};
 
-  will-change: width, transform;
-
   width: var(--width);
   transform: var(--transform);
   transition: var(--transition);
+
+  animation: ${(p) => !p.active && hidden};
+  animation-delay: ${(p) => p.duration};
+  animation-fill-mode: forwards;
 `;
 
 function edge({ theme, attach }) {
