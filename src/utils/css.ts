@@ -75,6 +75,11 @@ export const Focus = styled.div<any>`
 const vimeoFont = `'Helvetica Neue', Helvetica, Arial, sans-serif;`;
 
 export const GlobalStyles = createGlobalStyle<{ theme: IrisTheme }>`
+
+  :root {
+    color-scheme: ${({ theme }) => theme.name}
+  }
+
   html {
     box-sizing: border-box;
     padding: 0;
