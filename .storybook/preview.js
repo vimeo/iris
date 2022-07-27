@@ -6,7 +6,7 @@ import {
 
 import { GlobalStyles } from '../src/utils';
 import { useEffect, useState } from 'react';
-import { DocsPage } from './DocsPage';
+import DocsPage from './DocsPage';
 
 addThemes(themes);
 
