@@ -525,6 +525,8 @@ export const parameters = {
       ],
       locales: '',
     },
+    showPanel: true,
+    panelPosition: 'bottom',
   },
   controls: {
     expanded: true,
