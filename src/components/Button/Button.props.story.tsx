@@ -24,6 +24,7 @@ import {
 
 export default {
   title: 'components/Button/props',
+  component: B,
 };
 
 const Button = styled(B)`
@@ -31,14 +32,19 @@ const Button = styled(B)`
   margin: 0 1rem 1rem 0;
 `;
 
-export function Disabled() {
-  return <Button disabled>Button</Button>;
+export function Disabled({ args }) {
+  return (
+    <Button disabled {...args}>
+      Button
+    </Button>
+  );
 }
 Disabled.storyName = 'disabled';
 
-export function Element() {
+export function Element({ args }) {
   return (
     <Button
+      {...args}
       element="a"
       href="#"
       css={`
@@ -51,32 +57,32 @@ export function Element() {
 }
 Element.storyName = 'element';
 
-export function Format() {
+export function Format({ args }) {
   return formats.map((format, i) => (
-    <Button key={i} format={format} children={format} />
+    <Button key={i} format={format} children={format} {...args} />
   ));
 }
 Format.storyName = 'format';
 
-export function Variant() {
+export function Variant({ args }) {
   return variants.map((variant, i) => (
-    <Button key={i} variant={variant} children={variant} />
+    <Button key={i} variant={variant} children={variant} {...args} />
   ));
 }
 Variant.storyName = 'variant';
 
-export function Status() {
+export function Status({ args }) {
   return statuses.map((status, i) => (
-    <Button key={i} status={status} children={status} />
+    <Button key={i} status={status} children={status} {...args} />
   ));
 }
 Status.storyName = 'status';
 
-export function Size() {
+export function Size({ args }) {
   const style = { display: 'inline-flex' };
 
   return sizes.map((size, i) => (
-    <div key={i} style={{ display: 'flex' }}>
+    <div key={i} style={{ display: 'flex' }} {...args}>
       <Button size={size} style={style}>
         Button
       </Button>
@@ -89,45 +95,55 @@ export function Size() {
 }
 Size.storyName = 'size';
 
-export function Icon() {
-  return <Button icon={<DownloadArrow />} />;
+export function Icon({ args }) {
+  return <Button icon={<DownloadArrow {...args} />} />;
 }
 Icon.storyName = 'icon';
 
-export function IconPill() {
-  return <Button icon={<Plus />} pill />;
+export function IconPill({ args }) {
+  return <Button icon={<Plus />} pill {...args} />;
 }
 IconPill.storyName = 'icon, pill';
 
-export function IconPosition() {
+export function IconPosition({ args }) {
   return iconPositions.map((position, i) => (
-    <Button icon={<UploadCloud />} iconPosition={position} key={i}>
+    <Button
+      icon={<UploadCloud />}
+      iconPosition={position}
+      key={i}
+      {...args}
+    >
       iconPosition {position}
     </Button>
   ));
 }
 IconPosition.storyName = 'iconPosition';
 
-export const IconSmall = () => {
+export function IconSmall({ args }) {
   return (
-    <div>
+    <div {...args}>
       {[Clock, Heart, HeartFilled, PaperPlane].map((Icon, idx) => {
         return <Button key={idx} size="sm" icon={<Icon />} />;
       })}
     </div>
   );
-};
+}
 IconSmall.storyName = 'icon (small)';
 
-export function Fluid() {
-  return <Button fluid>Fluid Button</Button>;
+export function Fluid({ args }) {
+  return (
+    <Button fluid {...args}>
+      Fluid Button
+    </Button>
+  );
 }
 Fluid.storyName = 'fluid';
 
-export function FluidVaried() {
+export function FluidVaried({ args }) {
   return (
     <>
       <Button
+        {...args}
         fluid={{ min: 0, max: 500 }}
         children="{ min: 0, max: 500 }"
       />
@@ -160,27 +176,32 @@ export function FluidVaried() {
 }
 FluidVaried.storyName = 'fluid (queried)';
 
-export const Loading = () => <LoadingStory />;
-function LoadingStory() {
+export function LoadingStory({ args }) {
   const [loading, setLoading] = useState(false);
   const onClick = () => setLoading((loading) => !loading);
 
   return (
-    <Button size="lg" loading={!loading} onClick={onClick}>
+    <Button size="lg" loading={!loading} onClick={onClick} {...args}>
       Click Me
     </Button>
   );
 }
+export const Loading = ({ args }) => <LoadingStory {...args} />;
 Loading.storyName = 'loading';
 
-export const Overflow = () => {
-  return <Button overflow>Button</Button>;
-};
+export function Overflow({ args }) {
+  return (
+    <Button overflow {...args}>
+      Button
+    </Button>
+  );
+}
 Overflow.storyName = 'overflow';
 
-export function TextShift() {
+export function TextShift({ args }) {
   return (
     <div
+      {...args}
       style={{
         margin: '1rem auto',
         width: '15rem',
@@ -207,9 +228,9 @@ export function TextShift() {
 }
 TextShift.storyName = 'textShift';
 
-export const CustomColor = () => {
+export function CustomColor({ args }) {
   return (
-    <div>
+    <div {...args}>
       <Button color="#07796a">Button</Button>
       <Button variant="minimal" color="#aa91e5">
         Button
@@ -245,5 +266,5 @@ export const CustomColor = () => {
       </Button>
     </div>
   );
-};
+}
 CustomColor.storyName = 'color';

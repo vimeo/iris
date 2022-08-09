@@ -9,10 +9,11 @@ import { Input } from '../../index';
 
 export default { title: 'Utilties/Character Count' };
 
-export function Common() {
+export function Common({ args }) {
   return (
     <Story title="Character Count">
       <InputWithCharacterCount
+        {...args}
         id="someId1"
         label="Input (text) with character count"
       />

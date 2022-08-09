@@ -10,9 +10,9 @@ export default {
   component: B,
 };
 
-export function GrowthCTA() {
+export function GrowthCTA({ args }) {
   return (
-    <div>
+    <div {...args}>
       <Button size="xl" icon={<UploadCloud />}>
         Create videos
       </Button>

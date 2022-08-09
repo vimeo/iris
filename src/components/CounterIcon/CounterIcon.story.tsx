@@ -10,10 +10,10 @@ export default {
   component: CounterIcon,
 };
 
-export function CounterIconStory() {
+export function CounterIconStory({ args }) {
   return (
     <Layout.StoryVertical>
-      <CounterIcon icon={<Play />} title="Download Count">
+      <CounterIcon icon={<Play />} title="Download Count" {...args}>
         2.12K
       </CounterIcon>
       <CounterIcon icon={<Collections />} title="Play Count">

@@ -7,10 +7,10 @@ import { Gear } from '../../../icons';
 import { Header as H } from '../../../typography';
 import { Layout } from '../../../storybook';
 
-export function Attach() {
+export function Attach({ args }) {
   return (
     <Layout.FullBleed>
-      <Sidebar attach="left">
+      <Sidebar attach="left" {...args}>
         <Sidebar.Item label="Item 1" icon={<Gear />}>
           <Header size="3" style={{ marginTop: 0 }}>
             Item 1

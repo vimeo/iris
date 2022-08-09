@@ -10,10 +10,11 @@ export default {
   title: 'components/Checkbox/props',
 };
 
-export function Disabled() {
+export function Disabled({ args }) {
   return (
     <Layout.StoryVertical>
       <Checkbox
+        {...args}
         label="Disabled unchecked Checkbox"
         name="demoCheckboxDisabled"
         id="CheckboxDisabled"
@@ -32,10 +33,11 @@ export function Disabled() {
   );
 }
 
-export function Status() {
+export function Status({ args }) {
   return (
     <Layout.StoryVertical>
       <Checkbox
+        {...args}
         label="Checkbox with status set to negative"
         name="demoCheckbox1"
         status="negative"
@@ -55,7 +57,7 @@ export function Status() {
   );
 }
 
-export function Checked() {
+export function Checked({ args }) {
   const [checked, setChecked] = useState(true);
 
   return (
@@ -65,6 +67,7 @@ export function Checked() {
         Checkbox is {checked.toString()}
       </Button>
       <Checkbox
+        {...args}
         label="Checkbox 1 (Medium)"
         name="demoCheckbox1"
         id="Checkbox1"

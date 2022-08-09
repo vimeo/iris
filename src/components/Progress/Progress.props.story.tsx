@@ -18,10 +18,11 @@ const style = css`
   width: 50%;
 `;
 
-export function Size() {
+export function Size({ args }) {
   return (
     <>
       <Progress
+        {...args}
         animate={false}
         css={style}
         size="xs"
@@ -40,12 +41,17 @@ export function Size() {
 }
 Size.storyName = 'size';
 
-export function Variant() {
+export function Variant({ args }) {
   const [progress] = useSimulateProgress();
 
   return (
     <>
-      <Progress css={style} value={progress} variant="rainbow" />
+      <Progress
+        css={style}
+        value={progress}
+        variant="rainbow"
+        {...args}
+      />
       <Progress css={style} value={progress} variant="primary" />
       <Progress css={style} value={progress} variant="success" />
     </>

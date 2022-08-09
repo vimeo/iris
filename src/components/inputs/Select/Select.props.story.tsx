@@ -13,10 +13,10 @@ export default {
   title: 'components/Select/props',
 };
 
-export function Disabled() {
+export function Disabled({ args }) {
   return (
     <Layout.StoryVertical>
-      <Select label="Select disabled" disabled>
+      <Select label="Select disabled" disabled {...args}>
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
           Value 2 has a long label
@@ -27,10 +27,11 @@ export function Disabled() {
 }
 Disabled.storyName = 'disabled';
 
-export function Messages() {
+export function Messages({ args }) {
   return (
     <Layout.StoryVertical>
       <Select
+        {...args}
         label="Select with pre message"
         messages={{ pre: 'This is a pre message' }}
       >
@@ -73,10 +74,11 @@ export function Messages() {
 }
 Messages.storyName = 'messages';
 
-export function Status() {
+export function Status({ args }) {
   return (
     <Layout.StoryVertical>
       <Select
+        {...args}
         label="I feel validated!"
         status="positive"
         messages={{ help: 'Great!' }}
@@ -100,10 +102,11 @@ export function Status() {
   );
 }
 Status.storyName = 'status';
-export function DefaultValue() {
+export function DefaultValue({ args }) {
   return (
     <Layout.StoryVertical>
       <Select
+        {...args}
         label="Select with defaultValue of 2"
         defaultValue="2"
         onChange={(e) =>
@@ -120,12 +123,13 @@ export function DefaultValue() {
 }
 DefaultValue.storyName = 'defaultValue';
 
-export function Value() {
+export function Value({ args }) {
   const [value, valueSet] = useState('1');
 
   return (
     <Layout.StoryVertical>
       <Select
+        {...args}
         label="'value' state is controlled externally"
         value={value}
         onChange={(e) => {
@@ -143,12 +147,17 @@ export function Value() {
 }
 Value.storyName = 'value';
 
-export function Size() {
+export function Size({ args }) {
   return (
     <Layout.StoryVertical>
       {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size, i) => {
         return (
-          <Select key={i} label={`${size} Select`} size={size}>
+          <Select
+            {...args}
+            key={i}
+            label={`${size} Select`}
+            size={size}
+          >
             <Select.Option value="1">Value 1</Select.Option>
             <Select.Option value="2">
               Value 2 has a long label
@@ -161,10 +170,11 @@ export function Size() {
 }
 Size.storyName = 'size';
 
-export function Faux() {
+export function Faux({ args }) {
   return (
     <Layout.StoryVertical>
       <Select
+        {...args}
         label="Faux select"
         onChange={(e) => {
           console.log('Selected Option', e.target.value, e);
@@ -191,7 +201,7 @@ export function Faux() {
 }
 Faux.storyName = 'faux';
 
-export function FauxExternalState() {
+export function FauxExternalState({ args }) {
   const [value, valueSet] = useState(null);
 
   function onChange(event) {
@@ -202,6 +212,7 @@ export function FauxExternalState() {
   return (
     <Layout.StoryVertical>
       <Select
+        {...args}
         label="Faux select"
         onChange={onChange}
         placeholder="Please select an option."
@@ -249,10 +260,10 @@ const Notice = styled.div`
   }
 `;
 
-export function Pill() {
+export function Pill({ args }) {
   return (
     <Layout.StoryVertical>
-      <Select label="Select disabled" pill>
+      <Select label="Select disabled" pill {...args}>
         <Select.Option value="1">Value 1</Select.Option>
         <Select.Option value="2">
           Value 2 has a long label

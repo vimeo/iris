@@ -24,12 +24,12 @@ export default {
   component: Sidebar,
 };
 
-export function Live() {
+export function Live({ args }) {
   const state = useState('Sources');
 
   return (
     <Layout.FullBleed>
-      <Sidebar state={state}>
+      <Sidebar state={state} {...args}>
         <Sidebar.Item
           label="Sources"
           icon={<Camera />}

@@ -6,10 +6,11 @@ import { Layout } from '../../../storybook';
 
 export default { title: 'typography/Link/examples', component: Link };
 
-export function Custom() {
+export function Custom({ args }) {
   return (
     <Layout.StoryVertical defaultWidth>
       <Link
+        {...args}
         css={`
           font-weight: 800;
         `}

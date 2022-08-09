@@ -18,10 +18,10 @@ import {
 
 export default { title: 'components/Menu/examples', component: Menu };
 
-export function Simple() {
+export function Simple({ args }) {
   return (
     <Layout.StoryVertical>
-      <Menu style={{ padding: '1rem' }}>
+      <Menu style={{ padding: '1rem' }} {...args}>
         <Menu.Section title="Section 1">
           <Menu.Item active icon={<Home />}>
             <Header size="4">Can be any element</Header>
@@ -40,10 +40,10 @@ export function Simple() {
   );
 }
 
-export function Complex() {
+export function Complex({ args }) {
   return (
     <Layout.StoryVertical>
-      <Menu style={{ padding: '1rem' }}>
+      <Menu style={{ padding: '1rem' }} {...args}>
         <Menu.Section title="Section 1">
           <Menu.Item toggle>
             Item 1 S1

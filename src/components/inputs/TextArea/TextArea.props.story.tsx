@@ -18,10 +18,11 @@ const TextArea = styled(TA)`
 
 const TextAreaWCC = withCharacterCount(TextArea);
 
-export function Format() {
+export function Format({ args }) {
   return (
     <Layout.StoryVertical>
       <TextArea
+        {...args}
         label="Text area"
         format="negative"
         messages={{ error: 'This is an error.' }}
@@ -35,10 +36,11 @@ export function Format() {
   );
 }
 
-export function withCharacterCountStory() {
+export function withCharacterCountStory({ args }) {
   return (
     <Layout.StoryVertical>
       <TextAreaWCC
+        {...args}
         label="Text area with character count"
         defaultValue="lorem ipsum dolor"
       />
@@ -53,7 +55,7 @@ export function withCharacterCountStory() {
 }
 withCharacterCountStory.storyName = 'withCharacterCount';
 
-export function DefaultValue() {
+export function DefaultValue({ args }) {
   const ref = useRef(null);
   const resetText = 'The default text.';
   const reset = () => (ref.current.value = resetText);
@@ -62,6 +64,7 @@ export function DefaultValue() {
     <Layout.StoryVertical>
       <Button onClick={reset}>Reset</Button>
       <TextArea
+        {...args}
         label="Click the button to reset to defaultValue"
         defaultValue={resetText}
         ref={ref}

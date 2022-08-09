@@ -10,14 +10,14 @@ export default {
   title: 'components/CheckboxSet/props',
 };
 
-export function Coupled() {
+export function Coupled({ args }) {
   return (
     <Layout.StoryVertical>
       <Header size="5">
         The `coupled` prop will override the children when the parent
         value changes.
       </Header>
-      <CheckboxSet label="coupled" coupled>
+      <CheckboxSet label="coupled" coupled {...args}>
         <Checkbox label="coupled" />
         <Checkbox label="coupled" />
       </CheckboxSet>
@@ -26,7 +26,7 @@ export function Coupled() {
 }
 Coupled.storyName = 'coupled';
 
-export function Toggled() {
+export function Toggled({ args }) {
   const checkboxRef = useRef(null);
 
   return (
@@ -36,6 +36,7 @@ export function Toggled() {
         selected.
       </Header>
       <CheckboxSet
+        {...args}
         ref={checkboxRef}
         label="toggled"
         toggled
@@ -65,7 +66,7 @@ export function Toggled() {
 }
 Toggled.storyName = 'toggled';
 
-export function DefaultChecked() {
+export function DefaultChecked({ args }) {
   return (
     <Layout.StoryVertical>
       <Header size="3">Toggled</Header>
@@ -89,7 +90,12 @@ export function DefaultChecked() {
         `indeterminate`.
       </Header>
 
-      <CheckboxSet label="defaultChecked" toggled defaultChecked>
+      <CheckboxSet
+        label="defaultChecked"
+        toggled
+        defaultChecked
+        {...args}
+      >
         <Checkbox label="." />
         <Checkbox label="." />
         <Checkbox
@@ -178,9 +184,9 @@ export function DefaultChecked() {
 }
 DefaultChecked.storyName = 'defaultChecked';
 
-export function Disabled() {
+export function Disabled({ args }) {
   return (
-    <CheckboxSet label="disabled" disabled>
+    <CheckboxSet label="disabled" disabled {...args}>
       <Checkbox label="disabled" />
       <Checkbox label="disabled" />
     </CheckboxSet>

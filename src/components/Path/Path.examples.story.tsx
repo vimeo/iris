@@ -12,13 +12,13 @@ const Path = styled(P)`
   margin: 0 0.5rem;
 `;
 
-export function CustomWidths() {
+export function CustomWidths({ args }) {
   const style = `padding: 0.5rem 1rem;`;
 
   return (
     <>
       <div css={style}>
-        <Path>
+        <Path {...args}>
           <Path.Link href="#" style={{ maxWidth: '5rem' }}>
             5rem max-width Path.Link
           </Path.Link>

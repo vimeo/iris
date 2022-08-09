@@ -14,11 +14,12 @@ export default {
   title: 'components/PopOver/examples',
 };
 
-export function DynamicSize() {
+export function DynamicSize({ args }) {
   const [width, widthSet] = useState(240);
   return (
     <>
       <PopOver
+        {...args}
         active
         content={
           <div style={{ padding: '2rem', width }}>
@@ -43,10 +44,11 @@ export function DynamicSize() {
   );
 }
 
-export function Scrollable() {
+export function Scrollable({ args }) {
   return (
     <>
       <PopOver
+        {...args}
         content={PopScrollable}
         attach="bottom"
         style={{ width: '25rem' }}
@@ -57,11 +59,11 @@ export function Scrollable() {
   );
 }
 
-export function PopOverInsideLink() {
+export function PopOverInsideLink({ args }) {
   const [active, setActive] = useState(false);
 
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex' }} {...args}>
       <Card
         href="#"
         key="1"

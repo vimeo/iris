@@ -11,9 +11,9 @@ const Path = styled(P)`
   margin: 0 0.5rem;
 `;
 
-export function PathStory() {
+export function PathStory({ args }) {
   return (
-    <Path>
+    <Path {...args}>
       <Path.Link href="#">Home</Path.Link>
       <Path.Link href="#">Showcases</Path.Link>
       <Path.Current icon={<Globe />}>New Showcase</Path.Current>

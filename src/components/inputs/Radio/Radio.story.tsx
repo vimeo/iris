@@ -28,9 +28,10 @@ Controls.args = {
   label: 'Sample Radio',
 };
 
-export function RadioSetStory() {
+export function RadioSetStory({ args }) {
   return (
     <RadioSet
+      {...args}
       defaultValue="2"
       onChange={(e) => console.log(e.currentTarget)}
     >

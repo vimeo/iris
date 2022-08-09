@@ -9,10 +9,11 @@ export default {
   title: 'components/CopyField/props',
 };
 
-export function Format() {
+export function Format({ args }) {
   return (
     <Layout.StoryVertical>
       <CopyField
+        {...args}
         format="primary"
         value="http://www.vimeo.com"
         messages={{ success: 'Copied!' }}
@@ -26,11 +27,12 @@ export function Format() {
   );
 }
 
-export function Size() {
+export function Size({ args }) {
   return (
     <Layout.StoryVertical>
       {(['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size, i) => (
         <CopyField
+          {...args}
           key={i}
           size={size}
           value="http://www.vimeo.com"
@@ -41,10 +43,11 @@ export function Size() {
   );
 }
 
-export function Variant() {
+export function Variant({ args }) {
   return (
     <Layout.StoryVertical>
       <CopyField
+        {...args}
         variant="basic"
         value="http://www.vimeo.com"
         messages={{ success: 'Copied!' }}
@@ -58,10 +61,11 @@ export function Variant() {
   );
 }
 
-export function Status() {
+export function Status({ args }) {
   return (
     <Layout.StoryVertical>
       <CopyField
+        {...args}
         status="negative"
         value="http://www.vimeo.com"
         messages={{ success: 'Copied!' }}
@@ -75,10 +79,11 @@ export function Status() {
   );
 }
 
-export function Children() {
+export function Children({ args }) {
   return (
     <Layout.StoryVertical>
       <CopyField
+        {...args}
         value="http://www.vimeo.com"
         messages={{ success: 'Copied!' }}
       >

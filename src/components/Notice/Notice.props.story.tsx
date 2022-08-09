@@ -8,37 +8,37 @@ export default {
   title: 'components/Notice/props',
 };
 
-export function Primary() {
-  return <VariantStory format="primary" />;
+export function Primary({ args }) {
+  return <VariantStory format="primary" {...args} />;
 }
 
-export function PrimaryPill() {
+export function PrimaryPill({ args }) {
   return <VariantStory format="primary" pill />;
 }
 PrimaryPill.storyName = 'Primary (Pill)';
 
-export function Positive() {
-  return <VariantStory format="positive" />;
+export function Positive({ args }) {
+  return <VariantStory format="positive" {...args} />;
 }
 
-export function PositivePill() {
-  return <VariantStory format="positive" pill />;
+export function PositivePill({ args }) {
+  return <VariantStory format="positive" pill {...args} />;
 }
 PositivePill.storyName = 'Positive (Pill)';
 
-export function Negative() {
-  return <VariantStory format="negative" />;
+export function Negative({ args }) {
+  return <VariantStory format="negative" {...args} />;
 }
 
-export function NegativePill() {
-  return <VariantStory format="negative" pill />;
+export function NegativePill({ args }) {
+  return <VariantStory format="negative" pill {...args} />;
 }
 NegativePill.storyName = 'Negative (Pill)';
 
-function VariantStory({ format, pill = null }) {
+function VariantStory({ format, pill = null, ...args }) {
   return (
     <>
-      <Notice format={format} pill={pill}>
+      <Notice format={format} pill={pill} {...args}>
         Lorem ipsum dolor sit amet.
       </Notice>
 

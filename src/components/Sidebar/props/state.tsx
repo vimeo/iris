@@ -7,12 +7,12 @@ import { Gear } from '../../../icons';
 import { Header as H } from '../../../typography';
 import { Layout } from '../../../storybook';
 
-export function State() {
+export function State({ args }) {
   const state = useState('Item 2');
 
   return (
     <Layout.FullBleed>
-      <Sidebar attach="left" state={state}>
+      <Sidebar attach="left" state={state} {...args}>
         <Sidebar.Item label="Item 1" icon={<Gear />}>
           <Header size="3">Item 1</Header>
         </Sidebar.Item>

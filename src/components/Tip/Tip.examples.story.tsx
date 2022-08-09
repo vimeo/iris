@@ -14,13 +14,13 @@ export default {
   component: Tip,
 };
 
-export function TipPopOverCombo() {
+export function TipPopOverCombo({ args }) {
   const [active, activeSet] = useState(false);
 
   return (
     <Layout.StoryVertical center>
       <div style={{ textAlign: 'center' }}>
-        <Tip content="I am Tip" attach="top">
+        <Tip content="I am Tip" attach="top" {...args}>
           <span style={{ display: 'inline-block' }}>
             <PopOver content={PopList} active={active}>
               <Button
@@ -55,7 +55,7 @@ const PopList = (
   </>
 );
 
-export function Fancy() {
+export function Fancy({ args }) {
   preload('http://placekitten.com/320/120');
 
   const content = (
@@ -74,6 +74,7 @@ export function Fancy() {
   return (
     <Layout.StoryVertical center style={{ paddingTop: '6rem' }}>
       <Tip
+        {...args}
         content={content}
         attach="bottom"
         trigger="click"
@@ -90,10 +91,11 @@ function preload(src) {
   image.src = src;
 }
 
-export function TextWrapping() {
+export function TextWrapping({ args }) {
   return (
     <Layout.StoryVertical center>
       <Tip
+        {...args}
         content="Tips with long strings passed to the `content` prop will automatically wrap."
         attach="top"
       >

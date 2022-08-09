@@ -15,14 +15,14 @@ export default {
   component: B,
 };
 
-export const ButtonToggleStateStory = () => <CommonStory />;
-function CommonStory() {
+export function ButtonToggleStateStory({ args }) {
   const [following, setFollowing] = useState(false);
   const toggleFollowing = () =>
     setFollowing((following) => !following);
 
   return (
     <ButtonToggleState
+      {...args}
       variant="solid"
       isActive={following}
       onClick={toggleFollowing}
@@ -35,15 +35,14 @@ function CommonStory() {
     />
   );
 }
-ButtonToggleStateStory.storyName = 'ButtonToggleStateStory';
 
-export const AllStates = () => <AllStatesStory />;
-function AllStatesStory() {
+export function AllStatesStory({ args }) {
   return (
     <>
       {/** Primary format, inactive state */}
       <Header size="6">Inactive</Header>
       <ButtonToggleState
+        {...args}
         variant="solid"
         isActive={false}
         offStateText="Follow"
@@ -83,8 +82,7 @@ function AllStatesStory() {
   );
 }
 
-export const Format = () => <FormatStory />;
-function FormatStory() {
+export function FormatStory({ args }) {
   const [following, setFollowing] = useState(false);
   const toggleFollowing = () =>
     setFollowing((following) => !following);
@@ -92,6 +90,7 @@ function FormatStory() {
   return (
     <>
       <ButtonToggleState
+        {...args}
         variant="solid"
         isActive={following}
         onClick={toggleFollowing}

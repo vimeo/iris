@@ -12,9 +12,9 @@ export default {
   component: CardNewItem,
 };
 
-export function VideoLibrary() {
+export function VideoLibrary({ args }) {
   return (
-    <Layout.FullBleed style={{ display: 'block' }}>
+    <Layout.FullBleed style={{ display: 'block' }} {...args}>
       <Mast>
         <Header size="plusUltra">Header</Header>
       </Mast>

@@ -9,10 +9,10 @@ export default {
   component: Paragraph,
 };
 
-export function Size() {
+export function Size({ args }) {
   return (
     <Layout.StoryVertical>
-      <Paragraph size="1" format="basic">
+      <Paragraph size="1" format="basic" {...args}>
         Paragraph Size 1.
         <br />
         Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -54,10 +54,10 @@ export function Size() {
 }
 Size.storyName = 'size';
 
-export function Format() {
+export function Format({ args }) {
   return (
     <Layout.StoryVertical>
-      <Paragraph size="2">
+      <Paragraph size="2" {...args}>
         Paragraph Size 2.
         <br />
         Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -89,10 +89,10 @@ export function Format() {
 }
 Format.storyName = 'format';
 
-export function Status() {
+export function Status({ args }) {
   return (
     <Layout.StoryVertical>
-      <Paragraph size="2">
+      <Paragraph size="2" {...args}>
         Paragraph Size 2.
         <br />
         Lorem ipsum, dolor sit amet consectetur adipisicing elit.

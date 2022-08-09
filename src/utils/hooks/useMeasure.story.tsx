@@ -9,6 +9,7 @@ import styled from 'styled-components';
 export default { title: 'utilties/useMeasure' };
 
 export const Common = () => <CommonStory />;
+
 function CommonStory() {
   const [button, DOMRect] = useMeasure(<Button>Button</Button>);
   const { width, height } = DOMRect;

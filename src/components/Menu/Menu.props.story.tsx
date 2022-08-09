@@ -7,10 +7,11 @@ import { Folder, Home, Grid, Gear } from '../../icons';
 
 export default { title: 'components/Menu/props', component: Menu };
 
-export function Format() {
+export function Format({ args }) {
   return (
     <Layout.StoryVertical>
       <Menu
+        {...args}
         format="basic"
         style={{ marginBottom: '1rem', padding: '1rem' }}
       >
