@@ -34,8 +34,9 @@
             "node",
             "react-dom",
             "react",
-            "styled-components"
-        ]
+            "styled-components",
+            "jest"
+        ],
     },
     "plugins": [
         {
@@ -61,6 +62,6 @@
         "src/_labs",
         "src/_tests",
         "src/_process",
-        "src/storybook"
+        "src/storybook",
     ]
 }

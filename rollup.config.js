@@ -13,8 +13,7 @@ export default (args) => {
 
   /** @type {import('rollup').RollupOptions} */
   let config = {
-    input:
-      './src/!(_docs|_labs|_process|storybook)*/**/!(*.story.tsx|*.test.ts|*.types.ts)',
+    input: './src/!(_docs|_labs|_process|storybook)*/**/!(*.story.tsx|*.test.ts|*.types.ts)',
     output: [
       {
         dir: 'build',
@@ -28,13 +27,7 @@ export default (args) => {
       },
     ],
     external: Object.keys(pkg.peerDependencies),
-    plugins: [
-      commonjs(),
-      resolve(),
-      typescript(),
-      babel({ exclude: '**/node_modules', babelHelpers: 'runtime' }),
-      multi(),
-    ],
+    plugins: [commonjs(), resolve(), typescript(), babel({ exclude: '**/node_modules', babelHelpers: 'runtime' }), multi()],
   };
 
   return config;
