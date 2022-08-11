@@ -24,11 +24,12 @@ const commentVariations = {
   'text below avatar': 'G',
 };
 
-export function Comments() {
+export function Comments({ args }) {
   return (
     <Story title={componentName}>
       {demoProps.map((comment, i) => (
         <Comment
+          {...args}
           key={i}
           name={comment.name}
           id={comment.id}
@@ -45,24 +46,24 @@ export function Comments() {
   );
 }
 
-export function GeneralSettings() {
+export function GeneralSettings({ args }) {
   return (
-    <Story title="Settings">
+    <Story title="Settings" {...args}>
       <AccountSettings />
     </Story>
   );
 }
 
-export function UserSettings() {
+export function UserSettings({ args }) {
   return (
-    <Story title="Settings">
+    <Story title="Settings" {...args}>
       <UserInfo name="Sean McIntyre" badge="staff" id="26000555" />
     </Story>
   );
 }
-export function AutoComplete() {
+export function AutoComplete({ args }) {
   return (
-    <Story title="AutoComplete">
+    <Story title="AutoComplete" {...args}>
       {demoProps
         .filter((user) => !user.name.includes('Vim'))
         .map((comment) => (
@@ -89,9 +90,9 @@ export function AutoComplete() {
   );
 }
 
-export function VideoList() {
+export function VideoList({ args }) {
   return (
-    <Story title="Video List">
+    <Story title="Video List" {...args}>
       <AutoplayList
         videos={staffPicks}
         variation="A"

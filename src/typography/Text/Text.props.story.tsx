@@ -12,7 +12,7 @@ export default {
   component: Text,
 };
 
-export function Size() {
+export function Size({ args }) {
   return (
     <Layout.StoryVertical>
       {[...new Array(11)].map((_, i) => {
@@ -22,7 +22,7 @@ export function Size() {
 
         return (
           <Row key={i}>
-            <Text size={grade}>
+            <Text size={grade} {...args}>
               size-{grade} • {unitPx}px • {unitRem}
             </Text>
           </Row>
@@ -33,10 +33,10 @@ export function Size() {
 }
 Size.storyName = 'size';
 
-export function Editable() {
+export function Editable({ args }) {
   return (
     <Layout.StoryVertical>
-      <Row>
+      <Row {...args}>
         <Text placeholder="Edit me!" contentEditable>
           Text Primitive Component
         </Text>

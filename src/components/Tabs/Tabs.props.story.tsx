@@ -13,11 +13,11 @@ const Tabs = styled(T)`
   margin-bottom: 2rem;
 `;
 
-export function Format() {
+export function Format({ args }) {
   return (
     ['basic', 'soft', 'alternative', 'secondary', 'primary'] as const
   ).map((format, key) => (
-    <Tabs format={format} key={key}>
+    <Tabs format={format} key={key} {...args}>
       <Tabs.Panel
         label="Tab 0"
         onActivate={() => console.log('Clicked Tab 0')}
@@ -45,9 +45,9 @@ export function Format() {
 }
 Format.storyName = 'format';
 
-export function Variant() {
+export function Variant({ args }) {
   return (
-    <Tabs variant="inlay">
+    <Tabs variant="inlay" {...args}>
       <Tabs.Panel
         label="Tab 0"
         onActivate={() => console.log('Clicked Tab 0')}
@@ -75,9 +75,9 @@ export function Variant() {
 }
 Variant.storyName = 'variant';
 
-export function Pill() {
+export function Pill({ args }) {
   return (
-    <Tabs pill variant="inlay">
+    <Tabs pill variant="inlay" {...args}>
       <Tabs.Panel
         label="Tab 0"
         onActivate={() => console.log('Clicked Tab 0')}

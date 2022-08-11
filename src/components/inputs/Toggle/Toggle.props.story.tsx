@@ -11,11 +11,12 @@ export default {
   title: 'components/Toggle/props',
 };
 
-export function Size() {
+export function Size({ args }) {
   return (
     <Layout.StoryVertical>
       {(['sm', 'md', 'lg', 'xl'] as const).map((size, i) => (
         <Toggle
+          {...args}
           key={i}
           size={size}
           label="Toggle"
@@ -28,10 +29,11 @@ export function Size() {
   );
 }
 
-export function Label() {
+export function Label({ args }) {
   return (
     <Layout.StoryVertical>
       <Toggle
+        {...args}
         label="Toggle 1"
         name="demoToggle1"
         id="Toggle1"
@@ -53,10 +55,11 @@ export function Label() {
   );
 }
 
-export function Error() {
+export function Error({ args }) {
   return (
     <Layout.StoryVertical>
       <Toggle
+        {...args}
         label="Errored Field"
         name="errorToggle"
         status="negative"
@@ -68,10 +71,11 @@ export function Error() {
   );
 }
 
-export function Disabled() {
+export function Disabled({ args }) {
   return (
     <Layout.StoryVertical>
       <Toggle
+        {...args}
         label="DisabledField"
         name="demoToggleDisabled"
         id="ToggleDisabled"
@@ -82,7 +86,7 @@ export function Disabled() {
   );
 }
 
-export function Checked() {
+export function Checked({ args }) {
   const [checked, setChecked] = useState(true);
   return (
     <Layout.StoryVertical>
@@ -91,6 +95,7 @@ export function Checked() {
         Toggle is {checked.toString()}
       </Button>
       <Toggle
+        {...args}
         label="Toggle"
         name="demoToggle1"
         id="Toggle1"
@@ -101,11 +106,12 @@ export function Checked() {
   );
 }
 
-export function Icon() {
+export function Icon({ args }) {
   const [checked, setChecked] = useState(true);
   return (
     <Layout.StoryVertical>
       <Toggle
+        {...args}
         onChange={() => setChecked((checked) => !checked)}
         label="Toggle with Icon"
         name="demoToggle1"

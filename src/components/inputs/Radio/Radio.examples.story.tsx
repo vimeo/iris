@@ -13,7 +13,7 @@ const Radio = styled(R)`
   margin: 1rem;
 `;
 
-export function Controlled() {
+export function Controlled({ args }) {
   const [checked, setChecked] = useState('2');
 
   return (
@@ -22,6 +22,7 @@ export function Controlled() {
         Radio is {checked}
       </Button>
       <RadioSet
+        {...args}
         defaultValue={checked}
         onChange={(e) => setChecked(e.currentTarget.value)}
       >
@@ -32,12 +33,12 @@ export function Controlled() {
   );
 }
 
-export function Horizontal() {
+export function Horizontal({ args }) {
   const style = { display: 'inline-flex' };
 
   return (
     <>
-      <RadioSet>
+      <RadioSet {...args}>
         <Radio style={style} />
         <Radio style={style} />
         <Radio style={style} />
@@ -46,10 +47,10 @@ export function Horizontal() {
   );
 }
 
-export function CustomElement() {
+export function CustomElement({ args }) {
   return (
     <>
-      <RadioSet>
+      <RadioSet {...args}>
         <Radio checked>
           <Custom />
         </Radio>

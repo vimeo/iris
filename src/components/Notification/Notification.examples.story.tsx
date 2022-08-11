@@ -10,9 +10,10 @@ export default {
   component: Notification,
 };
 
-export function FancyContent() {
+export function FancyContent({ args }) {
   return (
     <Notification
+      {...args}
       automatic
       content={
         <>

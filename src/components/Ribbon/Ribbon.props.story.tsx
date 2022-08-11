@@ -13,29 +13,29 @@ const style = css`
   width: 50%;
 `;
 
-export function Variant() {
+export function Variant({ args }) {
   return (
     <>
-      <Ribbon css={style} variant="rainbow" />
+      <Ribbon css={style} variant="rainbow" {...args} />
       <Ribbon css={style} variant="mod" />
       <Ribbon css={style} variant="possessed" />
     </>
   );
 }
 
-export function Animate() {
+export function Animate({ args }) {
   return (
     <>
-      <Ribbon css={style} animate />
+      <Ribbon css={style} animate {...args} />
       <Ribbon css={style} animate={false} />
     </>
   );
 }
 
-export function Size() {
+export function Size({ args }) {
   return (
     <>
-      <Ribbon css={style} size="xs" />
+      <Ribbon css={style} size="xs" {...args} />
       <Ribbon css={style} size="sm" />
       <Ribbon css={style} size="md" />
       <Ribbon css={style} size="lg" />
@@ -44,10 +44,11 @@ export function Size() {
   );
 }
 
-export function Custom() {
+export function Custom({ args }) {
   return (
     <>
       <Ribbon
+        {...args}
         style={{
           background: 'linear-gradient(to right, red, yellow, red)',
           margin: '1rem 1rem',

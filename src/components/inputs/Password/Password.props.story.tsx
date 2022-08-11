@@ -6,7 +6,7 @@ export default {
   title: 'components/Password/props',
 };
 
-export function Label() {
+export function Label({ args }) {
   return (
     <div
       css={`
@@ -14,12 +14,12 @@ export function Label() {
         max-width: 30rem;
       `}
     >
-      <Password label="Input (Password)" />
+      <Password label="Input (Password)" {...args} />
     </div>
   );
 }
 
-export function Floating() {
+export function Floating({ args }) {
   return (
     <div
       css={`
@@ -27,7 +27,7 @@ export function Floating() {
         max-width: 30rem;
       `}
     >
-      <Password label="Input (Password)" floating />
+      <Password label="Input (Password)" floating {...args} />
     </div>
   );
 }

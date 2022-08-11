@@ -13,18 +13,18 @@ export default {
   },
 };
 
-export function Href() {
+export function Href({ args }) {
   return (
-    <Layout.StoryVertical defaultWidth>
+    <Layout.StoryVertical defaultWidth {...args}>
       <Badge format="upgrade" href="#" />
     </Layout.StoryVertical>
   );
 }
 Href.storyName = 'href';
 
-export function Format() {
+export function Format({ args }) {
   return (
-    <Layout.StoryVertical defaultWidth>
+    <Layout.StoryVertical defaultWidth {...args}>
       <Badge size="xl" format="mature" />
       <Badge size="xl" format="not-yet-rated" />
     </Layout.StoryVertical>
@@ -32,9 +32,9 @@ export function Format() {
 }
 Format.storyName = 'format';
 
-export function Format_OLD() {
+export function Format_OLD({ args }) {
   return (
-    <Layout.StoryVertical defaultWidth>
+    <Layout.StoryVertical defaultWidth {...args}>
       <Badge>default</Badge>
       <Badge format="alum" />
       <Badge format="beta" />
@@ -60,9 +60,9 @@ export function Format_OLD() {
 }
 Format_OLD.storyName = 'format (old)';
 
-export function Size() {
+export function Size({ args }) {
   return (
-    <Layout.StoryVertical defaultWidth>
+    <Layout.StoryVertical defaultWidth {...args}>
       <Badge format="mature" size="sm" />
       <Badge format="mature" size="lg" />
       <Badge format="mature" size="xl" />

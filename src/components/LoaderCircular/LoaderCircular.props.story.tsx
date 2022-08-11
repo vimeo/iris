@@ -15,9 +15,9 @@ const LoaderCircular = styled(LC)`
   margin: 1rem;
 `;
 
-export function Size() {
+export function Size({ args }) {
   return (
-    <Layout.StoryVertical>
+    <Layout.StoryVertical {...args}>
       <LoaderCircular size="xs" />
       <LoaderCircular size="sm" />
       <LoaderCircular size="md" />
@@ -27,9 +27,10 @@ export function Size() {
   );
 }
 
-export function Format() {
+export function Format({ args }) {
   return (
     <Layout.StoryVertical
+      {...args}
       css={`
         color: ${red(500)};
       `}

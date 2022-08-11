@@ -6,7 +6,7 @@ export default {
   title: 'components/Search/props',
 };
 
-export function Size() {
+export function Size({ args }) {
   return sizes.map((size, key) => (
     <div
       key={key}
@@ -16,6 +16,7 @@ export function Size() {
       `}
     >
       <Search
+        {...args}
         label={'search size ' + size}
         placeholder="Search our videos"
         size={size}
@@ -24,7 +25,7 @@ export function Size() {
   ));
 }
 
-export function Format() {
+export function Format({ args }) {
   return formats.map((format, key) => (
     <div
       key={key}
@@ -34,6 +35,7 @@ export function Format() {
       `}
     >
       <Search
+        {...args}
         label={'search format ' + format}
         placeholder="Search our videos"
         format={format}
@@ -42,7 +44,7 @@ export function Format() {
   ));
 }
 
-export function Variant() {
+export function Variant({ args }) {
   return variants.map((variant, key) => (
     <div
       key={key}
@@ -52,6 +54,7 @@ export function Variant() {
       `}
     >
       <Search
+        {...args}
         label={'search variant ' + variant}
         placeholder="Search our videos"
         variant={variant}

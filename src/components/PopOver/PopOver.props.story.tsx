@@ -10,10 +10,11 @@ import { blue } from '../../color';
 
 export default { title: 'components/PopOver/props' };
 
-export function Attach() {
+export function Attach({ args }) {
   return ANCHOR_POINTS.map((attach, i) => (
     <Fragment key={i}>
       <PopOver
+        {...args}
         content={PopList}
         attach={attach}
         style={{ zIndex: 5000 }}
@@ -25,7 +26,7 @@ export function Attach() {
   ));
 }
 
-export function Active() {
+export function Active({ args }) {
   const [active, setActive] = useState(false);
 
   return (
@@ -34,6 +35,7 @@ export function Active() {
         toggle
       </Button>
       <PopOver
+        {...args}
         content={
           <div>
             <Button

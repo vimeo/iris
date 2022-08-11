@@ -10,7 +10,7 @@ export default {
   title: 'components/Dates/Calendar',
 };
 
-export function CalendarStory() {
+export function CalendarStory({ args }) {
   const [date, setDate] = useState(new Date());
 
   return (
@@ -20,6 +20,7 @@ export function CalendarStory() {
         is not exported by itself.
       </Header>
       <Calendar
+        {...args}
         selected={date}
         onClick={(date) => setDate(date)}
         css={`

@@ -9,13 +9,18 @@ import { ANCHOR_POINTS } from '../../utils';
 
 export default { title: 'components/Tip/props', component: Tip };
 
-export function Active() {
+export function Active({ args }) {
   const [active, activeSet] = useState(false);
 
   return (
     <Layout.StoryVertical center>
       <div style={{ textAlign: 'center' }}>
-        <Tip content="I am Tip" attach="top" active={active}>
+        <Tip
+          content="I am Tip"
+          attach="top"
+          active={active}
+          {...args}
+        >
           <Button
             onClick={() => activeSet((active) => !active)}
             fluid
@@ -29,12 +34,12 @@ export function Active() {
 }
 Active.storyName = 'active';
 
-export function Attach() {
+export function Attach({ args }) {
   return (
     <Layout.StoryVertical center>
       {ANCHOR_POINTS.map((attach, i) => (
         <Fragment key={i}>
-          <Tip content="I am Tip" attach={attach}>
+          <Tip content="I am Tip" attach={attach} {...args}>
             <Button>Tip {attach}</Button>
           </Tip>
           <br />
@@ -45,11 +50,16 @@ export function Attach() {
 }
 Attach.storyName = 'attach';
 
-export function Trigger() {
+export function Trigger({ args }) {
   return (
     <Layout.StoryVertical center>
       <div>
-        <Tip content="I am Tip" attach="top" trigger="hover">
+        <Tip
+          content="I am Tip"
+          attach="top"
+          trigger="hover"
+          {...args}
+        >
           <Button fluid style={{ marginBottom: '2rem' }}>
             Hover Tip
           </Button>
@@ -63,13 +73,14 @@ export function Trigger() {
 }
 Trigger.storyName = 'trigger';
 
-export function Variant() {
+export function Variant({ args }) {
   const text =
     'Embed your videos anywhere on the web. You can also embed GIFs of your videos in your emails to increase engagement.';
 
   return (
     <Layout.StoryVertical center>
       <Tip
+        {...args}
         attach="top"
         variant="simple"
         trigger="click"
@@ -106,12 +117,12 @@ export function Variant() {
 }
 Variant.storyName = 'variant';
 
-export function Pill() {
+export function Pill({ args }) {
   return (
     <Layout.StoryVertical center>
       {ANCHOR_POINTS.map((attach, i) => (
         <Fragment key={i}>
-          <Tip content="I am Tip" attach={attach} pill>
+          <Tip content="I am Tip" attach={attach} pill {...args}>
             <Button>Tip {attach}</Button>
           </Tip>
           <br />

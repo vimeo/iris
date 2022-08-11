@@ -9,10 +9,12 @@ export default {
   component: BigStat,
 };
 
-export function ContentEditable() {
+export function ContentEditable({ args }) {
   return (
     <Layout.StoryVertical>
-      <BigStat contentEditable>12.2k</BigStat>
+      <BigStat contentEditable {...args}>
+        12.2k
+      </BigStat>
     </Layout.StoryVertical>
   );
 }

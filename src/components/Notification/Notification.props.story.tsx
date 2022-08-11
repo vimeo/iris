@@ -12,17 +12,18 @@ export default {
   },
 };
 
-export function Automatic() {
+export function Automatic({ args }) {
   return (
-    <Notification automatic content="Notification!">
+    <Notification automatic content="Notification!" {...args}>
       <Button>Show Notification</Button>
     </Notification>
   );
 }
 
-export function Action() {
+export function Action({ args }) {
   return (
     <Notification
+      {...args}
       actionLabel="Undo"
       content="Notification!"
       action={{
@@ -37,8 +38,7 @@ export function Action() {
   );
 }
 
-export const Controlled = () => <ControlledStory />;
-function ControlledStory() {
+export function Controlled({ args }) {
   const [showing, showingSet] = useState(false);
 
   function onComplete() {
@@ -49,6 +49,7 @@ function ControlledStory() {
   return (
     <>
       <Notification
+        {...args}
         content="Controlled Notification"
         duration={3000}
         onComplete={onComplete}

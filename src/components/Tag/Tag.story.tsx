@@ -35,9 +35,9 @@ const Template: Story<Props> = (args) => {
 export const Controls = Template.bind({});
 Controls.storyName = 'Tag';
 
-export function Size() {
+export function Size({ args }) {
   return (
-    <Layout.StoryVertical defaultWidth>
+    <Layout.StoryVertical defaultWidth {...args}>
       <Tag size="xs">Documentary</Tag>
       <Tag size="sm">Animation</Tag>
       <Tag size="md">Narrative</Tag>
@@ -46,9 +46,10 @@ export function Size() {
   );
 }
 
-export function Src() {
+export function Src({ args }) {
   return (
     <Tag
+      {...args}
       size="lg"
       src="https://i.vimeocdn.com/video/562859486_270x270.jpg"
     >
@@ -57,9 +58,10 @@ export function Src() {
   );
 }
 
-export function onClose() {
+export function onClose({ args }) {
   return (
     <Tag
+      {...args}
       size="lg"
       onClose={{ reject: () => alert('deleted this tag') }}
     >

@@ -11,10 +11,11 @@ export default {
   title: 'components/ColorSelect/props',
 };
 
-export function Children() {
+export function Children({ args }) {
   return (
     <Layout.StoryVertical defaultWidth>
       <ColorSelect
+        {...args}
         onChange={(HEX) =>
           console.log(
             `onChange: %c ${HEX}`,
@@ -29,13 +30,14 @@ export function Children() {
 }
 Children.storyName = 'children';
 
-export function Attach() {
+export function Attach({ args }) {
   return (
     <Layout.StoryVertical
       center
       style={{ minHeight: '75vh', justifyContent: 'center' }}
     >
       <ColorSelect
+        {...args}
         width={320}
         height={200}
         attach="top"

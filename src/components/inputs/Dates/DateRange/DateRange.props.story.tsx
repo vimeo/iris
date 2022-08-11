@@ -13,10 +13,11 @@ export default {
   title: 'components/Dates/DateRange/props',
 };
 
-export function Presets() {
+export function Presets({ args }) {
   return (
     <Layout.StoryVertical center>
       <DateRangeButton
+        {...args}
         presets={presets}
         onPresetClick={(presetValue: PresetValue) => {
           console.log('Preset Value Selected - ', presetValue);
@@ -26,10 +27,11 @@ export function Presets() {
   );
 }
 
-export function InputLabel() {
+export function InputLabel({ args }) {
   return (
     <Layout.StoryVertical center>
       <DateRangeButton
+        {...args}
         startInputLabel="Fecha de inicio"
         endInputLabel="Fecha final"
       />
@@ -37,34 +39,40 @@ export function InputLabel() {
   );
 }
 
-export function MinDate() {
+export function MinDate({ args }) {
   return (
     <Layout.StoryVertical center>
-      <DateRangeButton minDate={new Date()} />
+      <DateRangeButton minDate={new Date()} {...args} />
     </Layout.StoryVertical>
   );
 }
 
-export function MaxDate() {
+export function MaxDate({ args }) {
   return (
     <Layout.StoryVertical center>
-      <DateRangeButton maxDate={new Date()} />
+      <DateRangeButton maxDate={new Date()} {...args} />
     </Layout.StoryVertical>
   );
 }
 
-export function Translation() {
+export function Translation({ args }) {
   return (
     <Layout.StoryVertical center>
-      <DateRangeButton translation={translations['ko-KR']} />
+      <DateRangeButton
+        translation={translations['ko-KR']}
+        {...args}
+      />
     </Layout.StoryVertical>
   );
 }
 
-export function CustomTranslation() {
+export function CustomTranslation({ args }) {
   return (
     <Layout.StoryVertical center>
-      <DateRangeButton translation={backWardsTranslations} />
+      <DateRangeButton
+        translation={backWardsTranslations}
+        {...args}
+      />
     </Layout.StoryVertical>
   );
 }

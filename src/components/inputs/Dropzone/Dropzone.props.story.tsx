@@ -38,7 +38,7 @@ const onChange = (event: DropChangeEvent) => {
 
 const formats = ['primary', 'secondary'] as const;
 
-export function Formats() {
+export function Formats({ args }) {
   const style = {
     maxWidth: '40rem',
     height: '5rem',
@@ -46,7 +46,7 @@ export function Formats() {
   };
 
   return formats.map((format) => (
-    <div key={format} style={{ marginBottom: '4rem' }}>
+    <div key={format} style={{ marginBottom: '4rem' }} {...args}>
       <Header size="5">{format}</Header>
       <Dropzone format={format} style={style}>
         <Header size="3">Drag files here</Header>
@@ -65,8 +65,7 @@ export function Formats() {
   ));
 }
 
-export const Custom = () => <CustomStory />;
-function CustomStory() {
+export function Custom({ args }) {
   // change primary from blue to amethyst.
   const theme = useLocalTheme({
     formats: { primary: amethyst(500) },
@@ -76,6 +75,7 @@ function CustomStory() {
     <>
       <Header size="5">custom</Header>
       <Dropzone
+        {...args}
         onChange={onChange}
         theme={theme}
         style={{ maxWidth: '40rem', marginBottom: '1rem' }}

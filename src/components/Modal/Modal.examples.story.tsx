@@ -11,10 +11,11 @@ import { Paragraph, Header } from '../../typography';
 
 export default { title: 'components/Modal/examples' };
 
-export function ExternalState() {
+export function ExternalState({ args }) {
   return (
     <Layout.StoryVertical>
       <Modal
+        {...args}
         active={true}
         content={ModalContent}
         onOpen={() => console.log('open')}
@@ -24,7 +25,9 @@ export function ExternalState() {
   );
 }
 
-export const WithInputContent = () => <WithInputContentStory />;
+export const WithInputContent = ({ args }) => (
+  <WithInputContentStory />
+);
 function WithInputContentStory() {
   const [value, valueSet] = useState('');
 
@@ -37,6 +40,7 @@ function WithInputContentStory() {
   return (
     <Layout.StoryVertical>
       <Modal
+        {...args}
         content={
           <ModalStyled>
             <Modal.Header>Type something!</Modal.Header>
@@ -63,10 +67,7 @@ function WithInputContentStory() {
   );
 }
 
-export const ControlledWithDynamicContent = () => (
-  <ControlledWithDynamicContentStory />
-);
-function ControlledWithDynamicContentStory() {
+export function ControlledWithDynamicContent({ args }) {
   const [toggled, toggledSet] = useState(false);
   const [value, valueSet] = useState('');
   const [show, setShow] = useState(false);
@@ -127,6 +128,7 @@ function ControlledWithDynamicContentStory() {
   return (
     <Layout.StoryVertical>
       <Modal
+        {...args}
         active={show}
         content={toggled ? contentB : contentA}
         onOpen={() => console.log('open')}
@@ -172,7 +174,7 @@ const ModalContent = (
   </ModalStyled>
 );
 
-export const Custom = () => <CustomStory />;
+export const Custom = ({ args }) => <CustomStory />;
 function CustomStory() {
   const [active, activeSet] = useState(false);
 
@@ -182,6 +184,7 @@ function CustomStory() {
         Open Custom Modal
       </Button>
       <Modal
+        {...args}
         active={active}
         style={{ maxWidth: '35rem' }}
         content={

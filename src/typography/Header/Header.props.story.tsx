@@ -10,10 +10,12 @@ export default {
   component: Header,
 };
 
-export function Size() {
+export function Size({ args }) {
   return (
     <div>
-      <Header size="plusUltra">Header Plus Ultra</Header>
+      <Header size="plusUltra" {...args}>
+        Header Plus Ultra
+      </Header>
       <Header size="1">Header 1</Header>
       <Header size="2">Header 2</Header>
       <Header size="3">Header 3</Header>
@@ -26,10 +28,10 @@ export function Size() {
 }
 Size.storyName = 'size';
 
-export function Variant() {
+export function Variant({ args }) {
   return (
     <Layout.StoryVertical>
-      <Header size="1" variant="thin">
+      <Header size="1" variant="thin" {...args}>
         Header 1
       </Header>
       <Header size="2" variant="thin">
@@ -55,11 +57,12 @@ export function Variant() {
 }
 Variant.storyName = 'variant';
 
-export function Editable() {
+export function Editable({ args }) {
   return (
     <Layout.StoryVertical>
       <Row>
         <Header
+          {...args}
           size="plusUltra"
           placeholder="Edit me!"
           contentEditable

@@ -11,14 +11,14 @@ export default {
   title: 'components/Dates/DateSelect/props',
 };
 
-export const InitialMonth = () => <InitialMonthStory />;
-function InitialMonthStory() {
+export function InitialMonth({ args }) {
   const initialMonth = new Date('01/01/2032');
   const [date, dateSet] = useState(initialMonth);
 
   return (
     <Layout.StoryVertical>
       <DateSelect
+        {...args}
         active
         onSelect={(date) => dateSet(date)}
         initialMonth={initialMonth}
@@ -29,8 +29,7 @@ function InitialMonthStory() {
   );
 }
 
-export const MinMaxDate = () => <MinMaxDateStory />;
-function MinMaxDateStory() {
+export function MinMaxDate({ args }) {
   const today = new Date();
   const day = 86400000;
   const selected = new Date(today.getTime() + day * 2);
@@ -41,6 +40,7 @@ function MinMaxDateStory() {
   return (
     <Layout.StoryVertical>
       <DateSelect
+        {...args}
         active
         onSelect={(date) => dateSet(date)}
         min={minDate}
@@ -53,7 +53,7 @@ function MinMaxDateStory() {
   );
 }
 
-export function Active() {
+export function Active({ args }) {
   const ref = useRef(null);
   const [active, setActive] = useState(false);
 
@@ -64,6 +64,7 @@ export function Active() {
   return (
     <Layout.StoryVertical>
       <DateSelect
+        {...args}
         active={active}
         ref={ref}
         onSelect={() => {
@@ -78,13 +79,14 @@ export function Active() {
   );
 }
 
-export function Value() {
+export function Value({ args }) {
   const selected = new Date();
   const [date, dateSet] = useState(selected);
 
   return (
     <Layout.StoryVertical>
       <DateSelect
+        {...args}
         active
         value={date}
         onSelect={(date) => {
@@ -97,13 +99,14 @@ export function Value() {
   );
 }
 
-export function DefaultValue() {
+export function DefaultValue({ args }) {
   const selected = new Date();
   const [date, dateSet] = useState(null);
 
   return (
     <Layout.StoryVertical>
       <DateSelect
+        {...args}
         active
         defaultValue={selected}
         value={date}

@@ -9,10 +9,11 @@ export default {
   component: Slider,
 };
 
-export function Range() {
+export function Range({ args }) {
   return (
     <Layout.StoryPadded>
       <Slider
+        {...args}
         range
         initialValues={[20, 50]}
         formatter={(value) => value + 'm'}
@@ -25,10 +26,11 @@ export function Range() {
   );
 }
 
-export function MinMax() {
+export function MinMax({ args }) {
   return (
     <Layout.StoryPadded>
       <Slider
+        {...args}
         range
         min={10}
         max={90}
@@ -42,10 +44,11 @@ export function MinMax() {
   );
 }
 
-export function EditableLabel() {
+export function EditableLabel({ args }) {
   return (
     <Layout.StoryPadded>
       <Slider
+        {...args}
         editableLabel
         range
         onChange={(n) => console.log(n?.target?.value)}

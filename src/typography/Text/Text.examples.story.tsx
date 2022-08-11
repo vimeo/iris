@@ -33,10 +33,12 @@ const TextMeta = styled(Text)`
   letter-spacing: -0.075rem;
 `;
 
-export function HeavyText() {
+export function HeavyText({ args }) {
   return (
     <Layout.StoryVertical>
-      <TextHeavy format="basic">Text Primitive Component</TextHeavy>
+      <TextHeavy {...args} format="basic">
+        Text Primitive Component
+      </TextHeavy>
       <TextHeavy format="soft">Text Primitive Component</TextHeavy>
       <TextHeavy format="alternative">
         Text Primitive Component
@@ -56,10 +58,12 @@ export function HeavyText() {
 }
 HeavyText.storyName = 'custom (heavy)';
 
-export function ThinText() {
+export function ThinText({ args }) {
   return (
     <Layout.StoryVertical>
-      <TextThin format="basic">Text Primitive Component</TextThin>
+      <TextThin format="basic" {...args}>
+        Text Primitive Component
+      </TextThin>
       <TextThin format="soft">Text Primitive Component</TextThin>
       <TextThin format="alternative">
         Text Primitive Component

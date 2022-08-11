@@ -9,20 +9,21 @@ import { Paragraph } from '../../typography';
 
 export default { title: 'components/Modal/props' };
 
-export function Feature() {
+export function Feature({ args }) {
   return (
     <Layout.StoryVertical>
-      <Modal content={FeatureModalContent} feature>
+      <Modal content={FeatureModalContent} feature {...args}>
         <Button>Open Feature Update Modal</Button>
       </Modal>
     </Layout.StoryVertical>
   );
 }
 
-export function Active() {
+export function Active({ args }) {
   return (
     <Layout.StoryVertical>
       <Modal
+        {...args}
         active={true}
         content={ModalContent}
         onOpen={() => console.log('open')}
@@ -32,10 +33,11 @@ export function Active() {
   );
 }
 
-export function Screen() {
+export function Screen({ args }) {
   return (
     <Layout.StoryVertical>
       <Modal
+        {...args}
         content={ModalContent}
         onOpen={() => console.log('open')}
         onClose={() => console.log('close')}
@@ -63,10 +65,10 @@ export function Screen() {
   );
 }
 
-export function Size() {
+export function Size({ args }) {
   return (
     <Layout.StoryVertical>
-      <Modal content={ModalContent} size="sm">
+      <Modal content={ModalContent} size="sm" {...args}>
         <Button>Open small modal</Button>
       </Modal>
       <Modal content={ModalContent} size="md">

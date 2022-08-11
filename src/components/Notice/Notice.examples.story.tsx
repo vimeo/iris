@@ -10,9 +10,9 @@ export default {
   title: 'components/Notice/examples',
 };
 
-export function Children() {
+export function Children({ args }) {
   return (
-    <Notice format="primary">
+    <Notice format="primary" {...args}>
       This Notice has <Link>multiple children</Link>{' '}
       <span>á mörgum tungumálum.</span>{' '}
       <Styled>This sentence has custom styles.</Styled>

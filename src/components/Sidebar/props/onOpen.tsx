@@ -7,9 +7,9 @@ import { Gear } from '../../../icons';
 import { Header as H } from '../../../typography';
 import { Layout } from '../../../storybook';
 
-export function onOpen() {
+export function onOpen({ args }) {
   return (
-    <Layout.FullBleed>
+    <Layout.FullBleed {...args}>
       <Sidebar
         attach="left"
         onOpen={(item) => console.log('Open ' + item)}

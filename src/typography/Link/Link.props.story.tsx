@@ -6,10 +6,12 @@ import { Layout } from '../../storybook';
 
 export default { title: 'typography/Link/props', component: Link };
 
-export function Format() {
+export function Format({ args }) {
   return (
     <Layout.StoryVertical defaultWidth>
-      <Link format="basic">Click me!</Link>
+      <Link format="basic" {...args}>
+        Click me!
+      </Link>
       <Link format="soft">Click me!</Link>
       <Link format="primary">Click me!</Link>
       <Link format="positive">Click me!</Link>
@@ -19,10 +21,10 @@ export function Format() {
 }
 Format.storyName = 'format';
 
-export function Variant() {
+export function Variant({ args }) {
   return (
     <Layout.StoryVertical defaultWidth>
-      <Link>Click me!</Link>
+      <Link {...args}>Click me!</Link>
       <Link variant="minimal">Click me!</Link>
     </Layout.StoryVertical>
   );

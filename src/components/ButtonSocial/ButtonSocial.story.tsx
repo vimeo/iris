@@ -13,10 +13,10 @@ const ButtonSocial = styled(SB)`
   margin: 0 1rem 1rem 0;
 `;
 
-export function Social() {
+export function Social({ args }) {
   return (
     <>
-      <ButtonSocial brand="apple" fluid>
+      <ButtonSocial brand="apple" fluid {...args}>
         Sign in with Apple
       </ButtonSocial>
       <ButtonSocial brand="facebook" fluid>

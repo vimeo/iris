@@ -22,8 +22,7 @@ function pageChange({ page, goto }) {
   };
 }
 
-export const GenericGrid = () => <GenericGridStory />;
-function GenericGridStory() {
+export function GenericGrid({ args }) {
   const ref = useRef(null);
 
   const { items, page, goto } = useFakeQuery({ total, pageSize });
@@ -47,6 +46,7 @@ function GenericGridStory() {
           Next
         </Next>
         <Pagination
+          {...args}
           active={page}
           total={total}
           pageSize={pageSize}
@@ -60,8 +60,7 @@ function GenericGridStory() {
   );
 }
 
-export const VideoGrid = () => <PaginationStory />;
-function PaginationStory() {
+export function VideoGrid({ args }) {
   const { items, page, goto } = useFakeVideos({ total, pageSize });
   const onChange = pageChange({ page, goto });
 
@@ -73,6 +72,7 @@ function PaginationStory() {
         ))}
       </Grid>
       <Pagination
+        {...args}
         active={page}
         total={total}
         pageSize={pageSize}
