@@ -1,15 +1,31 @@
-import React, { useRef, useEffect, useReducer } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  useReducer,
+  MutableRefObject,
+  Ref,
+} from 'react';
 
 import { InputProps, Props } from './Text.types';
 import { Text as Styled, Input } from './Text.style';
 
-import { geometry, Focus, useLayoutStyles } from '../../utils';
+import {
+  geometry,
+  Focus,
+  useLayoutStyles,
+  withIris,
+} from '../../utils';
 
-export function EditableText({
+export const EditableText = withIris<HTMLInputElement, InputProps>(
+  EditableTextComponent
+);
+
+function EditableTextComponent({
   children,
   className,
   element = 'span',
   format = 'soft',
+  forwardRef,
   onBlur,
   onChange,
   onFocus,
@@ -91,7 +107,7 @@ export function EditableText({
         onChange={doChange}
         onFocus={doFocus}
         onKeyUp={doKeyUp}
-        ref={inputRef}
+        ref={assignRefs(forwardRef, inputRef)}
         size={size}
         type="text"
         {...(props as Props)}
@@ -119,3 +135,15 @@ function reducer(state, [type, payload]) {
 }
 
 const withSpaces = (string) => string.replace(/ /g, '\u00a0');
+
+function assignRefs<T>(...refs: Ref<T>[]) {
+  return function (node: T) {
+    for (const ref of refs) {
+      if (typeof ref === 'function') {
+        ref(node);
+      } else if (ref) {
+        (ref as MutableRefObject<T>).current = node;
+      }
+    }
+  };
+}
