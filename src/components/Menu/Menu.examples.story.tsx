@@ -131,3 +131,29 @@ const PopList = (
     </Pop.List>
   </>
 );
+
+export function WithDisabledItems({ args }) {
+  return (
+    <Layout.StoryVertical>
+      <Menu style={{ padding: '1rem' }} {...args}>
+        <Menu.Section title="Section 1">
+          <Menu.Item active icon={<Home />}>
+            <Header size="4">Can be any element</Header>
+          </Menu.Item>
+          <Menu.Item href="#" icon={<Gear />}>
+            With href
+          </Menu.Item>
+        </Menu.Section>
+
+        <Menu.Section title="Section 2">
+          <Menu.Item disabled icon={<Folder />}>
+            Item 1 Disabled
+          </Menu.Item>
+          <Menu.Item disabled icon={<Grid />}>
+            Item 2 Disabled
+          </Menu.Item>
+        </Menu.Section>
+      </Menu>
+    </Layout.StoryVertical>
+  );
+}

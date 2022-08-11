@@ -2,6 +2,7 @@ import styled, { css, keyframes } from 'styled-components';
 import { rgba } from 'polished';
 
 import { grayscale, slate } from '../../color';
+import { core } from '../../tokens';
 
 export const Action = styled.button`
   position: absolute;
@@ -113,7 +114,7 @@ export const ItemStyled = styled.button<any>`
   font-size: 0.875rem;
   width: 100%;
   background: transparent;
-  color: ${({ theme }) => theme.content.color};
+  color: ${core.color.text(0)};
   border: 0;
   cursor: pointer;
 
@@ -123,6 +124,13 @@ export const ItemStyled = styled.button<any>`
 
   &:focus {
     outline: none;
+  }
+
+  &:disabled {
+    color: ${core.color.text(600)};
+    opacity: 0.5;
+    pointer-events: none;
+    user-select: none;
   }
 
   > svg {
