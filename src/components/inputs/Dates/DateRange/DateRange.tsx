@@ -101,16 +101,12 @@ function DateRangeComponent({
     let end = new Date(draftStart.getTime());
     end.setDate(end.getDate() + maxDaysSelected);
 
-    if (minDate) {
-      if (minDate > start) {
-        start = minDate;
-      }
+    if (minDate && minDate > start) {
+      start = minDate;
     }
 
-    if (maxDate) {
-      if (maxDate < end) {
-        end = maxDate;
-      }
+    if (maxDate && maxDate < end) {
+      end = maxDate;
     }
 
     return [start, end];
