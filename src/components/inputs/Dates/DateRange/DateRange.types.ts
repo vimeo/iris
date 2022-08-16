@@ -2,10 +2,10 @@ import { IrisInputProps } from '../../../../utils';
 import { TranslatedStrings } from './translationTypes';
 
 export type Props = IrisInputProps<{
-    /**
+  /**
    * A date object that defines the maximum days a user can select
    */
-  maxDaySelected?: number;
+  maxDaysSelected?: number;
   /**
    * A date object that defines the minimum date a user must select
    */
