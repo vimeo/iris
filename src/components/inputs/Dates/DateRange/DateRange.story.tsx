@@ -84,13 +84,8 @@ function DateRangeButton({ ...args }) {
   const [active, setActive] = useState(false);
 
   const onChange = (range: [Date, Date]) => {
-    const validRange = range[0] && range[1];
-
-    if (validRange && range !== value) {
-      setValue(range);
-      setActive(false);
-    }
-    if (!validRange) setValue(null);
+    setValue(range);
+    setActive(false);
   };
 
   const childrenRef =

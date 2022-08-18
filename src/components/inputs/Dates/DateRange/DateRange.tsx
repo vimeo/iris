@@ -4,6 +4,7 @@ import React, {
   useMemo,
   useReducer,
   useState,
+  useRef,
 } from 'react';
 
 import { Calendar } from '../Calendar/Calendar';
@@ -53,6 +54,8 @@ function DateRangeComponent({
   translation = translations['en'],
   defaultValue,
 }: Props) {
+  const firstRender = useRef(true);
+
   const initial = defaultValue
     ? {
         ...initialState,
@@ -67,8 +70,10 @@ function DateRangeComponent({
   // When our internal range value changes, if a callback for onChange is passed
   // let's call that callback with our new value.
   useEffect(() => {
-    if (onChange) {
+    if (onChange && !firstRender.current) {
       onChange(state.range);
+    } else {
+      firstRender.current = false;
     }
   }, [state.range, onChange]);
 
