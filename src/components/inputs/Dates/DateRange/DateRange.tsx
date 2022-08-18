@@ -47,6 +47,7 @@ function DateRangeComponent({
   minDate,
   onChange,
   presets,
+  maxDaysSelected,
   startInputLabel,
   onPresetClick,
   translation = translations['en'],
@@ -82,6 +83,34 @@ function DateRangeComponent({
     viewportDate,
     open,
   } = state;
+
+  const [minDateRange, maxDateRange] = useMemo(() => {
+    if (
+      !maxDaysSelected ||
+      !Number.isInteger(maxDaysSelected) ||
+      !draftStart
+    ) {
+      return [minDate, maxDate];
+    }
+
+    let start = new Date(
+      draftEnd ? draftEnd.getTime() : draftStart.getTime()
+    );
+    start.setDate(start.getDate() - maxDaysSelected);
+
+    let end = new Date(draftStart.getTime());
+    end.setDate(end.getDate() + maxDaysSelected);
+
+    if (minDate && minDate > start) {
+      start = minDate;
+    }
+
+    if (maxDate && maxDate < end) {
+      end = maxDate;
+    }
+
+    return [start, end];
+  }, [draftStart, draftEnd, minDate, maxDate, maxDaysSelected]);
 
   // Get the viewport for the first calendar in our range picker.
   const getDateForFirstCalendar = useMemo(() => {
@@ -174,7 +203,7 @@ function DateRangeComponent({
       type: 'CHANGE_START',
       payload: {
         label: event.currentTarget.value,
-        minDate,
+        minDate: minDateRange,
       },
     });
   };
@@ -186,7 +215,7 @@ function DateRangeComponent({
       type: 'CHANGE_END',
       payload: {
         label: event.currentTarget.value,
-        maxDate,
+        maxDate: maxDateRange,
       },
     });
   };
@@ -332,8 +361,8 @@ function DateRangeComponent({
             backOnly
             backOnClick={handleGoBackward}
             initialMonth={getDateForFirstCalendar}
-            minDate={minDate}
-            maxDate={maxDate}
+            minDate={minDateRange}
+            maxDate={maxDateRange}
             range={[draftStart, draftEnd]}
             hoverRange={[hoverStart, hoverEnd]}
             selectionStart={hoverStart ? hoverStart : draftStart}
@@ -347,8 +376,8 @@ function DateRangeComponent({
             forwardOnly
             forwardOnClick={handleGoForward}
             initialMonth={viewportDate}
-            minDate={minDate}
-            maxDate={maxDate}
+            minDate={minDateRange}
+            maxDate={maxDateRange}
             range={[draftStart, draftEnd]}
             hoverRange={[hoverStart, hoverEnd]}
             selectionStart={hoverStart ? hoverStart : draftStart}

@@ -39,6 +39,14 @@ export function InputLabel({ args }) {
   );
 }
 
+export function MaxDaysRange({ args }) {
+  return (
+    <Layout.StoryVertical center>
+      <DateRangeButton {...args} maxDaysSelected={5} />
+    </Layout.StoryVertical>
+  );
+}
+
 export function MinDate({ args }) {
   return (
     <Layout.StoryVertical center>
