@@ -41,7 +41,7 @@ function ColorSelectComponent({
   onChange,
   onClose,
   onOpen,
-  reset = { color: initial.color, label: null },
+  reset = { color: initial.color, label: 'reset' },
 
   // DEPRECATED
   resetColor = initialColor || initial.color,

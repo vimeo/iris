@@ -58,7 +58,7 @@ export function ColorSelectInput({
             variant="minimalTransparent"
             size={size}
             onClick={resetValues}
-            tooltipText="reset"
+            tooltipText={reset.label}
             height={height}
           >
             <History style={{ opacity: 0.5 }} />
