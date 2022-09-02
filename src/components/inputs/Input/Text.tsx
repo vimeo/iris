@@ -110,6 +110,7 @@ export function Text({
         parent={InputStyled}
         radius={pill ? 50 : 6}
         variant={variant}
+        distance={1}
       />
     </div>
   );

@@ -63,7 +63,11 @@ function SelectNative({
         >
           {children}
         </SelectStyled>
-        <Focus parent={SelectStyled} radius={pill ? 50 : 6} />
+        <Focus
+          parent={SelectStyled}
+          radius={pill ? 50 : 6}
+          distance={1}
+        />
         <ChevronDown size={size} />
       </div>
     </Wrapper>

@@ -65,7 +65,7 @@ export function Handle({
               onBlur={setFocus(false)}
               focused={focused === handle}
             />
-            <Focus parent={LabelInput} />
+            <Focus parent={LabelInput} distance={1} />
           </>
         ) : (
           formatter(value)

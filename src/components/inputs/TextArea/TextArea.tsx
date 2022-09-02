@@ -53,7 +53,7 @@ function TextAreaComponent({
           {...props}
         />
         {format === 'negative' ? <InfoIcon /> : null}
-        <Focus parent={TextAreaStyled} />
+        <Focus parent={TextAreaStyled} distance={1} />
       </div>
     </Wrapper>
   );
