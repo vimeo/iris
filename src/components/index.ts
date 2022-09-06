@@ -60,3 +60,6 @@ export { withCharacterCount } from './inputs/withCharacterCount/withCharacterCou
 export { FeatureTourPanel } from '../_deprecated/FeatureTour/FeatureTourPanel';
 export { SlideUpDown } from '../_deprecated/SlideUpDown/SlideUpDown';
 export { FloatingButton } from '../_deprecated/FloatingButton/FloatingButton';
+
+// TYPES
+export * from './Button/Button.config';
