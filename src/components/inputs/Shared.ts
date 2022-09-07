@@ -99,8 +99,6 @@ const underline = css`
   border-top-color: rgba(0, 0, 0, 0);
   border-left-color: rgba(0, 0, 0, 0);
   border-right-color: rgba(0, 0, 0, 0);
-  border-bottom-width: 0.125rem;
-  transition: all 120ms ease-in-out, border 60ms ease-in-out;
 `;
 
 function inputVariant({ variant = null }) {

@@ -1,5 +1,5 @@
 import styled, { css, createGlobalStyle } from 'styled-components';
-import { rgba, rem } from 'polished';
+import { rem } from 'polished';
 
 import { blue } from '../color';
 import { IrisTheme } from '../themes';
@@ -21,15 +21,6 @@ export const hidden = {
 
 export const Focus = styled.div<any>`
   ${({ parent, focused, variant, radius = 6, distance = 4 }) => {
-    // These are basically quick hacks to support a different focus
-    // style for the underline inputs until VDS has time to rebuild
-    // the focus component.
-    const focus =
-      variant === 'underline' ? rgba(blue(300), 0.9) : blue(500);
-
-    const expanded =
-      variant === 'underline' ? 'scale(0.975);' : 'scale(1);';
-
     const underline =
       variant === 'underline' &&
       css`
@@ -37,7 +28,6 @@ export const Focus = styled.div<any>`
         border-top-color: rgba(0, 0, 0, 0) !important;
         border-left-color: rgba(0, 0, 0, 0) !important;
         border-right-color: rgba(0, 0, 0, 0) !important;
-        border-bottom-width: ${rem(6)};
       `;
 
     return css`
@@ -48,22 +38,20 @@ export const Focus = styled.div<any>`
       width: calc(100% + ${rem(distance * 2)});
       height: calc(100% + ${rem(distance * 2)});
       pointer-events: none;
-      transform: scale(0.94);
       border-radius: ${rem(radius)};
-      border: ${rem(1)} solid ${rgba(focus, 0)};
+      border: ${rem(2)} solid ${blue(500)};
+      opacity: 0;
       transition: 150ms ease-in-out;
 
       ${parent}:focus > &,
       ${parent}:focus ~ &,
       ${parent}:focus ~ div > & {
-        transform: ${expanded};
-        border: ${rem(2)} solid ${focus};
+        opacity: 1;
       }
 
       ${focused &&
       css`
-        transform: ${expanded};
-        border: ${rem(2)} solid ${focus};
+        opacity: 1;
       `}
 
       ${underline};
