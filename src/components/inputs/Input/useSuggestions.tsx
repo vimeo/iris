@@ -7,21 +7,9 @@ import { Header as H } from '../../../typography';
 import { blue } from '../../../color';
 import { Focus } from '../../../utils';
 
-export function useSuggestions({ autosuggest, inputRef, doBlur }) {
+export function useSuggestions({ autosuggest, onSelect }) {
   if (typeof autosuggest === 'undefined') return;
   if (autosuggest === null) return { has: true, show: false };
-
-  function select(suggestion = null) {
-    if (suggestion) inputRef.current.value = suggestion;
-    inputRef?.current?.focus();
-  }
-
-  function onClick(suggestion) {
-    return (event) => {
-      select(suggestion);
-      doBlur(event);
-    };
-  }
 
   function onKeyDown(suggestion) {
     return (event) => {
@@ -29,13 +17,13 @@ export function useSuggestions({ autosuggest, inputRef, doBlur }) {
 
       switch (event.key) {
         case 'Escape':
-          return select();
+          return onSelect();
         case 'ArrowDown':
           return event.target?.nextSibling?.focus();
         case 'ArrowUp':
           return event.target?.previousSibling?.focus();
         case 'Enter':
-          return select(suggestion);
+          return onSelect(suggestion);
       }
     };
   }
@@ -44,7 +32,7 @@ export function useSuggestions({ autosuggest, inputRef, doBlur }) {
     <Suggestion
       key={key}
       onKeyDown={onKeyDown(suggestion)}
-      onClick={onClick(suggestion)}
+      onClick={() => onSelect(suggestion)}
     >
       {suggestion}
     </Suggestion>

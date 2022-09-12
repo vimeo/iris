@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useImperativeHandle,
-  useRef,
-  MouseEvent,
-} from 'react';
+import React, { useState, useImperativeHandle, useRef } from 'react';
 
 import { nullStyle, InputStyled } from './Input.style';
 import { Props } from './Input.types';
@@ -12,11 +7,7 @@ import { useSuggestions } from './useSuggestions';
 import { Wrapper } from '../Wrapper/Wrapper';
 
 import { PopOver } from '../../PopOver/PopOver';
-import {
-  Focus,
-  useLayoutStyles,
-  useOutsideClick,
-} from '../../../utils';
+import { Focus, useLayoutStyles } from '../../../utils';
 
 export function Text({
   autoComplete = true,
@@ -34,34 +25,46 @@ export function Text({
   status,
   style = nullStyle,
   onFocus,
-  onBlur,
+  onBlur = (e) => {
+    console.log(e);
+    console.log('blurry');
+  },
   theme,
   type = 'text',
   value,
   variant,
   ...props
 }: Props) {
-  const [focused, setFocused] = useState(false);
+  const [open, setOpen] = useState(false);
   const [layoutStyles, displayStyles] = useLayoutStyles(style);
 
   const inputRef = useRef(null);
   useImperativeHandle(forwardRef as any, () => inputRef.current);
 
   const suggestionsRef = useRef(null);
+
+  function onSuggestionSelect(selection: string) {
+    if (selection) {
+      inputRef.current.value = selection;
+    }
+    inputRef.current.focus();
+    setOpen(false);
+  }
   const suggestions = useSuggestions({
     autosuggest,
-    inputRef,
-    doBlur,
+    onSelect: onSuggestionSelect,
   });
 
   function doFocus(e) {
-    setFocused(true);
+    setOpen(true);
     onFocus && onFocus(e);
   }
 
   function doBlur(e) {
-    setFocused(false);
-    onBlur && onBlur(e);
+    if (!suggestionsRef?.current?.contains(e.relatedTarget)) {
+      onBlur && onBlur(e);
+      setOpen(false);
+    }
   }
 
   function onKeyDown(e) {
@@ -70,16 +73,14 @@ export function Text({
     if (!autosuggest) return;
     if (e.key === 'Enter' || e.key === 'ArrowDown') {
       e.preventDefault();
-      suggestionsRef?.current.children[0].focus();
+      setOpen(true);
+      suggestionsRef?.current?.children[0].focus();
     }
   }
 
   const floatLabel =
-    focused ||
+    document.activeElement === inputRef.current ||
     (inputRef.current && inputRef.current.value?.length > 0);
-
-  const refs = [inputRef, suggestionsRef];
-  useOutsideClick(refs, (e: MouseEvent) => doBlur(e));
 
   if (autoComplete === true) autoComplete = 'on';
   if (autoComplete === false) autoComplete = 'off';
@@ -96,6 +97,7 @@ export function Text({
         id={id}
         inputSize={size}
         onFocus={doFocus}
+        onBlur={doBlur}
         onKeyDown={onKeyDown}
         pill={pill}
         ref={inputRef}
@@ -117,7 +119,7 @@ export function Text({
 
   const inputComponentWithAutoSuggest = (
     <PopOver
-      active={focused && suggestions?.show}
+      active={open && suggestions?.show}
       content={
         <div ref={suggestionsRef}>
           {suggestions?.[0] && suggestions}
