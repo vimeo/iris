@@ -8,7 +8,7 @@ import {
   getDateFormat,
   getDateFormatRegex,
   DD_MM_YY_FORMAT,
-  convertDDMMYYYToMMDDYYYY,
+  convertDDMMYYYToYYYYMMDD,
 } from '../DateRange/DateFormat';
 
 /**
@@ -96,7 +96,7 @@ export function reducer(state: State, action: Action): State {
 
       const newStartDate = new Date(
         dateFormat === DD_MM_YY_FORMAT
-          ? convertDDMMYYYToMMDDYYYY(label)
+          ? convertDDMMYYYToYYYYMMDD(label)
           : label
       );
 

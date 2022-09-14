@@ -7,10 +7,8 @@ const DATE_FORMAT_OPTIONS = {
 export const DD_MM_YY_FORMAT = 'DD.MM.YYYY';
 const DEFAULT_LANGUAGE = 'default';
 
-export const convertDDMMYYYToMMDDYYYY = (date: string) => {
-  const dateParts = date.split('.');
-
-  return `${dateParts[2]}.${dateParts[1]}.${dateParts[0]}`;
+export const convertDDMMYYYToYYYYMMDD = (date: string) => {
+  return date.split('.').reverse().join('.');
 };
 
 const formatter = (() => {
