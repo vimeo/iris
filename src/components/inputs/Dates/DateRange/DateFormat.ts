@@ -4,7 +4,14 @@ const DATE_FORMAT_OPTIONS = {
   day: '2-digit',
 } as const;
 
+export const DD_MM_YY_FORMAT = 'DD.MM.YYYY';
 const DEFAULT_LANGUAGE = 'default';
+
+export const convertDDMMYYYToMMDDYYYY = (date: string) => {
+  const dateParts = date.split('.');
+
+  return `${dateParts[2]}.${dateParts[1]}.${dateParts[0]}`;
+};
 
 const formatter = (() => {
   try {

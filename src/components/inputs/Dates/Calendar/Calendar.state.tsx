@@ -7,6 +7,8 @@ import {
 import {
   getDateFormat,
   getDateFormatRegex,
+  DD_MM_YY_FORMAT,
+  convertDDMMYYYToMMDDYYYY,
 } from '../DateRange/DateFormat';
 
 /**
@@ -92,7 +94,12 @@ export function reducer(state: State, action: Action): State {
         };
       }
 
-      const newStartDate = new Date(label);
+      const newStartDate = new Date(
+        dateFormat === DD_MM_YY_FORMAT
+          ? convertDDMMYYYToMMDDYYYY(label)
+          : label
+      );
+
       const minDate = action.payload.minDate;
       // If the date entered is not a valid date only update the label and set error
       if (isNaN(newStartDate.getTime())) {
