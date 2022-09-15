@@ -24,6 +24,7 @@ export const Wrapper = styled.div<{ width?: number }>`
   position: relative;
   width: ${(p) => p.width}px;
   border-radius: 0.25rem;
+  overflow: hidden;
 `;
 
 export const SpectrumWrapper = styled.div<{ dragging?: boolean }>`
