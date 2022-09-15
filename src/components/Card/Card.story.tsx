@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { Story } from '@storybook/react';
 
-import { Card as C, Props } from './Card';
+import { Card, Props } from './Card';
 import { Header } from '../../typography';
 
 export default {
   title: 'components/Card',
-  component: C,
+  component: Card,
   argTypes: {
     noHoverState: { table: { disable: true } },
   },
@@ -16,15 +16,13 @@ export default {
 const Template: Story<Props> = (args) => {
   return (
     <Grid>
-      <Card {...args}>
-        <Header>Card 1</Header>
-      </Card>
-      <Card {...args}>
-        <Header>Card 2</Header>
-      </Card>
-      <Card {...args}>
-        <Header>Card 3</Header>
-      </Card>
+      {Array.from({ length: 3 }).map((_, index) => (
+        <Card key={index} {...args}>
+          <CardLayout>
+            <Header>Card {index + 1}</Header>
+          </CardLayout>
+        </Card>
+      ))}
     </Grid>
   );
 };
@@ -32,7 +30,7 @@ const Template: Story<Props> = (args) => {
 export const Controls = Template.bind({});
 Controls.storyName = 'Card';
 
-const Card = styled(C)`
+const CardLayout = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
