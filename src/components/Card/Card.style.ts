@@ -22,9 +22,10 @@ export const Card = styled.div<Props>`
     content: '';
     display: block;
     position: absolute;
+    top: 0;
     width: 100%;
     height: 100%;
-    border-radius: ${rem(3)};
+    border-radius: inherit;
     transition: box-shadow 120ms ease-in-out,
       transform 120ms ease-in-out, opacity 120ms ease-in-out;
     pointer-events: none;
