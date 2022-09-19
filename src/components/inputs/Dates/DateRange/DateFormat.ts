@@ -6,7 +6,7 @@ const DATE_FORMAT_OPTIONS = {
 
 export const DD_MM_YY_FORMAT = 'DD.MM.YYYY';
 const DEFAULT_LANGUAGE = 'default';
-
+// Converts date to ISO 8601 format for Date constuctor: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 export const convertDDMMYYYToYYYYMMDD = (date: string) => {
   return date.split('.').reverse().join('.');
 };
