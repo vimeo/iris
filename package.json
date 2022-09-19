@@ -171,5 +171,19 @@
     ],
     "volta": {
         "node": "16.17.0"
+    },
+    "dependencies": {
+        "@chakra-ui/breakpoint-utils": "^2.0.4",
+        "@chakra-ui/styled-system": "^2.3.4",
+        "@internationalized/date": "^3.0.1",
+        "@react-aria/button": "^3.6.1",
+        "@react-aria/calendar": "^3.0.2",
+        "@react-aria/focus": "^3.8.0",
+        "@react-aria/i18n": "^3.6.0",
+        "@react-aria/utils": "^3.13.3",
+        "@react-aria/visually-hidden": "^3.4.1",
+        "@react-stately/calendar": "^3.0.2",
+        "@vimeo-ux/components": "^0.0.2-alpha.5",
+        "@vimeo-ux/theme": "^0.0.2-alpha.4"
     }
 }
