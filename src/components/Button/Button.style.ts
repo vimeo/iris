@@ -311,13 +311,11 @@ function buttonVariants({
       return css`
         border: ${borderWidth} solid transparent;
         background: transparent;
-        backdrop-filter: blur(0px);
         color: ${color};
 
         &:hover {
           border: ${borderWidth} solid transparent;
           background: ${rgba(color, 0.1)};
-          backdrop-filter: blur(1.5px);
           /* color: hoverColorDark */
           color: ${hoverColor};
         }
@@ -325,18 +323,15 @@ function buttonVariants({
     case 'transparent':
       return css`
         background: ${rgba(color, 0.6)};
-        backdrop-filter: blur(4px);
         color: ${white};
 
         &:active {
           background: ${rgba(shade(0.2, activeColor), 0.75)};
-          backdrop-filter: blur(4px);
           transform: scale(0.98);
         }
 
         &:hover:not(:active) {
           background: ${rgba(color, 0.675)};
-          backdrop-filter: blur(4px);
           /* if: grow */
           /* transform: scale(1.01); */
           /* box-shadow: 0 0 0 0 rgba(black, 0.1); */
