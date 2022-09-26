@@ -67,6 +67,7 @@ export { Cart } from './ui/Cart';
 export { CartEmpty } from './ui/CartEmpty';
 export { Checkmark } from './ui/Checkmark';
 export { ChevronDown } from './ui/ChevronDown';
+export { ChevronLeft } from './ui/ChevronLeft';
 export { ChevronDownDouble } from './ui/ChevronDownDouble';
 export { ChevronRight } from './ui/ChevronRight';
 export { CircleCheck } from './ui/CircleCheck';
