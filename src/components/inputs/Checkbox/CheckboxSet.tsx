@@ -73,8 +73,7 @@ function CheckboxSetComponent({
     checksSet(initialState);
   }, [children, coupled, defaultChecked]);
 
-  if (!validate(children, 'checkbox') && DEV)
-    console.warn('Unable to validate children on CheckboxSet');
+  validate(children, 'checkbox');
 
   const allChecked = checks.every((check) => check);
   const someChecked = !allChecked && checks.some((check) => check);
@@ -127,8 +126,6 @@ function CheckboxSetComponent({
     </div>
   );
 }
-
-const DEV = process.env.NODE_ENV === 'development';
 
 const toggle = (index) => (checked) =>
   checked.map((val, i) => (index === i ? !val : val));

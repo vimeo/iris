@@ -44,7 +44,7 @@ function RadioSetComponent({
     initialCheckedIndex
   );
 
-  if (!validate(children, 'radio')) return null;
+  validate(children, 'radio');
 
   function onChange(event) {
     if (event.target.checked) {
