@@ -177,6 +177,7 @@ export { VerticalDots } from './ui/VerticalDots';
 export { Video } from './ui/Video';
 export { VideoStack } from './ui/VideoStack';
 export { VideoStackFilled } from './ui/VideoStackFilled';
+export { Wand } from './ui/Wand';
 
 //
 //

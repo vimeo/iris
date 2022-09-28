@@ -126,3 +126,4 @@ export { VerticalDots } from './VerticalDots';
 export { Video } from './Video';
 export { VideoStack } from './VideoStack';
 export { VideoStackFilled } from './VideoStackFilled';
+export { Wand } from './Wand';
