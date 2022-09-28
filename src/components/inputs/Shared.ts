@@ -9,6 +9,8 @@ import { rgba, rem } from 'polished';
 import { blue, white } from '../../color';
 import { Statuses } from '../../themes';
 
+const isDev = process?.env?.NODE_ENV === 'development';
+
 export function inputColors({ theme, disabled = false, format }) {
   if (!format || !theme.formats[format]) format = 'basic';
 
@@ -283,7 +285,7 @@ export function validate(
   const Name = type.charAt(0).toUpperCase() + type.slice(1);
   const valid = children.every(compareMetas(type));
 
-  if (!valid) {
+  if (!valid && isDev) {
     console.warn(
       `<${Name}Set /> children must be <${Name} />.`,
       children
