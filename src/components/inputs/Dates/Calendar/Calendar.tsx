@@ -14,7 +14,7 @@ import { initialState, DateRange } from './Calendar.types';
 import { CalendarDay } from './CalendarDay';
 
 import { blue, white } from '../../../../color';
-import { ChevronRight } from '../../../../icons';
+import { ChevronRight, ChevronLeft } from '../../../../icons';
 import { Header } from '../../../../typography';
 import { IrisProps, geometry } from '../../../../utils';
 import { rgba, rem } from 'polished';
@@ -192,7 +192,9 @@ export const Calendar = ({
   return (
     <Wrapper {...props} onMouseOut={handleMouseOut}>
       <MonthNav>
-        <PrevMonth
+        <MonthNavButton
+          type="button"
+          aria-label="Previous"
           onClick={
             !forwardOnly
               ? backOnClick
@@ -202,12 +204,16 @@ export const Calendar = ({
           }
           inactive={minDate ? minMonth < minDate : undefined}
           hidden={forwardOnly}
-        />
-
+        >
+          <ChevronLeft />
+        </MonthNavButton>
         <MonthLabel size="4" onClick={resetMonth}>
           {month(actualDate)}
         </MonthLabel>
-        <NextMonth
+
+        <MonthNavButton
+          type="button"
+          aria-label="Next"
           onClick={
             !backOnly
               ? forwardOnClick
@@ -217,7 +223,9 @@ export const Calendar = ({
           }
           inactive={maxDate ? maxMonth > maxDate : undefined}
           hidden={backOnly}
-        />
+        >
+          <ChevronRight />
+        </MonthNavButton>
       </MonthNav>
       <Days ref={ref} width={width}>
         {DAY_LABELS.map((day, i) => (
@@ -264,7 +272,7 @@ export const Calendar = ({
               key={i}
               size={width / 7}
               onClick={
-                !pastMinDate ? !pastMaxDate && select(day) : undefined
+                !pastMinDate && !pastMaxDate ? select(day) : undefined
               }
               isCurrentDate={isCurrentDate(day)}
               inCurrentMonth={inCurrentMonth(day)}
@@ -338,7 +346,7 @@ const MonthLabel = styled(Header)`
   cursor: pointer;
 `;
 
-const NextMonth = styled(ChevronRight)<{
+const MonthNavButton = styled.button<{
   onClick?: MouseEventHandler;
   inactive?: boolean;
   hidden?: boolean;
@@ -347,8 +355,8 @@ const NextMonth = styled(ChevronRight)<{
   padding: 0;
   margin: 0 0.75rem;
   cursor: pointer;
-  pointer-events: ${({ inactive, hidden }) =>
-    inactive || hidden ? 'none' : 'default'};
+  pointer-events: ${(props) =>
+    props.inactive || props.hidden ? 'none' : 'default'};
 
   ${(props) => {
     if (props.hidden) {
@@ -360,16 +368,12 @@ const NextMonth = styled(ChevronRight)<{
   }}
 
   * {
-    fill: ${({ theme, inactive }) =>
-      inactive
-        ? rgba(theme.content.color, 0.2)
-        : rgba(theme.content.color, 0.75)};
+    fill: ${(props) =>
+      props.inactive
+        ? rgba(props.theme.content.color, 0.2)
+        : rgba(props.theme.content.color, 0.75)};
     stroke-width: 1px;
   }
-`;
-
-const PrevMonth = styled(NextMonth)`
-  transform: rotate(180deg);
 `;
 
 const Days = styled.div<{ width?: number }>`

@@ -15,6 +15,7 @@ export { Cart } from './Cart';
 export { CartEmpty } from './CartEmpty';
 export { Checkmark } from './Checkmark';
 export { ChevronDown } from './ChevronDown';
+export { ChevronLeft } from './ChevronLeft';
 export { ChevronDownDouble } from './ChevronDownDouble';
 export { ChevronRight } from './ChevronRight';
 export { CircleCheck } from './CircleCheck';
