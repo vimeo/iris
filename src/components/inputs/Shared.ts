@@ -9,7 +9,7 @@ import { rgba, rem } from 'polished';
 import { blue, white } from '../../color';
 import { Statuses } from '../../themes';
 
-const isDev = process?.env?.NODE_ENV === 'development';
+const isDev = process.env.NODE_ENV === 'development';
 
 export function inputColors({ theme, disabled = false, format }) {
   if (!format || !theme.formats[format]) format = 'basic';
