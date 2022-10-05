@@ -166,5 +166,9 @@
         "React",
         "styled-components"
     ],
-    "dependencies": {}
+    "dependencies": {
+        "@floating-ui/react-dom": "^1.0.0",
+        "@floating-ui/react-dom-interactions": "^0.10.1",
+        "react-merge-refs": "^2.0.1"
+    }
 }

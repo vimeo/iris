@@ -18,7 +18,7 @@ export type Props = IrisProps<{
    * The `content` defines what will appear inside the portal component,
    * whereas the `children` defines what the portal component is anchored to.
    */
-  content?: ReactNode;
+  content?: JSX.Element;
   children: ReactElement & { ref?: Ref<any> };
   onClose?: EventHandler<any>;
   onOpen?: EventHandler<any>;
