@@ -45,7 +45,11 @@ describe('Calendar', () => {
     const minDate = new Date(2022, 8, 26);
 
     renderWithThemeProvider(
-      <Calendar data-testid="calendar" minDate={minDate} />
+      <Calendar
+        data-testid="calendar"
+        initialMonth={minDate}
+        minDate={minDate}
+      />
     );
 
     const month = screen.getByRole('heading');
@@ -64,7 +68,11 @@ describe('Calendar', () => {
     const maxDate = new Date(2022, 8, 26);
 
     renderWithThemeProvider(
-      <Calendar data-testid="calendar" maxDate={maxDate} />
+      <Calendar
+        data-testid="calendar"
+        initialMonth={maxDate}
+        maxDate={maxDate}
+      />
     );
 
     const month = screen.getByRole('heading');
@@ -85,6 +93,7 @@ describe('Calendar', () => {
     renderWithThemeProvider(
       <Calendar
         data-testid="calendar"
+        initialMonth={minDate}
         minDate={minDate}
         onClick={mockFn}
       />
