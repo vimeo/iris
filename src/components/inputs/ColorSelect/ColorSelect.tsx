@@ -53,6 +53,7 @@ function ColorSelectComponent({
   value,
   width = 360,
   attach = 'bottom',
+  showHueSlider = true,
   ...props
 }: Props) {
   const childrenRef = useRef();
@@ -128,16 +129,17 @@ function ColorSelectComponent({
             {...state}
             {...props}
           />
-
-          <HueSlider
-            dragging={dragging}
-            onChange={setHue}
-            onMouseDown={onMouseDown}
-            onMouseUp={onMouseUp}
-            value={HSL.hue * 100}
-            width={width}
-            {...state}
-          />
+          {showHueSlider && (
+            <HueSlider
+              dragging={dragging}
+              onChange={setHue}
+              onMouseDown={onMouseDown}
+              onMouseUp={onMouseUp}
+              value={HSL.hue * 100}
+              width={width}
+              {...state}
+            />
+          )}
           <ColorInputs
             dispatch={dispatch}
             onChange={onChange}

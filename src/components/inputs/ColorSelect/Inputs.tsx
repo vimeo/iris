@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { grayscale, parseToHsl, parseToRgb } from 'polished';
+import { grayscale, parseToRgb } from 'polished';
 
 import { Input } from '../Input/Input';
 import { Button } from '../../Button/Button';
@@ -17,7 +17,7 @@ export function ColorInputs({
   ...props
 }) {
   const ref = useRef<HTMLInputElement>();
-  const { HEX, HSL, RGB } = colorMeta;
+  const { HEX, RGB } = colorMeta;
 
   useEffect(() => {
     if (editing) ref?.current?.focus();
@@ -28,14 +28,12 @@ export function ColorInputs({
   function cycle() {
     const type = 'SET_COLORSPACE';
     if (colorSpace === 'HEX') dispatch({ type, payload: 'RGB' });
-    if (colorSpace === 'RGB') dispatch({ type, payload: 'HSL' });
-    if (colorSpace === 'HSL') dispatch({ type, payload: 'HEX' });
+    if (colorSpace === 'RGB') dispatch({ type, payload: 'HEX' });
   }
 
   let value;
   if (colorSpace === 'HEX') value = HEX;
   if (colorSpace === 'RGB') value = toRGBString(RGB);
-  if (colorSpace === 'HSL') value = toHSLString(HSL);
 
   const propsInput = { colorMeta, onClick: edit };
 
@@ -65,7 +63,6 @@ export function ColorInputs({
           <>
             {colorSpace === 'HEX' && <InputHEX {...propsInput} />}
             {colorSpace === 'RGB' && <InputRGB {...propsInput} />}
-            {colorSpace === 'HSL' && <InputHSL {...propsInput} />}
           </>
         )}
       </Wrapper>
@@ -103,7 +100,6 @@ function InputEdit({ value, dispatch, error, forwardRef, onChange }) {
       let payload;
       if (color.type === 'HEX') payload = color.value;
       if (color.type === 'RGB') payload = parseToRgb(color.value);
-      if (color.type === 'HSL') payload = parseToHsl(color.value);
 
       const type = 'SET_' + color.type;
       dispatch({ type, payload });
@@ -150,9 +146,7 @@ function InputHEX({ colorMeta, onClick }) {
 }
 
 function InputRGB({ colorMeta, onClick }) {
-  const {
-    RGB: { red, blue, green },
-  } = colorMeta;
+  const { RGB } = colorMeta;
 
   const props = {
     onClick,
@@ -164,38 +158,9 @@ function InputRGB({ colorMeta, onClick }) {
 
   return (
     <>
-      <ColorInput value={red} {...props} readOnly />
-      <ColorInput value={green} {...props} readOnly />
-      <ColorInput value={blue} {...props} readOnly />
+      <ColorInput value={toRGBString(RGB)} {...props} readOnly />
     </>
   );
-}
-
-function InputHSL({ colorMeta, onClick }) {
-  const {
-    HSL: { hue, saturation, lightness },
-  } = colorMeta;
-
-  const props = {
-    onClick,
-    type: 'text',
-    min: 0,
-    max: 100,
-    readOnly: true,
-  } as const;
-
-  return (
-    <>
-      <ColorInput value={hue} max={360} {...props} />
-      <ColorInput value={saturation * 100} {...props} />
-      <ColorInput value={lightness * 100} {...props} />
-    </>
-  );
-}
-
-function toHSLString(HSL) {
-  const [hue, saturation, lightness] = roundValues(HSL);
-  return `hsl(${hue}, ${saturation}, ${lightness})`;
 }
 
 function toRGBString(RGB) {
@@ -204,14 +169,13 @@ function toRGBString(RGB) {
 }
 
 function validate(color) {
-  let type: 'HEX' | 'HSL' | 'RGB';
+  let type: 'HEX' | 'RGB';
   let valid = false;
 
   const value = color.replace(/\s+/g, '').replace(';', '');
 
   if (value.startsWith('#')) type = 'HEX';
   if (value.startsWith('rgb')) type = 'RGB';
-  if (value.startsWith('hsl')) type = 'HSL';
 
   try {
     grayscale(value);

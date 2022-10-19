@@ -71,4 +71,8 @@ export type Props = IrisInputProps<{
    * [default = 'bottom']
    */
   attach?: Attach | AttachAlias;
+  /**
+   * Shows hue slider, default = true
+   */
+  showHueSlider?: boolean;
 }>;
