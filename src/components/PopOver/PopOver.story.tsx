@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { Story } from '@storybook/react';
 
@@ -9,6 +9,10 @@ import { Pop } from './PopOver.minors';
 import { Button as B, Badge } from '../../components';
 import { ANCHOR_POINTS } from '../../utils';
 import { Gear } from '../../icons';
+
+import { Modal } from '../Modal/Modal';
+import { Paragraph } from '../../typography';
+import { useOutsideClick } from '../../utils';
 
 export default {
   title: 'components/PopOver',
@@ -64,3 +68,74 @@ const PopList = (
     </Pop.List>
   </>
 );
+
+/// EXAMPLE STORY FOR #173
+const ModalStyled = styled.div`
+  padding: 2rem;
+  border-radius: 0.25rem;
+  background: ${({ theme }) => theme.content.background};
+`;
+
+const ModalContent = (close, submit) => (
+  <ModalStyled>
+    <Modal.Header>
+      Laborum amet id anim exercitation est enim cupidatat.
+    </Modal.Header>
+    <Paragraph size="2">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Consectetur ipsam tenetur illum eius expedita cum ipsa
+      distinctio harum ut alias, praesentium suscipit vel soluta natus
+      repudiandae omnis reiciendis! Eos, beatae.
+    </Paragraph>
+    <Modal.Footer>
+      <Modal.SecondaryAction onClick={close}>
+        Cancel
+      </Modal.SecondaryAction>
+      <Modal.PrimaryAction onClick={submit}>
+        Submit
+      </Modal.PrimaryAction>
+    </Modal.Footer>
+  </ModalStyled>
+);
+
+export const Example = () => {
+  const ref = useRef(null);
+  const [showModal, setShowModal] = useState(false);
+  const [popoverActive, setPopoverActive] = useState(false);
+
+  useOutsideClick(ref, () => {
+    setShowModal(false);
+    setPopoverActive(false);
+  });
+
+  return (
+    <>
+      <PopOver
+        active={popoverActive}
+        content={
+          <Pop.List>
+            <Pop.Item
+              onClick={() => {
+                setPopoverActive(false);
+                setShowModal(true);
+              }}
+            >
+              Item 1
+            </Pop.Item>
+          </Pop.List>
+        }
+      >
+        <button onClick={() => setPopoverActive(true)}>
+          Open popover
+        </button>
+      </PopOver>
+      <Modal
+        active={showModal}
+        content={ModalContent(
+          () => setShowModal(false),
+          () => console.log('submit')
+        )}
+      />
+    </>
+  );
+};
