@@ -1,4 +1,9 @@
-import React, { useState, MouseEvent } from 'react';
+import React, {
+  useState,
+  MouseEvent,
+  useEffect,
+  useRef,
+} from 'react';
 
 import {
   Header,
@@ -33,9 +38,23 @@ export function Item({
   href,
   toggle = false,
   icon,
+  /** Function called if item is toggled open */
+  onOpen,
+  /** Function called if item is toggled close */
+  onClose,
   ...props
 }) {
+  const init = useRef(true);
   const [open, setOpen] = useState(!toggle);
+
+  useEffect(() => {
+    // Prevent calling onClose on mount
+    if (init.current) {
+      init.current = false;
+    } else {
+      open ? onOpen && onOpen() : onClose && onClose();
+    }
+  }, [onClose, onOpen, open]);
 
   const doToggle = () => toggle && setOpen((open) => !open);
 

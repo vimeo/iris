@@ -39,7 +39,26 @@ export function Simple({ args }) {
     </Layout.StoryVertical>
   );
 }
-
+export function Collapsible({ args }) {
+  return (
+    <Menu style={{ padding: '1rem' }} {...args}>
+      <Menu.Section title="Section 1">
+        <Menu.Item
+          toggle
+          onOpen={() => console.log('onOpen')}
+          onClose={() => console.log('onClose')}
+        >
+          Item 1 S1
+          <Menu.Item>Item 1 S1 SubItem 1</Menu.Item>
+          <Menu.Item>Item 1 S1 SubItem 2</Menu.Item>
+          <Menu.Item>Item 1 S1 SubItem 3</Menu.Item>
+          <Menu.Item>Item 1 S1 SubItem 4</Menu.Item>
+        </Menu.Item>
+        <Menu.Item>Item 2 S1</Menu.Item>
+      </Menu.Section>
+    </Menu>
+  );
+}
 export function Complex({ args }) {
   return (
     <Layout.StoryVertical>
