@@ -51,8 +51,10 @@ export function Item({
     // Prevent calling onClose on mount
     if (init.current) {
       init.current = false;
+    } else if (open) {
+      onOpen?.();
     } else {
-      open ? onOpen && onOpen() : onClose && onClose();
+      onClose?.();
     }
   }, [onClose, onOpen, open]);
 
