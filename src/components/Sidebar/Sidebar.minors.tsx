@@ -13,6 +13,8 @@ export function Item({
   icon,
   label,
   onClick,
+  isActive,
+  activeColor,
   ...props
 }: ItemPropsIntrinsic) {
   return (
@@ -24,17 +26,24 @@ export function Item({
         onClick={onClick}
         size="md"
         variant="minimalTransparent"
+        isActive={isActive}
+        backgroundColor={activeColor}
         {...props}
       />
     </Tip>
   );
 }
 
-const ItemStyled = styled(Button)`
+const ItemStyled = styled(Button)<{
+  isActive?: boolean;
+  backgroundColor?: string;
+}>`
   height: 3rem;
   text-align: left;
   padding: 0.25rem 0.25rem 0.25rem 0.75rem;
   justify-content: start;
+  ${({ isActive, backgroundColor }) =>
+    isActive ? `background-color: ${backgroundColor}` : ''};
 
   > svg {
     padding: 0 !important;

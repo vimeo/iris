@@ -17,6 +17,7 @@ export type Props = IrisProps<{
   onOpen?: (active: string) => void;
   onClose?: (active: string) => void;
   state?: [string, Dispatch<SetStateAction<string>>];
+  activeColor?: string;
 }>;
 
 export interface ItemPropsExtrinsic {
@@ -33,6 +34,8 @@ export type ItemExtrinsic = (
 export type ItemPropsIntrinsic = ItemPropsExtrinsic & {
   attach: Props['attach'];
   onClick: MouseEventHandler;
+  isActive?: boolean;
+  activeColor?: string;
 };
 
 export interface Minors {
