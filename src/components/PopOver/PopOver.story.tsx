@@ -98,7 +98,7 @@ const ModalContent = (close, submit) => (
   </ModalStyled>
 );
 
-export const Example = () => {
+const Component = ({ label }) => {
   const ref = useRef(null);
   const [showModal, setShowModal] = useState(false);
   const [popoverActive, setPopoverActive] = useState(false);
@@ -120,13 +120,13 @@ export const Example = () => {
                 setShowModal(true);
               }}
             >
-              Item 1
+              button {label}
             </Pop.Item>
           </Pop.List>
         }
       >
         <button onClick={() => setPopoverActive(true)}>
-          Open popover
+          {label}
         </button>
       </PopOver>
       <Modal
@@ -137,5 +137,21 @@ export const Example = () => {
         )}
       />
     </>
+  );
+};
+
+export const Example = () => {
+  return (
+    <ul>
+      <li>
+        <Component label="Popover 1" />
+      </li>
+      <li>
+        <Component label="Popover 2" />
+      </li>
+      <li>
+        <Component label="Popover 3" />
+      </li>
+    </ul>
   );
 };
