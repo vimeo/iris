@@ -22,7 +22,7 @@ function SidebarComponent({
   children,
   attach = 'left',
   forwardRef,
-  activeColor,
+  activeStyles,
   onOpen,
   onClose,
   state = null,
@@ -65,8 +65,8 @@ function SidebarComponent({
       attach: attach === 'left' ? 'right' : 'left',
       onClick: toggle(child),
       key,
-      isActive: activeColor && active === child.props.label,
-      activeColor: activeColor,
+      isActive: activeStyles && active === child.props.label,
+      activeStyles,
     });
   }
 

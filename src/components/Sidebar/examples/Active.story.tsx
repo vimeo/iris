@@ -29,7 +29,14 @@ export function Active({ args }) {
 
   return (
     <Layout.FullBleed>
-      <Sidebar activeColor="yellow" state={state} {...args}>
+      <Sidebar
+        activeStyles={{
+          'background-color': 'green',
+          'border-radius': '100px',
+        }}
+        state={state}
+        {...args}
+      >
         <Sidebar.Item
           label="Sources"
           icon={<Camera />}

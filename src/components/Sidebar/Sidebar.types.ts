@@ -8,6 +8,8 @@ import {
 
 import { IrisProps, MinorComponent } from '../../utils';
 
+export type ActiveStyles = { [key: string]: string };
+
 export type Props = IrisProps<{
   /**
    * [default = 'left']
@@ -17,7 +19,7 @@ export type Props = IrisProps<{
   onOpen?: (active: string) => void;
   onClose?: (active: string) => void;
   state?: [string, Dispatch<SetStateAction<string>>];
-  activeColor?: string;
+  activeStyles?: ActiveStyles;
 }>;
 
 export interface ItemPropsExtrinsic {
@@ -35,7 +37,7 @@ export type ItemPropsIntrinsic = ItemPropsExtrinsic & {
   attach: Props['attach'];
   onClick: MouseEventHandler;
   isActive?: boolean;
-  activeColor?: string;
+  activeStyles?: ActiveStyles;
 };
 
 export interface Minors {

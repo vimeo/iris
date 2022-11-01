@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ItemPropsIntrinsic } from './Sidebar.types';
+import { ActiveStyles, ItemPropsIntrinsic } from './Sidebar.types';
 
 import { Button } from '../Button/Button';
 import { Tip } from '../Tip/Tip';
@@ -14,7 +14,7 @@ export function Item({
   label,
   onClick,
   isActive,
-  activeColor,
+  activeStyles,
   ...props
 }: ItemPropsIntrinsic) {
   return (
@@ -27,7 +27,7 @@ export function Item({
         size="md"
         variant="minimalTransparent"
         isActive={isActive}
-        backgroundColor={activeColor}
+        activeStyles={activeStyles}
         {...props}
       />
     </Tip>
@@ -36,14 +36,13 @@ export function Item({
 
 const ItemStyled = styled(Button)<{
   isActive?: boolean;
-  backgroundColor?: string;
+  activeStyles?: ActiveStyles;
 }>`
   height: 3rem;
   text-align: left;
   padding: 0.25rem 0.25rem 0.25rem 0.75rem;
   justify-content: start;
-  ${({ isActive, backgroundColor }) =>
-    isActive ? `background-color: ${backgroundColor}` : ''};
+  ${({ isActive, activeStyles }) => (isActive ? activeStyles : '')};
 
   > svg {
     padding: 0 !important;
