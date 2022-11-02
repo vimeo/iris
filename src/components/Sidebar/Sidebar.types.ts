@@ -8,7 +8,7 @@ import {
 
 import { IrisProps, MinorComponent } from '../../utils';
 
-export type ActiveStyles = { [key: string]: string };
+export type ActiveStyles = Record<string, string>;
 
 export type Props = IrisProps<{
   /**
