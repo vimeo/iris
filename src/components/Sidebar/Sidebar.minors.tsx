@@ -39,9 +39,10 @@ const ItemStyled = styled(Button)<{
   activeStyles?: ActiveStyles;
 }>`
   height: 3rem;
+  width: 3rem;
   text-align: left;
-  padding: 0.25rem 0.25rem 0.25rem 0.75rem;
-  justify-content: start;
+  padding: 0.25rem 0.25rem 0.25rem 0.25rem;
+  justify-content: center;
   ${({ isActive, activeStyles }) => (isActive ? activeStyles : '')};
 
   > svg {

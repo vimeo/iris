@@ -32,7 +32,6 @@ export function Active({ args }) {
       <Sidebar
         activeStyles={{
           'background-color': 'green',
-          'border-radius': '100px',
         }}
         state={state}
         {...args}
