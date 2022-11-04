@@ -1,3 +1,5 @@
+import { TranslatedStrings } from './translationTypes';
+
 const DATE_FORMAT_OPTIONS = {
   year: 'numeric',
   month: '2-digit',
@@ -69,20 +71,20 @@ export function getDateFormatRegex(format: string) {
   return new RegExp(`^${f}$`);
 }
 
-export function getMonthFromDate(dateObj: Date) {
+export function getMonthFromDate(dateObj: Date, translation: TranslatedStrings) {
   const monthNames = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
+    translation.months.january,
+    translation.months.february,
+    translation.months.march,
+    translation.months.april,
+    translation.months.may,
+    translation.months.june,
+    translation.months.july,
+    translation.months.august,
+    translation.months.september,
+    translation.months.october,
+    translation.months.november,
+    translation.months.december,
   ];
 
   return monthNames[dateObj.getMonth()];

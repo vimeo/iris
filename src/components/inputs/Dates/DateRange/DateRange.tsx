@@ -282,15 +282,21 @@ function DateRangeComponent({
   const getPresetLabel = (preset: PresetValue) => {
     if (typeof preset === 'number') {
       return preset < 0
-        ? `Last ${Math.abs(preset)} days`
-        : `Next ${preset} days`;
+        ? translation.lastDays(Math.abs(preset))
+        : translation.nextDays(preset);
     } else if (preset === 'current month') {
-      return getMonthFromDate(new Date());
+      return getMonthFromDate(new Date(), translation);
     } else if (preset === 'last month') {
       const dateOfLastMonth = new Date();
       dateOfLastMonth.setDate(1);
       dateOfLastMonth.setMonth(dateOfLastMonth.getMonth() - 1);
-      return getMonthFromDate(dateOfLastMonth);
+      return getMonthFromDate(dateOfLastMonth, translation);
+    } else if (preset === 'today') {
+      return translation.today;
+    } else if (preset === 'yesterday') {
+      return translation.yesterday;
+    } else if (preset === 'custom') {
+      return translation.custom;
     }
 
     return preset;

@@ -67,6 +67,7 @@ export function Translation({ args }) {
   return (
     <Layout.StoryVertical center>
       <DateRangeButton
+        presets={presets}
         translation={translations['ko-KR']}
         {...args}
       />
