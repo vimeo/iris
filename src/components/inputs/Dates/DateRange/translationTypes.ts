@@ -4,6 +4,11 @@ export interface TranslatedStrings {
   startDate: string;
   endDate: string;
   presets: string;
+  today: string;
+  yesterday: string;
+  custom: string;
+  lastDays: (days: number) => string;
+  nextDays: (days: number) => string;
   months: Months;
   daysAbbreviated: DaysOfWeek;
 }
