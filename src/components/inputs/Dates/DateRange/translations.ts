@@ -112,7 +112,7 @@ export const translations = {
     presets: 'Préréglage',
     today: "Aujourd'hui",
     yesterday: 'Hier',
-    custom: "Personnalisé",
+    custom: 'Personnalisé',
     lastDays: (days: number) => `${days} derniers jours`,
     nextDays: (days: number) => `${days} prochains jours`,
     months: {

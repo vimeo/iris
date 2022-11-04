@@ -71,7 +71,10 @@ export function getDateFormatRegex(format: string) {
   return new RegExp(`^${f}$`);
 }
 
-export function getMonthFromDate(dateObj: Date, translation: TranslatedStrings) {
+export function getMonthFromDate(
+  dateObj: Date,
+  translation: TranslatedStrings
+) {
   const monthNames = [
     translation.months.january,
     translation.months.february,
