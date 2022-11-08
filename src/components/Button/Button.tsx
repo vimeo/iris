@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import { ButtonStyled, ButtonChildren } from './Button.style';
 import { Props, DOMElement } from './Button.types';
@@ -16,6 +16,7 @@ import {
   centered,
   Focus,
   useDeprecate,
+  mergeRefs,
 } from '../../utils';
 
 export const Button = withIris<DOMElement, Props>(
@@ -46,10 +47,12 @@ function ButtonComponent({
   theme,
   type,
   variant = 'solid',
+  onClick,
   ...props
 }: Props) {
   // const irisError = useIrisError({ format, ...props }, Button);
   useDeprecate(props, deprecatedProps);
+  const buttonRef = useRef(null);
 
   const iconOnly = typeof children === 'undefined' && icon;
   const iconLeft = iconPosition === 'left' && icon;
@@ -73,12 +76,20 @@ function ButtonComponent({
       iconPosition={iconPosition}
       $loading={loading}
       pill={pill}
-      ref={forwardRef}
+      ref={mergeRefs([buttonRef, forwardRef])}
       size={size}
       textShift={textShift}
       theme={theme}
       type={type}
       variant={variant}
+      onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+        //Safari Button Focus Fix
+        buttonRef?.current?.focus();
+
+        if (onClick) {
+          onClick(event);
+        }
+      }}
       {...props}
       // {...irisError}
     >

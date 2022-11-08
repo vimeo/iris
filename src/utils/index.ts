@@ -10,6 +10,7 @@ export { removeElementByID } from './DOM/removeElementByID';
 export { SSR } from './DOM/SSR';
 export { stopPrevent } from './events/stopPrevent';
 export { throttle } from './general/throttle';
+export { mergeRefs } from './general/mergeReactRefs';
 
 // hooks
 export { useClose } from './events/onClose';
