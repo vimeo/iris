@@ -12,6 +12,8 @@ import {
   Action,
   Wrapper,
   SubMenu,
+  SvgWrapper,
+  ItemLabel,
 } from './Menu.style';
 
 import { MinorComponent, Focus } from '../../utils';
@@ -83,10 +85,18 @@ export function Item({
     <Wrapper active={active} $height={$height}>
       <ItemStyled
         onClick={doToggle}
-        as={link ? 'a' : 'button'}
+        as={toggle ? 'span' : link ? 'a' : 'button'}
         href={href}
+        hasToggle={toggle}
         {...props}
       >
+        {toggle && (
+          <Toggle open={open} aria-label={`${simpleKids}`}>
+            <ChevronDown />
+            <Focus parent={Toggle} />
+          </Toggle>
+        )}
+
         {action && (
           <Action onClick={doAction}>
             {action.icon}
@@ -94,20 +104,16 @@ export function Item({
           </Action>
         )}
 
-        {icon && icon}
-        {simpleKids}
+        {icon && <SvgWrapper>{icon}</SvgWrapper>}
+        <ItemLabel>{simpleKids}</ItemLabel>
         <Focus parent={ItemStyled} />
       </ItemStyled>
 
-      {toggle && (
-        <Toggle open={open}>
-          <ChevronDown />
-          <Focus parent={Toggle} />
-        </Toggle>
-      )}
       {open && complexKids && (
         <SubMenu total={complexKids.length}>{complexKids}</SubMenu>
       )}
+
+      {/* <Focus parent={toggle ? Toggle : ItemStyled} /> */}
     </Wrapper>
   );
 }

@@ -25,24 +25,15 @@ export const Action = styled.button`
   }
 `;
 
-export const Toggle = styled.div<{ open?: boolean }>`
+export const Toggle = styled.button<{ open?: boolean }>`
   width: 1.5rem;
   height: 1.5rem;
-  position: absolute;
-  top: 0.5rem;
-  left: -0.5rem;
   transition: 120ms ease-in-out;
 
   transform: ${(p) => (p.open ? 'rotate(0deg)' : 'rotate(-90deg)')};
 
   &:focus {
     outline: none;
-  }
-
-  > svg {
-    * {
-      fill: ${({ theme }) => theme.content.color};
-    }
   }
 `;
 
@@ -90,25 +81,32 @@ export const Wrapper = styled.div<{
       transition: 230ms ease-in-out;
       height: ${(p.$height + 1) * 2.5 + 0.25}rem;
     `}
+`;
+
+export const SvgWrapper = styled.span`
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
 
   > svg {
     width: 1.125rem;
     height: 1.125rem;
-    margin: 0 0.5rem 0 0;
     display: inline-block;
+  }
 
-    * {
-      fill: ${({ theme }) => rgba(theme.content.color, 0.667)};
-    }
+  * {
+    fill: ${({ theme }) => rgba(theme.content.color, 0.667)};
   }
 `;
 
-export const ItemStyled = styled.button<any>`
-  padding: 0.5rem 1.25rem;
+export const ItemStyled = styled.button<{ hasToggle?: boolean }>`
+  padding: ${(p) =>
+    p.hasToggle ? '0.5rem 1.25rem 0.5rem 0' : '0.5rem 1.5rem'};
   display: flex;
   flex-wrap: wrap;
   position: relative;
   align-items: center;
+  align-content: center;
   line-height: 1.5rem;
   border-radius: 0.2rem;
   font-size: 0.875rem;
@@ -132,16 +130,10 @@ export const ItemStyled = styled.button<any>`
     pointer-events: none;
     user-select: none;
   }
+`;
 
-  > svg {
-    width: 1.125rem;
-    height: 1.125rem;
-    margin-right: 1rem;
-
-    * {
-      fill: ${({ theme }) => rgba(theme.content.color, 0.667)};
-    }
-  }
+export const ItemLabel = styled.span`
+  padding-left: 0.5rem;
 `;
 
 export const MenuStyled = styled.div<{
@@ -162,17 +154,18 @@ export const MenuStyled = styled.div<{
 export const SubMenu = styled.div<{ total: number }>`
   width: 100%;
   padding-top: 0.25rem;
+  padding-left: 1rem;
 
   > div {
     animation: ${fade} 120ms ease-in-out both;
-
-    ${(p) =>
-      [...new Array(30)].map(
-        (_, i) => css`
-          &:nth-child(${i}) {
-            animation-delay: ${i * (20 + 100 / p.total)}ms;
-          }
-        `
-      )};
   }
+
+  ${(p) =>
+    [...new Array(30)].map(
+      (_, i) => css`
+        > :nth-child(${i}) {
+          animation-delay: ${i * (20 + 100 / p.total)}ms;
+        }
+      `
+    )};
 `;
