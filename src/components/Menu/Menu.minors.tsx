@@ -90,19 +90,19 @@ export function Item({
         {action && (
           <Action onClick={doAction}>
             {action.icon}
-            <Focus parent={Action} />
+            <Focus parent={Action} isKeyboardOnly />
           </Action>
         )}
 
         {icon && icon}
         {simpleKids}
-        <Focus parent={ItemStyled} />
+        <Focus parent={ItemStyled} isKeyboardOnly />
       </ItemStyled>
 
       {toggle && (
         <Toggle open={open}>
           <ChevronDown />
-          <Focus parent={Toggle} />
+          <Focus parent={Toggle} isKeyboardOnly />
         </Toggle>
       )}
       {open && complexKids && (
