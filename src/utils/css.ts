@@ -20,7 +20,14 @@ export const hidden = {
 };
 
 export const Focus = styled.div<any>`
-  ${({ parent, focused, variant, radius = 6, distance = 4 }) => {
+  ${({
+    parent,
+    focused,
+    variant,
+    radius = 6,
+    distance = 4,
+    isKeyboardOnly = false,
+  }) => {
     const underline =
       variant === 'underline' &&
       css`
@@ -29,6 +36,10 @@ export const Focus = styled.div<any>`
         border-left-color: rgba(0, 0, 0, 0) !important;
         border-right-color: rgba(0, 0, 0, 0) !important;
       `;
+
+    const focusPseudoSelector = isKeyboardOnly
+      ? ':focus-visible'
+      : ':focus';
 
     return css`
       z-index: 1;
@@ -43,9 +54,9 @@ export const Focus = styled.div<any>`
       opacity: 0;
       transition: 150ms ease-in-out;
 
-      ${parent}:focus > &,
-      ${parent}:focus ~ &,
-      ${parent}:focus ~ div > & {
+      ${parent}${focusPseudoSelector} > &,
+      ${parent}${focusPseudoSelector} ~ &,
+      ${parent}${focusPseudoSelector} ~ div > & {
         opacity: 1;
       }
 
