@@ -110,7 +110,10 @@ export function TourPoint({
             {steps && (
               <Steps onClick={stepBack}>
                 {getStepsTranslation
-                  ? getStepsTranslation({ step, steps })
+                  ? getStepsTranslation({
+                      currentStep: step,
+                      totalSteps: steps,
+                    })
                   : `Step ${step} of ${steps}`}
               </Steps>
             )}

@@ -10,13 +10,13 @@ import { Paragraph } from '../../../typography';
 export function InsidePopOver() {
   const [active, activeSet] = useState(false);
   const getStepsTranslation = ({
-    step,
-    steps,
+    currentStep,
+    totalSteps,
   }: {
-    step: number;
-    steps: number;
+    currentStep: number;
+    totalSteps: number;
   }) => {
-    return `step ${step} of ${steps}`;
+    return `step ${currentStep} of ${totalSteps}`;
   };
 
   return (

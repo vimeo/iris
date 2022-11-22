@@ -31,11 +31,11 @@ export interface Props {
   style?: CSSProperties;
   title?: HTMLElement['title'];
   getStepsTranslation?: ({
-    step,
-    steps,
+    currentStep,
+    totalSteps,
   }: {
-    step: number;
-    steps: number;
+    currentStep: number;
+    totalSteps: number;
   }) => string;
 }
 
