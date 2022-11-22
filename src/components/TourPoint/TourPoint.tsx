@@ -32,6 +32,7 @@ export function TourPoint({
   confirmation = 'Got it',
   dismission = 'Dismiss',
   content,
+  getStepsTranslation,
   onClose,
   src,
   step,
@@ -108,7 +109,9 @@ export function TourPoint({
           <Footer>
             {steps && (
               <Steps onClick={stepBack}>
-                Step {step} of {steps}
+                {getStepsTranslation
+                  ? getStepsTranslation({ step, steps })
+                  : `Step ${step} of ${steps}`}
               </Steps>
             )}
             {Dismiss}
