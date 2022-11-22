@@ -9,6 +9,15 @@ import { Paragraph } from '../../../typography';
 
 export function InsidePopOver() {
   const [active, activeSet] = useState(false);
+  const getStepsTranslation = ({
+    currentStep,
+    totalSteps,
+  }: {
+    currentStep: number;
+    totalSteps: number;
+  }) => {
+    return `step ${currentStep} of ${totalSteps}`;
+  };
 
   return (
     <div
@@ -31,6 +40,7 @@ export function InsidePopOver() {
                 attach="top"
                 src="http://placekitten.com/320/213"
                 step={1}
+                getStepsTranslation={getStepsTranslation}
                 title="A Fresh New Look"
                 content="All the leaves are brown and the sky is grey, I've been for a walk on a winters day."
               >

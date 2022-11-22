@@ -30,6 +30,13 @@ export interface Props {
   step: number;
   style?: CSSProperties;
   title?: HTMLElement['title'];
+  getStepsTranslation?: ({
+    currentStep,
+    totalSteps,
+  }: {
+    currentStep: number;
+    totalSteps: number;
+  }) => string;
 }
 
 type StepEvent = { direction: 'back' | 'next' | 'dismiss' };
