@@ -4,8 +4,8 @@ import {
   ReactNode,
   MouseEvent,
 } from 'react';
-
 export interface Props {
+  id?: string;
   active?: boolean;
   /**
    * Sets or retrieves a text alternative to the graphic.
@@ -27,7 +27,7 @@ export interface Props {
    * The address or URL of the a media resource that is to be considered.
    */
   src?: HTMLImageElement['src'];
-  step: number;
+  step?: number | null;
   style?: CSSProperties;
   title?: HTMLElement['title'];
   getStepsTranslation?: ({
