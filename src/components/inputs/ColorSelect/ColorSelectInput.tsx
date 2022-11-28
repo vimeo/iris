@@ -52,18 +52,19 @@ export function ColorSelectInput({
         }}
       >
         <Dot style={{ background: HEX }} />
-        {reset.label && HEX !== reset.color.toLowerCase() && (
-          <InnerButton
-            format="basic"
-            variant="minimalTransparent"
-            size={size}
-            onClick={resetValues}
-            tooltipText={reset.label}
-            height={height}
-          >
-            <History style={{ opacity: 0.5 }} />
-          </InnerButton>
-        )}
+        {reset.label &&
+          HEX.toLowerCase() !== reset.color.toLowerCase() && (
+            <InnerButton
+              format="basic"
+              variant="minimalTransparent"
+              size={size}
+              onClick={resetValues}
+              tooltipText={reset.label}
+              height={height}
+            >
+              <History style={{ opacity: 0.5 }} />
+            </InnerButton>
+          )}
       </Input>
     </div>
   );
