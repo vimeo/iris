@@ -36,7 +36,8 @@ function GridComponent({
   useEffect(() => {
     const lastGap = gridGap;
     const gap = parseInt(ref.current?.style?.gap.slice(0, -2) ?? 0);
-    const gapChanged = gap !== NaN && gap !== lastGap && gap > 0;
+    const gapChanged =
+      !Number.isNaN(gap) && gap !== lastGap && gap > 0;
 
     if (gapChanged) dispatch({ type: 'SET_GRID_GAP', payload: gap });
   }, [gridGap]);
