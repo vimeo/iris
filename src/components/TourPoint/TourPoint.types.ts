@@ -22,6 +22,7 @@ export interface Props {
   confirmation?: ReactNode;
   content?: ReactNode;
   dismission?: ReactNode;
+  onClick?: (event: MouseEvent) => void;
   onClose?: (event: MouseEvent, step: StepEvent) => void;
   /**
    * The address or URL of the a media resource that is to be considered.

@@ -40,6 +40,7 @@ const Template: Story<Props> = (args) => {
         step={1}
         title="A Fresh New Look"
         content="All the leaves are brown and the sky is grey, I've been for a walk on a winters day."
+        onClick={() => console.log('tourpoint clicked')}
       >
         <Card>1</Card>
       </TourPoint>
