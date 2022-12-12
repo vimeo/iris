@@ -97,6 +97,7 @@ export { PopIn } from './PopIn';
 export { PopOut } from './PopOut';
 export { Previous } from './Previous';
 export { Publish } from './Publish';
+export { Question } from './Question';
 export { Registration } from './Registration';
 export { Remove } from './Remove';
 export { ReviewCheck } from './ReviewCheck';

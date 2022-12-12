@@ -148,6 +148,7 @@ export { PopIn } from './ui/PopIn';
 export { PopOut } from './ui/PopOut';
 export { Previous } from './ui/Previous';
 export { Publish } from './ui/Publish';
+export { Question } from './ui/Question';
 export { Registration } from './ui/Registration';
 export { Remove } from './ui/Remove';
 export { ReviewCheck } from './ui/ReviewCheck';
