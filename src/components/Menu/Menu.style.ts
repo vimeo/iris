@@ -30,6 +30,7 @@ export const Toggle = styled.div<{ open?: boolean }>`
   height: 1.5rem;
   position: absolute;
   top: 0.5rem;
+  left: -0.1rem;
   transition: 120ms ease-in-out;
 
   transform: ${(p) => (p.open ? 'rotate(0deg)' : 'rotate(-90deg)')};
