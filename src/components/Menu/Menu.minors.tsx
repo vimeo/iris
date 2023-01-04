@@ -82,11 +82,17 @@ export function Item({
   return (
     <Wrapper active={active} $height={$height}>
       <ItemStyled
-        onClick={doToggle}
         as={link ? 'a' : 'button'}
         href={href}
+        onClick={doToggle}
         {...props}
       >
+        {toggle && (
+          <Toggle open={open}>
+            <ChevronDown />
+            <Focus parent={Toggle} isKeyboardOnly />
+          </Toggle>
+        )}
         {action && (
           <Action onClick={doAction}>
             {action.icon}
@@ -98,13 +104,6 @@ export function Item({
         {simpleKids}
         <Focus parent={ItemStyled} isKeyboardOnly />
       </ItemStyled>
-
-      {toggle && (
-        <Toggle open={open}>
-          <ChevronDown />
-          <Focus parent={Toggle} isKeyboardOnly />
-        </Toggle>
-      )}
       {open && complexKids && (
         <SubMenu total={complexKids.length}>{complexKids}</SubMenu>
       )}
