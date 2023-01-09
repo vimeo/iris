@@ -4,7 +4,7 @@ import { positive } from './positive';
 
 export const statuses = ['caution', 'negative', 'positive'] as const;
 
-export type Status = typeof statuses[number];
+export type Status = (typeof statuses)[number];
 
 export const status = {
   caution,
