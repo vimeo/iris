@@ -140,7 +140,7 @@ interface TrackProps {
   values: number[];
 }
 
-const Track = forwardRef(
+export const Track = forwardRef(
   ({ children, values, ...props }: TrackProps, ref) => {
     return (
       <Background ref={ref} {...props}>
