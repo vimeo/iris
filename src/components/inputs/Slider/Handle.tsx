@@ -53,11 +53,6 @@ export function Handle({
         ref={ref}
         readOnly
       />
-      <Focus
-        parent={Hidden}
-        radius={50}
-        focused={focused === handle || dragging === handle}
-      />
 
       {stickyLabel && (
         <Label focused={focused} stickyLabel={stickyLabel}>
