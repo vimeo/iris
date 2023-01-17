@@ -5,6 +5,7 @@ import {
   Hidden,
   LabelInput,
   Label,
+  UnitSign,
 } from './Slider.style';
 
 import { Focus } from '../../../utils';
@@ -13,6 +14,9 @@ export function Handle({
   disabled,
   dragging,
   editableLabel,
+  inputLabelArrows,
+  stickyLabel,
+  unitSignType,
   focused,
   formatter,
   handle,
@@ -55,22 +59,32 @@ export function Handle({
         focused={focused === handle || dragging === handle}
       />
 
-      <Label focused={focused}>
-        {editableLabel ? (
-          <>
-            <LabelInput
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-              onFocus={setFocus(handle)}
-              onBlur={setFocus(false)}
-              focused={focused === handle}
-            />
-            <Focus parent={LabelInput} distance={1} />
-          </>
-        ) : (
-          formatter(value)
-        )}
-      </Label>
+      {stickyLabel && (
+        <Label focused={focused} stickyLabel={stickyLabel}>
+          {editableLabel ? (
+            <>
+              <LabelInput
+                value={value}
+                stickyLabel={stickyLabel}
+                onChange={(e) => {
+                  setValue(e.target.value);
+                }}
+                onFocus={setFocus(handle)}
+                onBlur={setFocus(false)}
+                focused={focused === handle}
+                inputLabelArrows={inputLabelArrows}
+              />
+              <Focus parent={LabelInput} distance={1} />
+              <UnitSign>{unitSignType}</UnitSign>
+            </>
+          ) : (
+            <div>
+              {formatter(value)}
+              {unitSignType}
+            </div>
+          )}
+        </Label>
+      )}
     </HandleStyled>
   );
 }

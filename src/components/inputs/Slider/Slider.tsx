@@ -10,11 +10,17 @@ import React, {
 
 import { Props } from './Slider.types';
 import { initialState, reducer } from './Slider.state';
-import { Background, ActiveRange } from './Slider.style';
+import {
+  Background,
+  ActiveRange,
+  Label,
+  LabelInput,
+  UnitSign,
+} from './Slider.style';
 import { Handle } from './Handle';
 
 import { white } from '../../../color';
-import { geometry } from '../../../utils';
+import { Focus, geometry } from '../../../utils';
 
 interface State {
   values: number[];
@@ -26,6 +32,9 @@ interface State {
 export function Slider({
   disabled,
   editableLabel,
+  stickyLabel,
+  inputLabelArrows,
+  unitSignType,
   formatter = (value) => value as unknown as string,
   initialValues = [0, 100],
   max = 100,
@@ -81,7 +90,9 @@ export function Slider({
     function mousemove(event) {
       if (dragging) {
         const pos = constrainedPosition(event, trackRect, min, max);
-        if (dragging === 'startHandle') setStartValue(pos);
+        if (dragging === 'startHandle') {
+          setStartValue(pos);
+        }
         if (dragging === 'endHandle') setEndValue(pos);
       }
     }
@@ -92,13 +103,24 @@ export function Slider({
       document.removeEventListener('mousemove', mousemove);
   });
 
+  console.log(formatter(formatter(values[0]) + unitSignType));
   return (
-    <div {...props} style={{ color: white, margin: '4rem 0' }}>
-      <Track ref={ref} values={values} id="track-1">
+    <div
+      {...props}
+      style={{
+        color: white,
+        margin: '4rem 0',
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      <Track ref={ref} values={values} id="track-1" range={range}>
         <Handle
           disabled={disabled}
           dragging={dragging}
           editableLabel={editableLabel}
+          inputLabelArrows={inputLabelArrows}
+          stickyLabel={stickyLabel}
           focused={focused}
           formatter={formatter}
           handle="startHandle"
@@ -109,6 +131,7 @@ export function Slider({
           setFocus={setFocus}
           setValue={setStartValue}
           value={values[0]}
+          unitSignType={unitSignType}
         />
 
         {range && (
@@ -116,6 +139,8 @@ export function Slider({
             disabled={disabled}
             dragging={dragging}
             editableLabel={editableLabel}
+            inputLabelArrows={inputLabelArrows}
+            stickyLabel={stickyLabel}
             focused={focused}
             formatter={formatter}
             handle="endHandle"
@@ -126,9 +151,36 @@ export function Slider({
             setFocus={setFocus}
             setValue={setEndValue}
             value={values[1]}
+            unitSignType={unitSignType}
           />
         )}
       </Track>
+      {!stickyLabel && (
+        <Label focused={focused} stickyLabel={stickyLabel}>
+          {editableLabel ? (
+            <>
+              <LabelInput
+                value={values[0]}
+                onChange={(e) => {
+                  setStartValue(e.target.value);
+                }}
+                onFocus={setFocus('startHandle')}
+                onBlur={setFocus(false)}
+                focused={focused === !!'startHandle'}
+                stickyLabel={stickyLabel}
+                inputLabelArrows={inputLabelArrows}
+              />
+              <Focus parent={LabelInput} distance={1} />
+              <UnitSign>{unitSignType}</UnitSign>
+            </>
+          ) : (
+            <div>
+              {formatter(values[0])}
+              {unitSignType}
+            </div>
+          )}
+        </Label>
+      )}
     </div>
   );
 }
@@ -138,14 +190,15 @@ interface TrackProps {
   id?: string;
   ref: Ref<HTMLDivElement>;
   values: number[];
+  range: boolean;
 }
 
 const Track = forwardRef(
-  ({ children, values, ...props }: TrackProps, ref) => {
+  ({ children, values, range, ...props }: TrackProps, ref) => {
     return (
-      <Background ref={ref} {...props}>
+      <Background range={range} ref={ref} {...props}>
         {children}
-        <ActiveRange values={values}></ActiveRange>
+        <ActiveRange range={range} values={values}></ActiveRange>
       </Background>
     );
   }

@@ -12,11 +12,31 @@ export interface Props {
    */
   editableLabel?: boolean;
   /**
+   * Whether the label is sticky to the handle.
+   * If false, the label will be positioned to the right of the slider.
+   *
+   * [default = false]
+   */
+  stickyLabel?: boolean;
+  /**
+   * Can only be used if the label is editable.
+   * If true, adds the option to edit the input by arrows.
+   *
+   * [default = false]
+   */
+  inputLabelArrows?: boolean;
+  /**
+   * The unit of measurment that is presented in the input.
+   *
+   * [default = undefined]
+   */
+  unitSignType?: '%' | '°' | 'ms' | undefined;
+  /**
    * The function that provides formatting to the handle labels
    *
    * [default = 'basic']
    */
-  formatter?: (value: number) => string;
+  formatter?: (value: number | string) => string;
   /**
    * The initial value of the handle(s)
    *

@@ -3,14 +3,14 @@
 export function getCoord(element, position, options) {
   if (!isBrowser) {
     throw new Error(
-      'textarea-caret-position#getCaretCoordinates should only be called in a browser',
+      'textarea-caret-position#getCaretCoordinates should only be called in a browser'
     );
   }
 
   var debug = (options && options.debug) || false;
   if (debug) {
     var el = document.querySelector(
-      '#input-textarea-caret-position-mirror-div',
+      '#input-textarea-caret-position-mirror-div'
     );
     if (el) el.parentNode.removeChild(el);
   }
@@ -35,7 +35,7 @@ export function getCoord(element, position, options) {
   if (!debug) style.visibility = 'hidden'; // not 'display: none' because we want rendering
 
   // Transfer the element's properties to the div
-  properties.forEach(function(prop) {
+  properties.forEach(function (prop) {
     if (isInput && prop === 'lineHeight') {
       // Special case for <input>s because text is rendered centered and line height may be != height
       if (computed.boxSizing === 'border-box') {
