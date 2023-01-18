@@ -30,7 +30,7 @@ export interface Props {
    *
    * [default = undefined]
    */
-  unitSignType?: '%' | '°' | 'ms' | undefined;
+  unitSignType?: '%' | '°' | undefined;
   /**
    * The function that provides formatting to the handle labels
    *
