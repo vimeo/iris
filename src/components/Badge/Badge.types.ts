@@ -42,6 +42,7 @@ type Format =
   | 'plus'
   | 'producer'
   | 'pro'
+  | 'restricted'
   | 'spatial'
   | 'sponsor'
   | 'staff'

@@ -205,6 +205,13 @@ export function format({ $format, href = null }) {
         border: 1px solid ${color};
       `;
     }
+    case 'restricted': {
+      return css`
+        color: ${white};
+        background-color: ${red(500)};
+        opacity: 0.7;
+      `;
+    }
     case 'sponsor':
       return basicBadge(green(500));
     case 'partner':
