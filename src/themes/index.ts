@@ -10,6 +10,7 @@ export interface IrisTheme {
   inputs: { [key: string]: string };
   shadows: { [key: string]: string };
   a11y: { [key: string]: string | number | boolean };
+  components?: { [key: string]: any };
 }
 
 export type Formats = 'basic' | 'soft' | 'alternative' | 'secondary' | 'primary';
@@ -62,6 +63,17 @@ export const themes: {
       600: `box-shadow: 0 0 0.667rem -0.0425rem ${rgba(black, 0.25)};`,
       800: `box-shadow: 0 0 0.778rem -0.04rem ${rgba(black, 0.3)};`,
       1000: `box-shadow: 0 0 0.889rem -0.0375rem ${rgba(black, 0.35)};`,
+    },
+    components: {
+      Button: {
+        variants: {
+          test: {
+            border: '5px',
+            background: grayscale(910),
+            color: white,
+          },
+        },
+      },
     },
   },
   dark: {

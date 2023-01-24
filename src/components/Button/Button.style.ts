@@ -233,6 +233,7 @@ function buttonVariants({
   theme,
   variant,
 }) {
+  console.log(theme.components.Button.variants[variant]);
   // Temporary until CSSVar design tokens are released and Button
   // style logic is rewritten.
   if (format === 'upsell') return;
@@ -254,6 +255,13 @@ function buttonVariants({
   const contrastTextActive = a11yColor(activeColor);
 
   switch (variant) {
+    case 'test':
+      return css`
+        border: ${theme.components.Button.variants[variant].border};
+        background: ${theme.components.Button.variants[variant]
+          .background};
+        color: ${theme.components.Button.variants[variant].color};
+      `;
     case 'outline':
       return css`
         border: ${borderWidth} solid ${borderColor};

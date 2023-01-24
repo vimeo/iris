@@ -34,9 +34,12 @@ const Button = styled(B)`
 
 export function Disabled({ args }) {
   return (
-    <Button disabled {...args}>
-      Button
-    </Button>
+    <>
+      <Button disabled {...args}>
+        Button
+      </Button>
+      <Button variant="test">Button</Button>
+    </>
   );
 }
 Disabled.storyName = 'disabled';

@@ -15,6 +15,7 @@ export const variants = [
   'minimal',
   'minimalTransparent',
   'hyperminimal',
+  'test',
 ] as const;
 export const sizes = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
 export const iconPositions = [
