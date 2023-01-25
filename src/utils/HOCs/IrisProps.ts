@@ -249,7 +249,6 @@ export type IrisInputProps<
     autoFocus?: boolean;
     capture?: boolean | 'user' | 'environment'; // https://www.w3.org/TR/html-media-capture/#the-capture-attribute
     checked?: boolean;
-    crossOrigin?: string;
     defaultChecked?: boolean;
     defaultValue?: string | string[] | number | boolean;
     label?: ReactNode;
