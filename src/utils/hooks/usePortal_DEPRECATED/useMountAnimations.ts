@@ -1,9 +1,10 @@
-import { useState, useLayoutEffect, useMemo, useRef } from 'react';
+import { useState, useMemo, useRef } from 'react';
 
 import { PortalConfig } from './usePortal_DEPRECATED.types';
 
 import { onEvent } from '../../events';
 import { getComputedStyles, animate } from '../../DOM';
+import { useIsomorphicEffect } from '../useIsomorphicEffect';
 
 const initialState = {
   active: false,
@@ -29,7 +30,7 @@ export function useMountAnimations(
   const controlled = forceActive === true || forceActive === false;
   const forcedClose = !forceActive && lastForceActive.current;
 
-  useLayoutEffect(() => {
+  useIsomorphicEffect(() => {
     if (element) {
       const curDuration = parseFloat(
         getComputedStyles(element, ['animation-duration'])[
@@ -55,7 +56,7 @@ export function useMountAnimations(
     [duration]
   );
 
-  useLayoutEffect(() => {
+  useIsomorphicEffect(() => {
     if (!controlled && element && exiting) {
       animateExit(childRef, animation);
       if (screen) animateExit(screenRef, defaultAnimation);
