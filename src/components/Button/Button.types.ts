@@ -49,13 +49,13 @@ export type Props = IrisProps<
     /**
      * [default = 'primary']
      */
-    format?: (typeof formats)[number];
+    format?: typeof formats[number];
     href?: string;
     icon?: ReactNode;
     /**
      * [default = 'left']
      */
-    iconPosition?: (typeof iconPositions)[number];
+    iconPosition?: typeof iconPositions[number];
     loading?: boolean;
     /**
      * @deprecated
@@ -72,7 +72,7 @@ export type Props = IrisProps<
     /**
      * [default = 'md']
      */
-    size?: (typeof sizes)[number];
+    size?: typeof sizes[number];
     status?: Statuses;
     target?: Targets;
     /**
@@ -90,7 +90,7 @@ export type Props = IrisProps<
     /**
      * [default = 'solid']
      */
-    variant?: (typeof variants)[number];
+    variant?: typeof variants[number];
   },
   DOMElement
 >;
