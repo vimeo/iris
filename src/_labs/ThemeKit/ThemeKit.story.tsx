@@ -35,7 +35,7 @@ const box = {
 };
 
 function ThemeKit(props) {
-  const globalTheme = useContext(ThemeContext);
+  const { globalTheme } = useContext(ThemeContext);
   const subTheme = globalTheme.name;
 
   const [theme, setTheme] = useState(themes.vimeo);

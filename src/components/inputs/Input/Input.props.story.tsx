@@ -211,3 +211,9 @@ export function Autosuggest() {
   );
 }
 Autosuggest.storyName = 'autosuggest';
+
+export function Number() {
+  <Layout.StoryVertical>
+    <Input type="number" variant="underline" />
+  </Layout.StoryVertical>;
+}
