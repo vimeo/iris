@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 
@@ -14,7 +15,7 @@ const padding = '2rem';
 export const Common = () => <HookedStory />;
 
 function HookedStory() {
-  const { theme } = useContext(ThemeContext);
+  const theme = useContext(ThemeContext);
 
   return (
     <div>
@@ -109,7 +110,7 @@ function HookedStory() {
 }
 
 function ThemeBlock({ block }) {
-  const { theme } = useContext(ThemeContext);
+  const theme = useContext(ThemeContext);
   const section = Object.entries(theme[block]);
 
   return (

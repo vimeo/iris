@@ -62,10 +62,10 @@ const Pre = styled.pre`
 `;
 
 function Code({ children, ...props }) {
-  const { theme } = useContext(ThemeContext);
+  const { name } = useContext(ThemeContext);
 
   const saturation = 1;
-  const lightness = theme.name === 'dark' ? 0.667 : 0.4;
+  const lightness = name === 'dark' ? 0.667 : 0.4;
 
   const color = (i) =>
     hslToColorString({
