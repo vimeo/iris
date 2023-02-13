@@ -67,7 +67,7 @@ export function Slider({
   useLayoutEffect(() => {
     const { left, width } = geometry(ref.current);
     dispatch({ type: 'SET_TRACK_RECT', payload: { left, width } });
-  }, []);
+  }, [dragging]);
 
   useEffect(() => {
     const mouseup = () => dragging && setDragging(false);
