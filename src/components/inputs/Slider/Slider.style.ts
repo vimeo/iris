@@ -72,14 +72,15 @@ export const Background = styled.div`
   border-radius: 0.125rem;
 `;
 
-export const ActiveRange = styled.div.attrs<{ values?: number[] }>(
-  ({ values }) => ({
-    style: {
-      width: values[1] - values[0] + '%',
-      left: values[0] + '%',
-    },
-  })
-)<{ values?: number[] }>`
+export const ActiveRange = styled.div.attrs<{
+  values?: number[];
+  max?: number;
+}>(({ values, max }) => ({
+  style: {
+    width: ((values[1] - values[0]) / max) * 100 + '%',
+    left: (values[0] / max) * 100 + '%',
+  },
+}))<{ values?: number[]; max?: number }>`
   pointer-events: none;
   position: absolute;
   height: 100%;

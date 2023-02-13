@@ -68,7 +68,15 @@ export function InPopover({ ...args }) {
   return (
     <Layout.StoryPadded>
       <Slider editableLabel />
-      <Slider {...args} editableLabel range />
+      <Slider initialValues={[40, 100]} />
+      <Slider
+        {...args}
+        editableLabel
+        range
+        initialValues={[177, 200]}
+        max={200}
+        min={0}
+      />
       <div
         style={{
           display: 'flex',
@@ -82,7 +90,7 @@ export function InPopover({ ...args }) {
           content={PopOverContent}
         >
           <Button onClick={() => setActive(!active)}>
-            Open PopOver
+            Open Popover with Sliders
           </Button>
         </PopOver>
       </div>
@@ -98,6 +106,14 @@ const PopOverContent = (
       padding: '3rem',
     }}
   >
-    <Slider editableLabel range />
+    <Slider editableLabel />
+    <Slider initialValues={[40, 100]} />
+    <Slider
+      editableLabel
+      range
+      initialValues={[177, 200]}
+      max={200}
+      min={0}
+    />
   </div>
 );

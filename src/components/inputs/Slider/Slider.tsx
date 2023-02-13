@@ -94,7 +94,7 @@ export function Slider({
 
   return (
     <div {...props} style={{ color: white, margin: '4rem 0' }}>
-      <Track ref={ref} values={values} id="track-1">
+      <Track ref={ref} values={values} id="track-1" max={max}>
         <Handle
           disabled={disabled}
           dragging={dragging}
@@ -138,14 +138,15 @@ interface TrackProps {
   id?: string;
   ref: Ref<HTMLDivElement>;
   values: number[];
+  max: number;
 }
 
 const Track = forwardRef(
-  ({ children, values, ...props }: TrackProps, ref) => {
+  ({ children, values, max, ...props }: TrackProps, ref) => {
     return (
       <Background ref={ref} {...props}>
         {children}
-        <ActiveRange values={values}></ActiveRange>
+        <ActiveRange values={values} max={max}></ActiveRange>
       </Background>
     );
   }
@@ -153,7 +154,7 @@ const Track = forwardRef(
 
 function constrainedPosition(event, element, min, max) {
   const left = event.clientX - element.left;
-  const pos = Math.round((left / element.width) * 100);
+  const pos = Math.round((left / element.width) * max);
 
   return constrain(min, max)(pos);
 }
