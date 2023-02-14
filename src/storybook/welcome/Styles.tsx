@@ -1,5 +1,5 @@
 import React from 'react';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { createGlobalStyle, ThemeContext } from 'styled-components';
 import { rgba } from 'polished';
 
 export const GlobalStyles = createGlobalStyle`
@@ -62,7 +62,11 @@ export function Themed({ children }) {
   const current = localStorage.getItem('nox-addon-theme');
   const theme = themes[current];
 
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return (
+    <ThemeContext.Provider value={theme}>
+      {children}
+    </ThemeContext.Provider>
+  );
 }
 
 export function Styles() {
