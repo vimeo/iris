@@ -19,6 +19,7 @@ export function Handle({
   max,
   min,
   onChange,
+  onDragEnd,
   setDragging,
   setFocus,
   setValue,
@@ -37,7 +38,10 @@ export function Handle({
     <HandleStyled
       focused={focused === handle || dragging === handle}
       style={{ left: (value / max) * 100 + '%' }}
-      onMouseDown={() => !disabled && setDragging(handle)}
+      onMouseDown={() => {
+        !disabled && setDragging(handle);
+      }}
+      onMouseUp={() => dragging && onDragEnd()}
       {...props}
     >
       <Hidden

@@ -20,6 +20,7 @@ export function Range({ args }) {
         initialValues={[20, 50]}
         formatter={(value) => value + 'm'}
         onChange={(n) => console.log(n?.target?.value)}
+        onDragEnd={() => console.log('onDragEnd')}
         css={`
           width: 50%;
         `}

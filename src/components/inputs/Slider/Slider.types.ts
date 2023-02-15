@@ -36,6 +36,7 @@ export interface Props {
    */
   min?: number;
   onChange?: ChangeEventHandler;
+  onDragEnd?: ChangeEventHandler;
   /**
    * If true, there will be two handles to select a range of numbers.
    * If false, there will only be one handle.
