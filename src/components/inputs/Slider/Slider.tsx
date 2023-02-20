@@ -71,8 +71,10 @@ export function Slider({
   }, [dragging]);
 
   useEffect(() => {
-    const mouseup = () => dragging && setDragging(false);
-
+    const mouseup = (event) => {
+      dragging && setDragging(false);
+      onDragEnd && onDragEnd(event);
+    };
     document && document.addEventListener('mouseup', mouseup);
     return () =>
       document && document.removeEventListener('mouseup', mouseup);
