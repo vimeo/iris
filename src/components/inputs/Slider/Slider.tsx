@@ -31,6 +31,7 @@ export function Slider({
   max = 100,
   min = 0,
   onChange,
+  onDragEnd,
   range,
   ...props
 }: Props) {
@@ -105,6 +106,7 @@ export function Slider({
           max={max}
           min={min}
           onChange={onChange}
+          onDragEnd={onDragEnd}
           setDragging={setDragging}
           setFocus={setFocus}
           setValue={setStartValue}
@@ -122,6 +124,7 @@ export function Slider({
             max={max}
             min={min}
             onChange={onChange}
+            onDragEnd={onDragEnd}
             setDragging={setDragging}
             setFocus={setFocus}
             setValue={setEndValue}

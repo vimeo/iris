@@ -20,6 +20,7 @@ export function Range({ args }) {
         initialValues={[20, 50]}
         formatter={(value) => value + 'm'}
         onChange={(n) => console.log(n?.target?.value)}
+        onDragEnd={() => console.log('dragging ended')}
         css={`
           width: 50%;
         `}
@@ -38,6 +39,7 @@ export function MinMax({ args }) {
         max={90}
         initialValues={[10, 90]}
         onChange={(n) => console.log(n?.target?.value)}
+        onDragEnd={() => console.log('dragging ended')}
         css={`
           width: 50%;
         `}
@@ -54,6 +56,7 @@ export function EditableLabel({ args }) {
         editableLabel
         range
         onChange={(n) => console.log(n?.target?.value)}
+        onDragEnd={() => console.log('dragging ended')}
         css={`
           width: 50%;
         `}
