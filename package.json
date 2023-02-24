@@ -15,6 +15,7 @@
     "sideEffects": false,
     "dependencies": {
       "react-colorful": "^5.6.1",
+      "react-tiny-popover": "^7.2.3",
       "@babel/runtime": "^7.21.0"
      },
     "devDependencies": {
