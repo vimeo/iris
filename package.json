@@ -171,5 +171,8 @@
     ],
     "volta": {
         "node": "16.17.0"
+    },
+    "dependencies": {
+        "react-colorful": "^5.6.1"
     }
 }

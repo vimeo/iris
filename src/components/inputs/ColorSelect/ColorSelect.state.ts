@@ -5,8 +5,6 @@ import { colorSpaces } from '../../../color';
 export interface State {
   colorMeta: { HEX: any; RGB: any; HSL: any; HSV: any };
   colorSpace: 'HEX' | 'RGB' | 'HSL';
-  coords: [number, number];
-  dragging: boolean;
   editing: boolean;
   error: boolean;
   open: boolean;
@@ -18,12 +16,6 @@ export function reducer(state: State, { type, payload = null }) {
       return { ...state, open: !state.open };
     case 'CLOSE':
       return { ...state, open: false };
-    case 'DRAG_START':
-      return { ...state, dragging: true };
-    case 'DRAG_END':
-      return { ...state, dragging: false };
-    case 'SET_COORDS':
-      return { ...state, coords: payload };
     case 'SET_COLORSPACE':
       return { ...state, colorSpace: payload };
     case 'SET_ERROR':

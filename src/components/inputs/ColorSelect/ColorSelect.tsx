@@ -1,11 +1,10 @@
 import React, { useReducer, useRef, useEffect } from 'react';
-import { parseToHsl, hslToColorString } from 'polished';
+import { parseToHsl } from 'polished';
 
 import { Wrapper } from './ColorSelect.style';
 import { Props } from './ColorSelect.types';
 import { State, reducer } from './ColorSelect.state';
 
-import { HueSlider } from './Slider';
 import { ColorInputs } from './Inputs';
 import { ColorSelectInput } from './ColorSelectInput';
 import { ColorSelectSpectrum } from './ColorSelectSpectrum';
@@ -15,7 +14,6 @@ import { PopOver } from '../../PopOver/PopOver';
 import {
   withIris,
   MinorComponent,
-  throttle,
   useOutsideClick,
 } from '../../../utils';
 import { colorSpaces } from '../../../color';
@@ -54,7 +52,6 @@ function ColorSelectComponent({
   width = 360,
   attach = 'bottom',
   showHueSlider = true,
-  ...props
 }: Props) {
   const childrenRef = useRef();
   const popOverRef = useRef();
@@ -76,17 +73,14 @@ function ColorSelectComponent({
 
   const initialState: State = {
     open: false,
-    dragging: false,
     editing: false,
     error: false,
-    coords: [width, 0],
     colorMeta: { HSL: defaultColor, ...initialColors },
     colorSpace: 'HEX',
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { open, dragging, colorMeta } = state;
-  const { HSL } = colorMeta;
+  const { open, colorMeta } = state;
 
   useEffect(() => {
     dispatch({ type: 'SET_HEX', payload: value });
@@ -98,48 +92,23 @@ function ColorSelectComponent({
     dispatch({ type: 'TOGGLE' });
   };
 
-  const setHue = throttle((e) => {
-    const hue = parseInt(e.target.value, 10) / 100;
-    const newHSL = { ...HSL, hue };
-
-    if (HSL.hue !== newHSL.hue) {
-      const color = hslToColorString(newHSL);
-      onChange && onChange(color);
-      dispatch({ type: 'SET_HSL', payload: newHSL });
-    }
-  }, throttleSpeed / 4);
-
-  const onMouseDown = () =>
-    !dragging && dispatch({ type: 'DRAG_START' });
-  const onMouseUp = () => dragging && dispatch({ type: 'DRAG_END' });
-
   return (
     <PopOver
       attach={attach}
       active={open}
       content={
-        <Wrapper width={width} ref={popOverRef}>
+        <Wrapper
+          width={width}
+          height={height}
+          showHueSlider={showHueSlider}
+          ref={popOverRef}
+        >
           <ColorSelectSpectrum
             dispatch={dispatch}
-            dragging={dragging}
-            height={height}
             onChange={onChange}
             throttleSpeed={throttleSpeed}
-            width={width}
-            {...state}
-            {...props}
+            value={colorMeta.HEX}
           />
-          {showHueSlider && (
-            <HueSlider
-              dragging={dragging}
-              onChange={setHue}
-              onMouseDown={onMouseDown}
-              onMouseUp={onMouseUp}
-              value={HSL.hue * 100}
-              width={width}
-              {...state}
-            />
-          )}
           <ColorInputs
             dispatch={dispatch}
             onChange={onChange}
