@@ -102,6 +102,7 @@ function ColorSelectComponent({
           height={height}
           showHueSlider={showHueSlider}
           ref={popOverRef}
+          data-testid="color-select-picker"
         >
           <ColorSelectSpectrum
             dispatch={dispatch}
@@ -118,7 +119,11 @@ function ColorSelectComponent({
       }
     >
       {children ? (
-        <div onClick={toggle} ref={childrenRef}>
+        <div
+          onClick={toggle}
+          ref={childrenRef}
+          data-testid="color-select-trigger"
+        >
           {children}
         </div>
       ) : (
