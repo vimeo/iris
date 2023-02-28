@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import '@testing-library/jest-dom';
 import {
   fireEvent,
