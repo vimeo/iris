@@ -2,11 +2,11 @@ import React from 'react';
 import { HexColorPicker } from 'react-colorful';
 import { throttle } from '../../../utils';
 import {
-  ColorSpectrumWrapper,
+  ColorSelectPickerWrapper,
   SelectedColor,
 } from './ColorSelect.style';
 
-export function ColorSelectSpectrum({
+export function ColorSelectPicker({
   value,
   dispatch,
   onChange,
@@ -18,12 +18,12 @@ export function ColorSelectSpectrum({
   }, throttleSpeed);
 
   return (
-    <ColorSpectrumWrapper data-testid="color-select-spectrum">
+    <ColorSelectPickerWrapper data-testid="color-select-picker">
       <SelectedColor
         color={value}
         data-testid="color-select-selected-value"
       />
       <HexColorPicker color={value} onChange={handleChange} />
-    </ColorSpectrumWrapper>
+    </ColorSelectPickerWrapper>
   );
 }

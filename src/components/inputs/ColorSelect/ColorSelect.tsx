@@ -7,7 +7,7 @@ import { State, reducer } from './ColorSelect.state';
 
 import { ColorInputs } from './Inputs';
 import { ColorSelectInput } from './ColorSelectInput';
-import { ColorSelectSpectrum } from './ColorSelectSpectrum';
+import { ColorSelectPicker } from './ColorSelectPicker';
 import { Presets, Props as PresetsProps } from './Presets';
 
 import { PopOver } from '../../PopOver/PopOver';
@@ -102,9 +102,8 @@ function ColorSelectComponent({
           height={height}
           showHueSlider={showHueSlider}
           ref={popOverRef}
-          data-testid="color-select-picker"
         >
-          <ColorSelectSpectrum
+          <ColorSelectPicker
             dispatch={dispatch}
             onChange={onChange}
             throttleSpeed={throttleSpeed}

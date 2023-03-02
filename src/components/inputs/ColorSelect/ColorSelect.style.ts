@@ -71,6 +71,6 @@ export const SelectedColor = styled.div.attrs(
   border-radius: 50%;
 `;
 
-export const ColorSpectrumWrapper = styled.div`
+export const ColorSelectPickerWrapper = styled.div`
   position: relative;
 `;
