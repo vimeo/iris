@@ -18,11 +18,8 @@ export function ColorSelectPicker({
   }, throttleSpeed);
 
   return (
-    <ColorSelectPickerWrapper data-testid="color-select-picker">
-      <SelectedColor
-        color={value}
-        data-testid="color-select-selected-value"
-      />
+    <ColorSelectPickerWrapper aria-label="color picker">
+      <SelectedColor color={value} aria-label="color preview" />
       <HexColorPicker color={value} onChange={handleChange} />
     </ColorSelectPickerWrapper>
   );

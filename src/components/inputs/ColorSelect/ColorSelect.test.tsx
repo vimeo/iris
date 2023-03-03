@@ -6,6 +6,7 @@ import {
   RenderOptions,
   screen,
 } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { ColorSelect } from './ColorSelect';
 import { ThemeProvider } from 'styled-components';
 import { themes } from '../../../themes';
@@ -26,77 +27,71 @@ const TEST_COLOR = '#CCCCCC';
 describe('ColorSelect', () => {
   it('Renders ColorSelect input', () => {
     renderWithThemeProvider(<ColorSelect />);
-    const input = screen.getByTestId('color-select-input');
+    const input = screen.getByLabelText('color');
     expect(input).toBeInTheDocument();
   });
 
-  it('Renders ColorSelect picker using input', () => {
+  it('Renders ColorSelect picker using input', async () => {
     renderWithThemeProvider(<ColorSelect />);
-    const input = screen.getByTestId('color-select-input');
-    fireEvent.click(input);
-    const picker = screen.getByTestId('color-select-picker');
+    const input = screen.getByLabelText('color');
+    await userEvent.click(input);
+    const picker = screen.getByLabelText('color picker');
     expect(picker).toBeInTheDocument();
   });
 
-  it('Renders ColorSelect picker using children', () => {
+  it('Renders ColorSelect picker using children', async () => {
     renderWithThemeProvider(
       <ColorSelect>
         <button data-testid="trigger" />
       </ColorSelect>
     );
     const trigger = screen.getByTestId('trigger');
-    fireEvent.click(trigger);
-    const picker = screen.getByTestId('color-select-picker');
+    await userEvent.click(trigger);
+    const picker = screen.getByLabelText('color picker');
     expect(picker).toBeInTheDocument();
   });
 
-  it('Set ColorSelect color using prop', () => {
+  it('Set ColorSelect color using prop', async () => {
     renderWithThemeProvider(<ColorSelect value={TEST_COLOR} />);
-    const input = screen.getByTestId('color-select-input');
-    fireEvent.click(input);
+    const input = screen.getByLabelText('color');
+    await userEvent.click(input);
 
-    const selectedColor = screen.getByTestId(
-      'color-select-selected-value'
-    );
+    const selectedColor = screen.getByLabelText('color preview');
     const selectedColorValue = selectedColor.getAttribute('color');
     expect(selectedColorValue).toBe(TEST_COLOR);
   });
 
   it('Change ColorSelect color using input', async () => {
     renderWithThemeProvider(<ColorSelect />);
-    const input = screen.getByTestId('color-select-input');
-    fireEvent.click(input);
+    const input = screen.getByLabelText('color');
+    await userEvent.click(input);
 
     fireEvent.change(input, { target: { value: TEST_COLOR } });
 
-    const selectedColor = screen.getByTestId(
-      'color-select-selected-value'
-    );
+    const selectedColor = screen.getByLabelText('color preview');
     const selectedColorValue = selectedColor.getAttribute('color');
     expect(selectedColorValue).toBe(TEST_COLOR);
   });
 
   it('Resets ColorSelect color using reset button', async () => {
     renderWithThemeProvider(<ColorSelect />);
-    const input = screen.getByTestId('color-select-input');
-    fireEvent.click(input);
+    const input = screen.getByLabelText('color');
+    await userEvent.click(input);
 
     fireEvent.change(input, { target: { value: TEST_COLOR } });
 
-    const resetButton = screen.getByTestId('color-select-reset');
-    fireEvent.click(resetButton);
+    const resetButton = screen.getByLabelText('reset');
+    await userEvent.click(resetButton);
 
-    const selectedColor = screen.getByTestId(
-      'color-select-selected-value'
-    );
+    const selectedColor = screen.getByLabelText('color preview');
     const selectedColorValue = selectedColor.getAttribute('color');
     expect(selectedColorValue).not.toBe(TEST_COLOR);
   });
 
   it('Render ColorSelect without hue slider', async () => {
     renderWithThemeProvider(<ColorSelect showHueSlider={false} />);
-    const input = screen.getByTestId('color-select-input');
-    fireEvent.click(input);
+    const input = screen.getByLabelText('color');
+    await userEvent.click(input);
 
     const hueSlider = document.querySelector('.react-colorful__hue');
 

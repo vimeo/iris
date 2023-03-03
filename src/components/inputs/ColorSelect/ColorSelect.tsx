@@ -118,11 +118,7 @@ function ColorSelectComponent({
       }
     >
       {children ? (
-        <div
-          onClick={toggle}
-          ref={childrenRef}
-          data-testid="color-select-trigger"
-        >
+        <div onClick={toggle} ref={childrenRef}>
           {children}
         </div>
       ) : (
