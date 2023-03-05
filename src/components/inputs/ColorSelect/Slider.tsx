@@ -20,7 +20,11 @@ export function Slider({ dragging, kind, colorMeta, ...props }) {
 
   return (
     <div style={style}>
-      <Dot style={{ background: HEX }} />
+      <Dot
+        style={{ background: HEX }}
+        aria-label="color preview"
+        color={HEX}
+      />
       <Wrapper kind={kind} HSL={HSL}>
         <SliderStyled type="range" min="0.01" {...props} />
       </Wrapper>

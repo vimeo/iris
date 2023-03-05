@@ -118,7 +118,11 @@ function ColorSelectComponent({
       attach={attach}
       active={open}
       content={
-        <Wrapper width={width} ref={popOverRef}>
+        <Wrapper
+          width={width}
+          ref={popOverRef}
+          aria-label="color picker"
+        >
           <ColorSelectSpectrum
             dispatch={dispatch}
             dragging={dragging}
