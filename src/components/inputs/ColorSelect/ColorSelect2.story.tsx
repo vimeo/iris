@@ -50,8 +50,8 @@ Controls.storyName = 'ColorSelect2';
 Controls.args = {
   width: 360,
   height: 180,
-  initial: { color: '#FF0' },
-  reset: { color: '#0FF', label: 'reset' },
+  initial: { color: '#FFFF00' },
+  reset: { color: '#00FFFF', label: 'reset' },
   label: 'ColorSelect',
   throttleSpeed: 40,
 };
