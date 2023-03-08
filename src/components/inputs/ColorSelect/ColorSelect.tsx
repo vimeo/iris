@@ -34,7 +34,7 @@ function ColorSelectComponent({
   initial = { color: '#F00', colorSpace: 'HEX' },
 
   // DEPRECATED
-  initialColor = '#F00',
+  initialColor,
   //
 
   label,
@@ -44,7 +44,7 @@ function ColorSelectComponent({
   reset = { color: initial.color, label: 'reset' },
 
   // DEPRECATED
-  resetColor = initialColor || initial.color,
+  resetColor,
   //
 
   resetLabel,
@@ -67,8 +67,8 @@ function ColorSelectComponent({
   });
 
   // deprecation handling
-  if (initialColor) initial.color = initialColor;
-  if (resetColor) reset.color = resetColor;
+  if (initialColor) initial.color = initialColor || initial.color;
+  if (resetColor) reset.color = resetColor || reset.color;
   if (resetLabel) reset.label = resetLabel;
 
   const defaultColor = parseToHsl(initial.color);
