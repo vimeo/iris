@@ -3,13 +3,13 @@ import { readableColor } from 'polished';
 import { Story } from '@storybook/react';
 
 import { ColorSelect2 } from './ColorSelect2';
-import { Props } from './ColorSelect.types';
+import { Props } from '../ColorSelect/ColorSelect.types';
 
 import { Layout } from '../../../storybook';
 import { ANCHOR_POINTS } from '../../../utils';
 
 export default {
-  title: 'components/ColorSelect/ColorSelect2',
+  title: 'components/ColorSelect2',
   component: ColorSelect2,
   argTypes: {
     status: { table: { disable: true } }, // not relevant
