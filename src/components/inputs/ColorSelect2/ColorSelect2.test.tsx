@@ -132,29 +132,39 @@ describe('ColorSelect2', () => {
     expect(label).toHaveStyle({ 'font-size': '1.75rem' });
   });
 
-  // it('Make ColorSelect2 required', async () => {
-  //   renderWithThemeProvider(<ColorSelect2 required />);
+  /*  
+    This test is skipped because ColorSelect2
+    doesn't implement adding required attribute
+    to the color picker div
+  */
+  xit('Make ColorSelect2 required', async () => {
+    renderWithThemeProvider(<ColorSelect2 required />);
 
-  //   const input = screen.getByLabelText('color');
-  //   await userEvent.click(input);
+    const input = screen.getByLabelText('color');
+    await userEvent.click(input);
 
-  //   const picker = screen.getByLabelText('color picker');
-  //   const pickerInner = picker.querySelector('div');
-  //   expect(pickerInner).toHaveAttribute('required');
-  // });
+    const picker = screen.getByLabelText('color picker');
+    const pickerInner = picker.querySelector('div');
+    expect(pickerInner).toHaveAttribute('required');
+  });
 
-  // it('Has a name', async () => {
-  //   const name = 'hello';
-  //   renderWithThemeProvider(<ColorSelect2 name={name} />);
+  /*  
+    This test is skipped because ColorSelect2
+    doesn't implement adding name attribute
+    to the color picker div
+  */
+  xit('Has a name', async () => {
+    const name = 'hello';
+    renderWithThemeProvider(<ColorSelect2 name={name} />);
 
-  //   const input = screen.getByLabelText('color');
-  //   await userEvent.click(input);
+    const input = screen.getByLabelText('color');
+    await userEvent.click(input);
 
-  //   const picker = screen.getByLabelText('color picker');
-  //   const pickerInner = picker.querySelector('div');
-  //   const nameAttribute = pickerInner.getAttribute('name');
-  //   expect(nameAttribute).toBe(name);
-  // });
+    const picker = screen.getByLabelText('color picker');
+    const pickerInner = picker.querySelector('div');
+    const nameAttribute = pickerInner.getAttribute('name');
+    expect(nameAttribute).toBe(name);
+  });
 
   it('Render a label for ColorSelect2', async () => {
     const label = 'My Label';
