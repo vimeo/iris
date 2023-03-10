@@ -11,6 +11,29 @@ export type Props = {
   onColorClick: (color: string) => void;
 };
 
+/*
+  Presets is a UI for displaying color circles.
+  Example for changing the ColorSelect value using Presets:
+      const [color, setColor] = useState('#FFFFFF');
+      
+      <ColorSelect2
+        label={
+          <div>
+            <ColorSelect2.Presets
+              onColorClick={(color) => {
+                setColor(color);
+              }}
+            />
+          </div>
+        }
+        width={300}
+        height={150}
+        onChange={(color) => {
+          setColor(color);
+        }}
+        value={color}
+      />
+*/
 export function Presets({ palette, label, onColorClick }: Props) {
   const [index, indexSet] = useState(0);
 
