@@ -18,6 +18,10 @@ import {
 } from '../../../utils';
 import { colorSpaces } from '../../../color';
 
+/**
+ * An input that enables users to choose a color from a predefined range of colors from a color picker panel.
+ * This components precedes the eventual deprecation of ColorPicker.tsx to ease migration and ensure backwards compatibility.
+ */
 export const ColorSelect2 = withIris<
   HTMLInputElement,
   Props,
