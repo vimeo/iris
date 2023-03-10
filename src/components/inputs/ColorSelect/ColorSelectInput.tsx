@@ -45,6 +45,7 @@ export function ColorSelectInput({
         style={style}
         type="text"
         value={HEX}
+        aria-label="color"
         readOnly
         onChange={({ target: { value } }) => {
           onChange && onChange(value);
@@ -55,6 +56,7 @@ export function ColorSelectInput({
         {reset.label &&
           HEX.toLowerCase() !== reset.color.toLowerCase() && (
             <InnerButton
+              aria-label="reset"
               format="basic"
               variant="minimalTransparent"
               size={size}
