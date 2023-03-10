@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import { hslToColorString, parseToHsl } from 'polished';
 
-import { Dot } from './ColorSelect.style';
+import { Dot } from './ColorSelect2.style';
 
 import { InnerButton } from '../InnerButton';
 import { Input } from '../Input/Input';

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { rgba } from 'polished';
 
 export const InputWrapper = styled.div`
   position: relative;
@@ -58,4 +59,18 @@ export const SelectedColor = styled.div.attrs(
 
 export const ColorSelectPickerWrapper = styled.div`
   position: relative;
+`;
+
+export const Dot = styled.div`
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  margin: 0 1rem;
+  display: inline-flex;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -0.375rem;
+  z-index: 10;
+  border: 0.5px solid ${({ theme }) => rgba(theme.content.color, 0.1)};
 `;

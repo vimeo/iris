@@ -2,12 +2,12 @@ import React, { useReducer, useRef, useEffect } from 'react';
 import { parseToHsl } from 'polished';
 
 import { Wrapper } from './ColorSelect2.style';
-import { Props } from './ColorSelect.types';
+import { Props } from './ColorSelect2.types';
 import { State, reducer } from './ColorSelect2.state';
 
 import { ColorInputs } from './Inputs';
-import { ColorSelectInput } from './ColorSelectInput';
-import { ColorSelectPicker } from './ColorSelectPicker';
+import { ColorSelectInput } from './ColorSelect2Input';
+import { ColorSelectPicker } from './ColorSelect2Picker';
 import { Presets, Props as PresetsProps } from './Presets';
 
 import { PopOver } from '../../PopOver/PopOver';
