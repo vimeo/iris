@@ -82,6 +82,7 @@ export { Masonry } from './Masonry';
 export { Mevo } from './Mevo';
 export { MicOff } from './MicOff';
 export { Note } from './Note';
+export { NoteAndPencil } from './NoteAndPencil';
 export { Ondemand } from './Ondemand';
 export { PaintRoller } from './PaintRoller';
 export { PaperPlane } from './PaperPlane';
