@@ -133,6 +133,7 @@ export { LockFilled } from './ui/LockFilled';
 export { Masonry } from './ui/Masonry';
 export { Mevo } from './ui/Mevo';
 export { Note } from './ui/Note';
+export { NoteAndPencil } from './ui/NoteAndPencil';
 export { Ondemand } from './ui/Ondemand';
 export { PaintRoller } from './ui/PaintRoller';
 export { PaperPlane } from './ui/PaperPlane';
