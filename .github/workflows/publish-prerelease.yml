@@ -14,6 +14,9 @@ jobs:
     environment: development
     steps:
       - uses: actions/checkout@v3
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
       - uses: actions/setup-node@v3
         with:
           node-version: 14
