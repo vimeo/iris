@@ -3,8 +3,8 @@ name: Publish Prerelease
 on:
   workflow_dispatch:
     inputs:
-      tag:
-        description: 'Tag to publish'
+      preId:
+        description: 'Prerelease identifier (version-[preId])'
         required: true
         type: string
 
@@ -20,6 +20,7 @@ jobs:
           # Setup .npmrc file to publish to npm
           registry-url: 'https://registry.npmjs.org'
       - run: yarn --frozen-lockfile
-      - run: npm publish --tag ${{ github.event.inputs.tag }}
+      - run: yarn version --prerelease --preid=${{ github.event.inputs.preId }}
+      - run: npm publish --tag ${{ github.event.inputs.preId }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_VIMEO_PUBLISH_TOKEN }}
