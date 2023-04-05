@@ -1,6 +1,9 @@
+import { ReactNode, ReactPortal } from 'react';
 import { createPortal } from 'react-dom';
 
-export function usePortal(children = null) {
+export function usePortal(
+  children: ReactNode = null
+): HTMLElement | ReactPortal {
   let outlet = document.getElementById('iris-portals');
 
   if (!outlet) {

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, StyledComponent } from 'styled-components';
 import { rgba } from 'polished';
 
 import {
@@ -43,7 +43,10 @@ export const Faux = styled.div<any>`
   ${FauxType};
 `;
 
-export const HiddenMark = styled.input.attrs(({ type }) => ({
+export const HiddenMark: StyledComponent<
+  'input',
+  IrisInputProps
+> = styled.input.attrs(({ type }) => ({
   type: type === 'toggle' ? 'checkbox' : type,
   toggle: type === 'toggle',
 }))`
