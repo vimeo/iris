@@ -32,6 +32,7 @@ function FileUploadComponent({
       {...props}
     >
       <Hidden
+        tabIndex={-1}
         ref={ref}
         type="file"
         accept={accept}
