@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { IrisInputProps } from '../../../utils';
 
-export const Hidden = styled.input`
+export const Hidden = styled.input<IrisInputProps>`
   overflow: hidden;
   position: absolute;
   z-index: -1;
