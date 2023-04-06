@@ -19,7 +19,7 @@ jobs:
           git config user.email github-actions@github.com
       - uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
           # Setup .npmrc file to publish to npm
           registry-url: 'https://registry.npmjs.org'
       - run: yarn --frozen-lockfile
