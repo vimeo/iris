@@ -16,7 +16,7 @@
     "dependencies": {
       "react-colorful": "^5.6.1",
       "@babel/runtime": "^7.21.0"
-     },
+    },
     "devDependencies": {
         "@babel/core": "^7.21.4",
         "@babel/plugin-proposal-class-properties": "^7.18.6",
@@ -44,9 +44,11 @@
         "@testing-library/react": "12.1.5",
         "@testing-library/user-event": "^14.4.3",
         "@types/jest": "^28.1.8",
+        "@types/node": "^14.0.24",
         "@types/react": "^17.0.56",
         "@types/react-dom": "^17.0.19",
         "@types/styled-components": "^5.1.26",
+        "@types/testing-library__jest-dom": "^5.14.5",
         "@types/webpack": "^5.28.1",
         "@typescript-eslint/eslint-plugin": "^5.57.1",
         "@typescript-eslint/parser": "^5.57.1",
@@ -57,6 +59,7 @@
         "babel-plugin-styled-components": "^2.0.7",
         "circular-dependency-plugin": "^5.2.2",
         "core-js": "^3.30.0",
+        "csstype": "^3.1.2",
         "eslint": "^8.37.0",
         "eslint-config-prettier": "^8.8.0",
         "eslint-config-react": "^1.1.7",
@@ -102,20 +105,20 @@
     },
     "scripts": {
         "build-styleguide": "build-storybook -c .storybook -o build-styleguide",
-        "build": "npm run clean; npx rollup --c rollup.config.js",
+        "build": "pnpm clean; npx rollup --c rollup.config.js",
         "build-debug": "npx rollup -c rollup.config.js --config-debug",
         "checkup": "npx npm-check-updates",
         "clean": "rm -rf build",
-        "dev": "npm run storybook",
-        "lint-pretty": "eslint 'src/**/*.{ts,tsx}' -f codeFrame && npm run prettier && npm run stylelint",
-        "lint": "eslint 'src/**/*.{ts,tsx}' && npm run prettier && npm run stylelint",
+        "dev": "pnpm storybook",
+        "lint-pretty": "eslint 'src/**/*.{ts,tsx}' -f codeFrame && pnpm prettier && pnpm stylelint",
+        "lint": "eslint 'src/**/*.{ts,tsx}' && pnpm prettier && pnpm stylelint",
         "postpublish": "git clean -fd",
         "prettier": "npx prettier --check 'src/**/*{.ts,tsx}'",
-        "prepublishOnly": "npm run typecheck && npm run lint && npm run build && ./scripts/add-pkgs &&  cp -r ./build/* ./ && npm run clean",
-        "start": "npm run typecheck && npm run lint && npm run storybook",
+        "prepublishOnly": "pnpm typecheck && pnpm lint && pnpm build && ./scripts/add-pkgs &&  cp -r ./build/* ./ && pnpm clean",
+        "start": "pnpm typecheck && pnpm lint && pnpm storybook",
         "storybook": "start-storybook -p 9001",
         "stylelint": "npx stylelint 'src/**/*.ts'",
-        "test-publish": "npm run prepublishOnly && npm run postpublish",
+        "test-publish": "pnpm prepublishOnly && pnpm postpublish",
         "typecheck": "npx tsc --noEmit",
         "update-deps": "npx npm-check-updates -u --target minor; npx npm-check-updates"
     },
@@ -132,7 +135,7 @@
     },
     "engines": {
         "node": ">=12.0.0",
-        "yarn": ">=1.20.0"
+        "pnpm": "7.26.3"
     },
     "prettier": {
         "parser": "typescript",

@@ -9,8 +9,9 @@ dist-*
 node_modules
 npm-debug.log
 storybook-static
-yarn-error.log
 stats.html
 
 docs/.next
 docs/out
+
+pnpm-error.log

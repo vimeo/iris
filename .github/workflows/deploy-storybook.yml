@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.26.3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -19,8 +22,16 @@ jobs:
         id: vars
         run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
 
-      - run: yarn --frozen-lockfile
-      - run: yarn build-storybook
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: |
+            .pnpm-store
+            pnpm
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      - run: pnpm i --frozen-lockfile
+      - run: pnpm build-storybook
 
       - name: Deploy Storybook
         uses: peaceiris/actions-gh-pages@v3
