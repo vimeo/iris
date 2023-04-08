@@ -2,7 +2,7 @@
     "name": "@vimeo/iris",
     "homepage": "https://github.com/vimeo/iris/tree/main",
     "bugs": "https://github.com/vimeo/iris/issues",
-    "version": "0.142.1",
+    "version": "0.142.1-2023-02-24-tourpoint-react-tiny-popover-poc-SC.2",
     "private": false,
     "license": "MIT",
     "description": "Vimeo Design System",
@@ -15,6 +15,7 @@
     "sideEffects": false,
     "dependencies": {
       "react-colorful": "^5.6.1",
+      "react-tiny-popover": "^7.2.3",
       "@babel/runtime": "^7.21.0"
      },
     "devDependencies": {

@@ -1,9 +1,5 @@
-import {
-  CSSProperties,
-  ReactElement,
-  ReactNode,
-  MouseEvent,
-} from 'react';
+import { CSSProperties, ReactNode, MouseEvent } from 'react';
+import { PopoverAlign, PopoverPosition } from 'react-tiny-popover';
 export interface Props {
   id?: string;
   active?: boolean;
@@ -18,7 +14,7 @@ export interface Props {
    * [default = 'left']
    */
   attach?: Attach;
-  children?: ReactElement;
+  children?: JSX.Element;
   confirmation?: ReactNode;
   content?: ReactNode;
   dismission?: ReactNode;
@@ -28,7 +24,7 @@ export interface Props {
    * The address or URL of the a media resource that is to be considered.
    */
   src?: HTMLImageElement['src'];
-  step?: number | null;
+  step: number;
   style?: CSSProperties;
   title?: HTMLElement['title'];
   getStepsTranslation?: ({
@@ -38,11 +34,17 @@ export interface Props {
     currentStep: number;
     totalSteps: number;
   }) => string;
+
+  /**
+   * react-tiny-popover props not yet implemented
+   */
+  positions?: PopoverPosition[];
+  align?: PopoverAlign;
 }
 
 type StepEvent = { direction: 'back' | 'next' | 'dismiss' };
 
-type Attach =
+export type Attach =
   | 'right'
   | 'right-top'
   | 'right-bottom'
