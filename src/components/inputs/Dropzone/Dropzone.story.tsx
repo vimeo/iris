@@ -26,11 +26,26 @@ const onChange = (event: DropChangeEvent) => {
   );
 };
 
+const onDragEnter = (event: DragEvent) => {
+  console.log('Drag enter', event);
+};
+
+const onDragLeave = (event: DragEvent) => {
+  console.log('Drag leave', event);
+};
+
+const onDragOver = (event: DragEvent) => {
+  console.log('Drag over', event);
+};
+
 const Template: Story<Props> = (args) => {
   return (
     <Dropzone
       style={{ maxWidth: '40rem' }}
       onChange={onChange}
+      onDragEnter={onDragEnter}
+      onDragLeave={onDragLeave}
+      onDragOver={onDragOver}
       {...args}
     >
       <Header size="3">Drag files here</Header>
