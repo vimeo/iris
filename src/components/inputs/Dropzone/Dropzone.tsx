@@ -30,13 +30,13 @@ function DropzoneComponent({
 
   const handleDragOver = stopPrevent<DragEvent>(
     (e: DragEvent<HTMLDivElement>) => {
-      onDragOver && onDragOver(e);
+      onDragOver?.(e);
       dragSet(true);
     }
   );
   const handleDragLeave = stopPrevent<DragEvent>(
     (e: DragEvent<HTMLDivElement>) => {
-      onDragLeave && onDragLeave(e);
+      onDragLeave?.(e);
       dragSet(false);
     }
   );
