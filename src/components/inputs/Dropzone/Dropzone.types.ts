@@ -1,4 +1,4 @@
-import { ChangeEvent, ReactNode } from 'react';
+import { ChangeEvent, DragEventHandler, ReactNode } from 'react';
 import { IrisInputProps } from '../../../utils';
 
 export type DropChangeEvent = ChangeEvent<HTMLInputElement> & {
@@ -22,4 +22,7 @@ export type Props = IrisInputProps<{
    */
   format?: 'primary' | 'secondary';
   onChange?: (event: DropChangeEvent) => void;
+  onDragEnter?: DragEventHandler<HTMLDivElement>;
+  onDragLeave?: DragEventHandler<HTMLDivElement>;
+  onDragOver?: DragEventHandler<HTMLDivElement>;
 }>;

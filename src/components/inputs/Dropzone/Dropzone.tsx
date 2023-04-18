@@ -20,13 +20,26 @@ function DropzoneComponent({
   forwardRef,
   multiple,
   onChange,
+  onDragEnter,
+  onDragLeave,
+  onDragOver,
   ...props
 }: Props) {
   const ref = useForwardRef(forwardRef);
   const [drag, dragSet] = useState(false);
 
-  const onDragOver = stopPrevent<DragEvent>(() => dragSet(true));
-  const onDragLeave = stopPrevent<DragEvent>(() => dragSet(false));
+  const handleDragOver = stopPrevent<DragEvent>(
+    (e: DragEvent<HTMLDivElement>) => {
+      onDragOver?.(e);
+      dragSet(true);
+    }
+  );
+  const handleDragLeave = stopPrevent<DragEvent>(
+    (e: DragEvent<HTMLDivElement>) => {
+      onDragLeave?.(e);
+      dragSet(false);
+    }
+  );
 
   const onDrop = stopPrevent<DragEvent>(
     (event: DragEvent<HTMLDivElement> & DropChangeEvent) => {
@@ -39,8 +52,9 @@ function DropzoneComponent({
     <DropzoneContainer
       drag={active || drag}
       format={format}
-      onDragLeave={onDragLeave}
-      onDragOver={onDragOver}
+      onDragEnter={onDragEnter}
+      onDragLeave={handleDragLeave}
+      onDragOver={handleDragOver}
       onDrop={onDrop}
       {...props}
     >
