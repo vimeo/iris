@@ -28,6 +28,6 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - run: pnpm i --frozen-lockfile
-      - run: pnpm publish
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_VIMEO_PUBLISH_TOKEN }}
