@@ -40,16 +40,7 @@ export const ButtonChildren = styled.span<any>`
     `}
 `;
 
-export const ButtonStyled = styled.button.withConfig<any>({
-  shouldForwardProp: (prop: any) =>
-    ![
-      'format',
-      'icononly',
-      'iconposition',
-      'theme',
-      'variant',
-    ].includes(prop),
-})`
+export const ButtonStyled = styled.button<any>`
   ${buttonCore};
   ${buttonIcon};
   ${buttonSizes};
