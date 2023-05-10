@@ -35,7 +35,7 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - run: pnpm i --frozen-lockfile
-      - run: pnpm version --prerelease --preid=${{ github.event.inputs.preId }} --no-commit-hooks
+      - run: npm version --prerelease --preid=${{ github.event.inputs.preId }} --no-commit-hooks
       - run: npm publish --tag ${{ github.event.inputs.preId }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_VIMEO_PUBLISH_TOKEN }}
