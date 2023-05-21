@@ -91,6 +91,13 @@ export type Props = IrisProps<
      * [default = 'solid']
      */
     variant?: (typeof variants)[number];
+    /**
+     * Should the focus around the button be only when
+     * focused using a keyboard
+     *
+     * [default = true]
+     */
+    isKeyboardOnlyFocus?: boolean;
   },
   DOMElement
 >;

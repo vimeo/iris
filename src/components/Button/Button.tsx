@@ -47,6 +47,7 @@ function ButtonComponent({
   theme,
   type,
   variant = 'solid',
+  isKeyboardOnlyFocus = true,
   onClick,
   ...props
 }: Props) {
@@ -111,7 +112,11 @@ function ButtonComponent({
         />
       )}
 
-      <Focus parent={ButtonStyled} radius={radius} />
+      <Focus
+        parent={ButtonStyled}
+        radius={radius}
+        isKeyboardOnly={isKeyboardOnlyFocus}
+      />
     </ButtonStyled>
   );
 }
