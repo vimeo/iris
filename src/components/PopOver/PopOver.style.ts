@@ -18,7 +18,7 @@ const fadeIn = keyframes`
 
 export const PopOverStyled = styled.div<Props>`
   background: ${({ theme }) => theme.content.background};
-  min-width: 10rem;
+  min-width: fit-content;
   min-height: 2rem;
   max-width: 40rem;
   border-radius: 0.25rem;
