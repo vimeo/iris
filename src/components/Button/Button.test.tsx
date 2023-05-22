@@ -5,7 +5,6 @@ import {
   RenderOptions,
   screen,
 } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
 import React, { ReactElement } from 'react';
 
 import { ThemeProvider } from 'styled-components';
@@ -58,6 +57,19 @@ describe('Button', () => {
     expect(button.innerHTML).toContain('svg');
   });
 
+  it('Renders button with icon on the right', () => {
+    renderWithThemeProvider(
+      <Button icon={<Pencil />} iconPosition="right">
+        Hello
+      </Button>
+    );
+
+    const button = screen.getByRole('button');
+    expect(button.children[0].tagName.toLocaleLowerCase()).toBe(
+      'span'
+    );
+  });
+
   it('Renders loader', () => {
     renderWithThemeProvider(<Button loading />);
     const button = screen.getByRole('button');
@@ -104,17 +116,60 @@ describe('Button', () => {
     expect(button).toHaveStyle({ background: '#E22B12' });
   });
 
-  //   it('Shows focus border on focus', async () => {
-  //     const { container } = renderWithThemeProvider(
-  //       <Button isKeyboardOnlyFocus={false} />
-  //     );
+  it('Changes format of a button', () => {
+    const { rerender } = renderWithThemeProvider(
+      <Button format="secondary" />
+    );
+    const button = screen.getByRole('button');
+    expect(button).toHaveStyle({
+      background: '#efefef',
+    });
 
-  //     const button = screen.getByRole('button');
+    rerender(<Button format="soft" />);
+    expect(button).toHaveStyle({ background: '#23313b' });
+  });
 
-  //     await userEvent.click(button);
+  it('Changes variant of a button', () => {
+    const { rerender } = renderWithThemeProvider(
+      <Button variant="dashed" />
+    );
+    const button = screen.getByRole('button');
+    expect(button).toHaveStyle({
+      borderStyle: 'dashed',
+    });
 
-  //     const focusWrapper = container.querySelector('div');
+    rerender(<Button variant="hyperminimal" />);
+    expect(button).toHaveStyle({ borderColor: 'transparent' });
+  });
 
-  //     expect(focusWrapper).toHaveStyle({ opacity: 1 });
-  //   });
+  it('Changes element of a button', () => {
+    const { rerender, container } = renderWithThemeProvider(
+      <Button element="a" />
+    );
+    const buttonAnchor = container.querySelector('a');
+    expect(buttonAnchor).toBeInTheDocument();
+
+    rerender(<Button element="span" />);
+    const buttonSpan = container.querySelector('span');
+    expect(buttonSpan).toBeInTheDocument();
+
+    const button = container.querySelector('button');
+    expect(button).not.toBeInTheDocument();
+  });
+
+  it('Renders pill button', () => {
+    renderWithThemeProvider(<Button pill>Hello</Button>);
+    const button = screen.getByRole('button');
+
+    expect(button).toHaveStyle({
+      borderRadius: '2rem',
+    });
+  });
+
+  it('Renders disabled button', () => {
+    renderWithThemeProvider(<Button disabled>Hello</Button>);
+    const button = screen.getByRole('button');
+
+    expect(button).toHaveAttribute('disabled');
+  });
 });
