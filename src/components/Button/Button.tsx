@@ -111,7 +111,7 @@ function ButtonComponent({
         />
       )}
 
-      <Focus parent={ButtonStyled} radius={radius} />
+      <Focus parent={ButtonStyled} radius={radius} isKeyboardOnly />
     </ButtonStyled>
   );
 }
