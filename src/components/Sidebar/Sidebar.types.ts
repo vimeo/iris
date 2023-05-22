@@ -26,6 +26,7 @@ export interface ItemPropsExtrinsic {
   children?: ReactElement;
   icon?: ReactElement;
   label: string;
+  labelAsTooltip?: boolean;
   onClick?: MouseEventHandler;
 }
 

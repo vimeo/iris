@@ -12,12 +12,13 @@ export function Item({
   children = null,
   icon,
   label,
+  labelAsTooltip = true,
   onClick,
   isActive,
   activeStyles,
   ...props
 }: ItemPropsIntrinsic) {
-  return (
+  return labelAsTooltip ? (
     <Tip attach={attach} content={label}>
       <ItemStyled
         aria-label={label}
@@ -31,6 +32,19 @@ export function Item({
         {...props}
       />
     </Tip>
+  ) : (
+    <ItemLabeledStyled
+      format="basic"
+      icon={icon}
+      onClick={onClick}
+      size="md"
+      variant="minimalTransparent"
+      isActive={isActive}
+      activeStyles={activeStyles}
+      {...props}
+    >
+      {label}
+    </ItemLabeledStyled>
   );
 }
 
@@ -52,6 +66,40 @@ const ItemStyled = styled(Button)<{
     height: 1.25rem;
     min-height: 1.25rem;
     max-height: 1.25rem;
+  }
+`;
+
+const ItemLabeledStyled = styled(Button)<{
+  isActive?: boolean;
+  activeStyles?: ActiveStyles;
+}>`
+  height: 4rem;
+  min-width: initial;
+  padding: 0.25rem;
+  margin: 2px 0;
+  align-items: center;
+  flex-direction: column;
+  ${({ isActive, activeStyles }) => (isActive ? activeStyles : '')};
+
+  > svg {
+    // !important: Overrides padding placed on svg in Stylebar.style.ts
+    padding: 0 !important;
+    width: 1.25rem;
+    min-width: 1.25rem;
+    max-width: 1.25rem;
+    height: 1.25rem;
+    min-height: 1.25rem;
+    max-height: 1.25rem;
+    margin: 0 0 0.45rem 0;
+  }
+
+  // Button label
+  > span {
+    font-weight: 400;
+    text-overflow: initial;
+    overflow: visible;
+    font-size: 0.6875rem;
+    line-height: initial;
   }
 `;
 
