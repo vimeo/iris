@@ -4,7 +4,7 @@ import { rgba } from 'polished';
 
 import { Radio as R } from './Radio';
 import { RadioSet } from './RadioSet';
-import { Eye, EyeOff } from '../../../icons';
+import { Eye, EyeOff, Pencil } from '../../../icons';
 import { Button } from '../../Button/Button';
 
 export default { title: 'components/Radio/examples' };
@@ -62,6 +62,27 @@ export function CustomElement({ args }) {
         </Radio>
         <Radio disabled>
           <Custom />
+        </Radio>
+      </RadioSet>
+    </>
+  );
+}
+
+export function Buttons({ args }) {
+  return (
+    <>
+      <RadioSet {...args}>
+        <Radio>
+          <Button pill format="secondary" icon={<Pencil />} />
+        </Radio>
+        <Radio>
+          <Button pill format="secondary" icon={<Pencil />} />
+        </Radio>
+        <Radio>
+          <Button pill format="secondary" icon={<Pencil />} />
+        </Radio>
+        <Radio disabled>
+          <Button pill format="secondary" icon={<Pencil />} />
         </Radio>
       </RadioSet>
     </>
