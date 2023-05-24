@@ -472,6 +472,10 @@ function buttonChecked({ checked }) {
     checked &&
     css`
       border: 2px solid ${blue(500)};
+
+      &:hover:not(:active) {
+        border: 2px solid ${blue(500)};
+      }
     `
   );
 }

@@ -73,7 +73,9 @@ export function Buttons({ args }) {
     <>
       <RadioSet {...args}>
         <Radio>
-          <Button pill format="secondary" icon={<Pencil />} />
+          <Button pill format="secondary" icon={<Pencil />}>
+            Hello
+          </Button>
         </Radio>
         <Radio>
           <Button pill format="secondary" icon={<Pencil />} />
