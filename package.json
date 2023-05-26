@@ -1,169 +1,173 @@
 {
-    "name": "@vimeo/iris",
-    "homepage": "https://github.com/vimeo/iris/tree/main",
-    "bugs": "https://github.com/vimeo/iris/issues",
-    "version": "0.144.0",
-    "private": false,
-    "license": "MIT",
-    "description": "Vimeo Design System",
-    "author": {
-        "name": "Vimeo",
-        "url": "https://vimeo.com"
-    },
-    "main": "index.js",
-    "types": "index.d.ts",
-    "sideEffects": false,
-    "dependencies": {
-      "react-colorful": "^5.6.1",
-      "@babel/runtime": "^7.21.5"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.21.8",
-        "@babel/plugin-proposal-class-properties": "^7.18.6",
-        "@babel/plugin-proposal-private-methods": "^7.18.6",
-        "@babel/plugin-proposal-private-property-in-object": "^7.21.0",
-        "@babel/plugin-transform-runtime": "^7.21.4",
-        "@babel/preset-env": "^7.21.5",
-        "@babel/preset-react": "^7.18.6",
-        "@babel/preset-typescript": "^7.21.5",
-        "@nox/addon-themes": "^1.1.3",
-        "@rollup/plugin-babel": "^5.3.1",
-        "@rollup/plugin-commonjs": "^21.1.0",
-        "@rollup/plugin-node-resolve": "^13.3.0",
-        "@rollup/plugin-typescript": "^8.5.0",
-        "@storybook/addon-a11y": "6.5.16",
-        "@storybook/addon-essentials": "6.5.16",
-        "@storybook/addon-postcss": "^2.0.0",
-        "@storybook/addon-storysource": "6.5.16",
-        "@storybook/builder-webpack5": "6.5.16",
-        "@storybook/components": "6.5.16",
-        "@storybook/manager-webpack5": "6.5.16",
-        "@storybook/react": "6.5.16",
-        "@storybook/theming": "6.5.16",
-        "@testing-library/jest-dom": "^5.16.5",
-        "@testing-library/react": "12.1.5",
-        "@testing-library/user-event": "^14.4.3",
-        "@types/jest": "^28.1.8",
-        "@types/node": "^14.18.47",
-        "@types/react": "^17.0.59",
-        "@types/react-dom": "^17.0.20",
-        "@types/styled-components": "^5.1.26",
-        "@types/testing-library__jest-dom": "^5.14.5",
-        "@types/webpack": "^5.28.1",
-        "@typescript-eslint/eslint-plugin": "^5.59.6",
-        "@typescript-eslint/parser": "^5.59.6",
-        "babel-jest": "^28.1.3",
-        "babel-loader": "^8.3.0",
-        "babel-plugin-polished": "^1.1.0",
-        "babel-plugin-require-context-hook": "^1.0.0",
-        "babel-plugin-styled-components": "^2.1.1",
-        "circular-dependency-plugin": "^5.2.2",
-        "core-js": "^3.30.2",
-        "csstype": "^3.1.2",
-        "eslint": "^8.40.0",
-        "eslint-config-prettier": "^8.8.0",
-        "eslint-config-react": "^1.1.7",
-        "eslint-formatter-codeframe": "^7.32.1",
-        "eslint-plugin-immutable": "^1.0.0",
-        "eslint-plugin-import": "^2.27.5",
-        "eslint-plugin-jsx-a11y": "^6.7.1",
-        "eslint-plugin-prettier": "^4.2.1",
-        "eslint-plugin-react": "^7.32.2",
-        "eslint-plugin-react-hooks": "^4.6.0",
-        "framer-motion": "^6.5.1",
-        "jest": "^28.1.3",
-        "jest-environment-jsdom": "^28.1.3",
-        "polished": "^4.2.2",
-        "pre-commit": "^1.2.2",
-        "prettier": "^2.8.8",
-        "react": "*",
-        "react-dom": "*",
-        "react-is": "^17.0.2",
-        "rollup": "^2.79.1",
-        "rollup-plugin-multi-input": "^1.4.1",
-        "rollup-plugin-terser": "^7.0.2",
-        "styled-components": "^5.3.10",
-        "stylelint": "^13.13.1",
-        "stylelint-config-recommended": "^4.0.0",
-        "stylelint-config-styled-components": "^0.1.1",
-        "stylelint-processor-styled-components": "^1.10.0",
-        "tslib": "^2.5.0",
-        "typescript": "4.9.5",
-        "typescript-plugin-styled-components": "^2.0.0",
-        "webpack": "^5.83.0"
-    },
-    "peerDependencies": {
-        "polished": "^4.2.2",
-        "react": "^16.13.1 || ^17.0.0",
-        "react-dom": "^16.13.1 || ^17.0.0",
-        "styled-components": "^5.3.6"
-    },
-    "resolutions": {
-        "@types/react": "^17.0.56",
-        "react-dom": "*",
-        "react": "*"
-    },
-    "scripts": {
-        "build-styleguide": "build-storybook -c .storybook -o build-styleguide",
-        "build": "pnpm clean; npx rollup --c rollup.config.js",
-        "build-debug": "npx rollup -c rollup.config.js --config-debug",
-        "checkup": "npx npm-check-updates",
-        "clean": "rm -rf build",
-        "dev": "pnpm storybook",
-        "lint-pretty": "eslint 'src/**/*.{ts,tsx}' -f codeFrame && pnpm prettier && pnpm stylelint",
-        "lint": "eslint 'src/**/*.{ts,tsx}' && pnpm prettier && pnpm stylelint",
-        "postpublish": "git clean -fd",
-        "prettier": "npx prettier --check 'src/**/*{.ts,tsx}'",
-        "prepublishOnly": "pnpm typecheck && pnpm lint && pnpm build && ./scripts/add-pkgs &&  cp -r ./build/* ./ && pnpm clean",
-        "start": "pnpm typecheck && pnpm lint && pnpm storybook",
-        "storybook": "start-storybook -p 9001",
-        "stylelint": "npx stylelint 'src/**/*.ts'",
-        "test-publish": "pnpm prepublishOnly && pnpm postpublish",
-        "typecheck": "npx tsc --noEmit",
-        "update-deps": "npx npm-check-updates -u --target minor; npx npm-check-updates"
-    },
-    "pre-commit": [
-        "lint-pretty"
-    ],
-    "publishConfig": {
-        "registry": "https://registry.npmjs.org/",
-        "access": "public"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/vimeo/iris.git"
-    },
-    "engines": {
-        "node": ">=12.0.0"
-    },
-    "prettier": {
-        "parser": "typescript",
-        "printWidth": 70,
-        "singleQuote": true,
-        "overrides": [
-            {
-                "files": [
-                    "index.ts",
-                    "config.ts",
-                    "*config.js"
-                ],
-                "options": {
-                    "printWidth": 200
-                }
-            }
-        ]
-    },
-    "keywords": [
-        "Vimeo",
-        "UI Library",
-        "Component Library",
-        "Design System",
-        "TypeScript",
-        "JavaScript",
-        "React",
-        "styled-components"
-    ],
-    "volta": {
-        "node": "16.17.0"
-    }
+  "name": "@vimeo/iris",
+  "homepage": "https://github.com/vimeo/iris/tree/main",
+  "bugs": "https://github.com/vimeo/iris/issues",
+  "version": "0.144.0",
+  "private": false,
+  "license": "MIT",
+  "description": "Vimeo Design System",
+  "author": {
+    "name": "Vimeo",
+    "url": "https://vimeo.com"
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "dependencies": {
+    "@babel/runtime": "^7.22.0",
+    "react-colorful": "^5.6.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.0",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-private-methods": "^7.18.6",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.0",
+    "@babel/plugin-transform-runtime": "^7.22.0",
+    "@babel/preset-env": "^7.22.0",
+    "@babel/preset-react": "^7.22.0",
+    "@babel/preset-typescript": "^7.21.5",
+    "@nox/addon-themes": "^1.1.3",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^21.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.5.0",
+    "@storybook/addon-a11y": "7.0.17",
+    "@storybook/addon-essentials": "7.0.17",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/addon-storysource": "7.0.17",
+    "@storybook/cli": "^7.0.17",
+    "@storybook/components": "7.0.17",
+    "@storybook/react": "7.0.17",
+    "@storybook/react-webpack5": "7.0.17",
+    "@storybook/source-loader": "^7.0.17",
+    "@storybook/theming": "7.0.17",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "12.1.5",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^28.1.8",
+    "@types/node": "^14.18.48",
+    "@types/react": "^17.0.60",
+    "@types/react-dom": "^17.0.20",
+    "@types/styled-components": "^5.1.26",
+    "@types/testing-library__jest-dom": "^5.14.6",
+    "@types/webpack": "^5.28.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.7",
+    "@typescript-eslint/parser": "^5.59.7",
+    "babel-jest": "^28.1.3",
+    "babel-loader": "^8.3.0",
+    "babel-plugin-polished": "^1.1.0",
+    "babel-plugin-require-context-hook": "^1.0.0",
+    "babel-plugin-styled-components": "^2.1.3",
+    "circular-dependency-plugin": "^5.2.2",
+    "core-js": "^3.30.2",
+    "csstype": "^3.1.2",
+    "eslint": "^8.41.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-formatter-codeframe": "^7.32.1",
+    "eslint-plugin-immutable": "^1.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-storybook": "^0.6.12",
+    "framer-motion": "^6.5.1",
+    "jest": "^28.1.3",
+    "jest-environment-jsdom": "^28.1.3",
+    "polished": "^4.2.2",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.8.8",
+    "react": "*",
+    "react-dom": "*",
+    "react-is": "^17.0.2",
+    "rollup": "^2.79.1",
+    "rollup-plugin-multi-input": "^1.4.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "storybook": "7.0.17",
+    "styled-components": "^5.3.11",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recommended": "^4.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
+    "tslib": "^2.5.2",
+    "typescript": "4.9.5",
+    "typescript-plugin-styled-components": "^2.0.0",
+    "webpack": "^5.84.1"
+  },
+  "peerDependencies": {
+    "polished": "^4.2.2",
+    "react": "^16.13.1 || ^17.0.0",
+    "react-dom": "^16.13.1 || ^17.0.0",
+    "styled-components": "^5.3.6"
+  },
+  "resolutions": {
+    "@types/react": "^17.0.56",
+    "react-dom": "*",
+    "react": "*"
+  },
+  "scripts": {
+    "build-styleguide": "storybook build -c .storybook -o build-styleguide",
+    "build": "pnpm clean; npx rollup --c rollup.config.js",
+    "build-storybook": "storybook build",
+    "build-debug": "npx rollup -c rollup.config.js --config-debug",
+    "checkup": "npx npm-check-updates",
+    "clean": "rm -rf build",
+    "dev": "pnpm storybook",
+    "lint-pretty": "eslint 'src/**/*.{ts,tsx}' -f codeFrame && pnpm prettier && pnpm stylelint",
+    "lint": "eslint 'src/**/*.{ts,tsx}' && pnpm prettier && pnpm stylelint",
+    "postpublish": "git clean -fd",
+    "prettier": "npx prettier --check 'src/**/*{.ts,tsx}'",
+    "prepublishOnly": "pnpm typecheck && pnpm lint && pnpm build && ./scripts/add-pkgs &&  cp -r ./build/* ./ && pnpm clean",
+    "start": "pnpm typecheck && pnpm lint && pnpm storybook",
+    "storybook": "storybook dev -p 9001",
+    "stylelint": "npx stylelint 'src/**/*.ts'",
+    "test-publish": "pnpm prepublishOnly && pnpm postpublish",
+    "typecheck": "npx tsc --noEmit",
+    "update-deps": "npx npm-check-updates -u --target minor; npx npm-check-updates"
+  },
+  "pre-commit": [
+    "lint-pretty"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vimeo/iris.git"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "prettier": {
+    "parser": "typescript",
+    "printWidth": 70,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": [
+          "index.ts",
+          "config.ts",
+          "*config.js"
+        ],
+        "options": {
+          "printWidth": 200
+        }
+      }
+    ]
+  },
+  "keywords": [
+    "Vimeo",
+    "UI Library",
+    "Component Library",
+    "Design System",
+    "TypeScript",
+    "JavaScript",
+    "React",
+    "styled-components"
+  ],
+  "volta": {
+    "node": "16.17.0"
+  }
 }
