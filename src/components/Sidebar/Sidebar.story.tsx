@@ -11,6 +11,7 @@ import {
   Interactive,
   SpeechBubbleSquared,
   LineChartOutlined,
+  Eye,
 } from '../../icons';
 import { Header as H } from '../../typography';
 import { Layout } from '../../storybook';
@@ -37,15 +38,7 @@ const Template: Story<
       : null;
   return (
     <Layout.FullBleed>
-      <Sidebar
-        attach={attach}
-        {...args}
-        style={style}
-        activeStyles={{
-          background: 'rgba(0,0,0,0.1)',
-          color: '#262626',
-        }}
-      >
+      <Sidebar attach={attach} {...args} style={style}>
         <Sidebar.Item
           label="Privacy"
           labelAsTooltip={labelAsTooltip}
@@ -89,6 +82,18 @@ const Template: Story<
         >
           <Header size="3">Settings</Header>
         </Sidebar.Item>
+
+        {!labelAsTooltip ? (
+          <Sidebar.Item
+            label="Longer Label"
+            labelAsTooltip={false}
+            icon={<Eye />}
+          >
+            <Header size="3">Long Label</Header>
+          </Sidebar.Item>
+        ) : (
+          <></>
+        )}
       </Sidebar>
     </Layout.FullBleed>
   );

@@ -6,6 +6,7 @@ import { ActiveStyles, ItemPropsIntrinsic } from './Sidebar.types';
 import { Button } from '../Button/Button';
 import { Tip } from '../Tip/Tip';
 import { core } from '../../tokens';
+import { grayscale, slate } from '../../color';
 
 export function Item({
   attach = 'right',
@@ -74,12 +75,33 @@ const ItemLabeledStyled = styled(Button)<{
   activeStyles?: ActiveStyles;
 }>`
   height: 4rem;
-  min-width: initial;
+  width: 4rem;
+  min-width: 4rem;
   padding: 0.25rem;
   margin: 2px 0;
   align-items: center;
   flex-direction: column;
-  ${({ isActive, activeStyles }) => (isActive ? activeStyles : '')};
+  overflow: hidden;
+  // The negative margin here is to adjust the look of the
+  // sidebar gutter, in order to avoid making an adjustment to the existing
+  // sidebar padding which would break the no-labels version of the sidebar
+  margin: 0.125rem -0.25rem;
+
+  ${({ isActive, activeStyles, theme }) =>
+    isActive && activeStyles
+      ? activeStyles
+      : isActive
+      ? {
+          backgroundColor: `${
+            theme.name == 'light' ? slate(100) : grayscale(600)
+          }`,
+        }
+      : {}};
+
+  &:hover {
+    background-color: ${({ theme }) =>
+      theme.name == 'light' ? slate(50) : grayscale(700)};
+  }
 
   > svg {
     // !important: Overrides padding placed on svg in Stylebar.style.ts
@@ -97,15 +119,15 @@ const ItemLabeledStyled = styled(Button)<{
   > span {
     font-weight: 400;
     text-overflow: initial;
-    overflow: visible;
     font-size: 0.6875rem;
     line-height: initial;
+    white-space: initial;
   }
 `;
 
 export const Break = styled.div`
-  width: calc(100% - 0.5rem);
-  border-top: 2px solid ${core.color.stroke};
-  margin: 1rem auto;
+  width: 100%;
+  border-top: 1px solid ${core.color.stroke};
+  margin: 0.75rem auto;
   transition: 120ms ease-in-out;
 `;

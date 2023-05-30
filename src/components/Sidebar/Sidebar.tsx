@@ -23,6 +23,10 @@ export const Sidebar = withIris<HTMLDivElement, Props, Minors>(
 Sidebar.Item = Item;
 Sidebar.Break = Break;
 
+// const defaultActiveStyles = css`
+//   background-color: ${(theme) => theme.content.background},
+// `
+
 function SidebarComponent({
   children,
   attach = 'left',
@@ -76,7 +80,7 @@ function SidebarComponent({
       attach: attach === 'left' ? 'right' : 'left',
       onClick: toggle(child),
       key,
-      isActive: activeStyles && active === child.props.label,
+      isActive: active === child.props.label,
       activeStyles,
     });
   }
