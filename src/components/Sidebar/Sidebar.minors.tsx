@@ -128,6 +128,6 @@ const ItemLabeledStyled = styled(Button)<{
 export const Break = styled.div`
   width: 100%;
   border-top: 1px solid ${core.color.stroke};
-  margin: 0.75rem auto;
+  margin: 0.35rem auto;
   transition: 120ms ease-in-out;
 `;
