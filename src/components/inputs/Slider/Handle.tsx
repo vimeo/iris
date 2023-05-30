@@ -41,9 +41,6 @@ export function Handle({
       onMouseDown={() => {
         !disabled && setDragging(handle);
       }}
-      onMouseUp={(event) =>
-        !disabled && onDragEnd && onDragEnd(event)
-      }
       {...props}
     >
       <Hidden
