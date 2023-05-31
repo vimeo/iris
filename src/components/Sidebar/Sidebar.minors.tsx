@@ -6,7 +6,6 @@ import { ActiveStyles, ItemPropsIntrinsic } from './Sidebar.types';
 import { Button } from '../Button/Button';
 import { Tip } from '../Tip/Tip';
 import { core } from '../../tokens';
-import { grayscale, slate } from '../../color';
 
 export function Item({
   attach = 'right',
@@ -57,7 +56,8 @@ const ItemStyled = styled(Button)<{
   text-align: left;
   padding: 0.25rem 0.25rem 0.25rem 0.75rem;
   justify-content: start;
-  ${({ isActive, activeStyles }) => (isActive ? activeStyles : '')};
+  ${({ isActive, activeStyles }) =>
+    isActive && activeStyles ? activeStyles : ''};
 
   > svg {
     padding: 0 !important;
@@ -76,6 +76,7 @@ const ItemLabeledStyled = styled(Button)<{
 }>`
   height: 4rem;
   width: 4rem;
+  min-height: 4rem;
   min-width: 4rem;
   padding: 0.25rem;
   margin: 2px 0;
@@ -87,21 +88,8 @@ const ItemLabeledStyled = styled(Button)<{
   // sidebar padding which would break the no-labels version of the sidebar
   margin: 0.125rem -0.25rem;
 
-  ${({ isActive, activeStyles, theme }) =>
-    isActive && activeStyles
-      ? activeStyles
-      : isActive
-      ? {
-          backgroundColor: `${
-            theme.name == 'light' ? slate(100) : grayscale(600)
-          }`,
-        }
-      : {}};
-
-  &:hover {
-    background-color: ${({ theme }) =>
-      theme.name == 'light' ? slate(50) : grayscale(700)};
-  }
+  ${({ isActive, activeStyles }) =>
+    isActive && activeStyles ? activeStyles : ''}
 
   > svg {
     // !important: Overrides padding placed on svg in Stylebar.style.ts
