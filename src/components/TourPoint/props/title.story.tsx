@@ -7,6 +7,10 @@ import { Card } from '../TourPoint.story';
 import { Input } from '../../../components';
 import { StoryControlBar } from '../../../storybook';
 
+export default {
+  component: TourPoint,
+  title: 'components/TourPoint/props',
+};
 export function Title() {
   const [title, titleSet] = useState('A Fresh New Look');
 

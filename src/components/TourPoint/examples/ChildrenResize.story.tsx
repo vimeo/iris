@@ -8,6 +8,11 @@ import { Header, Paragraph } from '../../../typography';
 import { History, Plus } from '../../../icons';
 import { StoryControlBar } from '../../../storybook';
 
+export default {
+  component: TourPoint,
+  title: 'components/TourPoint/examples',
+};
+
 export function ChildrenResize() {
   function Children() {
     const { active, activeSet } = useContext(TourContext);

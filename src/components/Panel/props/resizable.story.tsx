@@ -5,6 +5,10 @@ import { Panel } from '../Panel';
 import { Button } from '../../../components';
 import { Layout } from '../../../storybook';
 
+export default {
+  component: Panel,
+  title: 'components/Panel/props',
+};
 export function Resizable() {
   const [active, activeSet] = useState(true);
   const toggle = () => activeSet((active) => !active);

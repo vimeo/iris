@@ -8,6 +8,10 @@ import { core } from '../../core';
 import { Card, Canvas } from '../../storybook';
 import { tx } from '../../util';
 
+export default {
+  title: 'Tokens/color',
+};
+
 export function Tokens() {
   return (
     <>

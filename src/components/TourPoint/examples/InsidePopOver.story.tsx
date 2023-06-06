@@ -7,6 +7,11 @@ import { Tour } from '../TourPoint.context';
 import { PopOver } from '../../PopOver/PopOver';
 import { Paragraph } from '../../../typography';
 
+export default {
+  component: TourPoint,
+  title: 'components/TourPoint/examples',
+};
+
 export function InsidePopOver() {
   const [active, activeSet] = useState(false);
   const getStepsTranslation = ({

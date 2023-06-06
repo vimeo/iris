@@ -7,6 +7,8 @@ import { Text } from '../../../typography';
 import { core } from '../../core';
 import { Canvas } from '../../storybook';
 
+export default { title: 'Tokens/typography' };
+
 export function Tokens() {
   return (
     <Canvas>
