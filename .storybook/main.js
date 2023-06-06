@@ -1,17 +1,26 @@
 module.exports = {
   typescript: {
     check: true,
-    checkOptions: {}
+    checkOptions: {},
   },
   features: {
     postcss: false,
     previewCsfV3: false,
     buildStoriesJson: false,
-    storyStoreV7: false
+    storyStoreV7: false,
+  },
+  reactOptions: {
+    fastRefresh: true,
+    strictMode: true,
   },
   stories: ['../src/**/*.story.tsx', '../src/**/*.story.mdx'],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-a11y', '@storybook/addon-storysource', '@nox/addon-themes/dist/register'],
-  webpackFinal: config => {
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-a11y',
+    '@storybook/addon-storysource',
+    '@nox/addon-themes/dist/register',
+  ],
+  webpackFinal: (config) => {
     config.module.rules.push(storySource);
     return config;
   },
@@ -20,16 +29,16 @@ module.exports = {
     name: '@storybook/react-webpack5',
     options: {
       fastRefresh: true,
-      strictMode: true
-    }
+      strictMode: true,
+    },
   },
   docs: {
-    autodocs: true
-  }
+    autodocs: true,
+  },
 };
 const storySource = {
   test: /\.(stories|story)\.[tj]sx?$/,
   loader: require.resolve('@storybook/source-loader'),
   exclude: [/node_modules/],
-  enforce: 'pre'
+  enforce: 'pre',
 };
