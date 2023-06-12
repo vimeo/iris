@@ -53,7 +53,7 @@ export const ButtonStyled = styled.button<any>`
   ${buttonVariants};
   ${buttonDisabled};
   ${buttonTextShift};
-  ${buttonChecked}
+  ${buttonChecked};
   ${buttonUpsell};
 `;
 
