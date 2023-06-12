@@ -82,6 +82,7 @@ function ButtonComponent({
       theme={theme}
       type={type}
       variant={variant}
+      data-id={props.dataId}
       onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
         //Safari Button Focus Fix
         buttonRef?.current?.focus();

@@ -20,6 +20,7 @@ export function Format({ args }) {
     <Tabs format={format} key={key} {...args}>
       <Tabs.Panel
         label="Tab 0"
+        dataId="tab-0"
         onActivate={() => console.log('Clicked Tab 0')}
       >
         <Paragraph size="2">Lorem kittsum dolor sit ameow.</Paragraph>
@@ -27,6 +28,7 @@ export function Format({ args }) {
       </Tabs.Panel>
       <Tabs.Panel
         label="Tab 1"
+        dataId="tab-1"
         active
         onActivate={() => console.log('Clicked Tab 1')}
       >
@@ -35,6 +37,7 @@ export function Format({ args }) {
       </Tabs.Panel>
       <Tabs.Panel
         label="Tab 2"
+        dataId="tab-2"
         onActivate={() => console.log('Clicked Tab 2')}
       >
         <Paragraph size="2">Lorem kittsum dolor sit ameow.</Paragraph>

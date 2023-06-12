@@ -61,6 +61,7 @@ function TabsComponent({
         format={format}
         index={i}
         label={props.label}
+        dataId={props.dataId}
         selected={activeTab === i}
         variant={variant}
         pill={pill}
