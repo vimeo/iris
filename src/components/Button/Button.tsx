@@ -47,6 +47,7 @@ function ButtonComponent({
   theme,
   type,
   variant = 'solid',
+  checked = false,
   onClick,
   ...props
 }: Props) {
@@ -81,6 +82,7 @@ function ButtonComponent({
       textShift={textShift}
       theme={theme}
       type={type}
+      checked={checked}
       variant={variant}
       onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
         //Safari Button Focus Fix

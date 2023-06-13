@@ -5,7 +5,7 @@ import { borderRadii } from './Button.config';
 import { FeaturedIcon } from './FeaturedIcon';
 
 import { a11yColor } from '../../themes';
-import { white, black } from '../../color';
+import { white, black, blue } from '../../color';
 import { core } from '../../tokens';
 
 const buttonCore = css`
@@ -53,7 +53,7 @@ export const ButtonStyled = styled.button<any>`
   ${buttonVariants};
   ${buttonDisabled};
   ${buttonTextShift};
-
+  ${buttonChecked};
   ${buttonUpsell};
 `;
 
@@ -466,6 +466,19 @@ const disabledCSS = css`
   pointer-events: none;
   user-select: none;
 `;
+
+function buttonChecked({ checked }) {
+  return (
+    checked &&
+    css`
+      border: 2px solid ${blue(500)};
+
+      &:hover:not(:active) {
+        border: 2px solid ${blue(500)};
+      }
+    `
+  );
+}
 
 function buttonTextShift({ variant, textShift, iconPosition }) {
   if (!variant.includes('minimal')) return;

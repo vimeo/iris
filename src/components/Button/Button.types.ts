@@ -91,6 +91,10 @@ export type Props = IrisProps<
      * [default = 'solid']
      */
     variant?: (typeof variants)[number];
+    /**
+     * Should the button have checked state
+     */
+    checked?: boolean;
   },
   DOMElement
 >;

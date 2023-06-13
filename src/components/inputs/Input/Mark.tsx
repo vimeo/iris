@@ -137,13 +137,38 @@ function DefaultMark({
 }
 
 function CustomMark({ children, htmlFor, checked, disabled }) {
+  // When Iris button is used as radio, make sure the type is not "button"
+  if (children.type.displayName === 'Button') {
+    if (
+      !children.props.element ||
+      children.props.element === 'button'
+    ) {
+      console.warn(
+        '@vimeo/iris: Using <Button /> with type "button" is not supported as a <Radio /> child, <Button /> will be rendered as span'
+      );
+    }
+  }
+
+  const clonedElementProps: {
+    disabled: boolean;
+    checked: boolean;
+    element?: string;
+  } = {
+    disabled,
+    checked,
+  };
+
+  if (children.type.displayName === 'Button') {
+    clonedElementProps.element = 'span';
+  }
+
   return (
     children && (
       <label
         htmlFor={htmlFor}
         style={{ cursor: disabled ? 'not-allowed' : 'pointer' }}
       >
-        {cloneElement(children, { disabled, checked })}
+        {cloneElement(children, clonedElementProps)}
       </label>
     )
   );
