@@ -35,7 +35,6 @@ type IrisElementProps<DOMElement = HTMLDivElement> = {
   children?: ReactNode;
   className?: string;
   data?: string;
-  dataId?: string;
   debug?: boolean;
   disabled?: boolean;
   forwardRef?: Ref<DOMElement>;

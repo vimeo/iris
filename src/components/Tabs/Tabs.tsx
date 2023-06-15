@@ -54,6 +54,7 @@ function TabsComponent({
     <li
       key={i}
       onClick={() => activeTabSet(i)}
+      data-id={props.dataId}
       style={{ flex: '1 0 0' }}
     >
       <NavItem
@@ -61,7 +62,6 @@ function TabsComponent({
         format={format}
         index={i}
         label={props.label}
-        dataId={props.dataId}
         selected={activeTab === i}
         variant={variant}
         pill={pill}
