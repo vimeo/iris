@@ -27,6 +27,7 @@ export interface Minors {
 
 export interface PanelProps {
   label?: string;
+  dataId?: string;
   active?: boolean;
   /**
    * @deprecated
