@@ -10,16 +10,23 @@ import React, {
 
 import { Props } from './Slider.types';
 import { initialState, reducer } from './Slider.state';
-import { Background, ActiveRange } from './Slider.style';
+import {
+  Background,
+  ActiveRange,
+  Label,
+  LabelInput,
+  SliderContainer,
+  Hidden,
+} from './Slider.style';
 import { Handle } from './Handle';
 
 import { white } from '../../../color';
-import { geometry } from '../../../utils';
+import { Focus, geometry } from '../../../utils';
 
 interface State {
   values: number[];
   trackRect: any;
-  focused: boolean;
+  focused: string;
   dragging: 'startHandle' | 'endHandle';
 }
 
@@ -35,12 +42,20 @@ export function Slider({
   range,
   ...props
 }: Props) {
-  const ref = useRef(null);
+  const trackRef = useRef(null);
+  const hiddenInputRef = useRef(null);
+
   const [state, dispatch] = useReducer(
     reducer,
     initialState(initialValues)
   );
   const { values, trackRect, focused, dragging }: State = state;
+
+  function dispatchChangeEvent(callback) {
+    const event = new Event('change', { bubbles: true });
+    hiddenInputRef?.current?.dispatchEvent(event);
+    callback && callback(event);
+  }
 
   function setDragging(payload) {
     setFocus(payload);
@@ -48,6 +63,7 @@ export function Slider({
   }
 
   function setValue(payload) {
+    dispatchChangeEvent(onChange);
     return dispatch({ type: 'SET_VALUES', payload });
   }
 
@@ -66,14 +82,14 @@ export function Slider({
   }
 
   useLayoutEffect(() => {
-    const { left, width } = geometry(ref.current);
+    const { left, width } = geometry(trackRef.current);
     dispatch({ type: 'SET_TRACK_RECT', payload: { left, width } });
   }, [dragging]);
 
   useEffect(() => {
-    const mouseup = (event) => {
+    const mouseup = () => {
+      dispatchChangeEvent(onDragEnd);
       dragging && setDragging(false);
-      onDragEnd && onDragEnd(event);
     };
 
     document && document.addEventListener('mouseup', mouseup);
@@ -97,22 +113,45 @@ export function Slider({
   });
 
   return (
-    <div {...props} style={{ color: white, margin: '4rem 0' }}>
-      <Track ref={ref} values={values} id="track-1" max={max}>
+    <SliderContainer
+      {...props}
+      style={{ color: white, margin: '1.5rem 0' }}
+      aria-label="slider"
+    >
+      {range && (
+        <Label focused={focused === 'startHandle'}>
+          {editableLabel ? (
+            <>
+              <LabelInput
+                value={values[0]}
+                disabled={disabled}
+                onChange={(e) => setStartValue(e.target.value)}
+                onFocus={setFocus('startHandle')}
+                onBlur={setFocus(false)}
+                role="start-input"
+              />
+              <Focus parent={LabelInput} distance={1} />
+            </>
+          ) : (
+            formatter(values[0])
+          )}
+        </Label>
+      )}
+      <Track
+        ref={trackRef}
+        values={values}
+        id="track-1"
+        max={max}
+        range={range}
+        aria-label="track"
+      >
         <Handle
           disabled={disabled}
           dragging={dragging}
-          editableLabel={editableLabel}
-          focused={focused}
-          formatter={formatter}
           handle="startHandle"
           max={max}
-          min={min}
           onChange={onChange}
-          onDragEnd={onDragEnd}
           setDragging={setDragging}
-          setFocus={setFocus}
-          setValue={setStartValue}
           value={values[0]}
         />
 
@@ -120,22 +159,45 @@ export function Slider({
           <Handle
             disabled={disabled}
             dragging={dragging}
-            editableLabel={editableLabel}
-            focused={focused}
-            formatter={formatter}
             handle="endHandle"
             max={max}
-            min={min}
             onChange={onChange}
-            onDragEnd={onDragEnd}
             setDragging={setDragging}
-            setFocus={setFocus}
-            setValue={setEndValue}
             value={values[1]}
           />
         )}
       </Track>
-    </div>
+      <Label
+        focused={focused === (range ? 'endHandle' : 'startHandle')}
+      >
+        {editableLabel ? (
+          <>
+            <LabelInput
+              value={range ? values[1] : values[0]}
+              disabled={disabled}
+              onChange={(e) => {
+                range
+                  ? setEndValue(e.target.value)
+                  : setStartValue(e.target.value);
+              }}
+              onFocus={setFocus(range ? 'endHandle' : 'startHandle')}
+              onBlur={setFocus(false)}
+              role={range ? 'end-input' : 'start-input'}
+            />
+            <Focus parent={LabelInput} distance={1} />
+          </>
+        ) : (
+          formatter(range ? values[1] : values[0])
+        )}
+      </Label>
+      <Hidden
+        min={min}
+        max={max}
+        value={dragging === 'startHandle' ? values[0] : values[1]}
+        ref={hiddenInputRef}
+        readOnly
+      />
+    </SliderContainer>
   );
 }
 
@@ -145,14 +207,19 @@ interface TrackProps {
   ref: Ref<HTMLDivElement>;
   values: number[];
   max: number;
+  range: boolean;
 }
 
 const Track = forwardRef(
-  ({ children, values, max, ...props }: TrackProps, ref) => {
+  ({ children, values, max, range, ...props }: TrackProps, ref) => {
     return (
       <Background ref={ref} {...props}>
         {children}
-        <ActiveRange values={values} max={max}></ActiveRange>
+        <ActiveRange
+          values={values}
+          max={max}
+          range={range}
+        ></ActiveRange>
       </Background>
     );
   }
