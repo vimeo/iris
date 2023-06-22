@@ -134,8 +134,7 @@
         "url": "https://github.com/vimeo/iris.git"
     },
     "engines": {
-        "node": ">=12.0.0",
-        "pnpm": "7.26.3"
+        "node": ">=12.0.0"
     },
     "prettier": {
         "parser": "typescript",
