@@ -117,6 +117,12 @@ export function Slider({
       {...props}
       style={{ color: white, margin: '1.5rem 0' }}
       aria-label="slider"
+      role="slider"
+      aria-valuemin={min}
+      aria-valuemax={max}
+      aria-valuenow={
+        dragging === 'startHandle' ? values[0] : values[1]
+      }
     >
       {range && (
         <Label focused={focused === 'startHandle'}>
