@@ -92,4 +92,31 @@ describe('Slider', () => {
     const input = screen.getByRole('start-input');
     expect(input).toHaveAttribute('disabled');
   });
+
+  it('Limit values based on range', async () => {
+    render(
+      <ThemeProvider theme={themes['light']}>
+        <Slider initialValues={[0, 100]} range editableLabel />
+      </ThemeProvider>
+    );
+
+    const endInput = screen.getByRole('end-input');
+    await userEvent.click(endInput);
+    fireEvent.change(endInput, { target: { value: 80 } });
+
+    const startInput = screen.getByRole('start-input');
+    await userEvent.click(startInput);
+    fireEvent.change(startInput, { target: { value: 90 } });
+
+    const startHandle = screen.getByLabelText('startHandle');
+    expect(startHandle).toHaveStyle({ left: '79%' });
+
+    const endHandle = screen.getByLabelText('endHandle');
+    expect(endHandle).toHaveStyle({ left: '80%' });
+
+    await userEvent.click(endInput);
+    fireEvent.change(endInput, { target: { value: 20 } });
+
+    expect(endHandle).toHaveStyle({ left: '80%' });
+  });
 });
