@@ -16,7 +16,6 @@ import {
   Label,
   LabelInput,
   SliderContainer,
-  Hidden,
 } from './Slider.style';
 import { Handle } from './Handle';
 
@@ -58,7 +57,6 @@ export function Slider({
   const trackRef = useRef(null);
   const startHandleRef = useRef(null);
   const endHandleRef = useRef(null);
-  const hiddenInputRef = useRef(null);
 
   useOutsideClick([trackRef], () => {
     setFocus(null);
@@ -72,8 +70,11 @@ export function Slider({
   const { values, trackRect, focused, dragging }: State = state;
 
   function dispatchChangeEvent(callback) {
+    const currentInput =
+      focused === 'startHandle' ? startHandleRef : endHandleRef;
+
     const event = new Event('change', { bubbles: true });
-    hiddenInputRef?.current?.dispatchEvent(event);
+    currentInput?.current?.dispatchEvent(event);
     callback && callback(event);
   }
 
@@ -178,10 +179,7 @@ export function Slider({
       }
     >
       {range && (
-        <Label
-          ref={startHandleRef}
-          focused={focused === 'startInput'}
-        >
+        <Label focused={focused === 'startInput'}>
           {editableLabel ? (
             <>
               <LabelInput
@@ -210,28 +208,29 @@ export function Slider({
       >
         <Handle
           disabled={disabled}
-          dragging={dragging}
           handle="startHandle"
+          min={min}
           max={max}
-          onChange={onChange}
+          setFocus={setFocus}
           setDragging={setDragging}
           value={values[0]}
+          ref={startHandleRef}
         />
 
         {range && (
           <Handle
             disabled={disabled}
-            dragging={dragging}
             handle="endHandle"
+            min={min}
             max={max}
-            onChange={onChange}
+            setFocus={setFocus}
             setDragging={setDragging}
             value={values[1]}
+            ref={endHandleRef}
           />
         )}
       </Track>
       <Label
-        ref={range ? endHandleRef : startHandleRef}
         focused={focused === (range ? 'endInput' : 'startInput')}
       >
         {editableLabel ? (
@@ -255,13 +254,6 @@ export function Slider({
           formatter(range ? values[1] : values[0])
         )}
       </Label>
-      <Hidden
-        min={min}
-        max={max}
-        value={dragging === 'startHandle' ? values[0] : values[1]}
-        ref={hiddenInputRef}
-        readOnly
-      />
     </SliderContainer>
   );
 }
@@ -290,7 +282,7 @@ const Track = forwardRef(
   }
 );
 
-function isHandleFocused(focusedElement: string) {
+function isHandleFocused(focusedElement: State['focused']) {
   return focusedElement.includes('Handle');
 }
 
