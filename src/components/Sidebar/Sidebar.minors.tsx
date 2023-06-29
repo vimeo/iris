@@ -33,7 +33,7 @@ export function Item({
       />
     </Tip>
   ) : (
-    <ItemLabeledStyled
+    <ItemLabelledStyled
       format="basic"
       icon={icon}
       onClick={onClick}
@@ -44,7 +44,7 @@ export function Item({
       {...props}
     >
       {label}
-    </ItemLabeledStyled>
+    </ItemLabelledStyled>
   );
 }
 
@@ -70,7 +70,7 @@ const ItemStyled = styled(Button)<{
   }
 `;
 
-const ItemLabeledStyled = styled(Button)<{
+const ItemLabelledStyled = styled(Button)<{
   isActive?: boolean;
   activeStyles?: ActiveStyles;
 }>`
@@ -95,9 +95,9 @@ const ItemLabeledStyled = styled(Button)<{
     // !important: Overrides padding placed on svg in Stylebar.style.ts
     padding: 0 !important;
     width: 1.25rem;
+    height: 1.25rem;
     min-width: 1.25rem;
     max-width: 1.25rem;
-    height: 1.25rem;
     min-height: 1.25rem;
     max-height: 1.25rem;
     margin: 0 0 0.45rem 0;
