@@ -19,7 +19,7 @@ const DrawerComponent = ({
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div {...getAnimation(size)}>
+        <motion.div {...getAnimation(size, placement)}>
           <DrawerContainer size={size} placement={placement}>
             {children}
           </DrawerContainer>

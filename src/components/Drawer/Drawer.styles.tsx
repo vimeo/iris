@@ -33,18 +33,20 @@ function panelSize(size: DrawerSize) {
 }
 
 export const WithSize = styled.div<{ size: DrawerSize }>`
+  position: relative;
   width: ${({ size }) => panelSize(size)};
   height: 100vh;
 `;
 
 export const WithPlacement = styled.div<{ left: boolean }>`
+  position: fixed;
   ${({ left }) =>
     left
       ? `
-        left: 0;
-        right: initial;`
+            left: 0;
+            right: initial;`
       : `
-        right: 0;
-        left: initial;
-    `}
+            right: 0;
+            left: initial;
+        `}
 `;
