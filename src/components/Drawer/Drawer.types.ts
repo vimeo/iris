@@ -23,9 +23,9 @@ export type DrawerProps = IrisProps<{
   /**
    * Width of the drawer
    *
-   * @default "sm"
+   * @default "md"
    */
-  size: DrawerSize;
+  size?: DrawerSize;
   /**
    * If `true`, the modal will autofocus the first enabled and interactive
    * element within the `ModalContent`

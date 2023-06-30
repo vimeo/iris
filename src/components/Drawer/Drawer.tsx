@@ -8,7 +8,7 @@ import { getAnimation } from './util';
 const DrawerComponent = ({
   placement,
   isOpen,
-  size,
+  size = 'md',
   // autoFocus,
   // initialFocusRef,
   // finalFocusRef,
@@ -19,7 +19,7 @@ const DrawerComponent = ({
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div {...getAnimation(placement, size)}>
+        <motion.div {...getAnimation(size)}>
           <DrawerContainer size={size} placement={placement}>
             {children}
           </DrawerContainer>
