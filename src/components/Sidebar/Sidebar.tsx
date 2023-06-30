@@ -1,4 +1,9 @@
-import React, { cloneElement } from 'react';
+import React, {
+  cloneElement,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 
 import { Item, Break } from './Sidebar.minors';
 import { SidebarStyled, PanelStyled, Dismiss } from './Sidebar.style';
@@ -31,6 +36,12 @@ function SidebarComponent({
 }: Props) {
   const [active, activeSet] = useStateTransmorphic<string>(state);
   const [layoutStyles, displayStyles] = useLayoutStyles(style);
+  const sidebarRef = useRef<HTMLDivElement | null>(null);
+  const [sidebarWidth, setSidebarWidth] = useState(0);
+
+  useLayoutEffect(() => {
+    setSidebarWidth(sidebarRef?.current?.clientWidth ?? 0);
+  }, [sidebarRef?.current?.clientWidth]);
 
   // Extract the active Sidebar.Item's children.
   const panel = children.filter(
@@ -65,7 +76,7 @@ function SidebarComponent({
       attach: attach === 'left' ? 'right' : 'left',
       onClick: toggle(child),
       key,
-      isActive: activeStyles && active === child.props.label,
+      isActive: active === child.props.label,
       activeStyles,
     });
   }
@@ -74,10 +85,19 @@ function SidebarComponent({
 
   return (
     <div style={{ height: '100%', ...layoutStyles }} ref={forwardRef}>
-      <SidebarStyled attach={attach} style={displayStyles} {...props}>
+      <SidebarStyled
+        ref={sidebarRef}
+        attach={attach}
+        style={displayStyles}
+        {...props}
+      >
         {children}
       </SidebarStyled>
-      <PanelStyled attach={attach} visible={panel}>
+      <PanelStyled
+        attach={attach}
+        visible={panel}
+        offset={sidebarWidth}
+      >
         <Dismiss
           aria-label="Dismiss"
           format="basic"

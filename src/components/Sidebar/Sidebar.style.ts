@@ -10,7 +10,7 @@ export const SidebarStyled = styled.div<{
 }>`
   position: relative;
   z-index: 1500;
-  width: 4.5rem;
+  min-width: 4.5rem;
   height: 100%;
   padding: 0.75rem;
   transition: all 90ms ease-in-out, width 150ms ease-in-out,
@@ -40,6 +40,7 @@ export const SidebarStyled = styled.div<{
 `;
 
 export const PanelStyled = styled.div<{
+  offset: number;
   attach: Props['attach'];
   visible: boolean;
 }>`
@@ -60,8 +61,8 @@ export const PanelStyled = styled.div<{
   ${attach};
 `;
 
-function left({ attach }) {
-  return attach === 'left' ? '4.5rem' : '1px';
+function left({ attach, offset }) {
+  return attach === 'left' ? offset + 'px' : '1px';
 }
 
 function attach({ attach }) {

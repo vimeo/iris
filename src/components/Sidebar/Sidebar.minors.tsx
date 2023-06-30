@@ -12,12 +12,13 @@ export function Item({
   children = null,
   icon,
   label,
+  labelAsTooltip = true,
   onClick,
   isActive,
   activeStyles,
   ...props
 }: ItemPropsIntrinsic) {
-  return (
+  return labelAsTooltip ? (
     <Tip attach={attach} content={label}>
       <ItemStyled
         aria-label={label}
@@ -31,6 +32,19 @@ export function Item({
         {...props}
       />
     </Tip>
+  ) : (
+    <ItemLabelledStyled
+      format="basic"
+      icon={icon}
+      onClick={onClick}
+      size="md"
+      variant="minimalTransparent"
+      isActive={isActive}
+      activeStyles={activeStyles}
+      {...props}
+    >
+      {label}
+    </ItemLabelledStyled>
   );
 }
 
@@ -42,7 +56,8 @@ const ItemStyled = styled(Button)<{
   text-align: left;
   padding: 0.25rem 0.25rem 0.25rem 0.75rem;
   justify-content: start;
-  ${({ isActive, activeStyles }) => (isActive ? activeStyles : '')};
+  ${({ isActive, activeStyles }) =>
+    isActive && activeStyles ? activeStyles : ''};
 
   > svg {
     padding: 0 !important;
@@ -55,9 +70,52 @@ const ItemStyled = styled(Button)<{
   }
 `;
 
+const ItemLabelledStyled = styled(Button)<{
+  isActive?: boolean;
+  activeStyles?: ActiveStyles;
+}>`
+  height: 4rem;
+  width: 4rem;
+  min-height: 4rem;
+  min-width: 4rem;
+  padding: 0.25rem;
+  margin: 2px 0;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  // The negative margin here is to adjust the look of the
+  // sidebar gutter, in order to avoid making an adjustment to the existing
+  // sidebar padding which would break the no-labels version of the sidebar
+  margin: 0.125rem -0.25rem;
+
+  ${({ isActive, activeStyles }) =>
+    isActive && activeStyles ? activeStyles : ''}
+
+  > svg {
+    // !important: Overrides padding placed on svg in Stylebar.style.ts
+    padding: 0 !important;
+    width: 1.25rem;
+    height: 1.25rem;
+    min-width: 1.25rem;
+    max-width: 1.25rem;
+    min-height: 1.25rem;
+    max-height: 1.25rem;
+    margin: 0 0 0.45rem 0;
+  }
+
+  // Button label
+  > span {
+    font-weight: 400;
+    text-overflow: initial;
+    font-size: 0.6875rem;
+    line-height: initial;
+    white-space: initial;
+  }
+`;
+
 export const Break = styled.div`
-  width: calc(100% - 0.5rem);
-  border-top: 2px solid ${core.color.stroke};
-  margin: 1rem auto;
+  width: 100%;
+  border-top: 1px solid ${core.color.stroke};
+  margin: 0.35rem auto;
   transition: 120ms ease-in-out;
 `;
