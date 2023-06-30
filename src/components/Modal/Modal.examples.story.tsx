@@ -25,10 +25,7 @@ export function ExternalState({ args }) {
   );
 }
 
-export const WithInputContent = ({ args }) => (
-  <WithInputContentStory />
-);
-function WithInputContentStory() {
+export function WithInputContentStory({ ...args }) {
   const [value, valueSet] = useState('');
 
   const props = {
@@ -151,13 +148,6 @@ const ModalStyled = styled.div`
   background: ${({ theme }) => theme.content.background};
 `;
 
-// const FeatureModalImg = styled.img`
-//   margin: -2rem -2rem 2rem;
-//   width: calc(100% + 4rem);
-//   min-height: 27.5rem;
-//   border-radius: 0.25rem 0.25rem 0 0;
-// `;
-
 const ModalContent = (
   <ModalStyled>
     <Modal.Header>hey, listen!</Modal.Header>
@@ -174,9 +164,17 @@ const ModalContent = (
   </ModalStyled>
 );
 
-export const Custom = ({ args }) => <CustomStory />;
-function CustomStory() {
+const ParagraphItem = (
+  <Paragraph size="2">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Consectetur ipsam tenetur illum eius expedita cum ipsa distinctio
+    harum ut alias, praesentium suscipit vel soluta natus repudiandae
+    omnis reiciendis! Eos, beatae.
+  </Paragraph>
+);
+export function CustomStory({ args }) {
   const [active, activeSet] = useState(false);
+  const [paragraphs, setParagraphs] = useState([ParagraphItem]);
 
   return (
     <Layout.StoryVertical>
@@ -186,31 +184,45 @@ function CustomStory() {
       <Modal
         {...args}
         active={active}
-        style={{ maxWidth: '35rem' }}
         content={
           <CustomModalStyled>
             <Dismiss onClick={() => activeSet(false)} />
-            <div style={{ padding: '1.5rem' }}>
+            <div
+              style={{
+                padding: '1.5rem',
+                maxHeight: '200px',
+                overflow: 'scroll',
+              }}
+            >
               <Header size="5" style={{ marginBottom: '2rem' }}>
                 Send a Message
               </Header>
-              <Paragraph size="2">
-                Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit. Consectetur ipsam tenetur illum eius expedita
-                cum ipsa distinctio harum ut alias, praesentium
-                suscipit vel soluta natus repudiandae omnis
-                reiciendis! Eos, beatae.
-              </Paragraph>
+              {paragraphs.map((paragraph) => paragraph)}
             </div>
             <CustomModalFooter>
               <Button
                 format="secondary"
-                style={{ marginRight: '0.5rem' }}
                 onClick={() => activeSet(false)}
               >
                 Cancel
               </Button>
               <Button onClick={() => activeSet(false)}>Send</Button>
+              <Button
+                onClick={() =>
+                  setParagraphs([...paragraphs, ParagraphItem])
+                }
+              >
+                Add Paragraph
+              </Button>
+              <Button
+                onClick={() =>
+                  setParagraphs([
+                    ...paragraphs.slice(0, paragraphs.length - 1),
+                  ])
+                }
+              >
+                Remove Paragraph
+              </Button>
             </CustomModalFooter>
           </CustomModalStyled>
         }
@@ -238,6 +250,7 @@ const Dismiss = styled(Button).attrs({
 const CustomModalFooter = styled.div`
   width: 100%;
   display: flex;
+  gap: 0.5rem;
   justify-content: flex-end;
   padding: 0.75rem;
   border-top: 1px solid ${(p) => rgba(p.theme.content.color, 0.1)};
