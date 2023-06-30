@@ -3,10 +3,12 @@ import styled from 'styled-components';
 import { blue, white } from '../../../color';
 import { rgba } from 'polished';
 
-export const SliderContainer = styled.div`
+export const SliderContainer = styled.div<{ range: boolean }>`
   display: flex;
   align-items: center;
   gap: 16px;
+  margin: 0.75rem 0;
+  margin-left: ${({ range }) => (range ? 0 : '0.75rem')};
 `;
 
 export const Label = styled.div<{ focused: boolean }>`

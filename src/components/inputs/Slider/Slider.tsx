@@ -19,8 +19,7 @@ import {
 } from './Slider.style';
 import { Handle } from './Handle';
 
-import { white } from '../../../color';
-import { Focus, geometry, useOutsideClick } from '../../../utils';
+import { geometry, useOutsideClick } from '../../../utils';
 import {
   arrowDown,
   arrowLeft,
@@ -169,7 +168,7 @@ export function Slider({
   return (
     <SliderContainer
       {...props}
-      style={{ color: white, margin: '0.75rem 0' }}
+      range={range}
       aria-label="slider"
       role="slider"
       aria-valuemin={min}
@@ -181,18 +180,15 @@ export function Slider({
       {range && (
         <Label focused={focused === 'startInput'}>
           {editableLabel ? (
-            <>
-              <LabelInput
-                value={values[0]}
-                disabled={disabled}
-                onFocus={() => setFocus('startInput')}
-                onChange={(e) =>
-                  !e.button && setStartValue(parseInt(e.target.value))
-                }
-                role="start-input"
-              />
-              <Focus parent={LabelInput} distance={1} />
-            </>
+            <LabelInput
+              value={values[0]}
+              disabled={disabled}
+              onFocus={() => setFocus('startInput')}
+              onChange={(e) =>
+                !e.button && setStartValue(parseInt(e.target.value))
+              }
+              role="start-input"
+            />
           ) : (
             formatter(values[0])
           )}
@@ -234,22 +230,19 @@ export function Slider({
         focused={focused === (range ? 'endInput' : 'startInput')}
       >
         {editableLabel ? (
-          <>
-            <LabelInput
-              value={range ? values[1] : values[0]}
-              disabled={disabled}
-              onFocus={() =>
-                setFocus(range ? 'endInput' : 'startInput')
-              }
-              onChange={(e) => {
-                range
-                  ? setEndValue(parseInt(e.target.value))
-                  : setStartValue(parseInt(e.target.value));
-              }}
-              role={range ? 'end-input' : 'start-input'}
-            />
-            <Focus parent={LabelInput} distance={1} />
-          </>
+          <LabelInput
+            value={range ? values[1] : values[0]}
+            disabled={disabled}
+            onFocus={() =>
+              setFocus(range ? 'endInput' : 'startInput')
+            }
+            onChange={(e) => {
+              range
+                ? setEndValue(parseInt(e.target.value))
+                : setStartValue(parseInt(e.target.value));
+            }}
+            role={range ? 'end-input' : 'start-input'}
+          />
         ) : (
           formatter(range ? values[1] : values[0])
         )}
