@@ -17,10 +17,13 @@ export default {
   },
 };
 
-const Template: Story<DrawerProps> = ({ isOpen, placement }) => {
-  console.log(placement);
+const Template: Story<DrawerProps> = ({
+  isOpen,
+  placement,
+  size,
+}) => {
   return (
-    <Drawer isOpen={isOpen} placement={placement} size="md">
+    <Drawer isOpen={isOpen} placement={placement} size={size}>
       <DrawerContent>Hi! I'm Drawer Content!</DrawerContent>
     </Drawer>
   );
