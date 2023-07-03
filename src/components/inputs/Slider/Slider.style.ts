@@ -1,36 +1,35 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-import { white } from '../../../color';
+import { blue, white } from '../../../color';
 import { rgba } from 'polished';
 
+export const SliderContainer = styled.div<{ range: boolean }>`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0.75rem 0;
+  margin-left: ${({ range }) => (range ? 0 : '0.75rem')};
+`;
+
 export const Label = styled.div<{ focused: boolean }>`
-  position: absolute;
-  top: 100%;
-  transform: translate(-30%, 0.5rem);
-  padding: 0.5rem;
-  width: 3rem;
+  padding: 0.2125rem;
+  width: 3.125rem;
   text-align: center;
   border-radius: 0.25rem;
-  border: 1px solid ${({ theme }) => rgba(theme.content.color, 0.334)};
-  transition: 100ms ease-in-out;
+  border: 1px solid
+    ${({ theme, focused }) =>
+      focused ? blue(500) : rgba(theme.content.color, 0.334)};
   background: ${({ theme }) => theme.item.bg};
   color: ${({ theme }) => theme.content.color};
-
-  ${(p) =>
-    p.focused &&
-    css`
-      transform: translate(-25%, 0.75rem) scale(1.075);
-    `}
+  font-size: 0.75rem;
 `;
 
 export const LabelInput = styled.input.attrs({ type: 'number' })<{
   value: number;
   onChange: any;
   onFocus: any;
-  focused: boolean;
 }>`
   width: 100%;
-  font-size: 1rem;
   padding: 0;
   margin: 0;
   background: ${({ theme }) => theme.item.bg};
@@ -40,6 +39,7 @@ export const LabelInput = styled.input.attrs({ type: 'number' })<{
   overflow: visible;
   appearance: none;
   text-align: center;
+  font-size: inherit;
 
   &::-webkit-inner-spin-button {
     appearance: none;
@@ -55,8 +55,8 @@ export const HandleStyled = styled.div<{ focused?: boolean }>`
   border-radius: 50%;
   background: ${white};
   position: absolute;
-  top: -0.5rem;
-  transform: translateX(-50%);
+  top: 0;
+  transform: translate(-50%, -45%);
   cursor: pointer;
   border: 1px solid ${({ theme }) => rgba(theme.content.color, 0.1)};
   z-index: 2;
@@ -75,12 +75,22 @@ export const Background = styled.div`
 export const ActiveRange = styled.div.attrs<{
   values?: number[];
   max?: number;
-}>(({ values, max }) => ({
-  style: {
-    width: ((values[1] - values[0]) / max) * 100 + '%',
-    left: (values[0] / max) * 100 + '%',
-  },
-}))<{ values?: number[]; max?: number }>`
+  range?: boolean;
+}>(({ values, max, range }) =>
+  range
+    ? {
+        style: {
+          width: ((values[1] - values[0]) / max) * 100 + '%',
+          left: (values[0] / max) * 100 + '%',
+        },
+      }
+    : {
+        style: {
+          left: 0,
+          width: (values[0] / max) * 100 + '%',
+        },
+      }
+)<{ values?: number[]; max?: number; range?: boolean }>`
   pointer-events: none;
   position: absolute;
   height: 100%;

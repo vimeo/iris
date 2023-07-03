@@ -1,5 +1,9 @@
 export const arrowRight = 39;
 export const arrowLeft = 37;
+export const arrowUp = 38;
+export const arrowDown = 40;
+export const home = 36;
+export const end = 35;
 export const enter = 13;
 export const esc = 27;
 export const spacebar = 32;
