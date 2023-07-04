@@ -4,6 +4,7 @@ import { blue, white } from '../../../color';
 import { rgba } from 'polished';
 
 export const SliderContainer = styled.div<{ range: boolean }>`
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 16px;
