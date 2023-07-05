@@ -80,6 +80,13 @@ describe('Slider', () => {
     fireEvent.change(input, { target: { value: 50 } });
 
     expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith(
+      expect.objectContaining({
+        target: expect.objectContaining({
+          value: '50',
+        }),
+      })
+    );
   });
 
   it('Cannot change value of disabled slider', async () => {

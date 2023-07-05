@@ -70,10 +70,12 @@ export function Slider({
 
   function dispatchChangeEvent(callback) {
     const currentInput =
-      focused === 'startHandle' ? startHandleRef : endHandleRef;
+      focused === 'startHandle' || focused === 'startInput'
+        ? startHandleRef
+        : endHandleRef;
 
     const event = new Event('change', { bubbles: true });
-    currentInput?.current?.dispatchEvent(event);
+    (currentInput || startHandleRef).current?.dispatchEvent(event);
     callback && callback(event);
   }
 
