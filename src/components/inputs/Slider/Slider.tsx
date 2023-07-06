@@ -6,6 +6,7 @@ import React, {
   ReactNode,
   forwardRef,
   Ref,
+  useCallback,
 } from 'react';
 
 import { Props } from './Slider.types';
@@ -53,6 +54,7 @@ export function Slider({
   range,
   ...props
 }: Props) {
+  const isFirstRender = useRef(true);
   const trackRef = useRef(null);
   const startHandleRef = useRef(null);
   const endHandleRef = useRef(null);
@@ -68,16 +70,22 @@ export function Slider({
 
   const { values, trackRect, focused, dragging }: State = state;
 
-  function dispatchChangeEvent(callback) {
-    const currentInput =
-      focused === 'startHandle' || focused === 'startInput'
-        ? startHandleRef
-        : endHandleRef;
+  const dispatchChangeEvent = useCallback(
+    (callback) => {
+      let currentInput =
+        focused === 'startHandle' || focused === 'startInput'
+          ? startHandleRef
+          : endHandleRef;
 
-    const event = new Event('change', { bubbles: true });
-    (currentInput || startHandleRef).current?.dispatchEvent(event);
-    callback && callback(event);
-  }
+      if (!currentInput.current) currentInput = startHandleRef;
+
+      const event = new Event('change', { bubbles: true });
+      currentInput.current?.dispatchEvent(event);
+
+      callback && callback(event);
+    },
+    [focused]
+  );
 
   function setDragging(payload) {
     if (payload) setFocus(payload);
@@ -85,7 +93,6 @@ export function Slider({
   }
 
   function setValue(payload) {
-    dispatchChangeEvent(onChange);
     return dispatch({ type: 'SET_VALUES', payload });
   }
 
@@ -112,9 +119,19 @@ export function Slider({
   }, [dragging]);
 
   useEffect(() => {
+    if (!isFirstRender.current) {
+      dispatchChangeEvent(onChange);
+    } else {
+      isFirstRender.current = false;
+    }
+    // dispatchChangeEvent is updated on focus change and we want this flow to fire only on values / onChange updates
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [onChange, values]);
+
+  useEffect(() => {
     const mouseup = () => {
-      dispatchChangeEvent(onDragEnd);
       dragging && setDragging(false);
+      dispatchChangeEvent(onDragEnd);
     };
 
     const keydown = (event) => {
