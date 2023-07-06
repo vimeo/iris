@@ -126,19 +126,13 @@ export function Slider({
   }, [onChange, values]);
 
   useEffect(() => {
-    if (!isFirstRender.current && !dragging) {
-      dispatchChangeEvent(onDragEnd);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [onDragEnd, dragging]);
-
-  useEffect(() => {
     isFirstRender.current = false;
   }, []);
 
   useEffect(() => {
     const mouseup = () => {
       dragging && setDragging(false);
+      dispatchChangeEvent(onDragEnd);
     };
 
     const keydown = (event) => {
