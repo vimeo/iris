@@ -126,4 +126,18 @@ describe('Slider', () => {
 
     expect(endHandle).toHaveStyle({ left: '80%' });
   });
+
+  it('Does not fire event on inital render', async () => {
+    const onChange = jest.fn();
+    const onDragEnd = jest.fn();
+
+    render(
+      <ThemeProvider theme={themes['light']}>
+        <Slider initialValues={[0, 100]} editableLabel />
+      </ThemeProvider>
+    );
+
+    expect(onChange).toHaveBeenCalledTimes(0);
+    expect(onDragEnd).toHaveBeenCalledTimes(0);
+  });
 });
