@@ -124,6 +124,7 @@ export function Slider({
     } else {
       isFirstRender.current = false;
     }
+    // dispatchChangeEvent is updated on focus change and we want this flow to fire only on values / onChange updates
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onChange, values]);
 
