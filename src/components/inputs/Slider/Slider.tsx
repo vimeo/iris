@@ -121,13 +121,11 @@ export function Slider({
   useEffect(() => {
     if (!isFirstRender.current) {
       dispatchChangeEvent(onChange);
+    } else {
+      isFirstRender.current = false;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onChange, values]);
-
-  useEffect(() => {
-    isFirstRender.current = false;
-  }, []);
 
   useEffect(() => {
     const mouseup = () => {
