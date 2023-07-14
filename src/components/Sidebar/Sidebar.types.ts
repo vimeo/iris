@@ -30,10 +30,6 @@ export interface ItemPropsExtrinsic {
   onClick?: MouseEventHandler;
 }
 
-export type ItemExtrinsic = (
-  props: ItemPropsExtrinsic
-) => JSX.Element;
-
 export type ItemPropsIntrinsic = ItemPropsExtrinsic & {
   attach: Props['attach'];
   onClick: MouseEventHandler;
