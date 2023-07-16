@@ -57,7 +57,7 @@ function ColorSelectComponent({
         onClose?.();
       }
     },
-    { useCapture: true }
+    { capture: true }
   );
 
   const defaultColor = parseToHsl(initial.color);

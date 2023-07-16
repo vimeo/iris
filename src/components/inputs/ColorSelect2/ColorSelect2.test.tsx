@@ -254,4 +254,28 @@ describe('ColorSelect2', () => {
 
     await waitFor(() => expect(mockFn).toBeCalled());
   });
+
+  it('Closes the color picker on outside click, with stopPropagation() called on click target', async () => {
+    const mockFn = jest.fn();
+
+    renderWithThemeProvider(
+      <>
+        <ColorSelect2 onClose={mockFn} />
+        <button id="test_button">Test Button</button>
+      </>
+    );
+
+    const input = screen.getByLabelText('color');
+    const button = screen.getByText('Test Button');
+
+    button.addEventListener('click', (event) =>
+      event.stopPropagation()
+    );
+
+    await act(async () => await userEvent.click(input)); // Open the color picker.
+
+    await act(async () => await userEvent.click(button)); // Trigger an outside click to close the picker.
+
+    await waitFor(() => expect(mockFn).toBeCalled());
+  });
 });
