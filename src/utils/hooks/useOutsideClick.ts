@@ -7,10 +7,14 @@ import {
 type Element = HTMLElement | null;
 type Ref = MutableRefObject<Element>;
 type Refs = MutableRefObject<Element>[];
+type OutsideClickOptions = {
+  useCapture?: boolean;
+};
 
 export function useOutsideClick(
   refs: Ref | Refs,
-  onClick: MouseEventHandler
+  onClick: MouseEventHandler,
+  options?: OutsideClickOptions
 ) {
   useEffect(() => {
     if (!onClick) return;
@@ -22,11 +26,13 @@ export function useOutsideClick(
       if (outside) onClick(event);
     }
 
-    document.addEventListener('mousedown', click);
-    document.addEventListener('touchstart', click);
+    const useCapture = options?.useCapture || false;
+
+    document.addEventListener('mousedown', click, useCapture);
+    document.addEventListener('touchstart', click, useCapture);
     return () => {
       document.removeEventListener('mousedown', click);
       document.removeEventListener('touchstart', click);
     };
-  }, [refs, onClick]);
+  }, [refs, onClick, options]);
 }

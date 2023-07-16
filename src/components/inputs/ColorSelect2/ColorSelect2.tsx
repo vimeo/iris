@@ -49,12 +49,16 @@ function ColorSelectComponent({
   const childrenRef = useRef();
   const popOverRef = useRef();
 
-  useOutsideClick([childrenRef, popOverRef], () => {
-    if (state.open) {
-      onClose?.();
-      dispatch({ type: 'CLOSE', payload: true });
-    }
-  });
+  useOutsideClick(
+    [childrenRef, popOverRef],
+    () => {
+      if (state.open) {
+        onClose?.();
+        dispatch({ type: 'CLOSE', payload: true });
+      }
+    },
+    { useCapture: true }
+  );
 
   const defaultColor = parseToHsl(initial.color);
   const initialColors = colorSpaces(defaultColor);

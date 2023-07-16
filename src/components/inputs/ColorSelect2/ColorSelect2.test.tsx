@@ -5,6 +5,7 @@ import {
   render,
   RenderOptions,
   screen,
+  act,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ColorSelect2 } from './ColorSelect2';
@@ -34,7 +35,7 @@ describe('ColorSelect2', () => {
   it('Renders ColorSelect2 picker using input', async () => {
     renderWithThemeProvider(<ColorSelect2 />);
     const input = screen.getByLabelText('color');
-    await userEvent.click(input);
+    await act(async () => await userEvent.click(input));
     const picker = screen.getByLabelText('color picker');
     expect(picker).toBeInTheDocument();
   });
@@ -46,7 +47,7 @@ describe('ColorSelect2', () => {
       </ColorSelect2>
     );
     const trigger = screen.getByTestId('trigger');
-    await userEvent.click(trigger);
+    await act(async () => await userEvent.click(trigger));
     const picker = screen.getByLabelText('color picker');
     expect(picker).toBeInTheDocument();
   });
@@ -54,7 +55,7 @@ describe('ColorSelect2', () => {
   it('Set ColorSelect2 color using value prop', async () => {
     renderWithThemeProvider(<ColorSelect2 value={TEST_COLOR} />);
     const input = screen.getByLabelText('color');
-    await userEvent.click(input);
+    await act(async () => await userEvent.click(input));
 
     const selectedColor = screen.getByLabelText('color preview');
     const selectedColorValue = selectedColor.getAttribute('color');
@@ -64,7 +65,7 @@ describe('ColorSelect2', () => {
   it('Change ColorSelect2 color using input', async () => {
     renderWithThemeProvider(<ColorSelect2 />);
     const input = screen.getByLabelText('color');
-    await userEvent.click(input);
+    await act(async () => await userEvent.click(input));
 
     fireEvent.change(input, { target: { value: TEST_COLOR } });
 
@@ -78,9 +79,9 @@ describe('ColorSelect2', () => {
 
     renderWithThemeProvider(<ColorSelect2 onChange={mockFn} />);
     const input = screen.getByLabelText('color');
-    await userEvent.click(input);
+    await act(async () => await userEvent.click(input));
 
-    fireEvent.change(input, { target: { value: TEST_COLOR } });
+    await fireEvent.change(input, { target: { value: TEST_COLOR } });
 
     expect(mockFn).toBeCalledWith(TEST_COLOR);
   });
@@ -90,8 +91,8 @@ describe('ColorSelect2', () => {
 
     renderWithThemeProvider(<ColorSelect2 onClose={mockFn} />);
     const input = screen.getByLabelText('color');
-    await userEvent.click(input);
-    await userEvent.click(input); // Another click to close the picker
+    await act(async () => await userEvent.click(input));
+    await act(async () => await userEvent.click(input)); // Another click to close the picker
 
     expect(mockFn).toBeCalled();
   });
@@ -101,12 +102,12 @@ describe('ColorSelect2', () => {
 
     renderWithThemeProvider(<ColorSelect2 reset={reset} />);
     const input = screen.getByLabelText('color');
-    await userEvent.click(input);
+    await act(async () => await userEvent.click(input));
 
     fireEvent.change(input, { target: { value: TEST_COLOR } });
 
     const resetButton = screen.getByLabelText('reset');
-    await userEvent.click(resetButton);
+    await act(async () => await userEvent.click(resetButton));
 
     const selectedColor = screen.getByLabelText('color preview');
     const selectedColorValue = selectedColor.getAttribute('color');
@@ -141,7 +142,7 @@ describe('ColorSelect2', () => {
     renderWithThemeProvider(<ColorSelect2 required />);
 
     const input = screen.getByLabelText('color');
-    await userEvent.click(input);
+    await act(async () => await userEvent.click(input));
 
     const picker = screen.getByLabelText('color picker');
     const pickerInner = picker.querySelector('div');
@@ -158,7 +159,7 @@ describe('ColorSelect2', () => {
     renderWithThemeProvider(<ColorSelect2 name={name} />);
 
     const input = screen.getByLabelText('color');
-    await userEvent.click(input);
+    await act(async () => await userEvent.click(input));
 
     const picker = screen.getByLabelText('color picker');
     const pickerInner = picker.querySelector('div');
@@ -189,7 +190,7 @@ describe('ColorSelect2', () => {
   it('Render ColorSelect2 without hue slider', async () => {
     renderWithThemeProvider(<ColorSelect2 showHueSlider={false} />);
     const input = screen.getByLabelText('color');
-    await userEvent.click(input);
+    await act(async () => await userEvent.click(input));
 
     const hueSlider = document.querySelector('[kind=hue]');
 
@@ -209,7 +210,7 @@ describe('ColorSelect2', () => {
     );
 
     const preset = screen.getByLabelText(palette[1]);
-    await userEvent.click(preset);
+    await act(async () => await userEvent.click(preset));
 
     expect(mockFn).toBeCalledWith(palette[1]);
   });
