@@ -31,8 +31,8 @@ export function useOutsideClick(
     document.addEventListener('mousedown', click, useCapture);
     document.addEventListener('touchstart', click, useCapture);
     return () => {
-      document.removeEventListener('mousedown', click);
-      document.removeEventListener('touchstart', click);
+      document.removeEventListener('mousedown', click, useCapture);
+      document.removeEventListener('touchstart', click, useCapture);
     };
   }, [refs, onClick, options]);
 }
