@@ -233,4 +233,24 @@ describe('ColorSelect2', () => {
 
     expect(renderedLabel.innerHTML).toBe(label);
   });
+
+  it('Closes the color picker on outside click', async () => {
+    const mockFn = jest.fn();
+
+    renderWithThemeProvider(
+      <>
+        <ColorSelect2 />
+        <button id="test_button">Test Button</button>
+      </>
+    );
+
+    const input = screen.getByLabelText('color');
+    const button = screen.getByText('Test Button');
+
+    await act(async () => await userEvent.click(input));
+
+    await act(async () => await userEvent.click(button)); // Click on the button to trigger an outside click.
+
+    expect(mockFn).toBeCalled();
+  });
 });

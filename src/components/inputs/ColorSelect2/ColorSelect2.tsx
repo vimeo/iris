@@ -53,8 +53,8 @@ function ColorSelectComponent({
     [childrenRef, popOverRef],
     () => {
       if (state.open) {
-        onClose?.();
         dispatch({ type: 'CLOSE', payload: true });
+        onClose?.();
       }
     },
     { useCapture: true }
