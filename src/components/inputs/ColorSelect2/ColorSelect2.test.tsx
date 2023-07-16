@@ -6,6 +6,7 @@ import {
   RenderOptions,
   screen,
   act,
+  waitFor,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ColorSelect2 } from './ColorSelect2';
@@ -239,7 +240,7 @@ describe('ColorSelect2', () => {
 
     renderWithThemeProvider(
       <>
-        <ColorSelect2 />
+        <ColorSelect2 onClose={mockFn} />
         <button id="test_button">Test Button</button>
       </>
     );
@@ -247,10 +248,10 @@ describe('ColorSelect2', () => {
     const input = screen.getByLabelText('color');
     const button = screen.getByText('Test Button');
 
-    await act(async () => await userEvent.click(input));
+    await act(async () => await userEvent.click(input)); // Open the color picker.
 
-    await act(async () => await userEvent.click(button)); // Click on the button to trigger an outside click.
+    await act(async () => await userEvent.click(button)); // Trigger an outside click to close the picker.
 
-    expect(mockFn).toBeCalled();
+    await waitFor(() => expect(mockFn).toBeCalled());
   });
 });
