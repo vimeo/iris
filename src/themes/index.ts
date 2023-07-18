@@ -1,5 +1,6 @@
 import { rgba } from 'polished';
-import { grayscale, white, black, slate, blue, red, green } from '../color';
+// import { grayscale, white, black, slate, blue, red, green } from '../color';
+import { grayscale, white, black, green } from '../color';
 import { readableColor, lighten, darken, getLuminance, saturate } from 'polished';
 
 export interface IrisTheme {
@@ -31,28 +32,28 @@ export const themes: {
     content: {
       background: white,
       color: black,
-      color2: slate(800),
+      color2: '#23313b', // slate(800),
       disabled: grayscale(50),
-      focus: blue(500),
+      focus: '#00adef', // blue(500),
       // focus: rgba(blue(500), 0.5),
     },
     item: {
       bg: white,
-      bg2: slate(50),
+      bg2: '#eef1f4', // slate(50),
       locked: grayscale(50),
     },
     formats: {
-      primary: blue(500),
+      primary: '#00adef', // blue(500),
       secondary: grayscale(50),
       alternative: '#3a5161',
-      soft: slate(800),
+      soft: '#23313b', // slate(800),
       basic: black,
       positive: green(500),
-      negative: red(500),
+      negative: '#E22B12', // red(500),
     },
     inputs: {
-      primary: blue(500),
-      small: red(400),
+      primary: '#00adef', // blue(500),
+      small: '#f34c35', // red(400),
     },
     shadows: {
       small: `box-shadow: 0 0 0.334rem -0.05rem ${rgba(black, 0.15)};`,
@@ -72,25 +73,25 @@ export const themes: {
       color: white,
       color2: grayscale(50),
       disabled: grayscale(850),
-      focus: blue(400),
+      focus: '#33b3f2', // blue(400),
     },
     item: {
       bg: grayscale(850),
-      bg2: slate(800),
+      bg2: '#23313b', // slate(800),
       locked: grayscale(800),
     },
     formats: {
-      primary: blue(500),
+      primary: '#00adef', // blue(500),
       secondary: grayscale(700),
-      alternative: slate(700),
-      soft: slate(100),
+      alternative: '#364857', // slate(700),
+      soft: '#dee4e9', // slate(100),
       basic: white,
       positive: green(500),
-      negative: red(500),
+      negative: '#E22B12', // red(500),
     },
     inputs: {
-      primary: blue(400),
-      small: red(400),
+      primary: '#00adef', // blue(500),
+      small: '#f34c35', // red(400),
     },
     shadows: {
       small: `box-shadow: 0 0 0.334rem -0.05rem ${rgba(black, 0.15)};`,

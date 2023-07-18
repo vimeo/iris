@@ -268,13 +268,12 @@ export function format({ $format, href = null }) {
 function basicBadge(color, hover = true) {
   return css`
     color: ${color};
-    background-color: ${rgba(color, 0.15)};
+    background-color: rgba(${color}, 0.15);
 
     ${hover &&
     css`
       &:hover {
-        color: ${darken(0.1, color)};
-        background-color: ${rgba(color, 0.2)};
+        background-color: rgba(${color}, 0.2);
       }
     `};
   `;

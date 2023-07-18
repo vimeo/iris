@@ -27,24 +27,25 @@ export const black = '#000000';
 export const white = '#FFFFFF';
 
 const RedCache = {
-  '50': '#fee7e5',
-  '100': '#fdd1cb',
-  '200': '#faa599',
-  '300': '#f77866',
-  '350': '#f5624e',
-  '400': '#f34c35',
-  '500': '#E22B12',
-  '525': '#e21f05',
-  '600': '#c01902',
-  '700': '#911100',
-  '800': '#610c00',
-  '850': '#480800',
-  '900': '#300600',
-  '950': '#170300',
+  '50': 'var(--red-50)',
+  '100': 'var(--red-100)',
+  '200': 'var(--red-200)',
+  '300': 'var(--red-300)',
+  '350': 'var(--red-350)',
+  '400': 'var(--red-400)',
+  '500': 'var(--red-500)',
+  '525': 'var(--red-525)',
+  '600': 'var(--red-600)',
+  '700': 'var(--red-700)',
+  '800': 'var(--red-800)',
+  '850': 'var(--red-850)',
+  '900': 'var(--red-900)',
+  '950': 'var(--red-950)',
 };
 
-export const red: Color = (grade) =>
-  RedCache[grade] || irisColor(Colors.Red, grade);
+// export const red: Color = (grade) =>
+//   RedCache[grade] || irisColor(Colors.Red, grade);
+export const red: Color = (grade) => RedCache[grade];
 
 const YellowCache = {
   '50': '#fff7e8',
@@ -87,44 +88,46 @@ export const green: Color = (grade) =>
   GreenCache[grade] || irisColor(Colors.Green, grade);
 
 const BlueCache = {
-  '50': '#e5f5fd',
-  '100': '#c8edff',
-  '200': '#99d9f8',
-  '300': '#5cc9ff',
-  '350': '#4cbdf3',
-  '400': '#33b3f2',
-  '500': '#00adef',
-  '525': '#0099e3',
-  '600': '#0080bf',
-  '700': '#00608f',
-  '800': '#00405f',
-  '850': '#002f47',
-  '900': '#00202f',
-  '950': '#001017',
+  '50': 'var(--blue-50)',
+  '100': 'var(--blue-100)',
+  '200': 'var(--blue-200)',
+  '300': 'var(--blue-300)',
+  '350': 'var(--blue-350)',
+  '400': 'var(--blue-400)',
+  '500': 'var(--blue-500)',
+  '525': 'var(--blue-525)',
+  '600': 'var(--blue-600)',
+  '700': 'var(--blue-700)',
+  '800': 'var(--blue-800)',
+  '850': 'var(--blue-850)',
+  '900': 'var(--blue-900)',
+  '950': 'var(--blue-950)',
 };
 
-export const blue: Color = (grade) =>
-  BlueCache[grade] || irisColor(Colors.Blue, grade);
+// export const blue: Color = (grade) =>
+//   BlueCache[grade] || irisColor(Colors.Blue, grade);
+export const blue: Color = (grade) => BlueCache[grade];
 
 const SlateCache = {
-  '50': '#eef1f4',
-  '100': '#dee4e9',
-  '200': '#bdcad3',
-  '300': '#9caebd',
-  '350': '#8da1b1',
-  '400': '#7c93a6',
-  '500': '#657987',
-  '525': '#597286',
-  '600': '#496073',
-  '700': '#364857',
-  '800': '#23313b',
-  '850': '#1a252c',
-  '900': '#11191d',
-  '950': '#080d0f',
+  '50': 'var(--slate-50)',
+  '100': 'var(--slate-100)',
+  '200': 'var(--slate-200)',
+  '300': 'var(--slate-300)',
+  '350': 'var(--slate-350)',
+  '400': 'var(--slate-400)',
+  '500': 'var(--slate-500)',
+  '525': 'var(--slate-525)',
+  '600': 'var(--slate-600)',
+  '700': 'var(--slate-700)',
+  '800': 'var(--slate-800)',
+  '850': 'var(--slate-850)',
+  '900': 'var(--slate-900)',
+  '950': 'var(--slate-950)',
 };
 
-export const slate: Color = (grade) =>
-  SlateCache[grade] || irisColor(Colors.Slate, grade);
+// export const slate: Color = (grade) =>
+//   SlateCache[grade] || irisColor(Colors.Slate, grade);
+export const slate: Color = (grade) => SlateCache[grade];
 
 const GrayscaleCache = {
   '50': '#efefef',

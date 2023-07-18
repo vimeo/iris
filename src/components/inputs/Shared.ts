@@ -12,6 +12,7 @@ import { Statuses } from '../../themes';
 const isDev = process.env.NODE_ENV === 'development';
 
 export function inputColors({ theme, disabled = false, format }) {
+  console.log(theme);
   if (!format || !theme.formats[format]) format = 'basic';
 
   const color = theme.formats[format];
