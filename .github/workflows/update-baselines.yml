@@ -1,0 +1,87 @@
+name: Update Baselines
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "Pull Request Number"
+        required: true
+        type: string
+      branch_name:
+        description: "Branch Name"
+        required: true
+        type: string
+
+env:
+  TOKEN: ${{ secrets.GIT_ACTIONS_USER_TOKEN_CREDS }}
+  # opts out of collecting telemetry data
+  LOST_PIXEL_DISABLE_TELEMETRY: 1
+
+jobs:
+  update-baselines:
+    if: startsWith(${{github.event.inputs.branch_name}}, 'lost-pixel-patch-') == false
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        node-version: [16]
+        pnpm-version: [6.32.13]
+
+    steps:
+      - name: Print inputs
+        run: |
+          echo Running on branch ${{ github.event.inputs.branch_name }}
+          echo PR number ${{ github.event.inputs.pr_number }}
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.inputs.branch_name }}
+          fetch-depth: 2
+          lfs: false
+
+      - name: Install pnpm
+        id: pnpm-install
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: ${{ matrix.pnpm-version }}
+          run_install: false
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: |
+            .pnpm-store
+            pnpm
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+      - name: Install node @ ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install node dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: Build Storybook
+        run: pnpm build-storybook
+
+      - name: Lost Pixel
+        id: lp
+        uses: lost-pixel/lost-pixel@v3.4.1
+        env:
+          LOST_PIXEL_MODE: update
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        if: ${{ failure() && steps.lp.conclusion == 'failure' }}
+        with:
+          token: ${{ secrets.GIT_ACTIONS }}
+          commit-message: "chore(baseline): update lost-pixel baselines"
+          delete-branch: true
+          branch: "lost-pixel-patch-${{ github.event.inputs.branch_name }}"
+          base: ${{ github.event.inputs.branch_name }}
+          title: "[Lost Pixel]: Automated Baseline Update - ${{ github.event.inputs.branch_name }}"
+          body: |
+            Original PR https://github.com/Vimeo/iris/pull/${{ github.event.inputs.pr_number }}
+
+            ---
+            <sub>Automated baseline update pull request created by [Lost Pixel](https://github.com/lost-pixel/lost-pixel)</sub>
