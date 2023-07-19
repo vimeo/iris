@@ -10,7 +10,10 @@ export const Path = withIris<HTMLDivElement, Props, Minors>(
   PathComponent
 );
 
-type Props = IrisProps<{ children: ReactElement[] }, HTMLDivElement>;
+export type Props = IrisProps<
+  { children: ReactElement[] },
+  HTMLDivElement
+>;
 
 Path.Link = Link;
 Path.Current = Current;

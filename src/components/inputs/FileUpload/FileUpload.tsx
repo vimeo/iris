@@ -8,7 +8,7 @@ export const FileUpload = withIris<HTMLInputElement, Props>(
   FileUploadComponent
 );
 
-type Props = IrisInputProps;
+export type Props = IrisInputProps;
 
 function FileUploadComponent({
   children,

@@ -58,4 +58,4 @@ export type Props = IrisProps<{
   screen?: boolean;
 }>;
 
-type Resize = { min: number; max: number; current: number };
+export type Resize = { min: number; max: number; current: number };

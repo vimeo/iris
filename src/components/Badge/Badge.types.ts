@@ -23,7 +23,7 @@ export type Props = IrisProps<
 
 export type DOMElement = HTMLSpanElement | HTMLAnchorElement;
 
-type Format =
+export type Format =
   | 'alum'
   | 'beta'
   | 'business'
