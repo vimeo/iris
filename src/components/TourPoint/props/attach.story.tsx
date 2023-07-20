@@ -7,6 +7,10 @@ import { Card } from '../TourPoint.story';
 import { Button } from '../../../components';
 import { StoryControlBar } from '../../../storybook';
 
+export default {
+  component: TourPoint,
+  title: 'components/TourPoint/props',
+};
 export function Attach() {
   function Children() {
     const { active, activeSet } = useContext(TourContext);

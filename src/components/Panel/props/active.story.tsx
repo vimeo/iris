@@ -4,6 +4,10 @@ import { Panel } from '../Panel';
 
 import { Layout } from '../../../storybook';
 
+export default {
+  component: Panel,
+  title: 'components/Panel/props',
+};
 export function Active() {
   const content = <div />;
 

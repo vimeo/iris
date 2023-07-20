@@ -5,6 +5,10 @@ import { Panel } from '../Panel';
 import { Button } from '../../../components';
 import { Layout } from '../../../storybook';
 
+export default {
+  component: Panel,
+  title: 'components/Panel/props',
+};
 export function Attach() {
   const [active, setActive] = useState({ right: false, left: false });
 

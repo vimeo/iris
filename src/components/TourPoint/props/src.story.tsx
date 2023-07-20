@@ -7,6 +7,10 @@ import { Card } from '../TourPoint.story';
 import { Input } from '../../../components';
 import { StoryControlBar } from '../../../storybook';
 
+export default {
+  component: TourPoint,
+  title: 'components/TourPoint/props',
+};
 export function Src() {
   const [src, srcSet] = useState('http://placekitten.com/320/213');
 

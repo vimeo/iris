@@ -8,6 +8,10 @@ import { Button } from '../../../components';
 import { Gear } from '../../../icons';
 import { StoryControlBar } from '../../../storybook';
 
+export default {
+  component: TourPoint,
+  title: 'components/TourPoint/props',
+};
 export function Confirmation() {
   function Children() {
     const { active, activeSet } = useContext(TourContext);

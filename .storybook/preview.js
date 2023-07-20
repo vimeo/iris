@@ -6,7 +6,6 @@ import {
 
 import { GlobalStyles } from '../src/utils';
 import { useEffect, useState } from 'react';
-import DocsPage from './DocsPage';
 
 addThemes(themes);
 
@@ -531,8 +530,5 @@ export const parameters = {
   controls: {
     expanded: true,
     hideNoControlsWarning: true,
-  },
-  docs: {
-    page: DocsPage,
   },
 };

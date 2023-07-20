@@ -1,7 +1,4 @@
 module.exports = {
-  core: {
-    builder: 'webpack5',
-  },
   typescript: {
     check: true,
     checkOptions: {},
@@ -28,8 +25,17 @@ module.exports = {
     return config;
   },
   staticDirs: ['./public'],
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {
+      fastRefresh: true,
+      strictMode: true,
+    },
+  },
+  docs: {
+    autodocs: true,
+  },
 };
-
 const storySource = {
   test: /\.(stories|story)\.[tj]sx?$/,
   loader: require.resolve('@storybook/source-loader'),

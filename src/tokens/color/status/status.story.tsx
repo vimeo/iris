@@ -10,6 +10,10 @@ import { Canvas, Card } from '../../storybook';
 
 import { Text } from '../../../typography';
 
+export default {
+  title: 'Tokens/color',
+};
+
 export function Tokens() {
   return (
     <Canvas>

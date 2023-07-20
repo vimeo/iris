@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 
 import { Panel } from './Panel';
 import { Props } from './Panel.types';
 
 import { Button } from '../../components';
+import { Layout } from '../../storybook';
 
 export default {
   title: 'components/Panel',
   component: Panel,
 };
 
-const Template: Story<Props> = ({ content = <div />, ...args }) => {
+const Template: StoryFn<Props> = ({ content = <div />, ...args }) => {
   const [active, activeSet] = useState(true);
   const toggle = () => activeSet((active) => !active);
 

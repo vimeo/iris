@@ -33,7 +33,7 @@ export function withIris<
 >(
   Component: FC<any>,
   $$iris: IrisMeta = true,
-  path = null,
+  path: null | string = null,
   debug = false
 ): IrisComponent<DOMElement, Props> & Minors {
   const { name } = Component;

@@ -7,6 +7,10 @@ import { Card, Canvas } from '../../storybook';
 
 import { Text } from '../../../typography';
 
+export default {
+  title: 'Tokens/color',
+};
+
 export function Tokens() {
   const styleText = {
     background: 'rgba(0,0,0,0.2)',
