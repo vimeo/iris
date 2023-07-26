@@ -10,6 +10,11 @@ import { StoryControlBar } from '../../../storybook';
 export default {
   component: TourPoint,
   title: 'components/TourPoint/examples',
+  parameters: {
+    lostpixel: {
+      disable: true,
+    },
+  },
 };
 
 export function Sequence() {
