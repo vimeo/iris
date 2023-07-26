@@ -144,3 +144,9 @@ jobs:
 
       - name: Lost Pixel
         uses: lost-pixel/lost-pixel@v3.4.1
+      
+      - name: Lost Pixel Artefacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: lost-pixel-artefacts
+          path: ./
