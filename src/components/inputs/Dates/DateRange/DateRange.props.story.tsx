@@ -11,6 +11,11 @@ import { translations } from './translations';
 
 export default {
   title: 'components/Dates/DateRange/props',
+  parameters: {
+    lostpixel: {
+      disable: true,
+    },
+  },
 };
 
 export function Presets({ args }) {

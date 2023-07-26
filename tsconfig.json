@@ -27,8 +27,6 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "strict": false,
-        "suppressImplicitAnyIndexErrors": true,
-        "target": "es5",
         "importHelpers": true,
         "types": [
             "node",
@@ -54,7 +52,6 @@
         "build",
         "node_modules",
         "node_modules/framer-motion",
-        "src/**/*.types.ts",
         "src/**/*.story.tsx",
         "src/**/*.x-story.tsx",
         "src/**/*.test.ts",
