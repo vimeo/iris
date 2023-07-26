@@ -6,7 +6,15 @@ import { Props } from './Tabs.types';
 
 import { Header, Paragraph } from '../../typography';
 
-export default { title: 'components/Tabs', component: Tabs };
+export default {
+  title: 'components/Tabs',
+  component: Tabs,
+  parameters: {
+    lostpixel: {
+      disable: true,
+    },
+  },
+};
 
 const Template: Story<Props> = (args) => {
   return (

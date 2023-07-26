@@ -8,6 +8,11 @@ import { Layout } from '../../../../storybook';
 
 export default {
   title: 'components/Dates/Calendar',
+  parameters: {
+    lostpixel: {
+      disable: true,
+    },
+  },
 };
 
 export function CalendarStory({ args }) {

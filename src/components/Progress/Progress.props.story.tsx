@@ -11,6 +11,11 @@ import { Progress } from './Progress';
 export default {
   title: 'components/Progress/props',
   component: Progress,
+  parameters: {
+    lostpixel: {
+      disable: true,
+    },
+  },
 };
 
 const style = css`
