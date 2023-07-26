@@ -107,7 +107,7 @@ jobs:
           version: 7.26.3
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: 16
 
       - uses: actions/cache@v3
         name: Setup pnpm cache
@@ -119,3 +119,28 @@ jobs:
 
       - run: pnpm i --frozen-lockfile
       - run: pnpm jest
+
+  visual-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.26.3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: |
+            .pnpm-store
+            pnpm
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      - run: pnpm i --frozen-lockfile
+      - run: pnpm build-storybook
+
+      - name: Lost Pixel
+        uses: lost-pixel/lost-pixel@v3.4.1
