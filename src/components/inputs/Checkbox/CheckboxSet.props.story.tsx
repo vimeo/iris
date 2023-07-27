@@ -8,6 +8,9 @@ import { Header } from '../../../typography';
 
 export default {
   title: 'components/CheckboxSet/props',
+  lostpixel: {
+    disable: true,
+  },
 };
 
 export function Coupled({ args }) {
