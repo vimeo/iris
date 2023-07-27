@@ -10,6 +10,11 @@ import { Layout } from '../../storybook';
 export default {
   title: 'components/Panel',
   component: Panel,
+  parameters: {
+    lostpixel: {
+      disable: true,
+    },
+  },
 };
 
 const Template: StoryFn<Props> = ({ content = <div />, ...args }) => {

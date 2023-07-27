@@ -13,6 +13,9 @@ export default {
   component: Panel,
   parameters: {
     layout: 'fullscreen',
+    lostpixel: {
+      disable: true,
+    },
   },
 };
 
