@@ -7,9 +7,9 @@ export const config: CustomProjectConfig = {
     storybookUrl: './storybook-static',
   },
   threshold: 3,
-  imagePathBaseline: './baseline-images',
-  imagePathCurrent: './current-images',
-  imagePathDifference: './difference-images',
+  imagePathBaseline: './lost-pixel/baseline-images',
+  imagePathCurrent: './lost-pixel/current-images',
+  imagePathDifference: './lost-pixel/difference-images',
   generateOnly: true,
   failOnDifference: true,
 };
