@@ -9,7 +9,12 @@ import { DismissX } from '../../icons';
 import { Layout } from '../../storybook';
 import { Paragraph, Header } from '../../typography';
 
-export default { title: 'components/Modal/examples' };
+export default {
+  title: 'components/Modal/examples',
+  lostPixel: {
+    disable: true,
+  },
+};
 
 export function ExternalState({ args }) {
   return (

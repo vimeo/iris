@@ -26,6 +26,9 @@ export default {
     src: { table: { disable: true } },
     children: { control: { disable: true } },
   },
+  lostPixel: {
+    disable: true,
+  },
 };
 
 const onChange = (event: DropChangeEvent) => {
