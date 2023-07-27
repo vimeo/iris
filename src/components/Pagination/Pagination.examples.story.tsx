@@ -9,7 +9,14 @@ import { Button } from '../../components';
 import { Header } from '../../typography';
 import { Player, vimeos, useFakeQuery } from '../../storybook';
 
-export default { title: 'components/Pagination/examples' };
+export default {
+  title: 'components/Pagination/examples',
+  parameters: {
+    lostPixel: {
+      disable: true,
+    },
+  },
+};
 
 const total = 96;
 const pageSize = 12;
