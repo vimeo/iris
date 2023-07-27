@@ -8,6 +8,11 @@ import { useFakeQuery } from '../../storybook';
 export default {
   title: 'components/Pagination/props',
   component: Pagination,
+  parameters: {
+    lostPixel: {
+      disable: true,
+    },
+  },
 };
 
 const total = 35;
