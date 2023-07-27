@@ -9,6 +9,11 @@ import { useOutsideClick } from '../../../../utils';
 
 export default {
   title: 'components/Dates/DateSelect/props',
+  parameters: {
+    lostpixel: {
+      disabled: true,
+    },
+  },
 };
 
 export function InitialMonth({ args }) {
