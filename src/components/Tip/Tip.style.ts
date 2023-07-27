@@ -23,12 +23,14 @@ interface Props {
   pill?: TipProps['pill'];
   variant?: TipProps['variant'];
   attach?: TipProps['attach'];
+  disabled?: TipProps['disabled'];
 }
 
 export const Tip = styled.div<Props>`
   max-width: ${maxWidth}rem !important;
   animation: ${fadeIn} 120ms ease-in-out;
   will-change: transform;
+  visibility: ${({ disabled }) => (disabled ? 'hidden' : 'visible')};
 
   ${pill};
   ${variants};

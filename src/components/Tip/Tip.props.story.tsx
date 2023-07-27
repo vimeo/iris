@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 
 import { Tip } from './Tip';
 
-import { Button } from '../../components';
+import { Button, Toggle } from '../../components';
 import { Header, Paragraph } from '../../typography';
 import { Layout } from '../../storybook';
 import { ANCHOR_POINTS } from '../../utils';
@@ -10,29 +10,70 @@ import { ANCHOR_POINTS } from '../../utils';
 export default { title: 'components/Tip/props', component: Tip };
 
 export function Active({ args }) {
-  const [active, activeSet] = useState(false);
+  const [active, setActive] = useState(false);
 
   return (
     <Layout.StoryVertical center>
-      <div style={{ textAlign: 'center' }}>
+      <div
+        style={{
+          textAlign: 'center',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
         <Tip
           content="I am Tip"
           attach="top"
           active={active}
           {...args}
         >
-          <Button
-            onClick={() => activeSet((active) => !active)}
-            fluid
-          >
-            Toggle Tip
-          </Button>
+          <Button fluid>Button with tooltip</Button>
         </Tip>
+        <Toggle
+          label={`Use the toggle to ${
+            active ? 'deactivate' : 'activate'
+          } tooltip`}
+          onChange={() => setActive((active) => !active)}
+        />
       </div>
     </Layout.StoryVertical>
   );
 }
 Active.storyName = 'active';
+
+export function Disabled({ args }) {
+  const [disabled, setDisabled] = useState(false);
+
+  return (
+    <Layout.StoryVertical center>
+      <div
+        style={{
+          textAlign: 'center',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Tip
+          content="I am a tip"
+          attach="top"
+          disabled={disabled}
+          {...args}
+        >
+          <Button fluid>Button with tooltip</Button>
+        </Tip>
+        <Toggle
+          label={`Use the toggle to ${
+            disabled ? 'enable' : 'disable'
+          } tooltip`}
+          onChange={() => setDisabled((disabled) => !disabled)}
+        />
+      </div>
+    </Layout.StoryVertical>
+  );
+}
+Disabled.storyName = 'disabled';
 
 export function Attach({ args }) {
   return (
