@@ -18,7 +18,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     '@storybook/addon-storysource',
-    '@nox/addon-themes/dist/register',
+    'storybook-dark-mode',
   ],
   webpackFinal: (config) => {
     config.module.rules.push(storySource);
