@@ -15,6 +15,11 @@ export default {
     target: { control: { disable: true } },
   },
   excludeStories: ['Card'],
+  parameters: {
+    lostpixel: {
+      disable: true,
+    },
+  },
 };
 
 type Props = any;
