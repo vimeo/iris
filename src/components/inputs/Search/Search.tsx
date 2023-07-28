@@ -11,6 +11,9 @@ import { Input } from '../Input/Input';
 
 import { Search as SearchIcon } from '../../../icons';
 import { withIris, IrisInputProps, geometry } from '../../../utils';
+import styled from 'styled-components';
+import { remToPx } from 'polished';
+import { paddings } from '../Shared';
 
 export const Search = withIris<HTMLInputElement, Props>(
   SearchComponent
@@ -43,12 +46,28 @@ function SearchComponent({
 }: Props) {
   const ref = useRef(null);
   const [height, setHeight] = useState(0);
-
   useImperativeHandle(forwardRef, () => ref.current);
   useLayoutEffect(() => setHeight(geometry(ref.current).height), []);
 
+  // Reference from ../Shared
+  const padding = paddings[size] / 2 - 0.175;
+
+  const StyledInput = styled(Input)<{ height: number }>`
+    // Adds padding to the right of the input to make visual room for the button
+    input {
+      padding-right: ${(props) => {
+        return `calc(${props.height}px + ${remToPx(padding)})`;
+      }}
+  `;
+
   return (
-    <Input {...props} size={size} ref={ref} label={label}>
+    <StyledInput
+      {...props}
+      size={size}
+      ref={ref}
+      label={label}
+      height={height}
+    >
       <InnerButton
         format={format}
         variant={variant}
@@ -58,6 +77,6 @@ function SearchComponent({
       >
         {children}
       </InnerButton>
-    </Input>
+    </StyledInput>
   );
 }

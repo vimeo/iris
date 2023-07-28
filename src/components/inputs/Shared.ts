@@ -53,7 +53,7 @@ const sizes = {
   xxl: 2,
 };
 
-const paddings = {
+export const paddings = {
   xxs: 0.75,
   xs: 0.875,
   sm: 1.25,

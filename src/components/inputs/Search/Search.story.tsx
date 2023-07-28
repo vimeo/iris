@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 
 import { Search, Props } from './Search';
 
@@ -19,12 +19,10 @@ export default {
   },
 };
 
-const Template: Story<Props> = (args) => {
+const Template: StoryFn<Props> = (args) => {
   return (
     <Search
-      css={`
-        max-width: 40rem;
-      `}
+      style={{ maxWidth: '20rem' }}
       {...args}
       placeholder="Search our videos"
     />
