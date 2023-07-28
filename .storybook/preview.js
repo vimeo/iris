@@ -1,20 +1,21 @@
 import { themes } from './themes';
-import {
-  ThemedStory,
-  addThemes,
-} from '@nox/addon-themes/dist/utilities';
+import { themes as IrisTheme } from '../src/themes';
 
 import { GlobalStyles } from '../src/utils';
 import { useEffect, useState } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { useDarkMode } from 'storybook-dark-mode';
 
-addThemes(themes);
+// addThemes(themes);
 
 export const decorators = [
   (Story) => (
-    <ThemedStory>
+    <ThemeProvider
+      theme={useDarkMode() ? IrisTheme.dark : IrisTheme.light}
+    >
       <GlobalStyles />
       <ForceClientSideRender>{Story()}</ForceClientSideRender>
-    </ThemedStory>
+    </ThemeProvider>
   ),
 ];
 
@@ -530,5 +531,9 @@ export const parameters = {
   controls: {
     expanded: true,
     hideNoControlsWarning: true,
+  },
+  darkMode: {
+    dark: { ...themes.dark, stylePreview: true },
+    light: { ...themes.light, stylePreview: true },
   },
 };
