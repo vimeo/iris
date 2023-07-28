@@ -15,3 +15,6 @@ docs/.next
 docs/out
 
 pnpm-error.log
+
+lost-pixel/current-images
+lost-pixel/difference-images
