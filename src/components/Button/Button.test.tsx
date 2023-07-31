@@ -172,4 +172,58 @@ describe('Button', () => {
 
     expect(button).toHaveAttribute('disabled');
   });
+
+  it('Change padding based on size', () => {
+    const { rerender } = renderWithThemeProvider(
+      <Button icon={<Pencil />} size="xs">
+        Hello
+      </Button>
+    );
+
+    const button = screen.getByRole('button');
+
+    expect(button).toHaveStyle({
+      padding: '0px 0.50375rem 0px 0.3775rem',
+    });
+
+    rerender(
+      <Button icon={<Pencil />} size="sm">
+        Hello
+      </Button>
+    );
+
+    expect(button).toHaveStyle({
+      padding: '0px 0.5rem 0px 0.5rem',
+    });
+
+    rerender(
+      <Button icon={<Pencil />} size="md">
+        Hello
+      </Button>
+    );
+
+    expect(button).toHaveStyle({
+      padding: '0px 0.75rem 0px 0.75rem',
+    });
+
+    rerender(
+      <Button icon={<Pencil />} size="lg">
+        Hello
+      </Button>
+    );
+
+    expect(button).toHaveStyle({
+      padding: '0px 1rem 0px 1rem',
+    });
+
+    rerender(
+      <Button icon={<Pencil />} size="xl">
+        Hello
+      </Button>
+    );
+
+    expect(button).toHaveStyle({
+      padding: '0px 1.25rem 0px 1.25rem',
+    });
+  });
 });

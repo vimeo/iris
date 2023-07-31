@@ -59,8 +59,8 @@ export const ButtonStyled = styled.button<any>`
 
 const sizePads = {
   xxs: 0.125,
-  xs: 0.25,
-  sm: 0.5,
+  xs: 0.3125,
+  sm: 0.625,
   md: 0.75,
   lg: 1,
   xl: 1.25,
@@ -134,24 +134,46 @@ function buttonMotion({ theme }) {
 
 function buttonPadding({ icon, iconOnly, iconPosition, size }) {
   return (
-    !iconOnly && iconButtonPadding(icon, iconPosition, sizePads[size])
+    !iconOnly &&
+    iconButtonPadding(icon, iconPosition, sizePads[size], size)
   );
 }
 
-function iconButtonPadding(icon, iconPosition, pad) {
+function iconButtonPadding(icon, iconPosition, pad, size) {
   const minHeight = rem(3);
   const minWidth = `${pad * 4 + 2}rem`;
+
+  // Some button sizes are "off" the padding formula based on design decions
+  const sizeAdjustments = {
+    xxs: { left: 0, right: 0 },
+    xs: { left: 0.065, right: 0.19125 },
+    sm: { left: -0.125, right: -0.125 },
+    md: { left: 0, right: 0 },
+    lg: { left: 0, right: 0 },
+    xl: { left: 0, right: 0 },
+    xxl: { left: 0, right: 0 },
+  };
 
   switch (icon && iconPosition) {
     case 'left':
       return {
-        padding: '0 ' + pad + 'rem',
+        padding:
+          '0 ' +
+          (pad + sizeAdjustments[size].right) +
+          'rem 0 ' +
+          (pad + sizeAdjustments[size].left) +
+          'rem',
         minHeight,
         minWidth,
       };
     case 'right':
       return {
-        padding: '0 ' + pad + 'rem',
+        padding:
+          '0 ' +
+          (pad + sizeAdjustments[size].right) +
+          'rem 0 ' +
+          (pad + sizeAdjustments[size].left) +
+          'rem',
         minHeight,
         minWidth,
       };
