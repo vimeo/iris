@@ -83,6 +83,14 @@ const Template: Story<
           <Header size="3">Settings</Header>
         </Sidebar.Item>
 
+        <Sidebar.Item
+          label="Configurações"
+          labelAsTooltip={labelAsTooltip}
+          icon={<Gear />}
+        >
+          <Header size="3">Configurações</Header>
+        </Sidebar.Item>
+
         {!labelAsTooltip ? (
           <Sidebar.Item
             label="Longer Label"

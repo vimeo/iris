@@ -1,3 +1,4 @@
+import { rem } from 'polished';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -104,10 +105,13 @@ const ItemLabelledStyled = styled(Button)<{
   // Button label
   > span {
     font-weight: 400;
-    text-overflow: initial;
     font-size: 0.6875rem;
     line-height: initial;
     white-space: initial;
+    width: calc(100% + ${rem(8)});
+    margin-left: ${rem(-4)};
+    margin-right: ${rem(-4)};
+    text-overflow: ellipsis;
   }
 
   > ${Focus} {
