@@ -6,6 +6,7 @@ import { ActiveStyles, ItemPropsIntrinsic } from './Sidebar.types';
 import { Button } from '../Button/Button';
 import { Tip } from '../Tip/Tip';
 import { core } from '../../tokens';
+import { Focus } from '../../utils';
 
 export function Item({
   attach = 'right',
@@ -110,6 +111,11 @@ const ItemLabelledStyled = styled(Button)<{
     font-size: 0.6875rem;
     line-height: initial;
     white-space: initial;
+  }
+
+  > ${Focus} {
+    // Accounts for the negative side margin, causing the focus ring to not be visible
+    border-width: 0.4rem;
   }
 `;
 
