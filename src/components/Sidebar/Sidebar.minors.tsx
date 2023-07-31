@@ -54,9 +54,6 @@ const ItemStyled = styled(Button)<{
   activeStyles?: ActiveStyles;
 }>`
   height: 3rem;
-  text-align: left;
-  padding: 0.25rem 0.25rem 0.25rem 0.75rem;
-  justify-content: start;
   ${({ isActive, activeStyles }) =>
     isActive && activeStyles ? activeStyles : ''};
 
