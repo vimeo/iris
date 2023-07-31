@@ -37,6 +37,9 @@ const Template: Story<Props> = ({ children, ...args }) => {
       <ButtonStyled icon={<DownloadArrow />} {...args}>
         {children}
       </ButtonStyled>
+      <ButtonStyled {...args} size="md">
+        {children}
+      </ButtonStyled>
     </>
   );
 };
