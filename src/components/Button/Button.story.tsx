@@ -136,6 +136,6 @@ StickerSheet.parameters = {
     active: '#active',
   },
   lostpixel: {
-    waitBeforeScreenshot: 2000,
+    waitBeforeScreenshot: 4000,
   },
 };
