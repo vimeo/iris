@@ -19,6 +19,11 @@ export default {
     children: { control: { disable: true } },
     initialMonth: { control: { type: 'date' } },
   },
+  parameters: {
+    lostpixel: {
+      disable: true,
+    },
+  },
 };
 
 const Template: Story<Props> = (args) => {

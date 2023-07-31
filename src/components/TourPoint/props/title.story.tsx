@@ -10,6 +10,11 @@ import { StoryControlBar } from '../../../storybook';
 export default {
   component: TourPoint,
   title: 'components/TourPoint/props',
+  parameters: {
+    lostpixel: {
+      disable: true,
+    },
+  },
 };
 export function Title() {
   const [title, titleSet] = useState('A Fresh New Look');

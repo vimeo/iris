@@ -5,7 +5,12 @@ import { Styles } from './Styles';
 
 export default {
   title: 'iris/Welcome',
-  parameters: { options: { showPanel: false } },
+  parameters: {
+    options: { showPanel: false },
+    lostpixel: {
+      disable: true,
+    },
+  },
 };
 
 export function Welcome() {

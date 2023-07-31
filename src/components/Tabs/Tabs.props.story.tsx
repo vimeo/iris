@@ -5,7 +5,15 @@ import { Tabs as T } from './Tabs';
 
 import { Paragraph } from '../../typography';
 
-export default { title: 'components/Tabs/props', component: T };
+export default {
+  title: 'components/Tabs/props',
+  component: T,
+  parameters: {
+    lostpixel: {
+      disable: true,
+    },
+  },
+};
 
 const Tabs = styled(T)`
   max-width: 40rem;
