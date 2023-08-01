@@ -55,7 +55,7 @@ Button.args = {
   children: 'Button',
 };
 
-const states = ['hover', 'focus', 'active'];
+const states = ['hover', 'focus', 'active', 'disabled'];
 const formatStickers = formats.flatMap((format) =>
   states.map((state) => ({ format: format, id: state }))
 );
@@ -72,7 +72,7 @@ const iconPositionStickers = iconPositions.flatMap((iconPosition) =>
 const LayoutGrid = styled.div`
   display: grid;
   gap: 1rem;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 `;
 const GridCell = styled.div`
   display: flex;
@@ -91,7 +91,12 @@ const Sheet = () => {
         {formatStickers.map((sticker, i) => (
           <GridCell key={i}>
             <pre>{sticker.format}</pre>
-            <ButtonStyled {...sticker}>{sticker.id}</ButtonStyled>
+            <ButtonStyled
+              {...sticker}
+              disabled={sticker.id === 'disabled'}
+            >
+              {sticker.id}
+            </ButtonStyled>
           </GridCell>
         ))}
       </LayoutGrid>
@@ -100,7 +105,12 @@ const Sheet = () => {
         {variantStickers.map((sticker, i) => (
           <GridCell key={i}>
             <pre>{sticker.variant}</pre>
-            <ButtonStyled {...sticker}>{sticker.id}</ButtonStyled>
+            <ButtonStyled
+              {...sticker}
+              disabled={sticker.id === 'disabled'}
+            >
+              {sticker.id}
+            </ButtonStyled>
           </GridCell>
         ))}
       </LayoutGrid>
@@ -109,7 +119,12 @@ const Sheet = () => {
         {sizeStickers.map((sticker, i) => (
           <GridCell key={i}>
             <pre>{sticker.size}</pre>
-            <ButtonStyled {...sticker}>{sticker.id}</ButtonStyled>
+            <ButtonStyled
+              {...sticker}
+              disabled={sticker.id === 'disabled'}
+            >
+              {sticker.id}
+            </ButtonStyled>
           </GridCell>
         ))}
       </LayoutGrid>
@@ -118,7 +133,11 @@ const Sheet = () => {
         {iconPositionStickers.map((sticker, i) => (
           <GridCell key={i}>
             <pre>{sticker.iconPosition}</pre>
-            <ButtonStyled {...sticker} icon={<DownloadArrow />}>
+            <ButtonStyled
+              {...sticker}
+              icon={<DownloadArrow />}
+              disabled={sticker.id === 'disabled'}
+            >
               {sticker.id}
             </ButtonStyled>
           </GridCell>
