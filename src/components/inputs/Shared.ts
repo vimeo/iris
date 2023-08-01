@@ -78,7 +78,7 @@ export function inputShape({
   pill = false,
 }) {
   const variantPadding = variant === 'underline' ? 2.5 : 1;
-  const padding = (paddings[inputSize] / 2 - 0.175) / variantPadding;
+  const padding = (paddings[inputSize] / 2 - 0.575) / variantPadding;
 
   return css`
     border-radius: ${pill ? '2rem' : '0.25rem'};
