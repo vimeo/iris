@@ -9,7 +9,7 @@ export type Props = IrisProps<{
    */
   active?: boolean;
   /**
-   * Controlls the tooltip visibility.
+   * Controls the tooltip visibility.
    * If false the tooltip will be disabled - hidden, else it will be enabled - visible.
    */
   disabled?: boolean;
