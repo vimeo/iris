@@ -48,6 +48,7 @@ function ButtonComponent({
   type,
   variant = 'solid',
   checked = false,
+  active = false,
   onClick,
   ...props
 }: Props) {
@@ -83,6 +84,7 @@ function ButtonComponent({
       theme={theme}
       type={type}
       checked={checked}
+      active={active}
       variant={variant}
       onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
         //Safari Button Focus Fix

@@ -232,6 +232,7 @@ function buttonVariants({
   format,
   theme,
   variant,
+  active,
 }) {
   // Temporary until CSSVar design tokens are released and Button
   // style logic is rewritten.
@@ -281,6 +282,11 @@ function buttonVariants({
         }
       `;
     case 'minimal':
+      const minimalActiveCSS = css`
+        background: ${color};
+        color: ${contrastTextActive};
+      `;
+
       return css`
         border: ${borderWidth} solid transparent;
         background: transparent;
@@ -294,6 +300,8 @@ function buttonVariants({
         &:active {
           color: ${contrastTextActive};
         }
+
+        ${active && minimalActiveCSS}
       `;
     case 'hyperminimal':
       return css`
@@ -308,6 +316,11 @@ function buttonVariants({
         }
       `;
     case 'minimalTransparent':
+      const minimalTransparentActiveCSS = css`
+        border: ${borderWidth} solid transparent;
+        background: ${rgba(color, 0.1)};
+      `;
+
       return css`
         border: ${borderWidth} solid transparent;
         background: transparent;
@@ -316,11 +329,17 @@ function buttonVariants({
         &:hover {
           border: ${borderWidth} solid transparent;
           background: ${rgba(color, 0.1)};
-          /* color: hoverColorDark */
           color: ${hoverColor};
         }
+
+        ${active && minimalTransparentActiveCSS}
       `;
     case 'transparent':
+      const transparentActiveCSS = css`
+        background: ${rgba(shade(0.2, activeColor), 0.75)};
+        transform: scale(1);
+      `;
+
       return css`
         background: ${rgba(color, 0.6)};
         color: ${white};
@@ -330,6 +349,8 @@ function buttonVariants({
           transform: scale(0.98);
         }
 
+        ${active && transparentActiveCSS}
+
         &:hover:not(:active) {
           background: ${rgba(color, 0.675)};
           /* if: grow */
@@ -338,8 +359,14 @@ function buttonVariants({
         }
       `;
     default:
+      const defaultActiveCSS = css`
+        background: ${activeColor};
+        transform: scale(1);
+        color: ${contrastTextActive};
+      `;
+
       return css`
-        border: ${borderWidth} solid ${borderColor};
+        border: ${color} solid ${color};
         background: ${color};
         color: ${contrastText};
 
@@ -349,14 +376,11 @@ function buttonVariants({
           color: ${contrastTextActive};
         }
 
+        ${active && defaultActiveCSS}
+
         &:hover:not(:active) {
           background: ${hoverColor};
-          border: ${borderWidth} solid ${hoverColor};
           color: ${contrastTextHover};
-          /* if: grow */
-          /* transform: scale(1.01); */
-          /* box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1),
-        0 8px 8px -6px rgba(0, 0, 0, 0.25); */
         }
       `;
   }
