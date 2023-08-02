@@ -41,6 +41,11 @@ export default {
       },
     },
   },
+  parameters: {
+    lostpixel: {
+      disable: true,
+    },
+  },
 };
 
 const Template: Story<Props> = (args) => {
