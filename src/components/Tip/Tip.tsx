@@ -25,6 +25,7 @@ const error =
 
 function TipComponent({
   active,
+  disabled = false,
   attach = 'top',
   content,
   children,
@@ -42,6 +43,7 @@ function TipComponent({
       ref={forwardRef}
       variant={variant}
       $wrap={wrap}
+      disabled={disabled}
       {...props}
       children={tipContent}
     />,

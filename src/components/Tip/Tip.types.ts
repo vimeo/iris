@@ -9,6 +9,11 @@ export type Props = IrisProps<{
    */
   active?: boolean;
   /**
+   * Controls the tooltip visibility.
+   * If false the tooltip will be disabled - hidden, else it will be enabled - visible.
+   */
+  disabled?: boolean;
+  /**
    * Position where tooltip appears.
    * Can be a string or a set of coordinates, such as [[0,0], [100,100]].
    *
