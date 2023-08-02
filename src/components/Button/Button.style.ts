@@ -283,7 +283,7 @@ function buttonVariants({
       `;
     case 'minimal':
       const minimalActiveCSS = css`
-        background: ${color};
+        background: ${activeColor};
         color: ${contrastTextActive};
       `;
 
@@ -297,9 +297,7 @@ function buttonVariants({
           background: ${color};
         }
 
-        &:active {
-          color: ${contrastTextActive};
-        }
+        ${`&:active { ${minimalActiveCSS} }`}
 
         ${active && minimalActiveCSS}
       `;
@@ -332,12 +330,13 @@ function buttonVariants({
           color: ${hoverColor};
         }
 
+        ${`&:active { ${minimalTransparentActiveCSS} }`}
+
         ${active && minimalTransparentActiveCSS}
       `;
     case 'transparent':
       const transparentActiveCSS = css`
         background: ${rgba(shade(0.2, activeColor), 0.75)};
-        transform: scale(1);
       `;
 
       return css`
@@ -346,8 +345,9 @@ function buttonVariants({
 
         &:active {
           background: ${rgba(shade(0.2, activeColor), 0.75)};
-          transform: scale(0.98);
         }
+
+        ${`&:active { ${transparentActiveCSS} }`}
 
         ${active && transparentActiveCSS}
 
@@ -361,7 +361,6 @@ function buttonVariants({
     default:
       const defaultActiveCSS = css`
         background: ${activeColor};
-        transform: scale(1);
         color: ${contrastTextActive};
       `;
 
@@ -370,11 +369,7 @@ function buttonVariants({
         background: ${color};
         color: ${contrastText};
 
-        &:active {
-          background: ${activeColor};
-          transform: scale(0.98);
-          color: ${contrastTextActive};
-        }
+        ${`&:active { ${defaultActiveCSS} }`}
 
         ${active && defaultActiveCSS}
 
