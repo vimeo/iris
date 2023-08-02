@@ -19,6 +19,7 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-storysource',
     'storybook-dark-mode',
+    'storybook-addon-pseudo-states',
   ],
   webpackFinal: (config) => {
     config.module.rules.push(storySource);
