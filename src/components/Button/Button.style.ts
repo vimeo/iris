@@ -228,11 +228,11 @@ function deriveButtonColor(customColor, format, theme) {
 // const buttonVariants = memoize(buttonVariantsFn);
 // function buttonVariantsFn({ format, variant, theme }) {
 function buttonVariants({
+  active,
   color: customColor,
   format,
   theme,
   variant,
-  active,
 }) {
   // Temporary until CSSVar design tokens are released and Button
   // style logic is rewritten.
