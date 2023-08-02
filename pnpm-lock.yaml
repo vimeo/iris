@@ -76,6 +76,7 @@ specifiers:
   rollup-plugin-multi-input: ^1.4.1
   rollup-plugin-terser: ^7.0.2
   storybook: 7.2.0
+  storybook-addon-pseudo-states: ^2.1.0
   storybook-dark-mode: ^3.0.1
   styled-components: ^5.3.11
   stylelint: ^13.13.1
@@ -160,6 +161,7 @@ devDependencies:
   rollup-plugin-multi-input: 1.4.1
   rollup-plugin-terser: 7.0.2_rollup@2.79.1
   storybook: 7.2.0
+  storybook-addon-pseudo-states: 2.1.0_hohkpb5wiqtgvgbsrj7v5jeabq
   storybook-dark-mode: 3.0.1_3o2faabw5y74mvinlaefdjlbny
   styled-components: 5.3.11_ae27c7f5lcwqw6rpxj5cgyqyy4
   stylelint: 13.13.1
@@ -12459,6 +12461,28 @@ packages:
 
   /store2/2.14.2:
     resolution: {integrity: sha512-siT1RiqlfQnGqgT/YzXVUNsom9S0H1OX+dpdGN1xkyYATo4I6sep5NmsRD/40s3IIOvlCq6akxkqG82urIZW1w==}
+    dev: true
+
+  /storybook-addon-pseudo-states/2.1.0_hohkpb5wiqtgvgbsrj7v5jeabq:
+    resolution: {integrity: sha512-AwbCL1OiZ16aIeXSP/IOovkMwXy7NTZqmjkz+UM2guSGjvogHNA95NhuVyWoqieE+QWUpGO48+MrBGMeeJcHOQ==}
+    peerDependencies:
+      '@storybook/components': ^7.0.0
+      '@storybook/core-events': ^7.0.0
+      '@storybook/manager-api': ^7.0.0
+      '@storybook/preview-api': ^7.0.0
+      '@storybook/theming': ^7.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      '@storybook/components': 7.2.0_3o2faabw5y74mvinlaefdjlbny
+      '@storybook/theming': 7.2.0_w7o5yyljkiidx2s2nzb26ottzu
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
     dev: true
 
   /storybook-dark-mode/3.0.1_3o2faabw5y74mvinlaefdjlbny:
