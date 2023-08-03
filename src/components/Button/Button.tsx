@@ -31,9 +31,11 @@ const deprecatedProps = {
 };
 
 function ButtonComponent({
-  element = 'button',
+  active = false,
+  checked = false,
   children,
   color,
+  element = 'button',
   fluid,
   format = 'primary',
   forwardRef,
@@ -47,8 +49,6 @@ function ButtonComponent({
   theme,
   type,
   variant = 'solid',
-  checked = false,
-  active = false,
   onClick,
   ...props
 }: Props) {
