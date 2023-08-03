@@ -347,7 +347,9 @@ function buttonVariants({
           background: ${rgba(shade(0.2, activeColor), 0.75)};
         }
 
-        ${`&:active { ${transparentActiveCSS} }`}
+        ${`&:active { ${transparentActiveCSS} ${css`
+          transform: scale(0.98);
+        `} }`}
 
         ${active && transparentActiveCSS}
 
@@ -369,7 +371,9 @@ function buttonVariants({
         background: ${color};
         color: ${contrastText};
 
-        ${`&:active { ${defaultActiveCSS} }`}
+        ${`&:active { ${defaultActiveCSS} ${css`
+          transform: scale(0.98);
+        `}}`}
 
         ${active && defaultActiveCSS}
 
