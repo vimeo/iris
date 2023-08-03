@@ -31,9 +31,11 @@ const deprecatedProps = {
 };
 
 function ButtonComponent({
-  element = 'button',
+  active = false,
+  checked = false,
   children,
   color,
+  element = 'button',
   fluid,
   format = 'primary',
   forwardRef,
@@ -47,7 +49,6 @@ function ButtonComponent({
   theme,
   type,
   variant = 'solid',
-  checked = false,
   onClick,
   ...props
 }: Props) {
@@ -83,6 +84,7 @@ function ButtonComponent({
       theme={theme}
       type={type}
       checked={checked}
+      active={active}
       variant={variant}
       onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
         //Safari Button Focus Fix

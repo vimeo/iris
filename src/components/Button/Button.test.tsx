@@ -11,6 +11,7 @@ import { ThemeProvider } from 'styled-components';
 import { Pencil } from '../../icons';
 import { themes } from '../../themes';
 import { Button } from './Button';
+import { shade } from 'polished';
 
 const Provider = ({ children }) => {
   return (
@@ -171,5 +172,14 @@ describe('Button', () => {
     const button = screen.getByRole('button');
 
     expect(button).toHaveAttribute('disabled');
+  });
+
+  it('Renders active button', () => {
+    renderWithThemeProvider(<Button active>Hello</Button>);
+    const button = screen.getByRole('button');
+
+    expect(button).toHaveStyle({
+      backgroundColor: shade(0.15, '#00adef'),
+    });
   });
 });

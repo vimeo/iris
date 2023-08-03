@@ -95,6 +95,10 @@ export type Props = IrisProps<
      * Should the button have checked state
      */
     checked?: boolean;
+    /**
+     * Should the button have active state
+     */
+    active?: boolean;
   },
   DOMElement
 >;
