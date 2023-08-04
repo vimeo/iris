@@ -10,6 +10,11 @@ import { StoryControlBar } from '../../../storybook';
 export default {
   component: TourPoint,
   title: 'components/TourPoint/props',
+  parameters: {
+    lostpixel: {
+      disable: true,
+    },
+  },
 };
 export function Src() {
   const [src, srcSet] = useState('http://placekitten.com/320/213');
