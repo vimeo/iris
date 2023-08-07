@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { rgba, rem, tint, shade, em } from 'polished';
+import { rgba, rem, tint, shade, em, cssVar } from 'polished';
 
 import { borderRadii } from './Button.config';
 import { FeaturedIcon } from './FeaturedIcon';
@@ -217,7 +217,10 @@ function deriveButtonColor(customColor, format, theme) {
         : shade(0.15, color);
     }
   } else {
-    color = theme.formats[format];
+    color = `${cssVar(
+      `--button-color-${format}`,
+      theme.formats[format]
+    )}`;
     hoverColor = tint(0.15, color);
     activeColor = shade(0.15, color);
   }
