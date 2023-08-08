@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from 'storybook-dark-mode';
 
-// addThemes(themes);
+import { GlobalStyle } from '../src/_labs/ThemeKit/GlobalStyleCSSProperties';
 
 export const decorators = [
   (Story) => (
@@ -14,6 +14,7 @@ export const decorators = [
       theme={useDarkMode() ? IrisTheme.dark : IrisTheme.light}
     >
       <GlobalStyles />
+      <GlobalStyle />
       <ForceClientSideRender>{Story()}</ForceClientSideRender>
     </ThemeProvider>
   ),

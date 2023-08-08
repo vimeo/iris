@@ -108,7 +108,7 @@ export const GlobalStyle = createGlobalStyle`
     ${BlueCSSProperties}
     ${RedCSSProperties}
     ${SlateCSSProperties}
-    --button-color-primary: #00adef;
+    --button-color-primary: var(--red-200);
     --button-color-secondary: #0080bf;
     --button-color-basic: #E22B12;
   }

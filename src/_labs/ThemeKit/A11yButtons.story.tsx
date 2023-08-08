@@ -24,7 +24,7 @@ const ButtonStickers = formats.flatMap((format) =>
 export function A11yButton() {
   return (
     <ThemeProvider theme={themes['light']}>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <div
         style={{
           display: 'grid',
