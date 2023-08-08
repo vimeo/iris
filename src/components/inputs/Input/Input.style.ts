@@ -1,5 +1,6 @@
 import styled, { css, StyledComponent } from 'styled-components';
-import { rgba } from 'polished';
+import { rgba, darken } from 'polished';
+import { grayscale, slate } from '../../../color';
 
 import {
   FauxMark,
@@ -84,18 +85,39 @@ export const ToggleIcon = styled.div`
 `;
 
 function fauxToggleChecked({ toggle, theme }) {
+  const unCheckedColor =
+    theme.name === 'light' ? slate(300) : grayscale(300);
+  const checkedColor = theme.formats.primary;
+
   return (
     toggle &&
     css`
+      ~ ${Faux} {
+        background: ${unCheckedColor};
+        border: 1px solid ${unCheckedColor};
+      }
       &:checked ~ ${Faux} {
-        background: ${theme.formats.primary};
-        border: 1px solid ${theme.formats.primary};
+        background: ${checkedColor};
+        border: 1px solid ${checkedColor};
         ${ToggleIcon} {
           transform: scale(1) translateX(calc(100% + 4px));
         }
         &::after {
           transform: scale(1) translateX(calc(100% + 4px));
         }
+      }
+
+      :hover:checked ~ ${Faux} {
+        background: ${darken(0.1, checkedColor)};
+        border-color: ${darken(0.1, checkedColor)};
+      }
+      :hover ~ ${Faux} {
+        background: ${darken(0.1, unCheckedColor)};
+        border-color: transparent;
+      }
+
+      :disabled ~ ${Faux} {
+        opacity: 50%;
       }
     `
   );
