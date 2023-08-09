@@ -28,6 +28,7 @@ babel.config.js
 Jenkinsfile
 rollup.config.js
 tsconfig.json
+lostpixel.config.ts
 yarn.lock
 
 _process
