@@ -107,11 +107,11 @@ function fauxToggleChecked({ toggle, theme }) {
         }
       }
 
-      :hover:checked ~ ${Faux} {
+      :hover:checked:not(:disabled) ~ ${Faux} {
         background: ${darken(0.1, checkedColor)};
         border-color: ${darken(0.1, checkedColor)};
       }
-      :hover ~ ${Faux} {
+      :hover:not(:disabled) ~ ${Faux} {
         background: ${darken(0.1, unCheckedColor)};
         border-color: transparent;
       }
