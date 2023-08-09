@@ -11,6 +11,7 @@ node_modules
 npm-debug.log
 storybook-static
 yarn-error.log
+lost-pixel
 
 .babelrc
 .eslintrc.js
@@ -27,6 +28,7 @@ babel.config.js
 Jenkinsfile
 rollup.config.js
 tsconfig.json
+lostpixel.config.ts
 yarn.lock
 
 _process
