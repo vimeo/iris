@@ -11,6 +11,7 @@ node_modules
 npm-debug.log
 storybook-static
 yarn-error.log
+lost-pixel
 
 .babelrc
 .eslintrc.js
