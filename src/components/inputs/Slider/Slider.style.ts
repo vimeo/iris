@@ -145,7 +145,5 @@ export const SliderInputArrowStyled = styled(SliderInputArrow)`
     background: ${core.color.stroke};
   }
 
-  path {
-    fill: ${core.color.text(0)};
-  }
+  color: ${core.color.text(0)};
 `;
