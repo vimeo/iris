@@ -1,10 +1,9 @@
-import { slate } from './../../../color/colors';
-
 import styled from 'styled-components';
 
 import { blue, white } from '../../../color';
 import { rem, rgba } from 'polished';
 import { SliderInputArrow } from './SliderInputArrow';
+import { core } from '../../../tokens';
 
 export const SliderContainer = styled.div<{ range: boolean }>`
   width: 100%;
@@ -115,20 +114,22 @@ export const Hidden = styled.input.attrs({ type: 'range' })`
 export const ArrowsContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   position: absolute;
   right: ${rem(4)};
-  top: ${rem(0.5)};
+  top: 0;
   width: 10px;
   height: 100%;
   opacity: 0;
   transition: opacity 300ms ease;
+  padding: ${rem(1)} 0 ${rem(1.5)} 0;
 `;
 
 export const LabelInputContainer = styled.div`
   transition: padding 300ms ease;
 
   &:hover {
-    padding-right: ${rem(8)};
+    padding-right: ${rem(10)};
   }
 
   &:hover ${ArrowsContainer} {
@@ -141,6 +142,10 @@ export const SliderInputArrowStyled = styled(SliderInputArrow)`
   cursor: pointer;
 
   &:hover {
-    background: ${slate(50)};
+    background: ${core.color.stroke};
+  }
+
+  path {
+    fill: ${core.color.text(0)};
   }
 `;
