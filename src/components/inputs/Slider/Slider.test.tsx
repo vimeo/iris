@@ -140,4 +140,45 @@ describe('Slider', () => {
     expect(onChange).toHaveBeenCalledTimes(0);
     expect(onDragEnd).toHaveBeenCalledTimes(0);
   });
+
+  it('Change value using arrows', async () => {
+    const onChange = jest.fn();
+
+    render(
+      <ThemeProvider theme={themes['light']}>
+        <Slider
+          onChange={onChange}
+          initialValues={[0, 100]}
+          editableLabel
+        />
+      </ThemeProvider>
+    );
+
+    const input = screen.getByRole('start-input');
+    await userEvent.hover(input);
+
+    const arrowUp = screen.getByRole('arrow-up');
+    await userEvent.click(arrowUp);
+
+    expect(onChange).toHaveBeenCalledWith(
+      expect.objectContaining({
+        target: expect.objectContaining({
+          value: '1',
+        }),
+      })
+    );
+
+    const arrowDown = screen.getByRole('arrow-down');
+    await userEvent.click(arrowDown);
+
+    expect(onChange).toHaveBeenCalledTimes(2);
+
+    expect(onChange).toHaveBeenCalledWith(
+      expect.objectContaining({
+        target: expect.objectContaining({
+          value: '0',
+        }),
+      })
+    );
+  });
 });

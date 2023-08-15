@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 import { blue, white } from '../../../color';
-import { rgba } from 'polished';
+import { rem, rgba } from 'polished';
+import { SliderInputArrow } from './SliderInputArrow';
+import { core } from '../../../tokens';
 
 export const SliderContainer = styled.div<{ range: boolean }>`
   width: 100%;
@@ -13,6 +15,7 @@ export const SliderContainer = styled.div<{ range: boolean }>`
 `;
 
 export const Label = styled.div<{ focused: boolean }>`
+  position: relative;
   padding: 0.2125rem;
   width: 3.125rem;
   text-align: center;
@@ -41,6 +44,7 @@ export const LabelInput = styled.input.attrs({ type: 'number' })<{
   appearance: none;
   text-align: center;
   font-size: inherit;
+  user-select: none;
 
   &::-webkit-inner-spin-button {
     appearance: none;
@@ -105,4 +109,41 @@ export const Hidden = styled.input.attrs({ type: 'range' })`
   height: 0;
   width: 0;
   opacity: 0;
+`;
+
+export const ArrowsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  right: ${rem(4)};
+  top: 0;
+  width: 10px;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  padding: ${rem(1)} 0 ${rem(1.5)} 0;
+`;
+
+export const LabelInputContainer = styled.div`
+  transition: padding 300ms ease;
+
+  &:hover {
+    padding-right: ${rem(10)};
+  }
+
+  &:hover ${ArrowsContainer} {
+    opacity: 1;
+  }
+`;
+
+export const SliderInputArrowStyled = styled(SliderInputArrow)`
+  border-radius: ${rem(4)};
+  cursor: pointer;
+
+  &:hover {
+    background: ${core.color.stroke};
+  }
+
+  color: ${core.color.text(0)};
 `;
