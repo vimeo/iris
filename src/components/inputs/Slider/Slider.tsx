@@ -15,7 +15,6 @@ import {
   Background,
   ActiveRange,
   Label,
-  LabelInput,
   SliderContainer,
 } from './Slider.style';
 import { Handle } from './Handle';
@@ -29,6 +28,7 @@ import {
   end,
   home,
 } from '../../../utils/events/KeyCodes';
+import { SliderEditableInput } from './SliderEditableInput';
 
 interface State {
   values: number[];
@@ -111,6 +111,19 @@ export function Slider({
   function setEndValue(value) {
     const newValue = constrain(values[0] + 1, max)(value);
     setValue([values[0], newValue]);
+  }
+
+  function handleArrowClick(
+    direction: 'up' | 'down',
+    handle: 'startInput' | 'endInput'
+  ) {
+    const action =
+      handle === 'startInput' ? setStartValue : setEndValue;
+    const currentValue =
+      handle === 'startInput' ? values[0] : values[1];
+
+    if (direction === 'up') action(currentValue + 1);
+    else action(currentValue - 1);
   }
 
   useLayoutEffect(() => {
@@ -199,7 +212,7 @@ export function Slider({
       {range && (
         <Label focused={focused === 'startInput'}>
           {editableLabel ? (
-            <LabelInput
+            <SliderEditableInput
               value={values[0]}
               disabled={disabled}
               onFocus={() => setFocus('startInput')}
@@ -207,6 +220,18 @@ export function Slider({
                 !e.button && setStartValue(parseInt(e.target.value))
               }
               role="start-input"
+              onArrowUpClick={() =>
+                handleArrowClick(
+                  'up',
+                  range ? 'endInput' : 'startInput'
+                )
+              }
+              onArrowDownClick={() =>
+                handleArrowClick(
+                  'down',
+                  range ? 'endInput' : 'startInput'
+                )
+              }
             />
           ) : (
             formatter(values[0])
@@ -249,9 +274,9 @@ export function Slider({
         focused={focused === (range ? 'endInput' : 'startInput')}
       >
         {editableLabel ? (
-          <LabelInput
-            value={range ? values[1] : values[0]}
+          <SliderEditableInput
             disabled={disabled}
+            value={range ? values[1] : values[0]}
             onFocus={() =>
               setFocus(range ? 'endInput' : 'startInput')
             }
@@ -261,6 +286,18 @@ export function Slider({
                 : setStartValue(parseInt(e.target.value));
             }}
             role={range ? 'end-input' : 'start-input'}
+            onArrowUpClick={() =>
+              handleArrowClick(
+                'up',
+                range ? 'endInput' : 'startInput'
+              )
+            }
+            onArrowDownClick={() =>
+              handleArrowClick(
+                'down',
+                range ? 'endInput' : 'startInput'
+              )
+            }
           />
         ) : (
           formatter(range ? values[1] : values[0])
