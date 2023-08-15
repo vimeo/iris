@@ -130,8 +130,10 @@ export function Slider({
 
   useEffect(() => {
     const mouseup = () => {
-      dragging && setDragging(false);
-      dispatchChangeEvent(onDragEnd);
+      if (dragging) {
+        setDragging(false);
+        dispatchChangeEvent(onDragEnd);
+      }
     };
 
     const keydown = (event) => {
