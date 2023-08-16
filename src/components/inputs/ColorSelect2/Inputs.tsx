@@ -131,13 +131,7 @@ function InputHEX({ colorMeta, onClick }) {
   const { HEX } = colorMeta;
   const props = { onClick, type: 'text' } as const;
 
-  return (
-    <ColorInput
-      value={HEX}
-      {...props}
-      readOnly
-    />
-  );
+  return <ColorInput value={HEX} {...props} readOnly />;
 }
 
 function InputRGB({ colorMeta, onClick }) {
