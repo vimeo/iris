@@ -46,7 +46,7 @@ export const Wrapper = styled.div<{
     `}
 `;
 
-export const TriggerContainer = styled.div<{
+export const TriggerContainer = styled.button<{
   format: 'basic' | 'secondary';
   active: boolean;
 }>`
@@ -55,6 +55,7 @@ export const TriggerContainer = styled.div<{
   cursor: pointer;
   padding: ${rem(12)} ${rem(15)};
   border-radius: ${rem(10)};
+  width: 100%;
   &:hover {
     background-color: ${({ theme, format }) =>
       format === 'basic'
@@ -62,7 +63,7 @@ export const TriggerContainer = styled.div<{
           ? grayscale(800)
           : grayscale(50)
         : 'none'};
-    border: ${({ active, theme, format }) =>
+    outline: ${({ active, theme, format }) =>
       !active && format === 'secondary'
         ? theme.name === 'dark'
           ? `${rem(1)} solid ${grayscale(800)}`
@@ -79,6 +80,7 @@ export const Header = styled.div`
 export const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
+  text-align: left;
 `;
 
 export const Title = styled(Paragraph)`

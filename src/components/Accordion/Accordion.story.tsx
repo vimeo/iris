@@ -6,6 +6,8 @@ import { Props } from './Accordion.types';
 import styled from 'styled-components';
 import { Gear } from '../../icons';
 import { rem } from 'polished';
+import { core } from '../../tokens';
+import { Layout } from '../../storybook';
 
 export default {
   title: 'components/Accordion',
@@ -14,21 +16,43 @@ export default {
 
 const Template: Story<Props> = (args) => {
   return (
-    <Container>
+    <Layout.StoryVertical center>
       <Accordion {...args}>
-        <Accordion.Item title="Accordion item 1">
+        <Accordion.Item
+          title="Accordion item title"
+          subcopy="Subcopy text"
+        >
           Accordion content
         </Accordion.Item>
-        <Accordion.Item title="Accordion item 2">
+        <Accordion.Item
+          title="Accordion item with icon"
+          icon={<GearIcon />}
+        >
+          Accordion content
+        </Accordion.Item>
+        <Accordion.Item
+          title="Disabled accordion item"
+          disabled={true}
+        >
+          Accordion content
+        </Accordion.Item>
+        <Accordion.Item
+          title="Accordion item with error"
+          hasError={true}
+        >
           Accordion content
         </Accordion.Item>
       </Accordion>
-    </Container>
+    </Layout.StoryVertical>
   );
 };
 
-const Container = styled.div`
-  width: 50%;
+const GearIcon = styled(Gear)`
+  width: ${rem(22)};
+  margin-right: ${rem(10)};
+  path {
+    fill: ${core.color.text.primary};
+  }
 `;
 
 export const Controls = Template.bind({});

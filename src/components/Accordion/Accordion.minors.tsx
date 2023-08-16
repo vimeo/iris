@@ -56,6 +56,9 @@ export function Item({
         tabIndex={0}
         format={format}
         active={isActive}
+        aria-expanded={isActive}
+        aria-controls={`accordion-${index}-content`}
+        id={`accordion-${index}-trigger`}
       >
         <Header>
           {hasError && <CircleWarningIcon />}
@@ -71,7 +74,16 @@ export function Item({
           <StyledChevronDown width="24" />
         )}
       </TriggerContainer>
-      {isActive && <Content active={isActive}>{children}</Content>}
+      {isActive && (
+        <Content
+          active={isActive}
+          aria-labelledby={`accordion-${index}-trigger`}
+          id={`accordion-${index}-content`}
+          role="region"
+        >
+          {children}
+        </Content>
+      )}
     </Wrapper>
   );
 }
