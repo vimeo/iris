@@ -1,10 +1,6 @@
 import React from 'react';
 import { HexColorPicker } from 'react-colorful';
 import { throttle } from '../../../utils';
-import {
-  ColorSelectPickerWrapper,
-  SelectedColor,
-} from './ColorSelect2.style';
 
 export function ColorSelectPicker({
   value,
@@ -18,9 +14,8 @@ export function ColorSelectPicker({
   }, throttleSpeed);
 
   return (
-    <ColorSelectPickerWrapper aria-label="color picker">
-      <SelectedColor color={value} aria-label="color preview" />
+    <div aria-label="color picker">
       <HexColorPicker color={value} onChange={handleChange} />
-    </ColorSelectPickerWrapper>
+    </div>
   );
 }

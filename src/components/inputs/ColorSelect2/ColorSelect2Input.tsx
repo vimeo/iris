@@ -16,6 +16,7 @@ export function ColorSelectInput({
   reset,
   size,
   toggle,
+  disabled,
 }) {
   const ref = useRef();
   const { HEX } = colorMeta;
@@ -38,6 +39,7 @@ export function ColorSelectInput({
   return (
     <div style={{ position: 'relative' }}>
       <Input
+        disabled={disabled}
         label={label}
         onClick={toggle}
         ref={ref}
@@ -56,6 +58,7 @@ export function ColorSelectInput({
         {reset.label &&
           HEX.toLowerCase() !== reset.color.toLowerCase() && (
             <InnerButton
+              disabled={disabled}
               aria-label="reset"
               format="basic"
               variant="minimalTransparent"

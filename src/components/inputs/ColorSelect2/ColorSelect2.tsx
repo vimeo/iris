@@ -8,27 +8,19 @@ import { State, reducer } from './ColorSelect2.state';
 import { ColorInputs } from './Inputs';
 import { ColorSelectInput } from './ColorSelect2Input';
 import { ColorSelectPicker } from './ColorSelect2Picker';
-import { Presets, Props as PresetsProps } from './Presets';
+import { Presets } from './Presets';
 
 import { PopOver } from '../../PopOver/PopOver';
-import {
-  withIris,
-  MinorComponent,
-  useOutsideClick,
-} from '../../../utils';
+import { withIris, useOutsideClick } from '../../../utils';
 import { colorSpaces } from '../../../color';
 
 /**
  * An input that enables users to choose a color from a predefined range of colors from a color picker panel.
  * This components precedes the eventual deprecation of ColorPicker.tsx to ease migration and ensure backwards compatibility.
  */
-export const ColorSelect2 = withIris<
-  HTMLInputElement,
-  Props,
-  { Presets: MinorComponent<PresetsProps> }
->(ColorSelectComponent);
-
-ColorSelect2.Presets = Presets;
+export const ColorSelect2 = withIris<HTMLInputElement, Props>(
+  ColorSelectComponent
+);
 
 function ColorSelectComponent({
   children,
@@ -45,6 +37,8 @@ function ColorSelectComponent({
   width = 360,
   attach = 'bottom',
   showHueSlider = true,
+  disabled,
+  presets,
 }: Props) {
   const childrenRef = useRef();
   const popOverRef = useRef();
@@ -95,6 +89,18 @@ function ColorSelectComponent({
           showHueSlider={showHueSlider}
           ref={popOverRef}
         >
+          {presets && (
+            <Presets
+              selectedColor={colorMeta.HEX}
+              palette={presets.palette}
+              label={presets.label}
+              onEdit={presets.onEdit}
+              onSelect={(color: string) => {
+                dispatch({ type: 'SET_HEX', payload: color });
+                onChange(color);
+              }}
+            />
+          )}
           <ColorSelectPicker
             dispatch={dispatch}
             onChange={onChange}
@@ -110,7 +116,7 @@ function ColorSelectComponent({
       }
     >
       {children ? (
-        <div onClick={toggle} ref={childrenRef}>
+        <div onClick={() => !disabled && toggle()} ref={childrenRef}>
           {children}
         </div>
       ) : (
@@ -123,6 +129,7 @@ function ColorSelectComponent({
             reset={reset}
             size={size}
             toggle={toggle}
+            disabled={disabled}
           />
         </div>
       )}
