@@ -8,12 +8,11 @@ import { State, reducer } from './ColorSelect2.state';
 import { ColorInputs } from './Inputs';
 import { ColorSelectInput } from './ColorSelect2Input';
 import { ColorSelectPicker } from './ColorSelect2Picker';
-import { Presets, Props as PresetsProps } from './Presets';
+import { Presets } from './Presets';
 
 import { PopOver } from '../../PopOver/PopOver';
 import {
   withIris,
-  MinorComponent,
   useOutsideClick,
 } from '../../../utils';
 import { colorSpaces } from '../../../color';
@@ -24,11 +23,8 @@ import { colorSpaces } from '../../../color';
  */
 export const ColorSelect2 = withIris<
   HTMLInputElement,
-  Props,
-  { Presets: MinorComponent<PresetsProps> }
+  Props
 >(ColorSelectComponent);
-
-ColorSelect2.Presets = Presets;
 
 function ColorSelectComponent({
   children,
@@ -45,6 +41,8 @@ function ColorSelectComponent({
   width = 360,
   attach = 'bottom',
   showHueSlider = true,
+  disabled,
+  presets,
 }: Props) {
   const childrenRef = useRef();
   const popOverRef = useRef();
@@ -95,6 +93,18 @@ function ColorSelectComponent({
           showHueSlider={showHueSlider}
           ref={popOverRef}
         >
+          {presets && (
+            <Presets
+              selectedColor={colorMeta.HEX}
+              palette={presets.palette}
+              label={presets.label}
+              onEdit={presets.onEdit}
+              onSelect={(color: string) => {
+                dispatch({ type: 'SET_HEX', payload: color });
+                onChange(color);
+              }}
+            />
+          )}
           <ColorSelectPicker
             dispatch={dispatch}
             onChange={onChange}
@@ -110,7 +120,7 @@ function ColorSelectComponent({
       }
     >
       {children ? (
-        <div onClick={toggle} ref={childrenRef}>
+        <div onClick={() => !disabled && toggle()} ref={childrenRef}>
           {children}
         </div>
       ) : (
@@ -123,6 +133,7 @@ function ColorSelectComponent({
             reset={reset}
             size={size}
             toggle={toggle}
+            disabled={disabled}
           />
         </div>
       )}

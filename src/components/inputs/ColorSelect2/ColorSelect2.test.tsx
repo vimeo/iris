@@ -57,10 +57,7 @@ describe('ColorSelect2', () => {
     renderWithThemeProvider(<ColorSelect2 value={TEST_COLOR} />);
     const input = screen.getByLabelText('color');
     await act(async () => await userEvent.click(input));
-
-    const selectedColor = screen.getByLabelText('color preview');
-    const selectedColorValue = selectedColor.getAttribute('color');
-    expect(selectedColorValue).toBe(TEST_COLOR);
+    expect((input as HTMLInputElement).value).toBe(TEST_COLOR);
   });
 
   it('Change ColorSelect2 color using input', async () => {
@@ -70,9 +67,7 @@ describe('ColorSelect2', () => {
 
     fireEvent.change(input, { target: { value: TEST_COLOR } });
 
-    const selectedColor = screen.getByLabelText('color preview');
-    const selectedColorValue = selectedColor.getAttribute('color');
-    expect(selectedColorValue).toBe(TEST_COLOR);
+    expect((input as HTMLInputElement).value).toBe(TEST_COLOR);
   });
 
   it('Fires onChange callback', async () => {
@@ -110,9 +105,7 @@ describe('ColorSelect2', () => {
     const resetButton = screen.getByLabelText('reset');
     await act(async () => await userEvent.click(resetButton));
 
-    const selectedColor = screen.getByLabelText('color preview');
-    const selectedColorValue = selectedColor.getAttribute('color');
-    expect(selectedColorValue).toBe(reset.color);
+    expect((input as HTMLInputElement).value).toBe(reset.color);
   });
 
   it('Change size', async () => {
@@ -199,16 +192,15 @@ describe('ColorSelect2', () => {
   });
 
   it('Select color from presets', async () => {
-    const palette = ['#909CDC', '#7BD8DB', '#78DD89', '#CCE190'];
+    const palette = ['#909CDC', '#7BD8DB', '#78DD89'];
     const mockFn = jest.fn();
 
     renderWithThemeProvider(
-      <ColorSelect2.Presets
-        palette={palette}
-        label="Presets"
-        onColorClick={mockFn}
-      />
+      <ColorSelect2 onChange={mockFn} presets={{ palette }} />
     );
+
+    const input = screen.getByLabelText('color');
+    await act(async () => await userEvent.click(input));
 
     const preset = screen.getByLabelText(palette[1]);
     await act(async () => await userEvent.click(preset));
@@ -217,20 +209,17 @@ describe('ColorSelect2', () => {
   });
 
   it('Render a label for presets', async () => {
-    const palette = ['#909CDC', '#7BD8DB', '#78DD89', '#CCE190'];
+    const palette = ['#909CDC', '#7BD8DB', '#78DD89'];
     const label = 'My Label';
 
     renderWithThemeProvider(
-      <ColorSelect2.Presets
-        palette={palette}
-        label={label}
-        onColorClick={() => {
-          console.log('click ');
-        }}
-      />
+      <ColorSelect2 presets={{ palette, label }} />
     );
 
-    const renderedLabel = document.querySelector('h6');
+    const input = screen.getByLabelText('color');
+    await act(async () => await userEvent.click(input));
+
+    const renderedLabel = document.querySelector('p');
 
     expect(renderedLabel.innerHTML).toBe(label);
   });
@@ -277,5 +266,17 @@ describe('ColorSelect2', () => {
     await act(async () => await userEvent.click(button)); // Trigger an outside click to close the picker.
 
     await waitFor(() => expect(mockFn).toBeCalled());
+  });
+
+  it('ColorSelect2 input should be disabled', async () => {
+    renderWithThemeProvider(<ColorSelect2 disabled />);
+    const input = screen.getByLabelText('color');
+    expect(input).toBeDisabled();
+  });
+
+  it('ColorSelect2 reset button should be disabled', async () => {
+    renderWithThemeProvider(<ColorSelect2 disabled />);
+    const resetButton = screen.getByLabelText('reset');
+    expect(resetButton).toBeDisabled();
   });
 });

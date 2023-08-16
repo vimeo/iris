@@ -41,13 +41,10 @@ export function ColorInputs({
     <>
       <Wrapper {...props}>
         <Button
-          format="soft"
+          format="secondary"
           onClick={cycle}
-          size="sm"
-          variant="outline"
           status={error ? 'negative' : null}
-          style={{ opacity: '0.667', marginRight: '1rem' }}
-          pill
+          style={{ height: '2.35rem' }}
         >
           {colorSpace}
         </Button>
@@ -125,7 +122,6 @@ function InputEdit({ value, dispatch, error, forwardRef, onChange }) {
       onKeyUp={onKeyUp}
       ref={forwardRef}
       status={error ? 'negative' : null}
-      style={{ display: 'inline-block' }}
       type="text"
     />
   );
@@ -138,7 +134,6 @@ function InputHEX({ colorMeta, onClick }) {
   return (
     <ColorInput
       value={HEX}
-      style={{ display: 'inline-block' }}
       {...props}
       readOnly
     />
@@ -189,7 +184,7 @@ function validate(color) {
 const ColorInput = styled(Input)`
   width: 100%;
   flex-grow: 1;
-  display: inline-flex;
+  display: inline-block;
 
   + div {
     margin-left: 0.334rem;
@@ -197,9 +192,8 @@ const ColorInput = styled(Input)`
 `;
 
 const Wrapper = styled.div`
-  padding: 0.5rem 1.5rem 1.5rem;
   width: 100%;
-  margin-top: 0.75rem;
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 `;
