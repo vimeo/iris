@@ -2,14 +2,11 @@ import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import { hslToColorString } from 'polished';
 
-import { Themed } from './Styles';
-
 export function Flower() {
   return (
-    <Themed>
-      <Pre>
-        { /* prettier-ignore */ }
-        <Code>
+    <Pre>
+      { /* prettier-ignore */ }
+      <Code>
   {'\n'}                                `..`                                  
   {'\n'}                            .://--/                                  
   {'\n'}                          `--::.``.`                                 
@@ -45,8 +42,7 @@ export function Flower() {
   {'\n'}                                 yNh                                 
   {'\n'}                                 `.` 
         </Code>
-      </Pre>
-    </Themed>
+    </Pre>
   );
 }
 

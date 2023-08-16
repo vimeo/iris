@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Flower } from './Flower';
-import { Styles } from './Styles';
 
 export default {
   title: 'iris/Welcome',
@@ -14,10 +13,5 @@ export default {
 };
 
 export function Welcome() {
-  return (
-    <>
-      <Styles />
-      <Flower />
-    </>
-  );
+  return <Flower />;
 }
