@@ -33,7 +33,7 @@ export const Wrapper = styled.div<{
   .react-colorful__hue {
     display: ${({ showHueSlider }) =>
       showHueSlider ? 'block' : 'none'};
-    margin: 1.5rem 0;
+    margin: 1.5rem 0 0;
     border-radius: 1rem;
   }
 
