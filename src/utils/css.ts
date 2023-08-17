@@ -56,7 +56,9 @@ export const Focus = styled.div<any>`
 
       ${parent}${focusPseudoSelector} > &,
       ${parent}${focusPseudoSelector} ~ &,
-      ${parent}${focusPseudoSelector} ~ div > & {
+      ${parent}${focusPseudoSelector} ~ div > &, 
+      /** A hack to  make sure the focus ring is visible for storybook addon pseudo (focus and focus-visible) states */
+      ${parent}.pseudo-focus-visible > & {
         opacity: 1;
       }
 

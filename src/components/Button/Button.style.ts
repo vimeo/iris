@@ -174,11 +174,12 @@ function buttonElevation({ floating = null }) {
     css`
       box-shadow: 0 ${rem(3)} ${rem(6)} 0 ${rgba(black, 0.125)};
 
-      &:active {
+      &:active,
+      &.pseudo-active {
         transform: translateY(0) scale(0.98);
       }
 
-      &:hover:not(:active) {
+      &:hover:not(:active, .pseudo-active) {
         transform: translateY(-1px) scale(1.01);
         box-shadow: 0 ${rem(5)} ${rem(7)} 0 ${rgba(black, 0.175)};
       }
@@ -261,7 +262,8 @@ function buttonVariants({
         background: transparent;
         color: ${color};
 
-        &:hover {
+        &:hover,
+        &.pseudo-hover {
           color: ${theme.name === 'light'
             ? shade(0.1, color)
             : tint(0.5, color)};
@@ -276,7 +278,8 @@ function buttonVariants({
         background: transparent;
         color: ${color};
 
-        &:hover {
+        &:hover,
+        &.pseudo-hover {
           color: ${shade(0.2, color)};
           background: ${rgba(activeColor, 0.2)};
         }
@@ -292,12 +295,13 @@ function buttonVariants({
         background: transparent;
         color: ${color};
 
-        &:hover {
+        &:hover,
+        &.pseudo-hover {
           color: ${contrastTextHover};
           background: ${color};
         }
 
-        ${`&:active { ${minimalActiveCSS} }`}
+        ${`&:active, &.pseudo-active { ${minimalActiveCSS} }`}
 
         ${active && minimalActiveCSS}
       `;
@@ -307,7 +311,8 @@ function buttonVariants({
         background: transparent;
         color: ${color};
 
-        &:hover {
+        &:hover,
+        &.pseudo-hover {
           border: ${borderWidth} solid transparent;
           /* color: hoverColorDark */
           color: ${hoverColor};
@@ -324,13 +329,14 @@ function buttonVariants({
         background: transparent;
         color: ${color};
 
-        &:hover {
+        &:hover,
+        &.pseudo-hover {
           border: ${borderWidth} solid transparent;
           background: ${rgba(color, 0.1)};
           color: ${hoverColor};
         }
 
-        ${`&:active { ${minimalTransparentActiveCSS} }`}
+        ${`&:active, &.pseudo-active { ${minimalTransparentActiveCSS} }`}
 
         ${active && minimalTransparentActiveCSS}
       `;
@@ -343,17 +349,18 @@ function buttonVariants({
         background: ${rgba(color, 0.6)};
         color: ${white};
 
-        &:active {
+        &:active,
+        &.pseudo-active {
           background: ${rgba(shade(0.2, activeColor), 0.75)};
         }
 
-        ${`&:active { ${transparentActiveCSS} ${css`
+        ${`&:active, &.pseudo-active { ${transparentActiveCSS} ${css`
           transform: scale(0.98);
         `} }`}
 
         ${active && transparentActiveCSS}
 
-        &:hover:not(:active) {
+        &:hover:not(:active, .pseudo-active), &.pseudo-hover:not(:active, .pseudo-active) {
           background: ${rgba(color, 0.675)};
           /* if: grow */
           /* transform: scale(1.01); */
@@ -371,13 +378,13 @@ function buttonVariants({
         background: ${color};
         color: ${contrastText};
 
-        ${`&:active { ${defaultActiveCSS} ${css`
+        ${`&:active, &.pseudo-active { ${defaultActiveCSS} ${css`
           transform: scale(0.98);
         `}}`}
 
         ${active && defaultActiveCSS}
 
-        &:hover:not(:active) {
+        &:hover:not(:active, .pseudo-active), &.pseudo-hover:not(:active, .pseudo-active) {
           background: ${hoverColor};
           color: ${contrastTextHover};
         }
@@ -496,7 +503,7 @@ function buttonChecked({ checked }) {
     css`
       border: 2px solid ${blue(500)};
 
-      &:hover:not(:active) {
+      &:hover:not(:active, .pseudo-active) {
         border: 2px solid ${blue(500)};
       }
     `
@@ -539,13 +546,14 @@ function buttonUpsell({ format, theme }) {
     background: ${color} padding-box, ${color} border-box;
     color: #fff;
 
-    &:active {
+    &:active,
+    &.pseudo-active {
       background: ${color} padding-box, ${colorActive} border-box;
       transform: scale(0.98);
       color: #fff;
     }
 
-    &:hover:not(:active) {
+    &:hover:not(:active, .pseudo-active) {
       background: ${colorHover} padding-box, ${colorHover} border-box;
       border: 1px solid transparent;
       color: #fff;
