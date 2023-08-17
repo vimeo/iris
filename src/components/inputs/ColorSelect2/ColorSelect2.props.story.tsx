@@ -28,7 +28,6 @@ export function Children({ args }) {
     </Layout.StoryVertical>
   );
 }
-Children.storyName = 'children';
 
 export function Attach({ args }) {
   return (
@@ -63,4 +62,11 @@ export function Attach({ args }) {
     </Layout.StoryVertical>
   );
 }
-Attach.storyName = 'attach';
+
+export function Disabled({ args }) {
+  return (
+    <Layout.StoryVertical defaultWidth>
+      <ColorSelect2 {...args} disabled />
+    </Layout.StoryVertical>
+  );
+}

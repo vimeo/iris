@@ -4,7 +4,6 @@ import { rem } from 'polished';
 
 import { Paragraph } from '../../../typography';
 import { Focus } from '../../../utils';
-import { blue } from '../../../color';
 import { Pencil } from '../../../icons';
 import { Button } from '../../Button/Button';
 
@@ -113,8 +112,10 @@ const SwabRing = styled.div<{ selected: boolean }>`
   width: ${rem(30)};
   height: ${rem(30)};
   border-radius: ${rem(24)};
-  border: ${({ selected }) =>
-    `${rem(2)} solid ${selected ? blue(500) : 'transparent'}`};
+  border: ${(p) =>
+    `${
+      p.selected ? p.theme.formats.primary : 'transparent'
+    } solid ${rem(2)}`};
   transition: 150ms ease-in-out;
 
   &:hover {
