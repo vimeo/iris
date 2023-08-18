@@ -1,8 +1,8 @@
 import { rem } from 'polished';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 import { ChevronDown, CircleWarning } from '../../icons';
-import { Paragraph } from '../../typography';
+import { Header } from '../../typography';
 
 import { grayscale } from '../../color';
 import { core } from '../../tokens';
@@ -72,7 +72,7 @@ export const TriggerContainer = styled.button<{
   }
 `;
 
-export const Header = styled.div`
+export const HeaderContainer = styled.div`
   display: flex;
   margin-right: ${rem(10)};
 `;
@@ -81,17 +81,14 @@ export const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
+  gap: ${rem(4)};
 `;
 
-export const Title = styled(Paragraph)`
-  font-size: ${rem(16)};
-  font-weight: 700;
-  margin-bottom: 0;
+export const Title = styled(Header)`
+  margin-bottom: ${rem(0)};
 `;
 
-export const Subcopy = styled(Paragraph)`
-  font-size: ${rem(14)};
-  font-weight: 400;
+export const Subcopy = styled(Header)`
   margin-bottom: -${rem(0.2)};
 `;
 
@@ -103,18 +100,56 @@ export const CircleWarningIcon = styled(CircleWarning)`
   }
 `;
 
+const rotateUp = keyframes`
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-180deg);
+    }
+`;
+
+const rotateDown = keyframes`
+    from {
+        transform: rotate(-180deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+`;
+
 export const StyledChevronDown = styled(ChevronDown)`
+  animation: ${rotateDown} 120ms ease-in-out both;
   path {
     fill: ${core.color.text.primary};
   }
 `;
 
 export const ChevronUp = styled(StyledChevronDown)`
-  transform: rotate(180deg);
+  animation: ${rotateUp} 120ms ease-in-out both;
+`;
+
+const fadeAndExpand = keyframes`
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 `;
 
 export const Content = styled.div<{ active: boolean }>`
-  padding: ${rem(0)} ${rem(15)} ${rem(20)};
+  padding: ${rem(0)} ${rem(15)} ${rem(20)} ${rem(20)};
   max-height: ${({ active }) => (active ? '100%' : '0')};
   overflow: hidden;
+  transform: translateY(-50%);
+  opacity: 0;
+  ${({ active }) =>
+    active &&
+    css`
+      animation: ${fadeAndExpand} 150ms ease-in-out both;
+      opacity: 1;
+    `};
 `;

@@ -4,7 +4,7 @@ import {
   Content,
   ChevronUp,
   CircleWarningIcon,
-  Header,
+  HeaderContainer,
   StyledChevronDown,
   Subcopy,
   Title,
@@ -60,14 +60,18 @@ export function Item({
         aria-controls={`accordion-${index}-content`}
         id={`accordion-${index}-trigger`}
       >
-        <Header>
+        <HeaderContainer>
           {hasError && <CircleWarningIcon />}
           {!hasError && icon && icon}
           <TitleContainer>
-            <Title>{title}</Title>
-            {subcopy && <Subcopy>{subcopy}</Subcopy>}
+            <Title size="4">{title}</Title>
+            {subcopy && (
+              <Subcopy size="6" variant="thin">
+                {subcopy}
+              </Subcopy>
+            )}
           </TitleContainer>
-        </Header>
+        </HeaderContainer>
         {isActive ? (
           <ChevronUp width="24" />
         ) : (
