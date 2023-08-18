@@ -20,6 +20,7 @@ specifiers:
   '@rollup/plugin-node-resolve': ^13.3.0
   '@rollup/plugin-typescript': ^8.5.0
   '@storybook/addon-a11y': 7.3.0
+  '@storybook/addon-designs': ^7.0.5
   '@storybook/addon-docs': ^7.3.0
   '@storybook/addon-essentials': 7.3.0
   '@storybook/addon-postcss': ^2.0.0
@@ -105,6 +106,7 @@ devDependencies:
   '@rollup/plugin-node-resolve': 13.3.0_rollup@2.79.1
   '@rollup/plugin-typescript': 8.5.0_ejq2noq2xzhcv6eha3cqyh4bwm
   '@storybook/addon-a11y': 7.3.0_3o2faabw5y74mvinlaefdjlbny
+  '@storybook/addon-designs': 7.0.5_epr2epejjlzqfk64q7oaan4fji
   '@storybook/addon-docs': 7.3.0_3o2faabw5y74mvinlaefdjlbny
   '@storybook/addon-essentials': 7.3.0_3o2faabw5y74mvinlaefdjlbny
   '@storybook/addon-postcss': 2.0.0_webpack@5.88.2
@@ -2466,6 +2468,22 @@ packages:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
     dev: true
 
+  /@figspec/components/1.0.2:
+    resolution: {integrity: sha512-rTjjH7wvM55ZuX+MRVPND1cs4Z4JspJvKc9lzGxm/8gD4dLfgeFztQuNy+daGglaxcGXLXTuJ2oJtZ0/lmRKmw==}
+    dependencies:
+      lit: 2.8.0
+    dev: true
+
+  /@figspec/react/1.0.3_react@17.0.1:
+    resolution: {integrity: sha512-r683qOko+5CbT48Ox280fMx2MNAtaFPgCNJvldOqN3YtmAzlcTT+YSxd3OahA+kjXGGrnzDbUgeTOX1cPLII+g==}
+    peerDependencies:
+      react: ^16.14.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@figspec/components': 1.0.2
+      '@lit-labs/react': 1.2.1
+      react: 17.0.1
+    dev: true
+
   /@floating-ui/core/1.4.1:
     resolution: {integrity: sha512-jk3WqquEJRlcyu7997NtR5PibI+y5bi+LS3hPmguVClypenMsCY3CBa3LAQnozRCtCrYWSEtAdiskpamuJRFOQ==}
     dependencies:
@@ -2844,6 +2862,20 @@ packages:
 
   /@juggle/resize-observer/3.4.0:
     resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
+    dev: true
+
+  /@lit-labs/react/1.2.1:
+    resolution: {integrity: sha512-DiZdJYFU0tBbdQkfwwRSwYyI/mcWkg3sWesKRsHUd4G+NekTmmeq9fzsurvcKTNVa0comNljwtg4Hvi1ds3V+A==}
+    dev: true
+
+  /@lit-labs/ssr-dom-shim/1.1.1:
+    resolution: {integrity: sha512-kXOeFbfCm4fFf2A3WwVEeQj55tMZa8c8/f9AKHMobQMkzNUfUj+antR3fRPaZJawsa1aZiP/Da3ndpZrwEe4rQ==}
+    dev: true
+
+  /@lit/reactive-element/1.6.3:
+    resolution: {integrity: sha512-QuTgnG52Poic7uM1AN5yJ09QMe0O28e10XzSvWDz02TJiiKee4stsiownEIadWm8nYzyDAyT+gKzUoZmiWQtsQ==}
+    dependencies:
+      '@lit-labs/ssr-dom-shim': 1.1.1
     dev: true
 
   /@mdx-js/react/2.3.0_react@17.0.1:
@@ -3760,6 +3792,31 @@ packages:
       - '@types/react-dom'
       - encoding
       - supports-color
+    dev: true
+
+  /@storybook/addon-designs/7.0.5_epr2epejjlzqfk64q7oaan4fji:
+    resolution: {integrity: sha512-yB1YwkVhnTI28mS+00avAf7vPAppZi2pdXQF91725g+RoiM7llY87q+c1z2/YiQNQYNm2QXpYcrcYiLQzyr0NQ==}
+    peerDependencies:
+      '@storybook/addon-docs': ^7.0.0
+      '@storybook/addons': ^7.0.0
+      '@storybook/components': ^7.0.0
+      '@storybook/manager-api': ^7.0.0
+      '@storybook/preview-api': ^7.0.0
+      '@storybook/theming': ^7.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      '@figspec/react': 1.0.3_react@17.0.1
+      '@storybook/addon-docs': 7.3.0_3o2faabw5y74mvinlaefdjlbny
+      '@storybook/components': 7.3.0_3o2faabw5y74mvinlaefdjlbny
+      '@storybook/theming': 7.3.0_w7o5yyljkiidx2s2nzb26ottzu
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
     dev: true
 
   /@storybook/addon-docs/7.3.0_3o2faabw5y74mvinlaefdjlbny:
@@ -5355,6 +5412,10 @@ packages:
 
   /@types/tough-cookie/4.0.2:
     resolution: {integrity: sha512-Q5vtl1W5ue16D+nIaW8JWebSSraJVlK+EthKn7e7UcD4KWsaSJ8BqGPXNaPghgtcn/fhvrN17Tv8ksUsQpiplw==}
+    dev: true
+
+  /@types/trusted-types/2.0.3:
+    resolution: {integrity: sha512-NfQ4gyz38SL8sDNrSixxU2Os1a5xcdFxipAFxYEuLUlvU2uDwS4NUpsImcf1//SlWItCVMMLiylsxbmNMToV/g==}
     dev: true
 
   /@types/unist/2.0.3:
@@ -10200,6 +10261,28 @@ packages:
 
   /lines-and-columns/1.1.6:
     resolution: {integrity: sha512-8ZmlJFVK9iCmtLz19HpSsR8HaAMWBT284VMNednLwlIMDP2hJDCIhUp0IZ2xUcZ+Ob6BM0VvCSJwzASDM45NLQ==}
+    dev: true
+
+  /lit-element/3.3.3:
+    resolution: {integrity: sha512-XbeRxmTHubXENkV4h8RIPyr8lXc+Ff28rkcQzw3G6up2xg5E8Zu1IgOWIwBLEQsu3cOVFqdYwiVi0hv0SlpqUA==}
+    dependencies:
+      '@lit-labs/ssr-dom-shim': 1.1.1
+      '@lit/reactive-element': 1.6.3
+      lit-html: 2.8.0
+    dev: true
+
+  /lit-html/2.8.0:
+    resolution: {integrity: sha512-o9t+MQM3P4y7M7yNzqAyjp7z+mQGa4NS4CxiyLqFPyFWyc4O+nodLrkrxSaCTrla6M5YOLaT3RpbbqjszB5g3Q==}
+    dependencies:
+      '@types/trusted-types': 2.0.3
+    dev: true
+
+  /lit/2.8.0:
+    resolution: {integrity: sha512-4Sc3OFX9QHOJaHbmTMk28SYgVxLN3ePDjg7hofEft2zWlehFL3LiAuapWc4U/kYwMYJSh2hTCPZ6/LIC7ii0MA==}
+    dependencies:
+      '@lit/reactive-element': 1.6.3
+      lit-element: 3.3.3
+      lit-html: 2.8.0
     dev: true
 
   /load-tsconfig/0.2.5:

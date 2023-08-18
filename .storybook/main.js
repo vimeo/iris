@@ -18,9 +18,11 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     '@storybook/addon-storysource',
+    '@storybook/addon-designs',
     'storybook-dark-mode',
   ],
   webpackFinal: (config) => {
+    console.log(storySource);
     config.module.rules.push(storySource);
     return config;
   },

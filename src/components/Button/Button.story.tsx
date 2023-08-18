@@ -45,3 +45,9 @@ export const Button = Template.bind({});
 Button.args = {
   children: 'Button',
 };
+Button.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/AgCMjkRFrFZf41lZsovXkX/Iris?type=design&node-id=1325-1&mode=design&t=tqsm2wlHwTsZSneq-0',
+  },
+};
