@@ -7,6 +7,10 @@ import { Button } from '../../Button/Button';
 
 import { Layout } from '../../../storybook';
 
+import { ColorSelect2PopoverContent } from './ColorSelect2PopoverContent';
+import { colorSpaces } from '../../../color';
+import { parseToHsl } from 'polished';
+
 export default {
   title: 'components/ColorSelect2/props',
 };
@@ -28,7 +32,6 @@ export function Children({ args }) {
     </Layout.StoryVertical>
   );
 }
-Children.storyName = 'children';
 
 export function Attach({ args }) {
   return (
@@ -63,4 +66,65 @@ export function Attach({ args }) {
     </Layout.StoryVertical>
   );
 }
-Attach.storyName = 'attach';
+
+export function Disabled({ args }) {
+  return (
+    <Layout.StoryVertical defaultWidth>
+      <ColorSelect2 {...args} disabled />
+    </Layout.StoryVertical>
+  );
+}
+
+const Template = (args) => {
+  return (
+    <div
+      style={{
+        display: 'grid',
+        gap: '2rem',
+        gridTemplateColumns: 'repeat(2, min-content)',
+      }}
+    >
+      <ColorSelect2PopoverContent {...args} />
+      <ColorSelect2PopoverContent
+        {...args}
+        presets={{
+          palette: ['#909CDC', '#7BD8DB', '#78DD89'],
+          label: 'Presets',
+          onEdit: () => null,
+        }}
+      />
+      <ColorSelect2PopoverContent {...args} showHueSlider />
+      <ColorSelect2PopoverContent
+        {...args}
+        showHueSlider
+        presets={{
+          palette: ['#909CDC', '#7BD8DB', '#78DD89'],
+          label: 'Presets',
+          onEdit: () => null,
+        }}
+      />
+    </div>
+  );
+};
+
+const initialColors = colorSpaces(parseToHsl('#00adef'));
+const popoverContentProps = {
+  width: 260,
+  height: 200,
+  showHueSlider: false,
+  popOverRef: null,
+  presets: null,
+  dispatch: () => null,
+  onChange: () => null,
+  throttleSpeed: 40,
+  colorMeta: initialColors,
+  state: {
+    open: true,
+    editing: false,
+    error: false,
+    colorMeta: initialColors,
+    colorSpace: 'HEX',
+  },
+};
+export const PopoverContent = Template.bind({});
+PopoverContent.args = popoverContentProps;

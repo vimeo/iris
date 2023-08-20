@@ -7,8 +7,8 @@ import { Props } from './Presets';
 import { Layout } from '../../../storybook';
 
 export default {
-  title: 'components/ColorSelect2/minors',
-  component: ColorSelect2.Presets,
+  title: 'components/ColorSelect2/Props',
+  component: ColorSelect2,
   argTypes: {
     attach: { table: { disable: true } }, // not relevant
   },
@@ -17,24 +17,19 @@ export default {
 const Template: Story<Props> = (args) => {
   const [accentColor, setAccentColor] = useState('#00adef');
 
+  const { palette, label, onEdit } = args;
+
   return (
     <Layout.StoryVertical>
       <ColorSelect2
-        label={
-          <div>
-            <ColorSelect2.Presets
-              {...args}
-              onColorClick={(color) => {
-                setAccentColor(color);
-              }}
-            />
-          </div>
-        }
+        presets={{
+          palette,
+          label: label as string,
+          onEdit,
+        }}
         width={300}
         height={150}
-        onChange={(color) => {
-          setAccentColor(color);
-        }}
+        onChange={(color) => setAccentColor(color)}
         value={accentColor}
       />
     </Layout.StoryVertical>
@@ -42,8 +37,9 @@ const Template: Story<Props> = (args) => {
 };
 
 export const PresetControls = Template.bind({});
-PresetControls.storyName = 'ColorSelect2.Presets';
+PresetControls.storyName = 'Presets';
 PresetControls.args = {
-  palette: ['#909CDC', '#7BD8DB', '#78DD89', '#CCE190'],
+  palette: ['#909CDC', '#7BD8DB', '#78DD89'],
   label: 'Presets',
+  onEdit: () => alert('Editing presets'),
 };

@@ -3,6 +3,12 @@ import { ReactNode } from 'react';
 
 import { Attach, AttachAlias } from '../../../utils';
 
+export type Presets = {
+  palette: string[];
+  label?: string;
+  onEdit?: () => void;
+};
+
 export type Props = IrisInputProps<{
   defaultValue?: string | string[];
   /**
@@ -54,4 +60,6 @@ export type Props = IrisInputProps<{
    * Shows hue slider, default = true
    */
   showHueSlider?: boolean;
+  disabled?: boolean;
+  presets?: Presets;
 }>;
