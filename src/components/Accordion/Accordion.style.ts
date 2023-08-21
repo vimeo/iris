@@ -70,6 +70,10 @@ export const TriggerContainer = styled.button<{
           : `${rem(1)} solid ${grayscale(50)}`
         : 'none'};
   }
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const HeaderContainer = styled.div`
@@ -141,7 +145,7 @@ const fadeAndExpand = keyframes`
 `;
 
 export const Content = styled.div<{ active: boolean }>`
-  padding: ${rem(0)} ${rem(15)} ${rem(20)} ${rem(20)};
+  padding: ${rem(0)} ${rem(15)} ${rem(20)} ${rem(18)};
   max-height: ${({ active }) => (active ? '100%' : '0')};
   overflow: hidden;
   transform: translateY(-50%);

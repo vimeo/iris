@@ -14,6 +14,7 @@ import {
 } from './Accordion.style';
 import { MinorComponent } from '../../utils';
 import { AccordionItemProps } from './Accordion.types';
+import { Focus } from '../../utils';
 
 export interface Minors {
   Item: MinorComponent<any>;
@@ -30,6 +31,9 @@ export function Item({
   itemActive,
   subcopy = '',
   icon,
+  errorIcon,
+  iconToTriggerOpen,
+  iconToTriggerClose,
   hasError = false,
   disabled = false,
 }: AccordionItemProps) {
@@ -61,7 +65,8 @@ export function Item({
         id={`accordion-${index}-trigger`}
       >
         <HeaderContainer>
-          {hasError && <CircleWarningIcon />}
+          {hasError && errorIcon && errorIcon}
+          {hasError && !errorIcon && <CircleWarningIcon />}
           {!hasError && icon && icon}
           <TitleContainer>
             <Title size="4">{title}</Title>
@@ -73,10 +78,17 @@ export function Item({
           </TitleContainer>
         </HeaderContainer>
         {isActive ? (
-          <ChevronUp width="24" />
+          iconToTriggerClose ? (
+            iconToTriggerClose
+          ) : (
+            <ChevronUp width="24" />
+          )
+        ) : iconToTriggerOpen ? (
+          iconToTriggerOpen
         ) : (
           <StyledChevronDown width="24" />
         )}
+        <Focus parent={TriggerContainer} />
       </TriggerContainer>
       {isActive && (
         <Content

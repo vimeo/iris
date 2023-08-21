@@ -3,8 +3,13 @@ import { Story } from '@storybook/react';
 
 import { Accordion } from './Accordion';
 import { Props } from './Accordion.types';
-import styled from 'styled-components';
-import { Gear } from '../../icons';
+import styled, { css } from 'styled-components';
+import {
+  FlagFilled,
+  Fullscreen,
+  FullscreenOff,
+  Gear,
+} from '../../icons';
 import { rem } from 'polished';
 import { core } from '../../tokens';
 import { Layout } from '../../storybook';
@@ -25,8 +30,8 @@ const Template: Story<Props> = (args) => {
           Accordion content
         </Accordion.Item>
         <Accordion.Item
-          title="Accordion item with icon"
-          icon={<GearIcon />}
+          title="Accordion item with error"
+          hasError={true}
         >
           Accordion content
         </Accordion.Item>
@@ -37,8 +42,22 @@ const Template: Story<Props> = (args) => {
           Accordion content
         </Accordion.Item>
         <Accordion.Item
-          title="Accordion item with error"
+          title="Accordion item with custom header icon"
+          icon={<GearIcon />}
+        >
+          Accordion content
+        </Accordion.Item>
+        <Accordion.Item
+          title="Accordion item with custom trigger icons"
+          iconToTriggerOpen={<FullscreenIcon />}
+          iconToTriggerClose={<FullscreenOffIcon />}
+        >
+          Accordion content
+        </Accordion.Item>
+        <Accordion.Item
+          title="Accordion item with custom warning icon"
           hasError={true}
+          errorIcon={<FlagFilledIcon />}
         >
           Accordion content
         </Accordion.Item>
@@ -47,11 +66,31 @@ const Template: Story<Props> = (args) => {
   );
 };
 
+const iconStyle = css`
+  width: ${rem(22)};
+  path {
+    fill: ${core.color.text.primary};
+  }
+`;
+
 const GearIcon = styled(Gear)`
+  ${iconStyle}
+  margin-right: ${rem(10)};
+`;
+
+const FullscreenIcon = styled(Fullscreen)`
+  ${iconStyle}
+`;
+
+const FullscreenOffIcon = styled(FullscreenOff)`
+  ${iconStyle}
+`;
+
+const FlagFilledIcon = styled(FlagFilled)`
   width: ${rem(22)};
   margin-right: ${rem(10)};
   path {
-    fill: ${core.color.text.primary};
+    fill: ${core.color.status.negative};
   }
 `;
 
