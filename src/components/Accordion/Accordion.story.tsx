@@ -13,6 +13,7 @@ import {
 import { rem } from 'polished';
 import { core } from '../../tokens';
 import { Layout } from '../../storybook';
+import { Input } from '../../components/inputs/Input/Input';
 
 export default {
   title: 'components/Accordion',
@@ -24,10 +25,13 @@ const Template: Story<Props> = (args) => {
     <Layout.StoryVertical center>
       <Accordion {...args}>
         <Accordion.Item
-          title="Accordion item title"
+          title="Accordion item with inputs"
           subcopy="Subcopy text"
         >
-          Accordion content
+          <InputContainer>
+            <Input placeholder="First Name" />
+            <Input placeholder="Last Name" />
+          </InputContainer>
         </Accordion.Item>
         <Accordion.Item
           title="Accordion item with error"
@@ -65,6 +69,13 @@ const Template: Story<Props> = (args) => {
     </Layout.StoryVertical>
   );
 };
+
+const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${rem(20)};
+  padding: ${rem(20)} ${rem(10)};
+`;
 
 const iconStyle = css`
   width: ${rem(22)};

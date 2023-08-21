@@ -56,6 +56,7 @@ export const TriggerContainer = styled.button<{
   padding: ${rem(12)} ${rem(15)};
   border-radius: ${rem(10)};
   width: 100%;
+  position: relative;
   &:hover {
     background-color: ${({ theme, format }) =>
       format === 'basic'
