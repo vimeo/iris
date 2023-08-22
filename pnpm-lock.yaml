@@ -15,6 +15,7 @@ specifiers:
   '@babel/preset-react': ^7.22.5
   '@babel/preset-typescript': ^7.22.5
   '@babel/runtime': ^7.22.10
+  '@popperjs/core': ^2.11.8
   '@rollup/plugin-babel': ^5.3.1
   '@rollup/plugin-commonjs': ^21.1.0
   '@rollup/plugin-node-resolve': ^13.3.0
@@ -72,6 +73,7 @@ specifiers:
   react-colorful: ^5.6.1
   react-dom: '*'
   react-is: ^17.0.2
+  react-popper: ^2.3.0
   rollup: ^2.79.1
   rollup-plugin-multi-input: ^1.4.1
   rollup-plugin-terser: ^7.0.2
@@ -89,7 +91,9 @@ specifiers:
 
 dependencies:
   '@babel/runtime': 7.22.10
+  '@popperjs/core': 2.11.8
   react-colorful: 5.6.1_w7o5yyljkiidx2s2nzb26ottzu
+  react-popper: 2.3.0_kt2lzgsefukvbedq6hn2kionku
 
 devDependencies:
   '@babel/core': 7.22.10
@@ -2978,6 +2982,10 @@ packages:
       source-map: 0.7.3
       webpack: 5.88.2
     dev: true
+
+  /@popperjs/core/2.11.8:
+    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
+    dev: false
 
   /@radix-ui/number/1.0.1:
     resolution: {integrity: sha512-T5gIdVO2mmPW3NNhjNgEP3cqMXjXL9UbO0BzWcXfvdBs+BohbQxvd/K5hSVKmn9/lbTdsQVKbUcP5WLCwvUbBg==}
@@ -11725,6 +11733,10 @@ packages:
       react-is: 18.1.0
     dev: true
 
+  /react-fast-compare/3.2.2:
+    resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
+    dev: false
+
   /react-inspector/6.0.1_react@17.0.1:
     resolution: {integrity: sha512-cxKSeFTf7jpSSVddm66sKdolG90qURAX3g1roTeaN6x0YEbtWc8JpmFN9+yIqLNH2uEkYerWLtJZIXRIFuBKrg==}
     peerDependencies:
@@ -11748,6 +11760,20 @@ packages:
   /react-is/18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: true
+
+  /react-popper/2.3.0_kt2lzgsefukvbedq6hn2kionku:
+    resolution: {integrity: sha512-e1hj8lL3uM+sgSR4Lxzn5h1GxBlpa4CQz0XLF8kx4MDrDRWY0Ena4c97PUeSX9i5W3UAfDP0z0FXCTQkoXUl3Q==}
+    peerDependencies:
+      '@popperjs/core': ^2.0.0
+      react: ^16.8.0 || ^17 || ^18
+      react-dom: ^16.8.0 || ^17 || ^18
+    dependencies:
+      '@popperjs/core': 2.11.8
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+      react-fast-compare: 3.2.2
+      warning: 4.0.3
+    dev: false
 
   /react-refresh/0.11.0:
     resolution: {integrity: sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==}
@@ -13656,6 +13682,12 @@ packages:
     dependencies:
       makeerror: 1.0.12
     dev: true
+
+  /warning/4.0.3:
+    resolution: {integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==}
+    dependencies:
+      loose-envify: 1.4.0
+    dev: false
 
   /watchpack/2.4.0:
     resolution: {integrity: sha512-Lcvm7MGST/4fup+ifyKi2hjyIAwcdI4HRgtvTpIUxBRhB+RFtUh8XtDOxUfctVCnhVi+QQj49i91OyvzkJl6cg==}

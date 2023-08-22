@@ -6,6 +6,7 @@ import React, {
   ReactElement,
   useReducer,
   useEffect,
+  useState,
 } from 'react';
 
 import { Props } from './Select.types';
@@ -42,6 +43,7 @@ export function SelectFaux({
   value,
   ...props
 }: Props) {
+  const [popperElement, setPopperElement] = useState(null);
   const [state, dispatch] = useReducer(reducer, init(defaultValue));
   const { width, selected, active } = state;
 

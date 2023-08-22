@@ -1,4 +1,4 @@
-import React, { cloneElement, ReactElement } from 'react';
+import React, { cloneElement, ReactElement, useState } from 'react';
 
 import { Props } from './Tip.types';
 import { maxWidth } from './Tip.settings';
@@ -10,8 +10,10 @@ import {
   validate,
   useIrisError,
   SimpleAnimation,
+  mergeRefs,
 } from '../../utils';
 import { Paragraph } from '../../typography';
+import { usePopper } from 'react-popper';
 
 export const Tip = withIris<HTMLDivElement, Props>(TipComponent);
 
@@ -34,21 +36,34 @@ function TipComponent({
   variant = 'simple',
   ...props
 }: Props) {
-  const margin = variant === 'speech-bubble' ? 18 : 8;
+  // const margin = variant === 'speech-bubble' ? 18 : 8;
   const [wrap, tipContent] = contentStyle(content);
 
-  const [TipElement, anchor] = usePortal_DEPRECATED(
-    <Styled
-      attach={attach}
-      ref={forwardRef}
-      variant={variant}
-      $wrap={wrap}
-      disabled={disabled}
-      {...props}
-      children={tipContent}
-    />,
-    { attach, animation, forceActive: active, margin, trigger }
+  const [referenceElement, setReferenceElement] = useState(null);
+  const [popperElement, setPopperElement] = useState(null);
+  const [arrowElement, setArrowElement] = useState(null);
+  const { styles, attributes } = usePopper(
+    referenceElement,
+    popperElement,
+    {
+      modifiers: [
+        { name: 'arrow', options: { element: arrowElement } },
+      ],
+    }
   );
+
+  // const [TipElement, anchor] = usePortal_DEPRECATED(
+  //   <Styled
+  //     attach={attach}
+  //     ref={forwardRef}
+  //     variant={variant}
+  //     $wrap={wrap}
+  //     disabled={disabled}
+  //     {...props}
+  //     children={tipContent}
+  //   />,
+  //   { attach, animation, forceActive: active, margin, trigger }
+  // );
 
   const validity = validate(children as any);
   const { irisError } = useIrisError(props, Tip, error, validity);
@@ -56,8 +71,20 @@ function TipComponent({
 
   return (
     <>
-      {TipElement}
-      {cloneElement(children as ReactElement, anchor)}
+      <Styled
+        attach={attach}
+        ref={mergeRefs([setPopperElement, forwardRef])}
+        variant={variant}
+        $wrap={wrap}
+        disabled={disabled}
+        children={tipContent}
+        style={styles.popper}
+        {...attributes.popper}
+        {...props}
+      />
+      {cloneElement(children as ReactElement, {
+        ref: setReferenceElement,
+      })}
     </>
   );
 }
