@@ -560,7 +560,7 @@ function buttonUpsellNew({ format }) {
   return css`
     border: 1px solid transparent;
     background: ${core.color.upsell.New};
-    color: #fff;
+    color: ${violet(0)})};
 
     &:active {
       background: ${violet(600)};
