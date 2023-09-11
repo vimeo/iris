@@ -4,6 +4,7 @@ import { Story } from '../storybook';
 import { Header as H } from '../typography';
 
 import { ColorPalette, ColorStory } from './storyComponents';
+import { parseToRgb } from 'polished';
 
 import {
   fuschia,
@@ -14,6 +15,7 @@ import {
   lapis,
   amethyst,
   taupe,
+  violet,
 } from './colors';
 import styled from 'styled-components';
 
@@ -88,6 +90,55 @@ export function Taupe() {
   return ColorStory('taupe', taupe);
 }
 Taupe.storyName = 'taupe';
+
+function ColorSwatch({ color, title, ...props }) {
+  const { red, green, blue } = parseToRgb(color);
+  const rbgString = `rgb(${red}, ${green}, ${blue})`;
+  return (
+    <div
+      style={{
+        display: 'inline-block',
+        overflow: 'hidden',
+      }}
+      {...props}
+    >
+      <ColorSwatchStyled color={color} />
+      <Header size="5">{title}</Header>
+      <Header size="5">{color}</Header>
+      <Header size="5">{rbgString}</Header>
+    </div>
+  );
+}
+
+const ColorSwatchStyled = styled.div`
+  width: calc(3rem + 1.25vw);
+  height: calc(3rem + 1.25vw);
+  background: ${({ color }) => color};
+  margin-right: 0.125rem;
+  border-radius: 0.25rem;
+`;
+export function Violet() {
+  const violetCache = [
+    0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000,
+  ];
+  return (
+    <>
+      <Header>Violet</Header>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(6, max-content)',
+          gap: '1rem',
+        }}
+      >
+        {violetCache.map((grade, i) => (
+          <ColorSwatch key={i} color={violet(grade)} title={grade} />
+        ))}
+      </div>
+    </>
+  );
+}
+Violet.storyName = 'violet';
 
 const Header = styled(H)`
   margin: 0;

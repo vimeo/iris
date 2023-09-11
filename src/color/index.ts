@@ -15,6 +15,7 @@ export { cerulean } from './colors';
 export { lapis } from './colors';
 export { amethyst } from './colors';
 export { taupe } from './colors';
+export { violet } from './colors';
 
 export { colorSpaces } from './colorUtils';
 export { HSLtoHSV } from './colorUtils';
