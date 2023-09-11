@@ -14,6 +14,7 @@ import {
   lapis,
   amethyst,
   taupe,
+  violet,
 } from './colors';
 import styled from 'styled-components';
 

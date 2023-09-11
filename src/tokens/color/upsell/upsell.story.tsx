@@ -26,15 +26,18 @@ export function Tokens() {
       <Card styles={styles('xl')} style={{ width: '100%' }}>
         <Text style={styleText}>color-upsell-xl</Text>
       </Card>
+      <Card styles={styles('New')} style={{ width: '100%' }}>
+        <Text style={styleText}>color-upsell-new</Text>
+      </Card>
     </Canvas>
   );
 }
 
 Tokens.storyName = 'upsell';
 
-function styles(size = 'xl') {
+function styles(variant = 'xl') {
   return ({ theme }) => {
-    const background = tx(theme, core.color.upsell[size]);
+    const background = tx(theme, core.color.upsell[variant]);
 
     return css`
       background: ${background};

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import styled from 'styled-components';
 
 import { Button as B } from './Button';
@@ -28,12 +28,10 @@ const ButtonStyled = styled(B)`
   max-width: 10rem;
 `;
 
-const Template: Story<Props> = ({ children, ...args }) => {
+const Template: StoryFn<Props> = ({ children, ...args }) => {
   return (
     <>
-      <ButtonStyled {...args} size="md">
-        {children}
-      </ButtonStyled>
+      <ButtonStyled size="md">{children}</ButtonStyled>
       <ButtonStyled icon={<DownloadArrow />} {...args}>
         {children}
       </ButtonStyled>

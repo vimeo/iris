@@ -55,6 +55,7 @@ export const ButtonStyled = styled.button<any>`
   ${buttonTextShift};
   ${buttonChecked};
   ${buttonUpsell};
+  ${buttonUpsellNew}
 `;
 
 const sizePads = {
@@ -236,7 +237,8 @@ function buttonVariants({
 }) {
   // Temporary until CSSVar design tokens are released and Button
   // style logic is rewritten.
-  if (format === 'upsell') return;
+  // if (format === 'upsell') return;
+  if (format.includes('upsell')) return;
 
   const { color, hoverColor, activeColor } = deriveButtonColor(
     customColor,
@@ -377,7 +379,7 @@ function buttonVariants({
 
         ${active && defaultActiveCSS}
 
-        &:hover:not(:active) {
+      &:hover:not(:active) {
           background: ${hoverColor};
           color: ${contrastTextHover};
         }
@@ -547,6 +549,34 @@ function buttonUpsell({ format, theme }) {
 
     &:hover:not(:active) {
       background: ${colorHover} padding-box, ${colorHover} border-box;
+      border: 1px solid transparent;
+      color: #fff;
+    }
+  `;
+}
+
+function buttonUpsellNew({ format, theme }) {
+  if (format !== 'upsell-new') return;
+
+  const { color, hoverColor, activeColor } = deriveButtonColor(
+    core.color.upsell.New,
+    format,
+    theme
+  );
+
+  return css`
+    border: 1px solid transparent;
+    background: ${color};
+    color: #fff;
+
+    &:active {
+      background: ${activeColor};
+      transform: scale(0.98);
+      color: #fff;
+    }
+
+    &:hover:not(:active) {
+      background: ${hoverColor};
       border: 1px solid transparent;
       color: #fff;
     }
