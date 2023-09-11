@@ -1,11 +1,13 @@
 import { sm } from './sm';
 import { xl } from './xl';
+import { New } from './new';
 
-export const upsellSizes = ['sm', 'xl'] as const;
+export const upsellVariants = ['sm', 'xl', 'New'] as const;
 
-export type Upsell = (typeof upsellSizes)[number];
+export type Upsell = (typeof upsellVariants)[number];
 
 export const upsell = {
+  New,
   sm,
   xl,
 };

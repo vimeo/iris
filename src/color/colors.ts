@@ -21,6 +21,7 @@ export enum Colors {
   Lapis = '#4B7AC2',
   Amethyst = '#8697FB',
   Taupe = '#BBA69C',
+  Violet = '#743ED9',
 }
 
 export const black = '#000000';
@@ -304,6 +305,24 @@ const TaupeCache = {
 
 export const taupe: Color = (grade) =>
   TaupeCache[grade] || irisColor(Colors.Taupe, grade);
+
+const VioletCache = {
+  '0': '#FFFFFF',
+  '50': '#FAFCFD',
+  '100': '#ded5f5',
+  '200': '#c1aded',
+  '300': '#a686eb',
+  '400': '#8a5ee8',
+  '500': '#743ed9',
+  '600': '#5e1ec9',
+  '700': '#49179d',
+  '800': '#341070',
+  '900': '#0a0e12',
+  '1000': '#000000',
+};
+
+export const violet: Color = (grade) =>
+  VioletCache[grade] || irisColor(Colors.Violet, grade);
 
 export const irisColor = (
   color: any,

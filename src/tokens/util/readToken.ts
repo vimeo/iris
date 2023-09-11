@@ -59,7 +59,6 @@ export function readToken(token: Token, grade = 500) {
       if (typeof theme?.name === 'string') key = theme.name;
 
       const value = validate(token, key);
-
       if (typeof value === 'string') return value;
       if (typeof value === 'function') return value(grade);
     };
