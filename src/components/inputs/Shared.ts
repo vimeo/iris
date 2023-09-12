@@ -159,7 +159,7 @@ export const FauxMark = (type, mirror) =>
     &:after {
       content: '';
       display: block;
-      background: ${blue(500)};
+      background: var(--checked-color, ${blue(500)});
       opacity: 0;
       transition: 200ms ease-in-out;
       transform: scale(0);

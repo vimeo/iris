@@ -1,5 +1,5 @@
 import styled, { css, StyledComponent } from 'styled-components';
-import { rgba, darken } from 'polished';
+import { darken, rem } from 'polished';
 import { grayscale, slate } from '../../../color';
 
 import {
@@ -59,11 +59,15 @@ export const HiddenMark: StyledComponent<
 function fauxMarkChecked({ disabled }) {
   return css`
     &:checked ~ ${Faux} {
-      border: 1px solid ${rgba(blue(500), disabled ? 0 : 1)};
+      border-style: solid;
+      border-width: 1px;
+      ${!disabled &&
+      `border-color: var(--checked-color, ${blue(500)})`};
 
       &:after {
+        border-radius: ${rem(2)};
         opacity: ${disabled ? 0.5 : 1};
-        transform: scale(1.02);
+        transform: scale(1.1);
       }
     }
   `;
@@ -148,7 +152,7 @@ export function FauxType({ type, size }) {
         &:after {
           width: 100%;
           height: 100%;
-          border: 1px solid ${blue(500)};
+          border: 1px solid var(--checked-color, ${blue(500)});
           background-image: ${checkmark};
         }
       `;

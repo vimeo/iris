@@ -5,6 +5,8 @@ import { Checkbox, Props } from './Checkbox';
 
 import { Layout } from '../../../storybook';
 
+import styled from 'styled-components';
+
 export default {
   title: 'components/Checkbox',
   component: Checkbox,
@@ -32,10 +34,48 @@ export default {
   },
 };
 
+const StyledCheck = styled(Checkbox)`
+  // input {
+  //   &:checked ~ div[type='checkbox'] {
+  //     border: 1px solid black;
+  //     &::after {
+  //       border-color: black;
+  //       background-color: black;
+  //     }
+  //   }
+  // }
+  --checked-color: black;
+`;
+
 const Template: Story<Props> = (args) => {
   return (
     <Layout.StoryVertical>
       <Checkbox {...args} />
+      <Checkbox label="default checked" value="default" checked />
+      <Checkbox
+        label="default checked disabled"
+        value="default"
+        checked
+        disabled
+      />
+      <StyledCheck
+        label="--checked-color:black checked"
+        value="black"
+        checked
+      />
+      <StyledCheck
+        label="--checked-color:black disabled"
+        value="black"
+        checked
+        disabled
+      />
+      <StyledCheck
+        label="--checked-color:black disabled indeterminate"
+        value="black"
+        checked
+        indeterminate
+        disabled
+      />
     </Layout.StoryVertical>
   );
 };
