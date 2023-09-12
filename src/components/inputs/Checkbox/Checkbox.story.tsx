@@ -34,23 +34,11 @@ export default {
   },
 };
 
-const StyledCheck = styled(Checkbox)`
-  // input {
-  //   &:checked ~ div[type='checkbox'] {
-  //     border: 1px solid black;
-  //     &::after {
-  //       border-color: black;
-  //       background-color: black;
-  //     }
-  //   }
-  // }
-  --checked-color: black;
-`;
-
 const Template: Story<Props> = (args) => {
   return (
     <Layout.StoryVertical>
       <Checkbox {...args} />
+      <Checkbox label="default disabled" value="default" disabled />
       <Checkbox label="default checked" value="default" checked />
       <Checkbox
         label="default checked disabled"
@@ -58,18 +46,34 @@ const Template: Story<Props> = (args) => {
         checked
         disabled
       />
-      <StyledCheck
+      <Checkbox
+        label="default checked disabled indeterminate"
+        value="default"
+        checked
+        disabled
+        indeterminate
+      />
+      <Checkbox
+        style={{ '--checked-color': 'black' } as React.CSSProperties}
+        label="--checked-color:black disabled"
+        value="black"
+        disabled
+      />
+      <Checkbox
+        style={{ '--checked-color': 'black' } as React.CSSProperties}
         label="--checked-color:black checked"
         value="black"
         checked
       />
-      <StyledCheck
+      <Checkbox
+        style={{ '--checked-color': 'black' } as React.CSSProperties}
         label="--checked-color:black disabled"
         value="black"
         checked
         disabled
       />
-      <StyledCheck
+      <Checkbox
+        style={{ '--checked-color': 'black' } as React.CSSProperties}
         label="--checked-color:black disabled indeterminate"
         value="black"
         checked
