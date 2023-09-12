@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 
 import { Checkbox, Props } from './Checkbox';
 
@@ -34,58 +34,59 @@ export default {
   },
 };
 
-const Template: Story<Props> = (args) => {
+const Template: StoryFn<Props> = (args) => {
   return (
     <Layout.StoryVertical>
       <Checkbox {...args} />
-      <Checkbox label="default disabled" value="default" disabled />
-      <Checkbox label="default checked" value="default" checked />
-      <Checkbox
-        label="default checked disabled"
-        value="default"
-        checked
-        disabled
-      />
-      <Checkbox
-        label="default checked disabled indeterminate"
-        value="default"
-        checked
-        disabled
-        indeterminate
-      />
-      <Checkbox
-        style={{ '--checked-color': 'black' } as React.CSSProperties}
-        label="--checked-color:black disabled"
-        value="black"
-        disabled
-      />
-      <Checkbox
-        style={{ '--checked-color': 'black' } as React.CSSProperties}
-        label="--checked-color:black checked"
-        value="black"
-        checked
-      />
-      <Checkbox
-        style={{ '--checked-color': 'black' } as React.CSSProperties}
-        label="--checked-color:black disabled"
-        value="black"
-        checked
-        disabled
-      />
-      <Checkbox
-        style={{ '--checked-color': 'black' } as React.CSSProperties}
-        label="--checked-color:black disabled indeterminate"
-        value="black"
-        checked
-        indeterminate
-        disabled
-      />
     </Layout.StoryVertical>
   );
 };
+
 export const Controls = Template.bind({});
 Controls.storyName = 'Checkbox';
 Controls.args = {
   label: 'Checkbox label',
   value: 'checkbox1',
 };
+
+export const StickerSheet = () => (
+  <Layout.StoryVertical>
+    <Checkbox label="default" value="default" />
+    <Checkbox label="default disabled" value="default" disabled />
+    <Checkbox label="default checked" value="default" checked />
+    <Checkbox label="default checked disabled" checked disabled />
+    <Checkbox
+      label="default checked disabled indeterminate"
+      checked
+      disabled
+      indeterminate
+    />
+    <Checkbox
+      style={{ '--checked-color': 'black' } as React.CSSProperties}
+      label="--checked-color:black"
+    />
+    <Checkbox
+      style={{ '--checked-color': 'black' } as React.CSSProperties}
+      label="--checked-color:black disabled"
+      disabled
+    />
+    <Checkbox
+      style={{ '--checked-color': 'black' } as React.CSSProperties}
+      label="--checked-color:black checked"
+      checked
+    />
+    <Checkbox
+      style={{ '--checked-color': 'black' } as React.CSSProperties}
+      label="--checked-color:black disabled"
+      checked
+      disabled
+    />
+    <Checkbox
+      style={{ '--checked-color': 'black' } as React.CSSProperties}
+      label="--checked-color:black disabled indeterminate"
+      checked
+      indeterminate
+      disabled
+    />
+  </Layout.StoryVertical>
+);
