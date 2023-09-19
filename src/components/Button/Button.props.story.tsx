@@ -231,12 +231,12 @@ TextShift.storyName = 'textShift';
 export function CustomColor({ args }) {
   return (
     <div {...args}>
+      <pre>color="#07796a"</pre>
       <Button color="#07796a">Button</Button>
-      <Button variant="minimal" color="#aa91e5">
-        Button
-      </Button>
+      <pre>color="#aa91e5"</pre>
+      <Button color="#aa91e5">Button</Button>
+      <pre>color: '#ffffff', hover: '#e7c03f', active: '#e7c03f'</pre>
       <Button
-        variant="outline"
         color={{
           color: '#ffffff',
           hover: '#e7c03f',
@@ -245,8 +245,10 @@ export function CustomColor({ args }) {
       >
         Button
       </Button>
+      <pre>
+        color: '#000000', hover: '#e7c03f', active: '#e7c03f',
+      </pre>
       <Button
-        variant="outline"
         color={{
           color: '#000000',
           hover: '#e7c03f',
@@ -255,6 +257,9 @@ export function CustomColor({ args }) {
       >
         Button
       </Button>
+      <pre>
+        color: '#ff00d4', hover: '#e72626', active: '#700d2b',
+      </pre>
       <Button
         color={{
           color: '#ff00d4',
@@ -263,6 +268,20 @@ export function CustomColor({ args }) {
         }}
       >
         Button
+      </Button>
+      <pre>
+        color: '#ff00d4', hover: '#e72626', active: '#700d2b',
+        textColor: '#ffffff',
+      </pre>
+      <Button
+        color={{
+          color: '#ff00d4',
+          hover: '#e72626',
+          active: '#700d2b',
+          textColor: '#ffffff',
+        }}
+      >
+        Button with custom textColor
       </Button>
     </div>
   );

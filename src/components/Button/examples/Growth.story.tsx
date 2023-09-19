@@ -16,7 +16,11 @@ export function GrowthCTA({ args }) {
       <Button size="xl" icon={<UploadCloud />}>
         Create videos
       </Button>
-      <Button size="xl" icon={<Pencil />} color="#E0FF2B">
+      <Button
+        size="xl"
+        icon={<Pencil />}
+        color={{ color: '#E0FF2B', textColor: 'blue' }}
+      >
         Create videos
       </Button>
       <Button size="xl" icon={<Gear />} color="#f39e00">

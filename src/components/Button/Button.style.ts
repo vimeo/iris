@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { rgba, rem, tint, shade, em } from 'polished';
+import { rgba, rem, tint, shade, em, readableColor } from 'polished';
 
 import { borderRadii } from './Button.config';
 import { FeaturedIcon } from './FeaturedIcon';
@@ -202,12 +202,14 @@ function deriveButtonColor(customColor, format, theme) {
   let color: string;
   let hoverColor: string;
   let activeColor: string;
+  let textColor: string;
 
   if (customColor) {
     if (typeof customColor === 'string') {
       color = customColor;
       hoverColor = tint(0.15, color);
       activeColor = shade(0.15, color);
+      textColor = readableColor(color);
     } else if (customColor.color) {
       color = customColor.color;
       hoverColor = customColor.hover
@@ -216,14 +218,18 @@ function deriveButtonColor(customColor, format, theme) {
       activeColor = customColor.active
         ? customColor.active
         : shade(0.15, color);
+      textColor = customColor.textColor
+        ? customColor.textColor
+        : readableColor(color);
     }
   } else {
     color = theme.formats[format];
     hoverColor = tint(0.15, color);
     activeColor = shade(0.15, color);
+    textColor = null;
   }
 
-  return { color, hoverColor, activeColor };
+  return { color, hoverColor, activeColor, textColor };
 }
 
 // const buttonVariants = memoize(buttonVariantsFn);
@@ -239,11 +245,8 @@ function buttonVariants({
   // style logic is rewritten.
   if (format.includes('upsell')) return;
 
-  const { color, hoverColor, activeColor } = deriveButtonColor(
-    customColor,
-    format,
-    theme
-  );
+  const { color, hoverColor, activeColor, textColor } =
+    deriveButtonColor(customColor, format, theme);
 
   // const { saturation } = parseToHsl(color);
   // const saturateAmount = saturation > 0.33 ? 0.2 : 0;
@@ -251,7 +254,7 @@ function buttonVariants({
   const borderWidth = '1px';
   const borderColor = color;
 
-  const contrastText = a11yColor(color);
+  const contrastText = textColor || a11yColor(color);
   const contrastTextHover = a11yColor(hoverColor);
   const contrastTextActive = a11yColor(activeColor);
 
