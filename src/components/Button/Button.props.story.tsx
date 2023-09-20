@@ -231,8 +231,10 @@ TextShift.storyName = 'textShift';
 export function CustomColor({ args }) {
   return (
     <div {...args}>
-      <pre>color="#07796a"</pre>
-      <Button color="#07796a">Button</Button>
+      <pre>color="#4A9C54"</pre>
+      <Button color="#4A9C54" format="primary">
+        Button
+      </Button>
       <pre>color="#aa91e5"</pre>
       <Button color="#aa91e5">Button</Button>
       <pre>color: '#ffffff', hover: '#e7c03f', active: '#e7c03f'</pre>
