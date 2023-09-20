@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
-import { rgba, rem, tint, shade, em, readableColor } from 'polished';
+import { rgba, rem, tint, shade, em } from 'polished';
 
 import { borderRadii } from './Button.config';
 import { FeaturedIcon } from './FeaturedIcon';
 
-import { a11yColor } from '../../themes';
+import { a11yColor, generateAccessibleTextColor } from '../../themes';
 import { white, black, blue, violet } from '../../color';
 import { core } from '../../tokens';
 
@@ -203,13 +203,12 @@ function deriveButtonColor(customColor, format, theme) {
   let hoverColor: string;
   let activeColor: string;
   let textColor: string;
-
   if (customColor) {
     if (typeof customColor === 'string') {
       color = customColor;
       hoverColor = tint(0.15, color);
       activeColor = shade(0.15, color);
-      textColor = readableColor(color);
+      textColor = generateAccessibleTextColor(color);
     } else if (customColor.color) {
       color = customColor.color;
       hoverColor = customColor.hover
@@ -220,7 +219,7 @@ function deriveButtonColor(customColor, format, theme) {
         : shade(0.15, color);
       textColor = customColor.textColor
         ? customColor.textColor
-        : readableColor(color);
+        : generateAccessibleTextColor(customColor.color);
     }
   } else {
     color = theme.formats[format];

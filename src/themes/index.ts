@@ -1,4 +1,4 @@
-import { rgba } from 'polished';
+import { rgba, getContrast } from 'polished';
 import { grayscale, white, black, slate, blue, red, green } from '../color';
 import { readableColor, lighten, darken, getLuminance, saturate } from 'polished';
 
@@ -103,6 +103,16 @@ export const themes: {
     },
   },
 };
+
+export function generateAccessibleTextColor(backgroundColor) {
+  // Determine the contrast ratio
+  const contrastRatio = getContrast(backgroundColor, readableColor(backgroundColor));
+
+  // Choose a suitable text color based on the contrast ratio
+  const textColor = contrastRatio >= 4.5 ? black : white;
+
+  return textColor;
+}
 
 export function a11yColor(color) {
   return ({ theme }) => (theme.a11y.contrast ? readableColor(lighten(0.1, color)) : readableColor(darken(0.3, color)));
