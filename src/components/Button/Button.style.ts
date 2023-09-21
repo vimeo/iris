@@ -248,15 +248,12 @@ function buttonVariants({
   const { color, hoverColor, activeColor, textColor } =
     deriveButtonColor(customColor, format, theme);
 
-  // const { saturation } = parseToHsl(color);
-  // const saturateAmount = saturation > 0.33 ? 0.2 : 0;
-
   const borderWidth = '1px';
   const borderColor = color;
 
   const contrastText = textColor || a11yColor(color);
-  const contrastTextHover = a11yColor(hoverColor);
-  const contrastTextActive = a11yColor(activeColor);
+  const contrastTextHover = textColor || a11yColor(hoverColor);
+  const contrastTextActive = textColor || a11yColor(activeColor);
 
   switch (variant) {
     case 'outline':
@@ -388,17 +385,6 @@ function buttonVariants({
       `;
   }
 }
-
-// function fluidity(sizes: number | number[]) {
-//   const min = rem(Math.min(...sizes));
-//   const max = rem(Math.max(...sizes));
-
-//   return css`
-//     ${mediaQuery({ min, max })} {
-//       width: 100%;
-//     }
-//   `;
-// }
 
 const mediaQuery = ({ min = 0, max, type = 'only screen' }) =>
   !max || min === max
