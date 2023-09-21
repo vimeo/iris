@@ -34,7 +34,12 @@ export type Props = IrisProps<
      */
     color?:
       | string
-      | { color: string; hover?: string; active?: string };
+      | {
+          color: string;
+          hover?: string;
+          active?: string;
+          textColor?: string;
+        };
     element?: ButtonElements;
     floating?: boolean;
     /**
