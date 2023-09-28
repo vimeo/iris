@@ -228,9 +228,9 @@ export function TextShift({ args }) {
 }
 TextShift.storyName = 'textShift';
 
-export function CustomColor({ args }) {
+export function CustomColor({ ...args }) {
   return (
-    <div {...args}>
+    <div>
       <pre>color="#4A9C54"</pre>
       <Button color="#4A9C54" format="primary">
         Button
