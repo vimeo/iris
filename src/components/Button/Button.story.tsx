@@ -15,6 +15,7 @@ export default {
     href: { control: { disable: true } },
     icon: { control: { disable: true } },
     target: { control: { disable: true } },
+    color: { control: 'color', type: 'color' },
     children: {
       control: {
         type: 'text',
