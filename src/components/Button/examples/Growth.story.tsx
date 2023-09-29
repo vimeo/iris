@@ -19,7 +19,7 @@ export function GrowthCTA({ args }) {
       <Button
         size="xl"
         icon={<Pencil />}
-        color={{ color: '#E0FF2B', textColor: 'blue' }}
+        color={{ color: '#E0FF2B' }}
       >
         Create videos
       </Button>

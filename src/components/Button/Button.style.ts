@@ -252,8 +252,12 @@ function buttonVariants({
   const borderColor = color;
 
   const contrastText = textColor || a11yColor(color);
-  const contrastTextHover = textColor || a11yColor(hoverColor);
-  const contrastTextActive = textColor || a11yColor(activeColor);
+  const contrastTextHover = customColor
+    ? readableColor(hoverColor)
+    : a11yColor(hoverColor);
+  const contrastTextActive = customColor
+    ? readableColor(activeColor)
+    : a11yColor(activeColor);
 
   switch (variant) {
     case 'outline':
