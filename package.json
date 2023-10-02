@@ -2,7 +2,7 @@
   "name": "@vimeo/iris",
   "homepage": "https://github.com/vimeo/iris/tree/main",
   "bugs": "https://github.com/vimeo/iris/issues",
-  "version": "0.147.0",
+  "version": "0.148.0",
   "private": false,
   "license": "MIT",
   "description": "Vimeo Design System",
