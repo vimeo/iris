@@ -23,7 +23,14 @@ import { Header as H, Paragraph as P } from '../../typography';
 import { LoaderCircular as LC } from '../../motion';
 import { Gear } from '../../icons';
 
-export default { title: 'Labs/Themekit' };
+export default {
+  title: 'Labs/Themekit',
+  parameters: {
+    lostpixel: {
+      disable: true,
+    },
+  },
+};
 
 export function Common() {
   return <ThemeKit />;
