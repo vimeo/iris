@@ -28,6 +28,7 @@ export { usePortal_DEPRECATED, validate, ANCHOR_POINTS } from './hooks/usePortal
 export { useStateTransmorphic } from './hooks/useStateTransmorphic';
 export { useStyleVars } from './hooks/useStyleVars';
 export { withIris } from './HOCs/withIris';
+export { useCharacterCount } from './hooks/useCharacterCount/useCharacterCount';
 
 export type { Attach, AttachAlias, SimpleAnimation } from './hooks/usePortal_DEPRECATED';
 export type { onClose } from './events/onClose';

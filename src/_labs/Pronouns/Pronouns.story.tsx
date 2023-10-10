@@ -10,7 +10,14 @@ import { AutoplayList } from './AutoplayList';
 
 import { Header } from '../../typography';
 
-export default { title: 'labs/Pronouns' };
+export default {
+  title: 'labs/Pronouns',
+  parameters: {
+    lostpixel: {
+      disable: true,
+    },
+  },
+};
 
 const componentName = 'Comment';
 
