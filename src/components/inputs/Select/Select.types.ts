@@ -26,6 +26,10 @@ export type Props = IrisInputProps<
      */
     size?: Sizes;
     value?: string | string[];
+    /**
+     * [default = '100%']
+     */
+    maxHeight?: string;
   },
   HTMLSelectElement
 >;

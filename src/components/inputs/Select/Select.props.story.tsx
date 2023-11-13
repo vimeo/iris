@@ -238,6 +238,36 @@ export function FauxExternalState({ args }) {
 }
 FauxExternalState.storyName = 'faux (external state)';
 
+export function FauxMaxHeight({ args }) {
+  const [value, valueSet] = useState(null);
+
+  function onChange(event) {
+    valueSet(event.target.value);
+    console.log('Selected Option', event.target.value, event);
+  }
+
+  return (
+    <Layout.StoryVertical>
+      <Select
+        {...args}
+        label="Faux select with maximum height"
+        onChange={onChange}
+        placeholder="Please select an option."
+        value={value}
+        faux
+        maxHeight="300px"
+      >
+        {Array.from({ length: 20 }, (_, index) => (
+          <Select.Option key={index} value={index}>{`Option ${
+            index + 1
+          }`}</Select.Option>
+        ))}
+      </Select>
+    </Layout.StoryVertical>
+  );
+}
+FauxMaxHeight.storyName = 'faux (maximum height)';
+
 const UpgradeBadge = (
   <Badge
     // @ts-ignore
