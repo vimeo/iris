@@ -39,6 +39,7 @@ export function SelectFaux({
   size = 'md',
   status,
   style,
+  maxHeight = '100%',
   value,
   ...props
 }: Props) {
@@ -113,7 +114,12 @@ export function SelectFaux({
     >
       <PopOver
         attach="bottom"
-        style={{ width, maxWidth: '100%' }}
+        style={{
+          width,
+          maxWidth: '100%',
+          maxHeight,
+          overflowY: 'scroll',
+        }}
         content={<div ref={popOverRef}>{content}</div>}
         active={disabled ? false : active}
       >
