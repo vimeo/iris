@@ -243,7 +243,6 @@ export function FauxMaxHeight({ args }) {
 
   function onChange(event) {
     valueSet(event.target.value);
-    console.log('Selected Option', event.target.value, event);
   }
 
   return (
