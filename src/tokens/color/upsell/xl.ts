@@ -1,7 +1,8 @@
 import { Token, readToken } from '../../util';
+import { violet } from '../../../color/colors';
 
-const dark = 'linear-gradient(to right,#00AA59,#00B191,#0098C8)';
-const light = 'linear-gradient(to right,#00B655,#00B285,#00A9D5)';
+const dark = violet(400);
+const light = violet(400);
 
 const token: Token = {
   default: 'light',
