@@ -55,7 +55,6 @@ export const ButtonStyled = styled.button<any>`
   ${buttonTextShift};
   ${buttonChecked};
   ${buttonUpsell};
-  ${buttonUpsellNew}
 `;
 
 const sizePads = {
@@ -515,45 +514,13 @@ function buttonTextShift({ variant, textShift, iconPosition }) {
 
 // Temporary until CSSVar design tokens are released and Button
 // style logic is rewritten.
-function buttonUpsell({ format, theme }) {
-  if (format !== 'upsell') return;
-
-  const color = core.color.upsell.sm;
-  const colorHover =
-    theme.name === 'dark'
-      ? 'linear-gradient(to right,#00cc6b,#00cca7,#00b0e7)'
-      : 'linear-gradient(to right,#00de59,#00d39e,#00aaf3)';
-  const colorActive =
-    theme.name === 'dark'
-      ? 'linear-gradient(to right,#009c52,#00a385,#008cb8)'
-      : 'linear-gradient(to right,#00af46,#00a47a,#0089c4)';
-
-  return css`
-    border: 1px solid transparent;
-    background: ${color} padding-box, ${color} border-box;
-    color: #fff;
-
-    &:active {
-      background: ${color} padding-box, ${colorActive} border-box;
-      transform: scale(0.98);
-      color: #fff;
-    }
-
-    &:hover:not(:active) {
-      background: ${colorHover} padding-box, ${colorHover} border-box;
-      border: 1px solid transparent;
-      color: #fff;
-    }
-  `;
-}
-
-function buttonUpsellNew({ format }) {
-  if (format !== 'upsell-new') return;
+function buttonUpsell({ format }) {
+  if (!format.includes('upsell')) return;
 
   return css`
     border: 1px solid transparent;
     background: ${core.color.upsell.New};
-    color: ${violet(0)};
+    color: #fff;
 
     &:active {
       background: ${violet(600)};
