@@ -1,3 +1,4 @@
+⛔️ DEPRECATED: Vimeo no longer uses or maintains this library.
 ```
                                 `..`                                  
                             .://--/                                  
